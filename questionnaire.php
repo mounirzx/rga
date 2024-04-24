@@ -1302,7 +1302,7 @@ font-weight: bold;
                         </div>
 
 
-                  <div class="row" style="text-align: center;">
+                  <div class="row " style="text-align: center;">
                     <div class="col-3">أصل الأرض <br> Origine des terres</div>
                      <div class="col-4">طريقة استغلال الأراضي <br> Mode d’exploitation des terres</div>
                      <div class="col" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
@@ -1320,7 +1320,7 @@ font-weight: bold;
                         <div class="col">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select" id="origine_des_terres" name="origine_des_terres" >
+                            <select  class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled ></option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
@@ -1342,7 +1342,7 @@ font-weight: bold;
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
+                                <select  class="form-select statut_juridique_s" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
                                 <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1382,13 +1382,13 @@ font-weight: bold;
         display: inline-block;
     }
 </style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control" data-length="4" value="" >
+                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control statut_juridique_s" data-length="4" value="" >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control statut_juridique_s" data-length="2" value="">
                              
 
                             </div>
