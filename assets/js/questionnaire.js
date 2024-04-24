@@ -241,4 +241,63 @@ $(document).ready(function () {
     console.log(etat);
     qstList(etat);
   });
+
+
+
+
+
+
+/********************************************************************************/
+
+
+
+
+
+$(document).on('keyup','.coherence_surface_total-surface',function(){
+
+  /***********************************************/
+    var sum_superficie_hectare= 0
+
+        $(".statut_juridique_s").each(function () {
+          var superficie_hectare = $(this).find("[name^='superficie_hectare']").val();
+          superficie_hectare=parseFloat(superficie_hectare)
+            if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+              sum_superficie_hectare += superficie_hectare;
+            }
+        });
+
+         /***********************************************/
+
+         var cultures_herbacees_1 = $('[name="cultures_herbacees_1"]').val();
+         var terres_au_repos_jacheres_1 = $('[name="terres_au_repos_jacheres_1"]').val();
+         var plantations_arboriculture_1 = $('[name="plantations_arboriculture_1"]').val();
+         var prairies_naturelles_1 = $('[name="prairies_naturelles_1"]').val();
+         var pacages_et_parcours_1 = $('[name="pacages_et_parcours_1"]').val();
+         var surfaces_improductives_1 = $('[name="surfaces_improductives_1"]').val();
+         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('.terres_forestieres_bois_forets_maquis_vides_labourables_1').val();
+         
+         var sup_total     = 0 
+console.log(cultures_herbacees_1+' '+terres_au_repos_jacheres_1+' '+plantations_arboriculture_1+' '+prairies_naturelles_1+' '+pacages_et_parcours_1+' '+surfaces_improductives_1+' '+terres_forestieres_bois_forets_maquis_vides_labourables_1)
+sup_total = (
+  (cultures_herbacees_1 ? parseFloat(cultures_herbacees_1) : 0) +
+  (terres_au_repos_jacheres_1 ? parseFloat(terres_au_repos_jacheres_1) : 0) +
+  (plantations_arboriculture_1 ? parseFloat(plantations_arboriculture_1) : 0) +
+  (prairies_naturelles_1 ? parseFloat(prairies_naturelles_1) : 0) +
+  (pacages_et_parcours_1 ? parseFloat(pacages_et_parcours_1) : 0) +
+  (surfaces_improductives_1 ? parseFloat(surfaces_improductives_1) : 0) +
+  (terres_forestieres_bois_forets_maquis_vides_labourables_1 ? parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1) : 0)
+);
+
+
+
+
+console.log(sum_superficie_hectare)
+  console.log(sup_total)
+  if(sum_superficie_hectare>=sup_total){
+    console.log('ok')
+    $('.coherence_surface_total-surface').css('border','3px solid red')
+   }
+    })
+
+
 });

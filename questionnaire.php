@@ -1382,7 +1382,7 @@ font-weight: bold;
         display: inline-block;
     }
 </style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control" data-length="4" value="" >
+                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface" data-length="4" value="" >
                             
                                    
                                     <div class="big-space"></div>
@@ -1618,20 +1618,20 @@ font-weight: bold;
                <div class="input-group input-group-sm">
                 
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control" id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" value="5" >
+                     <input  class="surface bneder form-control coherence_surface_total-surface " id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" value="5" >
                 
                  <div class="small-space"></div>
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control  " name="cultures_herbacees_2"   max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
             <td>
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
-                     <input id="in16" class="surface bneder form-control" name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
+                     <input id="in16" class="surface bneder form-control " name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
              
@@ -1655,7 +1655,7 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
                   
                   <span style="width: 32px;"></span>
                   <div class="small-space"></div>
@@ -1695,7 +1695,7 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
                  
 
                   <span style="width: 32px;"></span>
@@ -1737,7 +1737,7 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
@@ -1814,7 +1814,7 @@ font-weight: bold;
                      
                      
                      
-                     <input  class="surface bneder form-control" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
@@ -1840,13 +1840,13 @@ font-weight: bold;
                      
                      
                      
-                     <input  class="form-control bneder" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
             
                      
                      
-                     <input  class="form-control bneder" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="form-control bneder " name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1885,7 +1885,7 @@ font-weight: bold;
                      
                   
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
@@ -5249,6 +5249,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <script>
+
    window.onload = function () {
        var inputs = document.querySelectorAll('input'); // Select all input elements
 
@@ -5259,6 +5260,7 @@ if ($_SESSION['role'] == "recenseur") {
            }
        });
    };
+   
 </script>
 
 
@@ -5299,6 +5301,10 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <script>
+
+
+
+
    document.getElementById("info_form").addEventListener("submit", function (event) {
        event.preventDefault(); // Prevent form submission
 
@@ -5565,7 +5571,8 @@ nom_exploitation.addEventListener("blur", (e) => {
                      surface_totale_st_1.style.border = "3px solid green";
                      surface_totale_st_2.style.border = "3px solid green";
                   }
-                  });
+                  }
+               );
                }
 
              
