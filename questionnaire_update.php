@@ -5700,6 +5700,28 @@ inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all elements with class "zxcount"
+    var elements = document.querySelectorAll('.zxcount');
+    
+    // Loop through each element and set its innerHTML to its index + 1
+    elements.forEach(function(element, index) {
+        element.innerHTML = index + 1;
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var inputs = document.querySelectorAll('input[data-length]');
+
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            var maxLength = parseInt(this.getAttribute('data-length'));
+            this.value = this.value.slice(0, maxLength);
+        });
+    });
+});
+
     </script>
 </body>
 
