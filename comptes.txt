@@ -1,0 +1,8 @@
+URL: http://bneder.dz:8000/
+
+ADMIN User (Supervisor): admin
+
+ADMIN Password : rgaadmin2024**
+
+Controleur	Mot de passe	Recenseur	Mot de passe
+C-BNEDER	53724344	R-BNEDER	63752081
