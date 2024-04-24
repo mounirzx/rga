@@ -196,7 +196,7 @@ font-weight: bold;
  
          <form id="info_form" method="post">
     
-                <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
+                <h4 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h4>
                 <div style="border-top: 2px solid red; width:260px; margin:-20px 0px 0px 30px; "></div>
                 <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
 
@@ -606,7 +606,7 @@ font-weight: bold;
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h5>
+           <h4 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h4>
            <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px; "></div>
 
            <br />
@@ -1000,7 +1000,7 @@ font-weight: bold;
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h5 style="margin-bottom: 27px;">III - Identification de l'exploitant تعريف المستثمرة</h5>
+    <h4 style="margin-bottom: 27px;">III - Identification de l'exploitant تعريف المستثمرة</h4>
 <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px;"></div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
@@ -1562,9 +1562,11 @@ font-weight: bold;
 
 
             <div style="border-top: 3px solid red;"></div>
-            <div style="border-top: 3px solid red;"></div>
-            <h5>IV-Superficie de l'exploitation مساحة المستثمرة</h5>
-            <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
+<br>
+            <h4 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h4>
+            <div style="border-top: 2px solid red; width:320px; margin:-20px 0px 0px 30px;"></div>
+            <br>
+            <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
 
 
 
@@ -1610,10 +1612,12 @@ font-weight: bold;
          
          <!-- Cultures herbacées -->
          <tr>
-            <td style="width: 233px;">
-               <b>Cultures herbacées</b><br>
-               محاصيل عشبية نباتية
-            </td>
+            
+         <td style="width: 233px;">
+    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
+    <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
+</td>
             <td>
                <div class="input-group input-group-sm">
                 
@@ -1645,8 +1649,9 @@ font-weight: bold;
          <!-- Terres au repos (jachères) -->
          <tr>
             <td style="width: 233px;">
-               <b>Terres au repos (jachères)</b><br>
-               أراضي مستريحة (البور)
+    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+            <p style="margin: 0px 0px 0px 25px;" >Terres au repos (jachères)</p>
+            <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1684,9 +1689,11 @@ font-weight: bold;
             </td>
          </tr>
          <tr>
+           
             <td style="width: 233px;">
-               <b>Plantations (arboriculture)</b><br>
-               مغروسات (أشجار)
+         <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+         <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
+         <p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1727,8 +1734,10 @@ font-weight: bold;
          <!-- Prairies naturelles -->
          <tr>
             <td style="width: 233px;">
-               <b>Prairies naturelles</b><br>
-               مروج طبيعية
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+          
+            <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
+            <p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1769,8 +1778,11 @@ font-weight: bold;
          <!-- Superficie agricole utile (SAU) -->
          <tr>
             <td style="width: 233px;">
-               <b>Superficie agricole utile (SAU)</b><br>
-               المساحة الفلاحية المستخدَمَة
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+               <b style="margin: 0px 0px 0px 19px;" >Superficie agricole utile(SAU)
+               المساحة الفلاحية المستخدَمَة</b>
+               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1803,9 +1815,12 @@ font-weight: bold;
          </tr>
          <!-- Pacages et parcours -->
          <tr>
+        
             <td style="width: 233px;">
-               <b>Pacages et parcours</b><br>
-               المراعي
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+            <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
+            <p style="margin: 0px 0px 0px 25px;" > المراعي</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1828,9 +1843,12 @@ font-weight: bold;
          </tr>
          <!-- Surfaces improductives -->
          <tr>
+         
             <td style="width: 233px;">
-               <b>Surfaces improductives</b><br>
-               مساحات غير منتجة
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+            <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
+            <p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1855,8 +1873,11 @@ font-weight: bold;
          <!-- Superficie agricole totale (SAT) -->
          <tr>
             <td style="width: 233px;">
-               <b>Superficie agricole totale (SAT)</b><br>
-               المساحة الفلاحية الإجمالية
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+         <b style="margin: 0px 0px 0px 19px;" >Superficie agricole totale (SAT)
+               المساحة الفلاحية الإجمالية</b>
+               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
+
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1875,9 +1896,9 @@ font-weight: bold;
          </tr>
          <tr>
             <td style="width: 233px;">
-               <b>Terres forestières (bois, forêts, maquis, vides labourables)
-               </b><br>
-               أراضي الغابات (غابات,أدغال,فراغات للحرث)
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+<p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>
+               <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1899,8 +1920,12 @@ font-weight: bold;
          </tr>
          <tr>
             <td style="width: 233px;">
-               <b>Surface totale (ST) المساحة الإجمالية
-               </b>
+
+
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+         <b style="margin: 0px 0px 0px 19px;" >Surface totale (ST) المساحة الإجمالية</b>
+               <div style="border-top: 2px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
+             
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1934,28 +1959,32 @@ font-weight: bold;
                   <div class="row">
                      <div class="col">
                         <div class="input-group input-group-sm">
+                           <div class="qst-num zxcount"></div>
+
                            <span class="input-group-text" id="basic-addon3">
                            هل المستثمرة مكونة من قطعة واحدة؟ <br>
                            L'exploitation est elle d'un seul bloc ?
                            </span>
-                           <select class="select-ee bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
-                              <option selected=""> - </option>
-                              <option value="1">1 - Oui - نعم</option>
-                              <option value="2"> Non - لا</option>
+                           <select class="form-control bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
+                              <option selected="" disabled value="-">  </option>
+                              <option value="1">1- Oui-نعم</option>
+                              <option value="2">2- Non-لا</option>
                            </select>
                         </div>
                      </div>
-                     <div class="col">
+                     <div class="col-7">
                         <div class="input-group input-group-sm">
+                              <div class="qst-num zxcount"></div>
+
                            <span class="input-group-text" id="basic-addon3">
                            إذا كان لا، ما هوعدد القطع؟
                            <br>
                            Si non, quel est le nombre de blocs ?
                            </span>
-                           <div class="line-edits-container" id="cn39">
                            
-                              <input class="select-ee bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui" type="text" >
-                           </div>
+                           
+                              <input class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui" type="text" >
+                         
                         </div>
                      </div>
 
@@ -1987,29 +2016,40 @@ font-weight: bold;
 
 <div class="card" style="font-size: 12px;">
                <div class="card-body">
+               <div class="row">
+                     <div class="col-6">
                   <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+
                      <span class="input-group-text" id="basic-addon3">
                      هل هناك سكان غير شرعيين في المستثمرة؟
                      <br>
                      Existe t’il des indus occupants sur votre exploitation ?
                      </span>
-                     <select class="select-ee" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
-                        <option selected=""> - </option>
-                        <option value="1">1 - Oui - نعم</option>
-                        <option value="2"> Non - لا</option>
+                     <select class="form-control bneder" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
+                        <option selected="" disabled value="-">  </option>
+                        <option value="1">1- Oui-نعم</option>
+                        <option value="2">2- Non-لا</option>
                      </select>
                   </div>
+                  </div>
                   <br>
+                  <div class="col">
+
                   <div class="input-group input-group-sm">
+                      <div class="qst-num zxcount"></div>
+
                      <span class="input-group-text" id="basic-addon3">
                      إذا كان نعم، ما هوعدد الأسر؟
                      <br>
                      Si oui, quel est le nombre nombre de ménages ?
                      </span>
-                     <div class="line-edits-container" id="cn40">
+                   
                       
-                        <input  class="select-ee bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
-                     </div>
+                        <input  class="form-control bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
+                   
+                  </div>
+                  </div>
                   </div>
                </div>
             </div>
@@ -2035,7 +2075,7 @@ font-weight: bold;
 
            <div class="card" style="font-size: 12px;">
                <div class="card-header" style="text-align: center;">
-                  ما هي مصادر الطاقة المستخدمة في المستثمرة؟ - Quelles sont les sources d'énergie utilisées dans
+               <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>  ما هي مصادر الطاقة المستخدمة في المستثمرة؟ - Quelles sont les sources d'énergie utilisées dans
                   l'exploitation ?
                </div>
                <div class="card-body">
@@ -2070,6 +2110,11 @@ font-weight: bold;
                            </label>
                         </div>
                      </div>
+
+                  </div>
+                  <div class="row">
+
+
                      <div class="col">
                         <div class="form-check">
                            <input class="form-check-input bneder" id="eng_energie_eolienne" name="eng_energie_eolienne" type="checkbox">
@@ -2109,9 +2154,10 @@ font-weight: bold;
 
 
             <div style="border-top: 3px solid red;"></div>
-            <h5>V-Utilisation du sol إستخدام الأراضي</h5>
+            <br>
+            <h4>V-Utilisation du sol إستخدام الأراضي</h4>
             <h6>
-               (Campagne agricole الموسم الفلاحي 2023-2024)
+              <b> (Campagne agricole الموسم الفلاحي 2023-2024)</b>
 
             </h6>
 
@@ -2704,7 +2750,7 @@ font-weight: bold;
 
 
             <div id="chapt_animals">
-            <h5>VI-Cheptel المواشي</h5>
+            <h4>VI-Cheptel المواشي</h4>
             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
             <br>
             <br>
@@ -3111,7 +3157,7 @@ font-weight: bold;
 <br><div style="border-top: 3px solid red;"></div>
             
             <br>
-            <h5>VII- Batiments d'exploitation مباني الإستغلال</h5>
+            <h4>VII- Batiments d'exploitation مباني الإستغلال</h4>
             <br><br>
 
 
@@ -3514,7 +3560,7 @@ font-weight: bold;
 
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
+            <h4>VIII- Matériel agricole العتاد الفلاحي</h4>
             <br>
 
  <div style="width:450px;" class="input-group input-group-sm">
@@ -3659,7 +3705,7 @@ font-weight: bold;
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>IX- Ressources en eau الموارد المائية</h5>
+            <h4>IX- Ressources en eau الموارد المائية</h4>
             <br>
 
             <div  class="input-group input-group-sm">
@@ -4052,7 +4098,7 @@ font-weight: bold;
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>X- Main d'œuvre اليد العاملة</h5>
+            <h4>X- Main d'œuvre اليد العاملة</h4>
             <br>
             <div class="row">
                <div class="row" style="text-align: center;">
@@ -4366,7 +4412,7 @@ font-weight: bold;
             <br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XI- Ménage agricole <br> الأسرة الفلاحية</h5>
+            <h4>XI- Ménage agricole <br> الأسرة الفلاحية</h4>
             <div style="text-align: center;">
                <b>
                تكوين أسرة رئيس المستثمرة <br> Composition du ménage du Chef d'exploitation
@@ -4437,8 +4483,8 @@ font-weight: bold;
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
-            </h5>
+            <h4>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
+            </h4>
             <br><br>
             <div class="row">
 
@@ -4625,7 +4671,7 @@ font-weight: bold;
                <br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
+               <h4>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h4>
                <br>
                <div class="card" style="font-size: 12px;">
                   <div class="card-body">
@@ -4901,7 +4947,7 @@ font-weight: bold;
                <br><br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5>XIV - Environnement de l'exploitation محيط المستثمرة</h5>
+               <h4>XIV - Environnement de l'exploitation محيط المستثمرة</h4>
                <br>
 
     <div class="row">  
