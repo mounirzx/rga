@@ -1388,7 +1388,7 @@ font-weight: bold;
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are coherence_surface_total-surface_are surface_total_error_are" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are" data-length="2" value="">
                              
 
                             </div>
@@ -1891,7 +1891,7 @@ font-weight: bold;
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
