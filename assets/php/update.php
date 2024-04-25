@@ -90,6 +90,9 @@ if (isset($form['form']) && isset($form['formDataArrayStatut'])) {
             }
         }
 
+
+        
+
         http_response_code(200);
         echo json_encode(['response' => "success", 'message' => "Records updated successfully"]);
     } catch (Exception $e) {

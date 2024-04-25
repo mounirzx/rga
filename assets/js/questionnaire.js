@@ -32,7 +32,7 @@ $(document).ready(function () {
       // Push the formDataObj to the formDataArray
       formDataArrayStatut.push(formDataObjStatus);
     });
-
+    console.log(formDataArrayStatut);
     var formDataArrayCodeCulture = [];
     // Loop over each row
 
@@ -206,13 +206,16 @@ $(document).ready(function () {
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire.toString(), 'your_secret_key').toString();
+          var encryptedId = CryptoJS.AES.encrypt(
+            data[i].id_questionnaire.toString(),
+            "your_secret_key"
+          ).toString();
 
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
             "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
-            data[i].id_questionnaire +
+            btoa(encryptedId) +
             "' data-id='" +
             data[i].id_questionnaire +
             "'>Update</a></td><td>" +

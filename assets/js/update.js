@@ -5,7 +5,13 @@ $(document).ready(function () {
     // Initialize formDataObj outside the loop to make it accessible throughout the function
     var formDataObj = {};
     var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get("id");
+
+    var id = parseInt(
+      CryptoJS.AES.decrypt(
+        atob(urlParams.get("id")),
+        "your_secret_key"
+      ).toString(CryptoJS.enc.Utf8)
+    );
 
     var formDataArrayStatut = [];
     // Loop over each row
@@ -34,6 +40,7 @@ $(document).ready(function () {
       // Push the formDataObj to the formDataArray
       formDataArrayStatut.push(formDataObjStatus);
     });
+    console.log("formDataArrayStatut");
     console.log(formDataArrayStatut);
 
     // Add date of passage and birth date to formDataObj
