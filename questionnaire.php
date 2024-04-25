@@ -1382,7 +1382,7 @@ font-weight: bold;
         display: inline-block;
     }
 </style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error" data-length="4" value="" >
+                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error "  data-length="4" value="" >
                             
                                    
                                     <div class="big-space"></div>
@@ -1624,7 +1624,7 @@ font-weight: bold;
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control  " name="cultures_herbacees_2"   max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control  coherence_surface_total-surface_are" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1661,7 +1661,7 @@ font-weight: bold;
                   <div class="small-space"></div>
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1702,7 +1702,7 @@ font-weight: bold;
                  
                      
                      <div class="small-space"></div>
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1743,7 +1743,7 @@ font-weight: bold;
                
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1820,7 +1820,7 @@ font-weight: bold;
                  
                      
                      
-                     <input class="surface bneder form-control" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1846,7 +1846,7 @@ font-weight: bold;
             
                      
                      
-                     <input  class="form-control bneder " name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -5557,23 +5557,23 @@ nom_exploitation.addEventListener("blur", (e) => {
 });
 
 
-               var surfaces = document.getElementsByClassName("surface");
+               // var surfaces = document.getElementsByClassName("surface");
 
-               for (let i = 0; i < surfaces.length; i++) {
-                  surfaces[i].addEventListener("blur", (e) => {
-                     if((surface_totale_st_1.value < 0 || surface_totale_st_1.value == 0)){
-                        surface_totale_st_1.style.border = "3px solid red";
-                        surface_totale_st_2.style.border = "3px solid red";
-                        surfaces[i].focus();
+               // for (let i = 0; i < surfaces.length; i++) {
+               //    surfaces[i].addEventListener("blur", (e) => {
+               //       if((surface_totale_st_1.value < 0 || surface_totale_st_1.value == 0)){
+               //          surface_totale_st_1.style.border = "3px solid red";
+               //          surface_totale_st_2.style.border = "3px solid red";
+               //          surfaces[i].focus();
                      
-                     }
-                  if(surface_totale_st_1.value > 0){
-                     surface_totale_st_1.style.border = "3px solid green";
-                     surface_totale_st_2.style.border = "3px solid green";
-                  }
-                  }
-               );
-               }
+               //       }
+               //    if(surface_totale_st_1.value > 0){
+               //       surface_totale_st_1.style.border = "3px solid green";
+               //       surface_totale_st_2.style.border = "3px solid green";
+               //    }
+               //    }
+               // );
+               // }
 
              
 
