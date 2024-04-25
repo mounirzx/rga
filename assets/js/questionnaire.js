@@ -349,6 +349,8 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
                   sum_superficie_are += superficie_are;
                 }
             });
+
+            console.log(sum_superficie_are)
              /***********************************************/
              var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
              var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
@@ -358,10 +360,13 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
              var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
              var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
     /********************************************** */   
-             var sup_total     = null
-    var sup_total =  $('#surface_totale_st_2').val()
+          
+    var sup_total_are =  $('#surface_totale_st_2').val()
+    console.log(sup_total_are)
+
+    console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
     if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
-      if((sum_superficie_are!=undefined && sup_total!="") && (sum_superficie_are<sup_total)){
+      if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
         console.log('ok')
         $('.surface_total_error_are').css('border','3px solid red')
        }else{
@@ -373,7 +378,7 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     /****************************************************************************************************************** */
     var elements = document.getElementsByClassName("surface");
     for (var i = 0; i < elements.length; i++) {
-      console.log(i)
+    
         elements[i].addEventListener("input", function () {
           var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
           var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
