@@ -118,66 +118,69 @@ $(document).ready(function () {
     });
 
     $(function () {
-    $.ajax({
+      $.ajax({
         url: "assets/php/add.php",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            form: formDataObj,
-            formDataArray: formDataArray,
-            formDataArrayStatut: formDataArrayStatut,
-            formDataArrayCodeCulture: formDataArrayCodeCulture,
-            formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+          form: formDataObj,
+          formDataArray: formDataArray,
+          formDataArrayStatut: formDataArrayStatut,
+          formDataArrayCodeCulture: formDataArrayCodeCulture,
+          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
-            try {
-                // Parse JSON response if not already an object
-                var serverResponse = typeof response === "string" ? JSON.parse(response) : response;
+          try {
+            // Parse JSON response if not already an object
+            var serverResponse =
+              typeof response === "string" ? JSON.parse(response) : response;
 
-                // Check the response 'response' key, which indicates success or failure
-                if (serverResponse.response === true) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Succès!",
-                        text: "Enregistrement effectué avec succès!",
-                    });
-                } else {
-                    // Server responded with an error
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erreur!",
-                        html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
-                    });
-                }
-            } catch (e) {
-                // Handle any parsing errors or missing keys
-                Swal.fire({
-                    icon: "error",
-                    title: "Erreur de Format",
-                    text: "La réponse du serveur n'était pas dans le format attendu: " + e.message,
-                });
+            // Check the response 'response' key, which indicates success or failure
+            if (serverResponse.response === true) {
+              Swal.fire({
+                icon: "success",
+                title: "Succès!",
+                text: "Enregistrement effectué avec succès!",
+              });
+            } else {
+              // Server responded with an error
+              Swal.fire({
+                icon: "error",
+                title: "Erreur!",
+                html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
+              });
             }
+          } catch (e) {
+            // Handle any parsing errors or missing keys
+            Swal.fire({
+              icon: "error",
+              title: "Erreur de Format",
+              text:
+                "La réponse du serveur n'était pas dans le format attendu: " +
+                e.message,
+            });
+          }
         },
         error: function (xhr, status, error) {
-            // More detailed error handling based on status and xhr state
-            if (!xhr.responseText || xhr.status === 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Erreur de Réseau",
-                    text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
-                });
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Échec de la requête",
-                    text: "Un problème est survenu lors de la requête: " + xhr.statusText,
-                });
-            }
+          // More detailed error handling based on status and xhr state
+          if (!xhr.responseText || xhr.status === 0) {
+            Swal.fire({
+              icon: "error",
+              title: "Erreur de Réseau",
+              text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Échec de la requête",
+              text:
+                "Un problème est survenu lors de la requête: " + xhr.statusText,
+            });
+          }
         },
+      });
     });
-});
-
   });
 
   function qstList(etat) {
@@ -203,12 +206,16 @@ $(document).ready(function () {
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire.toString(), 'your_secret_key').toString();
+          // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire.toString(), 'your_secret_key').toString();
 
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id="+btoa(encryptedId )+"' data-id='" + data[i].id_questionnaire + "'>Update</a></td><td>" +
+            "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
+            data[i].id_questionnaire +
+            "' data-id='" +
+            data[i].id_questionnaire +
+            "'>Update</a></td><td>" +
             data[i].nom_exploitant +
             " " +
             data[i].prenom_exploitant +
@@ -232,7 +239,6 @@ $(document).ready(function () {
       },
     });
   }
-
 
   // qstList("all");
 

@@ -1316,7 +1316,7 @@ font-weight: bold;
 
 
 
-                     <div style="margin-bottom: 5px;" class="row statut_juridique_s">
+                     <div style="margin-bottom: 5px;" class="row ">
                         <div class="col">
                         <div class="input-group input-group-sm">
 
@@ -1368,20 +1368,20 @@ font-weight: bold;
                         <div class="col">
                             <div class="input-group input-group-sm">
 
-                            <style>
-    .big-space {
-        width: 50px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .small-space {
-        width: 20px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .mid-space {
-      width: 35px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-</style>
+                        <style>
+                           .big-space {
+                              width: 50px; /* Adjust the width to increase or decrease the space */
+                              display: inline-block;
+                           }
+                           .small-space {
+                              width: 20px; /* Adjust the width to increase or decrease the space */
+                              display: inline-block;
+                           }
+                           .mid-space {
+                              width: 35px; /* Adjust the width to increase or decrease the space */
+                              display: inline-block;
+                           }
+                        </style>
                                     <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control statut_juridique_s" data-length="4" value="" >
                             
                                    

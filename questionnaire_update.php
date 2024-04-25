@@ -1,9 +1,10 @@
-
 <?php
 include('includes/header.php');
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-      <style>
+<style>
         /* @font-face {
 			font-family: 'Scheherazade';
 			src: url('static/fonts/rga/ScheherazadeNew-Regular.ttf') format('truetype');
@@ -198,7 +199,6 @@ font-weight: bold;
     
                 <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
                 <div style="border-top: 2px solid red; width:260px; margin:-20px 0px 0px 30px; "></div>
-                <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
 
                         <br>
 
@@ -613,26 +613,18 @@ font-weight: bold;
            <div class="row">
               <div class="col">
                  <div class="input-group input-group-sm">
-                 <div class="qst-num zxcount"></div>
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder" type="text" name="nom_exploitant" id="nom_exploitant"  value="test" />
+                    <input class="form-control bneder" type="text" name="nom_exploitant"   />
                  </div>
               </div>
-
-           
-
-      
-               </script>
-
               <div class="col">
                  <div class="input-group input-group-sm">
-                 <div class="qst-num zxcount"></div>
                    <span class="input-group-text" id="basic-addon3">
                     الإسم<br /> Prénom
                     </span>
-                    <input class="form-control bneder"  type="text"  name="prenom_exploitant"  id="prenom_exploitant" value="test"/>
+                    <input class="form-control bneder"  type="text"  name="prenom_exploitant" />
                  </div>
               </div>
            </div>
@@ -640,11 +632,10 @@ font-weight: bold;
         
               <div class="col">
                 <div class="input-group input-group-sm">
-                <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3" style="width: 165px;">
                       تاريخ الميلاد  Date de naissance</span>
-                    <select class="select-ee " id="jour_de_naissance"  style="width: 65px;" value="02">
-                       <option value="02"></option>
+                    <select class="select-ee " id="jour_de_naissance"  style="width: 65px;">
+                       <option value="-"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
                        <option  value="3">3</option>
@@ -699,8 +690,8 @@ font-weight: bold;
                        <option  value="30"> 31
                        </option>
                     </select>
-                    <select class="select-ee"   id="mois_de_naissance" style="width: 165px;" value="02">
-                       <option value="02"></option>
+                    <select class="select-ee"   id="mois_de_naissance" style="width: 165px;">
+                       <option value="-"></option>
                        <option  value="01">1 - Janvier</option>
                        <option  value="02">2 - Février</option>
                        <option  value="03">3 - Mars</option>
@@ -714,8 +705,8 @@ font-weight: bold;
                        <option  value="11">11 - Novembre</option>
                        <option  value="12">12 - Décembre</option>
                     </select>
-                    <select class="select-ee" id="annee_de_naissance"  style="width: 125px;" value="2024">
-                       <option value="2024"></option>
+                    <select class="select-ee" id="annee_de_naissance"  style="width: 125px;">
+                       <option value="-">-</option>
                        <option  value="2024">2024
                        </option>
                        <option  value="2025">2025
@@ -731,13 +722,11 @@ font-weight: bold;
                        <option  value="2030">2030
                        </option>
                     </select>
-                    
-                    <div class="qst-num zxcount" style="margin-left:10px;"></div>
-
+                  
                     <span class="input-group-text" id="basic-addon3">الجنس
                     <br />
                     Sexe</span>
-                    <select class="select-ee bneder"   name="sexe_exploitant"  >
+                    <select class="select-ee bneder"   name="sexe_exploitant"  style="width: 197px;">
                        <option selected=""> -
                        </option>
                        <option  value="1"> Masculin - ذكر
@@ -755,50 +744,62 @@ font-weight: bold;
 
 
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                         <div class="input-group input-group-sm">
-                        <div class="qst-num zxcount"></div>
-                           <span class="input-group-text " id="basic-addon3">المستوى التعليمي
+                           <span class="input-group-text col-6" id="basic-addon3">المستوى التعليمي
                            <br />
                            Niveau d'instruction</span>
-                           <select class="select-ee  bneder" id="niveau_instruction"   name="niveau_instruction" >
+                           <select class="select-ee col-6 bneder" id="niveau_instruction"   name="niveau_instruction" >
                               <option selected=""> - </option>
-                              <option  value="1">1-Aucu-لاشيء</option>
-                              <option  value="2">2-Primaire-إبتدائي</option>
-                              <option  value="3">3-Moye-متوسط</option>
-                              <option  value="4">4-Secondaire-ثانوي</option>
-                              <option  value="5">5-Universitaire-جامعي</option>
+                              <option  value="1">1 - Aucun- لاشيء</option>
+                              <option  value="2">2 - Primaire - إبتدائي</option>
+                              <option  value="3">3 - Moyen- متوسط</option>
+                              <option  value="4">4 - Secondaire - ثانوي</option>
+                              <option  value="5">5 - Universitaire - جامعي</option>
                            </select>
-                           <div style="margin: 7px 0px 0px 20px;" class="qst-num zxcount"></div>
                      </div>
-                    
                </div>
-               <div class="col-7">
-           
+               <div class="col-6">
                   <div class="input-group input-group-sm" >
-            
-                    <span class="input-group-text " id="basic-addon3">مستوى التكوين الفلاحي
+                    <span class="input-group-text col-6" id="basic-addon3">مستوى التكوين الفلاحي
                     <br />
                     Niveau de formation agricole</span>
-                    <select class="select-ee  bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
+                    <select class="select-ee col-6 bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
                        <option selected=""> - </option>
-                       <option  value="1">1-Aucun-لاشيء</option>
-                       <option  value="2">2-Agent technique spécialisé-عون تقني متخصص</option>
-                       <option  value="3">3-Ingénieur-مهندس</option>
-                       <option  value="4">4-Perfectionnement-تأهيل</option>
-                       <option  value="5">5-Technicien-تقني</option>
-                       <option  value="6">6-Vétérinaire-بيطري</option>
-                       <option  value="7">7-Agent technique-عون تقني</option>
-                       <option  value="8">8-Technicien supérieur-تقني سامي</option>
-                       <option  value="9">9-Formation-تكوين</option>
+                       <option  value="1">1 - Aucun - لاشيء</option>
+                       <option  value="2">2 - Agent technique spécialisé - عون تقني متخصص</option>
+                       <option  value="3">3 - Ingénieur - مهندس</option>
+                       <option  value="4">4 - Perfectionnement - تأهيل</option>
+                       <option  value="5">5 - Technicien - تقني</option>
+                       <option  value="6">6 - Vétérinaire - بيطري</option>
+                       <option  value="7">7 - Agent technique - عون تقني</option>
+                       <option  value="8">8 - Technicien supérieur - تقني سامي</option>
+                       <option  value="9">9 - Formation - تكوين</option>
                     </select>
                  </div>
               </div>
             </div> 
-<br>
+
               
-               <div class="input-group input-group-sm">
-           <div class="qst-num zxcount" ></div>
+            
+
+
+            <div class="row">
+               <div class="col">
+
+               </div>
+               <div class="col">
+
+               </div>
+            </div> 
+
+            <br/>
+
+
+
+
+
+           <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">
               عنوان المستثمر الفلاحي (الفلاح) - Adresse de l'exploitant agricole
               </span>
@@ -809,56 +810,152 @@ font-weight: bold;
          
 
 
-            <div class="row">
-               <div class="col">
-               <div class="input-group input-group-sm">
-               <div class="qst-num zxcount"></div>
+
+
+
+
+
+           <div class="row">
+              <div class="col">
+                 <div class="input-group input-group-sm">
+                 
+                    <span class="input-group-text" id="basic-addon3">
+                    رقم الهاتف <br /> Numéro de téléphone
+                    </span>
+                    <input class="form-control bneder" type="text" id="phone_exploitant"  name="phone_exploitant">
+                 </div>
+              </div>
+              <div class="col">
+                 <div class="input-group input-group-sm">
+                    <span class="input-group-text" id="basic-addon3">  البريد الإكتروني<br /> é-mail</span>
+                    <input class="form-control bneder"  type="text"  id="email_exploitant"  name="email_exploitant" />
+                 </div>
+              </div>
+           </div>
+
+
+<br/>
+<br/>
+
+       
+ 
+</div>
+<br />
+<br />
+<div class="card">
+    <div class="card-header" style="text-align: center;">
+        هل أنت مسجل في?
+        <br>
+        Etes-vous inscrit à?
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" id="caw" name="caw" type="checkbox" value="1">
+                    <label class="form-check-label" for="caw">
+                        الغرفة الولائية للفلاحة
+                        <br>
+                        La Chambre d’Agriculture de la Wilaya (CAW)
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" id="capa" name="capa" type="checkbox" value="1">
+                    <label class="form-check-label" for="capa">
+                        غرفة الصيد البحري وتربية الأحياء المائية
+                        <br>
+                        La Chambre de la pêche et de l'aquacutur (CAPA)
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" id="unpa" name="unpa" type="checkbox" value="1">
+                    <label class="form-check-label" for="unpa">
+                        الإتحاد الوطني للفلاحين الجزائريين
+                        <br>
+                        L’Union Nationale des Paysans Algériens (UNPA)
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" id="ccw" name="ccw" type="checkbox" value="1">
+                    <label class="form-check-label" for="ccw">
+                        غرفة الحرف والمهنيين
+                        <br>
+                        La Chambre du Commerce de la Wilaya (CCW)
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" id="cam" name="cam" type="checkbox" value="1">
+                    <label class="form-check-label" for="cam">
+                        الغرفة التجارية الولائية
+                        <br>
+                        La Chambre de l'artisanat et des metiers (CAM)
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" value="1">
+                    <label class="form-check-label" for="dispositif_social">
+                        الأجهزة الإجتماعية
+                        <br>
+                        جهاز إجتماعي - Dispositif Social
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--          Ca marche jusque la    -->
+             
+<br />
+     
+     
+             
+             <br/>
+             
+             
+             <br />
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-sm">
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
             <input class="form-control bneder" type="text"  id="nin_exploitant" name="nin_exploitant"   />
             </div>
-<br>
-
-<div class="input-group input-group-sm">
-<div class="qst-num zxcount"></div>
+        </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف اإلحصائي <br> Numéro d’identification statstique
             </span>
             <input class="form-control bneder"  type="text" id="nis_exploitant"  name="nis_exploitant" />
             </div>
+        </div>
+    </div>
 
-               </div>
-               <div class="col">
-               <div class="input-group input-group-sm">
-               <div class="qst-num zxcount"></div>
-                 <span class="input-group-text" id="basic-addon3">
-                 رقم الهاتف <br /> Numéro de téléphone
-                 </span>
-                 <input class="form-control bneder" type="text" id="phone_exploitant"  name="phone_exploitant">
-              </div>
-              
-              <br>
-              <div class="input-group input-group-sm">
-              <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">  البريد الإكتروني<br /> é-mail</span>
-                    <input class="form-control bneder"  type="text"  id="email_exploitant"  name="email_exploitant" />
-                 </div>
-               </div>
-            </div> 
-
- 
-</div>
-
+        <br/>      
              
-             
-      
-        <br/>     
-        
-        <div class="row">
-         <div class="col-7">
-         <div class="input-group input-group-sm">
-         <div class="qst-num zxcount"></div>
+        <br />
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-sm">
+            <span class="input-group-text" id="basic-addon3">
+               رقم بطاقة الفلاح <br> Numéro de la carte fellah
+               </span>
+            <input class="form-control bneder" type="text" id="num_carte_fellah_exploitant"  name="num_carte_fellah_exploitant"   />
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
+            
             <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
                <br>
                Type d'assurance, si assuré</span>
@@ -873,120 +970,93 @@ font-weight: bold;
                         </option>
                 </select>
             </div>
-         </div>
-         <div class="col">
-         <div class="input-group input-group-sm">
-         <div class="qst-num zxcount"></div>
+        </div>
+    </div>      
+             
+
+       <br />
+             
+             
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-sm">
             <span class="input-group-text" id="basic-addon3">
                رقم الضمان الإجتماعي <br> Numéro de sécurité social
                </span>
             <input class="form-control bneder" type="text"  id="num_sec_sociale" name="num_sec_sociale"   />
             </div>
-         </div>
-
         </div>
-        
-        <br />
-        <div class="row">
-  <div class="col-4">
-    <div class="card">
-      <div class="card-header" style="text-align: center;">
-        هل أنت مسجل في?<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Etes-vous inscrit à?
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <div class="form-check">
-              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الولائية للفلاحة<br>
-              La Chambre d’Agriculture de la Wilaya (CAW)</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية الأحياء المائية<br>
-              La Chambre de la pêche et de l'aquacutur (CAPA)</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
-              L’Union Nationale des Paysans Algériens (UNPA)</label>
-            </div>
-          </div><br>
-          <div class="col">
-            <div class="form-check">
-              <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">غرفة الحرف والمهنيين<br>
-              La Chambre du Commerce de la Wilaya (CCW)</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">الغرفة التجارية الولائية<br>
-              La Chambre de l'artisanat et des metiers (CAM)</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
-              جهاز إجتماعي - Dispositif Social</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
+            
+            <span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية
+                     <br>
+                     Issu d'une famille agricole</span>
 
-  <div class="col-8">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
-      Numéro de la carte fellah</span> <input class="form-control bneder" type="text" id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
-    </div><br>
-    <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
-      Issu d'une famille agricole</span> <select class="select-ee col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
-        <option value="-" disabled selected>
-        </option>
-        <option value="1">
-          1 - Oui - نعم
-        </option>
-        <option value="2">
-          Non - لا
-        </option>
-      </select>
-    </div><br>
-    <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="select-ee col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
-        <option selected>
-          -
-        </option>
-        <option value="1">
-          1 - الوحيد - Unique
-        </option>
-        <option value="2">
-          2 - الرئيسي - Principal
-        </option>
-      </select>
-    </div><br>
-    <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input class="form-control bneder" type="text" id="nb_co_exploitants" name="nb_co_exploitants">
-    </div><br>
-    <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> <input class="form-control bneder" type="text" id="nature_exploitant" name="nature_exploitant">
+           
+          
+            <select class="select-ee col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole" style="width: 210px;">
+                <option selected=""> - </option>
+                <option selected=""> - </option>
+                        <option value="1">1 - Oui - نعم</option>
+                        <option value="2"> Non - لا</option>
+                </select>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<br>
-             
-             
 
              
        <br/>
              
- 
+        <br />
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-sm">
+         
+            <span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) - 
+                        <br>
+                        Nature de l'exploitant
+                     </span>
+            <input class="form-control bneder" type="text" id="nature_exploitant" name="nature_exploitant"   />
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
+            
+            <span class="input-group-text" id="basic-addon3">هل أنت الفلاح -
+                     المستثمر
+                     <br>
+                     Etes-vous l'exploitant ?</span>
+        
+            <select class="select-ee col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+            <option selected=""> - </option>
+                        <option value="1">
+                        1 - الوحيد - Unique</option>
+                        <option value="2">
+                        2 - الرئيسي - Principal</option>
+                        </select>
+            </div>
+        </div>
+    </div>
              
              
     <br />
- 
+    <div class="row">
+        <div class="col">
+            <div class="input-group input-group-sm">
+         
+            <span class="input-group-text" id="basic-addon3">عدد المتعاونين أو
+                     الشركاء
+                     إذا كان الفلاح - المستثمر هو الرئيسي
+                     <br>
+                     Nombre de co-exploitants, si</span>
+            <input class="form-control bneder" type="text" id="nb_co_exploitants" name="nb_co_exploitants" />
+            </div>
+        </div>
+        <div class="col">
+         
+        </div>
+    </div>
 
     <br />     
              
@@ -1000,94 +1070,59 @@ font-weight: bold;
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h5 style="margin-bottom: 27px;">III - Identification de l'exploitant تعريف المستثمرة</h5>
-<div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px;"></div><br>
-<div class="input-group input-group-sm">
-  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" value="test">
-</div><br>
-<div class="input-group input-group-sm">
-  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
-  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation" type="text" value="">
-</div><br>
-<div class="input-group input-group-sm">
-  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
-  Statut juridique de l’exploitation</span> <select class="select-ee bneder" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
-    <option selected>
-      -
-    </option>
-    <option value="1">
-      1 - Société civile - مؤسسة مدنية
-    </option>
-    <option value="2">
-      2 - Société familiale - مؤسسة عائلية
-    </option>
-    <option value="3">
-      3 - SARL - ش.ذ.م.م
-    </option>
-    <option value="4">
-      4 - EURL - م.ا.م.م
-    </option>
-    <option value="5">
-      5 - Coopérative - تعاونية
-    </option>
-    <option value="6">
-      6 - Groupement - تجمع
-    </option>
-    <option value="7">
-      7 - Location - إيجار
-    </option>
-    <option value="8">
-      8 - Association - جمعية
-    </option>
-    <option value="9">
-      9 - Partenariat - شراكة
-    </option>
-    <option value="10">
-      10 - Sans statut juridique - بدون وضع قانوني
-    </option>
-    <option value="11">
-      11 - Privé individuel - فردي خاص
-    </option>
-    <option value="12">
-      11 - Autre - آخر
-    </option>
-  </select>
-</div><br>
-<div class="row">
-  <div class="col">
-    <div class="card" style="font-size: 12px;">
-      <div class="card-header" style="text-align: center;">
-        الإحداثيات الجغرافية للمستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Coordonnées géographiques de l'exploitation
-      </div>
-      <div class="card-body">
-        <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="height: 33px;" class="select-ee" id="inputGroupSelect01" name="longitude_x_prefix">
-            <option value="EST">
-              +
-            </option>
-            <option value="OUEST">
-              -
-            </option>
-          </select> <input class="form-control bneder" type="text" id="lon_exploitation" name="lon_exploitation">
-        </div><br>
-        <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder" type="text" id="lat_exploitation" name="lat_exploitation">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-header" style="text-align: center;">
-        نشاط المستثمرة - Activité de l'exploitation
-      </div>
-      <div class="card-body">
-        <!-- <div class="row">
+    <h5>III - Identification de l'exploitant تعريف المستثمرة</h5>
+    <br />
+
+    <div class="input-group input-group-sm">
+               <span class="input-group-text" id="basic-addon3">
+               إسم المستثمرة
+               <br>
+               Nom des investissements agricoles
+               </span>
+               <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" value="">
+            </div>
+
+            <br />
+
+            <div class="input-group input-group-sm">
+               <span class="input-group-text" id="basic-addon3">
+               عنوان المستثمرة (أو إسم المكان) <br> Adresse de l'exploitation (ou lieu dit)
+               </span>
+               <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation" type="text" value="">
+            </div>
+
+            <br />
+
+            <div class="input-group input-group-sm">
+               <span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة
+               <br>
+               Statut juridique de l’exploitation</span>
+               <select class="select-ee statut_juridique_s" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
+                  <option selected=""> - </option>
+                  <option value="1">1 - Société civile - مؤسسة مدنية</option>
+                  <option value="2">2 - Société familiale - مؤسسة عائلية</option>
+                  <option value="3">3 - SARL - ش.ذ.م.م</option>
+                  <option value="4">4 - EURL - م.ا.م.م</option>
+                  <option value="5">5 - Coopérative - تعاونية</option>
+                  <option value="6">6 - Groupement - التجمع</option>
+                  <option value="7">7 - Location - الإيجار</option>
+                  <option value="8">8 - Association - الجمعية</option>
+                  <option value="9">9 - Partenariat - الشراكة</option>
+                  <option value="10">10 - Sans statut juridique - بدون وضع قانوني</option>
+                  <option value="11">11 - Autre</option>
+               </select>
+            </div>
+
+            <br />
+
+            <div class="card">
+               <div class="card-header" style="text-align: center;">نشاط المستثمرة - Activité de l'exploitation
+               </div>
+               <div class="card-body">
+                  <div class="row">
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="vegetale" name="vegetale" type="checkbox" >
+                            <input class="form-check-input bneder" id="vegetale" name="vegetale" type="checkbox" value="1">
 
                            <label class="form-check-label" for="vegetale">
                            نباتية - Végétale
@@ -1096,7 +1131,7 @@ font-weight: bold;
                      </div>
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="elevage" name="elevage" type="checkbox" >
+                            <input class="form-check-input bneder" id="elevage" name="elevage" type="checkbox" value="1">
 
                            <label class="form-check-label" for="elevage">
                            تربية الحيوانات - Elevage
@@ -1105,178 +1140,208 @@ font-weight: bold;
                      </div>
                      <div class="col">
                         <div class="form-check">
-                           <input class="form-check-input bneder" id="mixed" name="mixed" type="checkbox" >
+                           <input class="form-check-input bneder" id="mixed" name="mixed" type="checkbox" value="1">
                            <label class="form-check-label" for="mixed">
                            مختلطة - mixed
                            </label>
                         </div>
                      </div>
-                  </div> -->
-        <div class="input-group input-group-sm">
-          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="select-ee bneder" id="vegetale" name="vegetale">
-            <option>
-              -
-            </option>
-            <option value="1">
-              1 - نباتية - Végétale
-            </option>
-            <option value="2">
-              2 - تربية الحيوانات - Elevage
-            </option>
-            <option value="2">
-              2 - مختلطة - mixte
-            </option>
-          </select>
-        </div><br>
-        <div class="input-group input-group-sm">
-          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية المواشي<br>
-          Si activité est l'élevage</span> <select class="select-ee bneder" id="type_activite_exploitation" name="type_activite_exploitation">
-            <option>
-              -
-            </option>
-            <option value="1">
-              1 - لديه أرض - Avec terre
-            </option>
-            <option value="2">
-              2 - بدون أرض - Sans terre
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><br>
-<br>
-<div class="row">
-  <div class="col">
-    <div class="card" style="font-size: 12px;">
-      <div class="card-header" style="text-align: center;">
-        إمكانية الوصول إلى المستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Accessibilité de l’exploitation
-      </div>
-      <div class="card-body">
+                  </div>
+
+
+                        <br>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text" id="basic-addon3">
+                                إذا كان النشاط تربية المواشي
+                            <br>
+                            Si activité est l'élevage</span>
+                            <select class="select-ee bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+                            <option> - </option>
+                            <option value="1">1 - لديه أرض - Avec terre</option>
+                            <option value="2">2 - بدون أرض - Sans terre</option>
+                            </select>
+                        </div>
+               </div>
+            </div>
+
+ <br />
+ <br />
+ <br />
+ <br />
+
+
+             
+             
+ <div class="row">
+               <div class="col-7">
+                  <div class="card" style="font-size: 12px;">
+                     <div class="card-header" style="text-align: center;">
+                        <h7> الإحداثيات الجغرافية للمستثمرة <br> Coordonnées géographiques de l'exploitation
+                        </h7>
+                     </div>
+                     <div class="card-body">
+                      
+
+                         
+
+                           <div class="input-group input-group-sm">
+                            <span class="input-group-text" id="basic-addon3">
+                            خط الطول (س)
+Longitude (X)
+                            </span>
+                            <select style="height: 33px;" class="select-ee" id="inputGroupSelect01" name="longitude_x_prefix">
+                                <option value="EST">+</option>
+                                <option value="OUEST">-</option>
+                            </select>
+                            <input class="form-control bneder" type="number" id="lon_exploitation" name="lon_exploitation">
+                            </div>
+<br/>
+
+                            <div class="input-group input-group-sm">
+                            <span class="input-group-text" id="basic-addon3">
+                            خط العرض (ع)
+Latitude (Y)
+                            </span>
+                            <input class="form-control bneder" type="number" id="lat_exploitation" name="lat_exploitation">
+                            </div>
+
+                        </div>
+                     </div>
+                  </div>
+            
+        
+                  <div class="col">
+                  <div class="card" style="font-size: 12px;">
+                     <div class="card-header" style="text-align: center;">
+                        <h7> إمكانية الوصول إلى المستثمرة <br> Accessibilité de l’exploitation</h7>
+                     </div>
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col">
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="route_national" name="route_national" type="checkbox" value="1">
+                                 <label class="form-check-label" for="route_national">
+                                 طريق وطني
+                                 <br>
+                                 Route national
+                                 </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" value="1">
+                                 <label class="form-check-label" for="chemin_de_wilaya">
+                                 طريق ولائي
+                                 <br>
+                                 Chemin de wilaya
+                                 </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="route_communale" name="route_communale" type="checkbox" value="1">
+                                 <label class="form-check-label" for="route_communale">
+                                 طريق بلدي
+                                 <br>
+                                 Route communale
+                                 </label>
+                              </div>
+                           </div>
+                           <div class="col">
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" value="1">
+                                 <label class="form-check-label" for="piste">
+                                 مسار
+                                 <br>
+                                 Piste
+                                 </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="acces_agricole" name="acces_agricole" type="checkbox" value="1">
+                                 <label class="form-check-label" for="acces_agricole">
+                                 مسار فلاحي
+                                 <br>
+                                 Accés agricole
+                                 </label>
+                              </div>
+                              <br>
+                              <div class="form-check">
+                                 <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" value="1">
+                                 <label class="form-check-label" for="acces_rural">
+                                 مسار ريفي
+                                 <br>
+                                 Accés rural
+                                 </label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+               </div>
+
+
+
+
+<div class="col">
+    <div class="row">
         <div class="row">
-          <div class="col">
-            <div class="form-check">
-              <input class="form-check-input bneder" id="route_national" name="route_national" type="checkbox" > <label class="form-check-label" for="route_national">طريق وطني<br>
-              Route national</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input bneder" id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" > <label class="form-check-label" for="chemin_de_wilaya">طريق ولائي<br>
-              Chemin de wilaya</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input bneder" id="route_communale" name="route_communale" type="checkbox" > <label class="form-check-label" for="route_communale">طريق بلدي<br>
-              Route communale</label>
+            <div class="input-group input-group-sm">
+                <span class="input-group-text" id="basic-addon3">شبكة كهرباء</span>
+                <div class="col-auto">
+                    <select class="select-ee form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+                        <option selected=""> - </option>
+                        <option value="1">1 - Oui</option>
+                        <option value="2">2 - Non</option>
+                    </select>
+                </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="form-check">
-              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار<br>
-              Piste</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input bneder" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
-              Accés agricole</label>
-            </div><br>
-            <div class="form-check">
-              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مسار ريفي<br>
-              Accés rural</label>
-            </div>
-          </div>
         </div>
-      </div>
-    </div><br>
+        <div class="col"></div>
+    </div>
     <br>
-  </div>
-  <div class="col">
+    <div class="row">
+        <div class="col-8">
+            <div class="input-group input-group-sm">
+                <span class="input-group-text" id="basic-addon3">شبكة الهاتف</span>
+                <select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique" >
+                    <option selected=""> - </option>
+                    <option value="1">1 - Oui</option>
+                    <option value="2">2 - Non</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
+                <span class="input-group-text" id="basic-addon3">إذا نعم</span>
+                <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
+                    <option selected="">-</option>
+                    <option value="1">1 - Mobile</option>
+                    <option value="2">2 - Fixe</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
     <div class="input-group input-group-sm">
-    <div class="qst-num zxcount"></div>
-      <span class="input-group-text" id="basic-addon3">شبكة كهرباء</span>
-      <div class="col-auto">
-        <select class="select-ee form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+        <span class="input-group-text" id="basic-addon3">شبكة الإنترنت</span>
+        <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
+            <option selected=""> - </option>
+            <option value="1">1 - Oui</option>
+            <option value="2">2 - Non</option>
         </select>
-      </div>
-    
-      </div>
-      <br>
-      <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div>
-        <span class="input-group-text" id="basic-addon3">شبكة الهاتف</span> <select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+    </div>
+    <br>
+    <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">إذا نعم هل تستخدم الإنترنت لتلبية الإحتياجات الفلاحية؟</span>
+        <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+            <option selected="">-</option>
+            <option value="1">1 - Oui</option>
+            <option value="2">2 - Non</option>
         </select>
-      </div>
-<br>
-  
-      
-<div class="input-group input-group-sm">
-<div class="qst-num zxcount"></div>
-        <span class="input-group-text" id="basic-addon3">إذا نعم</span> <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Mobile
-          </option>
-          <option value="2">
-            2 - Fixe
-          </option>
-        </select>
-      </div>
-      <br>
-   <div class="input-group input-group-sm">
-   <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">شبكة الإنترنت</span> <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
-    </select>
-  </div><br>
-   <div class="input-group input-group-sm">
-   <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">إذا نعم هل تستخدم الإنترنت لتلبية الإحتياجات الفلاحية؟</span> <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
-    </select>
-  </div>
-      </div>
- 
-  <br>
-<br>
-  
- 
+    </div>
 </div>
+
 <script>
     var select1 = document.getElementsByName('reseau_internet')[0];
     var select2 = document.getElementsByName('reseau_internet_si_oui')[0];
@@ -1288,12 +1353,14 @@ font-weight: bold;
         select2.disabled = (selectedValue != '1');
     }
 </script>
-<br/>
 
+</div>
+
+<br/>
 <div class="card" style="font-size: 12px;">
-               <div class="card-header" style="text-align: center;">
+               <div class="card-header">
                   الوضع القانوني للأرض
-                  <br><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+                  <br>
                   Statut juridique des terres
                </div>
                <div class="card-body">
@@ -1316,12 +1383,12 @@ font-weight: bold;
 
 
 
-                     <div style="margin-bottom: 5px;" class="row statut_juridique_s">
+                     <div style="margin-bottom: 5px;" class="row">
                         <div class="col">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select" id="origine_des_terres" name="origine_des_terres" >
-                                <option selected="" disabled ></option>
+                            <select  class="form-select" id="origine_des_terres" name="origine_des_terres" value="1">
+                                <option selected="">-</option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
                                 <option value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
@@ -1342,8 +1409,8 @@ font-weight: bold;
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
-                                <option  selected="" disabled>-</option>
+                                <select  class="form-select statut_juridique_s" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
+                                <option selected="">-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                 <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
@@ -1369,26 +1436,26 @@ font-weight: bold;
                             <div class="input-group input-group-sm">
 
                             <style>
-    .big-space {
-        width: 50px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .small-space {
-        width: 20px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .mid-space {
-      width: 35px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-</style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control" data-length="4" value="" >
+                                    .big-space {
+                                       width: 50px; /* Adjust the width to increase or decrease the space */
+                                       display: inline-block;
+                                    }
+                                    .small-space {
+                                       width: 20px; /* Adjust the width to increase or decrease the space */
+                                       display: inline-block;
+                                    }
+                                    .mid-space {
+                                       width: 35px; /* Adjust the width to increase or decrease the space */
+                                       display: inline-block;
+                                    }
+                                 </style>
+                                    <input  id="in11" name="superficie_hectare"   type="number" max="9999" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(9999, this.value));" value="" >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input  id="in12" name="superficie_are" type="number" max="99" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="">
                              
 
                             </div>
@@ -1396,10 +1463,10 @@ font-weight: bold;
                         </div>
                         <div class="col-1">
 
-                            <div class="d-grid gap-2">
+                            <!-- <div class="d-grid gap-2">
                                         <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
 
-                            </div>
+                            </div> -->
 
 
                         </div>
@@ -1458,26 +1525,19 @@ font-weight: bold;
 
 
 
- 
-
-
 
 
  <div class="input-group input-group-sm">
- <div class="qst-num zxcount"></div>
-
                <span class="input-group-text" id="basic-addon3">
                le Référence - مرجع مسح األراضي
                </span>
                <div class="line-edits-container" id="cn13">
-                 <input class="select-ee bneder" type="text"  id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="select-ee bneder" type="number"  id="reference_cadastrale" name="reference_cadastrale" value="">
                </div>
  </div>
  <br>
 
 <div class="input-group input-group-sm">
-<div class="qst-num zxcount"></div>
-
    <span class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل يملك عقد
    امتياز؟
    <br>
@@ -1494,12 +1554,8 @@ font-weight: bold;
 
 <br>
 
-<div class="card" style="font-size: 12px;">
-<div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div>
 
-<div class="row">
-   <div class="col">
-   <div class="input-group input-group-sm">
+        <div class="input-group input-group-sm">
                <span class="input-group-text" id="basic-addon3">
                إذا كانت م.ف.ج 
              <br>  Si EAC
@@ -1508,31 +1564,24 @@ font-weight: bold;
                Nombre des exploitants
 
                </span>
-               
-               <input style="width:100px;" class="form-control bneder" type="text"  id="si_exploi_eac" name="si_exploi_eac"  value="">
-              
+               <div class="line-edits-container" id="cn13">
+               <input class="select-ee bneder" type="number"  id="si_exploi_eac" name="si_exploi_eac"  value="">
+               </div>
             </div>
 
-   </div>
-   <div class="col-7">
-   <div class="input-group input-group-sm">
+            <br>
+
+            <div class="input-group input-group-sm">
                <span class="input-group-text" id="basic-addon3">
              المساحة
 
                <br>
                Superficie
                </span>
-              
-               <input style="width:150px;" class="form-control bneder" type="text" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-               <input style="width:100px;" class="form-control bneder" type="text"  id="exploi_superficie_are" name="exploi_superficie_are" value="">
-               
-            </div>
-   </div>
-</div>
-        
-            <br>
-
-           
+               <div class="line-edits-container" id="cn13">
+               <input class="select-ee bneder" type="number" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
+               <input class="select-ee bneder" type="number"  id="exploi_superficie_are" name="exploi_superficie_are" value="">
+               </div>
             </div>
            
 
@@ -1561,7 +1610,6 @@ font-weight: bold;
 
 
 
-         
             <div style="border-top: 3px solid red;"></div>
             <h5>IV-Superficie de l'exploitation مساحة المستثمرة</h5>
             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
@@ -2171,7 +2219,7 @@ font-weight: bold;
 
                            <div class="col-4" style="margin-right: 20px;">
                               <div class="input-group input-group-sm">
-                                 <select  class="form-select " id="code_culture" name="code_culture">
+                                 <select  class="form-select code_culture_s" id="code_culture" name="code_culture">
                                     <option selected=""> - </option>
                                     <option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option>
                                     <option value="1">1 - Blé dur - قمح صلب</option>
@@ -2268,14 +2316,14 @@ font-weight: bold;
                                        
                                     
                                  
-                                       <input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">
+                                       <input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">
                                  
                                  </div>
                                  <div class="col">
                                  
                                     
                                        
-                                       <input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="" >
+                                       <input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="" >
 
                                  
                                  </div>
@@ -2283,7 +2331,7 @@ font-weight: bold;
                                  
                                  
                                        
-                                       <input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="">
+                                       <input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="">
 
                                     
                                  </div>
@@ -5178,7 +5226,7 @@ font-weight: bold;
     <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
-<script src="./assets/js/questionnaire.js"></script>
+      <script src="./assets/js/update.js"></script>
 
              
              
@@ -5428,7 +5476,7 @@ font-weight: bold;
       $(document).ready(function () {
     // Fetch questionnaire data by ID on page load
     var urlParams = new URLSearchParams(window.location.search);
-    var id = CryptoJS.AES.decrypt(atob(urlParams.get('id')), 'your_secret_key').toString(CryptoJS.enc.Utf8);
+    var id = urlParams.get('id');
    //  var id = urlParams.get('id');
     if (id) {
         fetchQuestionnaireById(id);
@@ -5531,29 +5579,25 @@ font-weight: bold;
 
 
     /**********************************************************************/
-
     $.ajax({
-      url:'assets/php/list_status_juridique.php',
-      method:'post',
-      async:false,
-      data:{id:id},
-      success:function(response){
-         console.log(response)
+    url: 'assets/php/list_status_juridique.php',
+    method: 'post',
+    async: false,
+    data: { id: id },
+    success: function (response) {
+        console.log(response);
 
-var data = JSON.parse(response)
-var status_juridique_inputs="";
+        var data = JSON.parse(response);
+        var status_juridique_inputs = "";
 
-for(var i=0; i<data.length; i++){
-    console.log(data[i].status_juridique);
-    status_juridique_inputs+='<div style="margin-bottom: 5px;" class="row"><div class="col"><div class="input-group input-group-sm"><select class="form-select" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" '+(data[i].status_juridique === "1" ? 'selected' : '')+'>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" '+(data[i].status_juridique === "2" ? 'selected' : '')+'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" '+(data[i].status_juridique === "3" ? 'selected' : '')+'>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" '+(data[i].status_juridique === "4" ? 'selected' : '')+'>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" '+(data[i].status_juridique === "5" ? 'selected' : '')+'>5 - Domaine public ملكية عامة للدولة</option><option value="6" '+(data[i].status_juridique === "6" ? 'selected' : '')+'>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" '+(data[i].status_juridique === "7" ? 'selected' : '')+'>7 - Wakf privé وقف خاص</option><option value="8" '+(data[i].status_juridique === "8" ? 'selected' : '')+'>8 - Wakf public وقف عام</option><option value="9" '+(data[i].status_juridique === "9" ? 'selected' : '')+'>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres"><option value="-">-</option><option value="1" '+(data[i].origine_terre === "1" ? 'selected' : '')+'>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" '+(data[i].origine_terre === "2" ? 'selected' : '')+'>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" '+(data[i].origine_terre === "3" ? 'selected' : '')+'>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" '+(data[i].origine_terre === "4" ? 'selected' : '')+'>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" '+(data[i].origine_terre === "5" ? 'selected' : '')+'>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" '+(data[i].origine_terre === "6" ? 'selected' : '')+'>6- Concession CIM 108, CIM 1839</option><option value="7" '+(data[i].origine_terre === "7" ? 'selected' : '')+'>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" '+(data[i].origine_terre === "8" ? 'selected' : '')+'>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" '+(data[i].origine_terre === "9" ? 'selected' : '')+'>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" '+(data[i].origine_terre === "10" ? 'selected' : '')+'>10 - Ferme pilote مزرعة نموذجية</option><option value="11" '+(data[i].origine_terre === "11" ? 'selected' : '')+'>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" '+(data[i].origine_terre === "12" ? 'selected' : '')+'>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" '+(data[i].origine_terre === "13" ? 'selected' : '')+'>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="'+data[i].superfecie_sj+'" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="'+data[i].superfecie_sj_are+'"></div></div></div>';
-}
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i].status_juridique);
+            status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" ' + (data[i].status_juridique === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" ' + (data[i].status_juridique === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" ' + (data[i].status_juridique === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" ' + (data[i].status_juridique === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" ' + (data[i].status_juridique === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6" ' + (data[i].status_juridique === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" ' + (data[i].status_juridique === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8" ' + (data[i].status_juridique === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9" ' + (data[i].status_juridique === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres"><option value="-">-</option><option value="1" ' + (data[i].origine_terre === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" ' + (data[i].origine_terre === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" ' + (data[i].origine_terre === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" ' + (data[i].origine_terre === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" ' + (data[i].origine_terre === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" ' + (data[i].origine_terre === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7" ' + (data[i].origine_terre === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" ' + (data[i].origine_terre === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" ' + (data[i].origine_terre === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" ' + (data[i].origine_terre === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11" ' + (data[i].origine_terre === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" ' + (data[i].origine_terre === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" ' + (data[i].origine_terre === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="' + data[i].superfecie_sj + '" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="' + data[i].superfecie_sj_are + '"></div></div></div>';
+        }
 
-
-$('#formContainer').append(status_juridique_inputs)
-      }
-    })
-
-
+        $('#formContainer').append(status_juridique_inputs);
+    }
+});
 
 
 
