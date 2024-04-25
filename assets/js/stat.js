@@ -86,8 +86,8 @@ var total_questionnaire=0;
                             })
 
                         /******************************************** */
-                        nb_qst_a_recense+= data[i].qst_a_recense
-                        nb_qst_recense+= data[i].qst_recense
+                        nb_qst_a_recense+= parseFloat(data[i].qst_a_recense)
+                        nb_qst_recense+= parseFloat(data[i].qst_recense)
                       var  taux_avancememnt_1 = (parseFloat(data[i].qst_recense)*100)/parseFloat(data[i].qst_a_recense)
                   
 if(data[i].qst_a_recense==0){

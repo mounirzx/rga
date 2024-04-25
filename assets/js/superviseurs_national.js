@@ -16,7 +16,7 @@ $(document).ready(function(){
                     count_user = data.length
                    
                     for(i=0;i<data.length;i++){
-                        list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya+"</td><td>"+data[i].nom_superviseur_national+"  "+data[i].prenom_superviseur_national+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
+                        list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya+"</td><td>"+data[i].nom_superviseur_national+"  "+data[i].prenom_superviseur_national+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_national_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
                     }
                     $('#list_superviseurs_national').append(list_superviseurs)
                     $('#tableSuperviseur').DataTable();
@@ -29,19 +29,20 @@ $(document).ready(function(){
     /**********************************************************************************************/
     var wilaya_code;
         function getRecenseurData(){
-            var id_user=$('#id_superviseur').val()
-           
+            var id_user=$('#id_controleur').val()
+           console.log(id_user)
             $.ajax({
-                url:'assets/php/get_superviseur_data.php',
+                url:'assets/php/get_superviseur_national_data.php',
                 method:'post',
                 async:false,
                 data:{id_user:id_user},
                 success:function(response){
+                    console.log(response)
                     getWilayaList()
                   
                     var data = JSON.parse(response)
-                    $('#first_name').val(data[0].nom_superviseur)
-                    $('#last_name').val(data[0].prenom_superviseur)
+                    $('#first_name').val(data[0].nom_superviseur_national)
+                    $('#last_name').val(data[0].prenom_superviseur_national)
                     $('#email').val(data[0].email)
                     $('#wilaya').val(data[0].wilaya)
                    // $('#commune').val(data[0].commune)
@@ -92,7 +93,7 @@ $(document).ready(function(){
     var email = $('#email').val()
     var phone = $('#phone').val()
     var password = $('#password').val()
-    var id_superviseur = $('#id_superviseur').val()
+    var id_superviseur = $('#id_controleur').val()
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
         $('#email_error').html('email format invalid')
@@ -104,7 +105,7 @@ $(document).ready(function(){
         $('#last_name_error').html('')
     
         $.ajax({
-            url:"assets/php/change_info_superviseur.php",
+            url:"assets/php/change_info_superviseur_national.php",
             method:'post',
             async:false,
             data:{first_name:first_name,last_name:last_name,email:email,phone:phone,id_superviseur:id_superviseur,wilaya:wilaya,password:password},

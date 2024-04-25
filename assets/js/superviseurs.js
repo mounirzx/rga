@@ -23,7 +23,7 @@ $(document).ready(function(){
 /**********************************************************************************************/
 var wilaya_code;
     function getRecenseurData(){
-        var id_user=$('#id_controleur').val()
+        var id_user=$('#id_superviseur').val()
        
         $.ajax({
             url:'assets/php/get_superviseur_data.php',
