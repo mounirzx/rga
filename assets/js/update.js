@@ -36,31 +36,6 @@ $(document).ready(function () {
     });
     console.log(formDataArrayStatut);
 
-    //************************************************* */
-    //************************************************* */
-    //************************************************* */
-    var formDataArrayCodeCulture = [];
-    // Loop over each row
-
-    $(".code_culture_s").each(function () {
-      // Initialize an object to store form data for the current row
-      var formDataCodeCulture = {};
-      // Get the values of the inputs within the current row
-      var code_culture = $(this).find("[name^='code_culture']").val();
-
-      var superficie_hec = $(this).find("[name^='superficie_hec']").val();
-      var superficie_are = $(this).find("[name^='superficie_are']").val();
-      var en_intercalaire = $(this).find("[name^='en_intercalaire']").val();
-      // Add the values to the formDataObj
-
-      formDataCodeCulture["code_culture"] = code_culture;
-      formDataCodeCulture["superficie_hec"] = superficie_hec;
-      formDataCodeCulture["superficie_are"] = superficie_are;
-      formDataCodeCulture["en_intercalaire"] = en_intercalaire;
-      // Push the formDataObj to the formDataArray
-      formDataArrayCodeCulture.push(formDataCodeCulture);
-    });
-
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
     var month_of_passage = $("#month_of_passage").val();
@@ -102,7 +77,6 @@ $(document).ready(function () {
         data: JSON.stringify({
           form: formDataObj,
           formDataArrayStatut: formDataArrayStatut,
-          formDataArrayCodeCulture: formDataArrayCodeCulture,
         }),
         dataType: "json",
         success: function (response) {
