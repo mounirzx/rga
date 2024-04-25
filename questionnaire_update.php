@@ -1361,7 +1361,7 @@ Latitude (Y)
                <div class="card-header">
                   الوضع القانوني للأرض
                   <br>
-                  Statut juridique des terres
+                  Statut juridique des terres 
                </div>
                <div class="card-body">
 

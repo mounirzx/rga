@@ -32,7 +32,7 @@ $(document).ready(function () {
       // Push the formDataObj to the formDataArray
       formDataArrayStatut.push(formDataObjStatus);
     });
-    console.log(formDataArrayStatut);
+
     var formDataArrayCodeCulture = [];
     // Loop over each row
 
