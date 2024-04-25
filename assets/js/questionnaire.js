@@ -248,7 +248,52 @@ $(document).ready(function () {
 
 
 /********************************************************************************/
+// $(document).on('keyup', '.coherence_surface_total-surface', function () {
+//   var sum_superficie_hectare = 0;
 
+//   $(".statut_juridique_s").each(function () {
+//       var superficie_hectare = parseFloat($(this).find("[name^='superficie_hectare']").val());
+//       if (!Number.isNaN(superficie_hectare)) {
+//           sum_superficie_hectare += superficie_hectare;
+//       }
+//   });
+
+//   var cultures_herbacees_1 = $('[name="cultures_herbacees_1"]').val(),
+//       terres_au_repos_jacheres_1 = $('[name="terres_au_repos_jacheres_1"]').val(),
+//       plantations_arboriculture_1 = $('[name="plantations_arboriculture_1"]').val(),
+//       prairies_naturelles_1 = $('[name="prairies_naturelles_1"]').val(),
+//       pacages_et_parcours_1 = $('[name="pacages_et_parcours_1"]').val(),
+//       surfaces_improductives_1 = $('[name="surfaces_improductives_1"]').val(),
+//       terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val();
+
+//   // Check if all inputs are defined and not empty
+//   if (cultures_herbacees_1 && terres_au_repos_jacheres_1 && plantations_arboriculture_1 &&
+//       prairies_naturelles_1 && pacages_et_parcours_1 && surfaces_improductives_1 &&
+//       terres_forestieres_bois_forets_maquis_vides_labourables_1) {
+      
+
+
+//        var sup_total =  $('#surface_totale_st_1').val()
+//       // var sup_total = (
+//       //     parseFloat(cultures_herbacees_1) || 0 +
+//       //     parseFloat(terres_au_repos_jacheres_1) || 0 +
+//       //     parseFloat(plantations_arboriculture_1) || 0 +
+//       //     parseFloat(prairies_naturelles_1) || 0 +
+//       //     parseFloat(pacages_et_parcours_1) || 0 +
+//       //     parseFloat(surfaces_improductives_1) || 0 +
+//       //     parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1) || 0
+//       // );
+//       console.log(sum_superficie_hectare)
+//       console.log(sup_total)
+//       if (sum_superficie_hectare > sup_total) {
+//           $('.coherence_surface_total-surface').css('border', '3px solid red');
+//       } else {
+//           $('.coherence_surface_total-surface').css('border', '');
+//       }
+//   } else {
+//       $('.coherence_surface_total-surface').css('border', '');
+//   }
+// });
 
 
 
@@ -265,39 +310,83 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
               sum_superficie_hectare += superficie_hectare;
             }
         });
-
          /***********************************************/
-
          var cultures_herbacees_1 = $('[name="cultures_herbacees_1"]').val();
          var terres_au_repos_jacheres_1 = $('[name="terres_au_repos_jacheres_1"]').val();
          var plantations_arboriculture_1 = $('[name="plantations_arboriculture_1"]').val();
          var prairies_naturelles_1 = $('[name="prairies_naturelles_1"]').val();
          var pacages_et_parcours_1 = $('[name="pacages_et_parcours_1"]').val();
          var surfaces_improductives_1 = $('[name="surfaces_improductives_1"]').val();
-         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('.terres_forestieres_bois_forets_maquis_vides_labourables_1').val();
-         
-         var sup_total     = 0 
-console.log(cultures_herbacees_1+' '+terres_au_repos_jacheres_1+' '+plantations_arboriculture_1+' '+prairies_naturelles_1+' '+pacages_et_parcours_1+' '+surfaces_improductives_1+' '+terres_forestieres_bois_forets_maquis_vides_labourables_1)
-sup_total = (
-  (cultures_herbacees_1 ? parseFloat(cultures_herbacees_1) : 0) +
-  (terres_au_repos_jacheres_1 ? parseFloat(terres_au_repos_jacheres_1) : 0) +
-  (plantations_arboriculture_1 ? parseFloat(plantations_arboriculture_1) : 0) +
-  (prairies_naturelles_1 ? parseFloat(prairies_naturelles_1) : 0) +
-  (pacages_et_parcours_1 ? parseFloat(pacages_et_parcours_1) : 0) +
-  (surfaces_improductives_1 ? parseFloat(surfaces_improductives_1) : 0) +
-  (terres_forestieres_bois_forets_maquis_vides_labourables_1 ? parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1) : 0)
-);
-
-
-
-
-console.log(sum_superficie_hectare)
-  console.log(sup_total)
-  if(sum_superficie_hectare>=sup_total){
+         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val();
+/********************************************** */   
+         var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+  if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
     console.log('ok')
-    $('.coherence_surface_total-surface').css('border','3px solid red')
+    $('.surface_total_error').css('border','3px solid red')
+   }else{
+    $('.surface_total_error').css('border','')
    }
+
+  }
     })
+    /****************************************************************************************************************** */
+    var elements = document.getElementsByClassName("surface");
+    for (var i = 0; i < elements.length; i++) {
+      console.log(i)
+        elements[i].addEventListener("input", function () {
+          var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+          var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+          var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+          var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+          var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+          document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+   
+          var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+          var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+          var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+          var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+          var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+          document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
+   
+   
+          var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+          var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+          var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+          var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+          var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+          document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
+   
+          var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+          var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+          var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+          var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+          var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+          document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+   
+   
+          var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+          var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+          var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+          document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+   
+          var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+          var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+          var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+          document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   
+          var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+          var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+          document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+          
+   
+          var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+          var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+          document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   
+        });
+    }
 
 
 });
