@@ -16,19 +16,16 @@ if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['pas
         $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         // Base SQL query to select user and commune details
-        $sql = 'SELECT * FROM `users` ';
+        $sql = 'select * from users ';
 
-        if(substr($username, 0, 1) === 'S'){
+        if(substr($username, 0, 1) === 'S'  && is_numeric(substr($username, 1, 1))){
          
             $sql.= ' left join  superviseur on users.id_user  = superviseur.id_user  left join communes on superviseur.wilaya =  communes.wilaya_code ';
          }
          if(substr($username, 0, 1) === 'C'){
              $sql.= ' left join  controleur on users.id_user  = controleur.id_user left join communes on controleur.wilaya =  communes.wilaya_code ';
           }
-  elseif (substr($username, 0, 1) === 'R') {
-            $sql .= 'LEFT JOIN recenseur ON users.id_user = recenseur.id_user ';
-            $sql .= 'LEFT JOIN communes ON recenseur.commune = communes.commune_code ';
-        }
+
 
         $sql .= 'WHERE users.username = ? AND users.password = ?';
         $req = $bdd->prepare($sql);
@@ -43,13 +40,11 @@ if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['pas
             $_SESSION['role'] = $result['role'];
             $_SESSION['username'] = $result['username'];
          
-            if(substr($username, 0, 1) === 'R') { // Assuming 'R' stands for recenseur
-                $_SESSION['commune_code'] = $result['commune_code'];
-                
-            }
-            if(substr($username, 0, 1) === 'S'){
+ 
+            if(substr($username, 0, 1) === 'S'  && is_numeric(substr($username, 1, 1))){
                 $_SESSION['wilaya']=$result['wilaya'];
                 $_SESSION['wilaya_name']=$result['wilaya_name_ascii'];
+           
                 }
              
                 if(substr($username, 0, 1) === 'C'){

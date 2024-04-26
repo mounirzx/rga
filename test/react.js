@@ -52,14 +52,19 @@ fs.writeFile(filePath, content, (err) => {
 
 //  for 24pouce monitors 
 
-  await page.setViewport({
-    width: 1900,
-    height: 920,
-    deviceScaleFactor: 1,
-  });
+  // await page.setViewport({
+  //   width: 1900,
+  //   height: 920,
+  //   deviceScaleFactor: 1,
+  // });
 
 
-
+// for > 20 pouce monitors 
+ await page.setViewport({
+  width: 1400,
+  height: 640,
+  deviceScaleFactor: 1,
+});
 
  // for 20 pouce monitors 
 //  await page.setViewport({
@@ -169,7 +174,7 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
-  await page.type('input[name="nin_exploitant"]',"125412874532587415", { delay: delay });
+  await page.type('input[name="nin_exploitant"]',"1254532587415", { delay: delay });
   await page.type('input[name="nis_exploitant"]',"12548547569855474", { delay: delay });
   await page.type('input[name="num_carte_fellah_exploitant"]',"2245639", { delay: delay });
 
@@ -185,7 +190,7 @@ fs.writeFile(filePath, content, (err) => {
   await waitFor(delay);
   await page.select('select[name="issu_famille_agricole"]', "1");
 
-  // await page.type('input[name="nature_exploitant"]', "Nature de l'exploitant", { delay: delay });
+  await page.type('input[name="nature_exploitant"]', "Nature de l'exploitant", { delay: delay });
   
   await page.waitForSelector('select[name="exploitant"]');
   await page.click('select[name="exploitant"]');
@@ -215,19 +220,16 @@ fs.writeFile(filePath, content, (err) => {
   await waitFor(delay);
   await page.select('select[name="type_activite_exploitation"]', "1");
 
-
-
-  await page.click("#vegetale"); // Check the first checkbox
-  await waitFor(delay); 
-  await page.click("#elevage");
-  await waitFor(delay);
-  await page.click("#mixed");
- 
-
-  
-  
   await page.type('input[name="lon_exploitation"]',"25.2154", { delay: delay });
   await page.type('input[name="lat_exploitation"]',"12.54621", { delay: delay });
+  
+  
+  await page.waitForSelector('#activite_exploitation');
+  await page.click('#activite_exploitation');
+  await waitFor(delay);
+  await page.select('#activite_exploitation', "1");
+  
+  
   await waitFor(delay);
   await page.click("#route_national");
   await waitFor(delay);
@@ -241,7 +243,7 @@ fs.writeFile(filePath, content, (err) => {
   await waitFor(delay);
   await page.click("#acces_rural");
  
-
+ 
 
   await page.waitForSelector('select[name="reseau_electrique"]');
   await page.click('select[name="reseau_electrique"]');
@@ -263,36 +265,6 @@ fs.writeFile(filePath, content, (err) => {
   await waitFor(delay);
   await page.select('select[name="reseau_internet"]', "1");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   await page.waitForSelector('select[name="reseau_internet_si_oui"]');
   await page.click('select[name="reseau_internet_si_oui"]');
   await waitFor(delay);
@@ -300,25 +272,23 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
+//######################## Statut juridique des terres ########################
 
-  //######################## Statut juridique des terres ########################
 
+await page.click("#addForm");
 
- await page.click("#addForm");
+await page.waitForSelector('select[name="origine_des_terres_2"]');
+await page.click('select[name="origine_des_terres_2"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_2"]', "1");
 
- await page.waitForSelector('select[name="origine_des_terres_2"]');
- await page.click('select[name="origine_des_terres_2"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_2"]', "1");
+await page.waitForSelector('select[name="mode_dexploitation_des_terres_2"]');
+await page.click('select[name="mode_dexploitation_des_terres_2"]');
+await waitFor(delay);
+await page.select('select[name="mode_dexploitation_des_terres_2"]', '1');
 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_2"]');
- await page.click('select[name="mode_dexploitation_des_terres_2"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_2"]', '1');
-
- await page.type('input[name="superficie_hectare_2"]',"100", { delay: delay });
- await page.type('input[name="superficie_are_2"]',"10", { delay: delay });
-
+await page.type('input[name="superficie_hectare_2"]',"100", { delay: delay });
+await page.type('input[name="superficie_are_2"]',"10", { delay: delay });
 
 
 
@@ -327,50 +297,128 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
- await page.click("#addForm");
+
+await page.click("#addForm");
 
 
- await page.waitForSelector('select[name="origine_des_terres_3"]');
- await page.click('select[name="origine_des_terres_3"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_3"]', "2");
- 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_3"]');
- await page.click('select[name="mode_dexploitation_des_terres_3"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_3"]', '2');
- 
- 
- await page.type('input[name="superficie_hectare_3"]',"200", { delay: delay });
- await page.type('input[name="superficie_are_3"]',"20", { delay: delay });
+await page.waitForSelector('select[name="origine_des_terres_3"]');
+await page.click('select[name="origine_des_terres_3"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_3"]', "2");
+
+await page.waitForSelector('select[name="mode_dexploitation_des_terres_3"]');
+await page.click('select[name="mode_dexploitation_des_terres_3"]');
+await waitFor(delay);
+await page.select('select[name="mode_dexploitation_des_terres_3"]', '2');
 
 
-
-
-
-
- await page.click("#addForm");
+await page.type('input[name="superficie_hectare_3"]',"200", { delay: delay });
+await page.type('input[name="superficie_are_3"]',"20", { delay: delay });
 
 
 
- await page.waitForSelector('select[name="origine_des_terres_4"]');
- await page.click('select[name="origine_des_terres_4"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_4"]', "3");
 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_4"]');
- await page.click('select[name="mode_dexploitation_des_terres_4"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_4"]', '3');
 
- await page.type('input[name="superficie_hectare_4"]',"300", { delay: delay });
- await page.type('input[name="superficie_are_4"]',"30", { delay: delay });
+
+await page.click("#addForm");
+
+
+
+await page.waitForSelector('select[name="origine_des_terres_4"]');
+await page.click('select[name="origine_des_terres_4"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_4"]', "3");
+
+await page.waitForSelector('select[name="mode_dexploitation_des_terres_4"]');
+await page.click('select[name="mode_dexploitation_des_terres_4"]');
+await waitFor(delay);
+await page.select('select[name="mode_dexploitation_des_terres_4"]', '3');
+
+await page.type('input[name="superficie_hectare_4"]',"300", { delay: delay });
+await page.type('input[name="superficie_are_4"]',"30", { delay: delay });
 
 
 
 //######################## end Statut juridique des terres /########################
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+  // await page.waitForSelector('#');
+  // await page.click('#');
+  // await waitFor(delay);
+  // await page.select('#', "1");
+  //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+  
 
 
 
@@ -449,8 +497,10 @@ await waitFor(delay);
 await page.select('#exploit_indus_sur_exploitation', "1");
 
 // num
-await page.type('#exploit_indus_sur_exploitation_oui',"7000", { delay: delay });
-
+await page.type('#exp_indu_si_oui_nombre_menage',"7000", { delay: delay });
+//here 2 inputs
+await page.type('#surface_bati_occupe',"8000", { delay: delay });
+await page.type('#surface_non_bati_occupe',"9000", { delay: delay });
 
 
 
@@ -650,6 +700,12 @@ await page.type('#chapt_autre_aviculture_chair',"1", { delay: delay });
 
 
 
+await page.waitForSelector('#chapt_Pratiquez_transhumance');
+await page.click('#chapt_Pratiquez_transhumance');
+await waitFor(delay);
+await page.select('#chapt_Pratiquez_transhumance', "1");
+
+
 
 // VII- Batiments d'exploitation مباني الإستغلال
 
@@ -716,41 +772,137 @@ await page.type('#chapt_autre_aviculture_chair',"1", { delay: delay });
 
 // VIII- Matériel agricole العتاد الفلاحي
 
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_1');
- await page.click('#inputGroupSelect01_1');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_1', "1");
-
- await page.type('#in114_1',"10", { delay: delay });
-
-
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_2');
- await page.click('#inputGroupSelect01_2');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_2', "2");
-
- await page.type('#in114_2',"20", { delay: delay });
-
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_3');
- await page.click('#inputGroupSelect01_3');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_3', "3");
-
- await page.type('#in114_3',"30", { delay: delay });
+await page.waitForSelector('select[name="ee_mode_exploitation_materiel"]');
+await page.click('select[name="ee_mode_exploitation_materiel"]');
+await waitFor(delay);
+await page.select('select[name="ee_mode_exploitation_materiel"]', "1");
 
 
 
+await page.click('#addForm3');
 
- await page.type('#in114_3',"30", { delay: delay });
+  await page.waitForSelector('select[name="code_materiel_1"]');
+  await page.click('select[name="code_materiel_1"]');
+  await waitFor(delay);
+  await page.select('select[name="code_materiel_1"]', "1");
+  
+  //input
+  await page.type('#code_materiel_nombre_1',"45", { delay: delay });
+
+
+  
+  
+  await page.click('#addForm3');
+  
+
+
+  await page.waitForSelector('#code_materiel_2');
+  await page.click('#code_materiel_2');
+  await waitFor(delay);
+  await page.select('#code_materiel_2', "2");
+
+
+  await page.type('#code_materiel_nombre_2',"35", { delay: delay });
+  
+  await page.click('#addForm3');
+  
+
+
+  await page.waitForSelector('#code_materiel_3');
+  await page.click('#code_materiel_3');
+  await waitFor(delay);
+  await page.select('#code_materiel_3', "2");
+
+
+  await page.type('#code_materiel_nombre_3',"35", { delay: delay });
+
+
+
+
+
+
+  await page.waitForSelector('#eau_exploitation_type_irrigation');
+  await page.click('#eau_exploitation_type_irrigation');
+  await waitFor(delay);
+  await page.select('#eau_exploitation_type_irrigation', "1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+//   jour_de_naissance
+
+// mois_de_naissance
+//   annee_de_naissance
+  
+
+
+
+
+
 
 
 
@@ -914,6 +1066,11 @@ await waitFor(delay);
 await page.click('input[name="fa_cultures"]');
 await waitFor(delay);
 
+
+
+
+
+
 await page.click('input[name="fa_ettahadi"]');
 await waitFor(delay);
 await page.click('input[name="fa_classique"]');
@@ -926,16 +1083,10 @@ await waitFor(delay);
 
 
 
-// await page.waitForSelector('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-// await page.click('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-// await waitFor(delay);
-// await page.select('input[name="fa_avez_vous_contracte_une_assurance_agricole"]', "2");
-
-
-// await page.waitForSelector('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-//  await page.click('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-//  await waitFor(delay);
-//  await page.select('input[name="fa_avez_vous_contracte_une_assurance_agricole"]', "1");
+await page.waitForSelector('#fa_avez_vous_contracte_une_assurance_agricole');
+ await page.click('#fa_avez_vous_contracte_une_assurance_agricole');
+ await waitFor(delay);
+ await page.select('#fa_avez_vous_contracte_une_assurance_agricole', "1");
 
 //  await page.waitForSelector('#fa_si_oui_quelle_compagnie');
 //  await page.click('#fa_si_oui_quelle_compagnie');
@@ -948,6 +1099,15 @@ await page.click('input[name="fa_batiments"]');
 await waitFor(delay);
 await page.click('input[name="fa_cheptel"]');
 await waitFor(delay);
+
+await page.waitForSelector('#ee_fournisseurs_de_services_situes_dans_la_commune');
+ await page.click('#ee_fournisseurs_de_services_situes_dans_la_commune');
+ await waitFor(delay);
+ await page.select('#ee_fournisseurs_de_services_situes_dans_la_commune', "1");
+
+
+
+
 await page.click('input[name="fa_personnel"]');
 await waitFor(delay);
 
@@ -955,7 +1115,7 @@ await page.click('input[name="fa_materiels"]');
 await waitFor(delay);
 
 
-// XIV - Environnement de l'exploitation محيط المستثمرة
+// XIV - Environnement de l'exploitation محيط المستثمرةS
 
 
 // await page.waitForSelector('input[name="ee_fournisseurs_de_services_situes_dans_la_commune"]');

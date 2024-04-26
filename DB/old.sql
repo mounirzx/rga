@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 02:53 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 25 avr. 2024 à 19:10
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rga`
+-- Base de données : `rga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes`
+-- Structure de la table `communes`
 --
 
 CREATE TABLE `communes` (
@@ -42,7 +42,7 @@ CREATE TABLE `communes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `communes`
+-- Déchargement des données de la table `communes`
 --
 
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
@@ -1594,7 +1594,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes2`
+-- Structure de la table `communes2`
 --
 
 CREATE TABLE `communes2` (
@@ -1606,7 +1606,7 @@ CREATE TABLE `communes2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `communes2`
+-- Déchargement des données de la table `communes2`
 --
 
 INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_code`, `wilaya_name`) VALUES
@@ -3157,7 +3157,7 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `controleur`
+-- Structure de la table `controleur`
 --
 
 CREATE TABLE `controleur` (
@@ -3176,7 +3176,7 @@ CREATE TABLE `controleur` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materiel_agricole`
+-- Structure de la table `materiel_agricole`
 --
 
 CREATE TABLE `materiel_agricole` (
@@ -3186,10 +3186,17 @@ CREATE TABLE `materiel_agricole` (
   `code_materiel_nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `materiel_agricole`
+--
+
+INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`) VALUES
+(7, 47, '3', '11');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questionnaire`
+-- Structure de la table `questionnaire`
 --
 
 CREATE TABLE `questionnaire` (
@@ -3225,7 +3232,9 @@ CREATE TABLE `questionnaire` (
   `nom_exploitation` text DEFAULT NULL,
   `adress_exploitation` text DEFAULT NULL,
   `statut_juridique_de_lexploitation` text DEFAULT NULL,
-  `activite_exploitation` text DEFAULT NULL,
+  `vegetale` text DEFAULT NULL,
+  `elevage` text DEFAULT NULL,
+  `mixed` text DEFAULT NULL,
   `type_activite_exploitation` text DEFAULT NULL,
   `lat_exploitation` text DEFAULT NULL,
   `lon_exploitation` text DEFAULT NULL,
@@ -3249,9 +3258,7 @@ CREATE TABLE `questionnaire` (
   `exploit_est_un_bloc` text DEFAULT NULL,
   `exploit_est_un_bloc_oui` text DEFAULT NULL,
   `exploit_indus_sur_exploitation` text DEFAULT NULL,
-  `exp_indu_si_oui_nombre_menage` text DEFAULT NULL,
-  `surface_bati_occupe` text DEFAULT NULL,
-  `surface_non_bati_occupe` text DEFAULT NULL,
+  `exploit_indus_sur_exploitation_oui` text DEFAULT NULL,
   `eng_reseau_electrique` text DEFAULT NULL,
   `eng_groupe_electrogene` text DEFAULT NULL,
   `eng_energie_solaire` text DEFAULT NULL,
@@ -3428,10 +3435,41 @@ CREATE TABLE `questionnaire` (
   `etat` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `questionnaire`
+--
+
+INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `vegetale`, `elevage`, `mixed`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exploit_indus_sur_exploitation_oui`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_foggara`, `eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_1`, `ma_adultes_plus_15_ans_2`, `ma_enfants_moins_15_ans_11`, `ma_enfants_moins_15_ans_22`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_cultures`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_associations`, `ee_cwifa`, `etat`) VALUES
+(24, 'No C', 'test-test-02-02-null--No Commune Code-test-', '0--0---', 1, 'test11', 'test', '0--0----', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', '5555555555555555', '', '-', '-', '', '', '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '44', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(25, 'No C', 'test-test-05-04-1882-45454545-No Commune Code-test-5.00', '0--0---', 1, 'test', 'test', '05-04-1882-', '-', NULL, NULL, '', '', '', '45454545', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(26, 'No C', 'test-test-04-03-2028-121221-No Commune Code-test-1212.00', '0--0---', 1, 'test', 'test', '04-03-2028-', '-', '-', '-', '', '', '', '121221', '1212', '0', '0', '0', '0', '0', '0', '', '-', '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', '-', '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '-', '-', '-', '-', '-', 'on', 'on', 'on', 'on', 'on', 'on', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(27, 'No C', 'test-test-04-04-1881-122121-No Commune Code-test-', '0--0---', 1, 'test', 'test', '04-04-1881-', '-', NULL, NULL, '', '', '', '122121', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(28, 'No C', 'test2-test-02-02-null-122121-No C-test-5.00', '0--0---', 1, 'test2', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '122121', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(29, 'No C', 'test4-test-02-02-null--No Commune Code-test-', '0--0---', 1, 'test4', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(30, 'No C', 'test45-test-02-02-null--No C-test-5.00', '0--0---', 1, 'test45', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(31, 'No C', 'test-test-02-02-null--No C-test-5.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(32, 'No C', 'test11-test-02-02-null--No Commune Code-test-5.00', '0--0---', 1, 'test11', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(33, 'No C', 'mounir-abes-02-02-1883-12121221-No Commune Code-test-', '0--0---', 1, 'mounir', 'abes', '02-02-1883-', '-', NULL, NULL, '', '', '', '12121221', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(34, 'No C', 'test-test-02-02-null-1111-No Commune Code-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '1111111', '', '1111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(35, 'No C', 'test-test-02-02-null-112121212-No Commune Code-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '1', NULL, NULL, '', '', '', '112121212', '', 'on', 'on', 'on', 'on', 'on', 'on', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(36, 'No C', 'test22-test222-03-03-1883--No Commune Code-test-', '0--0---', 1, 'Abes', 'mounir', '02-03-1880-', '1', NULL, NULL, '', '', '', '', '22222', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(37, 'No C', 'test-test-02-02-null-111111111111111-No Commune Code-test-5.00', '0--0---', 1, 'test', 'test', '0--0----', '-', NULL, NULL, '', '', '', '111111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '', '', '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(38, 'No C', 'test-test-02-02-null-111111111111111-No C-test-5.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '111111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(39, 'No C', 'mounir-mounir-03-04-1898-1212454564-No Commune Code-test-1.00', '0--0---', 1, 'mounir', 'mounir', '03-04-1898-', '-', NULL, NULL, '', '', '', '1212454564', '', 'on', 'on', 'on', 'on', 'on', 'on', '', NULL, '', NULL, '-', '', '', 'test', '12213123', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(40, 'No C', 'test-test-02-02-2024-12121212-No Commune Code-test-5.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '12121212', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(41, 'No C', 'test-test-02-02-null-12212-No Commune Code-test-5.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '12212', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(42, 'No C', 'test-test-02-02-2024-121212121-No Commune Code-test-5.00', '0--0---', 1, 'test', 'test', '02-02-2024-', '-', '-', '-', '', '', '', '121212121', '', '0', '0', '0', '0', '0', '0', '', '-', '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', '-', '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '-', '-', '-', '-', '-', 'on', 'on', 'on', 'on', 'on', 'on', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(43, 'No C', 'test-test-02-02-2024-121212121-No C-test-0.00', '0--0---', 1, 'test', 'test', '02-02-2024-', '-', '-', '-', '', '', '', '121212121', '', '0', '0', '0', '0', '0', '0', '', '-', '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', '-', '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '-', '-', '-', '-', '-', 'on', 'on', 'on', 'on', 'on', 'on', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(44, 'No C', 'test-test-02-02-2024-1111112121221-No Commune Code-test-0.00', '0--0---', 1, 'test', 'test', '0--0----', '-', '-', '-', '', '', '', '1111112121221', '', '0', '0', '0', '0', '0', '0', '', '-', '', NULL, '-', '', '', 'test', '', '-', '-', '', '', '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', '-', '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '-', '-', '-', '-', '-', 'on', 'on', 'on', 'on', 'on', 'on', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(45, 'No C', 'test-test-02-02-2024-1111112121221-No C-test-0.00', '0--0---', 1, 'test', 'test', '02-02-2024-', '-', '-', '-', '', '', '', '1111112121221', '', '0', '0', '0', '0', '0', '0', '', '-', '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', '-', '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '-', '-', '-', '-', '-', 'on', 'on', 'on', 'on', 'on', 'on', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(46, 'No C', 'testouin-test-02-02-null-111111-No Commune Code-test-0.00', '0--0---', 1, 'testouin', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(47, 'No C', 'test-test-02-02-null-244242424242424-No Commune Code-test-25.00', '0--0---', 1, 'test', 'test', '0--0----', '-', NULL, NULL, '', '', '', '2442424242424244', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '', '', '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL),
+(48, 'No C', 'test-test-15-07-1897--No Commune Code-test-7.00', '0--0---', 1, 'test', 'test', '15-07-1897-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', NULL, NULL, '-', '', '', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', NULL, '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recenseur`
+-- Structure de la table `recenseur`
 --
 
 CREATE TABLE `recenseur` (
@@ -3451,7 +3489,7 @@ CREATE TABLE `recenseur` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_juridique`
+-- Structure de la table `status_juridique`
 --
 
 CREATE TABLE `status_juridique` (
@@ -3463,10 +3501,25 @@ CREATE TABLE `status_juridique` (
   `superfecie_sj_are` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `status_juridique`
+--
+
+INSERT INTO `status_juridique` (`id_status_juridique`, `id_questionnaire`, `status_juridique`, `origine_terre`, `superfecie_sj`, `superfecie_sj_are`) VALUES
+(16, 37, '11', '9', '7', '10'),
+(17, 37, '12', '8', '8', '11'),
+(18, 37, '13', '7', '9', '12'),
+(19, 42, '3', '1', '5', '7'),
+(20, 42, '4', '2', '6', '8'),
+(23, 44, '4', '3', '2', '12'),
+(30, 47, '2', '2', '1', '1'),
+(31, 47, '1', '3', '2', '2'),
+(32, 48, '2', '2', '10', '1');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superficie_exploitation`
+-- Structure de la table `superficie_exploitation`
 --
 
 CREATE TABLE `superficie_exploitation` (
@@ -3504,10 +3557,41 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `superficie_exploitation`
+--
+
+INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
+(14, 24, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(15, 25, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(16, 26, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 1212.00, 0.00),
+(17, 27, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(18, 28, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(19, 29, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(20, 30, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(21, 31, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(22, 32, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(23, 33, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(24, 34, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(25, 35, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(26, 36, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(27, 37, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(28, 38, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(29, 39, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00),
+(30, 40, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(31, 41, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(32, 42, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 5.00, 0.00, 0.00, 0.00, 5.00, 0.00),
+(33, 43, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(34, 44, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 1.00, 0.00, 1.00, 0.00, 6.00, 0.00, 11.00, 0.00, 17.00),
+(35, 45, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
+(36, 46, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 1.00, 0.00, 1.00, 0.00, 6.00, 0.00, 10.00, 0.00, 16.00),
+(37, 47, 10.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 13.00, 0.00, 0.00, 0.00, 1.00, 0.00, 1.00, 0.00, 15.00, 0.00, 10.00, 0.00, 25.00, 0.00),
+(38, 48, 1.00, 1.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 4.00, 1.00, 0.00, 0.00, 1.00, 0.00, 1.00, 0.00, 6.00, 1.00, 1.00, 0.00, 7.00, 1.00);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur`
+-- Structure de la table `superviseur`
 --
 
 CREATE TABLE `superviseur` (
@@ -3521,10 +3605,22 @@ CREATE TABLE `superviseur` (
   `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `superviseur`
+--
+
+INSERT INTO `superviseur` (`id_superviseur`, `id_user`, `nom_superviseur`, `prenom_superviseur`, `phone`, `wilaya`, `email`, `creation_date`) VALUES
+(42, 66, '11', '11', '212', '01', 'mounir2013b@gmail.com', '2024-04-25 12:53:47'),
+(43, 67, '11', '11', '212', '01', 'mounir2013b@gmail.com', '2024-04-25 12:53:49'),
+(44, 68, '11', '11', '212', '01', 'mounir2013b@gmail.com', '2024-04-25 12:53:54'),
+(45, 69, 'Mounir', 'Mounir', 'test', '02', 'mounir2013b@gmail.com', '2024-04-25 17:35:25'),
+(46, 70, 'Mounir', 'Mounir', 'test', '02', 'mounir2013b@gmail.com', '2024-04-25 17:35:27'),
+(47, 71, 'Mounir', 'Mounir', 'test', '02', 'mounir2013b@gmail.com', '2024-04-25 17:35:35');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur_national`
+-- Structure de la table `superviseur_national`
 --
 
 CREATE TABLE `superviseur_national` (
@@ -3541,7 +3637,7 @@ CREATE TABLE `superviseur_national` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -3553,16 +3649,22 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-24 12:16:30'),
+(66, 'S01-01', '7b52009b64fd0a2a49e6d8a939753077792b0554', 'superviseur', '2024-04-25 11:53:47'),
+(67, 'S01-01', '7b52009b64fd0a2a49e6d8a939753077792b0554', 'superviseur', '2024-04-25 11:53:49'),
+(68, 'S01-01', '7b52009b64fd0a2a49e6d8a939753077792b0554', 'superviseur', '2024-04-25 11:53:54'),
+(69, 'S02-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'superviseur', '2024-04-25 16:35:25'),
+(70, 'S02-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'superviseur', '2024-04-25 16:35:27'),
+(71, 'S02-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'superviseur', '2024-04-25 16:35:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisation_du_sol`
+-- Structure de la table `utilisation_du_sol`
 --
 
 CREATE TABLE `utilisation_du_sol` (
@@ -3574,10 +3676,18 @@ CREATE TABLE `utilisation_du_sol` (
   `en_intercalaire` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `utilisation_du_sol`
+--
+
+INSERT INTO `utilisation_du_sol` (`id`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES
+(8, 47, '1', '1', '1', '1'),
+(9, 47, '2', '2', '2', '2');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `validation_questionnaire`
+-- Structure de la table `validation_questionnaire`
 --
 
 CREATE TABLE `validation_questionnaire` (
@@ -3587,24 +3697,31 @@ CREATE TABLE `validation_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `communes`
+-- Index pour la table `communes`
 --
 ALTER TABLE `communes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `controleur`
+-- Index pour la table `controleur`
 --
 ALTER TABLE `controleur`
   ADD PRIMARY KEY (`id_controleur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `questionnaire`
+-- Index pour la table `materiel_agricole`
+--
+ALTER TABLE `materiel_agricole`
+  ADD PRIMARY KEY (`id_materiel_agricol`),
+  ADD KEY `id_questionnaire` (`id_questionnaire`);
+
+--
+-- Index pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD PRIMARY KEY (`id_questionnaire`),
@@ -3612,7 +3729,7 @@ ALTER TABLE `questionnaire`
   ADD KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250));
 
 --
--- Indexes for table `recenseur`
+-- Index pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD PRIMARY KEY (`id_recensseur`),
@@ -3620,141 +3737,147 @@ ALTER TABLE `recenseur`
   ADD KEY `controleur` (`controleur`);
 
 --
--- Indexes for table `status_juridique`
+-- Index pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
   ADD PRIMARY KEY (`id_status_juridique`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `superficie_exploitation`
+-- Index pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `superviseur`
+-- Index pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD PRIMARY KEY (`id_superviseur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `superviseur_national`
+-- Index pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD PRIMARY KEY (`id_superviseur_national`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `utilisation_du_sol`
+-- Index pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `validation_questionnaire`
+-- Index pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   ADD PRIMARY KEY (`id_validation`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `controleur`
+-- AUTO_INCREMENT pour la table `controleur`
 --
 ALTER TABLE `controleur`
-  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `questionnaire`
+-- AUTO_INCREMENT pour la table `materiel_agricole`
+--
+ALTER TABLE `materiel_agricole`
+  MODIFY `id_materiel_agricol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT for table `recenseur`
+-- AUTO_INCREMENT pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
-  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `status_juridique`
+-- AUTO_INCREMENT pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT for table `superficie_exploitation`
+-- AUTO_INCREMENT pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `superviseur`
+-- AUTO_INCREMENT pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `superviseur_national`
+-- AUTO_INCREMENT pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `utilisation_du_sol`
+-- AUTO_INCREMENT pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `validation_questionnaire`
+-- AUTO_INCREMENT pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `controleur`
+-- Contraintes pour la table `controleur`
 --
 ALTER TABLE `controleur`
   ADD CONSTRAINT `controleur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `recenseur`
+-- Contraintes pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD CONSTRAINT `recenseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `superviseur`
+-- Contraintes pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD CONSTRAINT `superviseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `superviseur_national`
+-- Contraintes pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD CONSTRAINT `superviseur_national_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
