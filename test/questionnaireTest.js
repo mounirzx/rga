@@ -35,7 +35,7 @@ fs.writeFile(filePath, content, (err) => {
 
 (async () => {
   const browser = await puppeteer.launch({
-    // headless: false, // Launch in headful mode
+    headless: false, // Launch in headful mode
     executablePath:
     
     // "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -81,10 +81,12 @@ fs.writeFile(filePath, content, (err) => {
 
   // await page.goto("http://213.179.181.50/workingrga/" , { delay: delay });
   await page.goto("http://localhost/rga" , { delay: delay });
+  // await page.goto("http://localhost/faroukrga/rga/" , { delay: delay });
+  
 
 
-  await page.type("#username", "admin", { delay: delay });
-  await page.type("#password", "admin", { delay: delay });
+  await page.type("#username", "R01-01", { delay: delay });
+  await page.type("#password", "test", { delay: delay });
   await page.click("#login");
 
   // await page.waitForSelector("#day_of_passage");

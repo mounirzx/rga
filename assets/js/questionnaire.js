@@ -1,4 +1,29 @@
 $(document).ready(function () {
+  $.ajax({
+    url: "assets/php/getData.php",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      if (response.reponse !== "false") {
+        $("#nom_recensseur").val(response.nom_recensseur || "N/A");
+        $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
+        $("#nom_controleur").val(response.nom_controleur || "N/A");
+        $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+
+        $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
+        $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
+        $("#commune_code").val(response.commune || "N/A");
+        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        $("#num_zone_district").val(response.num_zone_district || "N/A");
+      } else {
+        console.error("Error: " + response.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("AJAX Error:", status, error);
+    },
+  });
+
   $("#submitDate").click(function (e) {
     e.preventDefault();
 
