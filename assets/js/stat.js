@@ -108,7 +108,8 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
                     $('#list').empty(list)
                     $('#list').append(list)
                     $('#tableQst').DataTable({
-                       
+                        searching: false,
+                        "dom": '<"top"i>rt<"bottom"flp><"clear">'
                     });
                 }
           
