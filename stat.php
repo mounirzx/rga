@@ -265,7 +265,7 @@ if($_SESSION['role']=="superviseur_national"){
                 ?>
         <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-text" id="basic-addon-username">Date</span>
-                    <input type="date" class="form-control" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" disabled>
+                    <input type="date" class="form-control" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" >
 
                 </div>
                 <br>
