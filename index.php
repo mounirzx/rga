@@ -96,21 +96,21 @@
                 <br />
                 <h8 style="font-size: 14px;">REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
                 <br /> <br />
-                <h5  style="font-weight: bold;font-size: 22px;margin-bottom: -21px;">وزارة الفلاحة و التنمية الريفية</h5>
+                <h5  style="font-weight: bold;font-size: 22px;margin-bottom: -21px;margin-top:-4px">وزارة الفلاحة و التنمية الريفية</h5>
                 <br />
                 <h8 style="font-size: 13px;">MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
                 <br /> <br />
-                <h5  style="font-weight: bold;font-size: 22px;margin-bottom: -21px;">  مديرية الاحصائيات و الرقمنة و الاستشراف </h5>
+                <h5  style="font-size: 20px;margin-bottom: -23px;    margin-top: -7px;">  مديرية الاحصائيات و الرقمنة و الاستشراف </h5>
                 <br />
-                <h8 style="font-size: 13px;">DIRECTION DES STATISTIQUES? DE LA NUMERISATION ET DE LA PROTECTIVE</h8>
+                <h8 style="font-size: 10px;">DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE</h8>
               </div>
 
               <div
                 class="login100-pic js-tilt"
                 data-tilt
-                style="margin-left: 12px; margin-top: 38px"
+                style="margin-left: -27px; margin-top: 13px"
               >
-                <img style="max-width: 350px; min-width: 200px" src="static/logo.svg" alt="IMG" />
+                <img style="max-width: 450px; min-width: 200px" src="static/logo.svg" alt="IMG" />
               </div>
 
               <!-- <div style="text-align: center; width: 420px; margin-top: 30px">
@@ -126,7 +126,7 @@
             </div>
 
             <div class="col" style="margin-top: 80px">
-              <form method="post" class="login100-form validate-form">
+              <form method="post" class="login100-form validate-form" style=" padding-right: -4px;">
                 <input
                   type="hidden"
                   name="csrfmiddlewaretoken"
