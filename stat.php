@@ -86,7 +86,7 @@ if($_SESSION['role']=="superviseur_national"){
                     <div class="card" style="border: gray 1px solid; border-radius: 15px;box-shadow: 0 0 14px #B4B4B4">
                         <a class="etat" data="all" id="all" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;" >
                         <div style="text-align: center;" class="card-header">
-                           Total  exploitations  recensées
+                           Nb exploitations  recensées
                         </div>
                         
                         <div style="text-align: center;" class="card-body">
@@ -105,20 +105,20 @@ if($_SESSION['role']=="superviseur_national"){
 
                 </div>
                 <div class="col">
-                    <div class="card" style="border: gray 1px solid; border-radius: 15px;box-shadow: 0 0 14px #B4B4B4">
+                    <div class="card" style="border: gray 1px solid; border-radius: 15px;box-shadow: 0 0 14px #0d6efd">
                         <a class="etat" data="all" id="all" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;" >
                         <div style="text-align: center;" class="card-header">
-                            Total questionnaires saisis
+                            Nb  questionnaires saisis
                         </div>
                         
                         <div style="text-align: center;" class="card-body">
 
-                   
-                            <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;">
+                        <i class="fa-solid fa-file" style="font-size: 24px; margin-left: 5px;color: #0d6efd;margin-bottom: 10px;"></i>
+                            <!-- <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;"> -->
                             
                                <span id="total_questionnaire"></span>
-                               <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar" style="width: 25%">25%</div>
+                               <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="sum_taux_avancememnt_2">
+
 </div>
                         </div>
                     </a>
@@ -162,7 +162,7 @@ if($_SESSION['role']=="superviseur_national"){
                     <div class="card" style="border: #55A90B 1px solid; border-radius: 15px;box-shadow: 0 0 8px #A8FF5C;">
                         <a class="etat" id="approved" data="approved" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;">
                         <div style="text-align: center;" class="card-header">
-                        Nb questionnaires Approuvés
+                        Nb questionnaires Validés
                         </div>
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/accept.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
@@ -201,7 +201,7 @@ if($_SESSION['role']=="superviseur_national"){
                                 <th scope="col">Nombre de questionnaires saisis</th>
                                 <th scope="col" >Taux recensement</th>
                                 <th scope="col" >Taux saisie</th>
-                                <th scope="col" >Nb questionnaires approuvés</th>
+                                <th scope="col" >Nb questionnaires Validés</th>
                                 <th scope="col" >Nb questionnaires rejetés</th>
                                 <th scope="col" >Nb questionnaires en attente</th>
                                 <th>Action</th>

@@ -4,18 +4,18 @@ $(document).ready(function(){
 var list_commune
 
 
-var sum_en_attente=0;
-var sum_rejete = 0;
-var sum_approuve = 0;
-var nb_qst_a_recense = 0
-var nb_qst_recense=0
-var total_questionnaire=0;
-var sum_taux_avancememnt_1=0;
-var sum_taux_avancememnt_2=0;
-
 
     function getCommuneList(wil) {
 
+        var sum_en_attente=0;
+        var sum_rejete = 0;
+        var sum_approuve = 0;
+        var nb_qst_a_recense = 0
+        var nb_qst_recense=0
+        var total_questionnaire=0;
+        var sum_taux_avancememnt_1=0;
+        var sum_taux_avancememnt_2=0;
+        
             $.ajax({
                 url:'assets/php/commune_by_user.php',
                 method:'post',
@@ -80,7 +80,7 @@ var sum_taux_avancememnt_2=0;
                                     sum_approuve += approuvee;
 
                                  
-                                    etat = "<td style='background:#ddffca'>"+approuvee+"</td><td style='background:#dc354552'>"+rejete+"</td><td style='background:#ffff0059'>"+en_attente+"</td>"
+                                    etat = "<td style='background:#ddffca5e'>"+approuvee+"</td><td style='background:#dc354526;'>"+rejete+"</td><td style='background:#ffff0038'>"+en_attente+"</td>"
                                 }
                             })
 
@@ -97,8 +97,11 @@ var  taux_avancememnt_2 = (parseFloat(count)*100)/parseFloat(data[i].qst_recense
 if(data[i].qst_recense==0){
     taux_avancememnt_2=0
 }
+sum_taux_avancememnt_2+=taux_avancememnt_2
 
-                            list+="<tr class='text-center'><td></td><td > "+data[i].commune_name_ascii+"</td><td>"+data[i].qst_a_recense+"</td><td>"+data[i].qst_recense+"</td><td style='background:#c7e5ff;'>"+count+"</td><td><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td><button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></button></td></tr>"
+//calculer la somme du taux de recencement par rapport au nombre de questionnaire saisis
+
+                            list+="<tr class='text-center'><td></td><td > "+data[i].commune_name_ascii+"</td><td>"+data[i].qst_a_recense+"</td><td>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'>"+count+"</td><td><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td><button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm'><i class='fa-solid fa-pen-to-square'></i></button></td></tr>"
 
                             total_questionnaire+=parseFloat(count);
                     }
@@ -127,7 +130,8 @@ if(data[i].qst_recense==0){
    // sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
 
           $('#sum_taux_avancememnt_1').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_1+'%">'+sum_taux_avancememnt_1+'%</div> '+sum_taux_avancememnt_1+'%')
-      
+          sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
+          $('#sum_taux_avancememnt_2').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_2+'%">'+sum_taux_avancememnt_2+'%</div> '+sum_taux_avancememnt_2+'%')
        
           
 
