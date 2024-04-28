@@ -189,8 +189,54 @@ font-weight: bold;
  
      <div class="card">
     
-    <img src="static/header.png">
+    <!-- <img src="static/header.png"> -->
 
+    <div class="row" style="margin-top:60px">
+
+         <div class="col-lg-4 text-center">
+            <h6  style="font-size:12px ;font-weight:700">
+                              REAPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE
+                        </h6>
+                        <h6 style="font-size:12px ;font-weight:700"> MINISTERE DE L4AGRICULTURE ET DU DEVELOPPEMENT RURAL</h6>
+                             
+                             <h6 style="font-size:12px "> DIRECTION DES STATISTIQUES, DE LA NUMERISATION ET DE LA PROSPECTIVE</h6>
+
+            </h6>
+         </div>
+         <div class="col-lg-4 text-center">
+                  <img src="./static/logo.svg" width="250px" style="margin-top:-33px" />
+
+
+
+         </div>
+         <div class="col-lg-4 text-center">
+               <h6 style="font-weight:700">
+
+               الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية
+               </h6>
+               <h6 style="font-weight:700">
+               وزارة الفلاحة و التنمية الريفية
+               </h6>
+               <h6>
+               مديرية الاحصائيات و الرقمنة و الاستشراف
+                        </h6>
+
+         </div>
+    </div>
+
+
+    <div class="row" style="    padding: 0 25px;">
+
+    <div class="col-lg-6">
+      <h6>Questionnaire  "Module de base"</h6>
+    </div>
+    <div class="col-lg-6 text-right">
+    <h6 style="text-align: right;" >
+استمارة الاحصاء "الوحدة الاساسية
+                    
+</h6>
+    </div>
+    </div>
          <div class="card-body">
  
  
@@ -1344,7 +1390,7 @@ font-weight: bold;
 
                                 <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
                                 <option  selected="" disabled>-</option>
-                                <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
+                                <!-- <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                 <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
                                 <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
@@ -1356,7 +1402,7 @@ font-weight: bold;
                                 <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-                                <option value="13">13- Inconnu غير معروف</option>
+                                <option value="13">13- Inconnu غير معروف</option> -->
                                 </select>
                                 <div class="big-space"></div>
                          </div>

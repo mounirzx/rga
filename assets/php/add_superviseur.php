@@ -30,7 +30,22 @@ try {
 $req2->execute(array($id_user,$nom_superviseur, $prenom_superviseur,$phone, $wilaya,  $email));
 
 
-include('mail.php');
+
+$url = 'https://dgl.bneder.dz/rga-mails/';
+    // Initialize cURL session
+$ch = curl_init($url);
+
+$data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+// Set the POST data
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
+//include('mail.php');
 
     echo json_encode(array("response"=> "true"));
 } catch (Exception $e) {

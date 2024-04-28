@@ -200,7 +200,7 @@ if($_SESSION['role']=="superviseur_national"){
                 </div>
               
                 <div class="card-body">
-                    <table class="table table-hover" id="tableQst">
+                    <table class="table table-hover table-responsive" id="tableQst">
                     
                         <thead>
                         <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr>
