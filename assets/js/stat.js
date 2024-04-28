@@ -1,5 +1,54 @@
+
+var table
 $(document).ready(function(){
-   
+
+   table   = $('#tableQst').DataTable({
+    searching: false,
+    "dom": '<"top"i>rt<"bottom"flp><"clear">',
+    "columnDefs": [
+        { "orderable": false, "targets": "_all" }, // Disable sorting for all columns
+       // { "orderable": true, "targets": [0] } // Enable sorting for the first column
+    ]
+});
+function commune(wil){
+
+    $.ajax({
+        url:'assets/php/commune_by_user.php',
+        method:'post',
+        async:false,
+        data:{wil:wil},
+        success:function(response){
+           
+            var data = JSON.parse(response)
+          
+            list_commune = data
+
+            console.log(list_commune)
+            /********************************************************************************** */
+            //commune list
+            var listCommune
+            for(i=0;i<data.length;i++){
+                listCommune+='<option value="'+data[i].commune_code+'">'+data[i].commune_name_ascii+'</option>'
+
+
+            }
+            $('#listCommune').append(listCommune)
+        }
+        })
+}
+commune('all')
+
+
+/***************************************************************************************************/
+//
+$("#listCommune").change(function(){
+    var communeCode = $(this).val()
+    console.log(communeCode)
+    console.log("Before filtering - Search criteria:", table.column(0));
+    table.column(0).search(communeCode).draw();
+
+})
+/***************************************************************************************************/
 
 var list_commune
 
@@ -26,6 +75,9 @@ var list_commune
                     var data = JSON.parse(response)
                   
                     list_commune = data
+
+                   
+                    /*********************************************************************************** */
                     var list;
             
                   
@@ -101,16 +153,15 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
 
 //calculer la somme du taux de recencement par rapport au nombre de questionnaire saisis
 
-                            list+="<tr class='text-center'><td></td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td  class='align-middle'><button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm editStatBtn '><i class='fa-solid fa-pen-to-square'></i></button></td></tr>"
+                            list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td  class='align-middle'><button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm editStatBtn '><i class='fa-solid fa-pen-to-square'></i></button></td></tr>"
 
                             total_questionnaire+=parseFloat(count);
                     }
                     $('#list').empty(list)
                     $('#list').append(list)
-                    $('#tableQst').DataTable({
-                        searching: false,
-                        "dom": '<"top"i>rt<"bottom"flp><"clear">'
-                    });
+
+
+               
                 }
           
             })
@@ -234,18 +285,4 @@ $('#wilaya').change(function(){
 })
     /***************************************************************************** */
 
-    // $.ajax({
-    //     url:'assets/php/etat_avancement.php',
-    //     method:'post',
-    //     async:false,
-    //     success:function(response){
-    //         console.log(response)
-
-    //         var data = JSON.parse(response)
-    //         console.log(data)
-    //         console.log(data.sum_qst_a_recense)
-    //         $('#sum_qst_a_recense').html(data.sum_qst_a_recense)
-    //         $('#qst_recense').html(data.qst_recense)
-    //     }
-    // })
 })

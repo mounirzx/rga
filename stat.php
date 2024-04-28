@@ -194,14 +194,16 @@ if($_SESSION['role']=="superviseur_national"){
             <div class="card">
         
                 <div style="text-align: center;" class="card-header">
-                        <h6>Nombre de questionnaire a collecté</h6>
+                        <h6>Tableau de suivi</h6>
                        
                   
                 </div>
               
                 <div class="card-body">
                     <table class="table table-hover" id="tableQst">
+                    
                         <thead>
+                        <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr>
                             <tr style="background: #d5d5d5">
                                 <th scope="col">#</th>
                                 <th  style="background:#8bdfb8;" scope="col">Commune</th>
@@ -233,8 +235,8 @@ if($_SESSION['role']=="superviseur_national"){
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modifier</h5>
+      <div class="modal-header" style="background: aliceblue;">
+        <h5 class="modal-title" id="exampleModalLabel" style='font-size:15px'>Ajouter nombre d'exploiatations recensées par jour</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
