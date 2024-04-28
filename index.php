@@ -5,45 +5,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="./static/images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/bootstrap/css/bootstrap.min.css"
+      href="./static/vendor/bootstrap/css/bootstrap.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="./static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/animate/animate.css"
+      href="./static/vendor/animate/animate.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/css-hamburgers/hamburgers.min.css"
+      href="./static/vendor/css-hamburgers/hamburgers.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/select2/select2.min.css"
+      href="./static/vendor/select2/select2.min.css"
     />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/css/util.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/main.css" />
     <!--===============================================================================================-->
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <style>
-body{
-  font-family: sans-serif;
+      *{
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+.input100{
+  font-family: "Nunito Sans", sans-serif;
 }
 
     </style>
@@ -51,7 +60,7 @@ body{
 
   <body
     style="
-      background-image: url(/static/forest2.png);
+      background-image: url(./static/forest2.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -85,11 +94,11 @@ body{
               <div style="text-align: center; width: 420px">
                 <h5>الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية</h5>
                 <br />
-                <h8>REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
+                <h8 style="font-weight: bold;font-size: 14px;">REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
                 <br />
                 <h6>وزارة الفلاحة و التنمية الريفية</h6>
                 <br />
-                <h8>MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
+                <h8 style="font-weight: bold;font-size: 14px;">MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
               </div>
 
               <div
@@ -100,7 +109,7 @@ body{
                 <img style="max-width: 350px; min-width: 200px" src="static/logo.svg" alt="IMG" />
               </div>
 
-              <div style="text-align: center; width: 420px; margin-top: 30px">
+              <!-- <div style="text-align: center; width: 420px; margin-top: 30px">
                 <h4>الإحصاء العام للفلاحة</h4>
                 <br />
                 <h5>
@@ -109,7 +118,7 @@ body{
                   2024
                 </h5>
                 <br />
-              </div>
+              </div> -->
             </div>
 
             <div class="col" style="margin-top: 80px">

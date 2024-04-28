@@ -8,7 +8,8 @@ $(document).ready(function(){
     "columnDefs": [
         { "orderable": false, "targets": "_all" }, // Disable sorting for all columns
        // { "orderable": true, "targets": [0] } // Enable sorting for the first column
-    ]
+    ],
+    
 });
 function commune(wil){
 
