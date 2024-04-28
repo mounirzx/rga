@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 02:53 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 29 avr. 2024 à 00:29
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rga`
+-- Base de données : `rga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes`
+-- Structure de la table `communes`
 --
 
 CREATE TABLE `communes` (
@@ -42,7 +42,7 @@ CREATE TABLE `communes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `communes`
+-- Déchargement des données de la table `communes`
 --
 
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
@@ -1594,7 +1594,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes2`
+-- Structure de la table `communes2`
 --
 
 CREATE TABLE `communes2` (
@@ -1606,7 +1606,7 @@ CREATE TABLE `communes2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `communes2`
+-- Déchargement des données de la table `communes2`
 --
 
 INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_code`, `wilaya_name`) VALUES
@@ -3157,7 +3157,7 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `controleur`
+-- Structure de la table `controleur`
 --
 
 CREATE TABLE `controleur` (
@@ -3173,10 +3173,17 @@ CREATE TABLE `controleur` (
   `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `controleur`
+--
+
+INSERT INTO `controleur` (`nom_controleur`, `prenom_controleur`, `id_controleur`, `id_user`, `wilaya`, `commune`, `email`, `phone`, `added_by`, `date_creation`) VALUES
+('controleur', 'controleur', 1, 3, '01', '0119,0122,0105', 'mounir2013b@gmail.com', '0000000000', 2, '2024-04-27 15:05:41');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materiel_agricole`
+-- Structure de la table `materiel_agricole`
 --
 
 CREATE TABLE `materiel_agricole` (
@@ -3186,15 +3193,79 @@ CREATE TABLE `materiel_agricole` (
   `code_materiel_nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `materiel_agricole`
+--
+
+INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`) VALUES
+(0, 1, '1', '45'),
+(0, 1, '2', '35'),
+(0, 1, '2', '35'),
+(0, 2, '1', '45'),
+(0, 2, '2', '35'),
+(0, 2, '2', '35'),
+(0, 3, '1', '84'),
+(0, 3, '2', '59'),
+(0, 3, '2', '77'),
+(0, 4, '1', '92'),
+(0, 4, '2', '55'),
+(0, 4, '2', '73'),
+(0, 5, '1', '05'),
+(0, 5, '2', '55'),
+(0, 5, '2', '08'),
+(0, 6, '1', '68'),
+(0, 6, '2', '62'),
+(0, 6, '2', '38'),
+(0, 7, '1', '08'),
+(0, 7, '2', '27'),
+(0, 7, '2', '73'),
+(0, 8, '1', '59'),
+(0, 8, '2', '61'),
+(0, 8, '2', '31'),
+(0, 9, '1', '73'),
+(0, 9, '2', '97'),
+(0, 9, '2', '35'),
+(0, 10, '1', '76'),
+(0, 10, '2', '52'),
+(0, 10, '2', '05'),
+(0, 11, '1', '10'),
+(0, 11, '2', '81'),
+(0, 11, '2', '50'),
+(0, 12, '1', '39'),
+(0, 12, '2', '26'),
+(0, 12, '2', '55'),
+(0, 13, '1', '22'),
+(0, 13, '2', '82'),
+(0, 13, '2', '59'),
+(0, 14, '1', '49'),
+(0, 14, '2', '18'),
+(0, 14, '2', '54'),
+(0, 15, '1', '80'),
+(0, 15, '2', '05'),
+(0, 15, '2', '41'),
+(0, 16, '1', '46'),
+(0, 16, '2', '48'),
+(0, 16, '2', '02'),
+(0, 17, '1', '52'),
+(0, 17, '2', '24'),
+(0, 17, '2', '60'),
+(0, 18, '1', '24'),
+(0, 18, '2', '70'),
+(0, 18, '2', '30'),
+(0, 19, '1', '28'),
+(0, 19, '2', '36'),
+(0, 19, '2', '30');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questionnaire`
+-- Structure de la table `questionnaire`
 --
 
 CREATE TABLE `questionnaire` (
   `id_questionnaire` int(11) NOT NULL,
   `commune_code` varchar(4) NOT NULL,
+  `num_qst` text DEFAULT NULL,
   `exploitant_cle_unique` varchar(255) NOT NULL,
   `date_passage` text DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
@@ -3267,6 +3338,7 @@ CREATE TABLE `questionnaire` (
   `cognassiers` text DEFAULT NULL,
   `palmiers_dattiers` text DEFAULT NULL,
   `caroubier` text DEFAULT NULL,
+  `autre_arbres_isoles` int(11) DEFAULT NULL,
   `pratiquez_vous_lagriculture_biologique` text DEFAULT NULL,
   `si_oui_avez_vous_un_certificat` text DEFAULT NULL,
   `pratiquez_vous_laquaculture_integree_a_lagriculture` text DEFAULT NULL,
@@ -3305,6 +3377,7 @@ CREATE TABLE `questionnaire` (
   `chapt_autre_aviculture_ponte` text DEFAULT NULL,
   `chapt_autre_aviculture_chair` text DEFAULT NULL,
   `chapt_Pratiquez_transhumance` int(2) DEFAULT NULL,
+  `bat_exploitation_agricole_sont_exploites` text DEFAULT NULL,
   `eau_barrage` text DEFAULT NULL,
   `eau_exploitation_type_irrigation` text DEFAULT NULL,
   `eau_station_depuration` text DEFAULT NULL,
@@ -3315,6 +3388,7 @@ CREATE TABLE `questionnaire` (
   `eau_crues_doued` text DEFAULT NULL,
   `eau_petit_barrage` text DEFAULT NULL,
   `eau_retenu_collinaire` text DEFAULT NULL,
+  `eau_forage_collectif` text DEFAULT NULL,
   `eau_foggara` text DEFAULT NULL,
   `eau_source` text DEFAULT NULL,
   `eau_station_depuration_2` text DEFAULT NULL,
@@ -3425,13 +3499,99 @@ CREATE TABLE `questionnaire` (
   `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
   `ee_autre_associations` text DEFAULT NULL,
   `ee_cwifa` text DEFAULT NULL,
-  `etat` text DEFAULT NULL
+  `etat` text DEFAULT NULL,
+  `batiment_de_stockage_nombre` text DEFAULT NULL,
+  `batiment_de_stockage_surface` text DEFAULT NULL,
+  `bergerie_nombre` text DEFAULT NULL,
+  `bergerie_surface` text DEFAULT NULL,
+  `etable_nombre` text DEFAULT NULL,
+  `etable_surface` text DEFAULT NULL,
+  `ecurie_de_chevaux_nombre` text DEFAULT NULL,
+  `ecurie_de_chevaux_surface` text DEFAULT NULL,
+  `poulailler_batis_en_dur_nombre` text DEFAULT NULL,
+  `poulailler_batis_en_dur_surface` text DEFAULT NULL,
+  `poulailler_sous_serre_nombre` text DEFAULT NULL,
+  `poulailler_sous_serre_surface` text DEFAULT NULL,
+  `batiments_dhabitation_nombre` text DEFAULT NULL,
+  `batiments_dhabitation_surface` text DEFAULT NULL,
+  `serres_tunnels_nombre` text DEFAULT NULL,
+  `serres_tunnels_surface` text DEFAULT NULL,
+  `serres_multichapelles_surface` text DEFAULT NULL,
+  `serres_multichapelles_nombre` text DEFAULT NULL,
+  `batiment_dentreposage_des_produits_agricoles_nombre` text DEFAULT NULL,
+  `batiment_dentreposage_des_produits_agricoles_surface` text DEFAULT NULL,
+  `autres_batiment_stockage_nombre` text DEFAULT NULL,
+  `autres_batiment_stockage_surface` text DEFAULT NULL,
+  `batiment_pour_le_remisage_du_materiel_agricole_nombre` text DEFAULT NULL,
+  `batiment_pour_le_remisage_du_materiel_agricole_surface` text DEFAULT NULL,
+  `caves_nombre` text DEFAULT NULL,
+  `caves_surface` text DEFAULT NULL,
+  `unite_de_conditionnement_nombre` text DEFAULT NULL,
+  `unite_de_conditionnement_surface` text DEFAULT NULL,
+  `unite_de_transformation_nombre` text DEFAULT NULL,
+  `unite_de_transformation_surface` text DEFAULT NULL,
+  `centre_de_collecte_de_lait_nombre` text DEFAULT NULL,
+  `centre_de_collecte_de_lait_surface` text DEFAULT NULL,
+  `autre_batiments_nombre` text DEFAULT NULL,
+  `autre_batiments_surface` text DEFAULT NULL,
+  `chambre_froide_nombre` text DEFAULT NULL,
+  `chambre_froide_surface` text DEFAULT NULL,
+  `alaho_akbar` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `questionnaire`
+--
+
+INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_1`, `ma_adultes_plus_15_ans_2`, `ma_enfants_moins_15_ans_11`, `ma_enfants_moins_15_ans_22`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_cultures`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_associations`, `ee_cwifa`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`, `alaho_akbar`) VALUES
+(1, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-1254532587415-No Commune Code-Mes terrestest-54000.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '045 21 87 54 21', 'm.abes@bneder.dz', '1254532587415', '12548547569855474', 'on', 'on', 'on', 'on', 'on', 'on', '2245639', '1', '1255485447744', '1', '1', '45', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '7000', '1', '7000', '8000', '9000', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, '85', '1', '96', '22', '54', '96', '25', '71', '85', '47', NULL, '20', '22', '35', '30', '123', '223', '213', '325', '658', '854', '774', '965', '854', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '30', '30', '30', '30', '40', '40', '40', '40', '50', '50', '50', '50', '60', '60', '60', '60', '70', '70', '70', '70', '80', '80', '80', '80', '90', '90', '90', '90', '45', '47', '54', '21', '95', '12', '45', '67', '14', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-125453258741544-No Commune Code-Mes terrestest-54000.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '045 21 87 54 21', 'm.abes@bneder.dz', '125453258741544', '12548547569855474', 'on', 'on', 'on', 'on', 'on', 'on', '2245639', '1', '1255485447744', '1', '1', '45', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '7000', '1', '7000', '8000', '9000', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, '85', '1', '96', '22', '54', '96', '25', '71', '85', '47', NULL, '20', '22', '35', '30', '123', '223', '213', '325', '658', '854', '774', '965', '854', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '30', '30', '30', '30', '40', '40', '40', '40', '50', '50', '50', '50', '60', '60', '60', '60', '70', '70', '70', '70', '80', '80', '80', '80', '90', '90', '90', '90', '45', '47', '54', '21', '95', '12', '45', '67', '14', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-17793290641694378948-No Commune Code-Mes terrestest-59796.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0772049710', 'm.abes@bneder.dz', '17793290641694378948', '70016292857840451713', 'on', 'on', 'on', 'on', 'on', 'on', '3198764', '1', '225456879846', '1', '1', '0681922', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '2245', '1', '3176', '5858', '7854', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '06', '30', '66', '61', '98', '21', '40', '03', '54', '81', '32', '11', '48', '86', '59', '03', '33', '64', '49', '34', '54', '76', '45', '81', '45', 1, NULL, '72', '1', '93', '01', '56', '67', '58', '20', '94', '62', NULL, '23', '90', '37', '33', '436', '003', '355', '820', '971', '011', '467', '344', '261', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '83', '11', '16', '17', '60', '59', '42', '01', '86', '05', '35', '93', '94', '89', '28', '45', '61', '10', '90', '54', '11', '50', '21', '76', '46', '59', '12', '04', '03', '59', '54', '40', '03', '38', '40', '66', '43', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-82676789231877626857-No Commune Code-Mes terrestest-56098.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0774252210', 'm.abes@bneder.dz', '82676789231877626857', '71840463703300604004', 'on', 'on', 'on', 'on', 'on', 'on', '5495047', '1', '576258990825', '1', '1', '5838750', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '2263', '1', '9801', '7350', '4456', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '84', '13', '58', '59', '92', '73', '84', '62', '14', '16', '77', '99', '23', '37', '80', '45', '93', '33', '39', '06', '58', '93', '74', '21', '59', 1, NULL, '57', '1', '30', '98', '27', '92', '07', '57', '65', '29', NULL, '74', '42', '35', '57', '653', '231', '315', '551', '053', '178', '657', '417', '541', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '94', '56', '34', '79', '23', '96', '05', '13', '46', '75', '77', '63', '97', '13', '17', '42', '23', '72', '55', '62', '00', '03', '12', '20', '65', '55', '79', '08', '11', '42', '83', '33', '82', '31', '78', '35', '49', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-56377536564940134245-No Commune Code-Mes terrestest-51076.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0775356504', 'm.abes@bneder.dz', '56377536564940134245', '56034890553725696986', 'on', 'on', 'on', 'on', 'on', 'on', '4053111', '1', '051085587717', '1', '1', '1335285', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '5388', '1', '1542', '9904', '9670', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '32', '81', '61', '45', '51', '19', '75', '41', '43', '63', '10', '05', '87', '77', '39', '39', '05', '40', '42', '70', '96', '76', '79', '74', '49', 1, NULL, '78', '1', '10', '98', '37', '05', '57', '21', '60', '69', NULL, '36', '32', '10', '86', '851', '707', '000', '980', '660', '472', '327', '827', '631', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '86', '01', '49', '88', '61', '39', '71', '87', '97', '77', '56', '27', '67', '63', '33', '71', '14', '28', '43', '15', '72', '60', '39', '52', '85', '65', '76', '60', '72', '58', '26', '44', '11', '92', '53', '02', '44', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-25673113109067214083-No Commune Code-Mes terrestest-57802.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0774081133', 'm.abes@bneder.dz', '25673113109067214083', '26618509272861768640', 'on', 'on', 'on', 'on', 'on', 'on', '8729604', '1', '860380918363', '1', '1', '4383913', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '3985', '1', '2788', '8816', '8775', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '67', '70', '43', '14', '01', '55', '34', '50', '03', '63', '94', '10', '57', '08', '09', '22', '59', '43', '83', '49', '30', '18', '74', '34', '46', 1, NULL, '08', '1', '90', '64', '55', '65', '65', '26', '97', '28', NULL, '28', '50', '79', '24', '763', '124', '848', '622', '658', '508', '922', '193', '091', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '07', '77', '52', '73', '50', '47', '41', '70', '93', '37', '42', '72', '21', '38', '48', '78', '79', '36', '96', '52', '79', '87', '38', '38', '35', '85', '82', '56', '29', '44', '57', '46', '09', '35', '86', '71', '21', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-36747190659469474080-No Commune Code-Mes terrestest-53900.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0772765878', 'm.abes@bneder.dz', '36747190659469474080', '80200434805059869280', 'on', 'on', 'on', 'on', 'on', 'on', '5506861', '1', '567196369573', '1', '1', '8481479', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '7034', '1', '0588', '6475', '5195', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '92', '38', '16', '93', '85', '23', '78', '21', '37', '57', '80', '85', '13', '72', '70', '64', '08', '34', '11', '53', '28', '22', '30', '43', '22', 1, NULL, '34', '1', '18', '64', '61', '17', '43', '91', '39', '16', NULL, '53', '62', '36', '78', '731', '072', '767', '541', '367', '681', '226', '046', '360', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '72', '14', '19', '08', '56', '09', '19', '89', '89', '55', '10', '34', '43', '02', '01', '37', '51', '17', '56', '36', '40', '58', '12', '04', '04', '03', '42', '98', '44', '77', '65', '09', '31', '33', '00', '18', '13', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-40432033720681437723-No Commune Code-Mes terrestest-57057.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0770577736', 'm.abes@bneder.dz', '40432033720681437723', '97297561780591337415', 'on', 'on', 'on', 'on', 'on', 'on', '6128713', '1', '529376059802', '1', '1', '7038275', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '5705', '1', '1110', '6523', '0095', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '95', '28', '74', '12', '98', '72', '03', '06', '64', '93', '71', '41', '24', '00', '39', '19', '27', '13', '49', '68', '40', '59', '50', '19', '87', 1, NULL, '48', '1', '80', '74', '49', '41', '17', '95', '14', '51', NULL, '52', '47', '02', '11', '089', '128', '353', '112', '007', '345', '792', '908', '747', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '87', '31', '02', '18', '23', '10', '33', '57', '44', '61', '53', '17', '50', '62', '82', '28', '02', '74', '37', '97', '79', '22', '34', '69', '61', '08', '32', '87', '07', '25', '65', '73', '77', '24', '11', '39', '46', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-79462089056970725945-No Commune Code-Mes terrestest-52467.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0778324366', 'm.abes@bneder.dz', '79462089056970725945', '73848705338135354931', 'on', 'on', 'on', 'on', 'on', 'on', '1220794', '1', '659546005262', '1', '1', '0962698', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '6893', '1', '0541', '1926', '9004', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '27', '40', '24', '64', '59', '04', '59', '08', '94', '34', '98', '03', '61', '41', '74', '68', '78', '55', '80', '70', '18', '15', '07', '01', '74', 1, NULL, '79', '1', '09', '14', '59', '79', '86', '36', '68', '72', NULL, '54', '71', '64', '24', '665', '742', '532', '528', '222', '862', '059', '742', '198', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '83', '37', '45', '10', '14', '67', '60', '31', '35', '22', '47', '41', '88', '43', '30', '44', '25', '25', '87', '29', '53', '52', '97', '68', '92', '02', '07', '70', '67', '65', '45', '53', '86', '40', '74', '87', '77', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-70995567695751359925-No Commune Code-Mes terrestest-55247.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0771122281', 'm.abes@bneder.dz', '70995567695751359925', '58209682080326298982', 'on', 'on', 'on', 'on', 'on', 'on', '5844870', '1', '058075043412', '1', '1', '6008238', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '3154', '1', '5054', '0410', '0214', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '39', '00', '93', '72', '14', '61', '87', '67', '02', '70', '10', '78', '56', '57', '73', '91', '52', '19', '81', '93', '16', '73', '20', '90', '22', 1, NULL, '92', '1', '71', '08', '82', '08', '40', '06', '70', '30', NULL, '19', '27', '27', '77', '150', '152', '843', '120', '259', '477', '431', '735', '676', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '18', '32', '50', '63', '95', '79', '57', '41', '74', '33', '17', '23', '93', '37', '44', '83', '88', '48', '33', '44', '16', '92', '80', '37', '38', '96', '94', '67', '92', '97', '70', '56', '31', '79', '02', '19', '26', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-68379182474461618133-No Commune Code-Mes terrestest-60424.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0770085639', 'm.abes@bneder.dz', '68379182474461618133', '85160733633441496642', 'on', 'on', 'on', 'on', 'on', 'on', '3928200', '1', '775053188966', '1', '1', '9973489', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '9183', '1', '5535', '1182', '1374', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '86', '29', '96', '04', '18', '26', '41', '65', '39', '87', '05', '11', '58', '14', '58', '20', '73', '95', '60', '99', '95', '63', '77', '08', '10', 1, NULL, '19', '1', '85', '91', '32', '20', '56', '35', '16', '23', NULL, '46', '19', '01', '66', '173', '516', '860', '591', '476', '768', '177', '243', '943', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '28', '26', '88', '38', '14', '76', '35', '63', '68', '00', '61', '20', '50', '55', '18', '65', '55', '44', '92', '70', '36', '03', '16', '20', '10', '35', '38', '35', '66', '44', '31', '72', '61', '22', '27', '73', '89', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-50136063659212719350-No Commune Code-Mes terrestest-53579.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0774372820', 'm.abes@bneder.dz', '50136063659212719350', '77789082814432563109', 'on', 'on', 'on', 'on', 'on', 'on', '5214945', '1', '343253657936', '1', '1', '6066407', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '0863', '1', '6949', '3387', '8620', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '18', '48', '79', '68', '06', '34', '32', '96', '48', '82', '24', '91', '71', '76', '50', '48', '69', '93', '77', '11', '59', '01', '83', '10', '93', 1, NULL, '07', '1', '14', '53', '92', '18', '05', '31', '34', '50', NULL, '95', '71', '40', '82', '534', '890', '540', '589', '025', '554', '602', '724', '737', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '79', '98', '10', '80', '21', '28', '49', '05', '54', '71', '44', '99', '27', '67', '84', '16', '63', '92', '43', '87', '71', '20', '19', '58', '02', '50', '94', '41', '63', '64', '40', '90', '99', '97', '07', '98', '50', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-71023105210350266429-No Commune Code-Mes terrestest-55195.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0776187930', 'm.abes@bneder.dz', '71023105210350266429', '95121136258178431661', 'on', 'on', 'on', 'on', 'on', 'on', '2858747', '1', '190220812530', '1', '1', '4268392', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '8420', '1', '9845', '5301', '1786', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '84', '49', '58', '36', '71', '79', '46', '38', '71', '53', '51', '64', '83', '37', '37', '70', '07', '27', '74', '94', '54', '11', '25', '65', '88', 1, NULL, '18', '1', '62', '64', '52', '95', '07', '94', '02', '93', NULL, '69', '27', '20', '04', '294', '035', '864', '682', '456', '085', '684', '659', '219', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '91', '30', '82', '49', '94', '43', '62', '94', '31', '14', '77', '62', '52', '52', '37', '88', '14', '86', '04', '83', '28', '59', '86', '17', '10', '41', '72', '66', '85', '72', '27', '39', '22', '80', '66', '54', '07', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'No C', NULL, 'Mounirtest-Abestest-02-02-null-55013625032949208321-No Commune Code-Mes terrestest-53865.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0774926476', 'm.abes@bneder.dz', '55013625032949208321', '14739538281194314976', 'on', 'on', 'on', 'on', 'on', 'on', '2377503', '1', '015764081385', '1', '1', '8010337', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '3711', '1', '2820', '6057', '1661', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '50', '31', '21', '86', '29', '94', '22', '37', '89', '92', '73', '44', '74', '16', '43', '71', '66', '54', '67', '25', '50', '51', '56', '94', '77', 1, NULL, '55', '1', '13', '61', '26', '08', '46', '47', '42', '75', NULL, '51', '65', '69', '65', '050', '437', '639', '584', '273', '700', '779', '139', '688', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '65', '97', '70', '96', '27', '79', '00', '48', '59', '27', '11', '16', '46', '17', '52', '20', '63', '41', '75', '52', '01', '92', '60', '82', '77', '32', '84', '54', '81', '07', '61', '58', '96', '33', '65', '72', '42', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'N/A', NULL, 'Mounirtest-Abestest-02-02-null-42325463824279093343-N/A-Mes terrestest-54920.00', '0--0---', 1, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0778521730', 'm.abes@bneder.dz', '42325463824279093343', '31425425480670296916', 'on', 'on', 'on', 'on', 'on', 'on', '8877197', '1', '605335250275', '1', '1', '0208032', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '2902', '1', '9789', '0783', '3846', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '00', '82', '47', '13', '21', '11', '19', '72', '83', '56', '57', '80', '88', '61', '24', '76', '70', '39', '36', '57', '72', '56', '24', '24', '54', 1, NULL, '82', '1', '16', '61', '53', '41', '99', '16', '61', '40', NULL, '47', '66', '35', '56', '528', '266', '094', '377', '490', '712', '568', '265', '435', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '85', '53', '39', '51', '22', '05', '26', '55', '39', '45', '29', '24', '18', '29', '27', '92', '03', '63', '09', '83', '49', '32', '79', '95', '53', '20', '79', '30', '28', '35', '86', '89', '02', '13', '50', '49', '42', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, '0119', NULL, 'Mounirtest-Abestest-02-02-null-32232909779529575294-0119,0122,0105-Mes terrestest-56309.00', '0--0---', 4, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0779108330', 'm.abes@bneder.dz', '32232909779529575294', '71702790322188513448', 'on', 'on', 'on', 'on', 'on', 'on', '0059194', '1', '211151651222', '1', '1', '7924688', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '4813', '1', '5856', '1468', '3312', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '71', '80', '81', '04', '87', '69', '72', '33', '47', '66', '86', '16', '45', '27', '54', '84', '99', '32', '28', '20', '88', '97', '41', '83', '35', 1, NULL, '97', '1', '41', '13', '90', '87', '02', '45', '57', '30', NULL, '97', '98', '84', '49', '085', '050', '857', '607', '045', '689', '506', '363', '193', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '48', '60', '36', '76', '09', '18', '28', '81', '78', '83', '90', '01', '50', '34', '64', '42', '91', '95', '96', '78', '51', '17', '81', '03', '56', '06', '86', '13', '61', '17', '34', '61', '43', '86', '15', '80', '75', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, '0119', NULL, 'Mounirtest-Abestest-02-02-null-34428673973278224892-0119,0122,0105-Mes terrestest-57430.00', '0--0---', 4, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0776786790', 'm.abes@bneder.dz', '34428673973278224892', '69935969186768616588', 'on', 'on', 'on', 'on', 'on', 'on', '9176665', '1', '789463100724', '1', '1', '9653998', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '7555', '1', '1866', '8143', '4874', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '12', '03', '36', '74', '38', '34', '21', '82', '51', '22', '91', '13', '88', '57', '46', '10', '68', '44', '90', '52', '54', '64', '96', '70', '58', 1, NULL, '44', '1', '28', '30', '79', '90', '75', '32', '20', '13', NULL, '69', '07', '66', '17', '506', '111', '460', '116', '085', '859', '207', '556', '579', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '59', '87', '93', '53', '72', '24', '28', '62', '57', '27', '64', '76', '03', '82', '28', '41', '51', '12', '11', '78', '73', '41', '65', '92', '87', '27', '95', '09', '09', '55', '94', '60', '90', '09', '42', '45', '82', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, '0119', NULL, 'Mounirtest-Abestest-02-02-null-33792103376020012761-0119,0122,0105-Mes terrestest-59962.00', '0--0---', 4, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0772868636', 'm.abes@bneder.dz', '33792103376020012761', '17317964581916086100', 'on', 'on', 'on', 'on', 'on', 'on', '7124788', '1', '956789461295', '1', '1', '8019201', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '1840', '1', '5576', '2422', '4247', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '72', '42', '90', '75', '64', '57', '36', '34', '63', '89', '87', '79', '97', '86', '73', '81', '49', '78', '24', '95', '09', '90', '31', '58', '23', 1, NULL, '62', '1', '37', '23', '76', '12', '73', '70', '42', '22', NULL, '27', '93', '43', '47', '276', '937', '536', '619', '789', '225', '330', '822', '103', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '98', '22', '48', '48', '53', '90', '24', '97', '08', '37', '05', '98', '04', '48', '25', '63', '76', '77', '97', '04', '51', '88', '20', '50', '44', '24', '91', '25', '25', '77', '40', '72', '83', '13', '26', '86', '88', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, '0119', NULL, 'Mounirtest-Abestest-02-02-null-37213766705995191604-0119,0122,0105-Mes terrestest-56883.00', '0--0---', 4, 'Mounirtest', 'Abestest', '02-02-null-', '1', '5', '9', 'Adresse exploitant agricole', '0774210217', 'm.abes@bneder.dz', '37213766705995191604', '02759306631666104731', 'on', 'on', 'on', 'on', 'on', 'on', '6436687', '1', '269844069576', '1', '1', '3827354', 'Nature de l\'exploitant', 'Mes terrestest', 'Adress', '1', '1', '1', '12.54621', '25.2154', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '1', '1', '1', '1', '1', '3000', '1', '3000', '7000', '8000', '1', '2794', '1', '3559', '7135', '8927', 'on', 'on', 'on', 'on', 'on', 'on', '3', '5', '7', '9', '1', '4', '6', '8', '1', NULL, '1', '1', '1', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', '1', '90', '83', '54', '79', '09', '71', '17', '03', '39', '74', '78', '81', '57', '49', '61', '07', '76', '17', '14', '14', '27', '60', '53', '17', '43', 1, NULL, '84', '1', '55', '73', '33', '85', '84', '30', '97', '83', NULL, '74', '83', '85', '59', '191', '874', '368', '461', '829', '962', '934', '481', '270', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '52', '75', '13', '77', '28', '30', '64', '70', '54', '40', '14', '61', '88', '52', '72', '85', '23', '44', '91', '96', '78', '17', '42', '23', '88', '94', '96', '88', '12', '73', '07', '22', '74', '42', '52', '67', '24', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '1', '-', 'on', 'on', 'on', 'on', 'on', '1', '1', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'N/A', NULL, 'test4-test4-02-02-1894-444-N/A-test-4.00', '0--0---', 1, 'test4', 'test4', '02-02-1894-', '-', NULL, NULL, '', '', '', '444', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(21, 'N/A', NULL, 'test1-test1-02-02-1896-111111111111-N/A-test-1.00', '0--0---', 1, 'test1', 'test1', '02-02-1896-', '-', '2', NULL, '1', '', '', '111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(22, 'N/A', NULL, 'test-test-02-02-null-111111111111-N/A-test-1.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(23, 'N/A', '', 'test-test-02-02-null-12312323-N/A-test-11.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '12312323', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(24, 'N/A', '', 'test-test-02-02-null-544554545-N/A-test-4545.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '544554545', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_1`, `ma_adultes_plus_15_ans_2`, `ma_enfants_moins_15_ans_11`, `ma_enfants_moins_15_ans_22`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_cultures`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_associations`, `ee_cwifa`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`, `alaho_akbar`) VALUES
+(25, 'N/A', '', 'test-test-02-02-null-454545454545-N/A-test-111.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '454545454545', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(26, 'N/A', '', 'test-test-02-02-null-12121212-N/A-test-1212.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '12121212', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(27, 'N/A', '', 'test-test-02-02-null-4545454-N/A-test-1111.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '4545454', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', NULL, '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(28, 'N/A', '', 'test-test-02-02-null-11111111-N/A-test-1212.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '11111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(29, 'N/A', '', 'test-test-02-02-null-6556655665-N/A-test-6556.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '6556655665', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', NULL, '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(30, 'N/A', '', 'test-test-02-02-null-112-N/A-test-12.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '112', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(31, 'N/A', '', 'test-test-02-02-null-45454-N/A-test-545.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '45454', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(32, 'N/A', '', 'test-test-02-02-null-454545-N/A-test-4545.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '454545', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(33, 'N/A', '', 'test-test-02-02-null-45-N/A-test-454.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '45', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(34, 'N/A', '', 'test-test-02-02-null-121212-N/A-test-1212.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '121212', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', '0', '0', '0', '0', '0', NULL, '0', '0', NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(35, 'N/A', '', 'test-test-02-02-null-1212122121-N/A-test-1111.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '1212122121', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(36, 'N/A', '', 'test-test-02-02-null-5454545454-N/A-test-454.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '5454545454', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'on', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(37, 'N/A', '', 'test-test-02-02-null-12121212121212455-N/A-test-1212.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '12121212121212455', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(38, 'N/A', '', 'test-test-02-02-null-1212124785778-N/A-test-4.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '1212124785778', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(39, 'N/A', '', 'test-test-02-02-null-454545454456589-N/A-test-878.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '454545454456589', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(40, 'N/A', '', 'test-test-02-02-null-564564564578665463-N/A-test-4545.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '564564564578665463', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(41, 'N/A', '', 'test-test-02-02-null-8797564678463598764564-N/A-test-4564.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '8797564678463598764564', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+(42, 'N/A', '', 'test-test-02-02-null--N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recenseur`
+-- Structure de la table `recenseur`
 --
 
 CREATE TABLE `recenseur` (
@@ -3448,10 +3608,17 @@ CREATE TABLE `recenseur` (
   `nom_zone_district` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `recenseur`
+--
+
+INSERT INTO `recenseur` (`id_recensseur`, `id_user`, `nom_recensseur`, `prenom_recenseur`, `commune`, `email`, `controleur`, `phone`, `num_zone_district`, `num_exploitation`, `nom_zone_district`) VALUES
+(1, 4, 'recenceur', 'recenceur', '0119', 'mounir2013b@gmail.com', 3, 'recenceur', 0, 0, '');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_juridique`
+-- Structure de la table `status_juridique`
 --
 
 CREATE TABLE `status_juridique` (
@@ -3463,10 +3630,73 @@ CREATE TABLE `status_juridique` (
   `superfecie_sj_are` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `status_juridique`
+--
+
+INSERT INTO `status_juridique` (`id_status_juridique`, `id_questionnaire`, `status_juridique`, `origine_terre`, `superfecie_sj`, `superfecie_sj_are`) VALUES
+(1, 1, '1', '1', '100', '10'),
+(2, 1, '2', '2', '200', '20'),
+(3, 1, '3', '3', '300', '30'),
+(4, 2, '1', '1', '100', '10'),
+(5, 2, '2', '2', '200', '20'),
+(6, 2, '3', '3', '300', '30'),
+(7, 3, '1', '1', '100', '10'),
+(8, 3, '2', '2', '200', '20'),
+(9, 3, '3', '3', '300', '30'),
+(10, 4, '1', '1', '100', '10'),
+(11, 4, '2', '2', '200', '20'),
+(12, 4, '3', '3', '300', '30'),
+(13, 5, '1', '1', '100', '10'),
+(14, 5, '2', '2', '200', '20'),
+(15, 5, '3', '3', '300', '30'),
+(16, 6, '1', '1', '100', '10'),
+(17, 6, '2', '2', '200', '20'),
+(18, 6, '3', '3', '300', '30'),
+(19, 7, '1', '1', '100', '10'),
+(20, 7, '2', '2', '200', '20'),
+(21, 7, '3', '3', '300', '30'),
+(22, 8, '1', '1', '100', '10'),
+(23, 8, '2', '2', '200', '20'),
+(24, 8, '3', '3', '300', '30'),
+(25, 9, '1', '1', '100', '10'),
+(26, 9, '2', '2', '200', '20'),
+(27, 9, '3', '3', '300', '30'),
+(28, 10, '1', '1', '100', '10'),
+(29, 10, '2', '2', '200', '20'),
+(30, 10, '3', '3', '300', '30'),
+(31, 11, '1', '1', '100', '10'),
+(32, 11, '2', '2', '200', '20'),
+(33, 11, '3', '3', '300', '30'),
+(34, 12, '1', '1', '100', '10'),
+(35, 12, '2', '2', '200', '20'),
+(36, 12, '3', '3', '300', '30'),
+(37, 13, '1', '1', '100', '10'),
+(38, 13, '2', '2', '200', '20'),
+(39, 13, '3', '3', '300', '30'),
+(40, 14, '1', '1', '100', '10'),
+(41, 14, '2', '2', '200', '20'),
+(42, 14, '3', '3', '300', '30'),
+(43, 15, '1', '1', '100', '10'),
+(44, 15, '2', '2', '200', '20'),
+(45, 15, '3', '3', '300', '30'),
+(46, 16, '1', '1', '100', '10'),
+(47, 16, '2', '2', '200', '20'),
+(48, 16, '3', '3', '300', '30'),
+(49, 17, '1', '1', '100', '10'),
+(50, 17, '2', '2', '200', '20'),
+(51, 17, '3', '3', '300', '30'),
+(52, 18, '1', '1', '100', '10'),
+(53, 18, '2', '2', '200', '20'),
+(54, 18, '3', '3', '300', '30'),
+(55, 19, '1', '1', '100', '10'),
+(56, 19, '2', '2', '200', '20'),
+(57, 19, '3', '3', '300', '30');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superficie_exploitation`
+-- Structure de la table `superficie_exploitation`
 --
 
 CREATE TABLE `superficie_exploitation` (
@@ -3504,10 +3734,58 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `superficie_exploitation`
+--
+
+INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
+(1, 1, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 3000.00, 40.00, 54000.00, 410.00),
+(2, 2, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 3000.00, 40.00, 54000.00, 410.00),
+(3, 3, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 8796.00, 1.00, 59796.00, 371.00),
+(4, 4, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 5098.00, 17.00, 56098.00, 387.00),
+(5, 5, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 76.00, 93.00, 51076.00, 463.00),
+(6, 6, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 6802.00, 88.00, 57802.00, 458.00),
+(7, 7, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 2900.00, 59.00, 53900.00, 429.00),
+(8, 8, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 6057.00, 84.00, 57057.00, 454.00),
+(9, 9, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 1467.00, 47.00, 52467.00, 417.00),
+(10, 10, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 4247.00, 44.00, 55247.00, 414.00),
+(11, 11, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 9424.00, 2.00, 60424.00, 372.00),
+(12, 12, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 2579.00, 73.00, 53579.00, 443.00),
+(13, 13, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 4195.00, 17.00, 55195.00, 387.00),
+(14, 14, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 2865.00, 1.00, 53865.00, 371.00),
+(15, 15, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 3920.00, 13.00, 54920.00, 383.00),
+(16, 16, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 5309.00, 25.00, 56309.00, 395.00),
+(17, 17, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 6430.00, 57.00, 57430.00, 427.00),
+(18, 18, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 8962.00, 84.00, 59962.00, 454.00),
+(19, 19, 1000.00, 20.00, 3000.00, 40.00, 8000.00, 60.00, 7000.00, 20.00, 5000.00, 30.00, 2000.00, 10.00, 9000.00, 60.00, 2000.00, 30.00, 23000.00, 170.00, 14000.00, 100.00, 6000.00, 30.00, 8000.00, 70.00, 51000.00, 370.00, 5883.00, 22.00, 56883.00, 392.00),
+(20, 20, 4.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 4.00, 0.00),
+(21, 21, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00),
+(22, 22, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00),
+(23, 23, 11.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 11.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 11.00, 0.00, 0.00, 0.00, 11.00, 0.00),
+(24, 24, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 4545.00, 0.00),
+(25, 25, 111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 111.00, 0.00, 0.00, 0.00, 111.00, 0.00),
+(26, 26, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 1212.00, 0.00),
+(27, 27, 1111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1111.00, 0.00, 0.00, 0.00, 1111.00, 0.00),
+(28, 28, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 1212.00, 0.00),
+(29, 29, 6556.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 6556.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 6556.00, 0.00, 0.00, 0.00, 6556.00, 0.00),
+(30, 30, 12.00, 0.00, 0.00, 0.00, 0.00, 12.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 12.00, 12.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 12.00, 12.00, 0.00, 0.00, 12.00, 12.00),
+(31, 31, 545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 545.00, 0.00, 0.00, 0.00, 545.00, 0.00),
+(32, 32, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 4545.00, 0.00),
+(33, 33, 454.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 454.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 454.00, 0.00, 0.00, 0.00, 454.00, 0.00),
+(34, 34, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 1212.00, 0.00),
+(35, 35, 1111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1111.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1111.00, 0.00, 0.00, 0.00, 1111.00, 0.00),
+(36, 36, 454.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 454.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 454.00, 0.00, 0.00, 0.00, 454.00, 0.00),
+(37, 37, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1212.00, 0.00, 0.00, 0.00, 1212.00, 0.00),
+(38, 38, 4.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4.00, 0.00, 0.00, 0.00, 4.00, 0.00),
+(39, 39, 878.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 878.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 878.00, 0.00, 0.00, 0.00, 878.00, 0.00),
+(40, 40, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4545.00, 0.00, 0.00, 0.00, 4545.00, 0.00),
+(41, 41, 4564.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4564.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 4564.00, 0.00, 0.00, 0.00, 4564.00, 0.00),
+(42, 42, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur`
+-- Structure de la table `superviseur`
 --
 
 CREATE TABLE `superviseur` (
@@ -3521,10 +3799,17 @@ CREATE TABLE `superviseur` (
   `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `superviseur`
+--
+
+INSERT INTO `superviseur` (`id_superviseur`, `id_user`, `nom_superviseur`, `prenom_superviseur`, `phone`, `wilaya`, `email`, `creation_date`) VALUES
+(1, 2, 'mounir', 'abes', '0000000000', '01', 'mounir2013b@gmail.com', '2024-04-27 17:04:48');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur_national`
+-- Structure de la table `superviseur_national`
 --
 
 CREATE TABLE `superviseur_national` (
@@ -3541,7 +3826,7 @@ CREATE TABLE `superviseur_national` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -3553,16 +3838,19 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25'),
+(2, 'S01-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'superviseur', '2024-04-27 15:04:48'),
+(3, 'C01-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'controleur', '2024-04-27 15:05:41'),
+(4, 'R01-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'recenseur', '2024-04-27 15:06:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisation_du_sol`
+-- Structure de la table `utilisation_du_sol`
 --
 
 CREATE TABLE `utilisation_du_sol` (
@@ -3574,10 +3862,130 @@ CREATE TABLE `utilisation_du_sol` (
   `en_intercalaire` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `utilisation_du_sol`
+--
+
+INSERT INTO `utilisation_du_sol` (`id`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES
+(1, 1, '1', '658', '768', '854'),
+(2, 1, '2', '548', '161', '648'),
+(3, 1, '3', '147', '574', '247'),
+(4, 1, '4', '365', '587', '365'),
+(5, 1, '5', '785', '563', '332'),
+(6, 1, '1', '147', '258', '369'),
+(7, 2, '1', '658', '768', '854'),
+(8, 2, '2', '548', '161', '648'),
+(9, 2, '3', '147', '574', '247'),
+(10, 2, '4', '365', '587', '365'),
+(11, 2, '5', '785', '563', '332'),
+(12, 2, '1', '147', '258', '369'),
+(13, 3, '1', '658', '768', '854'),
+(14, 3, '2', '539', '226', '444'),
+(15, 3, '3', '184', '835', '491'),
+(16, 3, '4', '797', '748', '588'),
+(17, 3, '5', '333', '876', '557'),
+(18, 3, '1', '402', '796', '506'),
+(19, 4, '1', '658', '768', '854'),
+(20, 4, '2', '975', '621', '157'),
+(21, 4, '3', '551', '092', '585'),
+(22, 4, '4', '716', '702', '482'),
+(23, 4, '5', '812', '998', '906'),
+(24, 4, '1', '985', '965', '741'),
+(25, 5, '1', '658', '768', '854'),
+(26, 5, '2', '267', '867', '071'),
+(27, 5, '3', '121', '607', '199'),
+(28, 5, '4', '116', '529', '828'),
+(29, 5, '5', '750', '243', '644'),
+(30, 5, '1', '660', '704', '021'),
+(31, 6, '1', '658', '768', '854'),
+(32, 6, '2', '875', '172', '709'),
+(33, 6, '3', '734', '311', '344'),
+(34, 6, '4', '966', '247', '912'),
+(35, 6, '5', '684', '672', '297'),
+(36, 6, '1', '696', '315', '036'),
+(37, 7, '1', '658', '768', '854'),
+(38, 7, '2', '006', '073', '112'),
+(39, 7, '3', '961', '875', '925'),
+(40, 7, '4', '386', '621', '943'),
+(41, 7, '5', '548', '199', '635'),
+(42, 7, '1', '098', '248', '270'),
+(43, 8, '1', '658', '768', '854'),
+(44, 8, '2', '634', '932', '836'),
+(45, 8, '3', '551', '995', '580'),
+(46, 8, '4', '366', '577', '346'),
+(47, 8, '5', '078', '499', '679'),
+(48, 8, '1', '584', '881', '353'),
+(49, 9, '1', '658', '768', '854'),
+(50, 9, '2', '220', '915', '488'),
+(51, 9, '3', '840', '045', '101'),
+(52, 9, '4', '666', '408', '619'),
+(53, 9, '5', '122', '059', '597'),
+(54, 9, '1', '266', '745', '518'),
+(55, 10, '1', '658', '768', '854'),
+(56, 10, '2', '208', '070', '765'),
+(57, 10, '3', '563', '557', '291'),
+(58, 10, '4', '432', '793', '782'),
+(59, 10, '5', '687', '504', '313'),
+(60, 10, '1', '335', '036', '387'),
+(61, 11, '1', '658', '768', '854'),
+(62, 11, '2', '177', '057', '029'),
+(63, 11, '3', '188', '736', '494'),
+(64, 11, '4', '130', '142', '513'),
+(65, 11, '5', '639', '387', '590'),
+(66, 11, '1', '660', '845', '354'),
+(67, 12, '1', '658', '768', '854'),
+(68, 12, '2', '127', '693', '684'),
+(69, 12, '3', '426', '798', '696'),
+(70, 12, '4', '286', '280', '310'),
+(71, 12, '5', '906', '548', '854'),
+(72, 12, '1', '456', '039', '001'),
+(73, 13, '1', '658', '768', '854'),
+(74, 13, '2', '392', '823', '333'),
+(75, 13, '3', '507', '021', '682'),
+(76, 13, '4', '744', '280', '642'),
+(77, 13, '5', '743', '538', '473'),
+(78, 13, '1', '719', '812', '169'),
+(79, 14, '1', '658', '768', '854'),
+(80, 14, '2', '623', '378', '912'),
+(81, 14, '3', '323', '268', '469'),
+(82, 14, '4', '856', '369', '156'),
+(83, 14, '5', '693', '157', '482'),
+(84, 14, '1', '887', '932', '975'),
+(85, 15, '1', '658', '768', '854'),
+(86, 15, '2', '728', '522', '714'),
+(87, 15, '3', '814', '565', '227'),
+(88, 15, '4', '095', '194', '729'),
+(89, 15, '5', '293', '029', '636'),
+(90, 15, '1', '415', '842', '645'),
+(91, 16, '1', '658', '768', '854'),
+(92, 16, '2', '277', '585', '584'),
+(93, 16, '3', '227', '145', '851'),
+(94, 16, '4', '460', '009', '119'),
+(95, 16, '5', '932', '247', '191'),
+(96, 16, '1', '918', '228', '055'),
+(97, 17, '1', '658', '768', '854'),
+(98, 17, '2', '626', '888', '658'),
+(99, 17, '3', '026', '421', '566'),
+(100, 17, '4', '370', '529', '148'),
+(101, 17, '5', '248', '692', '140'),
+(102, 17, '1', '389', '276', '009'),
+(103, 18, '1', '658', '768', '854'),
+(104, 18, '2', '167', '709', '736'),
+(105, 18, '3', '413', '507', '444'),
+(106, 18, '4', '472', '136', '341'),
+(107, 18, '5', '627', '393', '409'),
+(108, 18, '1', '623', '482', '508'),
+(109, 19, '1', '658', '768', '854'),
+(110, 19, '2', '691', '762', '762'),
+(111, 19, '3', '591', '927', '774'),
+(112, 19, '4', '834', '061', '642'),
+(113, 19, '5', '974', '215', '188'),
+(114, 19, '1', '874', '811', '332');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `validation_questionnaire`
+-- Structure de la table `validation_questionnaire`
 --
 
 CREATE TABLE `validation_questionnaire` (
@@ -3587,24 +3995,24 @@ CREATE TABLE `validation_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `communes`
+-- Index pour la table `communes`
 --
 ALTER TABLE `communes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `controleur`
+-- Index pour la table `controleur`
 --
 ALTER TABLE `controleur`
   ADD PRIMARY KEY (`id_controleur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `questionnaire`
+-- Index pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD PRIMARY KEY (`id_questionnaire`),
@@ -3612,7 +4020,7 @@ ALTER TABLE `questionnaire`
   ADD KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250));
 
 --
--- Indexes for table `recenseur`
+-- Index pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD PRIMARY KEY (`id_recensseur`),
@@ -3620,141 +4028,141 @@ ALTER TABLE `recenseur`
   ADD KEY `controleur` (`controleur`);
 
 --
--- Indexes for table `status_juridique`
+-- Index pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
   ADD PRIMARY KEY (`id_status_juridique`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `superficie_exploitation`
+-- Index pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `superviseur`
+-- Index pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD PRIMARY KEY (`id_superviseur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `superviseur_national`
+-- Index pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD PRIMARY KEY (`id_superviseur_national`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `utilisation_du_sol`
+-- Index pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `validation_questionnaire`
+-- Index pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   ADD PRIMARY KEY (`id_validation`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `controleur`
+-- AUTO_INCREMENT pour la table `controleur`
 --
 ALTER TABLE `controleur`
-  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `questionnaire`
+-- AUTO_INCREMENT pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT for table `recenseur`
+-- AUTO_INCREMENT pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
-  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `status_juridique`
+-- AUTO_INCREMENT pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `superficie_exploitation`
+-- AUTO_INCREMENT pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT for table `superviseur`
+-- AUTO_INCREMENT pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `superviseur_national`
+-- AUTO_INCREMENT pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `utilisation_du_sol`
+-- AUTO_INCREMENT pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
--- AUTO_INCREMENT for table `validation_questionnaire`
+-- AUTO_INCREMENT pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `controleur`
+-- Contraintes pour la table `controleur`
 --
 ALTER TABLE `controleur`
   ADD CONSTRAINT `controleur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `recenseur`
+-- Contraintes pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD CONSTRAINT `recenseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `superviseur`
+-- Contraintes pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD CONSTRAINT `superviseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `superviseur_national`
+-- Contraintes pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD CONSTRAINT `superviseur_national_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
