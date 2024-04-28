@@ -4047,7 +4047,7 @@ Petite et Moyenne Hydraulique
          Barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault777" name="eau_station_depuration_2" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
+         <input class="form-check-input" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
          Station d'épuration</label>
        </div><br>
        <div class="form-check">

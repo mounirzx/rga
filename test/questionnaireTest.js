@@ -80,7 +80,7 @@ fs.writeFile(filePath, content, (err) => {
 
 
   // await page.goto("http://213.179.181.50/workingrga/" , { delay: delay });
-  await page.goto("http://localhost/rga" , { delay: delay });
+  await page.goto("http://localhost/RGA" , { delay: delay });
   // await page.goto("http://localhost/faroukrga/rga/" , { delay: delay });
   
 
@@ -920,19 +920,19 @@ await page.click('#addForm3');
 
  // IX- Ressources en eau الموارد المائية99
 
- await page.type('input[name="eau_barrage"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_station_depuration"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_ensemble_de_forages"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_puits"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_forage"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_pompage_doued"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_crues_doued"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_petit_barrage"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_retenu_collinaire"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_foggara"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_source"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_station_depuration_2"]',generateRandomNumber(2), { delay: delay });
- await page.type('input[name="eau_autres_ress"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_barrage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_station_depuration"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_ensemble_de_forages"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_puits"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_forage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_pompage_doued"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_crues_doued"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_petit_barrage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_retenu_collinaire"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_foggara"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_source"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_station_depuration_2"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_autres_ress"]',generateRandomNumber(2), { delay: delay });
 
 
  
@@ -1214,5 +1214,5 @@ await waitFor(delay);
   // });
 
   // Close the browser
-  await browser.close();
+  // await browser.close();
 })();
