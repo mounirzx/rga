@@ -6,6 +6,15 @@ include('includes/header.php');
 .dt-type-numeric{
 text-align:center !important;
 }
+
+.editStatBtn{
+
+    font-size: 10px; 
+    border-radius: 50%;
+}
+table.dataTable th, table.dataTable td{
+    padding:2px;
+}
 </style>
 <body>
     <br>
