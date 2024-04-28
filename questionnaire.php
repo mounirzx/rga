@@ -426,6 +426,16 @@ font-weight: bold;
 
 
                     <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
+<div style="text-align:center; color:red;"><p>  للمراقب مخصص إطار - Cadre réservé au contrôleur</p></div>
+
+<div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
+              
+                    <span class="input-group-text" id="basic-addon3"> الرقم <br>
+                       Numéro</span>
+                        <input  type="text" class="form-control bneder" id="num_qst" name="num_qst">
+
+                </div> <br>
+
                        <div class="input-group input-group-sm">
                        <div hidden class="qst-num zxcount"></div>
                        <div class="qst-num ">4</div>
@@ -877,7 +887,7 @@ font-weight: bold;
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الولائية للفلاحة<br>
+              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
@@ -888,16 +898,16 @@ font-weight: bold;
               <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
               L’Union Nationale des Paysans Algériens (UNPA)</label>
             </div>
-          </div><br>
-          <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">غرفة الحرف والمهنيين<br>
-              La Chambre du Commerce de la Wilaya (CCW)</label>
+               <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
+               La Chambre de l'artisanat et des metiers (CAM)</label>
             </div><br>
-            <div class="form-check">
-              <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">الغرفة التجارية الولائية<br>
-              La Chambre de l'artisanat et des metiers (CAM)</label>
-            </div><br>
+         </div><br>
+         <div class="col">
+           <div class="form-check">
+             <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
+             La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
+           </div><br>
             <div class="form-check">
               <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
               جهاز إجتماعي - Dispositif Social</label>
@@ -1174,7 +1184,11 @@ font-weight: bold;
   <div class="col">
     <div class="input-group input-group-sm">
     <div class="qst-num zxcount"></div>
-      <span class="input-group-text" id="basic-addon3">شبكة كهرباء</span>
+    <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
+<br>
+L'éxploiation est elle raccordée au
+réseau électrique ?
+</span>
       <div class="col-auto">
         <select class="select-ee form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected>
@@ -1193,7 +1207,10 @@ font-weight: bold;
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-        <span class="input-group-text" id="basic-addon3">شبكة الهاتف</span> <select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique">
+      <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      L'éxploiation est-elle connectée à
+un réseau téléphonique ?
+</span><select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique">
           <option selected>
             -
           </option>
@@ -1210,22 +1227,32 @@ font-weight: bold;
       
 <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
-        <span class="input-group-text" id="basic-addon3">إذا نعم</span> <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
+<span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
+Si oui, 
+</span> <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
           <option selected>
             -
           </option>
           <option value="1">
-            1 - Mobile
+            1 - Fixe  هاتف ثابت 
           </option>
           <option value="2">
-            2 - Fixe
+            2 - Mobile هاتف نقال  
+          </option>
+          <option value="3">
+            3 - Fixe et Mobile هاتف ثابت و هاتف نقال
           </option>
         </select>
       </div>
       <br>
    <div class="input-group input-group-sm">
    <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">شبكة الإنترنت</span> <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
+   
+   <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة
+اإلنترنت؟ <br>
+L'éxploiation est-elle connectée
+au réseau internet ?
+</span> <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
       <option selected>
         -
       </option>
@@ -1239,7 +1266,13 @@ font-weight: bold;
   </div><br>
    <div class="input-group input-group-sm">
    <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">إذا نعم هل تستخدم الإنترنت لتلبية الإحتياجات الفلاحية؟</span> <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+   <span class="input-group-text" id="basic-addon3">إذا نعم، هل تستخدم اإلنترنت
+ألغراض متعلقة بالفالحة؟
+<br>
+Si oui, utilisez-vous le réseau
+internet pour des besoins
+agricoles ?
+</span> <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1284,8 +1317,8 @@ font-weight: bold;
 
 
                   <div class="row" style="text-align: center;">
-                    <div class="col-3">أصل الأرض <br> Origine des terres</div>
-                     <div class="col-4">طريقة استغلال الأراضي <br> Mode d’exploitation des terres</div>
+                    <div class="col-3">أصل الأرضي <br> Origine des terres</div>
+                     <div class="col-4">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
                      <div class="col" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
                      <div class="col">المساحة(ار) <br> Superficie(Are)</div>
                      <div class="col"></div>
@@ -1312,7 +1345,7 @@ font-weight: bold;
                                 <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option value="7">7 - Wakf privé وقف خاص</option>
                                 <option value="8">8 - Wakf public وقف عام</option>
-                                <option value="9">9 - d g g</option>
+                                <option value="9">9 - Inconnue مجهول   </option>
                             </select>
 
                             </div>
@@ -1337,7 +1370,16 @@ font-weight: bold;
                                 <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-                                <option value="13">13- Inconnu غير معروف</option>
+                                <option value="13">13 - Vente/Achat بيع/شراء</option>
+                                <option value="14">14 - Succession إرث</option>
+                                <option value="15">15 - Donation هبة</option>
+                                <option value="16">16 - Testament وصية</option>
+                                <option value="17">17 - Droit préemption حق الشفاعة</option>
+                                <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+                                <option value="19">19 - Certificat de possession شهادة حيازة</option>
+                                <option value="20">20 - Location إجار</option>
+                                <option value="21">21 - Autre  آخرى </option>
+                                <option value="22">22 - Inconnu غير معروف</option>
                                 </select>
                                 <div class="big-space"></div>
                          </div>
@@ -1459,12 +1501,11 @@ font-weight: bold;
 <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل يملك عقد
-   امتياز؟
+   <span class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+
    <br>
-   Si l'exploitation est une EAI ou une EAC,posséde -il un acte de
-   concession
-   ?
+   Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
+acte de concession ?
    </span>
    <select class="select-ee bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
       <option selected="">-</option>
@@ -1476,14 +1517,19 @@ font-weight: bold;
 <br>
 
 <div class="card" style="font-size: 12px;">
-<div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div>
-
+<div class="card-header" style="text-align: center;">
+إذا كانت م.ف.ج -    Si Ex-EAC
+                  <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+               
+               </div>
+<!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
+<br>
 <div class="row">
    <div class="col">
    <div class="input-group input-group-sm">
                <span class="input-group-text" id="basic-addon3">
-               إذا كانت م.ف.ج 
-             <br>  Si EAC
+               عدد األعضاء
+               <br>
 
                
                Nombre des exploitants
@@ -1495,13 +1541,14 @@ font-weight: bold;
             </div>
 
    </div>
-   <div class="col-7">
+   <div class="col-5">
    <div class="input-group input-group-sm">
                <span class="input-group-text" id="basic-addon3">
-             المساحة
+             مساحة م.ف.ج
 
                <br>
-               Superficie
+               Superficie de
+l'Ex-EAC
                </span>
               
                <input style="width:150px;" class="form-control bneder" type="text" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
@@ -1603,26 +1650,26 @@ font-weight: bold;
                <div class="input-group input-group-sm">
                 
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total " id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" >
-                
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" >
+             
                  <div class="small-space"></div>
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control  coherence_surface_total-surface_are" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
             <td>
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
-                     <input id="in16" class="surface bneder form-control " name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
              
                      
                      
-                     <input  class="surface bneder form-control" name="cultures_herbacees_4" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1641,13 +1688,13 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
                   
                   <span style="width: 32px;"></span>
                   <div class="small-space"></div>
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1864,12 +1911,12 @@ font-weight: bold;
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
                      
-                     <input class="surface bneder form-control" name="superficie_agricole_totale_sat_1" readonly="" type="text"  style="max-width: 80px;" value="">
+                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly="" type="text"  style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_totale_sat_2" readonly="" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" type="text"  style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1887,13 +1934,13 @@ font-weight: bold;
                      
                   
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -2418,58 +2465,64 @@ font-weight: bold;
                   58 - Amandier-أشجار اللوز
                 </option>
                 <option value="59">
-                  59 - Noix-أشجار الجوز
+                  59 - Noyer -أشجار الجوز
                 </option>
                 <option value="60">
                   60 - Cerisier-أشجار الكرز
                 </option>
                 <option value="61">
-                  61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"
+                  61 - Neflier - أشجار الزعرور 
                 </option>
                 <option value="62">
-                  62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"
+                  62 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"
                 </option>
                 <option value="63">
-                  63 - Palmier dattier (autres)-أشجار النخيل "أخرى"
+                  63 - Palmier dattier (Ghars)-أشجار النخيل "غرس"
                 </option>
                 <option value="64">
-                  64 - Vigne de table-أشجار العنب األكل
+                  64 - Palmier dattier (autres)-أشجار النخيل "أخرى"
                 </option>
                 <option value="65">
-                  65 - Vigne de cuve-أشجار عنب العصير
+                  65 - Vigne de table - كروم الماىدة
                 </option>
                 <option value="66">
-                  66 - Grenadier-أشجار الرمان
+                  66 - Vigne de cuve - كروم لصنع الخمور
                 </option>
                 <option value="67">
-                  67 - Arganier-أشجار األرقان
+                  67 - Vigne à raisin sec - كروم التجفيف
                 </option>
                 <option value="68">
-                  68 - Autres arbres-أشجار أخرى
+                  68 - Grenadier-أشجار الرمان
+                </option>
+                <option value="69">
+                  69 - Arganier-أشجار األرقان
+                </option>
+                <option value="70">
+                  70 - Autres arbres-أشجار أخرى
                 </option>
                 <option disabled style="font-weight: 700;">
                   Divers - محاصيل مختلفة
                 </option>
-                <option value="69">
-                  69 - Herbes et épices - الأعشاب والتوابل
-                </option>
-                <option value="70">
-                  70 - Plantes aromatiques et médicinales .. - نباتات العطرية و الطبية
-                </option>
                 <option value="71">
-                  71 - Pépinières fruitières - مشاتل الفاكهة
+                  71 - Herbes et épices - الأعشاب والتوابل
                 </option>
                 <option value="72">
-                  72 - Pépinières maraichères - مشاتل الخضار
+                  72 - Plantes aromatiques et médicinales .. - نباتات العطرية و الطبية
                 </option>
                 <option value="73">
-                  73 - Pépinières forestières - مشاتل الغابات
+                  73 - Pépinières fruitières - مشاتل الفاكهة
                 </option>
                 <option value="74">
-                  74 - Autres Pépinières - مشاتل أخرى
+                  74 - Pépinières maraichères - مشاتل الخضار
                 </option>
                 <option value="75">
-                  75 - Autres Cultures - محاصيل أخرى
+                  75 - Pépinières forestières - مشاتل الغابات
+                </option>
+                <option value="76">
+                  76 - Autres Pépinières - مشاتل أخرى
+                </option>
+                <option value="77">
+                  77 - Autres Cultures - محاصيل أخرى
                 </option>
               </select>
             </div>
@@ -2587,67 +2640,71 @@ font-weight: bold;
                                 <!-- End of input group -->
                                 <!-- Start of input group -->
                                     <br>
-                                <div class="input-group input-group-sm">
+                               
+                                    <div class="input-group input-group-sm">
                                     <span class="input-group-text" id="basic-addon3">
-                                    أشجار ذات نوات <br> Noyaux-Pépins
+                                    أشجار الرمان <br> Grenadiers
                                     </span>
-                                       <input class="form-control bneder" id="noyaux_pepins" name="noyaux_pepins">                   
+                                       <input class="form-control bneder"  id="grenadiers" name="grenadiers">                   
                                </div>
-                                <!-- End of input group -->
-                                <!-- Start of input group -->
-                                    <br>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-text" id="basic-addon3">
-                                    أشجار العنب <br> Vigne
-                                    </span>
-                                       <input class="form-control bneder" id="vigne" name="vigne">                   
-                               </div>
-                                <!-- End of input group -->
-                                <!-- Start of input group -->
 
+
+                                <!-- End of input group -->
+                                <!-- Start of input group -->
                                     <br>
-                                <div class="input-group input-group-sm">
+                                    <div class="input-group input-group-sm">
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار اللوز <br> Amandiers
                                     </span>
                                        <input class="form-control bneder" id="amandiers" name="amandiers">                   
                                </div>
                                 <!-- End of input group -->
+                                <!-- Start of input group -->
+
+                                    <br>
+                                    <div class="input-group input-group-sm">
+                                    <span class="input-group-text" id="basic-addon3">
+                                    أشجار العنب <br> Vigne
+                                    </span>
+                                       <input class="form-control bneder" id="vigne" name="vigne">                   
+                               </div>
+                              
+                                <!-- End of input group -->
                             </div>
+                            
+                            <!-- End of input group -->
+                            <!-- Start of input group -->
                             <div style="padding-left: 0px;" class="col">
-                                <!-- Continue with the other tree types -->
-                                <!-- Start of input group -->
-                                    
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-text" id="basic-addon3">
-                                    أشجار الرمان <br> Grenadiers
-                                    </span>
-                                       <input class="form-control bneder"  id="grenadiers" name="grenadiers">                   
-                               </div>
-                                <!-- End of input group -->
-                                <!-- Start of input group -->
-
-                                    <br>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-text" id="basic-addon3">
-                                    أشجار السفرجل<br> Cognassiers
-                                    </span>
-                                       <input class="form-control bneder"  id="cognassiers" name="cognassiers">                   
-                               </div>
-                                <!-- End of input group -->
-                                <!-- Start of input group -->
-                                    <br>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-text" id="basic-addon3">
-                                    أشجار النخيل <br> Palmiers dattiers
-                                    </span>
-                                       <input class="form-control bneder" id="palmiers_dattiers" name="palmiers_dattiers">                   
-                               </div>
-                                <!-- End of input group -->
-                                <!-- Start of input group -->
-
-
-
+                            <div class="input-group input-group-sm">
+                               <span class="input-group-text" id="basic-addon3">
+                                  أشجار النخيل <br> Palmiers dattiers
+                               </span>
+                               <input class="form-control bneder" id="palmiers_dattiers" name="palmiers_dattiers">                   
+                            </div>
+                            <br>
+                            
+                              <!-- End of input group -->
+                              <!-- Start of input group -->
+                             
+                              <!-- End of input group -->
+                              <!-- Start of input group -->
+                              
+                              <div class="input-group input-group-sm">
+                               <span class="input-group-text" id="basic-addon3">
+                                  أشجار السفرجل<br> Cognassiers
+                                 </span>
+                                 <input class="form-control bneder"  id="cognassiers" name="cognassiers">                   
+                              </div>
+                              
+                              <br>
+                                  <!-- Continue with the other tree types -->
+                                  <!-- Start of input group -->
+                                    <div class="input-group input-group-sm">
+                                      <span class="input-group-text" id="basic-addon3">
+                                      أشجار ذات النوات و البذرة<br> Noyaux-Pépins
+                                      </span>
+                                         <input class="form-control bneder" id="noyaux_pepins" name="noyaux_pepins">                   
+                                 </div>   
 
 
                                     <br>
@@ -2659,10 +2716,17 @@ font-weight: bold;
                                </div>
 
 
+                                       <!-- New   -->
 
+                               <br>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text" id="basic-addon3">
+                                    أشجارأخرى<br> Autres
+                                    </span>
+                                    <input class="form-control bneder" id="autre_arbres_isoles" name="autre_arbres_isoles">   
+                               </div>
 
-                                    
-                                    
+                                    <!-- New en new   -->
                                     
                                     
                                         
@@ -2792,7 +2856,7 @@ font-weight: bold;
                   <div class="qst-num zxcount"></div>
                      <span class="input-group-text" id="basic-addon3">
                      هل تمارس الزراعة التعاقدية؟<br>
-                     Pratiquez-vous une agriculture conventionnée?
+                     Pratiquez-vous une agriculture contractuelle ?
                      </span>
                      <select class="select-ee bneder" id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
                         <option disabled value="-" selected="">  </option>
@@ -3339,7 +3403,7 @@ font-weight: bold;
                    <br>
                    Les bâtiments d'exploitation agricole sont exploités 
                </span>
-               <select class="select-ee bneder" id="inputGroupSelect01" name="bat_exploitation_agricole_sont_exploites">
+               <select class="select-ee bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
                    <option value="-" disabled selected="selected">  </option>
                    <option value="1">1 - En individuel - فردية</option>
                    <option value="2">2 - En collectif - جماعية</option>
@@ -3367,12 +3431,12 @@ font-weight: bold;
     <tr>
       <td style="width:330px">
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
-      <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
-      <td><input id="in82" name="batiment_de_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
+      <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
+      <td><input id="in82" name="batiments_dhabitation_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
         </div>
       </td>
     </tr>
@@ -3565,23 +3629,26 @@ font-weight: bold;
                   <!-- Cultures herbacées -->
                
                   </tr>
+
                   <tr>
       <td style="width:330px">
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
-      <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
-      <td><input id="in82" name="batiments_dhabitation_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
+      <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
+      <td><input id="in82" name="batiment_de_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
         </div>
       </td>
     </tr>
+                
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">مباني تخزين المنتوجت الفلاحية</p>
-                     <p style="margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p>
+                    <p style="margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                     <p style="margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
+    
                      </td>
                      <td>
                       
@@ -3599,19 +3666,19 @@ font-weight: bold;
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">  مباني تخزين العتاد الفلاحي</p>
-                     <p style="margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
+                    <p style="margin: 0px 0px 0px 25px;">  مباني تخزين اخرى </p>
+                     <p style="margin: 0px 0px 0px 25px;">Autres Bâtiment de stockage </p>
                      </td>
                      <td>
                        
                           
-                           <input id="in86" name="batiment_pour_le_remisage_du_materiel_agricole_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in86" name="autres_batiment_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
                      </td>
                      <td>
                   
                      <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in87" name="batiment_pour_le_remisage_du_materiel_agricole_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
                   </div>
                      </td>
                   </tr>
@@ -3813,7 +3880,7 @@ font-weight: bold;
                       <br>
                       Le mode d'exploitation du matériel agricole ? 
                   </span>
-               <select class="form-control bneder" id="inputGroupSelect01" name="ee_mode_exploitation_materiel">
+               <select class="form-control bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
                   <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- en individuel - فردية</option>
                   <option value="2">2- en collectif - جماعية</option>
@@ -3823,14 +3890,27 @@ font-weight: bold;
             
 </div>
 <br>
+
+
+
+
+<!-- <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">72</div>
+                     إذا كان نعم, أي شعبة ؟ - Si oui,
+                        quelles
+                        filières?
+                     </div> -->
 <div class="card" style="font-size: 12px;">
-  <div class="card-header" style="text-align: center;">
+<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">72</div>
+نوع و عدد العتاد الفالحي ؟ 
+<br>
+Type et nombre du matériel agricole ? 
+                     </div>
     <div class="card-body">
       <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;"></div>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
           <div style="margin-top: 59px;height: 40px;width: 696px;background-color: #f8f8f8;position: absolute;z-index: 99;"></div>
-          <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div>
+          <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
         </div>
         <div class="col-3"></div>
         <div class="col-3">
@@ -4043,57 +4123,63 @@ Petite et Moyenne Hydraulique
 <div class="row">
 <div class="col">
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault666" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault666">سد<br>
+         <input class="form-check-input bneder" id="flexCheckDefault666" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault666">سد<br>
          Barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
+         <input class="form-check-input bneder" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
          Station d'épuration</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault888" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="flexCheckDefault888">مجموعة آبار عميقة<br>
+         <input class="form-check-input bneder" id="flexCheckDefault888" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="flexCheckDefault888">مجموعة آبار عميقة<br>
          Ensemble de forages</label>
        </div>
      </div>
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1010" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">سد صغير<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">سد صغير<br>
          Petit barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1011" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">خزان التلال<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">خزان التلال<br>
          Retenu collinaire</label>
        </div><br>
-       <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">الفوقارة<br>
-         Foggara</label>
-       </div><br>
+<!-- herere -->
+      <div class="form-check">
+         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_forage_collectif" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">بئر عميق جماعي<br>
+         Forage collectif </label>
+      </div>
+     <br>
      </div>
      <div class="col-4">
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1010" name="eau_forage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">بئر عميق<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_forage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">بئر عميق<br>
          Forage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1011" name="eau_puits" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">بئر<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_puits" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">بئر<br>
          Puits</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault122" name="eau_source" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">منبع<br>
+         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_source" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">منبع<br>
          Source</label>
        </div><br>
      </div>
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
          Pompage d'Oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault1011" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">فيض الوادي<br>
+         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">فيض الوادي<br>
          Crues d'oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault122" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">مصادر أخرى<br>
+         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فوقارة<br>
+         Foggara</label>
+       </div><br>
+       <div class="form-check">
+         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">مصادر أخرى<br>
          Autres</label>
        </div><br>
      </div>
@@ -4139,43 +4225,53 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">الرشاش الكلاسيكي<br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input id="in129" name="eau_aspersion_classique" type="text" max="999" class="form-control bneder" data-length="3" value="">
       </div><br>
+
+
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">السطحي<br>
-        Gravitaire</span> <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control bneder" data-length="3" value="">
-      </div><br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">تقطير<br>
+        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control bneder" data-length="3" value="">
+      </div>
+      <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">الفيض<br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">فيض<br>
         Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues" type="text" max="999" class="form-control bneder" data-length="3" value="">
       </div><br>
     </div>
     <div class="col">
       <br>
+
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">التقطير<br>
-        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control bneder" data-length="3" value="">
-      </div><br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">سطحي<br>
+        Gravitaire</span> <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control bneder" data-length="3" value="">
+      </div>
+
+      <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">الرش المحوري<br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">رش محوري<br>
         Pivots</span> <input id="in133" name="eau_pivots" type="text" max="999" class="form-control bneder" data-length="3" value="">
       </div><br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">اللفاف<br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">لفاف<br>
         Enrouleur</span> <input id="in134" name="eau_enrouleur" type="text" max="999" class="form-control bneder" data-length="3" value="">
       </div><br>
+      
     </div>
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">الأمطار الصناعية<br>
-        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle" type="text" max="999" class="form-control bneder" data-length="3" value="">
-      </div><br>
-      <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">الفوقارة<br>
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">فوقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
-      </div><br>
+      </div>
+      <br>
+      
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3" style="width:170px;">أمطار إصطناعية<br>
+        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle" type="text" max="999" class="form-control bneder" data-length="3" value="">
+      </div>
+      <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">طرق أخرى<br>
         Autre</span> <input id="in210" name="eau_autre_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
@@ -4208,7 +4304,7 @@ Petite et Moyenne Hydraulique
                   </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault666" name="eau_bassin_d_accumulation" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault666" name="eau_bassin_d_accumulation" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault666">
                                  أحواض التجميع
                                  <br>
@@ -4217,7 +4313,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault777" name="eau_bassin_geomembrane" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault777" name="eau_bassin_geomembrane" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault777">
                                  الأحواض الأرضية
                                  <br>
@@ -4226,7 +4322,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault888" name="eau_reservoir" type="checkbox">
+                                 <input class="form-check-input bender" id="flexCheckDefault888" name="eau_reservoir" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault888">
                                  خزان
                                  <br>
@@ -4235,17 +4331,17 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault999" name="eau_citrene_souple" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault999" name="eau_citrene_souple" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault999">
-                                 صهريج مرن
+                                 صهريج
                                  <br>
-                                 Citrene souple
+                                 Citrene
                                  </label>
                               </div>
                            </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault1010" name="eau_mare_deau" type="checkbox">
+                                 <input class="form-check-input bender" id="flexCheckDefault1010" name="eau_mare_deau" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault1010">
                                  بركة الماء
                                  <br>
@@ -4254,7 +4350,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault1011" name="eau_ced" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_ced" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault1011">
                                  سد الماء
                                  <br>
@@ -4263,7 +4359,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault122" name="eau_digue" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_digue" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault122">
                                  حاجز الماء
                                  <br>
@@ -4272,7 +4368,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input" id="flexCheckDefault133" name="eau_autres_1" type="checkbox">
+                                 <input class="form-check-input bneder" id="flexCheckDefault133" name="eau_autres_1" type="checkbox">
                                  <label class="form-check-label" for="flexCheckDefault133">
                                  طرق أخرى
                                  <br>
@@ -4685,7 +4781,7 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input name="ui_semences_selectionnees" class="form-check-input" type="checkbox" id="flexCheckDefault1441">
+                     <input name="ui_semences_selectionnees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1441">
                      <label class="form-check-label" for="flexCheckDefault1441">
                          بذور مختارة
                          <br>
@@ -4694,7 +4790,7 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input name="ui_semences_certifiees" class="form-check-input" type="checkbox" id="flexCheckDefault1552">
+                     <input name="ui_semences_certifiees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1552">
                      <label class="form-check-label" for="flexCheckDefault1552">
                          بذور معتمدة
                          <br>
@@ -4702,7 +4798,7 @@ Petite et Moyenne Hydraulique
                  </label></div>
                  <br>
                  <div class="form-check">
-                     <input name="ui_semences_de_la_ferme" class="form-check-input" type="checkbox" id="flexCheckDefault1663">
+                     <input name="ui_semences_de_la_ferme" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1663">
                      <label class="form-check-label" for="flexCheckDefault1663">
                          بذور المزرعة
                          <br>
@@ -4712,7 +4808,7 @@ Petite et Moyenne Hydraulique
                  <br>
 
                  <div class="form-check">
-                  <input class="form-check-input" id="flexCheckDefault233" name="ui_bio" type="checkbox">
+                  <input class="form-check-input bneder" id="flexCheckDefault233" name="ui_bio" type="checkbox">
                   <label class="form-check-label" for="flexCheckDefault233">
                       بيولوجية
                       <br>
@@ -4733,7 +4829,7 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault1774" name="ui_engrais_azotes" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault1774" name="ui_engrais_azotes" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault1774">
                          أسمدة آزوتية
                          <br>
@@ -4742,7 +4838,7 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault188" name="ui_engrais_phosphates" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault188" name="ui_engrais_phosphates" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault188">
                          أسمدة فوسفاتية
                          <br>
@@ -4751,7 +4847,7 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault199" name="ui_autres_engrais_mineraux" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault199" name="ui_autres_engrais_mineraux" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault199">
                          أسمدة معدنية أخرى
                          <br>
@@ -4773,7 +4869,7 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault2110" name="ui_engrais_organique" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault2110" name="ui_engrais_organique" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault2110">
                      أسمدة عضوية
                          <br>
@@ -4782,7 +4878,7 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault22210" name="ui_fumier" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault22210" name="ui_fumier" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault22210">
                          سماد
                          <br>
@@ -4791,7 +4887,7 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input" id="flexCheckDefault22211" name="ui_produits_phytosanitaires" type="checkbox">
+                     <input class="form-check-input bneder" id="flexCheckDefault22211" name="ui_produits_phytosanitaires" type="checkbox">
                      <label class="form-check-label" for="flexCheckDefault22211">
                          المُبيدات
                          <br>
@@ -4817,7 +4913,7 @@ Petite et Moyenne Hydraulique
 <div class="card-body">
 
 <div class="form-check">
-   <input class="form-check-input" id="flexCheckDefault2112" name="ui_vaccins" type="checkbox">
+   <input class="form-check-input bneder" id="flexCheckDefault2112" name="ui_vaccins" type="checkbox">
    <label class="form-check-label" for="flexCheckDefault2112">
    اللقاحات
        <br>
@@ -4826,7 +4922,7 @@ Petite et Moyenne Hydraulique
 </div>
 <br>
 <div class="form-check">
-   <input class="form-check-input" id="flexCheckDefault22212" name="ui_medicaments_veterinaires" type="checkbox">
+   <input class="form-check-input bneder" id="flexCheckDefault22212" name="ui_medicaments_veterinaires" type="checkbox">
    <label class="form-check-label" for="flexCheckDefault22212">
    الأدوية البيطرية
 
@@ -4875,25 +4971,25 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="card-body">
                                  <div class="form-check">
-                                    <input class="form-check-input" id="78278" name="fa_credit_bancaire" type="checkbox">
+                                    <input class="form-check-input bneder" id="78278" name="fa_credit_bancaire" type="checkbox">
                                     <label class="form-check-label" for="78278">
                                     موارد ذاتية - Crédit bancaire
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="5461745612" name="fa_propres_ressources" type="checkbox">
+                                    <input class="form-check-input bneder" id="5461745612" name="fa_propres_ressources" type="checkbox">
                                     <label class="form-check-label" for="5461745612">
                                     قرض بنكي - Propres ressources
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="57148562" name="fa_soutien_public" type="checkbox">
+                                    <input class="form-check-input bneder" id="57148562" name="fa_soutien_public" type="checkbox">
                                     <label class="form-check-label" for="57148562">
                                     دَعْم عُمومي - Soutien public
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="875178275" name="fa_emprunt_a_un_tiers" type="checkbox">
+                                    <input class="form-check-input bneder" id="875178275" name="fa_emprunt_a_un_tiers" type="checkbox">
                                     <label class="form-check-label" for="875178275">
                                     استلاف من الغير - Emprunt à un tiers
                                     </label>
@@ -4909,19 +5005,19 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="card-body">
                                  <div class="form-check">
-                                    <input class="form-check-input" id="5642614" name="fa_financiere" type="checkbox">
+                                    <input class="form-check-input bneder" id="5642614" name="fa_financiere" type="checkbox">
                                     <label class="form-check-label" for="5642614">
                                     مالي - Financière
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="2498429824" name="fa_materiel" type="checkbox">
+                                    <input class="form-check-input bneder" id="2498429824" name="fa_materiel" type="checkbox">
                                     <label class="form-check-label" for="2498429824">
                                     عتاد - Matériel
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="121545" name="fa_cultures" type="checkbox">
+                                    <input class="form-check-input bneder" id="121545" name="fa_cultures" type="checkbox">
                                     <label class="form-check-label" for="121545">
                                     محاصيل - Cultures
                                     </label>
@@ -4968,28 +5064,28 @@ Petite et Moyenne Hydraulique
 
                            <div class="row">
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input" id="5fd4g5fd" name="fa_ettahadi" type="checkbox">
+                                 <input class="form-check-input bneder" id="5fd4g5fd" name="fa_ettahadi" type="checkbox">
      
                                    <label class="form-check-label" for="5fd4g5fd">
                                    التحدي - Ettahadi
                                    </label>
                                 </div></div>
                               <div class="col"> <div class="form-check">
-                                 <input class="form-check-input" id="5d4t1y5hg" name="fa_classique" type="checkbox">
+                                 <input class="form-check-input bneder" id="5d4t1y5hg" name="fa_classique" type="checkbox">
      
                                    <label class="form-check-label" for="5d4t1y5hg">
                                    الكلاسيكي - Classique
                                    </label>
                                 </div></div>
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input" id="tdf5h124s5h" name="fa_leasing" type="checkbox">
+                                 <input class="form-check-input bneder" id="tdf5h124s5h" name="fa_leasing" type="checkbox">
      
                                    <label class="form-check-label" for="tdf5h124s5h">
                                    تأجير - Leasing
                                    </label>
                                 </div></div>
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input" id="5gfd4yyt" name="fa_rfig" type="checkbox">
+                                 <input class="form-check-input bneder" id="5gfd4yyt" name="fa_rfig" type="checkbox">
      
                                    <label class="form-check-label" for="5gfd4yyt">
                                    الرفيق - R'fig </label>
@@ -5091,14 +5187,14 @@ Petite et Moyenne Hydraulique
                            <div class="row">
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input" id="er6g54er6g" name="fa_terre" type="checkbox">
+                                    <input class="form-check-input bneder" id="er6g54er6g" name="fa_terre" type="checkbox">
 
                                     <label class="form-check-label" for="er6g54er6g">
                                     الأرض - Terre
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="6er4ge8rg4" name="fa_personnel" type="checkbox">
+                                    <input class="form-check-input bneder" id="6er4ge8rg4" name="fa_personnel" type="checkbox">
 
                                     <label class="form-check-label" for="6er4ge8rg4">
                                     العمال - Personnel
@@ -5107,14 +5203,14 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input" id="564ger65g4erg" name="fa_batiments" type="checkbox">
+                                    <input class="form-check-input bneder" id="564ger65g4erg" name="fa_batiments" type="checkbox">
 
                                     <label class="form-check-label" for="564ger65g4erg">
                                     المباني - Bâtiments
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input" id="56er1t65er41yg" name="fa_materiels" type="checkbox">
+                                    <input class="form-check-input bneder" id="56er1t65er41yg" name="fa_materiels" type="checkbox">
 
                                     <label class="form-check-label" for="56er1t65er41yg">
                                     العتاد - Matériels
@@ -5123,7 +5219,7 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input" id="65ge4rg654erg" name="fa_cheptel" type="checkbox">
+                                    <input class="form-check-input bneder" id="65ge4rg654erg" name="fa_cheptel" type="checkbox">
 
                                     <label class="form-check-label" for="65ge4rg654erg">
                                     المواشي - Cheptel
@@ -5174,7 +5270,7 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault51" name="ee_banque" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault51" name="ee_banque" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault51">
                               بنك - Banque
@@ -5183,7 +5279,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault52" name="ee_poste" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault52" name="ee_poste" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault52">
                               البريد - Poste
@@ -5192,7 +5288,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault53" name="ee_fournisseur" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault53" name="ee_fournisseur" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault53">
                               مورد - Fournisseur
@@ -5201,7 +5297,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault54" name="ee_veterinaire" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault54" name="ee_veterinaire" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault54">
                               عيادة بيطرية - Vétérinaire
@@ -5210,7 +5306,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault5552" name="ee_laboratoire" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault5552" name="ee_laboratoire" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault5552">
                               مخبر - Laboratoire
@@ -5222,7 +5318,7 @@ Petite et Moyenne Hydraulique
                   
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault56" name="ee_bureau_detudes" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault56" name="ee_bureau_detudes" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault56">
                               مكتب الدراسات - Bureau d'études
@@ -5231,7 +5327,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check" style="position: absolute;right: 154px;">
-                            <input class="form-check-input" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault57">
                               التعاونيات المتخصصة - Coopératives spécialisées
@@ -5242,7 +5338,7 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="ge29r85b4er" name="ee_assurances" type="checkbox">
+                            <input class="form-check-input bneder" id="ge29r85b4er" name="ee_assurances" type="checkbox">
 
                               <label class="form-check-label" for="ge29r85b4er">
                               التأمينات- Assurances
@@ -5261,7 +5357,7 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault85" name="ee_vente_sur_pied" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault85" name="ee_vente_sur_pied" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault85">
                               البيع قبل الجني - Vente sur pied
@@ -5270,7 +5366,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault95" name="ee_au_marche_de_gros" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault95" name="ee_au_marche_de_gros" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault95">
                               البيع في سوق الجملة - Au marché de gros
@@ -5279,7 +5375,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault105" name="ee_intermediaire" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault105" name="ee_intermediaire" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault105">
                               البيع عن طريق الوسطاء - Intermédiaire
@@ -5288,7 +5384,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
                               البيع المباشر - Vente directe
@@ -5308,7 +5404,7 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault512" name="ee_local" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault512" name="ee_local" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault512">
                               محلي - Local
@@ -5317,7 +5413,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault513" name="ee_national" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault513" name="ee_national" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault513">
                               وطني - National
@@ -5326,7 +5422,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault514" name="ee_international" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault514" name="ee_international" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault514">
                               دولي - International
@@ -5345,7 +5441,7 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault515" name="ee_cooperative_agricole" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault515" name="ee_cooperative_agricole" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault515">
                               تعاونية فلاحية - Coopérative agricole
@@ -5355,7 +5451,7 @@ Petite et Moyenne Hydraulique
                         <div class="col">
                            <div class="form-check">
 
-                            <input class="form-check-input" id="flexCheckDefault5137" name="ee_association_professionnelle_agricole" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault5137" name="ee_association_professionnelle_agricole" type="checkbox">
 
 
 
@@ -5368,7 +5464,7 @@ Petite et Moyenne Hydraulique
                         <div class="col">
                            <div class="form-check">
 
-                            <input class="form-check-input" id="flexCheckDefault517" name="ee_groupe_d_interet_commun_gic" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault517" name="ee_groupe_d_interet_commun_gic" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault517">
                               مجموعة المصالح المشتركة - Groupe d’intérêt commun (GIC)
@@ -5379,7 +5475,7 @@ Petite et Moyenne Hydraulique
                      <div class="row" style="margin-top: 5px;">
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input" id="flexCheckDefault518" name="ee_autre_associations" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault518" name="ee_autre_associations" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault518">
                               جمعيات أخرى - Autre associations
@@ -5388,7 +5484,7 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check" style="position: absolute; left: 266px;">
-                            <input class="form-check-input" id="flexCheckDefault519" name="ee_cwifa" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault519" name="ee_cwifa" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault519">
                               Conseil de wilaya interprofessionnel des filiales agricoles "CWIFA" - المجلس
@@ -5448,7 +5544,15 @@ if ($_SESSION['role'] == "recenseur") {
 }
 ?>
 
-
+<script>
+// Add event listener to detect Ctrl + *
+document.addEventListener('keydown', function(event) {
+if (event.ctrlKey && event.key === '*') {
+// Trigger the click event of the button
+document.getElementById('submitDate').click();
+}
+});
+</script>
 
 
 
