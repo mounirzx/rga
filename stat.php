@@ -202,28 +202,37 @@ if($_SESSION['role']=="superviseur_national"){
                   
                 </div>
               
-                <div class="card-body table-responsive">
-                    <table class="table table-hover " id="tableQst">
+                <div class="card-body">
+
+
+                <div class="row">
+                    <div class="col table-responsive">
+
+                    <table class="table table-hover table-sm " id="tableQst">
                     
-                        <thead>
-                        <!-- <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr> -->
-                            <tr style="background: #d5d5d5">
-                                <th scope="col">#</th>
-                                <th  style="background:#8bdfb8;" scope="col">Commune</th>
-                                <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations à recenser</th>
-                                <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations recensées</th>
-                                <th scope="col">Nombre de questionnaires saisis</th>
-                                <th scope="col" >Taux recensement</th>
-                                <th scope="col" >Taux saisie</th>
-                                <th scope="col" >Nb questionnaires Validés</th>
-                                <th scope="col" >Nb questionnaires rejetés</th>
-                                <th scope="col" >Nb questionnaires en attente</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="list" class='text-center'>
-                        </tbody>
-                    </table>
+                    <thead>
+                    <!-- <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr> -->
+                        <tr style="background: #d5d5d5">
+                            <th scope="col">#</th>
+                            <th  style="background:#8bdfb8;" scope="col">Commune</th>
+                            <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations à recenser</th>
+                            <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations recensées</th>
+                            <th scope="col">Nombre de questionnaires saisis</th>
+                            <th scope="col" >Taux recensement</th>
+                            <th scope="col" >Taux saisie</th>
+                            <th scope="col" >Nb questionnaires Validés</th>
+                            <th scope="col" >Nb questionnaires rejetés</th>
+                            <th scope="col" >Nb questionnaires en attente</th>
+                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list" class='text-center'>
+                    </tbody>
+                </table>
+                    </div>
+                </div>
+                  
                 </div>
             </div>
         </div>

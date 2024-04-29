@@ -162,6 +162,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <?php
                 if($_SESSION['role']=="admin"){
             ?>
+               <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <a class="nav-link active" aria-current="page" href="./users_list.php">Liste des utilisateurs</a>
+            </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="./superviseur_national.php">Superviseurs national</a>
             </li>
