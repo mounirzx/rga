@@ -8,8 +8,8 @@ include './config.php';
 if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['password']) || $_POST['password'] == "") {
     echo 1; // Invalid input
 } else {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
     $password = sha1($password); // Hashing the password with SHA1
 
     try {
