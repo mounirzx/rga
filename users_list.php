@@ -33,7 +33,7 @@ include('includes/header.php');
                     
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover" id="tableSuperviseur">
+                    <table class="table table-hover" id="tableUsers">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -45,7 +45,7 @@ include('includes/header.php');
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="list_superviseurs" >
+                        <tbody id="list_users" >
                         </tbody>
                     </table>
                 </div>
@@ -72,7 +72,34 @@ include('includes/header.php');
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <!-- <script src="./assets/js/superviseurs.js"></script> -->
 
+<script>
 
+
+
+    $(document).ready(function(){
+
+        function getUsersList(){
+            $.ajax({
+                url:'assets/php/utilisateurs_list.php',
+                method:'post',
+                async:false,
+                success:function(response){
+                    console.log(response)
+
+                        var data = JSON.parse(response)
+                    var list_users=""
+                    for(var i = 0; i < data.length ; i++){
+                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td></td><td></td><td></td><td>'+data[i].role+'</td><td><button><i class="fa-solid fa-trash"></i></button></td></tr>'
+                    }
+                    $('#list_users').append(list_users)
+
+                }
+            })
+        }
+
+        getUsersList()
+    })
+</script>
 </body>
 
 </html>
