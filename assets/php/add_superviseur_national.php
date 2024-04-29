@@ -16,7 +16,7 @@ $password = $_POST["password"];
 $nonhashedPass = $_POST["password"];
 $password=sha1($password);
 
-$role='controleur';
+$role='superviseur national';
 try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -32,7 +32,22 @@ $req2->execute(array($id_user,$nom_superviseur, $prenom_superviseur,$phone, $wil
 
 
 //include('mail_superviseur.php');
-include('mail.php');
+
+$url = 'https://dgl.bneder.dz/rga-mails/';
+    // Initialize cURL session
+$ch = curl_init($url);
+
+$data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+// Set the POST data
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
+//include('mail.php');
     echo json_encode(array("response"=> "true"));
 } catch (Exception $e) {
     $msg = $e->getMessage();

@@ -6,10 +6,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include './config.php';
 
 if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['password']) || $_POST['password'] == "") {
-    echo 1; // Invalid input
+    echo json_encode(array('role'=>$result['role'],"success"=>1)); // Invalid input
 } else {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
     $password = sha1($password); // Hashing the password with SHA1
 
     try {
@@ -52,9 +52,11 @@ if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['pas
                  $_SESSION['wilaya']=$result['wilaya'];
                  $_SESSION['wilaya_name']=$result['wilaya_name_ascii'];
                  }
-            echo 3;  // Success
+
+                 echo json_encode(array('role'=>$result['role'],"success"=>3));
+            //echo 3;  // Success
         } else {
-            echo 2; // User not found
+            echo json_encode(array('role'=>$result['role'],"success"=>2)); // User not found
         }
     } catch (Exception $e) {
         echo $e->getMessage();  // Display error message

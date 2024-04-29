@@ -5,45 +5,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="./static/images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/bootstrap/css/bootstrap.min.css"
+      href="./static/vendor/bootstrap/css/bootstrap.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="./static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/animate/animate.css"
+      href="./static/vendor/animate/animate.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/css-hamburgers/hamburgers.min.css"
+      href="./static/vendor/css-hamburgers/hamburgers.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="static/vendor/select2/select2.min.css"
+      href="./static/vendor/select2/select2.min.css"
     />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/css/util.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/main.css" />
     <!--===============================================================================================-->
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <style>
-body{
-  font-family: sans-serif;
+      * {
+  font-family: arial;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+.input100{
+  font-family: "Nunito Sans", sans-serif;
 }
 
     </style>
@@ -51,7 +60,7 @@ body{
 
   <body
     style="
-      background-image: url(/static/forest2.png);
+      background-image: url(./static/forest2.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -83,24 +92,28 @@ body{
           >
             <div class="col">
               <div style="text-align: center; width: 420px">
-                <h5>الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية</h5>
+                <h5 style=" font-weight: bold;font-size: 24px;margin-bottom: -21px;">الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية</h5>
                 <br />
-                <h8>REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
+                <h8 style="font-size: 14px;">REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
+                <br /> <br />
+                <h5  style="font-weight: bold;font-size: 22px;margin-bottom: -21px;margin-top:-4px">وزارة الفلاحة و التنمية الريفية</h5>
                 <br />
-                <h6>وزارة الفلاحة و التنمية الريفية</h6>
+                <h8 style="font-size: 13px;">MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
+                <br /> <br />
+                <h5  style="font-size: 20px;margin-bottom: -23px;    margin-top: -7px;">  مديرية الاحصائيات و الرقمنة و الاستشراف </h5>
                 <br />
-                <h8>MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
+                <h8 style="font-size: 10px;">DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE</h8>
               </div>
 
               <div
                 class="login100-pic js-tilt"
                 data-tilt
-                style="margin-left: 50px; margin-top: 38px"
+                style="margin-left: -27px; margin-top: 13px"
               >
-                <img style="max-width: 350px; min-width: 200px" src="static/logo.svg" alt="IMG" />
+                <img style="max-width: 450px; min-width: 200px" src="static/logo.svg" alt="IMG" />
               </div>
 
-              <div style="text-align: center; width: 420px; margin-top: 30px">
+              <!-- <div style="text-align: center; width: 420px; margin-top: 30px">
                 <h4>الإحصاء العام للفلاحة</h4>
                 <br />
                 <h5>
@@ -109,11 +122,11 @@ body{
                   2024
                 </h5>
                 <br />
-              </div>
+              </div> -->
             </div>
 
             <div class="col" style="margin-top: 80px">
-              <form method="post" class="login100-form validate-form">
+              <form method="post" class="login100-form validate-form" style=" padding-right: -4px;">
                 <input
                   type="hidden"
                   name="csrfmiddlewaretoken"

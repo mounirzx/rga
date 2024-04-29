@@ -24,8 +24,8 @@ if($role=="superviseur"){
     $date = $_POST['date'];
 
 
-    $req1 = $bdd->prepare('INSERT INTO `nb_quest_recensee`(`commune_code`, `date`, `nombre_quest`) VALUES(?,NOW(),?)');
-    $req1->execute(array($code_commune,$nb_qst_recense));
+    $req1 = $bdd->prepare('INSERT INTO `nb_quest_recensee`(`commune_code`, `date`, `nombre_quest`) VALUES(?,?,?)');
+    $req1->execute(array($code_commune,$date,$nb_qst_recense));
     $req = $bdd->prepare('UPDATE `communes` SET qst_recense = qst_recense + ? where commune_code=?');
     $req->execute(array($nb_qst_recense,$code_commune));
     echo "true"; 

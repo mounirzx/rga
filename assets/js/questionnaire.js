@@ -277,6 +277,10 @@ $(document).ready(function () {
   });
 
 
+
+
+
+
 /********************************************************************************/
 // $(document).on('keyup', '.coherence_surface_total-surface', function () {
 //   var sum_superficie_hectare = 0;
@@ -463,4 +467,84 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    /*************************************************** */
+    //origine des terres
+
+    var listOrigineTerre ={
+      "1":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "2":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "3":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "4":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "5":
+        ' <option  selected="" disabled>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+      ,
+      "6":
+        '<option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+      ,
+      "7":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "8":
+       '  <option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "9":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      
+    }
+
+
+
+
+
+    /*************************************************/
+
+    // $('#origine_des_terres').change(function(){
+    //   var id = $(this)
+    //   console.log(id)
+    // })
+
+    function filterByKey(prefix) {
+      var filteredObj = {};
+      Object.keys(listOrigineTerre).forEach(function(key) {
+          if (key.startsWith(prefix)) {
+              filteredObj[key] = listOrigineTerre[key];
+          }
+      });
+      return filteredObj;
+  }
+
+
+    $(document).on('change', '[id^="origine_des_terres_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+    var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+    console.log(idPart); // Log the extracted part to the console
+
+
+      var id = $(this).val()
+      console.log(fullId)
+      var filtered = filterByKey(id);
+console.log(filtered[id]);
+$('#mode_dexploitation_des_terres_'+idPart).empty()
+$('#mode_dexploitation_des_terres_'+idPart).append(filtered[id])
+    })
 });
