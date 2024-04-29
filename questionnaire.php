@@ -1357,7 +1357,7 @@ agricoles ?
                         <div class="input-group input-group-sm">
 
                                 <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
-                                <option  selected="" disabled>-</option>
+                                <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                 <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
@@ -1379,7 +1379,7 @@ agricoles ?
                                 <option value="19">19 - Certificat de possession شهادة حيازة</option>
                                 <option value="20">20 - Location إجار</option>
                                 <option value="21">21 - Autre  آخرى </option>
-                                <option value="22">22 - Inconnu غير معروف</option>
+                                <option value="22">22 - Inconnu غير معروف</option> -->
                                 </select>
                                 <div class="big-space"></div>
                          </div>
