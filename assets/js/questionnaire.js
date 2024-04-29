@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
         $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
-        $("#commune_code").val(response.commune || "N/A");
+        $("#commune_code").val(response.r_commune || "N/A");
         $("#nom_zone_district").val(response.nom_zone_district || "N/A");
         $("#num_zone_district").val(response.num_zone_district || "N/A");
       } else {
@@ -31,32 +31,42 @@ $(document).ready(function () {
     var formDataArray = [];
 
     var formDataArrayStatut = [];
-    // Loop over each row
-    $(".statut_juridique_s").each(function () {
+    function isValidObject(obj) {
+      for (let key in obj) {
+          if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
+              return false; // If any property is undefined, null, or an empty string, return false
+          }
+      }
+      return true; // If all properties are valid, return true
+  }
+  
+  // Assuming formDataArrayStatut is already defined
+
+  
+  $(".statut_juridique_s").each(function () {
       // Initialize an object to store form data for the current row
-
       var formDataObjStatus = {};
-
+  
       // Get the values of the inputs within the current row
-      var origine_terres = $(this).find("[name^='origine_des_terres']").val();
-
-      var mode_dexploitation = $(this)
-        .find("[name^='mode_dexploitation_des_terres']")
-        .val();
-      var superficie_hectare = $(this)
-        .find("[name^='superficie_hectare']")
-        .val();
-      var superficie_are = $(this).find("[name^='superficie_are']").val();
-
+      var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
+      var status_juridique = $(this).find("[name^='status_juridique']").val();
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
+  
       // Add the values to the formDataObj
-      formDataObjStatus["origine_des_terres"] = origine_terres;
-      formDataObjStatus["mode_dexploitation_des_terres"] = mode_dexploitation;
-      formDataObjStatus["superficie_hectare"] = superficie_hectare;
-      formDataObjStatus["superficie_are"] = superficie_are;
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayStatut.push(formDataObjStatus);
-    });
+      formDataObjStatus["origine_des_terres"] = origine_des_terres;
+      formDataObjStatus["status_juridique"] = status_juridique;
+      formDataObjStatus["superfecie_sj"] = superfecie_sj;
+      formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
+  
+      // Check if formDataObjStatus contains valid data before adding it to the array
+      if (isValidObject(formDataObjStatus)) {
+          formDataArrayStatut.push(formDataObjStatus);
+          console.log("the array:", formDataArrayStatut);
+      } else {
+        
+      }
+  });
 
     var formDataArrayCodeCulture = [];
     // Loop over each row
@@ -568,7 +578,7 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
       console.log(fullId)
       var filtered = filterByKey(id);
 console.log(filtered[id]);
-$('#mode_dexploitation_des_terres_'+idPart).empty()
-$('#mode_dexploitation_des_terres_'+idPart).append(filtered[id])
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
     })
 });

@@ -31,7 +31,7 @@ try {
     $fieldsQuestionnaire = array_keys(get_object_vars($data));
 
     // Remove unwanted keys from $fieldsQuestionnaire
-    $fieldsQuestionnaire = array_diff($fieldsQuestionnaire, ['origine_des_terres', 'mode_dexploitation_des_terres', 'superficie_hectare', 'superficie_are']);
+    $fieldsQuestionnaire = array_diff($fieldsQuestionnaire, ['origine_des_terres', 'status_juridique', 'superficie_hectare', 'superficie_are']);
 
     // Filter out keys mentioned in the error message
     $errorKeys = ['cultures_herbacees_1', 'cultures_herbacees_2', 'cultures_herbacees_3', 'cultures_herbacees_4', 'terres_au_repos_jacheres_1', 'terres_au_repos_jacheres_2', 'terres_au_repos_jacheres_3', 'terres_au_repos_jacheres_4', 'plantations_arboriculture_1', 'plantations_arboriculture_2', 'plantations_arboriculture_3', 'plantations_arboriculture_4', 'prairies_naturelles_1', 'prairies_naturelles_2', 'prairies_naturelles_3', 'prairies_naturelles_4', 'superficie_agricole_utile_sau_1', 'superficie_agricole_utile_sau_2', 'superficie_agricole_utile_sau_3', 'superficie_agricole_utile_sau_4', 'pacages_et_parcours_1', 'pacages_et_parcours_2', 'surfaces_improductives_1', 'surfaces_improductives_2', 'superficie_agricole_totale_sat_1', 'superficie_agricole_totale_sat_2', 'terres_forestieres_bois_forets_maquis_vides_labourables_1', 'terres_forestieres_bois_forets_maquis_vides_labourables_2', 'surface_totale_st_1', 'surface_totale_st_2'];
@@ -66,17 +66,34 @@ try {
     // Get the last inserted ID of the questionnaire table
     $lastInsertId = $bdd->lastInsertId();
 
-    // Insert data into the status_juridique table for each set of dynamic data
-    foreach ($formDataArrayStatut as $formData) {
-        if (!empty($formData->mode_dexploitation_des_terres) && !empty($formData->origine_des_terres) && !empty($formData->superficie_hectare) && !empty($formData->superficie_are)) {
-            $reqStatusJuridique = $bdd->prepare("INSERT INTO `status_juridique` (`id_questionnaire`, `status_juridique`, `origine_terre`, `superfecie_sj`, `superfecie_sj_are`) VALUES (:id_questionnaire, :status_juridique, :origine_terre, :superfecie_sj, :superfecie_sj_are)");
-            $reqStatusJuridique->execute([
-                'id_questionnaire' => $lastInsertId,
-                'status_juridique' => $formData->mode_dexploitation_des_terres,
-                'origine_terre' => $formData->origine_des_terres,
-                'superfecie_sj' => $formData->superficie_hectare,
-                'superfecie_sj_are' => $formData->superficie_are
-            ]);
+     // Insert data into the status_juridique table for each set of dynamic data
+     foreach ($formDataArrayStatut as $formData) {
+        if (!empty($formData->origine_des_terres) && !empty($formData->status_juridique) && !empty($formData->superfecie_sj) && !empty($formData->superfecie_sj_are)) {
+            $cle_status_juridique = substr($lastInsertId . "-" .$formData->origine_des_terres."-".$formData->status_juridique, 0, 8);
+            // ob_start();
+            // echo "Debug: ", print_r($formDataArrayStatut, true);
+            // $logData = ob_get_clean();
+            
+            // // Define log file path
+            // $logFilePath = __DIR__ . '/logfile.log';
+            
+            // // Append the captured data to the log file
+            // file_put_contents($logFilePath, $logData, FILE_APPEND);
+             $reqStatusJuridique = $bdd->prepare("INSERT INTO `status_juridique` (`cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES (:cle_status_juridique, :id_questionnaire, :origine_des_terres, :status_juridique, :superfecie_sj, :superfecie_sj_are)");
+    
+            try {
+                $reqStatusJuridique->execute([
+                    'cle_status_juridique' => $cle_status_juridique,
+                    'id_questionnaire' => $lastInsertId,
+                    'origine_des_terres' => $formData->origine_des_terres,
+                    'status_juridique' => $formData->status_juridique,
+                    'superfecie_sj' => $formData->superfecie_sj,
+                    'superfecie_sj_are' => $formData->superfecie_sj_are
+                ]);
+                //echo "Insertion successful for ID: {$lastInsertId}\n";
+            } catch (PDOException $e) {
+                echo "Insertion failed: " . $e->getMessage() . "\n";
+            }
         }
     }
 
@@ -175,18 +192,15 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 
 
-
-
-
-
-
-
-
-$response = ["response" => true];
-
-echo json_encode($response);
+echo json_encode(['response' => true]);
 } catch (Exception $e) {
 $msg = $e->getMessage();
 echo json_encode(["response" => false, "error" => $msg]);
 }
 ?>
+
+
+
+
+
+

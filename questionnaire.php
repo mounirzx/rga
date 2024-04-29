@@ -619,14 +619,14 @@ font-weight: bold;
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder" type="text" name="nom_exploitant" id="nom_exploitant"  value="test" />
+                    <input class="form-control bneder" type="text" name="nom_exploitant" id="nom_exploitant"   />
                  </div>
               </div>
 
            
 
       
-               </script>
+           
 
               <div class="col">
                  <div class="input-group input-group-sm">
@@ -634,7 +634,7 @@ font-weight: bold;
                    <span class="input-group-text" id="basic-addon3">
                     الإسم<br /> Prénom
                     </span>
-                    <input class="form-control bneder"  type="text"  name="prenom_exploitant"  id="prenom_exploitant" value="test"/>
+                    <input class="form-control bneder"  type="text"  name="prenom_exploitant"  id="prenom_exploitant" />
                  </div>
               </div>
            </div>
@@ -995,7 +995,7 @@ font-weight: bold;
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" value="test">
+  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" >
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
@@ -1330,11 +1330,11 @@ agricoles ?
 
 
 
-                     <div style="margin-bottom: 5px;" class="row statut_juridique_s">
+                  <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
                         <div class="col">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres" >
+                            <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled ></option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
@@ -1345,7 +1345,7 @@ agricoles ?
                                 <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option value="7">7 - Wakf privé وقف خاص</option>
                                 <option value="8">8 - Wakf public وقف عام</option>
-                                <option value="9">9 - Inconnue مجهول   </option>
+                                <option value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
@@ -1356,7 +1356,7 @@ agricoles ?
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select statut_juridique_s" id="status_juridique" name="status_juridique" value="1">
+                                <select  class="form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1370,48 +1370,69 @@ agricoles ?
                                 <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-                                <option value="13">13 - Vente/Achat بيع/شراء</option>
-                                <option value="14">14 - Succession إرث</option>
-                                <option value="15">15 - Donation هبة</option>
-                                <option value="16">16 - Testament وصية</option>
-                                <option value="17">17 - Droit préemption حق الشفاعة</option>
-                                <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
-                                <option value="19">19 - Certificat de possession شهادة حيازة</option>
-                                <option value="20">20 - Location إجار</option>
-                                <option value="21">21 - Autre  آخرى </option>
-                                <option value="22">22 - Inconnu غير معروف</option> -->
+                                <option value="13">13- Inconnu غير معروف</option> -->
                                 </select>
                                 <div class="big-space"></div>
                          </div>
 
+                      </div>
 
-                         
-                           
-                        </div>
+                      <style>
+.error {
+    border: 2px solid red;
+}
+</style>
+<script>
+$(document).ready(function(){
+    var selectedValues = []; // Array to hold the counts of each combined value selected
+
+    $(document).on('change', '.statut_juridique_check', function() {
+        var fullId = $(this).attr('id');
+        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
+
+        var val1 = $('#origine_des_terres_' + idPart).val() || "";
+        var val2 = $('#status_juridique_' + idPart).val() || "";
+        var cc = val1 + val2; // Combine the values to form a unique identifier
+
+        // Clear any previous error indication before any new validation
+        $('#origine_des_terres_' + idPart).removeClass('error');
+        $('#status_juridique_' + idPart).removeClass('error');
+
+        if(val1 === "" || val2 === "") {
+            console.log("Both selections are required.");
+            return; // Exit the function if one of the dropdowns is not selected
+        }
+
+        // Check if this combination already exists in the array
+        if($.inArray(cc, selectedValues) !== -1){
+            console.log("This combination of values has already been selected.");
+            Swal.fire({
+                icon: "error",
+                title: "Erreur",
+                text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
+            });
+            $('#origine_des_terres_' + idPart).addClass('error');
+            $('#status_juridique_' + idPart).addClass('error');
+            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+        } else {
+            // If the combination is unique, add it to the array and ensure no error class is present
+            selectedValues.push(cc);
+        }
+    });
+});
+</script>
+
+
+
                         <div class="col">
                             <div class="input-group input-group-sm">
-
-                            <style>
-    .big-space {
-        width: 50px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .small-space {
-        width: 20px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .mid-space {
-      width: 35px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-</style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4" value="" >
+                       <input  id="superfecie_sj" name="superfecie_sj"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4"  >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" value="">
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" >
                              
 
                             </div>
@@ -1430,6 +1451,21 @@ agricoles ?
                     </div>
               
 
+                    <style>
+    .big-space {
+        width: 50px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .small-space {
+        width: 20px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .mid-space {
+      width: 35px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+</style>
+             
 
 
                   <script>
@@ -3644,7 +3680,7 @@ l'Ex-EAC
                   
                   <!-- Cultures herbacées -->
                
-                  </tr>
+                  
 
                   <tr>
       <td style="width:330px">
@@ -3708,7 +3744,7 @@ l'Ex-EAC
                        
                            
                            <input id="in88" name="caves_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
-                        </div>
+                     
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn89" style="padding-left: 132px">
@@ -4085,7 +4121,7 @@ Type et nombre du matériel agricole ?
       </script> <!-- TODO -->
     </div>
   </div>
-</div>
+
             <br>
 
 
