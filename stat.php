@@ -66,7 +66,7 @@ if($_SESSION['role']=="superviseur_national"){
                     <div class="card" style="border: gray 1px solid; border-radius: 15px;box-shadow: 0 0 14px #B4B4B4">
                         <a class="etat" data="all" id="all" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;" >
                         <div style="text-align: center;" class="card-header" >
-                           Total  exploiatations a recenser
+                           Total  exploiattions a recenser
                         </div>
                         
                         <div style="text-align: center;" class="card-body">
@@ -75,6 +75,7 @@ if($_SESSION['role']=="superviseur_national"){
                             <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;">
                             
                               <span id="sum_qst_a_recense"></span>
+                              <br/>  <br/>
                             
                         </div>
                     </a>
@@ -85,7 +86,7 @@ if($_SESSION['role']=="superviseur_national"){
                     <div class="card" style="border: gray 1px solid; border-radius: 15px;box-shadow: 0 0 14px #B4B4B4">
                         <a class="etat" data="all" id="all" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;" >
                         <div style="text-align: center;" class="card-header">
-                           Total  exploiatations  recensées
+                           Total  exploitations  recensées
                         </div>
                         
                         <div style="text-align: center;" class="card-body">
@@ -94,6 +95,9 @@ if($_SESSION['role']=="superviseur_national"){
                             <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;">
                             
                             <span id="qst_recense"></span>
+                            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id='sum_taux_avancememnt_1'>
+
+</div>
                             
                         </div>
                     </a>
@@ -113,7 +117,9 @@ if($_SESSION['role']=="superviseur_national"){
                             <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;">
                             
                                <span id="total_questionnaire"></span>
-                            
+                               <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar" style="width: 25%">25%</div>
+</div>
                         </div>
                     </a>
                     </div>
@@ -122,7 +128,7 @@ if($_SESSION['role']=="superviseur_national"){
                 <div class="col">
                  
                     
-                    <div class="card" style="border: #E8F91B 1px solid; border-radius: 15px; box-shadow: 0 0 14px #FBFF7D">
+                    <div class="card" style="border: #bbb  1px solid; border-radius: 15px; box-shadow: 0 0 14px #FBFF7D">
                         <a class="etat" data="onhold" id="onhold" href="#" style="color: rgb(110, 107, 107); font-weight: bold; font-size: 13px;text-decoration: none;">
                         <div style="text-align: center;" class="card-header">
                            Nb questionnaires En attente
@@ -130,6 +136,7 @@ if($_SESSION['role']=="superviseur_national"){
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/wait.svg" alt="State Icon" style="width: 22px; height: 35px; margin-left: 5px;">
                           <span id="en_attente"></span>
+                          <br/>  <br/>
                         </div>
                     </a>
                     </div>
@@ -145,6 +152,7 @@ if($_SESSION['role']=="superviseur_national"){
                             <img src="static/icons/reject.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
                            
                             <span id="sum_rejete"></span>
+                            <br/>  <br/>
                         </div>
                     </a>
                     </div>
@@ -159,6 +167,7 @@ if($_SESSION['role']=="superviseur_national"){
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/accept.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
                             <span id="sum_approuve"></span>
+                            <br/>  <br/>
                         </div>
                     </div>
                 </a>
@@ -245,7 +254,12 @@ if($_SESSION['role']=="superviseur_national"){
 
 
                 ?>
-     
+        <div class="input-group input-group-sm">
+                    <span style="width: 180px;" class="input-text" id="basic-addon-username">Date</span>
+                    <input type="date" class="form-control" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" disabled>
+
+                </div>
+                <br>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-text" id="basic-addon-username">Nombre d'exploiatations recensées.</span>
                     <input type="number" class="form-control" name="nb_qst_recense" id="nb_qst_recense" required>
@@ -259,7 +273,7 @@ if($_SESSION['role']=="superviseur_national"){
             </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modifier">Modifier</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modifier">Valider</button>
       </div>
     </div>
   </div>

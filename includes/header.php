@@ -225,7 +225,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
         <a style="margin: 10px;" class="nav-link active">
             <img src="static/icons/person.svg" alt="User Icon" style="width: 20px; height: 20px; margin-right: 5px;">
-            <b><?php echo $_SESSION['username'] . '--' . (isset($_SESSION['commune_code']) ? $_SESSION['commune_code'] : 'No Commune Code'); ?></b>
+            <b><?php echo $_SESSION['username']; ?></b>
 
         </a>
 

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 24, 2024 at 12:03 PM
--- Server version: 8.0.36-0ubuntu0.20.04.1
--- PHP Version: 7.4.3-4ubuntu2.20
+-- Host: 127.0.0.1
+-- Generation Time: Apr 26, 2024 at 02:53 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `communes` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `commune_code` varchar(6) NOT NULL,
   `commune_name` varchar(255) NOT NULL COMMENT 'Name of commune in arabic',
   `commune_name_ascii` varchar(255) NOT NULL COMMENT 'Name of commune in ASCII characters (french)',
@@ -38,9 +37,9 @@ CREATE TABLE `communes` (
   `wilaya_code` varchar(4) NOT NULL,
   `wilaya_name` varchar(255) NOT NULL COMMENT 'Name of wilaya in arabic',
   `wilaya_name_ascii` varchar(255) NOT NULL COMMENT 'Name of wilaya in ASCII characters (french)',
-  `qst_a_recense` int NOT NULL,
-  `qst_recense` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `qst_a_recense` int(11) NOT NULL,
+  `qst_recense` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `communes`
@@ -1604,7 +1603,7 @@ CREATE TABLE `communes2` (
   `daira_name` varchar(45) DEFAULT NULL,
   `wilaya_code` varchar(3) DEFAULT NULL,
   `wilaya_name` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `communes2`
@@ -3164,20 +3163,15 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 CREATE TABLE `controleur` (
   `nom_controleur` varchar(20) NOT NULL,
   `prenom_controleur` varchar(20) NOT NULL,
-  `id_controleur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_controleur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `wilaya` varchar(50) NOT NULL,
   `commune` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `added_by` int NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `controleur`
---
-
+  `added_by` int(11) NOT NULL,
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3186,17 +3180,11 @@ CREATE TABLE `controleur` (
 --
 
 CREATE TABLE `materiel_agricole` (
-  `id_materiel_agricol` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
-  `code_materiel` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `code_materiel_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `id_materiel_agricol` int(11) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
+  `code_materiel` varchar(100) NOT NULL,
+  `code_materiel_nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `materiel_agricole`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -3205,244 +3193,240 @@ CREATE TABLE `materiel_agricole` (
 --
 
 CREATE TABLE `questionnaire` (
-  `id_questionnaire` int NOT NULL,
-  `commune_code` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `exploitant_cle_unique` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `date_passage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `user` int DEFAULT NULL,
-  `nom_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `prenom_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `annee_naissance_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `sexe_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `niveau_instruction` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `niveau_formation_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `adress_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `phone_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `email_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nin_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nis_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `caw` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `capa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `unpa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ccw` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cam` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `dispositif_social` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `num_carte_fellah_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `assurance_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `num_sec_sociale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `issu_famille_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nb_co_exploitants` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nature_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nom_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `adress_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `statut_juridique_de_lexploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `vegetale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `elevage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mixed` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `type_activite_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `lat_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `lon_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `longitude_x_prefix` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `route_national` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chemin_de_wilaya` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `route_communale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `piste` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `acces_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `acces_rural` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_electrique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_telephonique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_telephonique_si_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_internet` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_internet_si_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reference_cadastrale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_exploi_eai_eac` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_exploi_eac` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploi_superficie_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploi_superficie_are` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_est_un_bloc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_est_un_bloc_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_indus_sur_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_indus_sur_exploitation_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_reseau_electrique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_groupe_electrogene` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_solaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_eolienne` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_carburant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `autres_sources_d_energie` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `oliviers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `figuiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `noyaux_pepins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `vigne` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `amandiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `grenadiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cognassiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `palmiers_dattiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `caroubier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_lagriculture_biologique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_oui_avez_vous_un_certificat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_laquaculture_integree_a_lagriculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_l_heliciculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_une_agriculture_conventionnee` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `tomate_industrielle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cereales` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `aviculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `maraichages` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pomme_de_terre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `autre_division` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_la_myciculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_bovins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_blm` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_bla` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_bll` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ovins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_brebis` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_equins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_juments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_caprins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_chevres` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_camelins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_chamelles` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_mulets` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_anes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_cuniculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ruches_modernes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_sont_pleines` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ruches_traditionnelles` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_sont_pleines_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_poules_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_poules_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dindes_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dindes_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_autre_aviculture_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_autre_aviculture_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_barrage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_exploitation_type_irrigation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_station_depuration` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_ensemble_de_forages` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_puits` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_forage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pompage_doued` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_crues_doued` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_petit_barrage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_retenu_collinaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_foggara` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_station_depuration_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autres_ress` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_aspersion_classique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_gravitaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_epandage_de_crues` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_goutte_a_goutte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pivots` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_enrouleur` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pluie_artificielle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_foggara_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autre_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_bassin_d_accumulation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_bassin_geomembrane` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_reservoir` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_citrene_souple` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_mare_deau` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_ced` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_digue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autres_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_l` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_22` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_nombre_de_personnes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_adultes_plus_15_ans_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_adultes_plus_15_ans_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_enfants_moins_15_ans_11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_enfants_moins_15_ans_22` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_selectionnees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_certifiees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_de_la_ferme` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_bio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_azotes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_phosphates` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_autres_engrais_mineraux` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_organique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_fumier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_produits_phytosanitaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_vaccins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_medicaments_veterinaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_credit_bancaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_propres_ressources` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_soutien_public` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_emprunt_a_un_tiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_financiere` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_materiel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_cultures` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_ettahadi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_classique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_leasing` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_rfig` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_avez_vous_contracte_une_assurance_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_si_oui_quelle_compagnie` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_terre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_personnel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_batiments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_materiels` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_cheptel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_fournisseurs_de_services_situes_dans_la_commune` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_mode_exploitation_materiel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_banque` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_poste` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_fournisseur` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_veterinaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_laboratoire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_bureau_detudes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cooperatives_specialisees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_assurances` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_vente_sur_pied` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_au_marche_de_gros` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_intermediaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_vente_directe` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_local` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_national` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_international` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cooperative_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_association_professionnelle_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_groupe_d_interet_commun_gic` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_autre_associations` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cwifa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `etat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+  `id_questionnaire` int(11) NOT NULL,
+  `commune_code` varchar(4) NOT NULL,
+  `exploitant_cle_unique` varchar(255) NOT NULL,
+  `date_passage` text DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  `nom_exploitant` text DEFAULT NULL,
+  `prenom_exploitant` text DEFAULT NULL,
+  `annee_naissance_exploitant` text DEFAULT NULL,
+  `sexe_exploitant` text DEFAULT NULL,
+  `niveau_instruction` text DEFAULT NULL,
+  `niveau_formation_agricole` text DEFAULT NULL,
+  `adress_exploitant` text DEFAULT NULL,
+  `phone_exploitant` text DEFAULT NULL,
+  `email_exploitant` text DEFAULT NULL,
+  `nin_exploitant` text DEFAULT NULL,
+  `nis_exploitant` text DEFAULT NULL,
+  `caw` text DEFAULT NULL,
+  `capa` text DEFAULT NULL,
+  `unpa` text DEFAULT NULL,
+  `ccw` text DEFAULT NULL,
+  `cam` text DEFAULT NULL,
+  `dispositif_social` text DEFAULT NULL,
+  `num_carte_fellah_exploitant` text DEFAULT NULL,
+  `assurance_exploitant` text DEFAULT NULL,
+  `num_sec_sociale` text DEFAULT NULL,
+  `issu_famille_agricole` text DEFAULT NULL,
+  `exploitant` text DEFAULT NULL,
+  `nb_co_exploitants` text DEFAULT NULL,
+  `nature_exploitant` text DEFAULT NULL,
+  `nom_exploitation` text DEFAULT NULL,
+  `adress_exploitation` text DEFAULT NULL,
+  `statut_juridique_de_lexploitation` text DEFAULT NULL,
+  `activite_exploitation` text DEFAULT NULL,
+  `type_activite_exploitation` text DEFAULT NULL,
+  `lat_exploitation` text DEFAULT NULL,
+  `lon_exploitation` text DEFAULT NULL,
+  `longitude_x_prefix` text DEFAULT NULL,
+  `route_national` text DEFAULT NULL,
+  `chemin_de_wilaya` text DEFAULT NULL,
+  `route_communale` text DEFAULT NULL,
+  `piste` text DEFAULT NULL,
+  `acces_agricole` text DEFAULT NULL,
+  `acces_rural` text DEFAULT NULL,
+  `reseau_electrique` text DEFAULT NULL,
+  `reseau_telephonique` text DEFAULT NULL,
+  `reseau_telephonique_si_oui` text DEFAULT NULL,
+  `reseau_internet` text DEFAULT NULL,
+  `reseau_internet_si_oui` text DEFAULT NULL,
+  `reference_cadastrale` text DEFAULT NULL,
+  `si_exploi_eai_eac` text DEFAULT NULL,
+  `si_exploi_eac` text DEFAULT NULL,
+  `exploi_superficie_hec` text DEFAULT NULL,
+  `exploi_superficie_are` text DEFAULT NULL,
+  `exploit_est_un_bloc` text DEFAULT NULL,
+  `exploit_est_un_bloc_oui` text DEFAULT NULL,
+  `exploit_indus_sur_exploitation` text DEFAULT NULL,
+  `exp_indu_si_oui_nombre_menage` text DEFAULT NULL,
+  `surface_bati_occupe` text DEFAULT NULL,
+  `surface_non_bati_occupe` text DEFAULT NULL,
+  `eng_reseau_electrique` text DEFAULT NULL,
+  `eng_groupe_electrogene` text DEFAULT NULL,
+  `eng_energie_solaire` text DEFAULT NULL,
+  `eng_energie_eolienne` text DEFAULT NULL,
+  `eng_energie_carburant` text DEFAULT NULL,
+  `autres_sources_d_energie` text DEFAULT NULL,
+  `oliviers` text DEFAULT NULL,
+  `figuiers` text DEFAULT NULL,
+  `noyaux_pepins` text DEFAULT NULL,
+  `vigne` text DEFAULT NULL,
+  `amandiers` text DEFAULT NULL,
+  `grenadiers` text DEFAULT NULL,
+  `cognassiers` text DEFAULT NULL,
+  `palmiers_dattiers` text DEFAULT NULL,
+  `caroubier` text DEFAULT NULL,
+  `pratiquez_vous_lagriculture_biologique` text DEFAULT NULL,
+  `si_oui_avez_vous_un_certificat` text DEFAULT NULL,
+  `pratiquez_vous_laquaculture_integree_a_lagriculture` text DEFAULT NULL,
+  `pratiquez_vous_l_heliciculture` text DEFAULT NULL,
+  `pratiquez_vous_une_agriculture_conventionnee` text DEFAULT NULL,
+  `tomate_industrielle` text DEFAULT NULL,
+  `cereales` text DEFAULT NULL,
+  `aviculture` text DEFAULT NULL,
+  `maraichages` text DEFAULT NULL,
+  `pomme_de_terre` text DEFAULT NULL,
+  `autre_division` text DEFAULT NULL,
+  `pratiquez_vous_la_myciculture` text DEFAULT NULL,
+  `chapt_bovins` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_blm` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_bla` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_bll` text DEFAULT NULL,
+  `chapt_ovins` text DEFAULT NULL,
+  `chapt_dont_brebis` text DEFAULT NULL,
+  `chapt_equins` text DEFAULT NULL,
+  `chapt_dont_juments` text DEFAULT NULL,
+  `chapt_caprins` text DEFAULT NULL,
+  `chapt_dont_chevres` text DEFAULT NULL,
+  `chapt_camelins` text DEFAULT NULL,
+  `chapt_dont_chamelles` text DEFAULT NULL,
+  `chapt_mulets` text DEFAULT NULL,
+  `chapt_anes` text DEFAULT NULL,
+  `chapt_cuniculture` text DEFAULT NULL,
+  `chapt_ruches_modernes` text DEFAULT NULL,
+  `chapt_dont_sont_pleines` text DEFAULT NULL,
+  `chapt_ruches_traditionnelles` text DEFAULT NULL,
+  `chapt_dont_sont_pleines_2` text DEFAULT NULL,
+  `chapt_poules_ponte` text DEFAULT NULL,
+  `chapt_poules_chair` text DEFAULT NULL,
+  `chapt_dindes_ponte` text DEFAULT NULL,
+  `chapt_dindes_chair` text DEFAULT NULL,
+  `chapt_autre_aviculture_ponte` text DEFAULT NULL,
+  `chapt_autre_aviculture_chair` text DEFAULT NULL,
+  `chapt_Pratiquez_transhumance` int(2) DEFAULT NULL,
+  `eau_barrage` text DEFAULT NULL,
+  `eau_exploitation_type_irrigation` text DEFAULT NULL,
+  `eau_station_depuration` text DEFAULT NULL,
+  `eau_ensemble_de_forages` text DEFAULT NULL,
+  `eau_puits` text DEFAULT NULL,
+  `eau_forage` text DEFAULT NULL,
+  `eau_pompage_doued` text DEFAULT NULL,
+  `eau_crues_doued` text DEFAULT NULL,
+  `eau_petit_barrage` text DEFAULT NULL,
+  `eau_retenu_collinaire` text DEFAULT NULL,
+  `eau_foggara` text DEFAULT NULL,
+  `eau_source` text DEFAULT NULL,
+  `eau_station_depuration_2` text DEFAULT NULL,
+  `eau_autres_ress` text DEFAULT NULL,
+  `eau_aspersion_classique` text DEFAULT NULL,
+  `eau_gravitaire` text DEFAULT NULL,
+  `eau_epandage_de_crues` text DEFAULT NULL,
+  `eau_goutte_a_goutte` text DEFAULT NULL,
+  `eau_pivots` text DEFAULT NULL,
+  `eau_enrouleur` text DEFAULT NULL,
+  `eau_pluie_artificielle` text DEFAULT NULL,
+  `eau_foggara_hec` text DEFAULT NULL,
+  `eau_autre_hec` text DEFAULT NULL,
+  `eau_bassin_d_accumulation` text DEFAULT NULL,
+  `eau_bassin_geomembrane` text DEFAULT NULL,
+  `eau_reservoir` text DEFAULT NULL,
+  `eau_citrene_souple` text DEFAULT NULL,
+  `eau_mare_deau` text DEFAULT NULL,
+  `eau_ced` text DEFAULT NULL,
+  `eau_digue` text DEFAULT NULL,
+  `eau_autres_1` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_l` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_2` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_3` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_4` text DEFAULT NULL,
+  `ouvriers_agricoles_1` text DEFAULT NULL,
+  `ouvriers_agricoles_2` text DEFAULT NULL,
+  `ouvriers_agricoles_3` text DEFAULT NULL,
+  `ouvriers_agricoles_4` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_1` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_2` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_3` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_4` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_1` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_2` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_3` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_4` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_1` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_2` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_3` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_4` text DEFAULT NULL,
+  `mo_exploitant_individuel_1` text DEFAULT NULL,
+  `mo_exploitant_individuel_2` text DEFAULT NULL,
+  `mo_exploitant_individuel_3` text DEFAULT NULL,
+  `mo_exploitant_individuel_4` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_11` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_22` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_3` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_4` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_1` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_2` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_3` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_4` text DEFAULT NULL,
+  `ma_nombre_de_personnes` text DEFAULT NULL,
+  `ma_adultes_plus_15_ans_1` text DEFAULT NULL,
+  `ma_adultes_plus_15_ans_2` text DEFAULT NULL,
+  `ma_enfants_moins_15_ans_11` text DEFAULT NULL,
+  `ma_enfants_moins_15_ans_22` text DEFAULT NULL,
+  `ui_semences_selectionnees` text DEFAULT NULL,
+  `ui_semences_certifiees` text DEFAULT NULL,
+  `ui_semences_de_la_ferme` text DEFAULT NULL,
+  `ui_bio` text DEFAULT NULL,
+  `ui_engrais_azotes` text DEFAULT NULL,
+  `ui_engrais_phosphates` text DEFAULT NULL,
+  `ui_autres_engrais_mineraux` text DEFAULT NULL,
+  `ui_engrais_organique` text DEFAULT NULL,
+  `ui_fumier` text DEFAULT NULL,
+  `ui_produits_phytosanitaires` text DEFAULT NULL,
+  `ui_vaccins` text DEFAULT NULL,
+  `ui_medicaments_veterinaires` text DEFAULT NULL,
+  `fa_credit_bancaire` text DEFAULT NULL,
+  `fa_propres_ressources` text DEFAULT NULL,
+  `fa_soutien_public` text DEFAULT NULL,
+  `fa_emprunt_a_un_tiers` text DEFAULT NULL,
+  `fa_financiere` text DEFAULT NULL,
+  `fa_materiel` text DEFAULT NULL,
+  `fa_cultures` text DEFAULT NULL,
+  `fa_ettahadi` text DEFAULT NULL,
+  `fa_classique` text DEFAULT NULL,
+  `fa_leasing` text DEFAULT NULL,
+  `fa_rfig` text DEFAULT NULL,
+  `fa_avez_vous_contracte_une_assurance_agricole` text DEFAULT NULL,
+  `fa_si_oui_quelle_compagnie` text DEFAULT NULL,
+  `fa_terre` text DEFAULT NULL,
+  `fa_personnel` text DEFAULT NULL,
+  `fa_batiments` text DEFAULT NULL,
+  `fa_materiels` text DEFAULT NULL,
+  `fa_cheptel` text DEFAULT NULL,
+  `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
+  `ee_mode_exploitation_materiel` text DEFAULT NULL,
+  `ee_banque` text DEFAULT NULL,
+  `ee_poste` text DEFAULT NULL,
+  `ee_fournisseur` text DEFAULT NULL,
+  `ee_veterinaire` text DEFAULT NULL,
+  `ee_laboratoire` text DEFAULT NULL,
+  `ee_bureau_detudes` text DEFAULT NULL,
+  `ee_cooperatives_specialisees` text DEFAULT NULL,
+  `ee_assurances` text DEFAULT NULL,
+  `ee_vente_sur_pied` text DEFAULT NULL,
+  `ee_au_marche_de_gros` text DEFAULT NULL,
+  `ee_intermediaire` text DEFAULT NULL,
+  `ee_vente_directe` text DEFAULT NULL,
+  `ee_local` text DEFAULT NULL,
+  `ee_national` text DEFAULT NULL,
+  `ee_international` text DEFAULT NULL,
+  `ee_cooperative_agricole` text DEFAULT NULL,
+  `ee_association_professionnelle_agricole` text DEFAULT NULL,
+  `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
+  `ee_autre_associations` text DEFAULT NULL,
+  `ee_cwifa` text DEFAULT NULL,
+  `etat` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `questionnaire`
---
-
 
 -- --------------------------------------------------------
 
@@ -3451,23 +3435,18 @@ CREATE TABLE `questionnaire` (
 --
 
 CREATE TABLE `recenseur` (
-  `id_recensseur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_recensseur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_recensseur` varchar(100) NOT NULL,
   `prenom_recenseur` varchar(50) NOT NULL,
   `commune` varchar(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `controleur` int NOT NULL,
+  `controleur` int(11) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `num_zone_district` int NOT NULL,
-  `num_exploitation` int NOT NULL,
+  `num_zone_district` int(11) NOT NULL,
+  `num_exploitation` int(11) NOT NULL,
   `nom_zone_district` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `recenseur`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3476,17 +3455,13 @@ CREATE TABLE `recenseur` (
 --
 
 CREATE TABLE `status_juridique` (
-  `id_status_juridique` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
+  `id_status_juridique` int(11) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
   `status_juridique` varchar(100) NOT NULL,
   `origine_terre` varchar(100) NOT NULL,
   `superfecie_sj` varchar(20) NOT NULL,
   `superfecie_sj_are` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `status_juridique`
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3495,8 +3470,8 @@ CREATE TABLE `status_juridique` (
 --
 
 CREATE TABLE `superficie_exploitation` (
-  `id` int NOT NULL,
-  `id_questionnaire` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_questionnaire` int(11) DEFAULT NULL,
   `cultures_herbacees_1` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_2` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_3` decimal(10,2) DEFAULT NULL,
@@ -3527,12 +3502,7 @@ CREATE TABLE `superficie_exploitation` (
   `terres_forestieres_bois_forets_maquis_vides_labourables_2` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_1` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `superficie_exploitation`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3541,20 +3511,15 @@ CREATE TABLE `superficie_exploitation` (
 --
 
 CREATE TABLE `superviseur` (
-  `id_superviseur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_superviseur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_superviseur` varchar(50) NOT NULL,
   `prenom_superviseur` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `superviseur`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3563,19 +3528,15 @@ CREATE TABLE `superviseur` (
 --
 
 CREATE TABLE `superviseur_national` (
-  `id_superviseur_national` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_superviseur_national` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_superviseur_national` varchar(50) NOT NULL,
   `prenom_superviseur_national` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `superviseur_national`
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3584,20 +3545,19 @@ CREATE TABLE `superviseur_national` (
 --
 
 CREATE TABLE `users` (
-  `id_user` int NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-
-INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin');
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25');
 
 -- --------------------------------------------------------
 
@@ -3606,19 +3566,13 @@ INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
 --
 
 CREATE TABLE `utilisation_du_sol` (
-  `id` int NOT NULL,
-  `id_questionnaire` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_questionnaire` int(11) DEFAULT NULL,
   `code_culture` varchar(10) DEFAULT NULL,
   `superficie_hec` varchar(10) DEFAULT NULL,
   `superficie_are` varchar(10) DEFAULT NULL,
   `en_intercalaire` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `utilisation_du_sol`
---
-
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3627,10 +3581,10 @@ CREATE TABLE `utilisation_du_sol` (
 --
 
 CREATE TABLE `validation_questionnaire` (
-  `id_validation` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
-  `status` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `id_validation` int(11) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -3648,13 +3602,6 @@ ALTER TABLE `communes`
 ALTER TABLE `controleur`
   ADD PRIMARY KEY (`id_controleur`),
   ADD KEY `id_user` (`id_user`);
-
---
--- Indexes for table `materiel_agricole`
---
-ALTER TABLE `materiel_agricole`
-  ADD PRIMARY KEY (`id_materiel_agricol`),
-  ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
 -- Indexes for table `questionnaire`
@@ -3728,67 +3675,61 @@ ALTER TABLE `validation_questionnaire`
 -- AUTO_INCREMENT for table `controleur`
 --
 ALTER TABLE `controleur`
-  MODIFY `id_controleur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `materiel_agricole`
---
-ALTER TABLE `materiel_agricole`
-  MODIFY `id_materiel_agricol` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id_questionnaire` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `recenseur`
 --
 ALTER TABLE `recenseur`
-  MODIFY `id_recensseur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
-  MODIFY `id_superviseur_national` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
-  MODIFY `id_validation` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

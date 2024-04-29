@@ -195,7 +195,7 @@ font-weight: bold;
  
  
          <form id="info_form" method="post">
-    
+    <input type="text" name="etat" hidden disabled class="bneder" value="en attent">
                 <h4 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h4>
                 <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px; "></div>
                 <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
@@ -209,6 +209,7 @@ font-weight: bold;
                     <span class="input-group-text" id="basic-addon3">
                     تاريخ المرور
                     <br />
+                    <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
                     <select class="select-ee" id="day_of_passage" >
                        <option value="-"></option>
@@ -306,17 +307,16 @@ font-weight: bold;
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input class="form-control" id="exampleInputEmail1" type="text" 
-                       value="" />
+                    <input class="form-control" id="nom_recensseur" type="text" value="" />
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
                  <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">إسم
+                    <span class="input-group-text" >إسم
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input class="form-control" id="exampleInputEmail1"  type="text" 
+                    <input class="form-control" id="prenom_recenseur"  type="text" 
                        value="" />
                  </div>
                  <br />
@@ -326,17 +326,9 @@ font-weight: bold;
                             <span class="input-group-text" id="basic-addon3">الولاية
                                 <br>
                                 Wilaya</span>
-                            <select class="form-select" id="wilaya_select" >
-                                <option selected>
-                                    -
-                                </option>
-                       <option  value="Tipaza">Tipaza</option>
-                       <option  value="El Taref">El Taref</option>
-                       <option  value="Mascara">Mascara</option>
-                       <option  value="Djelfa">Djelfa</option>
-                       <option  value="Biskra">Biskra</option>
-                       <option  value="Adrar">Adrar</option>
-                    </select>
+                            <input class="form-control" id="wilaya_name_ascii" >
+                        
+                    
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -344,7 +336,7 @@ font-weight: bold;
                         <div class="qst-num ">8</div>
                     <span class="input-group-text" id="basic-addon3">البلدية<br />
                     commune</span>
-                    <input readonly class="form-control" type="text"  value="" />
+                    <input readonly class="form-control" type="text" id="commune_name_ascii"  value="" />
                  </div>
 
                  <br />
@@ -539,8 +531,8 @@ font-weight: bold;
                           المراقب
                           <br />
                           Nom du contrôleur</span>
-                          <input readonly class="form-control"type="text" 
-                             value="BNEDER" />
+                          <input readonly class="form-control"type="text"  id="nom_controleur"
+                             />
                        </div>
                        <br />
                        <div class="input-group input-group-sm">
@@ -550,8 +542,7 @@ font-weight: bold;
                           المراقب
                           <br />
                           prénom du contrôleur</span>
-                          <input readonly class="form-control" type="text" 
-                             value="BNEDER" />
+                          <input readonly class="form-control" type="text" id="prenom_controleur" />
                        </div>
 
                     </div>
@@ -565,7 +556,7 @@ font-weight: bold;
                  <div class="qst-num ">9</div>
                     <span class="input-group-text" id="basic-addon3">رمز البلدية<br>
                         commune Code</span>
-                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code" value="<?php echo isset($_SESSION['commune_code']) ? $_SESSION['commune_code'] : 'No Commune Code'; ?>">
+                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code">
 
                 </div>
                  
@@ -581,9 +572,10 @@ font-weight: bold;
                     <span class="input-group-text" id="basic-addon3">
                     district-zone <br /> إسم المكان، المنطقة
                     </span>
-                    <input class="form-control"  type="text" 
-                       value="" />
+                    <input class="form-control"   type="text" id="nom_zone_district" />
                  </div>
+                 
+
             </div>
             <div class="col">
             <div class="input-group input-group-sm">
@@ -592,8 +584,8 @@ font-weight: bold;
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input id="in1" type="text" max="99" class="form-control" data-length="2"
-                          value="" />
+                       <input  type="text" max="99" class="form-control" id="num_zone_district" data-length="2"
+                         />
                     
                  </div>
             </div>
@@ -1052,7 +1044,7 @@ font-weight: bold;
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="height: 33px;" class="select-ee" id="inputGroupSelect01" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="height: 33px;" class="select-ee bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
               +
             </option>
@@ -1103,7 +1095,7 @@ font-weight: bold;
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="select-ee bneder" id="vegetale" name="vegetale">
+          Activité de l'exploitation</span> <select class="select-ee bneder" id="activite_exploitation" name="activite_exploitation">
             <option>
               -
             </option>
@@ -1331,7 +1323,7 @@ font-weight: bold;
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
+                                <select  class="form-select statut_juridique_s" id="status_juridique" name="status_juridique" >
                                 <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1371,13 +1363,13 @@ font-weight: bold;
         display: inline-block;
     }
 </style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control" data-length="4" value="" >
+                                    <input  id="superfecie_sj" name="superfecie_sj"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4"  >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" >
                              
 
                             </div>
@@ -1611,20 +1603,20 @@ font-weight: bold;
                <div class="input-group input-group-sm">
                 
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control" id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" value="5" >
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total " id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" >
                 
                  <div class="small-space"></div>
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control  coherence_surface_total-surface_are" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
             <td>
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
-                     <input id="in16" class="surface bneder form-control" name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
+                     <input id="in16" class="surface bneder form-control " name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
              
@@ -1649,13 +1641,13 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
                   
                   <span style="width: 32px;"></span>
                   <div class="small-space"></div>
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1691,14 +1683,14 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
                  
 
                   <span style="width: 32px;"></span>
                  
                      
                      <div class="small-space"></div>
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1735,13 +1727,13 @@ font-weight: bold;
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1818,13 +1810,13 @@ font-weight: bold;
                      
                      
                      
-                     <input  class="surface bneder form-control" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
                      
-                     <input class="surface bneder form-control" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1847,13 +1839,13 @@ font-weight: bold;
                      
                      
                      
-                     <input  class="form-control bneder" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
             
                      
                      
-                     <input  class="form-control bneder" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1895,13 +1887,13 @@ font-weight: bold;
                      
                   
                <div class="small-space"></div>
-                     <input  class="surface bneder form-control" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1921,13 +1913,13 @@ font-weight: bold;
             
                <div class="small-space"></div>
 
-                  <input  class="surface bneder form-control " name="surface_totale_st_1"  id="surface_totale_st_1"   type="text"  style="max-width: 80px;"  >
+                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"   type="text"  style="max-width: 80px;"  >
                      <div class="small-space"></div>
 
                   <span style="width: 32px;"></span>
                 
                      
-                  <input  class="surface bneder form-control " name="surface_totale_st_2"  id="surface_totale_st_2"  type="text"  style="max-width: 60px;" >
+                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"  type="text"  style="max-width: 60px;" >
                      <div class="small-space"></div>
 
                
@@ -2031,11 +2023,11 @@ font-weight: bold;
                      <span class="input-group-text" id="basic-addon3">
                      إذا كان نعم، ما هوعدد الأسر؟
                      <br>
-                     Si oui, quel est le nombre nombre de ménages ?
+                     Si oui, quel est le nombre de ménages ?
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
+                        <input  class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" type="text">
                    
                   </div>
                   </div>
@@ -2062,7 +2054,7 @@ font-weight: bold;
                      <br>
                      Surface bâtie occupée (²m) 
                      </span>
-                     <input  class="form-control bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
+                     <input  class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" type="text">
 
                   </div>
                   </div>
@@ -2079,7 +2071,7 @@ font-weight: bold;
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
+                        <input  class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" type="text">
                    
                   </div>
                   </div>
@@ -3898,7 +3890,7 @@ font-weight: bold;
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-control bneder" id="inputGroupSelect01" name="eau_exploitation_type_irrigation">
+               <select class="form-control bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
                   <option value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
@@ -3922,7 +3914,7 @@ font-weight: bold;
                            سد<br>Barrage
                            </span>
                     
-                              <input id="in115" tb name="eau_barrage" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in115" tb name="eau_barrage" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                         <br>
@@ -3933,7 +3925,7 @@ font-weight: bold;
                            </span>
                           
                              
-                              <input id="in116" tb name="eau_station_depuration" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in116" tb name="eau_station_depuration" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                         <br>
@@ -3944,7 +3936,7 @@ font-weight: bold;
                            </span>
                            
                               
-                              <input id="in117" tb name="eau_ensemble_de_forages" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in117" tb name="eau_ensemble_de_forages" type="text" max="99" class="form-control bneder" data-length="2" value="">
                            
                         </div>
                      </div>
@@ -3964,7 +3956,7 @@ font-weight: bold;
                                  بئر<br>Puits
                                  </span>
                                
-                                    <input id="in118" tb name="eau_puits" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in118" tb name="eau_puits" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -3974,7 +3966,7 @@ font-weight: bold;
                                  <br>Forage
                                  </span>
                                  
-                                    <input id="in119" tb name="eau_forage" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in119" tb name="eau_forage" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -3984,7 +3976,7 @@ font-weight: bold;
                                  <br>Pompage d'Oued
                                  </span>
                                  
-                                    <input id="in120" tb name="eau_pompage_doued" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in120" tb name="eau_pompage_doued" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -3994,7 +3986,7 @@ font-weight: bold;
                                  <br>Crues d'oued
                                  </span>
                             
-                                    <input id="in121" tb name="eau_crues_doued" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in121" tb name="eau_crues_doued" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                
                               </div>
                               <br>
@@ -4004,7 +3996,7 @@ font-weight: bold;
                                  <br>Petit barrage
                                  </span>
                                 
-                                    <input id="in122" tb name="eau_petit_barrage" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in122" tb name="eau_petit_barrage" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                 
                               </div>
                            </div>
@@ -4015,7 +4007,7 @@ font-weight: bold;
                                  <br>Retenu collinaire
                                  </span>
                                  
-                                    <input id="in123" tb name="eau_retenu_collinaire" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in123" tb name="eau_retenu_collinaire" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -4026,7 +4018,7 @@ font-weight: bold;
                                  </span>
                               
                                 
-                                    <input id="in124" tb name="eau_foggara" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in124" tb name="eau_foggara" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -4036,7 +4028,7 @@ font-weight: bold;
                                  <br>Source
                                  </span>
                               
-                                    <input id="in125" tb name="eau_source" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in125" tb name="eau_source" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                 
                               </div>
                               <br>
@@ -4046,7 +4038,7 @@ font-weight: bold;
                                  <br>Station d'épuration
                                  </span>
                                
-                                    <input id="in126" tb name="eau_station_depuration_2" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in126" tb name="eau_station_depuration_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                               <br>
@@ -4056,7 +4048,7 @@ font-weight: bold;
                                  <br>Autres
                                  </span>
                                
-                                    <input id="in127" tb name="eau_autres_ress" type="text" max="99" class="form-control" data-length="2" value="">
+                                    <input id="in127" tb name="eau_autres_ress" type="text" max="99" class="form-control bneder" data-length="2" value="">
                                  
                               </div>
                            </div>
@@ -4087,7 +4079,7 @@ font-weight: bold;
                                  </span>
                                  
                                 
-                                    <input id="in129" name="eau_aspersion_classique"   type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in129" name="eau_aspersion_classique"   type="text" max="999" class="form-control bneder" data-length="3" value="">
                                 
                                 
                               </div>
@@ -4098,7 +4090,7 @@ font-weight: bold;
                                  </span>
                                
                                    
-                                    <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control bneder" data-length="3" value="">
                                  
                                 
                               </div>
@@ -4109,7 +4101,7 @@ font-weight: bold;
                                  </span>
                               
                                     
-                                    <input id="in131" name="eau_epandage_de_crues" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in131" name="eau_epandage_de_crues" type="text" max="999" class="form-control bneder" data-length="3" value="">
                              
                                 
                               </div>
@@ -4120,7 +4112,7 @@ font-weight: bold;
                                  </span>
                                 
                                    
-                                    <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control bneder" data-length="3" value="">
                                  
                                 
                               </div>
@@ -4134,7 +4126,7 @@ font-weight: bold;
                                  </span>
                                 
                                   
-                                    <input id="in133" name="eau_pivots" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in133" name="eau_pivots" type="text" max="999" class="form-control bneder" data-length="3" value="">
                                  
                                 
                               </div>
@@ -4146,7 +4138,7 @@ font-weight: bold;
                                  </span>
                                 
                                   
-                                    <input id="in134" name="eau_enrouleur" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in134" name="eau_enrouleur" type="text" max="999" class="form-control bneder" data-length="3" value="">
                                
                                 
                               </div>
@@ -4158,7 +4150,7 @@ font-weight: bold;
                                  </span>
                                 
                                
-                                    <input id="in135" name="eau_pluie_artificielle"type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in135" name="eau_pluie_artificielle"type="text" max="999" class="form-control bneder" data-length="3" value="">
                                  
                                 
                               </div>
@@ -4170,7 +4162,7 @@ font-weight: bold;
                                  </span>
                                 
                                    
-                                    <input id="in136" name="eau_foggara_hec" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in136" name="eau_foggara_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
                                  
                                 
                               </div>
@@ -4182,7 +4174,7 @@ font-weight: bold;
                                  </span>
                               
                                    
-                                    <input id="in210" name="eau_autre_hec" type="text" max="999" class="form-control" data-length="3" value="">
+                                    <input id="in210" name="eau_autre_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
                              
                                 
                               </div>
@@ -4339,20 +4331,20 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
                           
-                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
                           
-                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                            
                         </div>
                      </td>
@@ -4366,19 +4358,19 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in142" tb name="ouvriers_agricoles_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in142" tb name="ouvriers_agricoles_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                          
                           
-                              <input id="in143" tb name="ouvriers_agricoles_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in143" tb name="ouvriers_agricoles_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in144" tb name="ouvriers_agricoles_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in144" tb name="ouvriers_agricoles_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in145" tb name="ouvriers_agricoles_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in145" tb name="ouvriers_agricoles_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
@@ -4392,18 +4384,18 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in146" tb name="ouvriers_agricoles_etranges_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in146" tb name="ouvriers_agricoles_etranges_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                          
-                              <input id="in147" tb name="ouvriers_agricoles_etranges_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in147" tb name="ouvriers_agricoles_etranges_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in148" tb name="ouvriers_agricoles_etranges_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in148" tb name="ouvriers_agricoles_etranges_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in149" tb name="ouvriers_agricoles_etranges_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in149" tb name="ouvriers_agricoles_etranges_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
@@ -4442,19 +4434,19 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in162" tb name="main_oeuvre_ordinnaire_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in162" tb name="main_oeuvre_ordinnaire_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                          
                           
-                              <input id="in163" tb name="main_oeuvre_ordinnaire_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in163" tb name="main_oeuvre_ordinnaire_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                            
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
                         </div>
                      </td>
@@ -4468,18 +4460,18 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in166" tb name="main_oeuvre_qualifiee_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in166" tb name="main_oeuvre_qualifiee_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
-                              <input id="in167" tb name="main_oeuvre_qualifiee_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in167" tb name="main_oeuvre_qualifiee_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in168" tb name="main_oeuvre_qualifiee_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in168" tb name="main_oeuvre_qualifiee_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in169" tb name="main_oeuvre_qualifiee_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in169" tb name="main_oeuvre_qualifiee_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
@@ -4521,18 +4513,18 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in150" tb name="mo_exploitant_individuel_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in150" tb name="mo_exploitant_individuel_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
-                              <input id="in151" tb name="mo_exploitant_individuel_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in151" tb name="mo_exploitant_individuel_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in152" tb name="mo_exploitant_individuel_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in152" tb name="mo_exploitant_individuel_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in153" tb name="mo_exploitant_individuel_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in153" tb name="mo_exploitant_individuel_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                            
                         </div>
                      </td>
@@ -4546,18 +4538,18 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in154" tb name="mo_adultes_plus_15_ans_11" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in154" tb name="mo_adultes_plus_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
-                              <input id="in155" name="mo_adultes_plus_15_ans_22" type="text" max="99" class="form-control" data-length="2" tb value="">
+                              <input id="in155" name="mo_adultes_plus_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" tb value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in156" tb name="mo_adultes_plus_15_ans_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in156" tb name="mo_adultes_plus_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in157" tb name="mo_adultes_plus_15_ans_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in157" tb name="mo_adultes_plus_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
@@ -4571,18 +4563,18 @@ font-weight: bold;
                      <td>
                         <div class="input-group input-group-sm">
                        
-                              <input id="in158" tb name="mo_enfants_moins_15_ans_1" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in158" tb name="mo_enfants_moins_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
-                              <input id="in159" tb name="mo_enfants_moins_15_ans_2" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in159" tb name="mo_enfants_moins_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in160" tb name="mo_enfants_moins_15_ans_3" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in160" tb name="mo_enfants_moins_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
                           
-                              <input id="in161" tb name="mo_enfants_moins_15_ans_4" type="text" max="99" class="form-control" data-length="2" value="">
+                              <input id="in161" tb name="mo_enfants_moins_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
                            
                         </div>
                      </td>
@@ -4610,7 +4602,7 @@ font-weight: bold;
                </span>
              
                
-                  <input id="in178" tb name="ma_nombre_de_personnes" type="text" max="99" class="form-control" data-length="2" value="">
+                  <input id="in178" tb name="ma_nombre_de_personnes" type="text" max="99" class="form-control bneder" data-length="2" value="">
                
                   
             </div>
@@ -4636,12 +4628,12 @@ font-weight: bold;
                      </td>
                      <td>
                        
-                           <input id="in179" name="ma_adultes_plus_15_ans_1" type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in179" name="ma_adultes_plus_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
                       
                      </td>
                      <td>
                        
-                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2" type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
                         
                      </td>
                   </tr>
@@ -4653,12 +4645,12 @@ font-weight: bold;
                      </td>
                      <td>
                        
-                           <input id="in181" name="ma_enfants_moins_15_ans_11" type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in181" name="ma_enfants_moins_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
                     
                      </td>
                      <td>
                       
-                           <input id="in182" name="ma_enfants_moins_15_ans_22" type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in182" name="ma_enfants_moins_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" value="">
                      
                      </td>
                   </tr>
@@ -5032,7 +5024,7 @@ font-weight: bold;
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="select-ee" id="inputGroupSelect01" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="select-ee bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option selected="selected"> - </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5048,7 +5040,7 @@ font-weight: bold;
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="select-ee" id="inputGroupSelect01" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="select-ee bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option selected="selected"> - </option>
 
                                  <option value="1"> ص,م,ز,ق - CRMA</option>
@@ -5141,7 +5133,7 @@ font-weight: bold;
                       <br>
                       Fournisseurs de services situés dans la commune ?
                   </span>
-               <select class="select-ee" id="inputGroupSelect01" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+               <select class="select-ee bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                   <option selected="selected"> - </option>
                   <option value="1">1 - Oui - نعم</option>
                   <option value="2">2 - Non - لا</option>
@@ -5442,6 +5434,16 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 
+<script>
+      // Add event listener to detect Ctrl + *
+      document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.key === '*') {
+      // Trigger the click event of the button
+      document.getElementById('submitDate').click();
+      }
+      });
+</script>
+
 
 
 
@@ -5479,6 +5481,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <script>
+
    window.onload = function () {
        var inputs = document.querySelectorAll('input'); // Select all input elements
 
@@ -5489,6 +5492,7 @@ if ($_SESSION['role'] == "recenseur") {
            }
        });
    };
+   
 </script>
 
 
@@ -5529,6 +5533,10 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <script>
+
+
+
+
    document.getElementById("info_form").addEventListener("submit", function (event) {
        event.preventDefault(); // Prevent form submission
 
@@ -5646,59 +5654,59 @@ if ($_SESSION['role'] == "recenseur") {
 
              
 <script>
-   document.getElementById("info_form").addEventListener("input", function () {
-       console.log("capturing")
+   // document.getElementById("info_form").addEventListener("input", function () {
+   //     console.log("capturing")
 
-       var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
-       var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
-       var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
-       var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
-       var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-       document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+   //     var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+   //     var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+   //     var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+   //     var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+   //     document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
-       var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
-       var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
-       var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
-       var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
-       var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-       document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
-
-
-       var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
-       var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
-       var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
-       var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
-       var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-       document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
-
-       var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
-       var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
-       var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
-       var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
-       var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-       document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+   //     var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+   //     var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+   //     var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+   //     var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+   //     document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
 
 
-       var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
-       var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-       var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-       document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+   //     var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+   //     var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+   //     var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+   //     var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+   //     document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
 
-       var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-       var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-       var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-       document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+   //     var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+   //     var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+   //     var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+   //     document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-       var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-       document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+   //     var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+   //     var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+   //     document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+   //     var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+   //     var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+   //     document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+   //     var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+   //     document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
        
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-       var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-       document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+   //     var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+   //     document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
-   });
+   // });
 </script>       
 
 <script>
@@ -5781,22 +5789,23 @@ nom_exploitation.addEventListener("blur", (e) => {
 });
 
 
-               var surfaces = document.getElementsByClassName("surface");
+               // var surfaces = document.getElementsByClassName("surface");
 
-               for (let i = 0; i < surfaces.length; i++) {
-                  surfaces[i].addEventListener("blur", (e) => {
-                     if((surface_totale_st_1.value < 0 || surface_totale_st_1.value == 0)){
-                        surface_totale_st_1.style.border = "3px solid red";
-                        surface_totale_st_2.style.border = "3px solid red";
-                        surfaces[i].focus();
+               // for (let i = 0; i < surfaces.length; i++) {
+               //    surfaces[i].addEventListener("blur", (e) => {
+               //       if((surface_totale_st_1.value < 0 || surface_totale_st_1.value == 0)){
+               //          surface_totale_st_1.style.border = "3px solid red";
+               //          surface_totale_st_2.style.border = "3px solid red";
+               //          surfaces[i].focus();
                      
-                     }
-                  if(surface_totale_st_1.value > 0){
-                     surface_totale_st_1.style.border = "3px solid green";
-                     surface_totale_st_2.style.border = "3px solid green";
-                  }
-                  });
-               }
+               //       }
+               //    if(surface_totale_st_1.value > 0){
+               //       surface_totale_st_1.style.border = "3px solid green";
+               //       surface_totale_st_2.style.border = "3px solid green";
+               //    }
+               //    }
+               // );
+               // }
 
              
 
