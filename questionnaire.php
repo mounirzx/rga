@@ -4,6 +4,7 @@ include('includes/header.php');
 ?>
 
       <style>
+         
         /* @font-face {
 			font-family: 'Scheherazade';
 			src: url('static/fonts/rga/ScheherazadeNew-Regular.ttf') format('truetype');
@@ -13,12 +14,12 @@ include('includes/header.php');
 
        
 	
-         @page {
+         /* @page {
          size: A4;
          margin: 0;
-         }
-         body {
-            font-family: 'Scheherazade', arial; /* Use the custom font */
+         } */
+         /* body {
+            font-family: 'Scheherazade', arial; 
          width: 210mm;
          height: 297mm;
          margin: 0;
@@ -26,13 +27,24 @@ include('includes/header.php');
          margin: auto;
          line-height: 15px;
          background-color: #dadada;
+         }  */
+
+         .quest{
+            font-family: 'Scheherazade', arial; 
+         width: 210mm;
+         height: 297mm;
+         margin: 0;
+         padding: 0;
+         margin: auto;
+         line-height: 15px;
+        
          }
-         body span {
-            font-family: 'Scheherazade', arial; /* Use the custom font */
+         /* body span {
+            font-family: 'Scheherazade', arial; 
          font-size: 12px !important;
          height: 33px;
          line-height: 14px !important;
-         }
+         } */
          body div {
          font-size: 12px !important;
          }
@@ -186,8 +198,8 @@ font-weight: bold;
      
  
      <br><br><br>
- 
-     <div class="card">
+ <div class="quest">
+     <div class="card ">
     
     <!-- <img src="static/header.png"> -->
 
@@ -5650,6 +5662,6 @@ document.addEventListener("DOMContentLoaded", function() {
               </script>   
              
              
-             
+</div>      
    </body>
 </html>

@@ -15,6 +15,9 @@ text-align:center !important;
 table.dataTable th, table.dataTable td{
     padding:2px;
 }
+
+
+
 </style>
 <body>
     <br>
@@ -199,11 +202,11 @@ if($_SESSION['role']=="superviseur_national"){
                   
                 </div>
               
-                <div class="card-body">
-                    <table class="table table-hover table-responsive" id="tableQst">
+                <div class="card-body table-responsive">
+                    <table class="table table-hover " id="tableQst">
                     
                         <thead>
-                        <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr>
+                        <!-- <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr> -->
                             <tr style="background: #d5d5d5">
                                 <th scope="col">#</th>
                                 <th  style="background:#8bdfb8;" scope="col">Commune</th>
