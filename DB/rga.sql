@@ -3621,77 +3621,31 @@ INSERT INTO `recenseur` (`id_recensseur`, `id_user`, `nom_recensseur`, `prenom_r
 -- Structure de la table `status_juridique`
 --
 
+-- CREATE TABLE `status_juridique` (
+--   `id_status_juridique` int(11) NOT NULL,
+--   `id_questionnaire` int(11) NOT NULL,
+--   `status_juridique` varchar(100) NOT NULL,
+--   `origine_terre` varchar(100) NOT NULL,
+--   `superfecie_sj` varchar(20) NOT NULL,
+--   `superfecie_sj_are` varchar(20) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 CREATE TABLE `status_juridique` (
   `id_status_juridique` int(11) NOT NULL,
+  `cle_status_juridique` varchar(8) NOT NULL,
   `id_questionnaire` int(11) NOT NULL,
-  `status_juridique` varchar(100) NOT NULL,
-  `origine_terre` varchar(100) NOT NULL,
-  `superfecie_sj` varchar(20) NOT NULL,
-  `superfecie_sj_are` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `origine_des_terres` varchar(100) DEFAULT NULL,
+  `status_juridique` varchar(100) DEFAULT NULL,
+  `superfecie_sj` varchar(20) DEFAULT NULL,
+  `superfecie_sj_are` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `status_juridique`
 --
 
-INSERT INTO `status_juridique` (`id_status_juridique`, `id_questionnaire`, `status_juridique`, `origine_terre`, `superfecie_sj`, `superfecie_sj_are`) VALUES
-(1, 1, '1', '1', '100', '10'),
-(2, 1, '2', '2', '200', '20'),
-(3, 1, '3', '3', '300', '30'),
-(4, 2, '1', '1', '100', '10'),
-(5, 2, '2', '2', '200', '20'),
-(6, 2, '3', '3', '300', '30'),
-(7, 3, '1', '1', '100', '10'),
-(8, 3, '2', '2', '200', '20'),
-(9, 3, '3', '3', '300', '30'),
-(10, 4, '1', '1', '100', '10'),
-(11, 4, '2', '2', '200', '20'),
-(12, 4, '3', '3', '300', '30'),
-(13, 5, '1', '1', '100', '10'),
-(14, 5, '2', '2', '200', '20'),
-(15, 5, '3', '3', '300', '30'),
-(16, 6, '1', '1', '100', '10'),
-(17, 6, '2', '2', '200', '20'),
-(18, 6, '3', '3', '300', '30'),
-(19, 7, '1', '1', '100', '10'),
-(20, 7, '2', '2', '200', '20'),
-(21, 7, '3', '3', '300', '30'),
-(22, 8, '1', '1', '100', '10'),
-(23, 8, '2', '2', '200', '20'),
-(24, 8, '3', '3', '300', '30'),
-(25, 9, '1', '1', '100', '10'),
-(26, 9, '2', '2', '200', '20'),
-(27, 9, '3', '3', '300', '30'),
-(28, 10, '1', '1', '100', '10'),
-(29, 10, '2', '2', '200', '20'),
-(30, 10, '3', '3', '300', '30'),
-(31, 11, '1', '1', '100', '10'),
-(32, 11, '2', '2', '200', '20'),
-(33, 11, '3', '3', '300', '30'),
-(34, 12, '1', '1', '100', '10'),
-(35, 12, '2', '2', '200', '20'),
-(36, 12, '3', '3', '300', '30'),
-(37, 13, '1', '1', '100', '10'),
-(38, 13, '2', '2', '200', '20'),
-(39, 13, '3', '3', '300', '30'),
-(40, 14, '1', '1', '100', '10'),
-(41, 14, '2', '2', '200', '20'),
-(42, 14, '3', '3', '300', '30'),
-(43, 15, '1', '1', '100', '10'),
-(44, 15, '2', '2', '200', '20'),
-(45, 15, '3', '3', '300', '30'),
-(46, 16, '1', '1', '100', '10'),
-(47, 16, '2', '2', '200', '20'),
-(48, 16, '3', '3', '300', '30'),
-(49, 17, '1', '1', '100', '10'),
-(50, 17, '2', '2', '200', '20'),
-(51, 17, '3', '3', '300', '30'),
-(52, 18, '1', '1', '100', '10'),
-(53, 18, '2', '2', '200', '20'),
-(54, 18, '3', '3', '300', '30'),
-(55, 19, '1', '1', '100', '10'),
-(56, 19, '2', '2', '200', '20'),
-(57, 19, '3', '3', '300', '30');
 
 -- --------------------------------------------------------
 
