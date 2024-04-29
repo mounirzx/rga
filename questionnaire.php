@@ -1334,7 +1334,7 @@ agricoles ?
                         <div class="col">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select" id="origine_des_terres" name="origine_des_terres" >
+                            <select  class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled ></option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
@@ -1356,7 +1356,7 @@ agricoles ?
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
+                                <select  class="form-select statut_juridique_s" id="status_juridique" name="status_juridique" value="1">
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1405,13 +1405,13 @@ agricoles ?
         display: inline-block;
     }
 </style>
-                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error "  data-length="4" value="" >
+                                    <input  id="in11" name="superficie_hectare"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4" value="" >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are" data-length="2" value="">
+                                    <input  id="in12" name="superficie_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" value="">
                              
 
                             </div>
@@ -3345,6 +3345,22 @@ l'Ex-EAC
                               <option value="2">2- Non-لا</option>
                            </select>
                         </div>
+
+                           <span class="input-group-text" id="basic-addon3">
+                     
+
+                           هل تمارس الترحال الرعوي؟<br>
+                           Pratiquez-vous la transhumance ?
+                           </span>
+                           <select class="form-control bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
+                              <option selected="" disabled value="-">  </option>
+                              <option value="1">1- Oui-نعم</option>
+                              <option value="2">2- Non-لا</option>
+                           </select>
+                        </div>
+
+
+
 
 
 
