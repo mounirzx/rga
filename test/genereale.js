@@ -13,7 +13,7 @@ const folderName = "files";
 const fileName = "test.jpg";
 const filePath = path.join(__dirname, folderName, fileName);
 const content = "This is the content of my file.";
-const delay = 0;
+const delay = 50;
 
 // Function to wait for a specified number of milliseconds
 const waitFor = (centiseconds) => {
@@ -54,19 +54,19 @@ fs.writeFile(filePath, content, (err) => {
 
 //  for 24pouce monitors 
 
-  await page.setViewport({
-    width: 1900,
-    height: 920,
-    deviceScaleFactor: 1,
-  });
+//   await page.setViewport({
+//     width: 1900,
+//     height: 920,
+//     deviceScaleFactor: 1,
+//   });
 
 
 // for > 20 pouce monitors 
-//  await page.setViewport({
-//   width: 1400,
-//   height: 640,
-//   deviceScaleFactor: 1,
-// });
+ await page.setViewport({
+  width: 1400,
+  height: 640,
+  deviceScaleFactor: 1,
+});
 
  // for 20 pouce monitors 
 //  await page.setViewport({
@@ -85,8 +85,8 @@ fs.writeFile(filePath, content, (err) => {
   
 
 
-  await page.type("#username", "R01-01", { delay: delay });
-  await page.type("#password", "test", { delay: delay });
+  await page.type("#username", "admin", { delay: delay });
+  await page.type("#password", "admin", { delay: delay });
   await page.click("#login");
 
   // await page.waitForSelector("#day_of_passage");
@@ -118,6 +118,45 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
+//create Superviseur
+
+  await page.waitForSelector('a.nav-link[href="./superviseur.php"]');
+  await page.click('a.nav-link[href="./superviseur.php"]');
+  
+  await page.waitForSelector('a.btn.btn-success[href="./add_superviseur.php"]');
+await page.click('a.btn.btn-success[href="./add_superviseur.php"]');
+
+await page.type('#first_name', "Abes", { delay: delay });
+await page.type('#last_name', "Mounir", { delay: delay });
+
+await page.waitForSelector('#wilaya');
+await page.click('#wilaya');
+await waitFor(delay);
+await page.select('#wilaya', "01");
+
+await page.type('#email', "m.abes@bneder.dz", { delay: delay });
+await page.type('#phone', "0657 57 84 51", { delay: delay });
+
+// Wait for the input element to be present
+await page.waitForSelector('#username');
+
+// Extract the value of the input element
+const superviseurUserName = await page.$eval('#username', input => input.value);
+
+// Print or use the extracted value
+console.log('Username:', superviseurUserName);
+
+await page.type('#password', "test", { delay: delay });
+
+
+console.log('Username:', superviseurUserName);
+
+
+await page.click('#add_user');
+
+await page.evaluate(() => {
+    document.querySelector('a.logout').click();
+});
 
 
 
@@ -125,7 +164,71 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
+await page.type("#username", superviseurUserName, { delay: delay });
+  await page.type("#password", "test", { delay: delay });
+  await page.click("#login");
+//create Controleur
 
+
+
+
+
+
+
+await page.waitForSelector('a.nav-link[href="./controleur.php"]');
+
+
+  await page.click('a.nav-link[href="./controleur.php"]');
+
+  await page.waitForSelector('a.btn.btn-success[href="./add_controleur.php"]');
+await page.click('a.btn.btn-success[href="./add_controleur.php"]');
+// await page.evaluate(() => {
+//     document.querySelector('a.btn-success').click();
+// });
+
+await page.type('#first_name', "Abes", { delay: delay });
+await page.type('#last_name', "Mounir", { delay: delay });
+
+await page.waitForSelector('#wilaya');
+await page.click('#wilaya');
+await waitFor(delay);
+await page.select('#wilaya', "01");
+
+await page.type('#email', "m.abes@bneder.dz", { delay: delay });
+await page.type('#phone', "0657 57 84 51", { delay: delay });
+
+// Wait for the input element to be present
+await page.waitForSelector('#username');
+
+// Extract the value of the input element
+const controleurUserName = await page.$eval('#username', input => input.value);
+
+// Print or use the extracted value
+console.log('Username:', controleurUserName);
+
+await page.type('#password', "test", { delay: delay });
+
+
+console.log('Username:', controleurUserName);
+
+
+await page.click('#add_user');
+
+await page.evaluate(() => {
+    document.querySelector('a.logout').click();
+});
+
+
+await waitFor(200);
+
+
+
+
+
+
+await page.type("#username", controleurUserName, { delay: delay });
+  await page.type("#password", "test", { delay: delay });
+  await page.click("#login");
 
   // //######################## II- Identification de l'exploitant تعريف المستثمر########################
   await page.waitForSelector('input[name="nom_exploitant"]');
