@@ -3,6 +3,7 @@
 include('includes/header.php');
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
+<script  src="./assets/js/questionnaire-mask.js" defer></script>
    
     
    <body>
@@ -19,15 +20,17 @@ include('includes/header.php');
  
  
          <form id="info_form" method="post">
-    <input  name="etat" hidden disabled class="bneder" value="en attent">
-                <h4 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h4>
-                <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px; "></div>
-                <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
+    
 
                         <br>
-
+                        <input  name="etat" hidden disabled class="bneder" value="en attent">
+                <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
+                <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+                
                 <div class="row">
                     <div class="col">
+                    <br><br><br>
+                <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
                     <div class="input-group input-group-sm">
                     <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
@@ -35,7 +38,7 @@ include('includes/header.php');
                     <br />
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
-                    <select class="select-ee" id="day_of_passage" >
+                    <select class="form-select" id="day_of_passage" >
                        <option value="-"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -91,37 +94,17 @@ include('includes/header.php');
                        <option  value="30"> 31
                        </option>
                     </select>
-                    <select class="select-ee"  id="month_of_passage" >
+                    <select class="form-select"  id="month_of_passage" >
                        <option value="-"></option>
-                       <option  value="01">1 - Janvier</option>
-                       <option  value="02">2 - Février</option>
-                       <option  value="03">3 - Mars</option>
-                       <option  value="04">4 - Avril</option>
-                       <option  value="05">5 - Mai</option>
-                       <option  value="06">6 - Juin</option>
-                       <option  value="07">7 - Juillet</option>
-                       <option  value="08">8 - Août</option>
-                       <option  value="09">9 - Septembre</option>
-                       <option  value="10">10 - Octobre</option>
-                       <option  value="11">11 - Novembre</option>
-                       <option  value="12">12 - Décembre</option>
+                        <option  value="5">Mai</option>
+                        <option  value="6">Juin</option>
+                        <option  value="7">Juillet</option>
                     </select>
-                    <select class="select-ee" id="year_of_passage" >
-                       <option value="-">-</option>
-                       <option  value="2024">2024
+                    <select class="form-control" id="year_of_passage" >
+                       
+                       <option selected value="2024">2024
                        </option>
-                       <option  value="2025">2025
-                       </option>
-                       <option  value="2026">2026
-                       </option>
-                       <option  value="2027">2027
-                       </option>
-                       <option  value="2028">2028
-                       </option>
-                       <option  value="2029">2029
-                       </option>
-                       <option  value="2030">2030
-                       </option>
+                       
                     </select>
                  </div>
                  <br />
@@ -144,6 +127,7 @@ include('includes/header.php');
                        value="" />
                  </div>
                  <br />
+                 <br />
                         <div class="input-group input-group-sm">
                         <div hidden class="qst-num zxcount"></div>
                         <div class="qst-num ">7</div>
@@ -154,14 +138,7 @@ include('includes/header.php');
                         
                     
                  </div>
-                 <br />
-                 <div class="input-group input-group-sm">
-                 <div hidden class="qst-num zxcount"></div>
-                        <div class="qst-num ">8</div>
-                    <span class="input-group-text" id="basic-addon3">البلدية<br />
-                    commune</span>
-                    <input readonly class="form-control"  id="commune_name_ascii"  value="" />
-                 </div>
+               
 
                  <br />
 
@@ -296,21 +273,21 @@ if ($_SESSION['role'] == "recenseur") {
       </select>
       <select  <?= $disabled ?>  class="form-control" id="inputGroupSelect01" >
          <option value="-"></option>
-         <option  value="1">1 - Janvier</option>
-         <option  value="2">2 - Février</option>
-         <option  value="3">3 - Mars</option>
-         <option  value="4">4 - Avril</option>
-         <option  value="5">5 - Mai</option>
-         <option  value="6">6 - Juin</option>
-         <option  value="7">7 - Juillet</option>
-         <option  value="8">8 - Août</option>
-         <option  value="9">9 - Septembre</option>
-         <option  value="10">10 - Octobre</option>
-         <option  value="11">11 - Novembre</option>
-         <option  value="12">12 - Décembre</option>
+         <option  value="1">Janvier</option>
+         <option  value="2">Février</option>
+         <option  value="3">Mars</option>
+         <option  value="4">Avril</option>
+         <option  value="5">Mai</option>
+         <option  value="6">Juin</option>
+         <option  value="7">Juillet</option>
+         <option  value="8">Août</option>
+         <option  value="9">Septembre</option>
+         <option  value="10">Octobre</option>
+         <option  value="11">Novembre</option>
+         <option  value="12">Décembre</option>
       </select>
       <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
-         <option value="-">-</option>
+         <option value="-"></option>
          <option  value="2024">2024
          </option>
          <option  value="2025">2025
@@ -356,28 +333,24 @@ if ($_SESSION['role'] == "recenseur") {
 
                 
 
-            
-                 <br/>
-                 <br/>
+                
                 
           
-                 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
-                 <div hidden class="qst-num zxcount"></div>
-                 <div class="qst-num ">9</div>
-                    <span class="input-group-text" id="basic-addon3">رمز البلدية<br>
-                        commune Code</span>
-                        <input  readonly  class="form-control bneder" id="commune_code" name="commune_code">
-
-                </div>
+               
                  
-                 <br />
+            
               </div>
-           </div>
-
-
-           <div class="row">
-            <div class="col-8">
-            <div class="input-group input-group-sm">
+              <div class="row">
+           <div class="col-8">
+           <div class="input-group input-group-sm" style="margin-right:8px;">
+                 <div hidden class="qst-num zxcount"></div>
+                        <div class="qst-num ">8</div>
+                    <span class="input-group-text" id="basic-addon3">البلدية<br />
+                    commune</span>
+                    <input readonly class="form-control"  id="commune_name_ascii"  value="" />
+                 </div>
+                 <br>
+                 <div class="input-group input-group-sm">
                  <div  class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
                     district-zone <br /> إسم المكان، المنطقة
@@ -386,20 +359,33 @@ if ($_SESSION['role'] == "recenseur") {
 
                  </div>
                  
-
-            </div>
+         </div>
             <div class="col">
-            <div class="input-group input-group-sm">
+           <div  class="input-group input-group-sm"><br>
+                 <div hidden class="qst-num zxcount"></div>
+                 <div class="qst-num ">9</div>
+                    <span class="input-group-text"  id="basic-addon3">رمز البلدية<br>
+                        commune Code</span>
+                        <input style="max-width:88px;" readonly num   maxlength="4"  class="form-control bneder" id="commune_code" name="commune_code">
+
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
                  <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input  num   maxlength="2" num class="form-control" id="num_zone_district"  />
+                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
                     
                  </div>
             </div>
+                </div>
            </div>
+         
+        
+                <br />
+         
            
            <br />
                  
@@ -408,8 +394,8 @@ if ($_SESSION['role'] == "recenseur") {
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h4 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h4>
-           <div style="border-top: 2px solid red; width:410px; margin:-20px 0px 0px 30px; "></div>
+           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h5>
+           <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 
            <br />
            <div class="row">
@@ -503,18 +489,18 @@ if ($_SESSION['role'] == "recenseur") {
                     </select>
                     <select class="select-ee"   id="mois_de_naissance" style="width: 165px;">
                        <option value="02"></option>
-                       <option  value="01">1 - Janvier</option>
-                       <option  value="02">2 - Février</option>
-                       <option  value="03">3 - Mars</option>
-                       <option  value="04">4 - Avril</option>
-                       <option  value="05">5 - Mai</option>
-                       <option  value="06">6 - Juin</option>
-                       <option  value="07">7 - Juillet</option>
-                       <option  value="08">8 - Août</option>
-                       <option  value="09">9 - Septembre</option>
-                       <option  value="10">10 - Octobre</option>
-                       <option  value="11">11 - Novembre</option>
-                       <option  value="12">12 - Décembre</option>
+                       <option  value="01">Janvier</option>
+                       <option  value="02">Février</option>
+                       <option  value="03">Mars</option>
+                       <option  value="04">Avril</option>
+                       <option  value="05">Mai</option>
+                       <option  value="06">Juin</option>
+                       <option  value="07">Juillet</option>
+                       <option  value="08">Août</option>
+                       <option  value="09">Septembre</option>
+                       <option  value="10">Octobre</option>
+                       <option  value="11">Novembre</option>
+                       <option  value="12">Décembre</option>
                     </select>
                     <select class="select-ee" id="annee_de_naissance"  style="width: 125px;" >
                     <option value="-" disabled selected> </option>
@@ -756,7 +742,7 @@ if ($_SESSION['role'] == "recenseur") {
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
+      Nombre de co-exploitants, si</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
@@ -789,8 +775,8 @@ if ($_SESSION['role'] == "recenseur") {
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h4 style="margin-bottom: 27px;">III- Identification de l'exploitant تعريف المستثمرة</h4>
-    <div style="border-top: 2px solid red; width:410px; margin:-20px 0px 0px 30px; "></div>
+    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitant تعريف المستثمرة</h5>
+    <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 <br>
 <br>
 <div class="input-group input-group-sm">
@@ -1427,8 +1413,8 @@ l'Ex-EAC
 
             <div style="border-top: 3px solid red;"></div>
 <br>
-            <h4 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h4>
-            <div style="border-top: 2px solid red; width:390px; margin:-20px 0px 0px 30px;"></div>
+            <h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
+            <div style="border-top: 1px solid red; width:250px; margin:-20px 0px 0px 50px;"></div>
             <br>
             <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
 
@@ -1646,7 +1632,7 @@ l'Ex-EAC
 
                <b style="margin: 0px 0px 0px 19px;" >Superficie agricole utile(SAU)
                المساحة الفلاحية المستخدَمَة</b>
-               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
+               <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
             </td>
             <td>
                <div class="input-group input-group-sm">
@@ -1740,7 +1726,7 @@ l'Ex-EAC
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
          <b style="margin: 0px 0px 0px 19px;" >Superficie agricole totale (SAT)
                المساحة الفلاحية الإجمالية</b>
-               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
+               <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
 
             </td>
             <td>
@@ -1788,7 +1774,7 @@ l'Ex-EAC
 
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
          <b style="margin: 0px 0px 0px 19px;" >Surface totale (ST) المساحة الإجمالية</b>
-               <div style="border-top: 2px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
+               <div style="border-top: 1px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
              
             </td>
             <td>
@@ -2072,8 +2058,8 @@ l'Ex-EAC
 
          
             <div style="border-top: 3px solid red;"></div><br>
-<h4 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h4>
-<div style="border-top: 2px solid red; width:270px; margin:-20px 0px 0px 30px;"></div><br>
+<h5 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h5>
+<div style="border-top: 1px solid red; width:270px; margin:-20px 0px 0px 30px;"></div><br>
 <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6><br>
 <div class="card" style="font-size: 12px;">
   <div class="card-header" style="text-align: center;">
@@ -2819,8 +2805,8 @@ l'Ex-EAC
 
             <br>
             <div id="chapt_animals">
-            <h4 style="margin-bottom: 27px;">VI-Cheptel المواشي</h4>
-            <div style="border-top: 2px solid red; width:155px; margin:-20px 0px 0px 15px; "></div>
+            <h5 style="margin-bottom: 27px;">VI-Cheptel المواشي</h5>
+            <div style="border-top: 1px solid red; width:155px; margin:-20px 0px 0px 15px; "></div>
             <br>
             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
             <br>
@@ -3240,8 +3226,8 @@ l'Ex-EAC
 <br><div style="border-top: 3px solid red;"></div>
             
             <br>
-            <h4 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h4>
-            <div style="border-top: 2px solid red; width:370px; margin:-20px 0px 0px 30px;"></div>
+            <h5 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h5>
+            <div style="border-top: 1px solid red; width:370px; margin:-20px 0px 0px 30px;"></div>
             <br><br>
 
 
@@ -3722,7 +3708,7 @@ l'Ex-EAC
 
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>VIII- Matériel agricole العتاد الفلاحي</h4>
+            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
 
  <div style="width:450px;" class="input-group input-group-sm">
@@ -3939,8 +3925,8 @@ Type et nombre du matériel agricole ?
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h4>
-            <div style="border-top: 2px solid red; width:320px; margin:-20px 0px 0px 25px; "></div>
+            <h5 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h5>
+            <div style="border-top: 1px solid red; width:320px; margin:-20px 0px 0px 25px; "></div>
             <br>
 
             <div  class="input-group input-group-sm">
@@ -4237,8 +4223,8 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h4>
-            <div style="border-top: 2px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
+            <h5 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h5>
+            <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
             <br>
             <div class="row">
                <div class="row" style="text-align: center;">
@@ -4552,7 +4538,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>XI- Ménage agricole <br> الأسرة الفلاحية</h4>
+            <h5>XI- Ménage agricole <br> الأسرة الفلاحية</h5>
             <div style="text-align: center;">
                <b>
                تكوين أسرة رئيس المستثمرة <br> Composition du ménage du Chef d'exploitation
@@ -4623,8 +4609,8 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
-            </h4>
+            <h5>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
+            </h5>
             <br><br>
             <div class="row">
 
@@ -4811,7 +4797,7 @@ Petite et Moyenne Hydraulique
                <br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h4>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h4>
+               <h5>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
                <br>
                <div class="card" style="font-size: 12px;">
                   <div class="card-body">
@@ -5088,7 +5074,7 @@ Petite et Moyenne Hydraulique
                <br><br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h4>XIV - Environnement de l'exploitation محيط المستثمرة</h4>
+               <h5>XIV - Environnement de l'exploitation محيط المستثمرة</h5>
                <br>
 
     <div class="row">  
@@ -5412,7 +5398,6 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
-<script src="./assets/js/questionnaire-mask.js"></script>
 
              
              
