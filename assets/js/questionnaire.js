@@ -1,4 +1,29 @@
 $(document).ready(function () {
+  $.ajax({
+    url: "assets/php/getData.php",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      if (response.reponse !== "false") {
+        $("#nom_recensseur").val(response.nom_recensseur || "N/A");
+        $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
+        $("#nom_controleur").val(response.nom_controleur || "N/A");
+        $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+
+        $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
+        $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
+        $("#commune_code").val(response.r_commune || "N/A");
+        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        $("#num_zone_district").val(response.num_zone_district || "N/A");
+      } else {
+        console.error("Error: " + response.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("AJAX Error:", status, error);
+    },
+  });
+
   $("#submitDate").click(function (e) {
     e.preventDefault();
 
@@ -6,32 +31,42 @@ $(document).ready(function () {
     var formDataArray = [];
 
     var formDataArrayStatut = [];
-    // Loop over each row
-    $(".statut_juridique_s").each(function () {
+    function isValidObject(obj) {
+      for (let key in obj) {
+          if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
+              return false; // If any property is undefined, null, or an empty string, return false
+          }
+      }
+      return true; // If all properties are valid, return true
+  }
+  
+  // Assuming formDataArrayStatut is already defined
+
+  
+  $(".statut_juridique_s").each(function () {
       // Initialize an object to store form data for the current row
-
       var formDataObjStatus = {};
-
+  
       // Get the values of the inputs within the current row
-      var origine_terres = $(this).find("[name^='origine_des_terres']").val();
-
-      var mode_dexploitation = $(this)
-        .find("[name^='mode_dexploitation_des_terres']")
-        .val();
-      var superficie_hectare = $(this)
-        .find("[name^='superficie_hectare']")
-        .val();
-      var superficie_are = $(this).find("[name^='superficie_are']").val();
-
+      var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
+      var status_juridique = $(this).find("[name^='status_juridique']").val();
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
+  
       // Add the values to the formDataObj
-      formDataObjStatus["origine_des_terres"] = origine_terres;
-      formDataObjStatus["mode_dexploitation_des_terres"] = mode_dexploitation;
-      formDataObjStatus["superficie_hectare"] = superficie_hectare;
-      formDataObjStatus["superficie_are"] = superficie_are;
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayStatut.push(formDataObjStatus);
-    });
+      formDataObjStatus["origine_des_terres"] = origine_des_terres;
+      formDataObjStatus["status_juridique"] = status_juridique;
+      formDataObjStatus["superfecie_sj"] = superfecie_sj;
+      formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
+  
+      // Check if formDataObjStatus contains valid data before adding it to the array
+      if (isValidObject(formDataObjStatus)) {
+          formDataArrayStatut.push(formDataObjStatus);
+          console.log("the array:", formDataArrayStatut);
+      } else {
+        
+      }
+  });
 
     var formDataArrayCodeCulture = [];
     // Loop over each row
@@ -250,4 +285,300 @@ $(document).ready(function () {
     console.log(etat);
     qstList(etat);
   });
+
+
+
+
+
+
+/********************************************************************************/
+// $(document).on('keyup', '.coherence_surface_total-surface', function () {
+//   var sum_superficie_hectare = 0;
+
+//   $(".statut_juridique_s").each(function () {
+//       var superficie_hectare = parseFloat($(this).find("[name^='superficie_hectare']").val());
+//       if (!Number.isNaN(superficie_hectare)) {
+//           sum_superficie_hectare += superficie_hectare;
+//       }
+//   });
+
+//   var cultures_herbacees_1 = $('[name="cultures_herbacees_1"]').val(),
+//       terres_au_repos_jacheres_1 = $('[name="terres_au_repos_jacheres_1"]').val(),
+//       plantations_arboriculture_1 = $('[name="plantations_arboriculture_1"]').val(),
+//       prairies_naturelles_1 = $('[name="prairies_naturelles_1"]').val(),
+//       pacages_et_parcours_1 = $('[name="pacages_et_parcours_1"]').val(),
+//       surfaces_improductives_1 = $('[name="surfaces_improductives_1"]').val(),
+//       terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val();
+
+//   // Check if all inputs are defined and not empty
+//   if (cultures_herbacees_1 && terres_au_repos_jacheres_1 && plantations_arboriculture_1 &&
+//       prairies_naturelles_1 && pacages_et_parcours_1 && surfaces_improductives_1 &&
+//       terres_forestieres_bois_forets_maquis_vides_labourables_1) {
+      
+
+
+//        var sup_total =  $('#surface_totale_st_1').val()
+//       // var sup_total = (
+//       //     parseFloat(cultures_herbacees_1) || 0 +
+//       //     parseFloat(terres_au_repos_jacheres_1) || 0 +
+//       //     parseFloat(plantations_arboriculture_1) || 0 +
+//       //     parseFloat(prairies_naturelles_1) || 0 +
+//       //     parseFloat(pacages_et_parcours_1) || 0 +
+//       //     parseFloat(surfaces_improductives_1) || 0 +
+//       //     parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1) || 0
+//       // );
+//       console.log(sum_superficie_hectare)
+//       console.log(sup_total)
+//       if (sum_superficie_hectare > sup_total) {
+//           $('.coherence_surface_total-surface').css('border', '3px solid red');
+//       } else {
+//           $('.coherence_surface_total-surface').css('border', '');
+//       }
+//   } else {
+//       $('.coherence_surface_total-surface').css('border', '');
+//   }
+// });
+
+
+
+
+$(document).on('keyup','.coherence_surface_total-surface',function(){
+
+  /***********************************************/
+    var sum_superficie_hectare= 0
+
+        $(".statut_juridique_s").each(function () {
+          var superficie_hectare = $(this).find("[name^='superficie_hectare']").val();
+          superficie_hectare=parseFloat(superficie_hectare)
+            if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+              sum_superficie_hectare += superficie_hectare;
+            }
+        });
+         /***********************************************/
+         var cultures_herbacees_1 = $('[name="cultures_herbacees_1"]').val();
+         var terres_au_repos_jacheres_1 = $('[name="terres_au_repos_jacheres_1"]').val();
+         var plantations_arboriculture_1 = $('[name="plantations_arboriculture_1"]').val();
+         var prairies_naturelles_1 = $('[name="prairies_naturelles_1"]').val();
+         var pacages_et_parcours_1 = $('[name="pacages_et_parcours_1"]').val();
+         var surfaces_improductives_1 = $('[name="surfaces_improductives_1"]').val();
+         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val();
+/********************************************** */   
+         var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+  if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
+    console.log('ok')
+    $('.surface_total_error').css('border','3px solid red')
+   }else{
+    $('.surface_total_error').css('border','')
+   }
+
+  }
+    })
+
+
+
+    /***************************************************************************************************************** */
+
+
+    $(document).on('keyup','.coherence_surface_total-surface_are',function(){
+
+      /***********************************************/
+        var sum_superficie_are= 0
+    
+            $(".statut_juridique_s").each(function () {
+              var superficie_are = $(this).find("[name^='superficie_are']").val();
+              superficie_are=parseFloat(superficie_are)
+                if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                  sum_superficie_are += superficie_are;
+                }
+            });
+
+            console.log(sum_superficie_are)
+             /***********************************************/
+             var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
+             var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
+             var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
+             var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
+             var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
+             var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
+             var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
+    /********************************************** */   
+          
+    var sup_total_are =  $('#surface_totale_st_2').val()
+    console.log(sup_total_are)
+
+    console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+    if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
+      if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
+        console.log('ok')
+        $('.surface_total_error_are').css('border','3px solid red')
+       }else{
+        $('.surface_total_error_are').css('border','')
+       }
+    
+      }
+        })
+    /****************************************************************************************************************** */
+    var elements = document.getElementsByClassName("surface");
+    for (var i = 0; i < elements.length; i++) {
+    
+        elements[i].addEventListener("input", function () {
+          var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+          var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+          var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+          var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+          var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+          document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+   
+          var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+          var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+          var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+          var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+          var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+          document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
+   
+   
+          var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+          var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+          var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+          var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+          var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+          document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
+   
+          var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+          var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+          var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+          var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+          var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+          document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+   
+   
+          var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+          var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+          var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+          document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+   
+          var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+          var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+          var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+          document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   
+          var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+          var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+          document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+          
+   
+          var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+          var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+          document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*************************************************** */
+    //origine des terres
+
+    var listOrigineTerre ={
+      "1":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "2":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "3":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "4":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "5":
+        ' <option  selected="" disabled>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+      ,
+      "6":
+        '<option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+      ,
+      "7":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "8":
+       '  <option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13">13- Inconnu غير معروف</option>'
+      ,
+      "9":
+        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+        
+      
+    }
+
+    // <!-- <option  selected="" disabled>-</option>
+    // <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
+    // <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
+    // <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
+    // <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
+    // <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
+    // <option value="6">6- Concession CIM 108, CIM 1839</option>
+    // <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
+    // <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
+    // <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
+    // <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
+    // <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
+    // <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
+    ////////////////////////////////////////////////////////////////////////
+    // <option value="13">13 - Vente/Achat بيع/شراء</option>
+    // <option value="14">14 - Succession إرث</option>
+    // <option value="15">15 - Donation هبة</option>
+    // <option value="16">16 - Testament وصية</option>
+    // <option value="17">17 - Droit préemption حق الشفاعة</option>
+    // <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+    // <option value="19">19 - Certificat de possession شهادة حيازة</option>
+    // <option value="20">20 - Location إجار</option>
+    // <option value="21">21 - Autre  آخرى </option>
+    // <option value="22">22 - Inconnu غير معروف</option>
+
+
+
+    /*************************************************/
+
+    // $('#origine_des_terres').change(function(){
+    //   var id = $(this)
+    //   console.log(id)
+    // })
+
+    function filterByKey(prefix) {
+      var filteredObj = {};
+      Object.keys(listOrigineTerre).forEach(function(key) {
+          if (key.startsWith(prefix)) {
+              filteredObj[key] = listOrigineTerre[key];
+          }
+      });
+      return filteredObj;
+  }
+
+
+    $(document).on('change', '[id^="origine_des_terres_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+    var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+    console.log(idPart); // Log the extracted part to the console
+
+
+      var id = $(this).val()
+      console.log(fullId)
+      var filtered = filterByKey(id);
+console.log(filtered[id]);
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
+    })
 });

@@ -34,7 +34,22 @@ try {
 
     $req = $bdd->prepare('INSERT INTO `controleur`(`nom_controleur`, `prenom_controleur`,  `id_user`, `wilaya`, `commune`, `email`, phone,`added_by`, `date_creation`) VALUES(?,?,?,?,?,?,?,?,NOW())');
     $req->execute(array($nom_controleur, $prenom_controleur,$id_user, $wilaya, $commune, $email,$phone,$id_u));
-    include('mail.php');
+   
+$url = 'https://dgl.bneder.dz/rga-mails/';
+// Initialize cURL session
+$ch = curl_init($url);
+
+$data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+// Set the POST data
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
+//include('mail.php');
     echo "true";
 } catch (Exception $e) {
     $msg = $e->getMessage();

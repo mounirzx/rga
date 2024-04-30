@@ -13,7 +13,7 @@ const folderName = "files";
 const fileName = "test.jpg";
 const filePath = path.join(__dirname, folderName, fileName);
 const content = "This is the content of my file.";
-const delay = 0;
+const delay = 50;
 
 // Function to wait for a specified number of milliseconds
 const waitFor = (centiseconds) => {
@@ -38,9 +38,11 @@ fs.writeFile(filePath, content, (err) => {
     headless: false, // Launch in headful mode
     executablePath:
     
-    "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-      // "C:\\Program Files\\Mozilla Firefox\\firefox.exe", // Use Mozilla 
-      // "C:\\Program Files\\LibreWolf\\librewolf.exe", // Use LibreWolf 
+    // "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      // "C:\\Program Files\\Mozilla Firefox\\firefox.exe", // Use Mozilla ,
+      // "C:\\Program Files\\LibreWolf\\librewolf.exe", // Use LibreWolf ,
+      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // Use chrome ,
+      
       args: ['--start-maximized'] 
   });
 
@@ -52,14 +54,19 @@ fs.writeFile(filePath, content, (err) => {
 
 //  for 24pouce monitors 
 
-  await page.setViewport({
-    width: 1900,
-    height: 920,
-    deviceScaleFactor: 1,
-  });
+//   await page.setViewport({
+//     width: 1900,
+//     height: 920,
+//     deviceScaleFactor: 1,
+//   });
 
 
-
+// for > 20 pouce monitors 
+ await page.setViewport({
+  width: 1400,
+  height: 640,
+  deviceScaleFactor: 1,
+});
 
  // for 20 pouce monitors 
 //  await page.setViewport({
@@ -73,7 +80,9 @@ fs.writeFile(filePath, content, (err) => {
 
 
   // await page.goto("http://213.179.181.50/workingrga/" , { delay: delay });
-  await page.goto("http://localhost/rga" , { delay: delay });
+  await page.goto("http://localhost/RGA" , { delay: delay });
+  // await page.goto("http://localhost/faroukrga/rga/" , { delay: delay });
+  
 
 
   await page.type("#username", "admin", { delay: delay });
@@ -98,8 +107,6 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
-<<<<<<< Updated upstream:test/react.js
-=======
   function generateRandomNumber(length) {
     let result = "";
     for (let i = 0; i < length; i++) {
@@ -150,25 +157,78 @@ await page.click('#add_user');
 await page.evaluate(() => {
     document.querySelector('a.logout').click();
 });
-console.log('logged out');
->>>>>>> Stashed changes:test/genereale.js
 
 
 
+
+
+
+
+await page.type("#username", superviseurUserName, { delay: delay });
+  await page.type("#password", "test", { delay: delay });
+  await page.click("#login");
+//create Controleur
+
+
+
+
+
+
+
+await page.waitForSelector('a.nav-link[href="./controleur.php"]');
+
+
+  await page.click('a.nav-link[href="./controleur.php"]');
+
+  await page.waitForSelector('a.btn.btn-success[href="./add_controleur.php"]');
+await page.click('a.btn.btn-success[href="./add_controleur.php"]');
+// await page.evaluate(() => {
+//     document.querySelector('a.btn-success').click();
+// });
+
+await page.type('#first_name', "Abes", { delay: delay });
+await page.type('#last_name', "Mounir", { delay: delay });
+
+await page.waitForSelector('#wilaya');
+await page.click('#wilaya');
 await waitFor(delay);
-await waitFor(delay);
-await waitFor(delay);
+await page.select('#wilaya', "01");
 
-await waitFor(delay);
+await page.type('#email', "m.abes@bneder.dz", { delay: delay });
+await page.type('#phone', "0657 57 84 51", { delay: delay });
+
+// Wait for the input element to be present
+await page.waitForSelector('#username');
+
+// Extract the value of the input element
+const controleurUserName = await page.$eval('#username', input => input.value);
+
+// Print or use the extracted value
+console.log('Username:', controleurUserName);
+
+await page.type('#password', "test", { delay: delay });
+
+
+console.log('Username:', controleurUserName);
+
+
+await page.click('#add_user');
+
+await page.evaluate(() => {
+    document.querySelector('a.logout').click();
+});
+
+
+await waitFor(200);
 
 
 
 
 
 
-console.log('logged in as controleur');
-
-
+await page.type("#username", controleurUserName, { delay: delay });
+  await page.type("#password", "test", { delay: delay });
+  await page.click("#login");
 
   // //######################## II- Identification de l'exploitant تعريف المستثمر########################
   await page.waitForSelector('input[name="nom_exploitant"]');
@@ -202,7 +262,7 @@ console.log('logged in as controleur');
   await page.select('select[name="niveau_formation_agricole"]', "9"); // Selects the option with value "1"
   
   await page.type('input[name="adress_exploitant"]',"Adresse exploitant agricole", { delay: delay }); // Selects the option with value "1"
-  await page.type('input[name="phone_exploitant"]', "045 21 87 54 21", { delay: delay }); // Selects the option with value "1"
+  await page.type('input[name="phone_exploitant"]', "077"+generateRandomNumber(7), { delay: delay }); // Selects the option with value "1"
   await page.type('input[name="email_exploitant"]', "m.abes@bneder.dz", { delay: delay }); // Selects the option with value "1"
   //await page.waitForSelector('input[name="inscription_exploitant"]');
   
@@ -228,30 +288,30 @@ console.log('logged in as controleur');
 
 
 
-  await page.type('input[name="nin_exploitant"]',"125412874532587415", { delay: delay });
-  await page.type('input[name="nis_exploitant"]',"12548547569855474", { delay: delay });
-  await page.type('input[name="num_carte_fellah_exploitant"]',"2245639", { delay: delay });
+  await page.type('input[name="nin_exploitant"]',generateRandomNumber(20), { delay: delay });
+  await page.type('input[name="nis_exploitant"]',generateRandomNumber(20), { delay: delay });
+  await page.type('input[name="num_carte_fellah_exploitant"]',generateRandomNumber(7), { delay: delay });
 
   await page.waitForSelector('select[name="assurance_exploitant"]');
   await page.click('select[name="assurance_exploitant"]');
   await waitFor(delay);
   await page.select('select[name="assurance_exploitant"]', "1");
 
-  await page.type('input[name="num_sec_sociale"]', "1255485447744" , { delay: delay });
+  await page.type('input[name="num_sec_sociale"]', generateRandomNumber(12) , { delay: delay });
 
   await page.waitForSelector('select[name="issu_famille_agricole"]');
   await page.click('select[name="issu_famille_agricole"]');
   await waitFor(delay);
   await page.select('select[name="issu_famille_agricole"]', "1");
 
-  // await page.type('input[name="nature_exploitant"]', "Nature de l'exploitant", { delay: delay });
+  await page.type('input[name="nature_exploitant"]', "Nature de l'exploitant", { delay: delay });
   
   await page.waitForSelector('select[name="exploitant"]');
   await page.click('select[name="exploitant"]');
   await waitFor(delay);
   await page.select('select[name="exploitant"]', "1");
 
-  await page.type('input[name="nb_co_exploitants"]',"45", { delay: delay });
+  await page.type('input[name="nb_co_exploitants"]',generateRandomNumber(7), { delay: delay });
   
 
 
@@ -274,19 +334,16 @@ console.log('logged in as controleur');
   await waitFor(delay);
   await page.select('select[name="type_activite_exploitation"]', "1");
 
-
-
-  await page.click("#vegetale"); // Check the first checkbox
-  await waitFor(delay); 
-  await page.click("#elevage");
-  await waitFor(delay);
-  await page.click("#mixed");
- 
-
-  
-  
   await page.type('input[name="lon_exploitation"]',"25.2154", { delay: delay });
   await page.type('input[name="lat_exploitation"]',"12.54621", { delay: delay });
+  
+  
+  await page.waitForSelector('#activite_exploitation');
+  await page.click('#activite_exploitation');
+  await waitFor(delay);
+  await page.select('#activite_exploitation', "1");
+  
+  
   await waitFor(delay);
   await page.click("#route_national");
   await waitFor(delay);
@@ -300,7 +357,7 @@ console.log('logged in as controleur');
   await waitFor(delay);
   await page.click("#acces_rural");
  
-
+ 
 
   await page.waitForSelector('select[name="reseau_electrique"]');
   await page.click('select[name="reseau_electrique"]');
@@ -322,36 +379,6 @@ console.log('logged in as controleur');
   await waitFor(delay);
   await page.select('select[name="reseau_internet"]', "1");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   await page.waitForSelector('select[name="reseau_internet_si_oui"]');
   await page.click('select[name="reseau_internet_si_oui"]');
   await waitFor(delay);
@@ -359,25 +386,23 @@ console.log('logged in as controleur');
 
 
 
+//######################## Statut juridique des terres ########################
 
-  //######################## Statut juridique des terres ########################
 
+await page.click("#addForm");
 
- await page.click("#addForm");
+await page.waitForSelector('select[name="origine_des_terres_3"]');
+await page.click('select[name="origine_des_terres_3"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_3"]', "1");
 
- await page.waitForSelector('select[name="origine_des_terres_2"]');
- await page.click('select[name="origine_des_terres_2"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_2"]', "1");
+await page.waitForSelector('select[name="status_juridique_3"]');
+await page.click('select[name="status_juridique_3"]');
+await waitFor(delay);
+await page.select('select[name="status_juridique_3"]', '1');
 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_2"]');
- await page.click('select[name="mode_dexploitation_des_terres_2"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_2"]', '1');
-
- await page.type('input[name="superficie_hectare_2"]',"100", { delay: delay });
- await page.type('input[name="superficie_are_2"]',"10", { delay: delay });
-
+await page.type('input[name="superfecie_sj_3"]',"100", { delay: delay });
+await page.type('input[name="superfecie_sj_are_3"]',"10", { delay: delay });
 
 
 
@@ -386,50 +411,128 @@ console.log('logged in as controleur');
 
 
 
- await page.click("#addForm");
+
+await page.click("#addForm");
 
 
- await page.waitForSelector('select[name="origine_des_terres_3"]');
- await page.click('select[name="origine_des_terres_3"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_3"]', "2");
- 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_3"]');
- await page.click('select[name="mode_dexploitation_des_terres_3"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_3"]', '2');
- 
- 
- await page.type('input[name="superficie_hectare_3"]',"200", { delay: delay });
- await page.type('input[name="superficie_are_3"]',"20", { delay: delay });
+await page.waitForSelector('select[name="origine_des_terres_4"]');
+await page.click('select[name="origine_des_terres_4"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_4"]', "2");
+
+await page.waitForSelector('select[name="status_juridique_4"]');
+await page.click('select[name="status_juridique_4"]');
+await waitFor(delay);
+await page.select('select[name="status_juridique_4"]', '2');
 
 
-
-
-
-
- await page.click("#addForm");
+await page.type('input[name="superfecie_sj_4"]',"200", { delay: delay });
+await page.type('input[name="superfecie_sj_are_4"]',"20", { delay: delay });
 
 
 
- await page.waitForSelector('select[name="origine_des_terres_4"]');
- await page.click('select[name="origine_des_terres_4"]');
- await waitFor(delay);
- await page.select('select[name="origine_des_terres_4"]', "3");
 
- await page.waitForSelector('select[name="mode_dexploitation_des_terres_4"]');
- await page.click('select[name="mode_dexploitation_des_terres_4"]');
- await waitFor(delay);
- await page.select('select[name="mode_dexploitation_des_terres_4"]', '3');
 
- await page.type('input[name="superficie_hectare_4"]',"300", { delay: delay });
- await page.type('input[name="superficie_are_4"]',"30", { delay: delay });
+
+await page.click("#addForm");
+
+
+
+await page.waitForSelector('select[name="origine_des_terres_5"]');
+await page.click('select[name="origine_des_terres_5"]');
+await waitFor(delay);
+await page.select('select[name="origine_des_terres_5"]', "3");
+
+await page.waitForSelector('select[name="status_juridique_5"]');
+await page.click('select[name="status_juridique_5"]');
+await waitFor(delay);
+await page.select('select[name="status_juridique_5"]', '3');
+
+await page.type('input[name="superfecie_sj_5"]',"300", { delay: delay });
+await page.type('input[name="superfecie_sj_are_5"]',"30", { delay: delay });
 
 
 
 //######################## end Statut juridique des terres /########################
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+  // await page.waitForSelector('#');
+  // await page.click('#');
+  // await waitFor(delay);
+  // await page.select('#', "1");
+  //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+  
 
 
 
@@ -483,8 +586,8 @@ await page.type('input[name="surfaces_improductives_2"]',"70", { delay: delay })
 
 
 
-await page.type('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]',"3000", { delay: delay });
-await page.type('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]',"40", { delay: delay });
+await page.type('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]',generateRandomNumber(4), { delay: delay });
+await page.type('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]',generateRandomNumber(2), { delay: delay });
 
 
 
@@ -499,7 +602,7 @@ await page.select('#exploit_est_un_bloc', "1");
 
 // num
 
-await page.type('#exploit_est_un_bloc_oui',"7000", { delay: delay });
+await page.type('#exploit_est_un_bloc_oui',generateRandomNumber(4), { delay: delay });
 
 // select
 await page.waitForSelector('#exploit_indus_sur_exploitation');
@@ -508,8 +611,10 @@ await waitFor(delay);
 await page.select('#exploit_indus_sur_exploitation', "1");
 
 // num
-await page.type('#exploit_indus_sur_exploitation_oui',"7000", { delay: delay });
-
+await page.type('#exp_indu_si_oui_nombre_menage',generateRandomNumber(4), { delay: delay });
+//here 2 inputs
+await page.type('#surface_bati_occupe',generateRandomNumber(4), { delay: delay });
+await page.type('#surface_non_bati_occupe',generateRandomNumber(4), { delay: delay });
 
 
 
@@ -549,9 +654,9 @@ await page.waitForSelector('#code_culture_1');
  await waitFor(delay);
  await page.select('#code_culture_2', "2");
 
- await page.type('#superficie_hec_2',"548", { delay: delay });
- await page.type('#superficie_are_2',"161", { delay: delay });
- await page.type('#en_intercalaire_2',"648", { delay: delay });
+ await page.type('#superficie_hec_2',generateRandomNumber(3), { delay: delay });
+ await page.type('#superficie_are_2',generateRandomNumber(3), { delay: delay });
+ await page.type('#en_intercalaire_2',generateRandomNumber(3), { delay: delay });
  
  await page.click("#addForm2");
  await page.waitForSelector('#code_culture_3');
@@ -559,9 +664,9 @@ await page.waitForSelector('#code_culture_1');
  await waitFor(delay);
  await page.select('#code_culture_3', "3");
 
- await page.type('#superficie_hec_3',"147", { delay: delay });
- await page.type('#superficie_are_3',"574", { delay: delay });
- await page.type('#en_intercalaire_3',"247", { delay: delay });
+ await page.type('#superficie_hec_3',generateRandomNumber(3), { delay: delay });
+ await page.type('#superficie_are_3',generateRandomNumber(3), { delay: delay });
+ await page.type('#en_intercalaire_3',generateRandomNumber(3), { delay: delay });
  
  await page.click("#addForm2");
 
@@ -570,9 +675,9 @@ await page.waitForSelector('#code_culture_1');
  await waitFor(delay);
  await page.select('#code_culture_4', "4");
 
- await page.type('#superficie_hec_4',"365", { delay: delay });
- await page.type('#superficie_are_4',"587", { delay: delay });
- await page.type('#en_intercalaire_4',"365", { delay: delay });
+ await page.type('#superficie_hec_4',generateRandomNumber(3), { delay: delay });
+ await page.type('#superficie_are_4',generateRandomNumber(3), { delay: delay });
+ await page.type('#en_intercalaire_4',generateRandomNumber(3), { delay: delay });
  
  await page.click("#addForm2");
  
@@ -581,9 +686,9 @@ await page.waitForSelector('#code_culture_1');
  await waitFor(delay);
  await page.select('#code_culture_5', "5");
 
- await page.type('#superficie_hec_5',"785", { delay: delay });
- await page.type('#superficie_are_5',"563", { delay: delay });
- await page.type('#en_intercalaire_5',"332", { delay: delay });
+ await page.type('#superficie_hec_5',generateRandomNumber(3), { delay: delay });
+ await page.type('#superficie_are_5',generateRandomNumber(3), { delay: delay });
+ await page.type('#en_intercalaire_5',generateRandomNumber(3), { delay: delay });
  
  await page.click("#addForm2");
 
@@ -592,9 +697,9 @@ await page.waitForSelector('#code_culture_1');
  await waitFor(delay);
  await page.select('#code_culture_6', "1");
 
- await page.type('#superficie_hec_6',"147", { delay: delay });
- await page.type('#superficie_are_6',"258", { delay: delay });
- await page.type('#en_intercalaire_6',"369", { delay: delay });
+ await page.type('#superficie_hec_6',generateRandomNumber(3), { delay: delay });
+ await page.type('#superficie_are_6',generateRandomNumber(3), { delay: delay });
+ await page.type('#en_intercalaire_6',generateRandomNumber(3), { delay: delay });
 
 
 
@@ -610,6 +715,7 @@ await page.waitForSelector('#code_culture_1');
  await page.type('#noyaux_pepins',"7", { delay: delay });
  await page.type('#palmiers_dattiers',"8", { delay: delay });
  await page.type('#vigne',"9", { delay: delay });
+ await page.type('#autre_arbres_isoles',"10", { delay: delay });
  await page.type('#amandiers',"1", { delay: delay });
  await page.type('#caroubier',"1", { delay: delay });
  
@@ -673,40 +779,46 @@ await page.waitForSelector('#code_culture_1');
 
 //  VI-Cheptel المواشي     (Campagne agricole الموسم الفلاحي 2023-2024)
 
-await page.type('#chapt_bovins',"1", { delay: delay });
-await page.type('#chapt_dont_vaches_laitieres_blm',"1", { delay: delay });
-await page.type('#chapt_dont_vaches_laitieres_bla',"1", { delay: delay });
-await page.type('#chapt_dont_vaches_laitieres_bll',"1", { delay: delay });
+await page.type('#chapt_bovins',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_vaches_laitieres_blm',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_vaches_laitieres_bla',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_vaches_laitieres_bll',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_ovins',"1", { delay: delay });
-await page.type('#chapt_dont_brebis',"1", { delay: delay });
+await page.type('#chapt_ovins',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_brebis',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_caprins',"1", { delay: delay });
-await page.type('#chapt_dont_chevres',"1", { delay: delay });
+await page.type('#chapt_caprins',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_chevres',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_equins',"1", { delay: delay });
-await page.type('#chapt_dont_juments',"1", { delay: delay });
+await page.type('#chapt_equins',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_juments',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_camelins',"1", { delay: delay });
-await page.type('#chapt_dont_chamelles',"1", { delay: delay });
+await page.type('#chapt_camelins',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_chamelles',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_mulets',"1", { delay: delay });
-await page.type('#chapt_anes',"1", { delay: delay });
-await page.type('#chapt_cuniculture',"1", { delay: delay });
+await page.type('#chapt_mulets',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_anes',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_cuniculture',generateRandomNumber(2), { delay: delay });
 
-await page.type('#chapt_ruches_modernes',"1", { delay: delay });
-await page.type('#chapt_dont_sont_pleines',"1", { delay: delay });
-await page.type('#chapt_ruches_traditionnelles',"1", { delay: delay });
-await page.type('#chapt_dont_sont_pleines_2',"1", { delay: delay });
+await page.type('#chapt_ruches_modernes',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_sont_pleines',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_ruches_traditionnelles',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dont_sont_pleines_2',generateRandomNumber(2), { delay: delay });
 
 
-await page.type('#chapt_poules_ponte',"1", { delay: delay });
-await page.type('#chapt_poules_chair',"1", { delay: delay });
-await page.type('#chapt_dindes_ponte',"1", { delay: delay });
-await page.type('#chapt_dindes_chair',"1", { delay: delay });
-await page.type('#chapt_autre_aviculture_ponte',"1", { delay: delay });
-await page.type('#chapt_autre_aviculture_chair',"1", { delay: delay });
+await page.type('#chapt_poules_ponte',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_poules_chair',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dindes_ponte',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_dindes_chair',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_autre_aviculture_ponte',generateRandomNumber(2), { delay: delay });
+await page.type('#chapt_autre_aviculture_chair',generateRandomNumber(2), { delay: delay });
 
+
+
+await page.waitForSelector('#chapt_Pratiquez_transhumance');
+await page.click('#chapt_Pratiquez_transhumance');
+await waitFor(delay);
+await page.select('#chapt_Pratiquez_transhumance', "1");
 
 
 
@@ -716,133 +828,229 @@ await page.type('#chapt_autre_aviculture_chair',"1", { delay: delay });
  await page.waitForSelector('select[name="bat_exploitation_agricole_sont_exploites"]');
  await page.click('select[name="bat_exploitation_agricole_sont_exploites"]');
  await waitFor(delay);
- await page.select('select[name="bat_exploitation_agricole_sont_exploites"]', '2'); // Selecting option "1" for mode_dexploitation_des_terres in the first row
+ await page.select('select[name="bat_exploitation_agricole_sont_exploites"]', '2'); // Selecting option "1" for status_juridique in the first row
 
- await page.type('input[name="batiments_dhabitation_nombre"]',"44", { delay: delay });
- await page.type('input[name="batiments_dhabitation_surface"]',"100", { delay: delay });
-
-
- await page.type('input[name="batiment_de_stockage_nombre"]',"81", { delay: delay });
- await page.type('input[name="batiment_de_stockage_surface"]',"52", { delay: delay });
+ await page.type('input[name="batiments_dhabitation_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="batiments_dhabitation_surface"]',generateRandomNumber(3), { delay: delay });
 
 
- await page.type('input[name="batiment_dentreposage_des_produits_agricoles_nombre"]',"73", { delay: delay });
- await page.type('input[name="batiment_dentreposage_des_produits_agricoles_surface"]',"320", { delay: delay });
-
- await page.type('input[name="batiment_pour_le_remisage_du_materiel_agricole_nombre"]',"32", { delay: delay });
- await page.type('input[name="batiment_pour_le_remisage_du_materiel_agricole_surface"]',"2000", { delay: delay });
-
- await page.type('input[name="caves_nombre"]',"99", { delay: delay });
- await page.type('input[name="caves_surface"]',"122", { delay: delay });
-
- await page.type('input[name="unite_de_conditionnement_nombre"]',"21", { delay: delay });
- await page.type('input[name="unite_de_conditionnement_surface"]',"42", { delay: delay });
-
- await page.type('input[name="unite_de_transformation_nombre"]',"15", { delay: delay });
- await page.type('input[name="unite_de_transformation_surface"]',"300", { delay: delay });
-
- await page.type('input[name="autre_batiments_nombre"]',"71", { delay: delay });
- await page.type('input[name="autre_batiments_surface"]',"22", { delay: delay });
-
- await page.type('input[name="centre_de_collecte_de_lait_nombre"]',"16", { delay: delay });
- await page.type('input[name="centre_de_collecte_de_lait_surface"]',"2652", { delay: delay });
-
- await page.type('input[name="serres_tunnels_nombre"]',"19", { delay: delay });
- await page.type('input[name="serres_tunnels_surface"]',"633", { delay: delay });
+ await page.type('input[name="batiment_de_stockage_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="batiment_de_stockage_surface"]',generateRandomNumber(3), { delay: delay });
 
 
- await page.type('input[name="serres_multichapelles_nombre"]',"41", { delay: delay });
+ await page.type('input[name="batiment_dentreposage_des_produits_agricoles_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="batiment_dentreposage_des_produits_agricoles_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="autres_batiment_stockage_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="autres_batiment_stockage_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="caves_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="caves_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="unite_de_conditionnement_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="unite_de_conditionnement_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="unite_de_transformation_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="unite_de_transformation_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="autre_batiments_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="autre_batiments_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="centre_de_collecte_de_lait_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="centre_de_collecte_de_lait_surface"]',generateRandomNumber(3), { delay: delay });
+
+ await page.type('input[name="serres_tunnels_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="serres_tunnels_surface"]',generateRandomNumber(3), { delay: delay });
+
+
+ await page.type('input[name="serres_multichapelles_nombre"]',generateRandomNumber(2), { delay: delay });
 //  await page.type('input[name="serres_multichapelles_surface"]',"653", { delay: delay });
 
- await page.type('input[name="bergerie_nombre"]','22', { delay: delay });
- await page.type('input[name="bergerie_surface"]',"2200", { delay: delay });
+ await page.type('input[name="bergerie_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="bergerie_surface"]',generateRandomNumber(4), { delay: delay });
 
- await page.type('input[name="etable_nombre"]',"36", { delay: delay });
- await page.type('input[name="etable_surface"]',"400", { delay: delay });
+ await page.type('input[name="etable_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="etable_surface"]',generateRandomNumber(4), { delay: delay });
 
- await page.type('input[name="ecurie_de_chevaux_nombre"]',"49", { delay: delay });
- await page.type('input[name="ecurie_de_chevaux_surface"]',"6230", { delay: delay });
+ await page.type('input[name="ecurie_de_chevaux_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="ecurie_de_chevaux_surface"]',generateRandomNumber(4), { delay: delay });
 
- await page.type('input[name="poulailler_batis_en_dur_nombre"]',"46", { delay: delay });
- await page.type('input[name="poulailler_batis_en_dur_surface"]',"4200", { delay: delay });
+ await page.type('input[name="poulailler_batis_en_dur_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="poulailler_batis_en_dur_surface"]',generateRandomNumber(4), { delay: delay });
 
- await page.type('input[name="poulailler_sous_serre_nombre"]',"12", { delay: delay });
- await page.type('input[name="poulailler_sous_serre_surface"]',"420", { delay: delay });
+ await page.type('input[name="poulailler_sous_serre_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="poulailler_sous_serre_surface"]',generateRandomNumber(4), { delay: delay });
 
- await page.type('input[name="chambre_froide_nombre"]',"85", { delay: delay });
- await page.type('input[name="chambre_froide_surface"]',"85500", { delay: delay });
+ await page.type('input[name="chambre_froide_nombre"]',generateRandomNumber(2), { delay: delay });
+ await page.type('input[name="chambre_froide_surface"]',generateRandomNumber(4), { delay: delay });
 
 
 // VIII- Matériel agricole العتاد الفلاحي
 
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_1');
- await page.click('#inputGroupSelect01_1');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_1', "1");
-
- await page.type('#in114_1',"10", { delay: delay });
-
-
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_2');
- await page.click('#inputGroupSelect01_2');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_2', "2");
-
- await page.type('#in114_2',"20", { delay: delay });
-
- await page.click("#addForm3");
-
-
- await page.waitForSelector('#inputGroupSelect01_3');
- await page.click('#inputGroupSelect01_3');
- await waitFor(delay);
- await page.select('#inputGroupSelect01_3', "3");
-
- await page.type('#in114_3',"30", { delay: delay });
+await page.waitForSelector('select[name="ee_mode_exploitation_materiel"]');
+await page.click('select[name="ee_mode_exploitation_materiel"]');
+await waitFor(delay);
+await page.select('select[name="ee_mode_exploitation_materiel"]', "1");
 
 
 
+await page.click('#addForm3');
 
- await page.type('#in114_3',"30", { delay: delay });
+  await page.waitForSelector('select[name="code_materiel_1"]');
+  await page.click('select[name="code_materiel_1"]');
+  await waitFor(delay);
+  await page.select('select[name="code_materiel_1"]', "1");
+  
+  //input
+  await page.type('#code_materiel_nombre_1',generateRandomNumber(2), { delay: delay });
+
+
+  
+  
+  await page.click('#addForm3');
+  
+
+
+  await page.waitForSelector('#code_materiel_2');
+  await page.click('#code_materiel_2');
+  await waitFor(delay);
+  await page.select('#code_materiel_2', "2");
+
+
+  await page.type('#code_materiel_nombre_2',generateRandomNumber(2), { delay: delay });
+  
+  await page.click('#addForm3');
+  
+
+
+  await page.waitForSelector('#code_materiel_3');
+  await page.click('#code_materiel_3');
+  await waitFor(delay);
+  await page.select('#code_materiel_3', "2");
+
+
+  await page.type('#code_materiel_nombre_3',generateRandomNumber(2), { delay: delay });
+
+
+
+
+
+
+  await page.waitForSelector('#eau_exploitation_type_irrigation');
+  await page.click('#eau_exploitation_type_irrigation');
+  await waitFor(delay);
+  await page.select('#eau_exploitation_type_irrigation', "1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+//   jour_de_naissance
+
+// mois_de_naissance
+//   annee_de_naissance
+  
+
+
+
+
+
 
 
 
 
  // IX- Ressources en eau الموارد المائية99
 
- await page.type('input[name="eau_barrage"]',"85", { delay: delay });
- await page.type('input[name="eau_station_depuration"]',"96", { delay: delay });
- await page.type('input[name="eau_ensemble_de_forages"]',"22", { delay: delay });
- await page.type('input[name="eau_puits"]',"54", { delay: delay });
- await page.type('input[name="eau_forage"]',"96", { delay: delay });
- await page.type('input[name="eau_pompage_doued"]',"25", { delay: delay });
- await page.type('input[name="eau_crues_doued"]',"71", { delay: delay });
- await page.type('input[name="eau_petit_barrage"]',"85", { delay: delay });
- await page.type('input[name="eau_retenu_collinaire"]',"47", { delay: delay });
- await page.type('input[name="eau_foggara"]',"20", { delay: delay });
- await page.type('input[name="eau_source"]',"22", { delay: delay });
- await page.type('input[name="eau_station_depuration_2"]',"35", { delay: delay });
- await page.type('input[name="eau_autres_ress"]',"30", { delay: delay });
+//  await page.type('input[name="eau_barrage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_station_depuration"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_ensemble_de_forages"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_puits"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_forage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_pompage_doued"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_crues_doued"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_petit_barrage"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_retenu_collinaire"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_foggara"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_source"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_station_depuration_2"]',generateRandomNumber(2), { delay: delay });
+//  await page.type('input[name="eau_autres_ress"]',generateRandomNumber(2), { delay: delay });
 
 
  
  
 // 999
-await page.type('input[name="eau_aspersion_classique"]',"123", { delay: delay });
-await page.type('input[name="eau_gravitaire"]',"223", { delay: delay });
-await page.type('input[name="eau_epandage_de_crues"]',"213", { delay: delay });
-await page.type('input[name="eau_goutte_a_goutte"]',"325", { delay: delay });
-await page.type('input[name="eau_pivots"]',"658", { delay: delay });
-await page.type('input[name="eau_enrouleur"]',"854", { delay: delay });
-await page.type('input[name="eau_pluie_artificielle"]',"774", { delay: delay });
-await page.type('input[name="eau_foggara_hec"]',"965", { delay: delay });
-await page.type('input[name="eau_autre_hec"]',"854", { delay: delay });
+await page.type('input[name="eau_aspersion_classique"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_gravitaire"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_epandage_de_crues"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_goutte_a_goutte"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_pivots"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_enrouleur"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_pluie_artificielle"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_foggara_hec"]',generateRandomNumber(3), { delay: delay });
+await page.type('input[name="eau_autre_hec"]',generateRandomNumber(3), { delay: delay });
 
 // checkbox
  await page.click('input[name="eau_bassin_d_accumulation"]');
@@ -871,54 +1079,54 @@ await page.type('input[name="eau_autre_hec"]',"854", { delay: delay });
 
 
 
-   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_l"]',"30", { delay: delay });
-   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_2"]',"30", { delay: delay });
-   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_3"]',"30", { delay: delay });
-   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_4"]',"30", { delay: delay });
+   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_l"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="co_exploitants_y_compris_exploitant_principa_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="ouvriers_agricoles_1"]',"40", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_2"]',"40", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_3"]',"40", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_4"]',"40", { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_1"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="ouvriers_agricoles_etranges_1"]',"50", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_etranges_2"]',"50", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_etranges_3"]',"50", { delay: delay });
-   await page.type('input[name="ouvriers_agricoles_etranges_4"]',"50", { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_etranges_1"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_etranges_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_etranges_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="ouvriers_agricoles_etranges_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="main_oeuvre_ordinnaire_1"]',"60", { delay: delay });
-   await page.type('input[name="main_oeuvre_ordinnaire_2"]',"60", { delay: delay });
-   await page.type('input[name="main_oeuvre_ordinnaire_3"]',"60", { delay: delay });
-   await page.type('input[name="main_oeuvre_ordinnaire_4"]',"60", { delay: delay });
+   await page.type('input[name="main_oeuvre_ordinnaire_1"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_ordinnaire_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_ordinnaire_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_ordinnaire_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="main_oeuvre_qualifiee_1"]',"70", { delay: delay });
-   await page.type('input[name="main_oeuvre_qualifiee_2"]',"70", { delay: delay });
-   await page.type('input[name="main_oeuvre_qualifiee_3"]',"70", { delay: delay });
-   await page.type('input[name="main_oeuvre_qualifiee_4"]',"70", { delay: delay });
+   await page.type('input[name="main_oeuvre_qualifiee_1"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_qualifiee_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_qualifiee_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="main_oeuvre_qualifiee_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="mo_exploitant_individuel_1"]',"80", { delay: delay });
-   await page.type('input[name="mo_exploitant_individuel_2"]',"80", { delay: delay });
-   await page.type('input[name="mo_exploitant_individuel_3"]',"80", { delay: delay });
-   await page.type('input[name="mo_exploitant_individuel_4"]',"80", { delay: delay });
+   await page.type('input[name="mo_exploitant_individuel_1"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="mo_exploitant_individuel_2"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="mo_exploitant_individuel_3"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="mo_exploitant_individuel_4"]',generateRandomNumber(2), { delay: delay });
 
-   await page.type('input[name="mo_adultes_plus_15_ans_11"]',"90", { delay: delay });
-   await page.type('input[name="mo_adultes_plus_15_ans_22"]',"90", { delay: delay });
-    await page.type('input[name="mo_adultes_plus_15_ans_3"]',"90", { delay: delay });
-    await page.type('input[name="mo_adultes_plus_15_ans_4"]',"90", { delay: delay });
+   await page.type('input[name="mo_adultes_plus_15_ans_11"]',generateRandomNumber(2), { delay: delay });
+   await page.type('input[name="mo_adultes_plus_15_ans_22"]',generateRandomNumber(2), { delay: delay });
+    await page.type('input[name="mo_adultes_plus_15_ans_3"]',generateRandomNumber(2), { delay: delay });
+    await page.type('input[name="mo_adultes_plus_15_ans_4"]',generateRandomNumber(2), { delay: delay });
 
-    await page.type('input[name="mo_enfants_moins_15_ans_1"]',"45", { delay: delay });
-    await page.type('input[name="mo_enfants_moins_15_ans_2"]',"47", { delay: delay });
-     await page.type('input[name="mo_enfants_moins_15_ans_3"]',"54", { delay: delay });
-     await page.type('input[name="mo_enfants_moins_15_ans_4"]',"21", { delay: delay });
+    await page.type('input[name="mo_enfants_moins_15_ans_1"]',generateRandomNumber(2), { delay: delay });
+    await page.type('input[name="mo_enfants_moins_15_ans_2"]',generateRandomNumber(2), { delay: delay });
+     await page.type('input[name="mo_enfants_moins_15_ans_3"]',generateRandomNumber(2), { delay: delay });
+     await page.type('input[name="mo_enfants_moins_15_ans_4"]',generateRandomNumber(2), { delay: delay });
 
 //    Ménage agricole    الأسرة الفلاحية
 
 
-await page.type('input[name="ma_nombre_de_personnes"]',"95", { delay: delay });
-await page.type('input[name="ma_adultes_plus_15_ans_1"]',"12", { delay: delay });
-await page.type('input[name="ma_adultes_plus_15_ans_2"]',"45", { delay: delay });
-await page.type('input[name="ma_enfants_moins_15_ans_11"]',"67", { delay: delay });
-await page.type('input[name="ma_enfants_moins_15_ans_22"]',"14", { delay: delay });
+await page.type('input[name="ma_nombre_de_personnes"]',generateRandomNumber(2), { delay: delay });
+await page.type('input[name="ma_adultes_plus_15_ans_1"]',generateRandomNumber(2), { delay: delay });
+await page.type('input[name="ma_adultes_plus_15_ans_2"]',generateRandomNumber(2), { delay: delay });
+await page.type('input[name="ma_enfants_moins_15_ans_11"]',generateRandomNumber(2), { delay: delay });
+await page.type('input[name="ma_enfants_moins_15_ans_22"]',generateRandomNumber(2), { delay: delay });
 
 // XII- Utilisation d'intrants - إستخدام المدخلات   (Campagne agricole الموسم الفلاحي 2023-2024)
 
@@ -973,6 +1181,11 @@ await waitFor(delay);
 await page.click('input[name="fa_cultures"]');
 await waitFor(delay);
 
+
+
+
+
+
 await page.click('input[name="fa_ettahadi"]');
 await waitFor(delay);
 await page.click('input[name="fa_classique"]');
@@ -985,16 +1198,10 @@ await waitFor(delay);
 
 
 
-// await page.waitForSelector('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-// await page.click('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-// await waitFor(delay);
-// await page.select('input[name="fa_avez_vous_contracte_une_assurance_agricole"]', "2");
-
-
-// await page.waitForSelector('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-//  await page.click('input[name="fa_avez_vous_contracte_une_assurance_agricole"]');
-//  await waitFor(delay);
-//  await page.select('input[name="fa_avez_vous_contracte_une_assurance_agricole"]', "1");
+await page.waitForSelector('#fa_avez_vous_contracte_une_assurance_agricole');
+ await page.click('#fa_avez_vous_contracte_une_assurance_agricole');
+ await waitFor(delay);
+ await page.select('#fa_avez_vous_contracte_une_assurance_agricole', "1");
 
 //  await page.waitForSelector('#fa_si_oui_quelle_compagnie');
 //  await page.click('#fa_si_oui_quelle_compagnie');
@@ -1007,6 +1214,15 @@ await page.click('input[name="fa_batiments"]');
 await waitFor(delay);
 await page.click('input[name="fa_cheptel"]');
 await waitFor(delay);
+
+await page.waitForSelector('#ee_fournisseurs_de_services_situes_dans_la_commune');
+ await page.click('#ee_fournisseurs_de_services_situes_dans_la_commune');
+ await waitFor(delay);
+ await page.select('#ee_fournisseurs_de_services_situes_dans_la_commune', "1");
+
+
+
+
 await page.click('input[name="fa_personnel"]');
 await waitFor(delay);
 
@@ -1014,7 +1230,7 @@ await page.click('input[name="fa_materiels"]');
 await waitFor(delay);
 
 
-// XIV - Environnement de l'exploitation محيط المستثمرة
+// XIV - Environnement de l'exploitation محيط المستثمرةS
 
 
 // await page.waitForSelector('input[name="ee_fournisseurs_de_services_situes_dans_la_commune"]');

@@ -1,0 +1,21 @@
+
+
+
+bat_exploitation_agricole_sont_exploites
+
+
+
+
+
+ALTER TABLE `questionnaire` ADD `batiment_de_stockage_nombre` TEXT NULL AFTER `etat`, ADD `batiment_de_stockage_surface` TEXT NULL AFTER `batiment_de_stockage_nombre`, ADD `bergerie_nombre` TEXT NULL AFTER `batiment_de_stockage_surface`, ADD `bergerie_surface` TEXT NULL AFTER `bergerie_nombre`, ADD `etable_nombre` TEXT NULL AFTER `bergerie_surface`, ADD `etable_surface` TEXT NULL AFTER `etable_nombre`, ADD `ecurie_de_chevaux_nombre` TEXT NULL AFTER `etable_surface`, ADD `ecurie_de_chevaux_surface` TEXT NULL AFTER `ecurie_de_chevaux_nombre`, ADD `poulailler_batis_en_dur_nombre` TEXT NULL AFTER `ecurie_de_chevaux_surface`, ADD `poulailler_batis_en_dur_surface` TEXT NULL AFTER `poulailler_batis_en_dur_nombre`, ADD `poulailler_sous_serre_nombre` TEXT NULL AFTER `poulailler_batis_en_dur_surface`, ADD `poulailler_sous_serre_surface` TEXT NULL AFTER `poulailler_sous_serre_nombre`, ADD `batiments_dhabitation_nombre` TEXT NULL AFTER `poulailler_sous_serre_surface`, ADD `batiments_dhabitation_surface` TEXT NULL AFTER `batiments_dhabitation_nombre`, ADD `serres_tunnels_nombre` TEXT NULL AFTER `batiments_dhabitation_surface`, ADD `serres_tunnels_surface` TEXT NULL AFTER `serres_tunnels_nombre`, ADD `serres_multichapelles_surface` TEXT NULL AFTER `serres_tunnels_surface`, ADD `serres_multichapelles_nombre` TEXT NULL AFTER `serres_multichapelles_surface`, ADD `batiment_dentreposage_des_produits_agricoles_nombre` TEXT NULL AFTER `serres_multichapelles_nombre`, ADD `batiment_dentreposage_des_produits_agricoles_surface` TEXT NULL AFTER `batiment_dentreposage_des_produits_agricoles_nombre`, ADD `batiment_pour_le_remisage_du_materiel_agricole_nombre` TEXT NULL AFTER `batiment_dentreposage_des_produits_agricoles_surface`, ADD `batiment_pour_le_remisage_du_materiel_agricole_surface` TEXT NULL AFTER `batiment_pour_le_remisage_du_materiel_agricole_nombre`, ADD `caves_nombre` TEXT NULL AFTER `batiment_pour_le_remisage_du_materiel_agricole_surface`, ADD `caves_surface` TEXT NULL AFTER `caves_nombre`, ADD `unite_de_conditionnement_nombre` TEXT NULL AFTER `caves_surface`, ADD `unite_de_conditionnement_surface` TEXT NULL AFTER `unite_de_conditionnement_nombre`, ADD `unite_de_transformation_nombre` TEXT NULL AFTER `unite_de_conditionnement_surface`, ADD `unite_de_transformation_surface` TEXT NULL AFTER `unite_de_transformation_nombre`, ADD `centre_de_collecte_de_lait_nombre` TEXT NULL AFTER `unite_de_transformation_surface`, ADD `centre_de_collecte_de_lait_surface` TEXT NULL AFTER `centre_de_collecte_de_lait_nombre`, ADD `autre_batiments_nombre` TEXT NULL AFTER `centre_de_collecte_de_lait_surface`, ADD `autre_batiments_surface` TEXT NULL AFTER `autre_batiments_nombre`, ADD `chambre_froide_nombre` TEXT NULL AFTER `autre_batiments_surface`, ADD `chambre_froide_surface` TEXT NULL AFTER `chambre_froide_nombre`, ADD `alaho_akbar` TEXT NULL AFTER `chambre_froide_surface`;
+
+
+
+
+
+
+
+
+
+
+
