@@ -375,26 +375,26 @@ font-weight: bold;
                     
 
                  <script>
-                    document.getElementById('wilaya_select').addEventListener('change', function () {
-                        var selectedOption = this.options[this.selectedIndex].value;
+                  //   document.getElementById('wilaya_select').addEventListener('change', function () {
+                  //       var selectedOption = this.options[this.selectedIndex].value;
                 
-                        var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
-                        var commune_code = document.querySelector('[name="commune_code"]');
+                  //       var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
+                  //       var commune_code = document.querySelector('[name="commune_code"]');
                 
-                        var wilayaValues = {
-                            'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
-                            'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
-                            'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
-                            'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
-                            'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
-                            'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
-                        };
+                  //       var wilayaValues = {
+                  //           'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
+                  //           'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
+                  //           'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
+                  //           'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
+                  //           'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
+                  //           'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
+                  //       };
                 
-                        if (wilayaValues[selectedOption]) {
-                            communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
-                            commune_code.value = wilayaValues[selectedOption].communeCode;
-                        }
-                    });
+                  //       if (wilayaValues[selectedOption]) {
+                  //           communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
+                  //           commune_code.value = wilayaValues[selectedOption].communeCode;
+                  //       }
+                  //   });
                 </script>
 
 
@@ -1403,9 +1403,10 @@ $(document).ready(function(){
         if($.inArray(cc, selectedValues) !== -1){
             console.log("This combination of values has already been selected.");
             Swal.fire({
-                icon: "error",
-                title: "Erreur",
-                text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
+               title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
             });
             $('#origine_des_terres_' + idPart).addClass('error');
             $('#status_juridique_' + idPart).addClass('error');
@@ -2301,7 +2302,7 @@ l'Ex-EAC
         <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-4" style="margin-right: 20px;">
             <div class="input-group input-group-sm">
-              <select class="form-select" id="code_culture" name="code_culture">
+              <select class="form-select code_culture_check" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option style="font-weight: 700;">
@@ -2568,7 +2569,7 @@ l'Ex-EAC
                 <input id="superficie_are" name="superficie_are" type="text" max="999" class="form-control" data-length="3" value="">
               </div>
               <div class="col">
-                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control" data-length="2" value="">
+                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control code_culture_check" data-length="2" value="">
               </div>
             </div>
           </div>
@@ -2580,6 +2581,84 @@ l'Ex-EAC
         </div>
       </div>
       <script>
+
+
+
+
+
+
+
+$(document).ready(function(){
+    var selectedValues = []; // Array to hold the unique values selected
+
+    // Event handler for changes on any select with the class 'code_culture_check'
+    $(document).on('change', '.code_culture_check', function() {
+        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+
+        if (selectedValues.indexOf(selectedValue) !== -1) {
+            // If the value already exists in the array, display a SweetAlert message in French
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+
+            // Optionally reset to the first option or default state
+            $(this).val($(this).find('option:first').val());
+        } else {
+            // Add the new value to the array if it's not already there
+            selectedValues.push(selectedValue);
+            console.log('Selected value:', selectedValue); // Log the newly added value
+        }
+    });
+});
+
+
+        //   var val2 = $('#status_juridique_' + idPart).val() || "";
+
+      //   var cc = val1 + val2; // Combine the values to form a unique identifier
+
+      //   // Clear any previous error indication before any new validation
+      //   $('#origine_des_terres_' + idPart).removeClass('error');
+      //   $('#status_juridique_' + idPart).removeClass('error');
+
+      //   if(val1 === "" || val2 === "") {
+      //       console.log("Both selections are required.");
+      //       return; // Exit the function if one of the dropdowns is not selected
+      //   }
+
+      //   // Check if this combination already exists in the array
+      //   if($.inArray(cc, selectedValues) !== -1){
+      //       console.log("This combination of values has already been selected.");
+      //       Swal.fire({
+      //           icon: "error",
+      //           title: "Erreur",
+      //           text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
+      //       });
+      //       $('#origine_des_terres_' + idPart).addClass('error');
+      //       $('#status_juridique_' + idPart).addClass('error');
+      //       $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+      //   } else {
+      //       // If the combination is unique, add it to the array and ensure no error class is present
+      //       selectedValues.push(cc);
+      //   }
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                document.getElementById('addForm2').addEventListener('click', function () {
                    const formContainer = document.getElementById('formContainer2');
                    const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -3976,7 +4055,7 @@ Type et nombre du matériel agricole ?
           <div class="col-8">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="select-ee" id="code_materiel" name="code_materiel">
+              Code matériel</span> <select disabled="disabled" class="select-ee code_materiel_check" id="code_materiel" name="code_materiel">
                 <option selected disabled>
                 </option>
                 <option value="1">
@@ -4077,6 +4156,39 @@ Type et nombre du matériel agricole ?
         </div>
       </div>
       <script>
+
+
+
+
+$(document).ready(function(){
+    var selectedValues = []; // Array to hold the unique values selected
+
+    // Event handler for changes on any select with the class 'code_culture_check'
+    $(document).on('change', '.code_materiel_check', function() {
+        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+
+        if (selectedValues.indexOf(selectedValue) !== -1) {
+            // If the value already exists in the array, display a SweetAlert message in French
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+
+            // Optionally reset to the first option or default state
+            $(this).val($(this).find('option:first').val());
+        } else {
+            // Add the new value to the array if it's not already there
+            selectedValues.push(selectedValue);
+            console.log('Selected value:', selectedValue); // Log the newly added value
+        }
+    });
+});
+
+
+
+
            document.getElementById('addForm3').addEventListener('click', function () {
                const formContainer = document.getElementById('formContainer3');
                const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -5076,11 +5188,11 @@ Petite et Moyenne Hydraulique
                      </div>
 
                      <script>
-                        var check1 = document.getElementsByName('soutien_public')[0];
+                        // var check1 = document.getElementsByName('soutien_public')[0];
                      
-                        check1.addEventListener('input', function () {
-                            updateSelect8();
-                        });
+                        // check1.addEventListener('input', function () {
+                        //     updateSelect8();
+                       // });
                      
                         function updateSelect8() {
 
@@ -5142,28 +5254,28 @@ Petite et Moyenne Hydraulique
 
 
                            <script>
-                              var check2 = document.getElementsByName('propres_ressources')[0];
+                              // var check2 = document.getElementsByName('propres_ressources')[0];
                            
-                              check2.addEventListener('input', function () {
-                                 updateSelect9();
-                              });
+                              // check2.addEventListener('input', function () {
+                              //    updateSelect9();
+                              // });
                            
-                              function updateSelect9() {
+                              // function updateSelect9() {
                            
-                                 var div_to_effect7 = document.getElementById('card3');
-                                 var child_inputs3 = div_to_effect7.getElementsByTagName('input');
+                              //    var div_to_effect7 = document.getElementById('card3');
+                              //    var child_inputs3 = div_to_effect7.getElementsByTagName('input');
                            
-                                 if(!check2.checked){
-                                    for (var i = 0; i < child_inputs3.length; i++) {
-                                          child_inputs3[i].disabled = true;
-                                    }
-                                 }else{
-                                    for (var i = 0; i < child_inputs3.length; i++) {
-                                          child_inputs3[i].disabled = false;
-                                    }
-                                 }
+                              //    if(!check2.checked){
+                              //       for (var i = 0; i < child_inputs3.length; i++) {
+                              //             child_inputs3[i].disabled = true;
+                              //       }
+                              //    }else{
+                              //       for (var i = 0; i < child_inputs3.length; i++) {
+                              //             child_inputs3[i].disabled = false;
+                              //       }
+                              //    }
                                  
-                              }
+                              // }
                            </script>
                           
                            
@@ -5213,17 +5325,17 @@ Petite et Moyenne Hydraulique
 
 
                      <script>
-                        var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
-                        var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
+                        // var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
+                        // var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
                      
-                        select8.addEventListener('input', function () {
-                            updateSelect28();
-                        });
+                        // select8.addEventListener('input', function () {
+                        //     updateSelect28();
+                        // });
                      
-                        function updateSelect28() {
-                            var selectedValue = select8.value;
-                            select28.disabled = (selectedValue != '1');
-                        }
+                        // function updateSelect28() {
+                        //     var selectedValue = select8.value;
+                        //     select28.disabled = (selectedValue != '1');
+                        // }
                      </script>
 
                      <br>
