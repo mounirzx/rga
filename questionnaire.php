@@ -11,21 +11,17 @@ include('includes/header.php');
 			font-style: normal;
 		} */
 
-       
-	
-         @page {
-         size: A4;
-         margin: 0;
-         }
-         body {
-            font-family: 'Scheherazade', arial; /* Use the custom font */
+  
+
+         .quest{
+            font-family: 'Scheherazade', arial; 
          width: 210mm;
          height: 297mm;
          margin: 0;
          padding: 0;
          margin: auto;
          line-height: 15px;
-         background-color: #dadada;
+        
          }
          body span {
             font-family: 'Scheherazade', arial; /* Use the custom font */
@@ -186,7 +182,7 @@ font-weight: bold;
      
  
      <br><br><br>
- 
+ <div class="quest">
      <div class="card">
     
     <img src="static/header.png">
@@ -5998,6 +5994,6 @@ document.addEventListener("DOMContentLoaded", function() {
               </script>   
              
              
-             
+</div>    
    </body>
 </html>
