@@ -98,16 +98,75 @@ fs.writeFile(filePath, content, (err) => {
 
 
 
+<<<<<<< Updated upstream:test/react.js
+=======
+  function generateRandomNumber(length) {
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += Math.floor(Math.random() * 10); // Generates a random digit (0-9)
+    }
+    return result;
+  }
+
+
+
+
+//create Superviseur
+
+  await page.waitForSelector('a.nav-link[href="./superviseur.php"]');
+  await page.click('a.nav-link[href="./superviseur.php"]');
+  
+  await page.waitForSelector('a.btn.btn-success[href="./add_superviseur.php"]');
+await page.click('a.btn.btn-success[href="./add_superviseur.php"]');
+
+await page.type('#first_name', "Abes", { delay: delay });
+await page.type('#last_name', "Mounir", { delay: delay });
+
+await page.waitForSelector('#wilaya');
+await page.click('#wilaya');
+await waitFor(delay);
+await page.select('#wilaya', "01");
+
+await page.type('#email', "m.abes@bneder.dz", { delay: delay });
+await page.type('#phone', "0657 57 84 51", { delay: delay });
+
+// Wait for the input element to be present
+await page.waitForSelector('#username');
+
+// Extract the value of the input element
+const superviseurUserName = await page.$eval('#username', input => input.value);
+
+// Print or use the extracted value
+console.log('Username:', superviseurUserName);
+
+await page.type('#password', "test", { delay: delay });
+
+
+console.log('Username:', superviseurUserName);
+
+
+await page.click('#add_user');
+
+await page.evaluate(() => {
+    document.querySelector('a.logout').click();
+});
+console.log('logged out');
+>>>>>>> Stashed changes:test/genereale.js
+
+
+
+await waitFor(delay);
+await waitFor(delay);
+await waitFor(delay);
+
+await waitFor(delay);
 
 
 
 
 
 
-
-
-
-
+console.log('logged in as controleur');
 
 
 
