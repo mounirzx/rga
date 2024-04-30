@@ -395,7 +395,7 @@ if ($_SESSION['role'] == "recenseur") {
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input   maxlength="2" num class="form-control" id="num_zone_district"  />
+                       <input  num   maxlength="2" num class="form-control" id="num_zone_district"  />
                     
                  </div>
             </div>
@@ -624,7 +624,7 @@ if ($_SESSION['role'] == "recenseur") {
                  <span class="input-group-text" id="basic-addon3">
                  رقم الهاتف <br /> Numéro de téléphone
                  </span>
-                 <input class="form-control bneder"  id="phone_exploitant"  name="phone_exploitant">
+                 <input class="form-control bneder" num   maxlength="10" id="phone_exploitant"  name="phone_exploitant">
               </div>
               
               <br>
@@ -669,7 +669,7 @@ if ($_SESSION['role'] == "recenseur") {
             <span class="input-group-text" id="basic-addon3">
                رقم الضمان الإجتماعي <br> Numéro de sécurité social
                </span>
-            <input class="form-control bneder"   id="num_sec_sociale" name="num_sec_sociale"   />
+            <input num   maxlength="12" class="form-control bneder"   id="num_sec_sociale" name="num_sec_sociale"   />
             </div>
          </div>
 
@@ -725,7 +725,7 @@ if ($_SESSION['role'] == "recenseur") {
     <br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
-      Numéro de la carte fellah</span> <input class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
+      Numéro de la carte fellah</span> <input num maxlength="7" class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>

@@ -7,7 +7,7 @@ function adjustMaxWidth() {
     var inputsSize = document.querySelectorAll('input[maxlength]');
     inputsSize.forEach(function(input) {
         var maxLength = parseInt(input.getAttribute('maxlength'));
-        var width = maxLength * 22; // Assuming 22px width for each character
+        var width = maxLength * 17; // Assuming 22px width for each character
         input.style.maxWidth = width + 'px';
     });
     
