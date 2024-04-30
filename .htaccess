@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Redirect 
+RewriteRule ^ListeQuestionnaires$ list_questionnaire.php [NC,L]
+RewriteRule ^ListeUtilisateurs$ users_list.php [NC,L]
+RewriteRule ^Statistiques$ stat.php [NC,L]
+
+RewriteRule ^SuperviseursNational$ superviseur_national.php [NC,L]
+RewriteRule ^Superviseurs$ superviseur.php [NC,L]
+RewriteRule ^Controleurs$ controleur.php [NC,L]
+RewriteRule ^Recenseurs$ recenseur.php [NC,L]
+
+RewriteRule ^AjouterSuperViseurNational$ add_superviseur_national.php [NC,L]
+RewriteRule ^AjouterSuperviseur$ add_superviseur.php [NC,L]
+RewriteRule ^AjouterControleur$ add_controleur.php [NC,L]
+RewriteRule ^AjouterRecenseurs$ add_recenseur.php [NC,L]
+
+# Redirect to questionnaire_update QuestionnairePreview with the hashed id
+RewriteCond %{QUERY_STRING} ^id=([^&]+)$
+RewriteRule ^questionnaire_update.php$ /QuestionnairePreview? [NC,R=301,L]
+# Rewrite other URLs to add .php extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)s?$ $1.php [NC,L]

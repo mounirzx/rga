@@ -21,11 +21,11 @@ $(document).ready(function () {
         } else if (data.success == 3) {
 
               if(data.role=="superviseur" || data.role=="controleur"){
-                window.location = "stat.php";
+                window.location = "Statistiques";
               }  else if(data.role=="recenseur" || data.role=="admin"){
-                window.location = "questionnaire.php";
+                window.location = "Questionnaire";
               }else{
-                window.location = "questionnaire.php";
+                window.location = "Questionnaire";
               }
          
         }

@@ -249,7 +249,7 @@ $(document).ready(function () {
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
+            "'><td><a class='btn btn-primary updateBtn' href='Questionnaire?id=" +
             btoa(encryptedId) +
             "' data-id='" +
             data[i].id_questionnaire +

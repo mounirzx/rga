@@ -11,7 +11,7 @@ include('includes/header.php');
                 <div class="col-8">
                     <h5>Gestion des recenseurs</h5>
                 </div>
-                <div class="col-3">   <a href="./add_recenseur.php" class="btn btn-success">Ajouter recenseur</a></div>
+                <div class="col-3">   <a href="AjouterRecenseurs" class="btn btn-success">Ajouter recenseur</a></div>
 
             </div>
             
