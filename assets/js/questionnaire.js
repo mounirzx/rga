@@ -1,4 +1,29 @@
 $(document).ready(function () {
+  $.ajax({
+    url: "assets/php/getData.php",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      if (response.reponse !== "false") {
+        $("#nom_recensseur").val(response.nom_recensseur || "N/A");
+        $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
+        $("#nom_controleur").val(response.nom_controleur || "N/A");
+        $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+
+        $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
+        $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
+        $("#commune_code").val(response.r_commune || "N/A");
+        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        $("#num_zone_district").val(response.num_zone_district || "N/A");
+      } else {
+        console.error("Error: " + response.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("AJAX Error:", status, error);
+    },
+  });
+
   $("#submitDate").click(function (e) {
     e.preventDefault();
 
@@ -6,32 +31,42 @@ $(document).ready(function () {
     var formDataArray = [];
 
     var formDataArrayStatut = [];
-    // Loop over each row
-    $(".statut_juridique_s").each(function () {
+    function isValidObject(obj) {
+      for (let key in obj) {
+          if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
+              return false; // If any property is undefined, null, or an empty string, return false
+          }
+      }
+      return true; // If all properties are valid, return true
+  }
+  
+  // Assuming formDataArrayStatut is already defined
+
+  
+  $(".statut_juridique_s").each(function () {
       // Initialize an object to store form data for the current row
-
       var formDataObjStatus = {};
-
+  
       // Get the values of the inputs within the current row
-      var origine_terres = $(this).find("[name^='origine_des_terres']").val();
-
-      var mode_dexploitation = $(this)
-        .find("[name^='mode_dexploitation_des_terres']")
-        .val();
-      var superficie_hectare = $(this)
-        .find("[name^='superficie_hectare']")
-        .val();
-      var superficie_are = $(this).find("[name^='superficie_are']").val();
-
+      var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
+      var status_juridique = $(this).find("[name^='status_juridique']").val();
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
+  
       // Add the values to the formDataObj
-      formDataObjStatus["origine_des_terres"] = origine_terres;
-      formDataObjStatus["mode_dexploitation_des_terres"] = mode_dexploitation;
-      formDataObjStatus["superficie_hectare"] = superficie_hectare;
-      formDataObjStatus["superficie_are"] = superficie_are;
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayStatut.push(formDataObjStatus);
-    });
+      formDataObjStatus["origine_des_terres"] = origine_des_terres;
+      formDataObjStatus["status_juridique"] = status_juridique;
+      formDataObjStatus["superfecie_sj"] = superfecie_sj;
+      formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
+  
+      // Check if formDataObjStatus contains valid data before adding it to the array
+      if (isValidObject(formDataObjStatus)) {
+          formDataArrayStatut.push(formDataObjStatus);
+          console.log("the array:", formDataArrayStatut);
+      } else {
+        
+      }
+  });
 
     var formDataArrayCodeCulture = [];
     // Loop over each row
@@ -118,66 +153,69 @@ $(document).ready(function () {
     });
 
     $(function () {
-    $.ajax({
+      $.ajax({
         url: "assets/php/add.php",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            form: formDataObj,
-            formDataArray: formDataArray,
-            formDataArrayStatut: formDataArrayStatut,
-            formDataArrayCodeCulture: formDataArrayCodeCulture,
-            formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+          form: formDataObj,
+          formDataArray: formDataArray,
+          formDataArrayStatut: formDataArrayStatut,
+          formDataArrayCodeCulture: formDataArrayCodeCulture,
+          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
-            try {
-                // Parse JSON response if not already an object
-                var serverResponse = typeof response === "string" ? JSON.parse(response) : response;
+          try {
+            // Parse JSON response if not already an object
+            var serverResponse =
+              typeof response === "string" ? JSON.parse(response) : response;
 
-                // Check the response 'response' key, which indicates success or failure
-                if (serverResponse.response === true) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Succès!",
-                        text: "Enregistrement effectué avec succès!",
-                    });
-                } else {
-                    // Server responded with an error
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erreur!",
-                        html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
-                    });
-                }
-            } catch (e) {
-                // Handle any parsing errors or missing keys
-                Swal.fire({
-                    icon: "error",
-                    title: "Erreur de Format",
-                    text: "La réponse du serveur n'était pas dans le format attendu: " + e.message,
-                });
+            // Check the response 'response' key, which indicates success or failure
+            if (serverResponse.response === true) {
+              Swal.fire({
+                icon: "success",
+                title: "Succès!",
+                text: "Enregistrement effectué avec succès!",
+              });
+            } else {
+              // Server responded with an error
+              Swal.fire({
+                icon: "error",
+                title: "Erreur!",
+                html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
+              });
             }
+          } catch (e) {
+            // Handle any parsing errors or missing keys
+            Swal.fire({
+              icon: "error",
+              title: "Erreur de Format",
+              text:
+                "La réponse du serveur n'était pas dans le format attendu: " +
+                e.message,
+            });
+          }
         },
         error: function (xhr, status, error) {
-            // More detailed error handling based on status and xhr state
-            if (!xhr.responseText || xhr.status === 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Erreur de Réseau",
-                    text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
-                });
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Échec de la requête",
-                    text: "Un problème est survenu lors de la requête: " + xhr.statusText,
-                });
-            }
+          // More detailed error handling based on status and xhr state
+          if (!xhr.responseText || xhr.status === 0) {
+            Swal.fire({
+              icon: "error",
+              title: "Erreur de Réseau",
+              text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Échec de la requête",
+              text:
+                "Un problème est survenu lors de la requête: " + xhr.statusText,
+            });
+          }
         },
+      });
     });
-});
-
   });
 
   function qstList(etat) {
@@ -203,12 +241,19 @@ $(document).ready(function () {
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire.toString(), 'your_secret_key').toString();
+          var encryptedId = CryptoJS.AES.encrypt(
+            data[i].id_questionnaire.toString(),
+            "your_secret_key"
+          ).toString();
 
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id="+btoa(encryptedId )+"' data-id='" + data[i].id_questionnaire + "'>Update</a></td><td>" +
+            "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
+            btoa(encryptedId) +
+            "' data-id='" +
+            data[i].id_questionnaire +
+            "'>Update</a></td><td>" +
             data[i].nom_exploitant +
             " " +
             data[i].prenom_exploitant +
@@ -232,7 +277,6 @@ $(document).ready(function () {
       },
     });
   }
-
 
   // qstList("all");
 
@@ -475,10 +519,34 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
       ,
       "9":
         '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
+        
       
     }
 
-
+    // <!-- <option  selected="" disabled>-</option>
+    // <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
+    // <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
+    // <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
+    // <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
+    // <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
+    // <option value="6">6- Concession CIM 108, CIM 1839</option>
+    // <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
+    // <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
+    // <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
+    // <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
+    // <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
+    // <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
+    ////////////////////////////////////////////////////////////////////////
+    // <option value="13">13 - Vente/Achat بيع/شراء</option>
+    // <option value="14">14 - Succession إرث</option>
+    // <option value="15">15 - Donation هبة</option>
+    // <option value="16">16 - Testament وصية</option>
+    // <option value="17">17 - Droit préemption حق الشفاعة</option>
+    // <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+    // <option value="19">19 - Certificat de possession شهادة حيازة</option>
+    // <option value="20">20 - Location إجار</option>
+    // <option value="21">21 - Autre  آخرى </option>
+    // <option value="22">22 - Inconnu غير معروف</option>
 
 
 
@@ -510,7 +578,7 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
       console.log(fullId)
       var filtered = filterByKey(id);
 console.log(filtered[id]);
-$('#mode_dexploitation_des_terres_'+idPart).empty()
-$('#mode_dexploitation_des_terres_'+idPart).append(filtered[id])
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
     })
 });

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 24, 2024 at 12:03 PM
--- Server version: 8.0.36-0ubuntu0.20.04.1
--- PHP Version: 7.4.3-4ubuntu2.20
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 29 avr. 2024 à 16:51
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,17 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rga`
+-- Base de données : `rga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes`
+-- Structure de la table `communes`
 --
 
 CREATE TABLE `communes` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `commune_code` varchar(6) NOT NULL,
   `commune_name` varchar(255) NOT NULL COMMENT 'Name of commune in arabic',
   `commune_name_ascii` varchar(255) NOT NULL COMMENT 'Name of commune in ASCII characters (french)',
@@ -38,12 +37,12 @@ CREATE TABLE `communes` (
   `wilaya_code` varchar(4) NOT NULL,
   `wilaya_name` varchar(255) NOT NULL COMMENT 'Name of wilaya in arabic',
   `wilaya_name_ascii` varchar(255) NOT NULL COMMENT 'Name of wilaya in ASCII characters (french)',
-  `qst_a_recense` int NOT NULL,
-  `qst_recense` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `qst_a_recense` int(11) NOT NULL,
+  `qst_recense` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `communes`
+-- Déchargement des données de la table `communes`
 --
 
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
@@ -1595,7 +1594,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes2`
+-- Structure de la table `communes2`
 --
 
 CREATE TABLE `communes2` (
@@ -1604,10 +1603,10 @@ CREATE TABLE `communes2` (
   `daira_name` varchar(45) DEFAULT NULL,
   `wilaya_code` varchar(3) DEFAULT NULL,
   `wilaya_name` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `communes2`
+-- Déchargement des données de la table `communes2`
 --
 
 INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_code`, `wilaya_name`) VALUES
@@ -3158,345 +3157,396 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `controleur`
+-- Structure de la table `controleur`
 --
 
 CREATE TABLE `controleur` (
   `nom_controleur` varchar(20) NOT NULL,
   `prenom_controleur` varchar(20) NOT NULL,
-  `id_controleur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_controleur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `wilaya` varchar(50) NOT NULL,
   `commune` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `added_by` int NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `added_by` int(11) NOT NULL,
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `controleur`
+-- Déchargement des données de la table `controleur`
 --
 
+INSERT INTO `controleur` (`nom_controleur`, `prenom_controleur`, `id_controleur`, `id_user`, `wilaya`, `commune`, `email`, `phone`, `added_by`, `date_creation`) VALUES
+('controleur', 'controleur', 1, 3, '01', '0119,0122,0105', 'mounir2013b@gmail.com', '0000000000', 2, '2024-04-27 15:05:41');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materiel_agricole`
+-- Structure de la table `materiel_agricole`
 --
 
 CREATE TABLE `materiel_agricole` (
-  `id_materiel_agricol` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
-  `code_materiel` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `code_materiel_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `materiel_agricole`
---
-
-
+  `id_materiel_agricol` int(11) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
+  `code_materiel` varchar(100) NOT NULL,
+  `code_materiel_nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questionnaire`
+-- Structure de la table `questionnaire`
 --
 
 CREATE TABLE `questionnaire` (
-  `id_questionnaire` int NOT NULL,
-  `commune_code` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `exploitant_cle_unique` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `date_passage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `user` int DEFAULT NULL,
-  `nom_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `prenom_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `annee_naissance_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `sexe_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `niveau_instruction` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `niveau_formation_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `adress_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `phone_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `email_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nin_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nis_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `caw` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `capa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `unpa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ccw` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cam` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `dispositif_social` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `num_carte_fellah_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `assurance_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `num_sec_sociale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `issu_famille_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nb_co_exploitants` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nature_exploitant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `nom_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `adress_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `statut_juridique_de_lexploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `vegetale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `elevage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mixed` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `type_activite_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `lat_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `lon_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `longitude_x_prefix` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `route_national` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chemin_de_wilaya` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `route_communale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `piste` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `acces_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `acces_rural` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_electrique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_telephonique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_telephonique_si_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_internet` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reseau_internet_si_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `reference_cadastrale` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_exploi_eai_eac` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_exploi_eac` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploi_superficie_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploi_superficie_are` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_est_un_bloc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_est_un_bloc_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_indus_sur_exploitation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `exploit_indus_sur_exploitation_oui` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_reseau_electrique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_groupe_electrogene` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_solaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_eolienne` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eng_energie_carburant` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `autres_sources_d_energie` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `oliviers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `figuiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `noyaux_pepins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `vigne` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `amandiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `grenadiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cognassiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `palmiers_dattiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `caroubier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_lagriculture_biologique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `si_oui_avez_vous_un_certificat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_laquaculture_integree_a_lagriculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_l_heliciculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_une_agriculture_conventionnee` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `tomate_industrielle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `cereales` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `aviculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `maraichages` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pomme_de_terre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `autre_division` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `pratiquez_vous_la_myciculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_bovins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_blm` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_bla` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_vaches_laitieres_bll` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ovins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_brebis` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_equins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_juments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_caprins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_chevres` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_camelins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_chamelles` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_mulets` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_anes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_cuniculture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ruches_modernes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_sont_pleines` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_ruches_traditionnelles` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dont_sont_pleines_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_poules_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_poules_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dindes_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_dindes_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_autre_aviculture_ponte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `chapt_autre_aviculture_chair` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_barrage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_exploitation_type_irrigation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_station_depuration` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_ensemble_de_forages` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_puits` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_forage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pompage_doued` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_crues_doued` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_petit_barrage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_retenu_collinaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_foggara` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_station_depuration_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autres_ress` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_aspersion_classique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_gravitaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_epandage_de_crues` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_goutte_a_goutte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pivots` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_enrouleur` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_pluie_artificielle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_foggara_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autre_hec` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_bassin_d_accumulation` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_bassin_geomembrane` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_reservoir` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_citrene_souple` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_mare_deau` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_ced` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_digue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `eau_autres_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_l` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `co_exploitants_y_compris_exploitant_principa_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ouvriers_agricoles_etranges_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_ordinnaire_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `main_oeuvre_qualifiee_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_exploitant_individuel_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_22` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_adultes_plus_15_ans_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `mo_enfants_moins_15_ans_4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_nombre_de_personnes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_adultes_plus_15_ans_1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_adultes_plus_15_ans_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_enfants_moins_15_ans_11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ma_enfants_moins_15_ans_22` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_selectionnees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_certifiees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_semences_de_la_ferme` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_bio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_azotes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_phosphates` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_autres_engrais_mineraux` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_engrais_organique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_fumier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_produits_phytosanitaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_vaccins` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ui_medicaments_veterinaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_credit_bancaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_propres_ressources` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_soutien_public` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_emprunt_a_un_tiers` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_financiere` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_materiel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_cultures` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_ettahadi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_classique` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_leasing` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_rfig` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_avez_vous_contracte_une_assurance_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_si_oui_quelle_compagnie` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_terre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_personnel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_batiments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_materiels` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `fa_cheptel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_fournisseurs_de_services_situes_dans_la_commune` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_mode_exploitation_materiel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_banque` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_poste` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_fournisseur` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_veterinaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_laboratoire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_bureau_detudes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cooperatives_specialisees` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_assurances` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_vente_sur_pied` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_au_marche_de_gros` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_intermediaire` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_vente_directe` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_local` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_national` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_international` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cooperative_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_association_professionnelle_agricole` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_groupe_d_interet_commun_gic` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_autre_associations` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `ee_cwifa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `etat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_questionnaire` int(11) NOT NULL,
+  `commune_code` varchar(4) NOT NULL,
+  `num_qst` text DEFAULT NULL,
+  `exploitant_cle_unique` varchar(255) NOT NULL,
+  `date_passage` text DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  `nom_exploitant` text DEFAULT NULL,
+  `prenom_exploitant` text DEFAULT NULL,
+  `annee_naissance_exploitant` text DEFAULT NULL,
+  `sexe_exploitant` text DEFAULT NULL,
+  `niveau_instruction` text DEFAULT NULL,
+  `niveau_formation_agricole` text DEFAULT NULL,
+  `adress_exploitant` text DEFAULT NULL,
+  `phone_exploitant` text DEFAULT NULL,
+  `email_exploitant` text DEFAULT NULL,
+  `nin_exploitant` text DEFAULT NULL,
+  `nis_exploitant` text DEFAULT NULL,
+  `caw` text DEFAULT NULL,
+  `capa` text DEFAULT NULL,
+  `unpa` text DEFAULT NULL,
+  `ccw` text DEFAULT NULL,
+  `cam` text DEFAULT NULL,
+  `dispositif_social` text DEFAULT NULL,
+  `num_carte_fellah_exploitant` text DEFAULT NULL,
+  `assurance_exploitant` text DEFAULT NULL,
+  `num_sec_sociale` text DEFAULT NULL,
+  `issu_famille_agricole` text DEFAULT NULL,
+  `exploitant` text DEFAULT NULL,
+  `nb_co_exploitants` text DEFAULT NULL,
+  `nature_exploitant` text DEFAULT NULL,
+  `nom_exploitation` text DEFAULT NULL,
+  `adress_exploitation` text DEFAULT NULL,
+  `statut_juridique_de_lexploitation` text DEFAULT NULL,
+  `activite_exploitation` text DEFAULT NULL,
+  `type_activite_exploitation` text DEFAULT NULL,
+  `lat_exploitation` text DEFAULT NULL,
+  `lon_exploitation` text DEFAULT NULL,
+  `longitude_x_prefix` text DEFAULT NULL,
+  `route_national` text DEFAULT NULL,
+  `chemin_de_wilaya` text DEFAULT NULL,
+  `route_communale` text DEFAULT NULL,
+  `piste` text DEFAULT NULL,
+  `acces_agricole` text DEFAULT NULL,
+  `acces_rural` text DEFAULT NULL,
+  `reseau_electrique` text DEFAULT NULL,
+  `reseau_telephonique` text DEFAULT NULL,
+  `reseau_telephonique_si_oui` text DEFAULT NULL,
+  `reseau_internet` text DEFAULT NULL,
+  `reseau_internet_si_oui` text DEFAULT NULL,
+  `reference_cadastrale` text DEFAULT NULL,
+  `si_exploi_eai_eac` text DEFAULT NULL,
+  `si_exploi_eac` text DEFAULT NULL,
+  `exploi_superficie_hec` text DEFAULT NULL,
+  `exploi_superficie_are` text DEFAULT NULL,
+  `exploit_est_un_bloc` text DEFAULT NULL,
+  `exploit_est_un_bloc_oui` text DEFAULT NULL,
+  `exploit_indus_sur_exploitation` text DEFAULT NULL,
+  `exp_indu_si_oui_nombre_menage` text DEFAULT NULL,
+  `surface_bati_occupe` text DEFAULT NULL,
+  `surface_non_bati_occupe` text DEFAULT NULL,
+  `eng_reseau_electrique` text DEFAULT NULL,
+  `eng_groupe_electrogene` text DEFAULT NULL,
+  `eng_energie_solaire` text DEFAULT NULL,
+  `eng_energie_eolienne` text DEFAULT NULL,
+  `eng_energie_carburant` text DEFAULT NULL,
+  `autres_sources_d_energie` text DEFAULT NULL,
+  `oliviers` text DEFAULT NULL,
+  `figuiers` text DEFAULT NULL,
+  `noyaux_pepins` text DEFAULT NULL,
+  `vigne` text DEFAULT NULL,
+  `amandiers` text DEFAULT NULL,
+  `grenadiers` text DEFAULT NULL,
+  `cognassiers` text DEFAULT NULL,
+  `palmiers_dattiers` text DEFAULT NULL,
+  `caroubier` text DEFAULT NULL,
+  `autre_arbres_isoles` int(11) DEFAULT NULL,
+  `pratiquez_vous_lagriculture_biologique` text DEFAULT NULL,
+  `si_oui_avez_vous_un_certificat` text DEFAULT NULL,
+  `pratiquez_vous_laquaculture_integree_a_lagriculture` text DEFAULT NULL,
+  `pratiquez_vous_l_heliciculture` text DEFAULT NULL,
+  `pratiquez_vous_une_agriculture_conventionnee` text DEFAULT NULL,
+  `tomate_industrielle` text DEFAULT NULL,
+  `cereales` text DEFAULT NULL,
+  `aviculture` text DEFAULT NULL,
+  `maraichages` text DEFAULT NULL,
+  `pomme_de_terre` text DEFAULT NULL,
+  `autre_division` text DEFAULT NULL,
+  `pratiquez_vous_la_myciculture` text DEFAULT NULL,
+  `chapt_bovins` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_blm` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_bla` text DEFAULT NULL,
+  `chapt_dont_vaches_laitieres_bll` text DEFAULT NULL,
+  `chapt_ovins` text DEFAULT NULL,
+  `chapt_dont_brebis` text DEFAULT NULL,
+  `chapt_equins` text DEFAULT NULL,
+  `chapt_dont_juments` text DEFAULT NULL,
+  `chapt_caprins` text DEFAULT NULL,
+  `chapt_dont_chevres` text DEFAULT NULL,
+  `chapt_camelins` text DEFAULT NULL,
+  `chapt_dont_chamelles` text DEFAULT NULL,
+  `chapt_mulets` text DEFAULT NULL,
+  `chapt_anes` text DEFAULT NULL,
+  `chapt_cuniculture` text DEFAULT NULL,
+  `chapt_ruches_modernes` text DEFAULT NULL,
+  `chapt_dont_sont_pleines` text DEFAULT NULL,
+  `chapt_ruches_traditionnelles` text DEFAULT NULL,
+  `chapt_dont_sont_pleines_2` text DEFAULT NULL,
+  `chapt_poules_ponte` text DEFAULT NULL,
+  `chapt_poules_chair` text DEFAULT NULL,
+  `chapt_dindes_ponte` text DEFAULT NULL,
+  `chapt_dindes_chair` text DEFAULT NULL,
+  `chapt_autre_aviculture_ponte` text DEFAULT NULL,
+  `chapt_autre_aviculture_chair` text DEFAULT NULL,
+  `chapt_Pratiquez_transhumance` int(2) DEFAULT NULL,
+  `bat_exploitation_agricole_sont_exploites` text DEFAULT NULL,
+  `eau_barrage` text DEFAULT NULL,
+  `eau_exploitation_type_irrigation` text DEFAULT NULL,
+  `eau_station_depuration` text DEFAULT NULL,
+  `eau_ensemble_de_forages` text DEFAULT NULL,
+  `eau_puits` text DEFAULT NULL,
+  `eau_forage` text DEFAULT NULL,
+  `eau_pompage_doued` text DEFAULT NULL,
+  `eau_crues_doued` text DEFAULT NULL,
+  `eau_petit_barrage` text DEFAULT NULL,
+  `eau_retenu_collinaire` text DEFAULT NULL,
+  `eau_forage_collectif` text DEFAULT NULL,
+  `eau_foggara` text DEFAULT NULL,
+  `eau_source` text DEFAULT NULL,
+  `eau_station_depuration_2` text DEFAULT NULL,
+  `eau_autres_ress` text DEFAULT NULL,
+  `eau_aspersion_classique` text DEFAULT NULL,
+  `eau_gravitaire` text DEFAULT NULL,
+  `eau_epandage_de_crues` text DEFAULT NULL,
+  `eau_goutte_a_goutte` text DEFAULT NULL,
+  `eau_pivots` text DEFAULT NULL,
+  `eau_enrouleur` text DEFAULT NULL,
+  `eau_pluie_artificielle` text DEFAULT NULL,
+  `eau_foggara_hec` text DEFAULT NULL,
+  `eau_autre_hec` text DEFAULT NULL,
+  `eau_bassin_d_accumulation` text DEFAULT NULL,
+  `eau_bassin_geomembrane` text DEFAULT NULL,
+  `eau_reservoir` text DEFAULT NULL,
+  `eau_citrene_souple` text DEFAULT NULL,
+  `eau_mare_deau` text DEFAULT NULL,
+  `eau_ced` text DEFAULT NULL,
+  `eau_digue` text DEFAULT NULL,
+  `eau_autres_1` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_l` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_2` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_3` text DEFAULT NULL,
+  `co_exploitants_y_compris_exploitant_principa_4` text DEFAULT NULL,
+  `ouvriers_agricoles_1` text DEFAULT NULL,
+  `ouvriers_agricoles_2` text DEFAULT NULL,
+  `ouvriers_agricoles_3` text DEFAULT NULL,
+  `ouvriers_agricoles_4` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_1` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_2` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_3` text DEFAULT NULL,
+  `ouvriers_agricoles_etranges_4` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_1` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_2` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_3` text DEFAULT NULL,
+  `main_oeuvre_ordinnaire_4` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_1` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_2` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_3` text DEFAULT NULL,
+  `main_oeuvre_qualifiee_4` text DEFAULT NULL,
+  `mo_exploitant_individuel_1` text DEFAULT NULL,
+  `mo_exploitant_individuel_2` text DEFAULT NULL,
+  `mo_exploitant_individuel_3` text DEFAULT NULL,
+  `mo_exploitant_individuel_4` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_11` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_22` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_3` text DEFAULT NULL,
+  `mo_adultes_plus_15_ans_4` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_1` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_2` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_3` text DEFAULT NULL,
+  `mo_enfants_moins_15_ans_4` text DEFAULT NULL,
+  `ma_nombre_de_personnes` text DEFAULT NULL,
+  `ma_adultes_plus_15_ans_1` text DEFAULT NULL,
+  `ma_adultes_plus_15_ans_2` text DEFAULT NULL,
+  `ma_enfants_moins_15_ans_11` text DEFAULT NULL,
+  `ma_enfants_moins_15_ans_22` text DEFAULT NULL,
+  `ui_semences_selectionnees` text DEFAULT NULL,
+  `ui_semences_certifiees` text DEFAULT NULL,
+  `ui_semences_de_la_ferme` text DEFAULT NULL,
+  `ui_bio` text DEFAULT NULL,
+  `ui_engrais_azotes` text DEFAULT NULL,
+  `ui_engrais_phosphates` text DEFAULT NULL,
+  `ui_autres_engrais_mineraux` text DEFAULT NULL,
+  `ui_engrais_organique` text DEFAULT NULL,
+  `ui_fumier` text DEFAULT NULL,
+  `ui_produits_phytosanitaires` text DEFAULT NULL,
+  `ui_vaccins` text DEFAULT NULL,
+  `ui_medicaments_veterinaires` text DEFAULT NULL,
+  `fa_credit_bancaire` text DEFAULT NULL,
+  `fa_propres_ressources` text DEFAULT NULL,
+  `fa_soutien_public` text DEFAULT NULL,
+  `fa_emprunt_a_un_tiers` text DEFAULT NULL,
+  `fa_financiere` text DEFAULT NULL,
+  `fa_materiel` text DEFAULT NULL,
+  `fa_cultures` text DEFAULT NULL,
+  `fa_ettahadi` text DEFAULT NULL,
+  `fa_classique` text DEFAULT NULL,
+  `fa_leasing` text DEFAULT NULL,
+  `fa_rfig` text DEFAULT NULL,
+  `fa_avez_vous_contracte_une_assurance_agricole` text DEFAULT NULL,
+  `fa_si_oui_quelle_compagnie` text DEFAULT NULL,
+  `fa_terre` text DEFAULT NULL,
+  `fa_personnel` text DEFAULT NULL,
+  `fa_batiments` text DEFAULT NULL,
+  `fa_materiels` text DEFAULT NULL,
+  `fa_cheptel` text DEFAULT NULL,
+  `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
+  `ee_mode_exploitation_materiel` text DEFAULT NULL,
+  `ee_banque` text DEFAULT NULL,
+  `ee_poste` text DEFAULT NULL,
+  `ee_fournisseur` text DEFAULT NULL,
+  `ee_veterinaire` text DEFAULT NULL,
+  `ee_laboratoire` text DEFAULT NULL,
+  `ee_bureau_detudes` text DEFAULT NULL,
+  `ee_cooperatives_specialisees` text DEFAULT NULL,
+  `ee_assurances` text DEFAULT NULL,
+  `ee_vente_sur_pied` text DEFAULT NULL,
+  `ee_au_marche_de_gros` text DEFAULT NULL,
+  `ee_intermediaire` text DEFAULT NULL,
+  `ee_vente_directe` text DEFAULT NULL,
+  `ee_local` text DEFAULT NULL,
+  `ee_national` text DEFAULT NULL,
+  `ee_international` text DEFAULT NULL,
+  `ee_cooperative_agricole` text DEFAULT NULL,
+  `ee_association_professionnelle_agricole` text DEFAULT NULL,
+  `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
+  `ee_autre_associations` text DEFAULT NULL,
+  `ee_cwifa` text DEFAULT NULL,
+  `etat` text DEFAULT NULL,
+  `batiment_de_stockage_nombre` text DEFAULT NULL,
+  `batiment_de_stockage_surface` text DEFAULT NULL,
+  `bergerie_nombre` text DEFAULT NULL,
+  `bergerie_surface` text DEFAULT NULL,
+  `etable_nombre` text DEFAULT NULL,
+  `etable_surface` text DEFAULT NULL,
+  `ecurie_de_chevaux_nombre` text DEFAULT NULL,
+  `ecurie_de_chevaux_surface` text DEFAULT NULL,
+  `poulailler_batis_en_dur_nombre` text DEFAULT NULL,
+  `poulailler_batis_en_dur_surface` text DEFAULT NULL,
+  `poulailler_sous_serre_nombre` text DEFAULT NULL,
+  `poulailler_sous_serre_surface` text DEFAULT NULL,
+  `batiments_dhabitation_nombre` text DEFAULT NULL,
+  `batiments_dhabitation_surface` text DEFAULT NULL,
+  `serres_tunnels_nombre` text DEFAULT NULL,
+  `serres_tunnels_surface` text DEFAULT NULL,
+  `serres_multichapelles_surface` text DEFAULT NULL,
+  `serres_multichapelles_nombre` text DEFAULT NULL,
+  `batiment_dentreposage_des_produits_agricoles_nombre` text DEFAULT NULL,
+  `batiment_dentreposage_des_produits_agricoles_surface` text DEFAULT NULL,
+  `autres_batiment_stockage_nombre` text DEFAULT NULL,
+  `autres_batiment_stockage_surface` text DEFAULT NULL,
+  `batiment_pour_le_remisage_du_materiel_agricole_nombre` text DEFAULT NULL,
+  `batiment_pour_le_remisage_du_materiel_agricole_surface` text DEFAULT NULL,
+  `caves_nombre` text DEFAULT NULL,
+  `caves_surface` text DEFAULT NULL,
+  `unite_de_conditionnement_nombre` text DEFAULT NULL,
+  `unite_de_conditionnement_surface` text DEFAULT NULL,
+  `unite_de_transformation_nombre` text DEFAULT NULL,
+  `unite_de_transformation_surface` text DEFAULT NULL,
+  `centre_de_collecte_de_lait_nombre` text DEFAULT NULL,
+  `centre_de_collecte_de_lait_surface` text DEFAULT NULL,
+  `autre_batiments_nombre` text DEFAULT NULL,
+  `autre_batiments_surface` text DEFAULT NULL,
+  `chambre_froide_nombre` text DEFAULT NULL,
+  `chambre_froide_surface` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `questionnaire`
+-- Déchargement des données de la table `questionnaire`
 --
 
+INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_1`, `ma_adultes_plus_15_ans_2`, `ma_enfants_moins_15_ans_11`, `ma_enfants_moins_15_ans_22`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_cultures`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_associations`, `ee_cwifa`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`) VALUES
+(1, 'N/A', '', 'test-test-02-02-null-55662585-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '55662585', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'N/A', '', 'test-test-02-02-null-582582658-N/A-test-22.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '582582658', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 'N/A', '', 'test-test-02-02-null-582582611158-N/A-test-22.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '582582611158', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 'N/A', '', 'test-test-02-02-null-85665565656-N/A-test-55.00', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '85665565656', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 'N/A', '', 'test-test-02-02-null-52111-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '52111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 'N/A', '', 'test-test-02-02-null-521112-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '521112', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(7, 'N/A', '', 'test-test-02-02-null-6521-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '6521', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', '', '', '', '', '', '', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '0', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '-', '-', '', '', '', '', '', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(8, 'N/A', NULL, 'test-test-02-02-null-456456-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '456456', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', '', '', '', '', '', '', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '-', '-', '0', '0', '0', '0', '0', '-', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'en attent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'N/A', '', 'test-test-02-02-null-5214-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '5214', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', '', '', '', '', '', '', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '0', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '-', '-', '', '', '', '', '', '-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(10, 'N/A', '', 'test-test-02-02-null-422442-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '422442', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(11, 'N/A', '', 'test-test-02-02-null-85857-N/A-test-', '0--0---', 1, 'test', 'test', '02-02-null-', '-', NULL, NULL, '', '', '', '85857', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, '-', '', '', 'test', '', '-', '-', '-', '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recenseur`
+-- Structure de la table `recenseur`
 --
 
 CREATE TABLE `recenseur` (
-  `id_recensseur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_recensseur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_recensseur` varchar(100) NOT NULL,
   `prenom_recenseur` varchar(50) NOT NULL,
   `commune` varchar(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `controleur` int NOT NULL,
+  `controleur` int(11) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `num_zone_district` int NOT NULL,
-  `num_exploitation` int NOT NULL,
+  `num_zone_district` int(11) NOT NULL,
+  `num_exploitation` int(11) NOT NULL,
   `nom_zone_district` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `recenseur`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_juridique`
+-- Structure de la table `status_juridique`
 --
 
 CREATE TABLE `status_juridique` (
-  `id_status_juridique` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
-  `status_juridique` varchar(100) NOT NULL,
-  `origine_terre` varchar(100) NOT NULL,
-  `superfecie_sj` varchar(20) NOT NULL,
-  `superfecie_sj_are` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `id_status_juridique` int(11) NOT NULL,
+  `cle_status_juridique` varchar(8) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
+  `origine_des_terres` varchar(100) DEFAULT NULL,
+  `status_juridique` varchar(100) DEFAULT NULL,
+  `superfecie_sj` varchar(20) DEFAULT NULL,
+  `superfecie_sj_are` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status_juridique`
+-- Déchargement des données de la table `status_juridique`
 --
+
+INSERT INTO `status_juridique` (`id_status_juridique`, `cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES
+(1, '8-1-1', 8, '1', '1', '5', '5'),
+(3, '9-1-1', 9, '1', '1', '1', '1'),
+(5, '10-2-13', 10, '2', '13', '11', '11'),
+(7, '11-7-13', 11, '7', '13', '1', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superficie_exploitation`
+-- Structure de la table `superficie_exploitation`
 --
 
 CREATE TABLE `superficie_exploitation` (
-  `id` int NOT NULL,
-  `id_questionnaire` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_questionnaire` int(11) DEFAULT NULL,
   `cultures_herbacees_1` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_2` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_3` decimal(10,2) DEFAULT NULL,
@@ -3527,137 +3577,120 @@ CREATE TABLE `superficie_exploitation` (
   `terres_forestieres_bois_forets_maquis_vides_labourables_2` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_1` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `superficie_exploitation`
+-- Déchargement des données de la table `superficie_exploitation`
 --
 
+INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
+(46, 2, '22.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '22.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '22.00', '0.00', '0.00', '0.00', '22.00', '0.00'),
+(47, 3, '22.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '22.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '22.00', '0.00', '0.00', '0.00', '22.00', '0.00'),
+(48, 4, '55.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '55.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '55.00', '0.00', '0.00', '0.00', '55.00', '0.00'),
+(49, 5, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00'),
+(50, 11, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur`
+-- Structure de la table `superviseur`
 --
 
 CREATE TABLE `superviseur` (
-  `id_superviseur` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_superviseur` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_superviseur` varchar(50) NOT NULL,
   `prenom_superviseur` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `superviseur`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `superviseur_national`
+-- Structure de la table `superviseur_national`
 --
 
 CREATE TABLE `superviseur_national` (
-  `id_superviseur_national` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_superviseur_national` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nom_superviseur_national` varchar(50) NOT NULL,
   `prenom_superviseur_national` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `superviseur_national`
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
-  `id_user` int NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
-
-INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin');
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisation_du_sol`
+-- Structure de la table `utilisation_du_sol`
 --
 
 CREATE TABLE `utilisation_du_sol` (
-  `id` int NOT NULL,
-  `id_questionnaire` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_questionnaire` int(11) DEFAULT NULL,
   `code_culture` varchar(10) DEFAULT NULL,
   `superficie_hec` varchar(10) DEFAULT NULL,
   `superficie_are` varchar(10) DEFAULT NULL,
   `en_intercalaire` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-
---
--- Dumping data for table `utilisation_du_sol`
---
-
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `validation_questionnaire`
+-- Structure de la table `validation_questionnaire`
 --
 
 CREATE TABLE `validation_questionnaire` (
-  `id_validation` int NOT NULL,
-  `id_questionnaire` int NOT NULL,
-  `status` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `id_validation` int(11) NOT NULL,
+  `id_questionnaire` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `communes`
+-- Index pour la table `communes`
 --
 ALTER TABLE `communes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `controleur`
+-- Index pour la table `controleur`
 --
 ALTER TABLE `controleur`
   ADD PRIMARY KEY (`id_controleur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `materiel_agricole`
---
-ALTER TABLE `materiel_agricole`
-  ADD PRIMARY KEY (`id_materiel_agricol`),
-  ADD KEY `id_questionnaire` (`id_questionnaire`);
-
---
--- Indexes for table `questionnaire`
+-- Index pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD PRIMARY KEY (`id_questionnaire`),
@@ -3665,7 +3698,7 @@ ALTER TABLE `questionnaire`
   ADD KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250));
 
 --
--- Indexes for table `recenseur`
+-- Index pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD PRIMARY KEY (`id_recensseur`),
@@ -3673,150 +3706,128 @@ ALTER TABLE `recenseur`
   ADD KEY `controleur` (`controleur`);
 
 --
--- Indexes for table `status_juridique`
+-- Index pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
   ADD PRIMARY KEY (`id_status_juridique`),
-  ADD KEY `id_questionnaire` (`id_questionnaire`);
+  ADD UNIQUE KEY `cle_status_juridique` (`cle_status_juridique`) USING BTREE,
+  ADD KEY `id_questionnaire` (`id_questionnaire`),
+  ADD KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_status_juridique`) USING BTREE;
 
 --
--- Indexes for table `superficie_exploitation`
+-- Index pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `superviseur`
+-- Index pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD PRIMARY KEY (`id_superviseur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `superviseur_national`
+-- Index pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD PRIMARY KEY (`id_superviseur_national`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `utilisation_du_sol`
+-- Index pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Indexes for table `validation_questionnaire`
+-- Index pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   ADD PRIMARY KEY (`id_validation`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `controleur`
+-- AUTO_INCREMENT pour la table `controleur`
 --
 ALTER TABLE `controleur`
-  MODIFY `id_controleur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `materiel_agricole`
---
-ALTER TABLE `materiel_agricole`
-  MODIFY `id_materiel_agricol` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `questionnaire`
+-- AUTO_INCREMENT pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id_questionnaire` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `recenseur`
+-- AUTO_INCREMENT pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
-  MODIFY `id_recensseur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `status_juridique`
+-- AUTO_INCREMENT pour la table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `superficie_exploitation`
+-- AUTO_INCREMENT pour la table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `superviseur`
+-- AUTO_INCREMENT pour la table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `superviseur_national`
+-- AUTO_INCREMENT pour la table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
-  MODIFY `id_superviseur_national` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `utilisation_du_sol`
+-- AUTO_INCREMENT pour la table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
--- AUTO_INCREMENT for table `validation_questionnaire`
+-- AUTO_INCREMENT pour la table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
-  MODIFY `id_validation` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `controleur`
---
-ALTER TABLE `controleur`
-  ADD CONSTRAINT `controleur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `recenseur`
+-- Contraintes pour la table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD CONSTRAINT `recenseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `superviseur`
---
-ALTER TABLE `superviseur`
-  ADD CONSTRAINT `superviseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `superviseur_national`
---
-ALTER TABLE `superviseur_national`
-  ADD CONSTRAINT `superviseur_national_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
