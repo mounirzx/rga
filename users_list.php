@@ -39,6 +39,7 @@ include('includes/header.php');
                                 <th scope="col">#</th>
                                 <th scope="col">Nom d'utilisateur</th>
                                 <th scope="col">Wilaya</th>
+                                <th scope="col">Commune</th>
                                 <th scope="col">Nom complet</th>
                                 <th scope="col">Téléphone</th>
                                 <th scope="col">Rôle</th>
@@ -89,7 +90,38 @@ include('includes/header.php');
                         var data = JSON.parse(response)
                     var list_users=""
                     for(var i = 0; i < data.length ; i++){
-                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td></td><td></td><td></td><td>'+data[i].role+'</td><td><button><i class="fa-solid fa-trash"></i></button></td></tr>'
+                        var nom="";
+                        var prenom="";
+                        var wilaya="-"; 
+                        var commune="-"
+                        var phone="";
+                        
+                            if(data[i].role=="superviseur_national"){
+                                nom =  data[i].nom_superviseur_national
+                                prenom =  data[i].prenom_superviseur_national
+                                wilaya =  data[i].wilaya
+                                phone =  data[i].phone
+                            }if(data[i].role=="superviseur"){
+                                nom =  data[i].nom_superviseur
+                                prenom =  data[i].prenom_superviseur
+                                wilaya =  data[i].wilaya_sup
+                                phone =  data[i].superviseur_phone
+                            }if(data[i].role=="controleur"){
+                                nom =  data[i].nom_controleur
+                                prenom =  data[i].prenom_controleur
+                                wilaya =  data[i].controleur_wilaya
+                                phone =  data[i].controleur_phone
+                                commune =  data[i].controleur_commune
+                            }
+                            if(data[i].role=="recenseur"){
+                                nom =  data[i].nom_recensseur
+                                prenom =  data[i].prenom_recenseur
+                                phone =  data[i].recenseur_phone
+                                commune =  data[i].recenseur_commune
+                            }
+
+
+                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button class="btn btn-warn btn-sm"><i class="fa-solid fa-trash"></i></button>&nbsp;<button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button></td></tr>'
                     }
                     $('#list_users').append(list_users)
 
