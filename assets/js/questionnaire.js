@@ -3,7 +3,7 @@ $(document).ready(function () {
     url: "assets/php/getData.php",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+    //  console.log(response);
       if (response.reponse !== "false") {
         $("#nom_recensseur").val(response.nom_recensseur || "N/A");
         $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
@@ -87,7 +87,14 @@ $(document).ready(function () {
       formDataCodeCulture["superficie_are"] = superficie_are;
       formDataCodeCulture["en_intercalaire"] = en_intercalaire;
       // Push the formDataObj to the formDataArray
-      formDataArrayCodeCulture.push(formDataCodeCulture);
+     
+      if (isValidObject(formDataObjStatus)) {
+        formDataArrayCodeCulture.push(formDataCodeCulture);
+        console.log("the array:", formDataArrayCodeCulture);
+    } else {
+      
+    }
+   // console.log(formDataArrayCodeCulture);
     });
 
     var formDataArrayCodeMateriel = [];
@@ -108,8 +115,8 @@ $(document).ready(function () {
       formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
 
       // Log to console
-      console.log("formDataCodeMateriel:");
-      console.log(formDataCodeMateriel);
+     // console.log("formDataCodeMateriel:");
+      //console.log(formDataCodeMateriel);
 
       // Push the formDataObj to the formDataArray
       formDataArrayCodeMateriel.push(formDataCodeMateriel);
@@ -225,7 +232,7 @@ $(document).ready(function () {
       async: false,
       data: { etat: etat },
       success: function (response) {
-        console.log(response);
+      //  console.log(response);
 
         var qst_list;
         var data = JSON.parse(response);
@@ -282,7 +289,7 @@ $(document).ready(function () {
 
   $(".etat").click(function () {
     var etat = $(this).attr("data");
-    console.log(etat);
+   // console.log(etat);
     qstList(etat);
   });
 
@@ -367,7 +374,7 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
 var sup_total =  $('#surface_totale_st_1').val()
 if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
   if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
-    console.log('ok')
+    //console.log('ok')
     $('.surface_total_error').css('border','3px solid red')
    }else{
     $('.surface_total_error').css('border','')
@@ -394,7 +401,7 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
                 }
             });
 
-            console.log(sum_superficie_are)
+            //console.log(sum_superficie_are)
              /***********************************************/
              var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
              var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
@@ -406,12 +413,12 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     /********************************************** */   
           
     var sup_total_are =  $('#surface_totale_st_2').val()
-    console.log(sup_total_are)
+    //console.log(sup_total_are)
 
-    console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+    //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
     if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
       if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
-        console.log('ok')
+      //  console.log('ok')
         $('.surface_total_error_are').css('border','3px solid red')
        }else{
         $('.surface_total_error_are').css('border','')
@@ -571,13 +578,13 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     $(document).on('change', '[id^="origine_des_terres_"]', function() {
       var fullId = $(this).attr('id'); // Get the full ID of the changed input
     var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
-    console.log(idPart); // Log the extracted part to the console
+   // console.log(idPart); // Log the extracted part to the console
 
 
       var id = $(this).val()
-      console.log(fullId)
+    //  console.log(fullId)
       var filtered = filterByKey(id);
-console.log(filtered[id]);
+//console.log(filtered[id]);
 $('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])
     })
