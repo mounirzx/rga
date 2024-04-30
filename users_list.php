@@ -126,8 +126,9 @@ include('includes/header.php');
                             }
 
 
-                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button>&nbsp;<button id="delete" data="'+id_user+'" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button></td></tr>'
+                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button id="user_details" role="'+data[i].role+'" data="'+id_user+'" class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button></td></tr>'
                     }
+                    $('#list_users').empty()
                     $('#list_users').append(list_users)
 
                 }
@@ -135,34 +136,69 @@ include('includes/header.php');
         }
 
         getUsersList()
+ 
 
+        $(document).on('click','#user_details',function(){
 
-      
-        $(document).on('click','#delete',function(){
+            var role = $(this).attr('role')
             var id_user = $(this).attr('data')
             console.log(id_user)
+            if(role=="superviseur"){
+                window.location="superviseur_form.php?id_user="+id_user
+            }
+            //window.location="user_details.php?id_user="+id_user
+        //     $.ajax({
+        //         url:'assets/php/get_user_details.php',
+        //         method:'post',
+        //         async:false,
+        //         success::function(response){
+        //             console.log(response)
+        //         }
 
-                        Swal.fire({
-                                title: "Etes vous sur?",
+         })
+      
+        // $(document).on('click','#delete',function(){
+        //     var id_user = $(this).attr('data')
+        //     console.log(id_user)
+
+        //                 Swal.fire({
+        //                         title: "Etes vous sur?",
                                
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Oui"
-                                }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your file has been deleted.",
-                                    icon: "success"
-                                    });
-                                }
-                                });
+        //                         icon: "warning",
+        //                         showCancelButton: true,
+        //                         confirmButtonColor: "#3085d6",
+        //                         cancelButtonColor: "#d33",
+        //                         confirmButtonText: "Oui"
+        //                         }).then((result) => {
+        //                         if (result.isConfirmed) {
+
+
+        //                             $.ajax({
+        //                                 url:'assets/php/delete_user.php',
+        //                                 method:'post',
+        //                                 async:false,
+        //                                 data:{
+        //                                     id_user:id_user
+        //                                 },
+        //                                 success:function(response){
+        //                                     console.log(response)
+        //                                     getUsersList()
+
+        //                                     Swal.fire({
+        //                             title: "Suppression effectuer avec success !",
+                                    
+        //                             icon: "success"
+        //                             });
+                                            
+        //                                 }
+        //                             })
+                                    
+        //                         }
+        //                         });
 
 
 
-        })
+        // })
 
     })
 </script>
