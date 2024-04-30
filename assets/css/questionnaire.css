@@ -1,0 +1,172 @@
+
+/* @font-face {
+    font-family: 'Scheherazade';
+    src: url('static/fonts/rga/ScheherazadeNew-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+
+
+ .quest{
+    font-family: 'Scheherazade', arial; 
+ width: 210mm;
+ height: 297mm;
+ margin: 0;
+ padding: 0;
+ margin: auto;
+ line-height: 15px;
+
+ }
+ body span {
+    font-family: 'Scheherazade', arial; /* Use the custom font */
+ font-size: 12px !important;
+ height: 33px;
+ line-height: 14px !important;
+ }
+ body div {
+ font-size: 12px !important;
+ }
+ body label {
+ font-size: 12px !important;
+ line-height: 15px !important;
+ }
+ .line-edits-container {
+ display: flex;
+ }
+ .line-edit {
+ width: 30px;
+ height: 33px;
+ margin-right: 3px;
+ text-align: center;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+ .line-edit:focus {
+ outline: none;
+ border-color: #007bff;
+ box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+ }
+ .font_12 {
+ font-size: 12px !important;
+ }
+ .form-check {
+ display: flex;
+ align-items: center;
+ }
+ /* Style for the checkbox input */
+ .form-check-input {
+ margin-right: 10px;
+ /* Adjust as needed */
+ height: 25px;
+ /* Adjust size as needed */
+ width: 25px;
+ /* Adjust size as needed */
+ cursor: pointer;
+ }
+ /* Style for the custom checkbox design */
+ .checkmark {
+ display: inline-block;
+ height: 25px;
+ /* Adjust size as needed */
+ width: 25px;
+ /* Adjust size as needed */
+ background-color: #4CAF50;
+ /* Green color */
+ border-radius: 5px;
+ /* Rounded corners */
+ }
+ /* Style for the checkmark icon */
+ .checkmark:after {
+ content: "";
+ display: none;
+ position: absolute;
+ }
+ /* Show the checkmark icon when the checkbox is checked */
+ .form-check-input:checked+.checkmark:after {
+ display: block;
+ }
+ /* Style for the checkmark icon */
+ .checkmark:after {
+ left: 7px;
+ /* Adjust position as needed */
+ top: 3px;
+ /* Adjust position as needed */
+ width: 6px;
+ /* Adjust size as needed */
+ height: 12px;
+ /* Adjust size as needed */
+ border: solid white;
+ border-width: 0 3px 3px 0;
+ transform: rotate(45deg);
+ /* Rotate the checkmark */
+ }
+ /* Style for the text next to the checkbox */
+ .form-check-label {
+ font-size: 16px;
+ /* Adjust size as needed */
+ color: #000;
+ /* Text color */
+ }
+
+ /* Custom styles for printing */
+ @media print {
+ /* Adjust input size */
+ input[],
+ select.form-select {
+ width: auto !important;
+ }
+ /* Ensure input text is not cut off */
+ input[] {
+ white-space: nowrap;
+ overflow: visible;
+ }
+ body {
+ zoom: 10%;
+ /* Adjust the value as needed */
+ }
+
+ .err{
+    color: red;
+    margin-bottom: 5px;
+
+}
+
+ }
+
+ 
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #ffffff; /* Change the background color as needed */
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #136a23; /* Change the thumb color as needed */
+border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: #555; /* Change the thumb color on hover as needed */
+}
+
+.invalid { border-color: red; }
+  #error { color: red }
+  .select-ee{
+                              border: 1px solid #E3E0E0;
+                              border-radius: 3px;
+
+                          }
+
+                          .select-ee:hover{
+                              border: 1px solid #E3E0E0;
+                              
+                          }
+                          .qst-num{
+font-size:10px;
+margin: 7px 7px 7px 0px;
+color:#ff0000;
+font-weight: bold;
+                          }
