@@ -116,12 +116,12 @@ include('includes/header.php');
          /* Custom styles for printing */
          @media print {
          /* Adjust input size */
-         input[type="text"],
+         input[],
          select.form-select {
          width: auto !important;
          }
          /* Ensure input text is not cut off */
-         input[type="text"] {
+         input[] {
          white-space: nowrap;
          overflow: visible;
          }
@@ -191,7 +191,7 @@ font-weight: bold;
  
  
          <form id="info_form" method="post">
-    <input type="text" name="etat" hidden disabled class="bneder" value="en attent">
+    <input  name="etat" hidden disabled class="bneder" value="en attent">
                 <h4 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h4>
                 <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px; "></div>
                 <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
@@ -303,7 +303,7 @@ font-weight: bold;
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input class="form-control" id="nom_recensseur" type="text" value="" />
+                    <input readonly class="form-control bneder" id="nom_recensseur" name="nom_recensseur"  value="" />
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -312,7 +312,7 @@ font-weight: bold;
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input class="form-control" id="prenom_recenseur"  type="text" 
+                    <input readonly class="form-control bneder" id="prenom_recenseur" name="prenom_recenseur"   
                        value="" />
                  </div>
                  <br />
@@ -322,7 +322,7 @@ font-weight: bold;
                             <span class="input-group-text" id="basic-addon3">الولاية
                                 <br>
                                 Wilaya</span>
-                            <input class="form-control" id="wilaya_name_ascii" >
+                            <input readonly class="form-control" id="wilaya_name_ascii" >
                         
                     
                  </div>
@@ -332,47 +332,10 @@ font-weight: bold;
                         <div class="qst-num ">8</div>
                     <span class="input-group-text" id="basic-addon3">البلدية<br />
                     commune</span>
-                    <input readonly class="form-control" type="text" id="commune_name_ascii"  value="" />
+                    <input readonly class="form-control"  id="commune_name_ascii"  value="" />
                  </div>
 
                  <br />
-                 
-
-                 <script>
-                    $(document).ready(function() {
-                      // Listen for the form submission
-                      $('#info_form').on('submit', function(e) {
-                        e.preventDefault(); // Prevent the default form submission
-                    
-                        // Collect the form data
-                        var formObject = {};
-                        var formData = $(this).serializeArray();
-                        $.each(formData, function(_, element) {
-                          formObject[element.name] = element.value;
-                        });
-                    
-                        // Send the form data with fetch
-                        fetch('http://localhost/agr/BondVert.php', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                          },
-                          body: JSON.stringify(formObject)
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                          console.log('Success:', data);
-                          // Handle success, e.g., show a message to the user
-                        })
-                        .catch((error) => {
-                          console.error('Error:', error);
-                          // Handle error, e.g., show an error message to the user
-                        });
-                      });
-                    });
-                    </script>
-                    
 
                  <script>
                     document.getElementById('wilaya_select').addEventListener('change', function () {
@@ -406,7 +369,7 @@ font-weight: bold;
                     </span>
             
                   
-                       <input id="in3" type="text" max="9999" class="form-control" data-length="4"
+                       <input id="in3"  maxlength="4" num class="form-control" 
                           value="" />
                    
                  </div> 
@@ -427,13 +390,13 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:center; color:red;"><p>  للمراقب مخصص إطار - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
 <span class="input-group-text" id="basic-addon3"> الرقم <br>
    Numéro</span>
-    <input  <?= $disabled ?>  type="text" class="form-control bneder" id="num_qst" name="num_qst">
+    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="num_qst">
 
 </div> 
 
@@ -544,7 +507,7 @@ if ($_SESSION['role'] == "recenseur") {
       المراقب
       <br />
       Nom du contrôleur</span>
-      <input  <?= $disabled ?> readonly class="form-control"type="text"  id="nom_controleur"
+      <input  <?= $disabled ?> readonly class="form-control"  id="nom_controleur"
          />
    </div>
    <br />
@@ -555,7 +518,7 @@ if ($_SESSION['role'] == "recenseur") {
       المراقب
       <br />
       prénom du contrôleur</span>
-      <input  <?= $disabled ?> readonly class="form-control" type="text" id="prenom_controleur" />
+      <input  <?= $disabled ?> readonly class="form-control"  id="prenom_controleur" />
    </div>
 
 </div>
@@ -575,7 +538,7 @@ if ($_SESSION['role'] == "recenseur") {
                  <div class="qst-num ">9</div>
                     <span class="input-group-text" id="basic-addon3">رمز البلدية<br>
                         commune Code</span>
-                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code">
+                        <input  readonly  class="form-control bneder" id="commune_code" name="commune_code">
 
                 </div>
                  
@@ -591,7 +554,8 @@ if ($_SESSION['role'] == "recenseur") {
                     <span class="input-group-text" id="basic-addon3">
                     district-zone <br /> إسم المكان، المنطقة
                     </span>
-                    <input class="form-control"   type="text" id="nom_zone_district" />
+                    <input class="form-control"   id="nom_zone_district" />
+
                  </div>
                  
 
@@ -603,8 +567,7 @@ if ($_SESSION['role'] == "recenseur") {
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input  type="text" max="99" class="form-control" id="num_zone_district" data-length="2"
-                         />
+                       <input   maxlength="2" num class="form-control" id="num_zone_district"  />
                     
                  </div>
             </div>
@@ -628,7 +591,7 @@ if ($_SESSION['role'] == "recenseur") {
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder" type="text" name="nom_exploitant" id="nom_exploitant"   />
+                    <input class="form-control bneder"  name="nom_exploitant" id="nom_exploitant"   />
                  </div>
               </div>
 
@@ -643,7 +606,7 @@ if ($_SESSION['role'] == "recenseur") {
                    <span class="input-group-text" id="basic-addon3">
                     الإسم<br /> Prénom
                     </span>
-                    <input class="form-control bneder"  type="text"  name="prenom_exploitant"  id="prenom_exploitant" />
+                    <input class="form-control bneder"    name="prenom_exploitant"  id="prenom_exploitant" />
                  </div>
               </div>
            </div>
@@ -800,7 +763,7 @@ if ($_SESSION['role'] == "recenseur") {
               <span class="input-group-text" id="basic-addon3">
               عنوان المستثمر الفلاحي (الفلاح) - Adresse de l'exploitant agricole
               </span>
-              <input class="form-control bneder"  type="text" 
+              <input class="form-control bneder"   
                  name="adress_exploitant" />
            </div>
            <br />
@@ -814,7 +777,7 @@ if ($_SESSION['role'] == "recenseur") {
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
-            <input class="form-control bneder" type="text"  id="nin_exploitant" name="nin_exploitant"   />
+            <input class="form-control bneder" num   maxlength="18" id="nin_exploitant" name="nin_exploitant"   />
             </div>
 <br>
 
@@ -823,7 +786,7 @@ if ($_SESSION['role'] == "recenseur") {
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف اإلحصائي <br> Numéro d’identification statstique
             </span>
-            <input class="form-control bneder"  type="text" id="nis_exploitant"  name="nis_exploitant" />
+            <input class="form-control bneder"  num   maxlength="15" id="nis_exploitant"  num name="nis_exploitant" />
             </div>
 
                </div>
@@ -833,14 +796,14 @@ if ($_SESSION['role'] == "recenseur") {
                  <span class="input-group-text" id="basic-addon3">
                  رقم الهاتف <br /> Numéro de téléphone
                  </span>
-                 <input class="form-control bneder" type="text" id="phone_exploitant"  name="phone_exploitant">
+                 <input class="form-control bneder"  id="phone_exploitant"  name="phone_exploitant">
               </div>
               
               <br>
               <div class="input-group input-group-sm">
               <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">  البريد الإكتروني<br /> é-mail</span>
-                    <input class="form-control bneder"  type="text"  id="email_exploitant"  name="email_exploitant" />
+                    <input class="form-control bneder"    id="email_exploitant"  name="email_exploitant" />
                  </div>
                </div>
             </div> 
@@ -878,7 +841,7 @@ if ($_SESSION['role'] == "recenseur") {
             <span class="input-group-text" id="basic-addon3">
                رقم الضمان الإجتماعي <br> Numéro de sécurité social
                </span>
-            <input class="form-control bneder" type="text"  id="num_sec_sociale" name="num_sec_sociale"   />
+            <input class="form-control bneder"   id="num_sec_sociale" name="num_sec_sociale"   />
             </div>
          </div>
 
@@ -934,7 +897,7 @@ if ($_SESSION['role'] == "recenseur") {
     <br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
-      Numéro de la carte fellah</span> <input class="form-control bneder" type="text" id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
+      Numéro de la carte fellah</span> <input class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
@@ -965,11 +928,11 @@ if ($_SESSION['role'] == "recenseur") {
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input class="form-control bneder" type="text" id="nb_co_exploitants" name="nb_co_exploitants">
+      Nombre de co-exploitants, si</span> <input class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> <input class="form-control bneder" type="text" id="nature_exploitant" name="nature_exploitant">
+      Nature de l'exploitant</span> <input class="form-control bneder"  id="nature_exploitant" name="nature_exploitant">
     </div>
   </div>
 </div>
@@ -1004,11 +967,11 @@ if ($_SESSION['role'] == "recenseur") {
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" >
+  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
-  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation" type="text" value="">
+  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
@@ -1070,10 +1033,10 @@ if ($_SESSION['role'] == "recenseur") {
             <option value="OUEST">
               -
             </option>
-          </select> <input class="form-control bneder" type="text" id="lon_exploitation" name="lon_exploitation">
+          </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder" type="text" id="lat_exploitation" name="lat_exploitation">
+          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
         </div>
       </div>
     </div>
@@ -1435,13 +1398,13 @@ $(document).ready(function(){
 
                         <div class="col">
                             <div class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4"  >
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" num class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" >
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" num class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1538,7 +1501,7 @@ $(document).ready(function(){
                le Référence - مرجع مسح األراضي
                </span>
                <div class="line-edits-container" id="cn13">
-                 <input class="select-ee bneder" type="text"  id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="select-ee bneder"   id="reference_cadastrale" name="reference_cadastrale" value="">
                </div>
  </div>
  <br>
@@ -1581,7 +1544,7 @@ acte de concession ?
 
                </span>
                
-               <input style="width:100px;" class="form-control bneder" type="text"  id="si_exploi_eac" name="si_exploi_eac"  value="">
+               <input style="width:100px;" class="form-control bneder"   id="si_exploi_eac" name="si_exploi_eac"  value="">
               
             </div>
 
@@ -1596,8 +1559,8 @@ acte de concession ?
 l'Ex-EAC
                </span>
               
-               <input style="width:150px;" class="form-control bneder" type="text" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-               <input style="width:100px;" class="form-control bneder" type="text"  id="exploi_superficie_are" name="exploi_superficie_are" value="">
+               <input style="width:150px;" class="form-control bneder"  id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
+               <input style="width:100px;" class="form-control bneder"   id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
             </div>
    </div>
@@ -1695,26 +1658,26 @@ l'Ex-EAC
                <div class="input-group input-group-sm">
                 
                <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="4" num   >
              
                  <div class="small-space"></div>
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
             <td>
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1733,13 +1696,13 @@ l'Ex-EAC
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="4" num   value="">
                   
                   <span style="width: 32px;"></span>
                   <div class="small-space"></div>
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1750,13 +1713,13 @@ l'Ex-EAC
                <div class="small-space"></div>
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1775,14 +1738,14 @@ l'Ex-EAC
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="4" num   value="">
                  
 
                   <span style="width: 32px;"></span>
                  
                      
                      <div class="small-space"></div>
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1793,13 +1756,13 @@ l'Ex-EAC
                      
                      <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"  type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"  type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1819,13 +1782,13 @@ l'Ex-EAC
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="4" num   value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1836,13 +1799,13 @@ l'Ex-EAC
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3" type="text" max="9999"  data-length="4" value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4" type="text" max="99"  data-length="2" value="">
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                  
                </div>
@@ -1861,14 +1824,14 @@ l'Ex-EAC
                <div class="input-group input-group-sm">
                
                <div class="small-space"></div>
-                     <input class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly="" type="text"  style="max-width: 80px;" value="">
+                     <input class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   style="max-width: 80px;" value="">
                      
                      <div class="small-space"></div>
                 
                   <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly="" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1876,12 +1839,12 @@ l'Ex-EAC
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly="" type="text"  style="max-width: 80px;" value="">
+                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   style="max-width: 80px;" value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
             
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly="" type="text" style="max-width: 60px;" value="">
+                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  style="max-width: 60px;" value="">
                  <div class="small-space"></div>
                </div>
             </td>
@@ -1902,13 +1865,13 @@ l'Ex-EAC
                      
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="4" num   value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1931,13 +1894,13 @@ l'Ex-EAC
                      
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="4" num   value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
             
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
+                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1956,12 +1919,12 @@ l'Ex-EAC
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
                      
-                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly="" type="text"  style="max-width: 80px;" value="">
+                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""   style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1979,13 +1942,13 @@ l'Ex-EAC
                      
                   
                <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"   style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2"   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -2005,13 +1968,13 @@ l'Ex-EAC
             
                <div class="small-space"></div>
 
-                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"   type="text"  style="max-width: 80px;"  >
+                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     style="max-width: 80px;"  >
                      <div class="small-space"></div>
 
                   <span style="width: 32px;"></span>
                 
                      
-                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"  type="text"  style="max-width: 60px;" >
+                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    style="max-width: 60px;" >
                      <div class="small-space"></div>
 
                
@@ -2056,7 +2019,7 @@ l'Ex-EAC
                            </span>
                            
                            
-                              <input class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui" type="text" >
+                              <input class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -2119,7 +2082,7 @@ l'Ex-EAC
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" type="text">
+                        <input  class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -2146,7 +2109,7 @@ l'Ex-EAC
                      <br>
                      Surface bâtie occupée (²m) 
                      </span>
-                     <input  class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" type="text">
+                     <input  class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" >
 
                   </div>
                   </div>
@@ -2163,7 +2126,7 @@ l'Ex-EAC
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" type="text">
+                        <input  class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
                    
                   </div>
                   </div>
@@ -2575,13 +2538,13 @@ l'Ex-EAC
           <div class="col">
             <div class="row">
               <div class="col-5">
-                <input bigtb="" id="superficie_hec" name="superficie_hec" type="text" max="999" class="form-control" data-length="3" value="">
+                <input bigtb="" id="superficie_hec" name="superficie_hec"  maxlength="3" num class="form-control"  value="">
               </div>
               <div class="col">
-                <input id="superficie_are" name="superficie_are" type="text" max="999" class="form-control" data-length="3" value="">
+                <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
               </div>
               <div class="col">
-                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control" data-length="2" value="">
+                <input id="en_intercalaire" name="en_intercalaire"  maxlength="2" num class="form-control"  value="">
               </div>
             </div>
           </div>
@@ -3494,10 +3457,10 @@ l'Ex-EAC
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
-      <td><input id="in82" name="batiments_dhabitation_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <td><input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
@@ -3532,13 +3495,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn102">
                            
-                                 <input id="in102" name="bergerie_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in102" name="bergerie_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn103" style="margin-left: 151px">
                                 
-                                 <input id="in103" name="bergerie_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in103" name="bergerie_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3551,13 +3514,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn104">
                                
-                                 <input id="in104" name="etable_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in104" name="etable_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn105" style="margin-left: 151px">
                                 
-                                 <input id="in105" name="etable_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in105" name="etable_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3570,13 +3533,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn106">
                              
-                                 <input id="in106" name="ecurie_de_chevaux_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn107" style="margin-left: 151px">
                               
-                                 <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3589,13 +3552,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn108">
                            
-                                 <input id="in108" name="poulailler_batis_en_dur_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in108" name="poulailler_batis_en_dur_nombre"  maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn109" style="margin-left: 151px">
                                 
-                                 <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3608,13 +3571,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="poulailler_sous_serre_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3630,13 +3593,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="serres_tunnels_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="serres_tunnels_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="serres_tunnels_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="serres_tunnels_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3649,13 +3612,13 @@ l'Ex-EAC
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="serres_multichapelles_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="serres_multichapelles_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3696,10 +3659,10 @@ l'Ex-EAC
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
-      <td><input id="in82" name="batiment_de_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <td><input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
@@ -3714,13 +3677,13 @@ l'Ex-EAC
                      <td>
                       
                          
-                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre" maxlength="2" num class="form-control bneder"  value="">
                        
                      </td>
                      <td>
                      
                      <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" style="    margin:auto;" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" style="    margin:auto;" class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3733,13 +3696,13 @@ l'Ex-EAC
                      <td>
                        
                           
-                           <input id="in86" name="autres_batiment_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in86" name="autres_batiment_stockage_nombre"  maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                      <td>
                   
                      <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3752,13 +3715,13 @@ l'Ex-EAC
                      <td>
                        
                            
-                           <input id="in88" name="caves_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in88" name="caves_nombre" maxlength="2" num class="form-control bneder"  value="">
                      
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn89" style="padding-left: 132px">
                            
-                           <input id="in89" name="caves_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in89" name="caves_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3771,13 +3734,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn90">
                    
-                           <input id="in90" name="unite_de_conditionnement_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in90" name="unite_de_conditionnement_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
                            
-                           <input id="in91" name="unite_de_conditionnement_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in91" name="unite_de_conditionnement_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3790,13 +3753,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn92">
                       
-                           <input id="in92" name="unite_de_transformation_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in92" name="unite_de_transformation_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn93" style="padding-left: 132px">
                            
-                           <input id="in93" name="unite_de_transformation_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in93" name="unite_de_transformation_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3811,13 +3774,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn94">
                       
-                           <input id="in94" name="centre_de_collecte_de_lait_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in94" name="centre_de_collecte_de_lait_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn95" style="padding-left: 132px">
                            
-                           <input id="in95" name="centre_de_collecte_de_lait_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in95" name="centre_de_collecte_de_lait_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3831,13 +3794,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn222">
                      
-                           <input id="in222" name="autre_batiments_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in222" name="autre_batiments_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn223" style="padding-left: 132px">
                            
-                           <input id="in223" name="autre_batiments_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in223" name="autre_batiments_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3854,13 +3817,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn98">
                     
-                           <input id="in98" name="serres_tunnels_nombre"type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in98" name="serres_tunnels_nombre" maxlength="2" num class="form-control"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn99" style="padding-left: 132px">
                            
-                           <input id="in99" name="serres_tunnels_surface" style="    margin:auto;"class="form-control" type="text" max="99999"  data-length="5" value="">
+                           <input id="in99" name="serres_tunnels_surface" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -3873,13 +3836,13 @@ l'Ex-EAC
                      <td>
                         <div class="line-edits-container" id="cn100">
                          
-                           <input id="in100" name="serres_multichapelles_nombre"type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in100" name="serres_multichapelles_nombre" maxlength="2" num class="form-control"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn101" style="padding-left: 132px">
                            
-                           <input id="in101" style="    margin:auto;"class="form-control" type="text" max="99999"  data-length="5" value="">
+                           <input id="in101" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -3907,13 +3870,13 @@ l'Ex-EAC
                      </td>
                      <td>
                     
-                           <input id="in112" name="chambre_froide_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in112" name="chambre_froide_nombre" maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn113" style="margin-left: 162px;">
                           
-                           <input id="in113" name="chambre_froide_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -4079,7 +4042,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">العدد<br>
-              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" type="text" max="999" class="form-control" data-length="3" value="">
+              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control"  value="">
             </div>
           </div>
           <div class="col-1">
@@ -4287,18 +4250,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">فيض<br>
-        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4306,17 +4269,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">سطحي<br>
-        Gravitaire</span> <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">رش محوري<br>
-        Pivots</span> <input id="in133" name="eau_pivots" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">لفاف<br>
-        Enrouleur</span> <input id="in134" name="eau_enrouleur" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
     </div>
@@ -4324,18 +4287,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">فوقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">طرق أخرى<br>
-        Autre</span> <input id="in210" name="eau_autre_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
   </div>
@@ -4504,20 +4467,20 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="2" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="2" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4531,19 +4494,19 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in142" tb name="ouvriers_agricoles_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="2" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in143" tb name="ouvriers_agricoles_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in144" tb name="ouvriers_agricoles_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in145" tb name="ouvriers_agricoles_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4557,18 +4520,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in146" tb name="ouvriers_agricoles_etranges_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="2" num class="form-control bneder"  value="">
                          
-                              <input id="in147" tb name="ouvriers_agricoles_etranges_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in148" tb name="ouvriers_agricoles_etranges_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in149" tb name="ouvriers_agricoles_etranges_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4607,19 +4570,19 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in162" tb name="main_oeuvre_ordinnaire_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="2" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in163" tb name="main_oeuvre_ordinnaire_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="2" num class="form-control bneder"  value="">
                         
                         </div>
                      </td>
@@ -4633,18 +4596,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in166" tb name="main_oeuvre_qualifiee_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in167" tb name="main_oeuvre_qualifiee_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in168" tb name="main_oeuvre_qualifiee_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in169" tb name="main_oeuvre_qualifiee_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4686,18 +4649,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in150" tb name="mo_exploitant_individuel_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in151" tb name="mo_exploitant_individuel_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in152" tb name="mo_exploitant_individuel_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in153" tb name="mo_exploitant_individuel_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4711,18 +4674,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in154" tb name="mo_adultes_plus_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in155" name="mo_adultes_plus_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" tb value="">
+                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="2" num class="form-control bneder"  tb value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in156" tb name="mo_adultes_plus_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in157" tb name="mo_adultes_plus_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4736,18 +4699,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                        
-                              <input id="in158" tb name="mo_enfants_moins_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in159" tb name="mo_enfants_moins_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in160" tb name="mo_enfants_moins_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in161" tb name="mo_enfants_moins_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4775,7 +4738,7 @@ Petite et Moyenne Hydraulique
                </span>
              
                
-                  <input id="in178" tb name="ma_nombre_de_personnes" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                  <input id="in178" tb name="ma_nombre_de_personnes"  maxlength="2" num class="form-control bneder"  value="">
                
                   
             </div>
@@ -4801,12 +4764,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in179" name="ma_adultes_plus_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in179" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
                       
                      </td>
                      <td>
                        
-                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                   </tr>
@@ -4818,12 +4781,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in181" name="ma_enfants_moins_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in181" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
                     
                      </td>
                      <td>
                       
-                           <input id="in182" name="ma_enfants_moins_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in182" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
                      
                      </td>
                   </tr>
@@ -5621,6 +5584,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script src="./assets/js/questionnaire-mask.js"></script>
 
              
              
@@ -5658,42 +5622,9 @@ document.getElementById('submitDate').click();
 
 
 <script>
-    // Function to adjust max-width of inputs with various attributes
-    function adjustMaxWidth() {
-        var inputsMax99 = document.querySelectorAll('input[max="99"]');
-        inputsMax99.forEach(function(input) {
-            input.style.maxWidth = "60px";
-        });
+    
 
-        var inputsTB = document.querySelectorAll('input[tb]');
-        inputsTB.forEach(function(input) {
-            input.style.maxWidth = "51px";
-        });
-       var inputsMax999 = document.querySelectorAll('input[max="999"]');
-        inputsMax999.forEach(function(input) {
-            input.style.maxWidth = "60px";
-        });
-        var inputsBigTB = document.querySelectorAll('input[bigtb]'); // Corrected selector
-        inputsBigTB.forEach(function(input) {
-            input.style.maxWidth = "69px";
-        });
-        var inputsMax9999 = document.querySelectorAll('input[max="9999"]');
-        inputsMax9999.forEach(function(input) {
-            input.style.maxWidth = "80px";
-        });
-        var inputsMax99999 = document.querySelectorAll('input[max="99999"]');
-        inputsMax99999.forEach(function(input) {
-            input.style.maxWidth = "90px";
-        });
-        
-    }
-
-    // Trigger the adjustment when the page loads
-    window.onload = adjustMaxWidth;
-</script>
-
-
-<script>
+    
 
 
 
@@ -5970,28 +5901,7 @@ nom_exploitation.addEventListener("blur", (e) => {
 
              
 
-               
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all elements with class "zxcount"
-    var elements = document.querySelectorAll('.zxcount');
-    
-    // Loop through each element and set its innerHTML to its index + 1
-    elements.forEach(function(element, index) {
-        element.innerHTML = index + 1;
-    });
-});
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    var inputs = document.querySelectorAll('input[data-length]');
-
-    inputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            var maxLength = parseInt(this.getAttribute('data-length'));
-            this.value = this.value.slice(0, maxLength);
-        });
-    });
-});
 
 
               </script>   
