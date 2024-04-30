@@ -415,144 +415,157 @@ font-weight: bold;
                 
               </div>
               <div class="col">
-                 
-                
 
-                 <div  class="card"> 
+              <?php
+if ($_SESSION['role'] == "recenseur") {
+    $disabled = "disabled";
+} else {
+    $disabled = "";
+}
+?>
+    <div  class="card"> 
 
 
-                    <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
+<div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
 <div style="text-align:center; color:red;"><p>  للمراقب مخصص إطار - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
-              
-                    <span class="input-group-text" id="basic-addon3"> الرقم <br>
-                       Numéro</span>
-                        <input  type="text" class="form-control bneder" id="num_qst" name="num_qst">
 
-                </div> <br>
+<span class="input-group-text" id="basic-addon3"> الرقم <br>
+   Numéro</span>
+    <input  <?= $disabled ?>  type="text" class="form-control bneder" id="num_qst" name="num_qst">
 
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">4</div>
-                          <span style="width: 102px;" class="input-group-text" id="basic-addon3">تاريخ
-                          المراقبة
-                          <br />
-                          Date de contrôle
-                          </span>
-                          <select class="select-ee" id="inputGroupSelect01">
-                             <option value="-"></option>
-                             <option  value="1">1</option>
-                             <option  value="2">2</option>
-                             <option  value="3">3</option>
-                             <option  value="4">4</option>
-                             <option  value="5">5</option>
-                             <option  value="6">6</option>
-                             <option  value="7">7</option>
-                             <option  value="8">8</option>
-                             <option  value="9">9</option>
-                             <option  value="10"> 10
-                             </option>
-                             <option  value="11"> 11
-                             </option>
-                             <option  value="12"> 12
-                             </option>
-                             <option  value="13"> 13
-                             </option>
-                             <option  value="14"> 14
-                             </option>
-                             <option  value="15"> 15
-                             </option>
-                             <option  value="16"> 16
-                             </option>
-                             <option  value="17"> 17
-                             </option>
-                             <option  value="18"> 18
-                             </option>
-                             <option  value="19"> 19
-                             </option>
-                             <option  value="20"> 20
-                             </option>
-                             <option  value="21"> 21
-                             </option>
-                             <option  value="22"> 22
-                             </option>
-                             <option  value="23"> 23
-                             </option>
-                             <option  value="24"> 24
-                             </option>
-                             <option  value="25"> 25
-                             </option>
-                             <option  value="26"> 26
-                             </option>
-                             <option  value="27"> 27
-                             </option>
-                             <option  value="28"> 28
-                             </option>
-                             <option  value="29"> 29
-                             </option>
-                             <option  value="30"> 30
-                             </option>
-                             <option  value="30"> 31
-                             </option>
-                          </select>
-                          <select class="select-ee" id="inputGroupSelect01" >
-                             <option value="-"></option>
-                             <option  value="1">1 - Janvier</option>
-                             <option  value="2">2 - Février</option>
-                             <option  value="3">3 - Mars</option>
-                             <option  value="4">4 - Avril</option>
-                             <option  value="5">5 - Mai</option>
-                             <option  value="6">6 - Juin</option>
-                             <option  value="7">7 - Juillet</option>
-                             <option  value="8">8 - Août</option>
-                             <option  value="9">9 - Septembre</option>
-                             <option  value="10">10 - Octobre</option>
-                             <option  value="11">11 - Novembre</option>
-                             <option  value="12">12 - Décembre</option>
-                          </select>
-                          <select class="select-ee" id="inputGroupSelect01">
-                             <option value="-">-</option>
-                             <option  value="2024">2024
-                             </option>
-                             <option  value="2025">2025
-                             </option>
-                             <option  value="2026">2026
-                             </option>
-                             <option  value="2027">2027
-                             </option>
-                             <option  value="2028">2028
-                             </option>
-                             <option  value="2029">2029
-                             </option>
-                             <option  value="2030">2030
-                             </option>
-                          </select>
-                       </div>
-                       <br />
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">5</div>
-                          <span class="input-group-text" id="basic-addon3">لقب
-                          المراقب
-                          <br />
-                          Nom du contrôleur</span>
-                          <input readonly class="form-control"type="text"  id="nom_controleur"
-                             />
-                       </div>
-                       <br />
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">6</div>
-                          <span class="input-group-text" id="basic-addon3">إسم
-                          المراقب
-                          <br />
-                          prénom du contrôleur</span>
-                          <input readonly class="form-control" type="text" id="prenom_controleur" />
-                       </div>
+</div> 
 
-                    </div>
-                 </div>
+<br>
+
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">4</div>
+      <span style="width: 102px;" class="input-group-text" id="basic-addon3">تاريخ
+      المراقبة
+      <br />
+      Date de contrôle
+      </span>
+      <select  <?= $disabled ?> class="form-control" id="inputGroupSelect01">
+         <option value="-"></option>
+         <option  value="1">1</option>
+         <option  value="2">2</option>
+         <option  value="3">3</option>
+         <option  value="4">4</option>
+         <option  value="5">5</option>
+         <option  value="6">6</option>
+         <option  value="7">7</option>
+         <option  value="8">8</option>
+         <option  value="9">9</option>
+         <option  value="10"> 10
+         </option>
+         <option  value="11"> 11
+         </option>
+         <option  value="12"> 12
+         </option>
+         <option  value="13"> 13
+         </option>
+         <option  value="14"> 14
+         </option>
+         <option  value="15"> 15
+         </option>
+         <option  value="16"> 16
+         </option>
+         <option  value="17"> 17
+         </option>
+         <option  value="18"> 18
+         </option>
+         <option  value="19"> 19
+         </option>
+         <option  value="20"> 20
+         </option>
+         <option  value="21"> 21
+         </option>
+         <option  value="22"> 22
+         </option>
+         <option  value="23"> 23
+         </option>
+         <option  value="24"> 24
+         </option>
+         <option  value="25"> 25
+         </option>
+         <option  value="26"> 26
+         </option>
+         <option  value="27"> 27
+         </option>
+         <option  value="28"> 28
+         </option>
+         <option  value="29"> 29
+         </option>
+         <option  value="30"> 30
+         </option>
+         <option  value="30"> 31
+         </option>
+      </select>
+      <select  <?= $disabled ?>  class="form-control" id="inputGroupSelect01" >
+         <option value="-"></option>
+         <option  value="1">1 - Janvier</option>
+         <option  value="2">2 - Février</option>
+         <option  value="3">3 - Mars</option>
+         <option  value="4">4 - Avril</option>
+         <option  value="5">5 - Mai</option>
+         <option  value="6">6 - Juin</option>
+         <option  value="7">7 - Juillet</option>
+         <option  value="8">8 - Août</option>
+         <option  value="9">9 - Septembre</option>
+         <option  value="10">10 - Octobre</option>
+         <option  value="11">11 - Novembre</option>
+         <option  value="12">12 - Décembre</option>
+      </select>
+      <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
+         <option value="-">-</option>
+         <option  value="2024">2024
+         </option>
+         <option  value="2025">2025
+         </option>
+         <option  value="2026">2026
+         </option>
+         <option  value="2027">2027
+         </option>
+         <option  value="2028">2028
+         </option>
+         <option  value="2029">2029
+         </option>
+         <option  value="2030">2030
+         </option>
+      </select>
+   </div>
+   <br />
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">5</div>
+      <span class="input-group-text" id="basic-addon3">لقب
+      المراقب
+      <br />
+      Nom du contrôleur</span>
+      <input  <?= $disabled ?> readonly class="form-control"type="text"  id="nom_controleur"
+         />
+   </div>
+   <br />
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">6</div>
+      <span class="input-group-text" id="basic-addon3">إسم
+      المراقب
+      <br />
+      prénom du contrôleur</span>
+      <input  <?= $disabled ?> readonly class="form-control" type="text" id="prenom_controleur" />
+   </div>
+
+</div>
+</div>
+
+
+
+                
+
+            
                  <br/>
                  <br/>
                 
@@ -5247,6 +5260,7 @@ Petite et Moyenne Hydraulique
                                     <label class="form-check-label" for="6er4ge8rg4">
                                     العمال - Personnel
                                     </label>
+                                    
                                  </div>
                               </div>
                               <div class="col">
@@ -5561,43 +5575,32 @@ Petite et Moyenne Hydraulique
 
 
 
-
-
-
 <?php
-if ($_SESSION['role'] == "admin" ||  $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
-    ?>
-    <div class="row">
-        <div class="col">
-            <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button">Valider</button>
-        </div>
-        <div class="col">
-            <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962">Rejeter</a>
-        </div>
-    </div>
-    <?php
-}
-
-if ($_SESSION['role'] == "recenseur") {
-    ?>
-    <div class="row">
-        <div class="col-9">
-            <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button">Ajouter</button>
-        </div>
-        <div class="col">
-            <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962">Annuler</a>
-        </div>
-    </div>
-    <?php
+// Determine button text based on user's role
+if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
+    $approveBtnText = "Valider";
+    $rejectBtnText = "Rejeter";
+} elseif ($_SESSION['role'] == "recenseur") {
+    $approveBtnText = "Ajouter";
+    $rejectBtnText = "Annuler";
 }
 ?>
+
+<div class="row">
+    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962"><?= $rejectBtnText ?></a>
+    </div>
+</div>
 
 <script>
 // Add event listener to detect Ctrl + *
 document.addEventListener('keydown', function(event) {
 if (event.ctrlKey && event.key === '*') {
 // Trigger the click event of the button
-document.getElementById('submitDate').click();
+document.getElementById('submitDate').click();  
 }
 });
 </script>
