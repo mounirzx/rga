@@ -213,16 +213,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
            }
            ?>
 
-<?php
-                if($_SESSION['role']=="recenseur" || $_SESSION['role']=="recenseur"){
-            ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="./stat.php">Recenseur</a>
-            </li>
-          
-            <?php
-           }
-           ?>
+
+       
             </ul>
         </div>
 

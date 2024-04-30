@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include './config.php';
 
 if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['password']) || $_POST['password'] == "") {
-    echo json_encode(array('role'=>$result['role'],"success"=>1)); // Invalid input
+    echo json_encode(array("success"=>1)); // Invalid input
 } else {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -56,7 +56,7 @@ if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['pas
                  echo json_encode(array('role'=>$result['role'],"success"=>3));
             //echo 3;  // Success
         } else {
-            echo json_encode(array('role'=>$result['role'],"success"=>2)); // User not found
+            echo json_encode(array("success"=>2)); // User not found
         }
     } catch (Exception $e) {
         echo $e->getMessage();  // Display error message
