@@ -18,6 +18,8 @@ RewriteRule ^AjouterRecenseurs$ add_recenseur.php [NC,L]
 # Redirect to questionnaire_update QuestionnairePreview with the hashed id
 RewriteCond %{QUERY_STRING} ^id=([^&]+)$
 RewriteRule ^questionnaire_update.php$ /QuestionnairePreview [NC,R=301,L]
+RewriteRule ^Login$ index.php [NC,L]
+
 
 # Rewrite other URLs to add .php extension
 RewriteCond %{REQUEST_FILENAME}.php -f
