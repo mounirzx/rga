@@ -1397,7 +1397,7 @@ acte de concession ?
         <div class="col-2"></div>
         <div class="col-4">
             عدد األعضاء<br>
-            Nombre des exploitants
+            Nombre des <br>exploitants
         </div>
         <div class="col">
             مساحة م.ف.ج<br>
@@ -1405,11 +1405,12 @@ acte de concession ?
         </div>
     </div>
     <div class="row">
-        <div class="col-6"></div>
+    <div class="col-2"></div>
+        <div class="col-4"></div>
         <div class="col-2">Hectar - هكتار</div>
-        <div class="col-1"></div>
-        <div class="col-3">Are - آر</div>
+        <div class="col"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Are - آر</div>
     </div>
+    <br>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-4">
@@ -1421,20 +1422,21 @@ acte de concession ?
             <div class="row">
                 <div class="col">
                     <div class="input-group input-group-sm">
-                        <input style="width:150px;" num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
+                        <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col">
+                
+                <div class="col-5">
                     <div class="input-group input-group-sm">
-                        <input style="width:100px;" num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
+                        <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                         <br>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
+       
     </div>
+    <br>
 </div>
  
 
