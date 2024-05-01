@@ -1326,7 +1326,7 @@ agricoles ?
 
 
 
-                  <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
+                  <div style="margin-bottom: 5px;" class="row  statut_juridique_s">
                         <div class="col">
                         <div class="input-group input-group-sm">
 
@@ -2302,7 +2302,7 @@ l'Ex-EAC
         <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-4" style="margin-right: 20px;">
             <div class="input-group input-group-sm">
-              <select class="form-select code_culture_check" id="code_culture" name="code_culture">
+              <select class="form-select code_culture_s code_culture_check" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option style="font-weight: 700;">
@@ -2563,13 +2563,13 @@ l'Ex-EAC
           <div class="col">
             <div class="row">
               <div class="col-5">
-                <input bigtb="" id="superficie_hec" name="superficie_hec" type="text" max="999" class="form-control" data-length="3" value="">
+                <input bigtb="" id="superficie_hec" name="superficie_hec" type="text" max="999" class="form-control code_culture_s code_culture_check" data-length="3" value="">
               </div>
               <div class="col">
-                <input id="superficie_are" name="superficie_are" type="text" max="999" class="form-control" data-length="3" value="">
+                <input id="superficie_are" name="superficie_are" type="text" max="999" class="form-control code_culture_s code_culture_check" data-length="3" value="">
               </div>
               <div class="col">
-                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control code_culture_check" data-length="2" value="">
+                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control  code_culture_s code_culture_check" data-length="2" value="">
               </div>
             </div>
           </div>
@@ -2585,31 +2585,58 @@ l'Ex-EAC
 
 
 
-
-
-
 $(document).ready(function(){
-    var selectedValues = []; // Array to hold the unique values selected
+    var selectedCombinations = []; // Array to hold unique combinations per row
 
-    // Event handler for changes on any select with the class 'code_culture_check'
+    // Event handler for changes on any element with the class 'code_culture_check' within each row
     $(document).on('change', '.code_culture_check', function() {
-        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+        var $row = $(this).closest('.row'); // Get the current row
+        var rowId = $row.index(); // Get the index of the row to make unique row identifier
 
-        if (selectedValues.indexOf(selectedValue) !== -1) {
-            // If the value already exists in the array, display a SweetAlert message in French
+        var values = [];
+        var isValid = true; // Flag to check if all selects and inputs are properly selected/filled
+
+        // Collect all values and create a combined string as a unique identifier for this row
+        $row.find('.code_culture_check').each(function() {
+            var val = $(this).val();
+            if (!val) {
+                isValid = false; // if any value is empty, set isValid to false
+            }
+            values.push(val);
+        });
+
+        var combinedValues = values.join('-'); // Combine values to form a unique identifier for the set
+
+        // If not all inputs/selects are filled, do not proceed with duplicate check
+        if (!isValid) {
+            console.log("All selections are required in each row.");
+            return;
+        }
+
+        // Unique identifier for this specific row's combination
+        var rowIdentifier = 'row_' + rowId + '_' + combinedValues;
+
+        if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
+            // If the combination already exists in the array
+            console.log("This combination has already been selected in this row.");
             Swal.fire({
                 title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
                 icon: 'warning',
                 confirmButtonText: 'OK'
             });
 
-            // Optionally reset to the first option or default state
-            $(this).val($(this).find('option:first').val());
+            // Reset all selects and inputs in this row
+            $row.find('.code_culture_check').each(function() {
+                if ($(this).is('select')) {
+                    $(this).val($(this).find('option:first').val());
+                } else {
+                    $(this).val('');
+                }
+            });
         } else {
-            // Add the new value to the array if it's not already there
-            selectedValues.push(selectedValue);
-            console.log('Selected value:', selectedValue); // Log the newly added value
+            // If the combination is unique, add it to the array
+            selectedCombinations.push(rowIdentifier);
         }
     });
 });
@@ -5924,59 +5951,59 @@ document.getElementById('submitDate').click();
 
              
 <script>
-   // document.getElementById("info_form").addEventListener("input", function () {
-   //     console.log("capturing")
+   document.getElementById("info_form").addEventListener("input", function () {
+       console.log("capturing")
 
-   //     var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
-   //     var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
-   //     var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
-   //     var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-   //     document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+       var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+       var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+       var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+       var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+       var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+       document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
-   //     var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
-   //     var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
-   //     var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
-   //     var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-   //     document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
-
-
-   //     var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
-   //     var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
-   //     var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
-   //     var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-   //     document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
-
-   //     var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
-   //     var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
-   //     var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
-   //     var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-   //     document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+       var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+       var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+       var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+       var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+       var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+       document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
 
 
-   //     var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
-   //     var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-   //     var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-   //     document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+       var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+       var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+       var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+       var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+       var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+       document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
 
-   //     var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   //     var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   //     var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-   //     document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+       var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+       var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+       var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+       var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+       var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+       document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
 
-   //     var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-   //     var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-   //     document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+       var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+       var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+       var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+       document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+       var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+       var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+       var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+       document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+       var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+       var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+       document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
        
 
-   //     var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-   //     var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-   //     document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+       var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+       var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+       document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
-   // });
+   });
 </script>       
 
 <script>

@@ -99,27 +99,27 @@ $(document).ready(function () {
 
     var formDataArrayCodeMateriel = [];
     // Loop over each row
-    //$(".code_materiel_s:gt(0)").each(function () {
     $(".code_materiel_s").each(function () {
-      // Initialize an object to store form data for the current row
-      var formDataCodeMateriel = {};
+        // Initialize an object to store form data for the current row
+        var formDataCodeMateriel = {};
 
-      // Get the values of the inputs within the current row
-      var code_materiel = $(this).find("[name^='code_materiel']").val();
-      var code_materiel_nombre = $(this)
-        .find("[name^='code_materiel_nombre']")
-        .val();
+        // Get the values of the inputs within the current row
+        var code_materiel = $(this).find("[name^='code_materiel']").val();
+        var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
 
-      // Add the values to the formDataObj
-      formDataCodeMateriel["code_materiel"] = code_materiel;
-      formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
+        // Add the values to the formDataObj
+        formDataCodeMateriel["code_materiel"] = code_materiel;
+        formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
 
-      // Log to console
-     // console.log("formDataCodeMateriel:");
-      //console.log(formDataCodeMateriel);
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayCodeMateriel.push(formDataCodeMateriel);
+        // Check if the object is valid before pushing to the array
+        if (isValidObject(formDataCodeMateriel)) {
+            // Push the formDataObj to the formDataArray if it is valid
+            formDataArrayCodeMateriel.push(formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
+        } else {
+            console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
+        }
     });
 
     // Initialize formDataObj outside the loop to make it accessible throughout the function
@@ -159,6 +159,8 @@ $(document).ready(function () {
       formDataObj[this.name] = $(this).val();
     });
 
+    console.log("formDataObj");
+    console.log(formDataObj);
     $(function () {
       $.ajax({
         url: "assets/php/add.php",
@@ -166,63 +168,62 @@ $(document).ready(function () {
         contentType: "application/json",
         data: JSON.stringify({
           form: formDataObj,
-          formDataArray: formDataArray,
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
-          try {
-            // Parse JSON response if not already an object
-            var serverResponse =
-              typeof response === "string" ? JSON.parse(response) : response;
-
-            // Check the response 'response' key, which indicates success or failure
-            if (serverResponse.response === true) {
-              Swal.fire({
-                icon: "success",
-                title: "Succès!",
-                text: "Enregistrement effectué avec succès!",
-              });
-            } else {
-              // Server responded with an error
-              Swal.fire({
-                icon: "error",
-                title: "Erreur!",
-                html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
-              });
-            }
-          } catch (e) {
-            // Handle any parsing errors or missing keys
+          if (response.response) {
             Swal.fire({
-              icon: "error",
-              title: "Erreur de Format",
-              text:
-                "La réponse du serveur n'était pas dans le format attendu: " +
-                e.message,
-            });
-          }
-        },
-        error: function (xhr, status, error) {
-          // More detailed error handling based on status and xhr state
-          if (!xhr.responseText || xhr.status === 0) {
-            Swal.fire({
-              icon: "error",
-              title: "Erreur de Réseau",
-              text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
+              icon: "success",
+              title: "Succès!",
+              text: "Enregistrement effectué avec succès!"
             });
           } else {
             Swal.fire({
               icon: "error",
-              title: "Échec de la requête",
-              text:
-                "Un problème est survenu lors de la requête: " + xhr.statusText,
+              title: "Erreur!",
+              text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
             });
           }
         },
+        error: function (xhr, status, error) {
+          // Check if there is a response text and if it contains valid JSON
+          if (xhr.responseText) {
+            try {
+              var resp = JSON.parse(xhr.responseText);
+              if (resp && resp.error) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Erreur de traitement",
+                  text: "Erreur lors de l'enregistrement: " + resp.error
+                });
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Erreur de Réseau",
+                  text: "Réponse inattendue du serveur: " + xhr.responseText
+                });
+              }
+            } catch (e) {
+              Swal.fire({
+                icon: "error",
+                title: "Erreur de format",
+                text: "Réponse non JSON du serveur: " + xhr.responseText
+              });
+            }
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Échec de la requête",
+              text: "Un problème est survenu lors de la requête: " + error
+            });
+          }
+        }
       });
     });
+    
   });
 
   function qstList(etat) {
