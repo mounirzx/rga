@@ -9,11 +9,10 @@ $form = json_decode(file_get_contents("php://input"));
 
 // Define a mapping from form data keys to database table names
 $tableMappings = [
-    'data' => 'questionnaire',
     'formDataArrayStatut' => 'status_juridique',
     'formDataArrayCodeCulture' => 'utilisation_du_sol',
     'formDataArrayCodeMateriel' => 'materiel_agricole',
-    //'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
+    'data' => 'questionnaire' // Assuming this key is used for main form data
 ];
 
 ob_start();
@@ -27,14 +26,20 @@ try {
     $bdd->exec("SET NAMES 'utf8'");
     $bdd->exec("SET CHARACTER SET utf8");
 
+    // Utility function to generate a key
+    function generateKey($lastInsertId, $parts) {
+        return substr($lastInsertId . '-' . implode('-', $parts), 0, 8);
+    }
+
+    // Insert data for the main form into the questionnaire table and retrieve the last inserted ID
+    $mainData = $form->data;
+    insertData($bdd, 'questionnaire', (array)$mainData);
+    $lastInsertId = $bdd->lastInsertId();
+
     foreach ($form as $key => $dataGroup) {
-        if (isset($tableMappings[$key])) {
+        if (isset($tableMappings[$key]) && $key !== 'data') { // Skip main form data already inserted
             $tableName = $tableMappings[$key];
-            if (is_array($dataGroup) || is_object($dataGroup)) {
-                processCollection($bdd, $tableName, (array)$dataGroup);
-            } else {
-                insertData($bdd, $tableName, (array)$dataGroup);
-            }
+            processCollection($bdd, $tableName, (array)$dataGroup, $lastInsertId);
         }
     }
 
@@ -51,9 +56,19 @@ function insertData($db, $table, $data) {
     $stmt->execute($data);
 }
 
-function processCollection($db, $table, $collection) {
+function processCollection($db, $table, $collection, $lastInsertId) {
     foreach ($collection as $item) {
-        insertData($db, $table, (array) $item);
+        if ($table == 'status_juridique' || $table == 'utilisation_du_sol' || $table == 'materiel_agricole') {
+            // Add custom key generation for specific tables
+            $keyParts = [
+                $item->origine_des_terres ?? '', // Example for status_juridique
+                $item->code_culture ?? '',       // Example for utilisation_du_sol
+                $item->code_materiel ?? ''       // Example for materiel_agricole
+            ];
+            $item->cle = generateKey($lastInsertId, $keyParts);
+        }
+        $item->id_questionnaire = $lastInsertId;
+        insertData($db, $table, (array)$item);
     }
 }
 ?>
