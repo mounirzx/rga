@@ -2,18 +2,24 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 1
-            [status_juridique] => 1
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 2
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
-    [1] => stdClass Object
+)
+Debug: Array
+(
+)
+Debug: Array
+(
+    [0] => stdClass Object
         (
-            [origine_des_terres] => 1
-            [status_juridique] => 1
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 1
+            [superficie_hec] => 45
+            [superficie_are] => 45
+            [en_intercalaire] => 45
         )
 
 )
@@ -21,18 +27,10 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 1
-            [status_juridique] => 1
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 1
-            [status_juridique] => 1
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 1
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -40,18 +38,24 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 11
-            [superfecie_sj_are] => 11
+            [code_culture] => 1
+            [superficie_hec] => 5
+            [superficie_are] => 5
+            [en_intercalaire] => 5
         )
 
-    [1] => stdClass Object
+)
+Debug: Array
+(
+)
+Debug: Array
+(
+    [0] => stdClass Object
         (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 11
-            [superfecie_sj_are] => 11
+            [code_culture] => 2
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -59,18 +63,10 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 11
-            [superfecie_sj_are] => 11
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 11
-            [superfecie_sj_are] => 11
+            [code_culture] => 2
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -78,18 +74,10 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 7
-            [status_juridique] => 13
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 7
-            [status_juridique] => 13
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 1
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -97,18 +85,24 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 7
-            [status_juridique] => 13
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 1
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
-    [1] => stdClass Object
+)
+Debug: Array
+(
+)
+Debug: Array
+(
+    [0] => stdClass Object
         (
-            [origine_des_terres] => 7
-            [status_juridique] => 13
-            [superfecie_sj] => 1
-            [superfecie_sj_are] => 1
+            [code_culture] => 1
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -116,26 +110,10 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 1
-            [status_juridique] => 13
-            [superfecie_sj] => 4
-            [superfecie_sj_are] => 4
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
-        )
-
-    [2] => stdClass Object
-        (
-            [origine_des_terres] => 3
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
+            [code_culture] => 1
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
         )
 
 )
@@ -143,53 +121,10 @@ Debug: Array
 (
     [0] => stdClass Object
         (
-            [origine_des_terres] => 1
-            [status_juridique] => 13
-            [superfecie_sj] => 4
-            [superfecie_sj_are] => 4
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
-        )
-
-    [2] => stdClass Object
-        (
-            [origine_des_terres] => 3
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
-        )
-
-)
-Debug: Array
-(
-    [0] => stdClass Object
-        (
-            [origine_des_terres] => 1
-            [status_juridique] => 13
-            [superfecie_sj] => 4
-            [superfecie_sj_are] => 4
-        )
-
-    [1] => stdClass Object
-        (
-            [origine_des_terres] => 2
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
-        )
-
-    [2] => stdClass Object
-        (
-            [origine_des_terres] => 3
-            [status_juridique] => 13
-            [superfecie_sj] => 5
-            [superfecie_sj_are] => 5
+            [code_culture] => 1
+            [superficie_hec] => 1
+            [superficie_are] => 1
+            [en_intercalaire] => 4
         )
 
 )

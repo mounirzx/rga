@@ -88,7 +88,7 @@ $(document).ready(function () {
       formDataCodeCulture["en_intercalaire"] = en_intercalaire;
       // Push the formDataObj to the formDataArray
      
-      if (isValidObject(formDataObjStatus)) {
+      if (isValidObject(formDataCodeCulture)) {
         formDataArrayCodeCulture.push(formDataCodeCulture);
         console.log("the array:", formDataArrayCodeCulture);
     } else {
