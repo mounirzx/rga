@@ -1526,26 +1526,26 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="4" num   >
+                     <input  class="superficie  form-control coherence_surface_total-surface surface_total " id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="4" num   >
              
                  <div class="small-space"></div>
                      <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="superficie  form-control  coherence_surface_total-surface_are " name="cultures_herbacees_2"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
             <td>
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="4" num   value="">
+                     <input id="in16" class="superficie  form-control " name="cultures_herbacees_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="superficie  form-control " name="cultures_herbacees_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1564,13 +1564,13 @@ acte de concession ?
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="4" num   value="">
+                     <input  class="superficie  form-control coherence_surface_total-surface surface_total " name="terres_au_repos_jacheres_1"  maxlength="4" num   value="">
                   
                   <span style="width: 32px;"></span>
                   <div class="small-space"></div>
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="superficie  form-control coherence_surface_total-surface_are " name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1581,13 +1581,13 @@ acte de concession ?
                <div class="small-space"></div>
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="4" num   value="">
+                     <input  class="superficie form-control" name="terres_au_repos_jacheres_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="superficie form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1606,14 +1606,14 @@ acte de concession ?
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="4" num   value="">
+                     <input  class="superficie form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="4" num   value="">
                  
 
                   <span style="width: 32px;"></span>
                  
                      
                      <div class="small-space"></div>
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
+                     <input  class="superficie form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1624,13 +1624,13 @@ acte de concession ?
                      
                      <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="4" num   value="">
+                     <input  class="superficie form-control" name="plantations_arboriculture_3"   maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="superficie form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1650,13 +1650,13 @@ acte de concession ?
                      
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="4" num   value="">
+                     <input  class="superficie form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="4" num   value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="superficie form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1667,13 +1667,13 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="4" num   value="">
+                     <input class="superficie form-control" name="prairies_naturelles_3"  maxlength="4" num   value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="superficie form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                  
                </div>
@@ -1692,14 +1692,14 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                <div class="small-space"></div>
-                     <input class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   style="max-width: 80px;" value="">
+                     <input class="superficie form-control"  name="superficie_agricole_utile_sau_1" readonly=""   style="max-width: 80px;" value="">
                      
                      <div class="small-space"></div>
                 
                   <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""   style="max-width: 60px;" value="">
+                     <input  class="superficie form-control" name="superficie_agricole_utile_sau_2" readonly=""   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1707,12 +1707,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   style="max-width: 80px;" value="">
+                     <input  class="superficie form-control" name="superficie_agricole_utile_sau_3" readonly=""   style="max-width: 80px;" value="">
                      <div class="mid-space"></div>
                   <span style="width: 32px;"></span>
             
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  style="max-width: 60px;" value="">
+                     <input  class="superficie form-control" name="superficie_agricole_utile_sau_4" readonly=""  style="max-width: 60px;" value="">
                  <div class="small-space"></div>
                </div>
             </td>
@@ -1733,13 +1733,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="4" num   value="">
+                     <input  class="superficie form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="4" num   value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     <input class="superficie form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1787,12 +1787,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                <div class="small-space"></div>
                      
-                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""   style="max-width: 80px;" value="">
+                     <input class="superficie  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""   style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""   style="max-width: 60px;" value="">
+                     <input  class="superficie  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1810,13 +1810,13 @@ acte de concession ?
                      
                   
                <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"   style="max-width: 80px;" value="">
+                     <input  class="superficie  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"   style="max-width: 80px;" value="">
                      <div class="small-space"></div>
                   <span style="width: 32px;"></span>
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2"   style="max-width: 60px;" value="">
+                     <input  class="superficie  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2"   style="max-width: 60px;" value="">
                      <div class="small-space"></div>
                </div>
             </td>
@@ -1836,13 +1836,13 @@ acte de concession ?
             
                <div class="small-space"></div>
 
-                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     style="max-width: 80px;"  >
+                  <input  class="superficie form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     style="max-width: 80px;"  >
                      <div class="small-space"></div>
 
                   <span style="width: 32px;"></span>
                 
                      
-                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    style="max-width: 60px;" >
+                  <input  class="superficie form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    style="max-width: 60px;" >
                      <div class="small-space"></div>
 
                
