@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Non Trouvé</title>
+    <link rel="stylesheet" href="static/vendor/tilt/tilt.jquery.min.css">
+    <style>
+        /* Custom CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0; /* Reset default body margin */
+            padding: 0; /* Reset default body padding */
+        }
+        .header {
+            position: fixed;
+            top: -5;
+            width: 100%;
+            
+            background-color: #689d32;
+            color: #fff;
+            opacity: 0; /* Initially hidden */
+            animation: fadeIn 1s ease-in-out forwards; /* Animation to fade in */
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #689d32;
+            color: #fff;
+            opacity: 0; /* Initially hidden */
+            animation: fadeIn 1s ease-in-out forwards; /* Animation to fade in */
+        }
+        .container {
+            position: fixed;
+            top: 27%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #container-title {
+            font-size: 36px;
+            color: #c90000;
+            animation: fadeIn 2s ease-in-out;
+        }
+        #container-text {
+            font-size: 18px;
+            color: #c90000;
+            animation: fadeIn 2s ease-in-out;
+        }
+      
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h5 style="font-weight: bold; font-size: 24px; margin:1% 0% 0% 0%; margin-top: 5px;">الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية</h5>
+        <br />
+        <h8 style="font-size: 15px;">REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</h8>
+        <br /> <br />
+        <h5 style="font-weight: bold; font-size: 22px; margin-bottom: -21px; margin-top: -4px;">وزارة الفلاحة و التنمية الريفية</h5>
+        <br />
+        <h8 style="font-size: 13px;">MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL</h8>
+        <br /> <br />
+        <h5 style="font-size: 20px; margin-bottom: -23px; margin-top: -7px;">  مديرية الاحصائيات و الرقمنة و الاستشراف </h5>
+        <br />
+        <p style="font-size: 10px;">DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE</p>
+    </div>
+
+    <div class="container">
+        <img data-tilt class="logo" style="width: 10%;" src="not-found/RGA-LOGO.svg" alt="IMG" />
+        <h1 id="container-title" >404 - Page Not Found</h1>
+        <p id="container-text">Sorry, the page you are looking for could not be found.</p>
+        <p id="container-text">.معذرة، لم يتم العثور على الصفحة التي تبحث عنها</p>
+        <p id="container-text">Désolé, la page que vous recherchez est introuvable.</p>
+    </div>
+
+    <div class="footer">
+        <img data-tilt class="logo" style="width: 3%;" src="not-found/BNEDER-LOGO.png" alt="IMG">
+    </div>
+
+    <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+</body>
+</html>
