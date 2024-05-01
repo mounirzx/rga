@@ -23,7 +23,6 @@ try {
 
 
     $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`, `role`, `date_creation`) VALUES(?,?,?,NOW()) ');
-    $req->execute(array($username,$password,'superviseur_national'));
 
     $id_user = $bdd->lastInsertId();
 

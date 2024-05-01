@@ -223,31 +223,34 @@ if(!emailRegex.test(email)){
         }
         
                 $.ajax({
-                    url:"assets/php/add_controleur.php",
+                    url:"assets/php/add_users.php",
                     method:'post',
                     async:false,
-                    data:{first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,username:username,wilaya:wilaya,password:password},
+                    data:{role:"controleur",first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,username:username,wilaya:wilaya,password:password},
                     success:function(response){
+                        var data = JSON.parse(response)
                         console.log(response)
-                        if(response=="true"){
-                           
+                        if(data.response=="true"){
+                            console.log(response)
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
-                                title: "Ajout effectué avec succès",
+                                title: "L'ajout effectuée avec succès",
                                 showConfirmButton: true,
                                 
                               });
-
-                          $('#first_name').val("")
-                          $('#last_name').val("")
-                          $('#wilaya').val("")
-                          $('#commune').val("")
-                          $('#email').val("")
-                          $('#phone').val("")
-                          $('#username').val("")
-                          $('#password').val("")
+                              $('#first_name').val("")
+                              $('#last_name').val("")
+                              $('#wilaya').val("")
+                              $('#email').val("")
+                              $('#phone').val("")
+                              $('#username').val("")
+                              $('#password').val("")
                         }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                    
                     }
                 })
             })
