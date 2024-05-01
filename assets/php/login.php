@@ -54,7 +54,7 @@ if (!isset($_POST['username']) || $_POST['username'] == "" || !isset($_POST['pas
                  }
 
                  echo json_encode(array('role'=>$result['role'],"success"=>3));
-            //echo 3;  // Success
+            //echo 3;  // Successp
         } else {
             echo json_encode(array('role'=>$result['role'],"success"=>2)); // User not found
         }

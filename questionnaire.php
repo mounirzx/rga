@@ -431,7 +431,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3" style="width: 165px;">
                       تاريخ الميلاد  Date de naissance</span>
-                    <select class="select-ee " id="jour_de_naissance"  style="width: 65px;">
+                    <select class="form-select " id="jour_de_naissance"  style="width: 65px;">
                        <option value="02"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -487,7 +487,7 @@ if ($_SESSION['role'] == "recenseur") {
                        <option  value="30"> 31
                        </option>
                     </select>
-                    <select class="select-ee"   id="mois_de_naissance" style="width: 165px;">
+                    <select class="form-select"   id="mois_de_naissance" style="width: 165px;">
                        <option value="02"></option>
                        <option  value="01">Janvier</option>
                        <option  value="02">Février</option>
@@ -502,7 +502,7 @@ if ($_SESSION['role'] == "recenseur") {
                        <option  value="11">Novembre</option>
                        <option  value="12">Décembre</option>
                     </select>
-                    <select class="select-ee" id="annee_de_naissance"  style="width: 125px;" >
+                    <select class="form-select" id="annee_de_naissance"  style="width: 125px;" >
                     <option value="-" disabled selected> </option>
                         <option value="1880">1880</option><option value="1881">1881</option><option value="1882">1882</option><option value="1883">1883</option><option value="1884">1884</option><option value="1885">1885</option><option value="1886">1886</option><option value="1887">1887</option><option value="1888">1888</option><option value="1889">1889</option><option value="1890">1890</option><option value="1891">1891</option><option value="1892">1892</option><option value="1893">1893</option><option value="1894">1894</option><option value="1895">1895</option><option value="1896">1896</option><option value="1897">1897</option><option value="1898">1898</option><option value="1899">1899</option><option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
                     </select>
@@ -512,8 +512,8 @@ if ($_SESSION['role'] == "recenseur") {
                     <span class="input-group-text" id="basic-addon3">الجنس
                     <br />
                     Sexe</span>
-                    <select class="select-ee bneder"   name="sexe_exploitant"  >
-                       <option selected=""> -
+                    <select class="form-select bneder"   name="sexe_exploitant"  >
+                       <option value="-" disabled selected> 
                        </option>
                        <option  value="1"> Masculin - ذكر
                        </option>
@@ -536,13 +536,13 @@ if ($_SESSION['role'] == "recenseur") {
                            <span class="input-group-text " id="basic-addon3">المستوى التعليمي
                            <br />
                            Niveau d'instruction</span>
-                           <select class="select-ee  bneder" id="niveau_instruction"   name="niveau_instruction" >
+                           <select class="form-select  bneder" id="niveau_instruction"   name="niveau_instruction" >
                               <option disabled value="-" selected="">  </option>
-                              <option  value="1">1-Aucu-لاشيء</option>
-                              <option  value="2">2-Primaire-إبتدائي</option>
-                              <option  value="3">3-Moye-متوسط</option>
-                              <option  value="4">4-Secondaire-ثانوي</option>
-                              <option  value="5">5-Universitaire-جامعي</option>
+                              <option  value="1">1-Aucun - لاشيء</option>
+                              <option  value="2">2-Primaire - إبتدائي</option>
+                              <option  value="3">3-Moyen - متوسط</option>
+                              <option  value="4">4-Secondaire - ثانوي</option>
+                              <option  value="5">5-Universitaire - جامعي</option>
                            </select>
                            <div style="margin: 7px 0px 0px 20px;" class="qst-num zxcount"></div>
                      </div>
@@ -555,17 +555,17 @@ if ($_SESSION['role'] == "recenseur") {
                     <span class="input-group-text " id="basic-addon3">مستوى التكوين الفلاحي
                     <br />
                     Niveau de formation agricole</span>
-                    <select class="select-ee  bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
+                    <select class="form-select  bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
                        <option disabled value="-" selected="">  </option>
-                       <option  value="1">1-Aucun-لاشيء</option>
-                       <option  value="2">2-Agent technique spécialisé-عون تقني متخصص</option>
-                       <option  value="3">3-Ingénieur-مهندس</option>
-                       <option  value="4">4-Perfectionnement-تأهيل</option>
-                       <option  value="5">5-Technicien-تقني</option>
-                       <option  value="6">6-Vétérinaire-بيطري</option>
-                       <option  value="7">7-Agent technique-عون تقني</option>
-                       <option  value="8">8-Technicien supérieur-تقني سامي</option>
-                       <option  value="9">9-Formation-تكوين</option>
+                       <option  value="1">1- Aucun - لاشيء</option>
+                       <option  value="2">2- Perfectionnement - تأهيل</option>
+                       <option  value="3">3- Agent technique-عون تقني</option>
+                       <option  value="4">4- Agent technique spécialisé - عون تقني متخصص</option>
+                       <option  value="5">5- Technicien - تقني</option>
+                       <option  value="6">6- Technicien supérieur - تقني سامي</option>
+                       <option  value="7">7- Ingénieur - مهندس</option>
+                       <option  value="8">8- Vétérinaire - بيطري</option>
+                       <option  value="9">9- Formation - تكوين</option>
                     </select>
                  </div>
               </div>
@@ -640,7 +640,7 @@ if ($_SESSION['role'] == "recenseur") {
 
            
           
-                <select class="select-ee col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
+                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
                 <option disabled value="-" selected="">  </option>
                         <option value="1">1 - CASNOS
                         </option>
@@ -677,8 +677,8 @@ if ($_SESSION['role'] == "recenseur") {
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية الأحياء المائية<br>
-              La Chambre de la pêche et de l'aquacutur (CAPA)</label>
+              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
+              La Chambre de la Pêche et de l'Aquaculture (CAPA)</label>
             </div><br>
             <div class="form-check">
               <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
@@ -686,7 +686,7 @@ if ($_SESSION['role'] == "recenseur") {
             </div>
             <div class="form-check">
                <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
-               La Chambre de l'artisanat et des metiers (CAM)</label>
+               La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
          </div><br>
          <div class="col">
@@ -715,22 +715,22 @@ if ($_SESSION['role'] == "recenseur") {
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
-      Issu d'une famille agricole</span> <select class="select-ee col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
+      Issu d'une famille agricole</span> <select class="form-select col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
         <option value="-" disabled selected>
         </option>
         <option value="1">
           1 - Oui - نعم
         </option>
         <option value="2">
-          Non - لا
+          2- Non - لا
         </option>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="select-ee col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
-        <option selected>
-          -
+      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+        <option value="-" disabled selected>
+         
         </option>
         <option value="1">
           1 - الوحيد - Unique
@@ -746,7 +746,21 @@ if ($_SESSION['role'] == "recenseur") {
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> <input class="form-control bneder"  id="nature_exploitant" name="nature_exploitant">
+      Nature de l'exploitant</span> 
+      <select class="form-select col-6 bneder" id="nature_exploitant" name="nature_exploitant">
+        <option value="-" disabled selected>
+         
+        </option>
+        <option value="1">
+          1 - مالك - Propriétaire
+        </option>
+        <option value="2">
+          2 - مسير - Gérant
+        </option>
+        <option value="2">
+          2 - مستأجر - Locataire
+        </option>
+      </select>
     </div>
   </div>
 </div>
@@ -789,9 +803,9 @@ if ($_SESSION['role'] == "recenseur") {
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
-  Statut juridique de l’exploitation</span> <select class="select-ee bneder" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
-    <option selected>
-      -
+  Statut juridique de l’exploitation</span> <select class="form-select bneder" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
+    <option value="-" disabled selected>
+      
     </option>
     <option value="1">
       1 - Société civile - مؤسسة مدنية
@@ -840,7 +854,7 @@ if ($_SESSION['role'] == "recenseur") {
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="height: 33px;" class="select-ee bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
               +
             </option>
@@ -891,26 +905,26 @@ if ($_SESSION['role'] == "recenseur") {
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="select-ee bneder" id="activite_exploitation" name="activite_exploitation">
-            <option>
-              -
+          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+            <option value="-" disabled selected>
+             
             </option>
             <option value="1">
-              1 - نباتية - Végétale
+              1 - نباتي - Végétale
             </option>
             <option value="2">
-              2 - تربية الحيوانات - Elevage
+              2 - تربية الحيوانات - Animale
             </option>
             <option value="2">
-              2 - مختلطة - mixte
+              2 - مختلط - mixte
             </option>
           </select>
         </div><br>
         <div class="input-group input-group-sm">
-          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية المواشي<br>
-          Si activité est l'élevage</span> <select class="select-ee bneder" id="type_activite_exploitation" name="type_activite_exploitation">
-            <option>
-              -
+          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
+          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+            <option value="-" disabled selected>
+             
             </option>
             <option value="1">
               1 - لديه أرض - Avec terre
@@ -926,7 +940,7 @@ if ($_SESSION['role'] == "recenseur") {
 </div><br>
 <br>
 <div class="row">
-  <div class="col">
+  <div class="col-5">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
         إمكانية الوصول إلى المستثمرة<br>
@@ -950,7 +964,7 @@ if ($_SESSION['role'] == "recenseur") {
           </div>
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار<br>
+              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
               Piste</label>
             </div><br>
             <div class="form-check">
@@ -958,7 +972,7 @@ if ($_SESSION['role'] == "recenseur") {
               Accés agricole</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مسار ريفي<br>
+              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
               Accés rural</label>
             </div>
           </div>
@@ -976,7 +990,7 @@ L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
       <div class="col-auto">
-        <select class="select-ee form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+        <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected>
             -
           </option>
@@ -996,7 +1010,7 @@ réseau électrique ?
       <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
-</span><select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique">
+</span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
           <option selected>
             -
           </option>
@@ -1015,7 +1029,7 @@ un réseau téléphonique ?
 <div class="qst-num zxcount"></div>
 <span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
 Si oui, 
-</span> <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
+</span> <select class="form-select bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
           <option selected>
             -
           </option>
@@ -1038,7 +1052,7 @@ Si oui,
 اإلنترنت؟ <br>
 L'éxploiation est-elle connectée
 au réseau internet ?
-</span> <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
+</span> <select class="form-select bneder" id="reseau_internet" name="reseau_internet">
       <option selected>
         -
       </option>
@@ -1052,13 +1066,14 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm">
    <div class="qst-num zxcount"></div>
-   <span class="input-group-text" id="basic-addon3">إذا نعم، هل تستخدم اإلنترنت
-ألغراض متعلقة بالفالحة؟
-<br>
-Si oui, utilisez-vous le réseau
-internet pour des besoins
-agricoles ?
-</span> <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+   <span class="input-group-text" id="basic-addon3" style="max-width: 82% !important; ">
+    إذا نعم، هل تستخدم اإلنترنت
+    ألغراض متعلقة بالفالحة؟
+    <br>
+    Si oui, utilisez-vous le réseau
+    internet pour des besoins
+    agricoles ?
+</span> <select class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1098,15 +1113,19 @@ agricoles ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;">
+                  <div style="margin-top: 62px;height: 50px;width: 90%;background-color: white;position: absolute;z-index: 99;">
                         </div>
 
 
                   <div class="row" style="text-align: center;">
-                    <div class="col-3">أصل الأرضي <br> Origine des terres</div>
-                     <div class="col-4">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
-                     <div class="col" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col">المساحة(ار) <br> Superficie(Are)</div>
+                    <!-- <div class="col-1"></div> -->
+                    <div class="col-4">أصل الأرضي <br> Origine des terres</div>
+                    
+                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
+                     <div class="col"></div>
+
+                     <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
+                     <div class="col-2">المساحة(ار) <br> Superficie(Are)</div>
                      <div class="col"></div>
                   </div>
                   <hr>
@@ -1117,7 +1136,7 @@ agricoles ?
 
 
                   <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
-                        <div class="col">
+                        <div class="col-4">
                         <div class="input-group input-group-sm">
 
                             <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
@@ -1137,8 +1156,9 @@ agricoles ?
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-3">
 
+                        
 
                         <div class="input-group input-group-sm">
 
@@ -1157,12 +1177,24 @@ agricoles ?
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
                                 <option value="13">13- Inconnu غير معروف</option> -->
+                                <option  disabled=""  selected value="-"></option>
+                                <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
+                                  <option value="13">13 - Vente/Achat بيع/شراء</option>
+                                 <option value="14">14 - Succession إرث</option>
+                                 <option value="15">15 - Donation هبة</option>
+                                 <option value="16">16 - Testament وصية</option>
+                                 <option value="17">17 - Droit préemption حق الشفاعة</option>
+                                 <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+                                 <option value="19">19 - Certificat de possession شهادة حيازة</option>
+                                 <option value="20">20 - Location إجار</option>
+                                 <option value="21">21 - Autre  آخرى </option>
+                                 <option value="22">22 - Inconnu غير معروف</option>
                                 </select>
-                                <div class="big-space"></div>
+                               
                          </div>
 
                       </div>
-
+                      <div class="col-1"></div>
                       <style>
 .error {
     border: 2px solid red;
@@ -1210,15 +1242,15 @@ $(document).ready(function(){
 
 
 
-                        <div class="col">
+                        <div class="col-2">
                             <div class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" num class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-                            
-                                   
-                                    <div class="big-space"></div>
-                                    <div class="small-space"></div>
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                       </div>
+                       </div>
+                       <div class="col-1"> 
+                       <div class="input-group input-group-sm">
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" num class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1300,93 +1332,113 @@ $(document).ready(function(){
 
  <br/>
 
-
-
-
- 
-
-
-
-
+<div class="row">
+   <div class="col-8">
  <div class="input-group input-group-sm">
- <div class="qst-num zxcount"></div>
-
-               <span class="input-group-text" id="basic-addon3">
-               le Référence - مرجع مسح األراضي
-               </span>
-               <div class="line-edits-container" id="cn13">
-                 <input class="select-ee bneder"   id="reference_cadastrale" name="reference_cadastrale" value="">
-               </div>
- </div>
- <br>
-
-<div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
-   <select class="select-ee bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
+   <select class="form-select bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
       <option selected="">-</option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
 </div>
 
-<br>
-
-<div class="card" style="font-size: 12px;">
-<div class="card-header" style="text-align: center;">
-إذا كانت م.ف.ج -    Si Ex-EAC
-                  <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
-               
-               </div>
-<!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
-<br>
-<div class="row">
-   <div class="col">
-   <div class="input-group input-group-sm">
-               <span class="input-group-text" id="basic-addon3">
-               عدد األعضاء
-               <br>
-
-               
-               Nombre des exploitants
-
-               </span>
-               
-               <input style="width:100px;" class="form-control bneder"   id="si_exploi_eac" name="si_exploi_eac"  value="">
-              
-            </div>
 
    </div>
-   <div class="col-5">
+   <div class="col-4">
    <div class="input-group input-group-sm">
-               <span class="input-group-text" id="basic-addon3">
-             مساحة م.ف.ج
+ <div  hidden class="qst-num zxcount"></div>
+ <div   class="qst-num">46</div>
 
-               <br>
-               Superficie de
-l'Ex-EAC
+
+               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
+               le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
-              
-               <input style="width:150px;" class="form-control bneder"  id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-               <input style="width:100px;" class="form-control bneder"   id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
-            </div>
+                 <input class="form-control bneder" num maxlength="6"   id="reference_cadastrale" name="reference_cadastrale" value="">
+
+
+
+
    </div>
 </div>
-        
-            <br>
+</div>
 
-           
+
+
+
+<br>
+ 
+
+
+
+
+
+ <br>
+
+
+
+ <div class="card" style="font-size: 12px;">
+    <div class="card-header" style="text-align: center;">
+        إذا كانت م.ف.ج - Si Ex-EAC
+        <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+        <div class="qst-num" style="margin: 0px 0px 0px 0px; text-align: left;">45</div>
+    </div>
+    <!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
+    <br>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            عدد األعضاء<br>
+            Nombre des exploitants
+        </div>
+        <div class="col">
+            مساحة م.ف.ج<br>
+            Superficie de l'Ex-EAC
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-2">Hectar - هكتار</div>
+        <div class="col-1"></div>
+        <div class="col-3">Are - آر</div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <div class="input-group input-group-sm">
+                <input style="width:100px;" class="form-control bneder" num maxlength="2" id="si_exploi_eac" name="si_exploi_eac" value="">
             </div>
-           
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <input style="width:150px;" num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <input style="width:100px;" num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+ 
 
-<br/>
+
 <br/>
 
 
@@ -2680,7 +2732,7 @@ l'Ex-EAC
                      هل تمارس الزراعة التعاقدية؟<br>
                      Pratiquez-vous une agriculture contractuelle ?
                      </span>
-                     <select class="select-ee bneder" id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
+                     <select class="form-select bneder" id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
                         <option disabled value="-" selected="">  </option>
                         <option value="1">1 - Oui - نعم</option>
                         <option value="2">2 - Non - لا</option>
@@ -3241,7 +3293,7 @@ l'Ex-EAC
                    <br>
                    Les bâtiments d'exploitation agricole sont exploités 
                </span>
-               <select class="select-ee bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
+               <select class="form-select bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
                    <option value="-" disabled selected="selected">  </option>
                    <option value="1">1 - En individuel - فردية</option>
                    <option value="2">2 - En collectif - جماعية</option>
@@ -3766,7 +3818,7 @@ Type et nombre du matériel agricole ?
           <div class="col-8">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="select-ee" id="code_materiel" name="code_materiel">
+              Code matériel</span> <select disabled="disabled" class="form-select" id="code_materiel" name="code_materiel">
                 <option selected disabled>
                 </option>
                 <option value="1">
@@ -4974,7 +5026,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="select-ee bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option selected="selected"> - </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -4990,7 +5042,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="select-ee bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option selected="selected"> - </option>
 
                                  <option value="1"> ص,م,ز,ق - CRMA</option>
@@ -5084,7 +5136,7 @@ Petite et Moyenne Hydraulique
                       <br>
                       Fournisseurs de services situés dans la commune ?
                   </span>
-               <select class="select-ee bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+               <select class="form-select bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                   <option selected="selected"> - </option>
                   <option value="1">1 - Oui - نعم</option>
                   <option value="2">2 - Non - لا</option>
