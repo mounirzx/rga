@@ -3,7 +3,7 @@ session_start();
 
 
 if(!isset($_SESSION['is_login'])){
-    header('location:index.php');
+    header('location:Login');
 }
 ?>
 
@@ -129,7 +129,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 
             ?>
             <li style="border-right: 2px solid #0e6212;" class="nav-item">
-                <a class="nav-link active" aria-current="page" id="superviseurpage" href="./questionnaire.php">
+                <a class="nav-link active" aria-current="page" id="superviseurpage" href="Questionnaire">
                     <img src="static/icons/form.svg" alt="Plus Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Ajouter Questionnaire - إظافة إستبيان
                 </a>
@@ -149,7 +149,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 
             ?>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./list_questionnaire.php">
+                <a class="nav-link active" aria-current="page" href="ListeQuestionnaires">
                     <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Liste de Questionnaires - قائمة الإستبيانات
                 </a>
@@ -163,10 +163,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
                <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="./users_list.php">Liste des utilisateurs</a>
+               <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">Liste des utilisateurs</a>
             </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="./superviseur_national.php">Superviseurs national</a>
+               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs national</a>
             </li>
             <?php
            }
@@ -176,7 +176,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="./superviseur.php">Superviseurs</a>
+               <a class="nav-link active" aria-current="page" href="Superviseurs">Superviseurs</a>
             </li>
             <?php
            }
@@ -186,7 +186,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="./controleur.php">Controleurs</a>
+               <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs</a>
             </li>
 
             <?php
@@ -196,7 +196,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="controleur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="./recenseur.php">Recenseurs</a>
+            <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs</a>
             </li>
           
             <?php
@@ -206,7 +206,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="./stat.php">Statistique</a>
+               <a class="nav-link " aria-current="page" href="Statistiques">Statistique</a>
             </li>
           
             <?php
@@ -217,7 +217,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="recenseur" || $_SESSION['role']=="recenseur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="./stat.php">Recenseur</a>
+               <a class="nav-link " aria-current="page" href="Recenseurs">Recenseur</a>
             </li>
           
             <?php

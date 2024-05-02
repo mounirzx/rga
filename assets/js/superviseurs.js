@@ -178,10 +178,10 @@ if(!emailRegex.test(email)){
                 $('#last_name_error').html('')
             
                 $.ajax({
-                    url:"assets/php/add_superviseur.php",
+                    url:"assets/php/add_users.php",
                     method:'post',
                     async:false,
-                    data:{first_name:first_name,last_name:last_name,email:email,phone:phone,wilaya:wilaya,username:username,password:password},
+                    data:{role:"superviseur_national",first_name:first_name,last_name:last_name,email:email,phone:phone,wilaya:wilaya,username:username,password:password},
                     success:function(response){
                         var data = JSON.parse(response)
                         console.log(data)

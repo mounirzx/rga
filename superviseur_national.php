@@ -12,7 +12,7 @@ include('includes/header.php');
                     <h5>Gestion des superviseurs national</h5>
                 </div>
              <div class="col-3">
-             <a class="btn btn-success" href="./add_superviseur_national.php">Ajouter superviseur national</a>
+             <a class="btn btn-success" href="AjouterSuperviseurNational">Ajouter superviseur national</a>
              </div>
             </div>
             

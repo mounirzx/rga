@@ -12,7 +12,7 @@ include('includes/header.php');
                     <h5>Gestion des controleurs</h5>
                 </div>
                 <div class="col-3">
-                    <a class="btn btn-success" href="./add_controleur.php">Ajouter controleurs</a>
+                    <a class="btn btn-success" href="AjouterControleur">Ajouter controleurs</a>
                 </div>
             </div>
             

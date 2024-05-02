@@ -2,183 +2,12 @@
 <?php
 include('includes/header.php');
 ?>
-
-      <style>
-        /* @font-face {
-			font-family: 'Scheherazade';
-			src: url('static/fonts/rga/ScheherazadeNew-Regular.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		} */
-
-  
-
-         .quest{
-            font-family: 'Scheherazade', arial; 
-         width: 210mm;
-         height: 297mm;
-         margin: 0;
-         padding: 0;
-         margin: auto;
-         line-height: 15px;
-        
-         }
-         body span {
-            font-family: 'Scheherazade', arial; /* Use the custom font */
-         font-size: 12px !important;
-         height: 33px;
-         line-height: 14px !important;
-         }
-         body div {
-         font-size: 12px !important;
-         }
-         body label {
-         font-size: 12px !important;
-         line-height: 15px !important;
-         }
-         .line-edits-container {
-         display: flex;
-         }
-         .line-edit {
-         width: 30px;
-         height: 33px;
-         margin-right: 3px;
-         text-align: center;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         }
-         .line-edit:focus {
-         outline: none;
-         border-color: #007bff;
-         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-         }
-         .font_12 {
-         font-size: 12px !important;
-         }
-         .form-check {
-         display: flex;
-         align-items: center;
-         }
-         /* Style for the checkbox input */
-         .form-check-input {
-         margin-right: 10px;
-         /* Adjust as needed */
-         height: 25px;
-         /* Adjust size as needed */
-         width: 25px;
-         /* Adjust size as needed */
-         cursor: pointer;
-         }
-         /* Style for the custom checkbox design */
-         .checkmark {
-         display: inline-block;
-         height: 25px;
-         /* Adjust size as needed */
-         width: 25px;
-         /* Adjust size as needed */
-         background-color: #4CAF50;
-         /* Green color */
-         border-radius: 5px;
-         /* Rounded corners */
-         }
-         /* Style for the checkmark icon */
-         .checkmark:after {
-         content: "";
-         display: none;
-         position: absolute;
-         }
-         /* Show the checkmark icon when the checkbox is checked */
-         .form-check-input:checked+.checkmark:after {
-         display: block;
-         }
-         /* Style for the checkmark icon */
-         .checkmark:after {
-         left: 7px;
-         /* Adjust position as needed */
-         top: 3px;
-         /* Adjust position as needed */
-         width: 6px;
-         /* Adjust size as needed */
-         height: 12px;
-         /* Adjust size as needed */
-         border: solid white;
-         border-width: 0 3px 3px 0;
-         transform: rotate(45deg);
-         /* Rotate the checkmark */
-         }
-         /* Style for the text next to the checkbox */
-         .form-check-label {
-         font-size: 16px;
-         /* Adjust size as needed */
-         color: #000;
-         /* Text color */
-         }
-         /* Custom styles for printing */
-         @media print {
-         /* Adjust input size */
-         input[type="text"],
-         select.form-select {
-         width: auto !important;
-         }
-         /* Ensure input text is not cut off */
-         input[type="text"] {
-         white-space: nowrap;
-         overflow: visible;
-         }
-         body {
-         zoom: 10%;
-         /* Adjust the value as needed */
-         }
-
-         .err{
-            color: red;
-            margin-bottom: 5px;
-
-        }
-
-         }
-
-         
-        ::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #ffffff; /* Change the background color as needed */
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #136a23; /* Change the thumb color as needed */
-    border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Change the thumb color on hover as needed */
-}
-      </style>
+<link rel="stylesheet" href="assets/css/questionnaire.css">
+<script  src="./assets/js/questionnaire-mask.js" defer></script>
+   
     
    <body>
-      
-   <style>
-  .invalid { border-color: red; }
-  #error { color: red }
-  .select-ee{
-                              border: 1px solid #E3E0E0;
-                              border-radius: 3px;
 
-                          }
-
-                          .select-ee:hover{
-                              border: 1px solid #E3E0E0;
-                              
-                          }
-                          .qst-num{
-font-size:10px;
-margin: 7px 7px 7px 0px;
-color:#ff0000;
-font-weight: bold;
-                          }
-</style>
      
  
      <br><br><br>
@@ -191,15 +20,17 @@ font-weight: bold;
  
  
          <form id="info_form" method="post">
-    <input type="text" name="etat" hidden disabled class="bneder" value="en attent">
-                <h4 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h4>
-                <div style="border-top: 2px solid red; width:330px; margin:-20px 0px 0px 30px; "></div>
-                <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
+    
 
                         <br>
-
+                        <input  name="etat" hidden disabled class="bneder" value="en attent">
+                <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
+                <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+                
                 <div class="row">
                     <div class="col">
+                    <br><br><br>
+                <input disabled hidden name="user" class="bneder" value="<?php echo $_SESSION['id_user']; ?>" />
                     <div class="input-group input-group-sm">
                     <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
@@ -207,7 +38,7 @@ font-weight: bold;
                     <br />
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
-                    <select class="select-ee" id="day_of_passage" >
+                    <select class="form-select" id="day_of_passage" >
                        <option value="-"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -263,37 +94,17 @@ font-weight: bold;
                        <option  value="30"> 31
                        </option>
                     </select>
-                    <select class="select-ee"  id="month_of_passage" >
+                    <select class="form-select"  id="month_of_passage" >
                        <option value="-"></option>
-                       <option  value="01">1 - Janvier</option>
-                       <option  value="02">2 - Février</option>
-                       <option  value="03">3 - Mars</option>
-                       <option  value="04">4 - Avril</option>
-                       <option  value="05">5 - Mai</option>
-                       <option  value="06">6 - Juin</option>
-                       <option  value="07">7 - Juillet</option>
-                       <option  value="08">8 - Août</option>
-                       <option  value="09">9 - Septembre</option>
-                       <option  value="10">10 - Octobre</option>
-                       <option  value="11">11 - Novembre</option>
-                       <option  value="12">12 - Décembre</option>
+                        <option  value="5">Mai</option>
+                        <option  value="6">Juin</option>
+                        <option  value="7">Juillet</option>
                     </select>
-                    <select class="select-ee" id="year_of_passage" >
-                       <option value="-">-</option>
-                       <option  value="2024">2024
+                    <select class="form-control" id="year_of_passage" >
+                       
+                       <option selected value="2024">2024
                        </option>
-                       <option  value="2025">2025
-                       </option>
-                       <option  value="2026">2026
-                       </option>
-                       <option  value="2027">2027
-                       </option>
-                       <option  value="2028">2028
-                       </option>
-                       <option  value="2029">2029
-                       </option>
-                       <option  value="2030">2030
-                       </option>
+                       
                     </select>
                  </div>
                  <br />
@@ -303,7 +114,7 @@ font-weight: bold;
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input class="form-control" id="nom_recensseur" type="text" value="" />
+                    <input readonly class="form-control bneder" id="nom_recensseur" name="nom_recensseur"  value="" />
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -312,9 +123,10 @@ font-weight: bold;
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input class="form-control" id="prenom_recenseur"  type="text" 
+                    <input readonly class="form-control bneder" id="prenom_recenseur" name="prenom_recenseur"   
                        value="" />
                  </div>
+                 <br />
                  <br />
                         <div class="input-group input-group-sm">
                         <div hidden class="qst-num zxcount"></div>
@@ -322,79 +134,35 @@ font-weight: bold;
                             <span class="input-group-text" id="basic-addon3">الولاية
                                 <br>
                                 Wilaya</span>
-                            <input class="form-control" id="wilaya_name_ascii" >
+                            <input readonly class="form-control" id="wilaya_name_ascii" >
                         
                     
                  </div>
-                 <br />
-                 <div class="input-group input-group-sm">
-                 <div hidden class="qst-num zxcount"></div>
-                        <div class="qst-num ">8</div>
-                    <span class="input-group-text" id="basic-addon3">البلدية<br />
-                    commune</span>
-                    <input readonly class="form-control" type="text" id="commune_name_ascii"  value="" />
-                 </div>
+               
 
                  <br />
-                 
 
                  <script>
-                    $(document).ready(function() {
-                      // Listen for the form submission
-                      $('#info_form').on('submit', function(e) {
-                        e.preventDefault(); // Prevent the default form submission
-                    
-                        // Collect the form data
-                        var formObject = {};
-                        var formData = $(this).serializeArray();
-                        $.each(formData, function(_, element) {
-                          formObject[element.name] = element.value;
-                        });
-                    
-                        // Send the form data with fetch
-                        fetch('http://localhost/agr/BondVert.php', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                          },
-                          body: JSON.stringify(formObject)
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                          console.log('Success:', data);
-                          // Handle success, e.g., show a message to the user
-                        })
-                        .catch((error) => {
-                          console.error('Error:', error);
-                          // Handle error, e.g., show an error message to the user
-                        });
-                      });
+                    document.getElementById('wilaya_select').addEventListener('change', function () {
+                        var selectedOption = this.options[this.selectedIndex].value;
+                
+                        var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
+                        var commune_code = document.querySelector('[name="commune_code"]');
+                
+                        var wilayaValues = {
+                            'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
+                            'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
+                            'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
+                            'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
+                            'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
+                            'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
+                        };
+                
+                        if (wilayaValues[selectedOption]) {
+                            communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
+                            commune_code.value = wilayaValues[selectedOption].communeCode;
+                        }
                     });
-                    </script>
-                    
-
-                 <script>
-                  //   document.getElementById('wilaya_select').addEventListener('change', function () {
-                  //       var selectedOption = this.options[this.selectedIndex].value;
-                
-                  //       var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
-                  //       var commune_code = document.querySelector('[name="commune_code"]');
-                
-                  //       var wilayaValues = {
-                  //           'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
-                  //           'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
-                  //           'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
-                  //           'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
-                  //           'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
-                  //           'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
-                  //       };
-                
-                  //       if (wilayaValues[selectedOption]) {
-                  //           communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
-                  //           commune_code.value = wilayaValues[selectedOption].communeCode;
-                  //       }
-                  //   });
                 </script>
 
 
@@ -406,7 +174,7 @@ font-weight: bold;
                     </span>
             
                   
-                       <input id="in3" type="text" max="9999" class="form-control" data-length="4"
+                       <input id="in3"  maxlength="4" num class="form-control" 
                           value="" />
                    
                  </div> 
@@ -415,187 +183,209 @@ font-weight: bold;
                 
               </div>
               <div class="col">
-                 
-                
 
-                 <div  class="card"> 
+              <?php
+if ($_SESSION['role'] == "recenseur") {
+    $disabled = "disabled";
+} else {
+    $disabled = "";
+}
+?>
+    <div  class="card"> 
 
 
-                    <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:center; color:red;"><p>  للمراقب مخصص إطار - Cadre réservé au contrôleur</p></div>
+<div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
+<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
-              
-                    <span class="input-group-text" id="basic-addon3"> الرقم <br>
-                       Numéro</span>
-                        <input  type="text" class="form-control bneder" id="num_qst" name="num_qst">
 
-                </div> <br>
+<span class="input-group-text" id="basic-addon3"> الرقم <br>
+   Numéro</span>
+    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="num_qst">
 
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">4</div>
-                          <span style="width: 102px;" class="input-group-text" id="basic-addon3">تاريخ
-                          المراقبة
-                          <br />
-                          Date de contrôle
-                          </span>
-                          <select class="select-ee" id="inputGroupSelect01">
-                             <option value="-"></option>
-                             <option  value="1">1</option>
-                             <option  value="2">2</option>
-                             <option  value="3">3</option>
-                             <option  value="4">4</option>
-                             <option  value="5">5</option>
-                             <option  value="6">6</option>
-                             <option  value="7">7</option>
-                             <option  value="8">8</option>
-                             <option  value="9">9</option>
-                             <option  value="10"> 10
-                             </option>
-                             <option  value="11"> 11
-                             </option>
-                             <option  value="12"> 12
-                             </option>
-                             <option  value="13"> 13
-                             </option>
-                             <option  value="14"> 14
-                             </option>
-                             <option  value="15"> 15
-                             </option>
-                             <option  value="16"> 16
-                             </option>
-                             <option  value="17"> 17
-                             </option>
-                             <option  value="18"> 18
-                             </option>
-                             <option  value="19"> 19
-                             </option>
-                             <option  value="20"> 20
-                             </option>
-                             <option  value="21"> 21
-                             </option>
-                             <option  value="22"> 22
-                             </option>
-                             <option  value="23"> 23
-                             </option>
-                             <option  value="24"> 24
-                             </option>
-                             <option  value="25"> 25
-                             </option>
-                             <option  value="26"> 26
-                             </option>
-                             <option  value="27"> 27
-                             </option>
-                             <option  value="28"> 28
-                             </option>
-                             <option  value="29"> 29
-                             </option>
-                             <option  value="30"> 30
-                             </option>
-                             <option  value="30"> 31
-                             </option>
-                          </select>
-                          <select class="select-ee" id="inputGroupSelect01" >
-                             <option value="-"></option>
-                             <option  value="1">1 - Janvier</option>
-                             <option  value="2">2 - Février</option>
-                             <option  value="3">3 - Mars</option>
-                             <option  value="4">4 - Avril</option>
-                             <option  value="5">5 - Mai</option>
-                             <option  value="6">6 - Juin</option>
-                             <option  value="7">7 - Juillet</option>
-                             <option  value="8">8 - Août</option>
-                             <option  value="9">9 - Septembre</option>
-                             <option  value="10">10 - Octobre</option>
-                             <option  value="11">11 - Novembre</option>
-                             <option  value="12">12 - Décembre</option>
-                          </select>
-                          <select class="select-ee" id="inputGroupSelect01">
-                             <option value="-">-</option>
-                             <option  value="2024">2024
-                             </option>
-                             <option  value="2025">2025
-                             </option>
-                             <option  value="2026">2026
-                             </option>
-                             <option  value="2027">2027
-                             </option>
-                             <option  value="2028">2028
-                             </option>
-                             <option  value="2029">2029
-                             </option>
-                             <option  value="2030">2030
-                             </option>
-                          </select>
-                       </div>
-                       <br />
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">5</div>
-                          <span class="input-group-text" id="basic-addon3">لقب
-                          المراقب
-                          <br />
-                          Nom du contrôleur</span>
-                          <input readonly class="form-control"type="text"  id="nom_controleur"
-                             />
-                       </div>
-                       <br />
-                       <div class="input-group input-group-sm">
-                       <div hidden class="qst-num zxcount"></div>
-                       <div class="qst-num ">6</div>
-                          <span class="input-group-text" id="basic-addon3">إسم
-                          المراقب
-                          <br />
-                          prénom du contrôleur</span>
-                          <input readonly class="form-control" type="text" id="prenom_controleur" />
-                       </div>
+</div> 
 
-                    </div>
-                 </div>
-                 <br/>
-                 <br/>
+<br>
+
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">4</div>
+      <span style="width: 102px;" class="input-group-text" id="basic-addon3">تاريخ
+      المراقبة
+      <br />
+      Date de contrôle
+      </span>
+      <select  <?= $disabled ?> class="form-control" id="inputGroupSelect01">
+         <option value="-"></option>
+         <option  value="1">1</option>
+         <option  value="2">2</option>
+         <option  value="3">3</option>
+         <option  value="4">4</option>
+         <option  value="5">5</option>
+         <option  value="6">6</option>
+         <option  value="7">7</option>
+         <option  value="8">8</option>
+         <option  value="9">9</option>
+         <option  value="10"> 10
+         </option>
+         <option  value="11"> 11
+         </option>
+         <option  value="12"> 12
+         </option>
+         <option  value="13"> 13
+         </option>
+         <option  value="14"> 14
+         </option>
+         <option  value="15"> 15
+         </option>
+         <option  value="16"> 16
+         </option>
+         <option  value="17"> 17
+         </option>
+         <option  value="18"> 18
+         </option>
+         <option  value="19"> 19
+         </option>
+         <option  value="20"> 20
+         </option>
+         <option  value="21"> 21
+         </option>
+         <option  value="22"> 22
+         </option>
+         <option  value="23"> 23
+         </option>
+         <option  value="24"> 24
+         </option>
+         <option  value="25"> 25
+         </option>
+         <option  value="26"> 26
+         </option>
+         <option  value="27"> 27
+         </option>
+         <option  value="28"> 28
+         </option>
+         <option  value="29"> 29
+         </option>
+         <option  value="30"> 30
+         </option>
+         <option  value="30"> 31
+         </option>
+      </select>
+      <select  <?= $disabled ?>  class="form-control" id="inputGroupSelect01" >
+         <option value="-"></option>
+         <option  value="1">Janvier</option>
+         <option  value="2">Février</option>
+         <option  value="3">Mars</option>
+         <option  value="4">Avril</option>
+         <option  value="5">Mai</option>
+         <option  value="6">Juin</option>
+         <option  value="7">Juillet</option>
+         <option  value="8">Août</option>
+         <option  value="9">Septembre</option>
+         <option  value="10">Octobre</option>
+         <option  value="11">Novembre</option>
+         <option  value="12">Décembre</option>
+      </select>
+      <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
+         <option value="-"></option>
+         <option  value="2024">2024
+         </option>
+         <option  value="2025">2025
+         </option>
+         <option  value="2026">2026
+         </option>
+         <option  value="2027">2027
+         </option>
+         <option  value="2028">2028
+         </option>
+         <option  value="2029">2029
+         </option>
+         <option  value="2030">2030
+         </option>
+      </select>
+   </div>
+   <br />
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">5</div>
+      <span class="input-group-text" id="basic-addon3">لقب
+      المراقب
+      <br />
+      Nom du contrôleur</span>
+      <input  <?= $disabled ?> readonly class="form-control"  id="nom_controleur"
+         />
+   </div>
+   <br />
+   <div class="input-group input-group-sm">
+   <div hidden class="qst-num zxcount"></div>
+   <div class="qst-num ">6</div>
+      <span class="input-group-text" id="basic-addon3">إسم
+      المراقب
+      <br />
+      prénom du contrôleur</span>
+      <input  <?= $disabled ?> readonly class="form-control"  id="prenom_controleur" />
+   </div>
+
+</div>
+</div>
+
+
+
+                
+
+                
                 
           
-                 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
-                 <div hidden class="qst-num zxcount"></div>
-                 <div class="qst-num ">9</div>
-                    <span class="input-group-text" id="basic-addon3">رمز البلدية<br>
-                        commune Code</span>
-                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code">
-
-                </div>
+               
                  
-                 <br />
+            
               </div>
-           </div>
-
-
-           <div class="row">
-            <div class="col-8">
-            <div class="input-group input-group-sm">
+              <div class="row">
+           <div class="col-8">
+           <div class="input-group input-group-sm" style="margin-right:8px;">
+                 <div hidden class="qst-num zxcount"></div>
+                        <div class="qst-num ">8</div>
+                    <span class="input-group-text" id="basic-addon3">البلدية<br />
+                    commune</span>
+                    <input readonly class="form-control"  id="commune_name_ascii"  value="" />
+                 </div>
+                 <br>
+                 <div class="input-group input-group-sm">
                  <div  class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
                     district-zone <br /> إسم المكان، المنطقة
                     </span>
-                    <input class="form-control"   type="text" id="nom_zone_district" />
+                    <input class="form-control"   id="nom_zone_district" />
+
                  </div>
                  
-
-            </div>
+         </div>
             <div class="col">
-            <div class="input-group input-group-sm">
+           <div  class="input-group input-group-sm"><br>
+                 <div hidden class="qst-num zxcount"></div>
+                 <div class="qst-num ">9</div>
+                    <span class="input-group-text"  id="basic-addon3">رمز البلدية<br>
+                        commune Code</span>
+                        <input style="max-width:88px;" readonly num   maxlength="4"  class="form-control bneder" id="commune_code" name="commune_code">
+
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
                  <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input  type="text" max="99" class="form-control" id="num_zone_district" data-length="2"
-                         />
+                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
                     
                  </div>
             </div>
+                </div>
            </div>
+         
+        
+                <br />
+         
            
            <br />
                  
@@ -604,8 +394,8 @@ font-weight: bold;
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h4 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h4>
-           <div style="border-top: 2px solid red; width:410px; margin:-20px 0px 0px 30px; "></div>
+           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h5>
+           <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 
            <br />
            <div class="row">
@@ -615,7 +405,7 @@ font-weight: bold;
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder" type="text" name="nom_exploitant" id="nom_exploitant"   />
+                    <input class="form-control bneder"  name="nom_exploitant" id="nom_exploitant"   />
                  </div>
               </div>
 
@@ -630,7 +420,7 @@ font-weight: bold;
                    <span class="input-group-text" id="basic-addon3">
                     الإسم<br /> Prénom
                     </span>
-                    <input class="form-control bneder"  type="text"  name="prenom_exploitant"  id="prenom_exploitant" />
+                    <input class="form-control bneder"    name="prenom_exploitant"  id="prenom_exploitant" />
                  </div>
               </div>
            </div>
@@ -641,7 +431,7 @@ font-weight: bold;
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3" style="width: 165px;">
                       تاريخ الميلاد  Date de naissance</span>
-                    <select class="select-ee " id="jour_de_naissance"  style="width: 65px;">
+                    <select class="form-select " id="jour_de_naissance"  style="width: 65px;">
                        <option value="02"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -697,22 +487,22 @@ font-weight: bold;
                        <option  value="30"> 31
                        </option>
                     </select>
-                    <select class="select-ee"   id="mois_de_naissance" style="width: 165px;">
+                    <select class="form-select"   id="mois_de_naissance" style="width: 165px;">
                        <option value="02"></option>
-                       <option  value="01">1 - Janvier</option>
-                       <option  value="02">2 - Février</option>
-                       <option  value="03">3 - Mars</option>
-                       <option  value="04">4 - Avril</option>
-                       <option  value="05">5 - Mai</option>
-                       <option  value="06">6 - Juin</option>
-                       <option  value="07">7 - Juillet</option>
-                       <option  value="08">8 - Août</option>
-                       <option  value="09">9 - Septembre</option>
-                       <option  value="10">10 - Octobre</option>
-                       <option  value="11">11 - Novembre</option>
-                       <option  value="12">12 - Décembre</option>
+                       <option  value="01">Janvier</option>
+                       <option  value="02">Février</option>
+                       <option  value="03">Mars</option>
+                       <option  value="04">Avril</option>
+                       <option  value="05">Mai</option>
+                       <option  value="06">Juin</option>
+                       <option  value="07">Juillet</option>
+                       <option  value="08">Août</option>
+                       <option  value="09">Septembre</option>
+                       <option  value="10">Octobre</option>
+                       <option  value="11">Novembre</option>
+                       <option  value="12">Décembre</option>
                     </select>
-                    <select class="select-ee" id="annee_de_naissance"  style="width: 125px;" >
+                    <select class="form-select" id="annee_de_naissance"  style="width: 125px;" >
                     <option value="-" disabled selected> </option>
                         <option value="1880">1880</option><option value="1881">1881</option><option value="1882">1882</option><option value="1883">1883</option><option value="1884">1884</option><option value="1885">1885</option><option value="1886">1886</option><option value="1887">1887</option><option value="1888">1888</option><option value="1889">1889</option><option value="1890">1890</option><option value="1891">1891</option><option value="1892">1892</option><option value="1893">1893</option><option value="1894">1894</option><option value="1895">1895</option><option value="1896">1896</option><option value="1897">1897</option><option value="1898">1898</option><option value="1899">1899</option><option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
                     </select>
@@ -722,8 +512,8 @@ font-weight: bold;
                     <span class="input-group-text" id="basic-addon3">الجنس
                     <br />
                     Sexe</span>
-                    <select class="select-ee bneder"   name="sexe_exploitant"  >
-                       <option selected=""> -
+                    <select class="form-select bneder"   name="sexe_exploitant"  >
+                       <option value="-" disabled selected> 
                        </option>
                        <option  value="1"> Masculin - ذكر
                        </option>
@@ -746,13 +536,13 @@ font-weight: bold;
                            <span class="input-group-text " id="basic-addon3">المستوى التعليمي
                            <br />
                            Niveau d'instruction</span>
-                           <select class="select-ee  bneder" id="niveau_instruction"   name="niveau_instruction" >
+                           <select class="form-select  bneder" id="niveau_instruction"   name="niveau_instruction" >
                               <option disabled value="-" selected="">  </option>
-                              <option  value="1">1-Aucu-لاشيء</option>
-                              <option  value="2">2-Primaire-إبتدائي</option>
-                              <option  value="3">3-Moye-متوسط</option>
-                              <option  value="4">4-Secondaire-ثانوي</option>
-                              <option  value="5">5-Universitaire-جامعي</option>
+                              <option  value="1">1-Aucun - لاشيء</option>
+                              <option  value="2">2-Primaire - إبتدائي</option>
+                              <option  value="3">3-Moyen - متوسط</option>
+                              <option  value="4">4-Secondaire - ثانوي</option>
+                              <option  value="5">5-Universitaire - جامعي</option>
                            </select>
                            <div style="margin: 7px 0px 0px 20px;" class="qst-num zxcount"></div>
                      </div>
@@ -765,17 +555,17 @@ font-weight: bold;
                     <span class="input-group-text " id="basic-addon3">مستوى التكوين الفلاحي
                     <br />
                     Niveau de formation agricole</span>
-                    <select class="select-ee  bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
+                    <select class="form-select  bneder" id="niveau_formation_agricole" name="niveau_formation_agricole" >
                        <option disabled value="-" selected="">  </option>
-                       <option  value="1">1-Aucun-لاشيء</option>
-                       <option  value="2">2-Agent technique spécialisé-عون تقني متخصص</option>
-                       <option  value="3">3-Ingénieur-مهندس</option>
-                       <option  value="4">4-Perfectionnement-تأهيل</option>
-                       <option  value="5">5-Technicien-تقني</option>
-                       <option  value="6">6-Vétérinaire-بيطري</option>
-                       <option  value="7">7-Agent technique-عون تقني</option>
-                       <option  value="8">8-Technicien supérieur-تقني سامي</option>
-                       <option  value="9">9-Formation-تكوين</option>
+                       <option  value="1">1- Aucun - لاشيء</option>
+                       <option  value="2">2- Perfectionnement - تأهيل</option>
+                       <option  value="3">3- Agent technique-عون تقني</option>
+                       <option  value="4">4- Agent technique spécialisé - عون تقني متخصص</option>
+                       <option  value="5">5- Technicien - تقني</option>
+                       <option  value="6">6- Technicien supérieur - تقني سامي</option>
+                       <option  value="7">7- Ingénieur - مهندس</option>
+                       <option  value="8">8- Vétérinaire - بيطري</option>
+                       <option  value="9">9- Formation - تكوين</option>
                     </select>
                  </div>
               </div>
@@ -787,7 +577,7 @@ font-weight: bold;
               <span class="input-group-text" id="basic-addon3">
               عنوان المستثمر الفلاحي (الفلاح) - Adresse de l'exploitant agricole
               </span>
-              <input class="form-control bneder"  type="text" 
+              <input class="form-control bneder"   
                  name="adress_exploitant" />
            </div>
            <br />
@@ -801,7 +591,7 @@ font-weight: bold;
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
-            <input class="form-control bneder" type="text"  id="nin_exploitant" name="nin_exploitant"   />
+            <input class="form-control bneder" num   maxlength="18" id="nin_exploitant" name="nin_exploitant"   />
             </div>
 <br>
 
@@ -810,7 +600,7 @@ font-weight: bold;
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف اإلحصائي <br> Numéro d’identification statstique
             </span>
-            <input class="form-control bneder"  type="text" id="nis_exploitant"  name="nis_exploitant" />
+            <input class="form-control bneder"  num   maxlength="15" id="nis_exploitant"  num name="nis_exploitant" />
             </div>
 
                </div>
@@ -820,14 +610,14 @@ font-weight: bold;
                  <span class="input-group-text" id="basic-addon3">
                  رقم الهاتف <br /> Numéro de téléphone
                  </span>
-                 <input class="form-control bneder" type="text" id="phone_exploitant"  name="phone_exploitant">
+                 <input class="form-control bneder" num   maxlength="10" id="phone_exploitant"  name="phone_exploitant">
               </div>
               
               <br>
               <div class="input-group input-group-sm">
               <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">  البريد الإكتروني<br /> é-mail</span>
-                    <input class="form-control bneder"  type="text"  id="email_exploitant"  name="email_exploitant" />
+                    <input class="form-control bneder"    id="email_exploitant"  name="email_exploitant" />
                  </div>
                </div>
             </div> 
@@ -850,7 +640,7 @@ font-weight: bold;
 
            
           
-                <select class="select-ee col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
+                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
                 <option disabled value="-" selected="">  </option>
                         <option value="1">1 - CASNOS
                         </option>
@@ -865,7 +655,7 @@ font-weight: bold;
             <span class="input-group-text" id="basic-addon3">
                رقم الضمان الإجتماعي <br> Numéro de sécurité social
                </span>
-            <input class="form-control bneder" type="text"  id="num_sec_sociale" name="num_sec_sociale"   />
+            <input num   maxlength="12" class="form-control bneder"   id="num_sec_sociale" name="num_sec_sociale"   />
             </div>
          </div>
 
@@ -887,8 +677,8 @@ font-weight: bold;
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية الأحياء المائية<br>
-              La Chambre de la pêche et de l'aquacutur (CAPA)</label>
+              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
+              La Chambre de la Pêche et de l'Aquaculture (CAPA)</label>
             </div><br>
             <div class="form-check">
               <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
@@ -896,7 +686,7 @@ font-weight: bold;
             </div>
             <div class="form-check">
                <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
-               La Chambre de l'artisanat et des metiers (CAM)</label>
+               La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
          </div><br>
          <div class="col">
@@ -921,26 +711,26 @@ font-weight: bold;
     <br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
-      Numéro de la carte fellah</span> <input class="form-control bneder" type="text" id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
+      Numéro de la carte fellah</span> <input num maxlength="7" class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
-      Issu d'une famille agricole</span> <select class="select-ee col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
+      Issu d'une famille agricole</span> <select class="form-select col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
         <option value="-" disabled selected>
         </option>
         <option value="1">
           1 - Oui - نعم
         </option>
         <option value="2">
-          Non - لا
+          2- Non - لا
         </option>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="select-ee col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
-        <option selected>
-          -
+      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+        <option value="-" disabled selected>
+         
         </option>
         <option value="1">
           1 - الوحيد - Unique
@@ -952,11 +742,25 @@ font-weight: bold;
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input class="form-control bneder" type="text" id="nb_co_exploitants" name="nb_co_exploitants">
+      Nombre de co-exploitants, si</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> <input class="form-control bneder" type="text" id="nature_exploitant" name="nature_exploitant">
+      Nature de l'exploitant</span> 
+      <select class="form-select col-6 bneder" id="nature_exploitant" name="nature_exploitant">
+        <option value="-" disabled selected>
+         
+        </option>
+        <option value="1">
+          1 - مالك - Propriétaire
+        </option>
+        <option value="2">
+          2 - مسير - Gérant
+        </option>
+        <option value="2">
+          2 - مستأجر - Locataire
+        </option>
+      </select>
     </div>
   </div>
 </div>
@@ -985,23 +789,23 @@ font-weight: bold;
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h4 style="margin-bottom: 27px;">III- Identification de l'exploitant تعريف المستثمرة</h4>
-    <div style="border-top: 2px solid red; width:410px; margin:-20px 0px 0px 30px; "></div>
+    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitant تعريف المستثمرة</h5>
+    <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 <br>
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation" type="text" >
+  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
-  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation" type="text" value="">
+  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
-  Statut juridique de l’exploitation</span> <select class="select-ee bneder" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
-    <option selected>
-      -
+  Statut juridique de l’exploitation</span> <select class="form-select bneder" id="statut_juridique_de_lexploitation" name="statut_juridique_de_lexploitation">
+    <option value="-" disabled selected>
+      
     </option>
     <option value="1">
       1 - Société civile - مؤسسة مدنية
@@ -1050,17 +854,17 @@ font-weight: bold;
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="height: 33px;" class="select-ee bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
               +
             </option>
             <option value="OUEST">
               -
             </option>
-          </select> <input class="form-control bneder" type="text" id="lon_exploitation" name="lon_exploitation">
+          </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder" type="text" id="lat_exploitation" name="lat_exploitation">
+          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
         </div>
       </div>
     </div>
@@ -1101,35 +905,26 @@ font-weight: bold;
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span>
-           <select class="select-ee bneder" id="activite_exploitation" name="activite_exploitation">
-            <option>
-              -
+          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+            <option value="-" disabled selected>
+             
             </option>
             <option value="1">
-              1 - نباتية - Végétale
+              1 - نباتي - Végétale
             </option>
             <option value="2">
-              2 - تربية الحيوانات - Elevage
+              2 - تربية الحيوانات - Animale
             </option>
             <option value="2">
-              3 - مختلطة - mixte
+              2 - مختلط - mixte
             </option>
           </select>
-        </div><br> 
-
-
-
-
-
-
-
-
+        </div><br>
         <div class="input-group input-group-sm">
-          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية المواشي<br>
-          Si activité est l'élevage</span> <select class="select-ee bneder" id="type_activite_exploitation" name="type_activite_exploitation">
-            <option>
-              -
+          <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
+          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+            <option value="-" disabled selected>
+             
             </option>
             <option value="1">
               1 - لديه أرض - Avec terre
@@ -1145,7 +940,7 @@ font-weight: bold;
 </div><br>
 <br>
 <div class="row">
-  <div class="col">
+  <div class="col-5">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
         إمكانية الوصول إلى المستثمرة<br>
@@ -1169,7 +964,7 @@ font-weight: bold;
           </div>
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار<br>
+              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
               Piste</label>
             </div><br>
             <div class="form-check">
@@ -1177,7 +972,7 @@ font-weight: bold;
               Accés agricole</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مسار ريفي<br>
+              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
               Accés rural</label>
             </div>
           </div>
@@ -1195,7 +990,7 @@ L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
       <div class="col-auto">
-        <select class="select-ee form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+        <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected>
             -
           </option>
@@ -1215,7 +1010,7 @@ réseau électrique ?
       <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
-</span><select class="select-ee bneder" id="reseau_telephonique" name="reseau_telephonique">
+</span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
           <option selected>
             -
           </option>
@@ -1234,7 +1029,7 @@ un réseau téléphonique ?
 <div class="qst-num zxcount"></div>
 <span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
 Si oui, 
-</span> <select class="select-ee bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
+</span> <select class="form-select bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
           <option selected>
             -
           </option>
@@ -1257,7 +1052,7 @@ Si oui,
 اإلنترنت؟ <br>
 L'éxploiation est-elle connectée
 au réseau internet ?
-</span> <select class="select-ee bneder" id="reseau_internet" name="reseau_internet">
+</span> <select class="form-select bneder" id="reseau_internet" name="reseau_internet">
       <option selected>
         -
       </option>
@@ -1271,13 +1066,14 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm">
    <div class="qst-num zxcount"></div>
-   <span class="input-group-text" id="basic-addon3">إذا نعم، هل تستخدم اإلنترنت
-ألغراض متعلقة بالفالحة؟
-<br>
-Si oui, utilisez-vous le réseau
-internet pour des besoins
-agricoles ?
-</span> <select class="select-ee bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+   <span class="input-group-text" id="basic-addon3" style="max-width: 82% !important; ">
+    إذا نعم، هل تستخدم اإلنترنت
+    ألغراض متعلقة بالفالحة؟
+    <br>
+    Si oui, utilisez-vous le réseau
+    internet pour des besoins
+    agricoles ?
+</span> <select class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1317,15 +1113,19 @@ agricoles ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;">
+                  <div style="margin-top: 62px;height: 50px;width: 90%;background-color: white;position: absolute;z-index: 99;">
                         </div>
 
 
                   <div class="row" style="text-align: center;">
-                    <div class="col-3">أصل الأرضي <br> Origine des terres</div>
-                     <div class="col-4">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
-                     <div class="col" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col">المساحة(ار) <br> Superficie(Are)</div>
+                    <!-- <div class="col-1"></div> -->
+                    <div class="col-4">أصل الأرضي <br> Origine des terres</div>
+                    
+                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
+                     <div class="col"></div>
+
+                     <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
+                     <div class="col-2">المساحة(ار) <br> Superficie(Are)</div>
                      <div class="col"></div>
                   </div>
                   <hr>
@@ -1335,8 +1135,8 @@ agricoles ?
 
 
 
-                  <div style="margin-bottom: 5px;" class="row  statut_juridique_s">
-                        <div class="col">
+                  <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
+                        <div class="col-4">
                         <div class="input-group input-group-sm">
 
                             <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
@@ -1356,8 +1156,9 @@ agricoles ?
                             </div>
                         </div>
 
-                        <div class="col">
+                        <div class="col-3">
 
+                        
 
                         <div class="input-group input-group-sm">
 
@@ -1376,12 +1177,24 @@ agricoles ?
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
                                 <option value="13">13- Inconnu غير معروف</option> -->
+                                <option  disabled=""  selected value="-"></option>
+                                <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
+                                  <option value="13">13 - Vente/Achat بيع/شراء</option>
+                                 <option value="14">14 - Succession إرث</option>
+                                 <option value="15">15 - Donation هبة</option>
+                                 <option value="16">16 - Testament وصية</option>
+                                 <option value="17">17 - Droit préemption حق الشفاعة</option>
+                                 <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+                                 <option value="19">19 - Certificat de possession شهادة حيازة</option>
+                                 <option value="20">20 - Location إجار</option>
+                                 <option value="21">21 - Autre  آخرى </option>
+                                 <option value="22">22 - Inconnu غير معروف</option>
                                 </select>
-                                <div class="big-space"></div>
+                               
                          </div>
 
                       </div>
-
+                      <div class="col-1"></div>
                       <style>
 .error {
     border: 2px solid red;
@@ -1412,10 +1225,9 @@ $(document).ready(function(){
         if($.inArray(cc, selectedValues) !== -1){
             console.log("This combination of values has already been selected.");
             Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
+                icon: "error",
+                title: "Erreur",
+                text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
             });
             $('#origine_des_terres_' + idPart).addClass('error');
             $('#status_juridique_' + idPart).addClass('error');
@@ -1430,15 +1242,15 @@ $(document).ready(function(){
 
 
 
-                        <div class="col">
+                        <div class="col-2">
                             <div class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"   type="text" max="9999" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"  data-length="4"  >
-                            
-                                   
-                                    <div class="big-space"></div>
-                                    <div class="small-space"></div>
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                       </div>
+                       </div>
+                       <div class="col-1"> 
+                       <div class="input-group input-group-sm">
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are" type="text" max="99" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s" data-length="2" >
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1520,93 +1332,115 @@ $(document).ready(function(){
 
  <br/>
 
-
-
-
- 
-
-
-
-
+<div class="row">
+   <div class="col-8">
  <div class="input-group input-group-sm">
- <div class="qst-num zxcount"></div>
-
-               <span class="input-group-text" id="basic-addon3">
-               le Référence - مرجع مسح األراضي
-               </span>
-               <div class="line-edits-container" id="cn13">
-                 <input class="select-ee bneder" type="text"  id="reference_cadastrale" name="reference_cadastrale" value="">
-               </div>
- </div>
- <br>
-
-<div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
-   <select class="select-ee bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
+   <select class="form-select bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
       <option selected="">-</option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
 </div>
 
-<br>
-
-<div class="card" style="font-size: 12px;">
-<div class="card-header" style="text-align: center;">
-إذا كانت م.ف.ج -    Si Ex-EAC
-                  <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
-               
-               </div>
-<!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
-<br>
-<div class="row">
-   <div class="col">
-   <div class="input-group input-group-sm">
-               <span class="input-group-text" id="basic-addon3">
-               عدد األعضاء
-               <br>
-
-               
-               Nombre des exploitants
-
-               </span>
-               
-               <input style="width:100px;" class="form-control bneder" type="text"  id="si_exploi_eac" name="si_exploi_eac"  value="">
-              
-            </div>
 
    </div>
-   <div class="col-5">
+   <div class="col-4">
    <div class="input-group input-group-sm">
-               <span class="input-group-text" id="basic-addon3">
-             مساحة م.ف.ج
+ <div  hidden class="qst-num zxcount"></div>
+ <div   class="qst-num">46</div>
 
-               <br>
-               Superficie de
-l'Ex-EAC
+
+               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
+               le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
-              
-               <input style="width:150px;" class="form-control bneder" type="text" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-               <input style="width:100px;" class="form-control bneder" type="text"  id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
-            </div>
+                 <input class="form-control bneder" num maxlength="6"   id="reference_cadastrale" name="reference_cadastrale" value="">
+
+
+
+
    </div>
 </div>
-        
-            <br>
+</div>
 
-           
+
+
+
+<br>
+ 
+
+
+
+
+
+ <br>
+
+
+
+ <div class="card" style="font-size: 12px;">
+    <div class="card-header" style="text-align: center;">
+        إذا كانت م.ف.ج - Si Ex-EAC
+        <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+        <div class="qst-num" style="margin: 0px 0px 0px 0px; text-align: left;">45</div>
+    </div>
+    <!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
+    <br>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            عدد األعضاء<br>
+            Nombre des <br>exploitants
+        </div>
+        <div class="col">
+            مساحة م.ف.ج<br>
+            Superficie de l'Ex-EAC
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-2"></div>
+        <div class="col-4"></div>
+        <div class="col-2">Hectar - هكتار</div>
+        <div class="col"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Are - آر</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <div class="input-group input-group-sm">
+                <input style="width:100px;" class="form-control bneder" num maxlength="2" id="si_exploi_eac" name="si_exploi_eac" value="">
             </div>
-           
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
+                    </div>
+                </div>
+                
+                <div class="col-5">
+                    <div class="input-group input-group-sm">
+                        <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <br>
+</div>
+ 
 
-<br/>
+
 <br/>
 
 
@@ -1633,8 +1467,8 @@ l'Ex-EAC
 
             <div style="border-top: 3px solid red;"></div>
 <br>
-            <h4 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h4>
-            <div style="border-top: 2px solid red; width:390px; margin:-20px 0px 0px 30px;"></div>
+            <h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
+            <div style="border-top: 1px solid red; width:250px; margin:-20px 0px 0px 50px;"></div>
             <br>
             <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
 
@@ -1642,7 +1476,7 @@ l'Ex-EAC
 
             <div class="container mt-3">
    <div class="row" style="text-align: center;">
-      <div class="col-4"></div>
+      <div class="col-5"></div>
       <div class="col">
          (المساحة Superficie) جافة (هكتار) - En sec (Hectare)
       </div>
@@ -1652,10 +1486,12 @@ l'Ex-EAC
    </div>
    <br>
    <div class="row" style="text-align: center;">
-      <div class="col-4"></div>
-      <div class="col">
+      <div class="col-5"></div>
+      <div class="col-3">
          <div class="row">
-            <div class="col">
+      <div class="col"></div>
+
+            <div class="col" style="padding-left:15px">
                Hectare - هكتار
             </div>
             <div class="col">
@@ -1663,9 +1499,12 @@ l'Ex-EAC
             </div>
          </div>
       </div>
-      <div class="col">
-         <div class="row">
-            <div class="col">
+      <div class="col-3">
+      <div class="row">
+     
+      <div class="col"></div>
+
+            <div class="col" style="padding-left:15px">
                Hectare - هكتار
             </div>
             <div class="col">
@@ -1688,31 +1527,31 @@ l'Ex-EAC
     <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
 </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
-               <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  max="9999"  data-length="4" >
+               
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
-                 <div class="small-space"></div>
-                     <span style="width: 32px;"></span>
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                 
+                     
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" type="text" max="9999"  data-length="4" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+               
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
+                     
+                  
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     
                </div>
             </td>
          </tr>
@@ -1723,38 +1562,38 @@ l'Ex-EAC
             <p style="margin: 0px 0px 0px 25px;" >Terres au repos (jachères)</p>
             <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
                      
                      
-               <div class="small-space"></div>
+               
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1" type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
                   
-                  <span style="width: 32px;"></span>
-                  <div class="small-space"></div>
+                  
+                  
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                 
                      
-               <div class="small-space"></div>
+               
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" type="text" max="9999"  data-length="4" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     
+                  
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     
                </div>
             </td>
          </tr>
@@ -1765,39 +1604,39 @@ l'Ex-EAC
          <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
          <p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                   
                      
                      
-               <div class="small-space"></div>
+               
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"  type="text" max="9999"  data-length="4" value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
-                  <span style="width: 32px;"></span>
+                  
                  
                      
-                     <div class="small-space"></div>
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"  type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                 
                      
                      
-                     <div class="small-space"></div>
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"  type="text" max="9999"  data-length="4" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     
+                  
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"  type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     
                </div>
             </td>
          </tr>
@@ -1809,38 +1648,38 @@ l'Ex-EAC
             <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
             <p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
                      
                      
-               <div class="small-space"></div>
+               
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" type="text" max="9999"  data-length="4" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
+                     
+                  
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" type="text" max="99"  data-length="3" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
               
-               <div class="small-space"></div>
+               
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3" type="text" max="9999"  data-length="4" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
+                     
+                  
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
+                     
                  
                </div>
             </td>
@@ -1850,36 +1689,36 @@ l'Ex-EAC
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-               <b style="margin: 0px 0px 0px 19px;" >Superficie agricole utile(SAU)
-               المساحة الفلاحية المستخدَمَة</b>
-               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
+               <p style="margin: 0px 0px 5px 25px;" >Superficie agricole utile(SAU)
+               المساحة الفلاحية المستخدَمَة</p>
+               <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
-               <div class="small-space"></div>
-                     <input class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly="" type="text"  style="max-width: 80px;" value="">
+               
+                     <input style="border: 2px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      
-                     <div class="small-space"></div>
+                     
                 
-                  <span style="width: 32px;"></span>
+                  
                  
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly="" type="text"  style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
+               
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly="" type="text"  style="max-width: 80px;" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     
+                  
             
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly="" type="text" style="max-width: 60px;" value="">
-                 <div class="small-space"></div>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                 
                </div>
             </td>
          </tr>
@@ -1892,21 +1731,21 @@ l'Ex-EAC
             <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             <p style="margin: 0px 0px 0px 25px;" > المراعي</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
 
-               <div class="small-space"></div>
+               
                      
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1" type="text" max="9999"  data-length="4" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
+                     
+                  
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1920,22 +1759,22 @@ l'Ex-EAC
             <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             <p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
                      
-               <div class="small-space"></div>
+               
                      
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1" type="text" max="9999"  data-length="4" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
+                     
+                  
             
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2" type="text" max="99"  data-length="2" value="">
-                     <div class="small-space"></div>
+                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1944,22 +1783,22 @@ l'Ex-EAC
          <tr>
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <b style="margin: 0px 0px 0px 19px;" >Superficie agricole totale (SAT)
-               المساحة الفلاحية الإجمالية</b>
-               <div style="border-top: 2px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
+         <p style="margin: 0px 0px 5px 25px;" >Superficie agricole totale (SAT)
+               المساحة الفلاحية الإجمالية</p>
+               <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
 
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
+               
                      
-                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly="" type="text"  style="max-width: 80px;" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     
+                  
                  
                      
-                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" type="text"  style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input style="border: 2px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1970,20 +1809,20 @@ l'Ex-EAC
 <p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>
                <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
                      
                   
-               <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" type="text"  style="max-width: 80px;" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+               
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
+                     
+                  
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" type="text"  style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1993,23 +1832,23 @@ l'Ex-EAC
 
 
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <b style="margin: 0px 0px 0px 19px;" >Surface totale (ST) المساحة الإجمالية</b>
-               <div style="border-top: 2px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
+         <p style="margin: 0px 0px 5px 25px;" >Surface totale (ST) المساحة الإجمالية</p>
+               <div style="border-top: 1px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
              
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
             
-               <div class="small-space"></div>
+               
 
-                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"   type="text"  style="max-width: 80px;"  >
-                     <div class="small-space"></div>
+                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                     
 
-                  <span style="width: 32px;"></span>
+                  
                 
                      
-                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"  type="text"  style="max-width: 60px;" >
-                     <div class="small-space"></div>
+                  <input style="border: 2px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                     
 
                
                </div>
@@ -2042,7 +1881,7 @@ l'Ex-EAC
                            </select>
                         </div>
                      </div>
-                     <div class="col-7">
+                     <div class="col">
                         <div class="input-group input-group-sm">
                               <div class="qst-num zxcount"></div>
 
@@ -2053,7 +1892,7 @@ l'Ex-EAC
                            </span>
                            
                            
-                              <input class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui" type="text" >
+                              <input disabled num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -2061,8 +1900,8 @@ l'Ex-EAC
                      <script>
                         var select3 = document.getElementsByName('exploit_est_un_bloc')[0];
 
-                        var dd1 = document.getElementById('dd1');
-                        var dd2 = document.getElementById('dd2');
+                        var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
+                        var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
                         select3.addEventListener('input', function () {
                             updateSelect3();
@@ -2070,8 +1909,8 @@ l'Ex-EAC
                      
                         function updateSelect3() {
                             var selectedValue = select3.value;
-                            dd1.disabled = (selectedValue != '2');
-                            dd2.disabled = (selectedValue != '2');
+                            
+                            exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
                         }
                      </script>
 
@@ -2087,7 +1926,7 @@ l'Ex-EAC
 <div class="card" style="font-size: 12px;">
                <div class="card-body">
                <div class="row">
-                     <div class="col-6">
+                     <div class="col">
                   <div class="input-group input-group-sm">
                         <div class="qst-num zxcount"></div>
 
@@ -2104,7 +1943,7 @@ l'Ex-EAC
                   </div>
                   </div>
                   <br>
-                  <div class="col">
+                  <div class="col-5">
 
                   <div class="input-group input-group-sm">
                       <div class="qst-num zxcount"></div>
@@ -2116,7 +1955,7 @@ l'Ex-EAC
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" type="text">
+                        <input disabled num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -2126,6 +1965,22 @@ l'Ex-EAC
             <br>
 
 
+            <script>
+                        var select3 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+
+                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                     
+                        select3.addEventListener('input', function () {
+                            updateSelect3();
+                        });
+                     
+                        function updateSelect3() {
+                            var selectedValue = select3.value;
+                            
+                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        }
+                     </script>
 
 
 
@@ -2143,7 +1998,7 @@ l'Ex-EAC
                      <br>
                      Surface bâtie occupée (²m) 
                      </span>
-                     <input  class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" type="text">
+                     <input num maxlength="4" class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" >
 
                   </div>
                   </div>
@@ -2160,7 +2015,7 @@ l'Ex-EAC
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" type="text">
+                        <input num maxlength="4" class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
                    
                   </div>
                   </div>
@@ -2278,8 +2133,8 @@ l'Ex-EAC
 
          
             <div style="border-top: 3px solid red;"></div><br>
-<h4 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h4>
-<div style="border-top: 2px solid red; width:270px; margin:-20px 0px 0px 30px;"></div><br>
+<h5 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h5>
+<div style="border-top: 1px solid red; width:270px; margin:-20px 0px 0px 30px;"></div><br>
 <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6><br>
 <div class="card" style="font-size: 12px;">
   <div class="card-header" style="text-align: center;">
@@ -2311,7 +2166,7 @@ l'Ex-EAC
         <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-4" style="margin-right: 20px;">
             <div class="input-group input-group-sm">
-              <select class="form-select code_culture_s code_culture_check" id="code_culture" name="code_culture">
+              <select class="form-select" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option style="font-weight: 700;">
@@ -2572,13 +2427,13 @@ l'Ex-EAC
           <div class="col">
             <div class="row">
               <div class="col-5">
-                <input bigtb="" id="superficie_hec" name="superficie_hec" type="text" max="999" class="form-control code_culture_s code_culture_check" data-length="3" value="">
+                <input bigtb="" id="superficie_hec" name="superficie_hec"  maxlength="3" num class="form-control"  value="">
               </div>
               <div class="col">
-                <input id="superficie_are" name="superficie_are" type="text" max="999" class="form-control code_culture_s code_culture_check" data-length="3" value="">
+                <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
               </div>
               <div class="col">
-                <input id="en_intercalaire" name="en_intercalaire" type="text" max="99" class="form-control  code_culture_s code_culture_check" data-length="2" value="">
+                <input id="en_intercalaire" name="en_intercalaire"  maxlength="2" num class="form-control"  value="">
               </div>
             </div>
           </div>
@@ -2590,111 +2445,6 @@ l'Ex-EAC
         </div>
       </div>
       <script>
-
-
-
-
-$(document).ready(function(){
-    var selectedCombinations = []; // Array to hold unique combinations per row
-
-    // Event handler for changes on any element with the class 'code_culture_check' within each row
-    $(document).on('change', '.code_culture_check', function() {
-        var $row = $(this).closest('.row'); // Get the current row
-        var rowId = $row.index(); // Get the index of the row to make unique row identifier
-
-        var values = [];
-        var isValid = true; // Flag to check if all selects and inputs are properly selected/filled
-
-        // Collect all values and create a combined string as a unique identifier for this row
-        $row.find('.code_culture_check').each(function() {
-            var val = $(this).val();
-            if (!val) {
-                isValid = false; // if any value is empty, set isValid to false
-            }
-            values.push(val);
-        });
-
-        var combinedValues = values.join('-'); // Combine values to form a unique identifier for the set
-
-        // If not all inputs/selects are filled, do not proceed with duplicate check
-        if (!isValid) {
-            console.log("All selections are required in each row.");
-            return;
-        }
-
-        // Unique identifier for this specific row's combination
-        var rowIdentifier = 'row_' + rowId + '_' + combinedValues;
-
-        if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
-            // If the combination already exists in the array
-            console.log("This combination has already been selected in this row.");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-
-            // Reset all selects and inputs in this row
-            $row.find('.code_culture_check').each(function() {
-                if ($(this).is('select')) {
-                    $(this).val($(this).find('option:first').val());
-                } else {
-                    $(this).val('');
-                }
-            });
-        } else {
-            // If the combination is unique, add it to the array
-            selectedCombinations.push(rowIdentifier);
-        }
-    });
-});
-
-
-        //   var val2 = $('#status_juridique_' + idPart).val() || "";
-
-      //   var cc = val1 + val2; // Combine the values to form a unique identifier
-
-      //   // Clear any previous error indication before any new validation
-      //   $('#origine_des_terres_' + idPart).removeClass('error');
-      //   $('#status_juridique_' + idPart).removeClass('error');
-
-      //   if(val1 === "" || val2 === "") {
-      //       console.log("Both selections are required.");
-      //       return; // Exit the function if one of the dropdowns is not selected
-      //   }
-
-      //   // Check if this combination already exists in the array
-      //   if($.inArray(cc, selectedValues) !== -1){
-      //       console.log("This combination of values has already been selected.");
-      //       Swal.fire({
-      //           icon: "error",
-      //           title: "Erreur",
-      //           text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
-      //       });
-      //       $('#origine_des_terres_' + idPart).addClass('error');
-      //       $('#status_juridique_' + idPart).addClass('error');
-      //       $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-      //   } else {
-      //       // If the combination is unique, add it to the array and ensure no error class is present
-      //       selectedValues.push(cc);
-      //   }
-//     });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                document.getElementById('addForm2').addEventListener('click', function () {
                    const formContainer = document.getElementById('formContainer2');
                    const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -3005,7 +2755,7 @@ $(document).ready(function(){
                      هل تمارس الزراعة التعاقدية؟<br>
                      Pratiquez-vous une agriculture contractuelle ?
                      </span>
-                     <select class="select-ee bneder" id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
+                     <select class="form-select bneder" id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
                         <option disabled value="-" selected="">  </option>
                         <option value="1">1 - Oui - نعم</option>
                         <option value="2">2 - Non - لا</option>
@@ -3130,8 +2880,8 @@ $(document).ready(function(){
 
             <br>
             <div id="chapt_animals">
-            <h4 style="margin-bottom: 27px;">VI-Cheptel المواشي</h4>
-            <div style="border-top: 2px solid red; width:155px; margin:-20px 0px 0px 15px; "></div>
+            <h5 style="margin-bottom: 27px;">VI-Cheptel المواشي</h5>
+            <div style="border-top: 1px solid red; width:155px; margin:-20px 0px 0px 15px; "></div>
             <br>
             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
             <br>
@@ -3551,8 +3301,8 @@ $(document).ready(function(){
 <br><div style="border-top: 3px solid red;"></div>
             
             <br>
-            <h4 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h4>
-            <div style="border-top: 2px solid red; width:370px; margin:-20px 0px 0px 30px;"></div>
+            <h5 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h5>
+            <div style="border-top: 1px solid red; width:370px; margin:-20px 0px 0px 30px;"></div>
             <br><br>
 
 
@@ -3566,7 +3316,7 @@ $(document).ready(function(){
                    <br>
                    Les bâtiments d'exploitation agricole sont exploités 
                </span>
-               <select class="select-ee bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
+               <select class="form-select bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
                    <option value="-" disabled selected="selected">  </option>
                    <option value="1">1 - En individuel - فردية</option>
                    <option value="2">2 - En collectif - جماعية</option>
@@ -3596,10 +3346,10 @@ $(document).ready(function(){
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
-      <td><input id="in82" name="batiments_dhabitation_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <td><input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
@@ -3634,13 +3384,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn102">
                            
-                                 <input id="in102" name="bergerie_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in102" name="bergerie_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn103" style="margin-left: 151px">
                                 
-                                 <input id="in103" name="bergerie_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in103" name="bergerie_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3653,13 +3403,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn104">
                                
-                                 <input id="in104" name="etable_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in104" name="etable_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn105" style="margin-left: 151px">
                                 
-                                 <input id="in105" name="etable_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in105" name="etable_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3672,13 +3422,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn106">
                              
-                                 <input id="in106" name="ecurie_de_chevaux_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn107" style="margin-left: 151px">
                               
-                                 <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3691,13 +3441,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn108">
                            
-                                 <input id="in108" name="poulailler_batis_en_dur_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in108" name="poulailler_batis_en_dur_nombre"  maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn109" style="margin-left: 151px">
                                 
-                                 <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3710,13 +3460,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="poulailler_sous_serre_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3732,13 +3482,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="serres_tunnels_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="serres_tunnels_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="serres_tunnels_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="serres_tunnels_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3751,13 +3501,13 @@ $(document).ready(function(){
                            <td>
                               <div class="line-edits-container" id="cn110">
                               
-                                 <input id="in110" name="serres_multichapelles_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                                 <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num class="form-control bneder"  value="">
                               </div>
                            </td>
                            <td>
                               <div class="line-edits-container" id="cn111" style="margin-left: 151px">
                                 
-                                 <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                                 <input id="in111" name="serres_multichapelles_surface" class="form-control bneder"  maxlength="5" num   value="">
                               </div>
                            </td>
                         </tr>
@@ -3798,10 +3548,10 @@ $(document).ready(function(){
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
-      <td><input id="in82" name="batiment_de_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value=""></td>
+      <td><input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder" type="text" max="99999" data-length="5" value="">
+          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
@@ -3816,13 +3566,13 @@ $(document).ready(function(){
                      <td>
                       
                          
-                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre" maxlength="2" num class="form-control bneder"  value="">
                        
                      </td>
                      <td>
                      
                      <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" style="    margin:auto;" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" style="    margin:auto;" class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3835,13 +3585,13 @@ $(document).ready(function(){
                      <td>
                        
                           
-                           <input id="in86" name="autres_batiment_stockage_nombre" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in86" name="autres_batiment_stockage_nombre"  maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                      <td>
                   
                      <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3854,13 +3604,13 @@ $(document).ready(function(){
                      <td>
                        
                            
-                           <input id="in88" name="caves_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in88" name="caves_nombre" maxlength="2" num class="form-control bneder"  value="">
                      
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn89" style="padding-left: 132px">
                            
-                           <input id="in89" name="caves_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in89" name="caves_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3873,13 +3623,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn90">
                    
-                           <input id="in90" name="unite_de_conditionnement_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in90" name="unite_de_conditionnement_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn91" style="padding-left: 132px">
                            
-                           <input id="in91" name="unite_de_conditionnement_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in91" name="unite_de_conditionnement_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3892,13 +3642,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn92">
                       
-                           <input id="in92" name="unite_de_transformation_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in92" name="unite_de_transformation_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn93" style="padding-left: 132px">
                            
-                           <input id="in93" name="unite_de_transformation_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in93" name="unite_de_transformation_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3913,13 +3663,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn94">
                       
-                           <input id="in94" name="centre_de_collecte_de_lait_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in94" name="centre_de_collecte_de_lait_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn95" style="padding-left: 132px">
                            
-                           <input id="in95" name="centre_de_collecte_de_lait_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in95" name="centre_de_collecte_de_lait_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3933,13 +3683,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn222">
                      
-                           <input id="in222" name="autre_batiments_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in222" name="autre_batiments_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn223" style="padding-left: 132px">
                            
-                           <input id="in223" name="autre_batiments_surface" style="    margin:auto;"class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in223" name="autre_batiments_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3956,13 +3706,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn98">
                     
-                           <input id="in98" name="serres_tunnels_nombre"type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in98" name="serres_tunnels_nombre" maxlength="2" num class="form-control"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn99" style="padding-left: 132px">
                            
-                           <input id="in99" name="serres_tunnels_surface" style="    margin:auto;"class="form-control" type="text" max="99999"  data-length="5" value="">
+                           <input id="in99" name="serres_tunnels_surface" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -3975,13 +3725,13 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn100">
                          
-                           <input id="in100" name="serres_multichapelles_nombre"type="text" max="99" class="form-control" data-length="2" value="">
+                           <input id="in100" name="serres_multichapelles_nombre" maxlength="2" num class="form-control"  value="">
                         </div>
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn101" style="padding-left: 132px">
                            
-                           <input id="in101" style="    margin:auto;"class="form-control" type="text" max="99999"  data-length="5" value="">
+                           <input id="in101" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -4009,13 +3759,13 @@ $(document).ready(function(){
                      </td>
                      <td>
                     
-                           <input id="in112" name="chambre_froide_nombre"type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in112" name="chambre_froide_nombre" maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                      <td>
                         <div class="line-edits-container" id="cn113" style="margin-left: 162px;">
                           
-                           <input id="in113" name="chambre_froide_surface" class="form-control bneder" type="text" max="99999"  data-length="5" value="">
+                           <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -4033,7 +3783,7 @@ $(document).ready(function(){
 
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>VIII- Matériel agricole العتاد الفلاحي</h4>
+            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
 
  <div style="width:450px;" class="input-group input-group-sm">
@@ -4091,7 +3841,7 @@ Type et nombre du matériel agricole ?
           <div class="col-8">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="select-ee code_materiel_check" id="code_materiel" name="code_materiel">
+              Code matériel</span> <select disabled="disabled" class="form-select" id="code_materiel" name="code_materiel">
                 <option selected disabled>
                 </option>
                 <option value="1">
@@ -4181,7 +3931,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">العدد<br>
-              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" type="text" max="999" class="form-control" data-length="3" value="">
+              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control"  value="">
             </div>
           </div>
           <div class="col-1">
@@ -4192,39 +3942,6 @@ Type et nombre du matériel agricole ?
         </div>
       </div>
       <script>
-
-
-
-
-$(document).ready(function(){
-    var selectedValues = []; // Array to hold the unique values selected
-
-    // Event handler for changes on any select with the class 'code_culture_check'
-    $(document).on('change', '.code_materiel_check', function() {
-        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
-
-        if (selectedValues.indexOf(selectedValue) !== -1) {
-            // If the value already exists in the array, display a SweetAlert message in French
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-
-            // Optionally reset to the first option or default state
-            $(this).val($(this).find('option:first').val());
-        } else {
-            // Add the new value to the array if it's not already there
-            selectedValues.push(selectedValue);
-            console.log('Selected value:', selectedValue); // Log the newly added value
-        }
-    });
-});
-
-
-
-
            document.getElementById('addForm3').addEventListener('click', function () {
                const formContainer = document.getElementById('formContainer3');
                const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -4283,8 +4000,8 @@ $(document).ready(function(){
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h4>
-            <div style="border-top: 2px solid red; width:320px; margin:-20px 0px 0px 25px; "></div>
+            <h5 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h5>
+            <div style="border-top: 1px solid red; width:320px; margin:-20px 0px 0px 25px; "></div>
             <br>
 
             <div  class="input-group input-group-sm">
@@ -4422,18 +4139,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">فيض<br>
-        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4441,17 +4158,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">سطحي<br>
-        Gravitaire</span> <input id="in130" name="eau_gravitaire" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">رش محوري<br>
-        Pivots</span> <input id="in133" name="eau_pivots" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">لفاف<br>
-        Enrouleur</span> <input id="in134" name="eau_enrouleur" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
     </div>
@@ -4459,18 +4176,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">فوقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:170px;">طرق أخرى<br>
-        Autre</span> <input id="in210" name="eau_autre_hec" type="text" max="999" class="form-control bneder" data-length="3" value="">
+        Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
   </div>
@@ -4581,8 +4298,8 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h4>
-            <div style="border-top: 2px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
+            <h5 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h5>
+            <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
             <br>
             <div class="row">
                <div class="row" style="text-align: center;">
@@ -4639,20 +4356,20 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="2" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="2" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4666,19 +4383,19 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                           
-                              <input id="in142" tb name="ouvriers_agricoles_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="2" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in143" tb name="ouvriers_agricoles_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in144" tb name="ouvriers_agricoles_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in145" tb name="ouvriers_agricoles_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4692,18 +4409,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in146" tb name="ouvriers_agricoles_etranges_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="2" num class="form-control bneder"  value="">
                          
-                              <input id="in147" tb name="ouvriers_agricoles_etranges_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in148" tb name="ouvriers_agricoles_etranges_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in149" tb name="ouvriers_agricoles_etranges_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4742,19 +4459,19 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                         
-                              <input id="in162" tb name="main_oeuvre_ordinnaire_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="2" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in163" tb name="main_oeuvre_ordinnaire_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="2" num class="form-control bneder"  value="">
                         
                         </div>
                      </td>
@@ -4768,18 +4485,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in166" tb name="main_oeuvre_qualifiee_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in167" tb name="main_oeuvre_qualifiee_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in168" tb name="main_oeuvre_qualifiee_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in169" tb name="main_oeuvre_qualifiee_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4821,18 +4538,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in150" tb name="mo_exploitant_individuel_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in151" tb name="mo_exploitant_individuel_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                          
-                              <input id="in152" tb name="mo_exploitant_individuel_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in153" tb name="mo_exploitant_individuel_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4846,18 +4563,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                       
-                              <input id="in154" tb name="mo_adultes_plus_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in155" name="mo_adultes_plus_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" tb value="">
+                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="2" num class="form-control bneder"  tb value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                      
-                              <input id="in156" tb name="mo_adultes_plus_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in157" tb name="mo_adultes_plus_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4871,18 +4588,18 @@ Petite et Moyenne Hydraulique
                      <td>
                         <div class="input-group input-group-sm">
                        
-                              <input id="in158" tb name="mo_enfants_moins_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
                         
-                              <input id="in159" tb name="mo_enfants_moins_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                      <td>
                         <div class="input-group input-group-sm">
                            
-                              <input id="in160" tb name="mo_enfants_moins_15_ans_3" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
                           
-                              <input id="in161" tb name="mo_enfants_moins_15_ans_4" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4896,7 +4613,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>XI- Ménage agricole <br> الأسرة الفلاحية</h4>
+            <h5>XI- Ménage agricole <br> الأسرة الفلاحية</h5>
             <div style="text-align: center;">
                <b>
                تكوين أسرة رئيس المستثمرة <br> Composition du ménage du Chef d'exploitation
@@ -4910,7 +4627,7 @@ Petite et Moyenne Hydraulique
                </span>
              
                
-                  <input id="in178" tb name="ma_nombre_de_personnes" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                  <input id="in178" tb name="ma_nombre_de_personnes"  maxlength="2" num class="form-control bneder"  value="">
                
                   
             </div>
@@ -4936,12 +4653,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in179" name="ma_adultes_plus_15_ans_1" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in179" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
                       
                      </td>
                      <td>
                        
-                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                   </tr>
@@ -4953,12 +4670,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in181" name="ma_enfants_moins_15_ans_11" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in181" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
                     
                      </td>
                      <td>
                       
-                           <input id="in182" name="ma_enfants_moins_15_ans_22" type="text" max="99" class="form-control bneder" data-length="2" value="">
+                           <input id="in182" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
                      
                      </td>
                   </tr>
@@ -4967,8 +4684,8 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h4>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
-            </h4>
+            <h5>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
+            </h5>
             <br><br>
             <div class="row">
 
@@ -5155,7 +4872,7 @@ Petite et Moyenne Hydraulique
                <br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h4>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h4>
+               <h5>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
                <br>
                <div class="card" style="font-size: 12px;">
                   <div class="card-body">
@@ -5224,11 +4941,11 @@ Petite et Moyenne Hydraulique
                      </div>
 
                      <script>
-                        // var check1 = document.getElementsByName('soutien_public')[0];
+                        var check1 = document.getElementsByName('soutien_public')[0];
                      
-                        // check1.addEventListener('input', function () {
-                        //     updateSelect8();
-                       // });
+                        check1.addEventListener('input', function () {
+                            updateSelect8();
+                        });
                      
                         function updateSelect8() {
 
@@ -5290,28 +5007,28 @@ Petite et Moyenne Hydraulique
 
 
                            <script>
-                              // var check2 = document.getElementsByName('propres_ressources')[0];
+                              var check2 = document.getElementsByName('propres_ressources')[0];
                            
-                              // check2.addEventListener('input', function () {
-                              //    updateSelect9();
-                              // });
+                              check2.addEventListener('input', function () {
+                                 updateSelect9();
+                              });
                            
-                              // function updateSelect9() {
+                              function updateSelect9() {
                            
-                              //    var div_to_effect7 = document.getElementById('card3');
-                              //    var child_inputs3 = div_to_effect7.getElementsByTagName('input');
+                                 var div_to_effect7 = document.getElementById('card3');
+                                 var child_inputs3 = div_to_effect7.getElementsByTagName('input');
                            
-                              //    if(!check2.checked){
-                              //       for (var i = 0; i < child_inputs3.length; i++) {
-                              //             child_inputs3[i].disabled = true;
-                              //       }
-                              //    }else{
-                              //       for (var i = 0; i < child_inputs3.length; i++) {
-                              //             child_inputs3[i].disabled = false;
-                              //       }
-                              //    }
+                                 if(!check2.checked){
+                                    for (var i = 0; i < child_inputs3.length; i++) {
+                                          child_inputs3[i].disabled = true;
+                                    }
+                                 }else{
+                                    for (var i = 0; i < child_inputs3.length; i++) {
+                                          child_inputs3[i].disabled = false;
+                                    }
+                                 }
                                  
-                              // }
+                              }
                            </script>
                           
                            
@@ -5332,7 +5049,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="select-ee bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option selected="selected"> - </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5348,7 +5065,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="select-ee bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option selected="selected"> - </option>
 
                                  <option value="1"> ص,م,ز,ق - CRMA</option>
@@ -5361,17 +5078,17 @@ Petite et Moyenne Hydraulique
 
 
                      <script>
-                        // var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
-                        // var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
+                        var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
+                        var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
                      
-                        // select8.addEventListener('input', function () {
-                        //     updateSelect28();
-                        // });
+                        select8.addEventListener('input', function () {
+                            updateSelect28();
+                        });
                      
-                        // function updateSelect28() {
-                        //     var selectedValue = select8.value;
-                        //     select28.disabled = (selectedValue != '1');
-                        // }
+                        function updateSelect28() {
+                            var selectedValue = select8.value;
+                            select28.disabled = (selectedValue != '1');
+                        }
                      </script>
 
                      <br>
@@ -5395,6 +5112,7 @@ Petite et Moyenne Hydraulique
                                     <label class="form-check-label" for="6er4ge8rg4">
                                     العمال - Personnel
                                     </label>
+                                    
                                  </div>
                               </div>
                               <div class="col">
@@ -5431,7 +5149,7 @@ Petite et Moyenne Hydraulique
                <br><br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h4>XIV - Environnement de l'exploitation محيط المستثمرة</h4>
+               <h5>XIV - Environnement de l'exploitation محيط المستثمرة</h5>
                <br>
 
     <div class="row">  
@@ -5441,7 +5159,7 @@ Petite et Moyenne Hydraulique
                       <br>
                       Fournisseurs de services situés dans la commune ?
                   </span>
-               <select class="select-ee bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+               <select class="form-select bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                   <option selected="selected"> - </option>
                   <option value="1">1 - Oui - نعم</option>
                   <option value="2">2 - Non - لا</option>
@@ -5709,43 +5427,32 @@ Petite et Moyenne Hydraulique
 
 
 
-
-
-
 <?php
-if ($_SESSION['role'] == "admin" ||  $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
-    ?>
-    <div class="row">
-        <div class="col">
-            <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button">Valider</button>
-        </div>
-        <div class="col">
-            <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962">Rejeter</a>
-        </div>
-    </div>
-    <?php
-}
-
-if ($_SESSION['role'] == "recenseur") {
-    ?>
-    <div class="row">
-        <div class="col-9">
-            <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button">Ajouter</button>
-        </div>
-        <div class="col">
-            <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962">Annuler</a>
-        </div>
-    </div>
-    <?php
+// Determine button text based on user's role
+if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
+    $approveBtnText = "Valider";
+    $rejectBtnText = "Rejeter";
+} elseif ($_SESSION['role'] == "recenseur") {
+    $approveBtnText = "Ajouter";
+    $rejectBtnText = "Annuler";
 }
 ?>
+
+<div class="row">
+    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
+    </div>
+    <div class="col">
+        <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962"><?= $rejectBtnText ?></a>
+    </div>
+</div>
 
 <script>
 // Add event listener to detect Ctrl + *
 document.addEventListener('keydown', function(event) {
 if (event.ctrlKey && event.key === '*') {
 // Trigger the click event of the button
-document.getElementById('submitDate').click();
+document.getElementById('submitDate').click();  
 }
 });
 </script>
@@ -5766,7 +5473,6 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
-<script src="./assets/js/logique.js"></script>
 
              
              
@@ -5804,42 +5510,9 @@ document.getElementById('submitDate').click();
 
 
 <script>
-    // Function to adjust max-width of inputs with various attributes
-    function adjustMaxWidth() {
-        var inputsMax99 = document.querySelectorAll('input[max="99"]');
-        inputsMax99.forEach(function(input) {
-            input.style.maxWidth = "60px";
-        });
+    
 
-        var inputsTB = document.querySelectorAll('input[tb]');
-        inputsTB.forEach(function(input) {
-            input.style.maxWidth = "51px";
-        });
-       var inputsMax999 = document.querySelectorAll('input[max="999"]');
-        inputsMax999.forEach(function(input) {
-            input.style.maxWidth = "60px";
-        });
-        var inputsBigTB = document.querySelectorAll('input[bigtb]'); // Corrected selector
-        inputsBigTB.forEach(function(input) {
-            input.style.maxWidth = "69px";
-        });
-        var inputsMax9999 = document.querySelectorAll('input[max="9999"]');
-        inputsMax9999.forEach(function(input) {
-            input.style.maxWidth = "80px";
-        });
-        var inputsMax99999 = document.querySelectorAll('input[max="99999"]');
-        inputsMax99999.forEach(function(input) {
-            input.style.maxWidth = "90px";
-        });
-        
-    }
-
-    // Trigger the adjustment when the page loads
-    window.onload = adjustMaxWidth;
-</script>
-
-
-<script>
+    
 
 
 
@@ -5961,59 +5634,59 @@ document.getElementById('submitDate').click();
 
              
 <script>
-   document.getElementById("info_form").addEventListener("input", function () {
-       console.log("capturing")
+   // document.getElementById("info_form").addEventListener("input", function () {
+   //     console.log("capturing")
 
-       var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
-       var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
-       var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
-       var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
-       var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-       document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+   //     var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+   //     var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+   //     var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+   //     var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+   //     document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
-       var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
-       var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
-       var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
-       var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
-       var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-       document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
-
-
-       var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
-       var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
-       var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
-       var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
-       var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-       document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
-
-       var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
-       var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
-       var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
-       var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
-       var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-       document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+   //     var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+   //     var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+   //     var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+   //     var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+   //     document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
 
 
-       var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
-       var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-       var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-       document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+   //     var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+   //     var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+   //     var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+   //     var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+   //     document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
 
-       var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-       var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-       var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-       document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+   //     var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+   //     var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+   //     var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+   //     document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-       var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-       document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+   //     var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+   //     var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+   //     document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+   //     var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+   //     var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+   //     document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+   //     var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+   //     document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
        
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-       var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-       document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+   //     var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+   //     document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
-   });
+   // });
 </script>       
 
 <script>
@@ -6116,28 +5789,7 @@ nom_exploitation.addEventListener("blur", (e) => {
 
              
 
-               
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all elements with class "zxcount"
-    var elements = document.querySelectorAll('.zxcount');
-    
-    // Loop through each element and set its innerHTML to its index + 1
-    elements.forEach(function(element, index) {
-        element.innerHTML = index + 1;
-    });
-});
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    var inputs = document.querySelectorAll('input[data-length]');
-
-    inputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            var maxLength = parseInt(this.getAttribute('data-length'));
-            this.value = this.value.slice(0, maxLength);
-        });
-    });
-});
 
 
               </script>   
