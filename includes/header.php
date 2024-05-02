@@ -129,7 +129,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 
             ?>
             <li style="border-right: 2px solid #0e6212;" class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./questionnaire.php">
+                <a class="nav-link active" aria-current="page" id="superviseurpage" href="./questionnaire.php">
                     <img src="static/icons/form.svg" alt="Plus Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Ajouter Questionnaire - إظافة إستبيان
                 </a>
@@ -162,6 +162,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <?php
                 if($_SESSION['role']=="admin"){
             ?>
+               <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <a class="nav-link active" aria-current="page" href="./users_list.php">Liste des utilisateurs</a>
+            </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="./superviseur_national.php">Superviseurs national</a>
             </li>
@@ -229,7 +232,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
         </a>
 
-        <a href="assets/php/logout.php" class="btn btn-danger btn-sm" style="border-radius: 17px;">
+        <a href="assets/php/logout.php" class="btn btn-danger btn-sm logout" style="border-radius: 17px;">
             <img src="static/icons/signout.svg" alt="Logout Icon" style="width: 25px; height: 29px; margin-right: 5px;">
             
         </a>

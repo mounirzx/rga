@@ -34,7 +34,7 @@ $(document).ready(function () {
 
   $("#submitDate").click(function (e) {
     e.preventDefault();
-
+//
     // Initialize formDataObj outside the loop to make it accessible throughout the function
     var formDataObj = {};
     var urlParams = new URLSearchParams(window.location.search);
