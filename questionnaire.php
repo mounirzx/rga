@@ -1489,26 +1489,28 @@ acte de concession ?
       <div class="col-5"></div>
       <div class="col-3">
          <div class="row">
-      <div class="col"></div>
-
-            <div class="col" style="padding-left:15px">
-               Hectare - هكتار
+         <div class="col"></div>
+            <div class="col-5" style="padding-left:15px">
+               Hectare  هكتار
             </div>
-            <div class="col">
-               Are - آر
+            <div class="col-3">
+               Are  آر
             </div>
          </div>
       </div>
       <div class="col-3">
       <div class="row">
      
-      <div class="col"></div>
 
-            <div class="col" style="padding-left:15px">
-               Hectare - هكتار
+      <div class="col-5"></div>
+            <div class="col-4" style="padding-left:15px">
+               Hectare  هكتار
             </div>
-            <div class="col">
-               Are - آر
+  
+            <div class="col-3">
+            
+           
+               Are  آر
             </div>
          </div>
       </div>
@@ -1697,14 +1699,14 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input style="border: 2px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      
                      
                 
                   
                  
                      
-                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1712,12 +1714,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
                      
                   
             
                      
-                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
                  
                </div>
             </td>
@@ -1792,12 +1794,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
                   
                  
                      
-                     <input style="border: 2px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1841,13 +1843,13 @@ acte de concession ?
             
                
 
-                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                  <input  style="border: 1px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
                      
 
                   
                 
                      
-                  <input style="border: 2px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                  <input style="border: 1px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
                      
 
                
@@ -1898,17 +1900,17 @@ acte de concession ?
                      </div>
 
                      <script>
-                        var select3 = document.getElementsByName('exploit_est_un_bloc')[0];
+                        var select_exploit_est_un_bloc = document.getElementsByName('exploit_est_un_bloc')[0];
 
                         var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
                         var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
-                        select3.addEventListener('input', function () {
-                            updateSelect3();
+                        select_exploit_est_un_bloc.addEventListener('input', function () {
+                           update_exploit_est_un_bloc_oui();
                         });
                      
-                        function updateSelect3() {
-                            var selectedValue = select3.value;
+                        function update_exploit_est_un_bloc_oui() {
+                            var selectedValue = select_exploit_est_un_bloc.value;
                             
                             exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
                         }
@@ -1966,17 +1968,17 @@ acte de concession ?
 
 
             <script>
-                        var select3 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+                        var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
 
                         var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
                         var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
                      
-                        select3.addEventListener('input', function () {
-                            updateSelect3();
+                        select_exploit_indus_sur_exploitation.addEventListener('input', function () {
+                            updateselect_exploit_indus_sur_exploitation();
                         });
                      
-                        function updateSelect3() {
-                            var selectedValue = select3.value;
+                        function updateselect_exploit_indus_sur_exploitation() {
+                            var selectedValue = select_exploit_indus_sur_exploitation.value;
                             
                             exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
                         }
@@ -2022,22 +2024,7 @@ acte de concession ?
                   </div>
                </div>
             </div>
-            <script>
-               var select4 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
-               
-               var dd11 = document.getElementById('dd11');
-               var dd22 = document.getElementById('dd22');
-               
-               select4.addEventListener('input', function () {
-                   updateSelect4();
-               });
-               
-               function updateSelect4() {
-                   var selectedValue = select4.value;
-                   dd11.disabled = (selectedValue != '1');
-                   dd22.disabled = (selectedValue != '1');
-               }
-           </script>
+           
 
            <br/>
 
