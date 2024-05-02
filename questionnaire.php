@@ -1531,7 +1531,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="4" num   >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
@@ -1544,7 +1544,7 @@ acte de concession ?
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="4" num   value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
@@ -1569,7 +1569,7 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="4" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
                   
                   
                   
@@ -1586,7 +1586,7 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="4" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
                   
                 
@@ -1611,7 +1611,7 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="4" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
                   
@@ -1629,7 +1629,7 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="4" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
                   
                  
@@ -1655,7 +1655,7 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="4" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
                      
                   
                
@@ -1672,7 +1672,7 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="4" num   value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
                      
                   
             
@@ -1697,7 +1697,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input style="border: 2px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="4" value="">
+                     <input style="border: 2px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      
                      
                 
@@ -1712,7 +1712,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="4" value="">
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
                      
                   
             
@@ -1738,7 +1738,7 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="4" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
                      
                   
                  
@@ -1767,7 +1767,7 @@ acte de concession ?
                      
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="4" num   value="">
+                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
                   
             
@@ -1792,7 +1792,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="4" value="">
+                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
                   
                  
@@ -1815,7 +1815,7 @@ acte de concession ?
                      
                   
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="4" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
                      
                   
                
@@ -1841,7 +1841,7 @@ acte de concession ?
             
                
 
-                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="4"  >
+                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
                      
 
                   
@@ -1881,7 +1881,7 @@ acte de concession ?
                            </select>
                         </div>
                      </div>
-                     <div class="col-7">
+                     <div class="col">
                         <div class="input-group input-group-sm">
                               <div class="qst-num zxcount"></div>
 
@@ -1892,7 +1892,7 @@ acte de concession ?
                            </span>
                            
                            
-                              <input class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
+                              <input disabled num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -1900,8 +1900,8 @@ acte de concession ?
                      <script>
                         var select3 = document.getElementsByName('exploit_est_un_bloc')[0];
 
-                        var dd1 = document.getElementById('dd1');
-                        var dd2 = document.getElementById('dd2');
+                        var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
+                        var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
                         select3.addEventListener('input', function () {
                             updateSelect3();
@@ -1909,8 +1909,8 @@ acte de concession ?
                      
                         function updateSelect3() {
                             var selectedValue = select3.value;
-                            dd1.disabled = (selectedValue != '2');
-                            dd2.disabled = (selectedValue != '2');
+                            
+                            exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
                         }
                      </script>
 
@@ -1926,7 +1926,7 @@ acte de concession ?
 <div class="card" style="font-size: 12px;">
                <div class="card-body">
                <div class="row">
-                     <div class="col-6">
+                     <div class="col">
                   <div class="input-group input-group-sm">
                         <div class="qst-num zxcount"></div>
 
@@ -1943,7 +1943,7 @@ acte de concession ?
                   </div>
                   </div>
                   <br>
-                  <div class="col">
+                  <div class="col-5">
 
                   <div class="input-group input-group-sm">
                       <div class="qst-num zxcount"></div>
@@ -1955,7 +1955,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
+                        <input disabled num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -1965,6 +1965,22 @@ acte de concession ?
             <br>
 
 
+            <script>
+                        var select3 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+
+                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                     
+                        select3.addEventListener('input', function () {
+                            updateSelect3();
+                        });
+                     
+                        function updateSelect3() {
+                            var selectedValue = select3.value;
+                            
+                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        }
+                     </script>
 
 
 
@@ -1982,7 +1998,7 @@ acte de concession ?
                      <br>
                      Surface bâtie occupée (²m) 
                      </span>
-                     <input  class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" >
+                     <input num maxlength="4" class="form-control bneder" id="surface_bati_occupe" name="surface_bati_occupe" >
 
                   </div>
                   </div>
@@ -1999,7 +2015,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input  class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
+                        <input num maxlength="4" class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
                    
                   </div>
                   </div>
