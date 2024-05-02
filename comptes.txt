@@ -6,3 +6,25 @@ ADMIN Password : rgaadmin2024**
 
 Controleur	Mot de passe	Recenseur	Mot de passe
 C-BNEDER	53724344	R-BNEDER	63752081
+
+
+// Start capturing the output
+ob_start();
+echo "Debug: ", print_r($paramsQuestionnaire, true);
+$logData = ob_get_clean();
+
+// Define log file path
+$logFilePath = __DIR__ . '/logfile.log';
+
+// Append the captured data to the log file
+file_put_contents($logFilePath, $logData, FILE_APPEND);
+
+
+
+
+
+SELECT id_questionnaire, status_juridique, COUNT(*)
+FROM status_juridique
+GROUP BY id_questionnaire, status_juridique
+HAVING COUNT(*) > 1;
+

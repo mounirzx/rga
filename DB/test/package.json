@@ -1,0 +1,21 @@
+{
+  "name": "pptr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "react.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "r": "nodemon react.js"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^30.0.0",
+    "nodemon": "^2.0.14",
+    "puppeteer": "^19.11.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
