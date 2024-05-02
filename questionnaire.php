@@ -143,26 +143,26 @@ include('includes/header.php');
                  <br />
 
                  <script>
-                    document.getElementById('wilaya_select').addEventListener('change', function () {
-                        var selectedOption = this.options[this.selectedIndex].value;
+                  //   document.getElementById('wilaya_select').addEventListener('change', function () {
+                  //       var selectedOption = this.options[this.selectedIndex].value;
                 
-                        var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
-                        var commune_code = document.querySelector('[name="commune_code"]');
+                  //       var communeOfPassageInput = document.querySelector('[name="commune_of_passage"]');
+                  //       var commune_code = document.querySelector('[name="commune_code"]');
                 
-                        var wilayaValues = {
-                            'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
-                            'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
-                            'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
-                            'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
-                            'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
-                            'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
-                        };
+                  //       var wilayaValues = {
+                  //           'Tipaza': { communeOfPassage: 'Ahmar el ain - حمر العين', communeCode: '4219' },
+                  //           'El Taref': { communeOfPassage: 'Drean - دريعان', communeCode: '3613' },
+                  //           'Mascara': { communeOfPassage: 'Oued Taria - واد تاغية', communeCode: '2922' },
+                  //           'Djelfa': { communeOfPassage: 'Aïn el bell - عين الإبل', communeCode: '1730' },
+                  //           'Biskra': { communeOfPassage: 'Aïn naga - عين ناقة', communeCode: '0739' },
+                  //           'Adrar': { communeOfPassage: 'Inzeghmir - عين زقمير', communeCode: '0105' },
+                  //       };
                 
-                        if (wilayaValues[selectedOption]) {
-                            communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
-                            commune_code.value = wilayaValues[selectedOption].communeCode;
-                        }
-                    });
+                  //       if (wilayaValues[selectedOption]) {
+                  //           communeOfPassageInput.value = wilayaValues[selectedOption].communeOfPassage;
+                  //           commune_code.value = wilayaValues[selectedOption].communeCode;
+                  //       }
+                  //   });
                 </script>
 
 
@@ -673,29 +673,29 @@ if ($_SESSION['role'] == "recenseur") {
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input bneder" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
+              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input bneder" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
+              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
               La Chambre de la Pêche et de l'Aquaculture (CAPA)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input bneder" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
+              <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
               L’Union Nationale des Paysans Algériens (UNPA)</label>
             </div>
             <div class="form-check">
-               <input class="form-check-input bneder" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
+               <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
                La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
          </div><br>
          <div class="col">
            <div class="form-check">
-             <input class="form-check-input bneder" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
+             <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
              La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
            </div><br>
             <div class="form-check">
-              <input class="form-check-input bneder" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
+              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
               جهاز إجتماعي - Dispositif Social</label>
             </div>
           </div>
@@ -1225,9 +1225,10 @@ $(document).ready(function(){
         if($.inArray(cc, selectedValues) !== -1){
             console.log("This combination of values has already been selected.");
             Swal.fire({
-                icon: "error",
-                title: "Erreur",
-                text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
+               title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
             });
             $('#origine_des_terres_' + idPart).addClass('error');
             $('#status_juridique_' + idPart).addClass('error');
@@ -1463,7 +1464,7 @@ acte de concession ?
 
 
 
-<div id="sans_terre">
+
 
             <div style="border-top: 3px solid red;"></div>
 <br>
@@ -1489,26 +1490,28 @@ acte de concession ?
       <div class="col-5"></div>
       <div class="col-3">
          <div class="row">
-      <div class="col"></div>
-
-            <div class="col" style="padding-left:15px">
-               Hectare - هكتار
+         <div class="col"></div>
+            <div class="col-5" style="padding-left:15px">
+               Hectare  هكتار
             </div>
-            <div class="col">
-               Are - آر
+            <div class="col-3">
+               Are  آر
             </div>
          </div>
       </div>
       <div class="col-3">
       <div class="row">
      
-      <div class="col"></div>
 
-            <div class="col" style="padding-left:15px">
-               Hectare - هكتار
+      <div class="col-5"></div>
+            <div class="col-4" style="padding-left:15px">
+               Hectare  هكتار
             </div>
-            <div class="col">
-               Are - آر
+  
+            <div class="col-3">
+            
+           
+               Are  آر
             </div>
          </div>
       </div>
@@ -1531,26 +1534,26 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total " id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are " name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control " name="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
                      
                      
-                     <input  class="surface  form-control " name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1569,13 +1572,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total " name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
                   
                   
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are " name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1586,13 +1589,13 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
                   
                 
                       
                      
-                     <input  class="surface form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1611,14 +1614,14 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
                   
                  
                      
                      
-                     <input  class="surface form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1629,13 +1632,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input  class="surface form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1655,13 +1658,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
                      
                   
                
                      
                      
-                     <input  class="surface form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1672,13 +1675,13 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="surface form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
                      
                  
                </div>
@@ -1697,14 +1700,14 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input style="border: 2px solid " class="surface form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      
                      
                 
                   
                  
                      
-                     <input style="border: 2px solid " class="surface form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1712,12 +1715,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
                      
                   
             
                      
-                     <input style="border: 2px solid " class="surface form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
                  
                </div>
             </td>
@@ -1738,13 +1741,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input class="surface form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1767,13 +1770,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="form-control  coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
+                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="form-control  coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1792,12 +1795,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface  form-control " name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input style="border: 1px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
                   
                  
                      
-                     <input style="border: 2px solid "  class="surface  form-control " name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     <input style="border: 1px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1815,13 +1818,13 @@ acte de concession ?
                      
                   
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total " name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
                      
                   
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are " name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
                      
                </div>
             </td>
@@ -1841,13 +1844,13 @@ acte de concession ?
             
                
 
-                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                  <input  style="border: 1px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
                      
 
                   
                 
                      
-                  <input style="border: 2px solid " class="surface form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                  <input style="border: 1px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
                      
 
                
@@ -1898,17 +1901,17 @@ acte de concession ?
                      </div>
 
                      <script>
-                        var select3 = document.getElementsByName('exploit_est_un_bloc')[0];
+                        var select_exploit_est_un_bloc = document.getElementsByName('exploit_est_un_bloc')[0];
 
                         var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
                         var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
-                        select3.addEventListener('input', function () {
-                            updateSelect3();
+                        select_exploit_est_un_bloc.addEventListener('input', function () {
+                           update_exploit_est_un_bloc_oui();
                         });
                      
-                        function updateSelect3() {
-                            var selectedValue = select3.value;
+                        function update_exploit_est_un_bloc_oui() {
+                            var selectedValue = select_exploit_est_un_bloc.value;
                             
                             exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
                         }
@@ -1965,7 +1968,23 @@ acte de concession ?
             <br>
 
 
-     
+            <script>
+                        var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+
+                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                     
+                        select_exploit_indus_sur_exploitation.addEventListener('input', function () {
+                            updateselect_exploit_indus_sur_exploitation();
+                        });
+                     
+                        function updateselect_exploit_indus_sur_exploitation() {
+                            var selectedValue = select_exploit_indus_sur_exploitation.value;
+                            
+                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        }
+                     </script>
+
 
 
 
@@ -2006,22 +2025,7 @@ acte de concession ?
                   </div>
                </div>
             </div>
-            <script>
-               var select4 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
-               
-               var dd11 = document.getElementById('dd11');
-               var dd22 = document.getElementById('dd22');
-               
-               select4.addEventListener('input', function () {
-                   updateSelect4();
-               });
-               
-               function updateSelect4() {
-                   var selectedValue = select4.value;
-                   dd11.disabled = (selectedValue != '1');
-                   dd22.disabled = (selectedValue != '1');
-               }
-           </script>
+           
 
            <br/>
 
@@ -2150,7 +2154,7 @@ acte de concession ?
         <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-4" style="margin-right: 20px;">
             <div class="input-group input-group-sm">
-              <select class="form-select" id="code_culture" name="code_culture">
+              <select class="form-select code_culture_s code_culture_check" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option style="font-weight: 700;">
@@ -2429,6 +2433,111 @@ acte de concession ?
         </div>
       </div>
       <script>
+
+
+
+
+$(document).ready(function(){
+    var selectedCombinations = []; // Array to hold unique combinations per row
+
+    // Event handler for changes on any element with the class 'code_culture_check' within each row
+    $(document).on('change', '.code_culture_check', function() {
+        var $row = $(this).closest('.row'); // Get the current row
+        var rowId = $row.index(); // Get the index of the row to make unique row identifier
+
+        var values = [];
+        var isValid = true; // Flag to check if all selects and inputs are properly selected/filled
+
+        // Collect all values and create a combined string as a unique identifier for this row
+        $row.find('.code_culture_check').each(function() {
+            var val = $(this).val();
+            if (!val) {
+                isValid = false; // if any value is empty, set isValid to false
+            }
+            values.push(val);
+        });
+
+        var combinedValues = values.join('-'); // Combine values to form a unique identifier for the set
+
+        // If not all inputs/selects are filled, do not proceed with duplicate check
+        if (!isValid) {
+            console.log("All selections are required in each row.");
+            return;
+        }
+
+        // Unique identifier for this specific row's combination
+        var rowIdentifier = 'row_' + rowId + '_' + combinedValues;
+
+        if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
+            // If the combination already exists in the array
+            console.log("This combination has already been selected in this row.");
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+
+            // Reset all selects and inputs in this row
+            $row.find('.code_culture_check').each(function() {
+                if ($(this).is('select')) {
+                    $(this).val($(this).find('option:first').val());
+                } else {
+                    $(this).val('');
+                }
+            });
+        } else {
+            // If the combination is unique, add it to the array
+            selectedCombinations.push(rowIdentifier);
+        }
+    });
+});
+
+
+        //   var val2 = $('#status_juridique_' + idPart).val() || "";
+
+      //   var cc = val1 + val2; // Combine the values to form a unique identifier
+
+      //   // Clear any previous error indication before any new validation
+      //   $('#origine_des_terres_' + idPart).removeClass('error');
+      //   $('#status_juridique_' + idPart).removeClass('error');
+
+      //   if(val1 === "" || val2 === "") {
+      //       console.log("Both selections are required.");
+      //       return; // Exit the function if one of the dropdowns is not selected
+      //   }
+
+      //   // Check if this combination already exists in the array
+      //   if($.inArray(cc, selectedValues) !== -1){
+      //       console.log("This combination of values has already been selected.");
+      //       Swal.fire({
+      //           icon: "error",
+      //           title: "Erreur",
+      //           text: "Cette combinaison de valeurs a déjà été sélectionnée. Veuillez choisir une combinaison différente."
+      //       });
+      //       $('#origine_des_terres_' + idPart).addClass('error');
+      //       $('#status_juridique_' + idPart).addClass('error');
+      //       $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+      //   } else {
+      //       // If the combination is unique, add it to the array and ensure no error class is present
+      //       selectedValues.push(cc);
+      //   }
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                document.getElementById('addForm2').addEventListener('click', function () {
                    const formContainer = document.getElementById('formContainer2');
                    const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -2856,7 +2965,7 @@ acte de concession ?
 
             <br>
 
-            </div>
+
             <div style="border-top: 3px solid red;"></div>
 
 
@@ -3926,6 +4035,39 @@ Type et nombre du matériel agricole ?
         </div>
       </div>
       <script>
+
+
+
+
+$(document).ready(function(){
+    var selectedValues = []; // Array to hold the unique values selected
+
+    // Event handler for changes on any select with the class 'code_culture_check'
+    $(document).on('change', '.code_materiel_check', function() {
+        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+
+        if (selectedValues.indexOf(selectedValue) !== -1) {
+            // If the value already exists in the array, display a SweetAlert message in French
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+
+            // Optionally reset to the first option or default state
+            $(this).val($(this).find('option:first').val());
+        } else {
+            // Add the new value to the array if it's not already there
+            selectedValues.push(selectedValue);
+            console.log('Selected value:', selectedValue); // Log the newly added value
+        }
+    });
+});
+
+
+
+
            document.getElementById('addForm3').addEventListener('click', function () {
                const formContainer = document.getElementById('formContainer3');
                const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -4673,7 +4815,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div class="row">
 
-            <div class="col 36_si_sont_terres" >
+               <div class="col">
                   <div class="card">
                   <div class="card-body">
 
@@ -4720,7 +4862,7 @@ Petite et Moyenne Hydraulique
               
               
                </div></div>
-               <div class="col 36_si_sont_terres" >
+               <div class="col">
                   <div class="card"> 
                   
                   <div class="card-body">
@@ -4759,7 +4901,7 @@ Petite et Moyenne Hydraulique
             
             
                </div></div>
-               <div class="col 36_si_sont_terres" >
+               <div class="col">
 
                   <div class="card"> 
                   
@@ -4925,11 +5067,11 @@ Petite et Moyenne Hydraulique
                      </div>
 
                      <script>
-                        var check1 = document.getElementsByName('soutien_public')[0];
+                        // var check1 = document.getElementsByName('soutien_public')[0];
                      
-                        check1.addEventListener('input', function () {
-                            updateSelect8();
-                        });
+                        // check1.addEventListener('input', function () {
+                        //     updateSelect8();
+                       // });
                      
                         function updateSelect8() {
 
@@ -4991,28 +5133,28 @@ Petite et Moyenne Hydraulique
 
 
                            <script>
-                              var check2 = document.getElementsByName('propres_ressources')[0];
+                              // var check2 = document.getElementsByName('propres_ressources')[0];
                            
-                              check2.addEventListener('input', function () {
-                                 updateSelect9();
-                              });
+                              // check2.addEventListener('input', function () {
+                              //    updateSelect9();
+                              // });
                            
-                              function updateSelect9() {
+                              // function updateSelect9() {
                            
-                                 var div_to_effect7 = document.getElementById('card3');
-                                 var child_inputs3 = div_to_effect7.getElementsByTagName('input');
+                              //    var div_to_effect7 = document.getElementById('card3');
+                              //    var child_inputs3 = div_to_effect7.getElementsByTagName('input');
                            
-                                 if(!check2.checked){
-                                    for (var i = 0; i < child_inputs3.length; i++) {
-                                          child_inputs3[i].disabled = true;
-                                    }
-                                 }else{
-                                    for (var i = 0; i < child_inputs3.length; i++) {
-                                          child_inputs3[i].disabled = false;
-                                    }
-                                 }
+                              //    if(!check2.checked){
+                              //       for (var i = 0; i < child_inputs3.length; i++) {
+                              //             child_inputs3[i].disabled = true;
+                              //       }
+                              //    }else{
+                              //       for (var i = 0; i < child_inputs3.length; i++) {
+                              //             child_inputs3[i].disabled = false;
+                              //       }
+                              //    }
                                  
-                              }
+                              // }
                            </script>
                           
                            
@@ -5062,17 +5204,17 @@ Petite et Moyenne Hydraulique
 
 
                      <script>
-                        var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
-                        var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
+                        // var select8 = document.getElementsByName('avez_vous_contracte_une_assurance_agricole')[0];
+                        // var select28 = document.getElementsByName('si_oui_quelle_compagnie')[0];
                      
-                        select8.addEventListener('input', function () {
-                            updateSelect28();
-                        });
+                        // select8.addEventListener('input', function () {
+                        //     updateSelect28();
+                        // });
                      
-                        function updateSelect28() {
-                            var selectedValue = select8.value;
-                            select28.disabled = (selectedValue != '1');
-                        }
+                        // function updateSelect28() {
+                        //     var selectedValue = select8.value;
+                        //     select28.disabled = (selectedValue != '1');
+                        // }
                      </script>
 
                      <br>
@@ -5457,7 +5599,6 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
-<script src="./assets/js/logique.js"></script>
 
              
              
@@ -5619,59 +5760,59 @@ document.getElementById('submitDate').click();
 
              
 <script>
-   // document.getElementById("info_form").addEventListener("input", function () {
-   //     console.log("capturing")
+   document.getElementById("info_form").addEventListener("input", function () {
+       console.log("capturing")
 
-   //     var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
-   //     var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
-   //     var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
-   //     var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-   //     document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+       var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+       var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+       var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+       var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+       var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+       document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
-   //     var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
-   //     var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
-   //     var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
-   //     var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-   //     document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
-
-
-   //     var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
-   //     var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
-   //     var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
-   //     var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-   //     document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
-
-   //     var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
-   //     var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
-   //     var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
-   //     var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
-   //     var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-   //     document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+       var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+       var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+       var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+       var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+       var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+       document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
 
 
-   //     var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
-   //     var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-   //     var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-   //     document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+       var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+       var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+       var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+       var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+       var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+       document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
 
-   //     var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   //     var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   //     var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-   //     document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+       var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+       var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+       var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+       var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+       var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+       document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
 
-   //     var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-   //     var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-   //     document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+       var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+       var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+       var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+       document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+       var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+       var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+       var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+       document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+       var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+       var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+       document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
        
 
-   //     var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-   //     var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-   //     document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+       var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+       var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+       document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
-   // });
+   });
 </script>       
 
 <script>
