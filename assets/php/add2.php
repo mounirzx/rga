@@ -14,9 +14,11 @@ $tableMappings = [
     'formDataArrayStatut' => 'status_juridique',
     'formDataArrayCodeCulture' => 'utilisation_du_sol',
     'formDataArrayCodeMateriel' => 'materiel_agricole',
-    'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
+    //'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
 ];
  
+
+
 ob_start();
 echo "Debug: ", print_r($form, true);
 $logData = ob_get_clean();
@@ -27,6 +29,7 @@ try {
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     $bdd->exec("SET NAMES 'utf8'");
     $bdd->exec("SET CHARACTER SET utf8");
+    
  
     // Prepare parameters for SQL statement for questionnaire table
     $paramsQuestionnaire = [];
@@ -51,11 +54,7 @@ try {
     $reqQuestionnaire = $bdd->prepare("INSERT INTO `questionnaire` ($sqlColumnsQuestionnaire) VALUES ($sqlValuesQuestionnaire)");
     $reqQuestionnaire->execute($paramsQuestionnaire);
 
-      // Prepare the SQL query
-      $sqlColumnsQuestionnaire = implode(", ", array_map(function($field) { return "`$field`"; }, $fieldsQuestionnaire));
-      $sqlValuesQuestionnaire = implode(", ", array_map(function($field) { return ":" . $field; }, $fieldsQuestionnaire));
-      $reqQuestionnaire = $bdd->prepare("INSERT INTO `superficie_exploitation` ($sqlColumnsQuestionnaire) VALUES ($sqlValuesQuestionnaire)");
-      $reqQuestionnaire->execute($paramsQuestionnaire);
+    
  
     // Get the last inserted ID of the questionnaire table
     $lastInsertId = $bdd->lastInsertId();
@@ -93,7 +92,11 @@ function processCollection($db, $table, $collection, $key, $lastInsertId) {
         if ($table === 'materiel_agricole') {
             $item->cle_materiel_agricole = $lastInsertId . "-" . $item->code_materiel . "-" . $item->code_materiel_nombre;
         }
-     
+        //   // Add cle for materiel_agricole table
+        //   if ($table === 'superficie_exploitation') {
+        //     $item->cle_materiel_agricole = $lastInsertId . "-" . $item->code_materiel . "-" . $item->code_materiel_nombre;
+        // }
+
 
 
 

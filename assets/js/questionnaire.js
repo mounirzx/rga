@@ -177,7 +177,7 @@ $(document).ready(function () {
     console.log(formDataObj);
     $(function () {
       $.ajax({
-        url: "assets/php/add2.php",
+        url: "assets/php/add.php",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({

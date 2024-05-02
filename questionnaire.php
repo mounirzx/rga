@@ -673,29 +673,29 @@ if ($_SESSION['role'] == "recenseur") {
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
+              <input class="form-check-input bneder" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
+              <input class="form-check-input bneder" id="capa" name="capa" type="checkbox" > <label class="form-check-label" for="capa">غرفة الصيد البحري وتربية المائيات<br>
               La Chambre de la Pêche et de l'Aquaculture (CAPA)</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
+              <input class="form-check-input bneder" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
               L’Union Nationale des Paysans Algériens (UNPA)</label>
             </div>
             <div class="form-check">
-               <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
+               <input class="form-check-input bneder" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
                La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
          </div><br>
          <div class="col">
            <div class="form-check">
-             <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
+             <input class="form-check-input bneder" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
              La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
            </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
+              <input class="form-check-input bneder" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
               جهاز إجتماعي - Dispositif Social</label>
             </div>
           </div>
@@ -1531,26 +1531,26 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total " id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are " name="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control " name="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control " name="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1569,13 +1569,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total " name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
                   
                   
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are " name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1767,13 +1767,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
+                     <input  class="form-control  coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control  coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1792,12 +1792,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input style="border: 2px solid " class="surface  form-control " name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
                   
                  
                      
-                     <input style="border: 2px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     <input style="border: 2px solid "  class="surface  form-control " name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1815,13 +1815,13 @@ acte de concession ?
                      
                   
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total " name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
                      
                   
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are " name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
                      
                </div>
             </td>
@@ -4673,7 +4673,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div class="row">
 
-               <div class="col">
+            <div class="col 36_si_sont_terres" >
                   <div class="card">
                   <div class="card-body">
 
@@ -4720,7 +4720,7 @@ Petite et Moyenne Hydraulique
               
               
                </div></div>
-               <div class="col">
+               <div class="col 36_si_sont_terres" >
                   <div class="card"> 
                   
                   <div class="card-body">
@@ -4759,7 +4759,7 @@ Petite et Moyenne Hydraulique
             
             
                </div></div>
-               <div class="col">
+               <div class="col 36_si_sont_terres" >
 
                   <div class="card"> 
                   
