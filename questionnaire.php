@@ -4815,7 +4815,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div class="row">
 
-               <div class="col ">
+               <div class="col 36_si_sont_terres">
                   <div class="card">
                   <div class="card-body">
 
@@ -4945,7 +4945,7 @@ Petite et Moyenne Hydraulique
               
               
                </div></div>
-               <div class="col ">
+               <div class="col-3">
 
 <div class="card"> 
 
