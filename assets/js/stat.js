@@ -2,13 +2,13 @@
 
 $(document).ready(function(){
 
-function commune(wil){
+function commune(wil,comm){
 
     $.ajax({
         url:'assets/php/commune_by_user.php',
         method:'post',
         async:false,
-        data:{wil:wil},
+        data:{wil:wil,comm:comm},
         success:function(response){
            
             var data = JSON.parse(response)
@@ -28,14 +28,41 @@ function commune(wil){
         }
         })
 }
-commune('all')
+commune('all','all')
 
 
 /***************************************************************************************************/
 //
 $("#listCommune").change(function(){
+    $('#tableQst').DataTable().destroy();
     var communeCode = $(this).val()
+    var wilaya_code = $('#wilaya').val()
     console.log(communeCode)
+    console.log(wilaya_code)
+    
+if(communeCode!=""){
+    console.log("first")
+    if(wilaya_code!=undefined){
+        console.log('wilaya')
+        getCommuneList(wilaya_code,communeCode)
+    }else{
+        console.log('communnn')
+        console.log(communeCode)
+        getCommuneList("all",communeCode)
+    }
+}else{
+console.log("second")
+    if(wilaya_code!=undefined){
+        console.log(" wilaya second")
+        getCommuneList(wilaya_code,'all')
+    }else{
+        console.log("all  commune")
+        getCommuneList("all",'all')
+    }
+}
+ 
+
+  
     //console.log("Before filtering - Search criteria:", table.column(0));
     //table.column(0).search(communeCode).draw();
 
@@ -46,7 +73,8 @@ var list_commune
 
 
 
-    function getCommuneList(wil) {
+    function getCommuneList(wil,comm) {
+        console.log(comm)
 
         var sum_en_attente=0;
         var sum_rejete = 0;
@@ -61,7 +89,7 @@ var list_commune
                 url:'assets/php/commune_by_user.php',
                 method:'post',
                 async:false,
-                data:{wil:wil},
+                data:{wil:wil,comm:comm},
                 success:function(response){
                    
                     var data = JSON.parse(response)
@@ -151,6 +179,7 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
                     }
                     $('#list').empty(list)
                     $('#list').append(list)
+                    $('#spinner').hide()
 
                     $('#tableQst').DataTable({
                         searching: false,
@@ -162,30 +191,6 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
                         
                     });
 
-                    // new DataTable('#tableQst', {
-                    //     layout: {
-                    //         top2: 'searchPanes',
-                    //         top1: 'searchBuilder'
-                    //     },
-                    //     initComplete: function () {
-                    //         // this.api().columns().every(function () {
-                    //         //     var column = this;
-                    //         //     var title = column.header().textContent;
-                     
-                    //         //     $('<input type="text" placeholder="Search ' + title + '" />')
-                    //         //         .appendTo($(column.header()).empty())
-                    //         //         .on('keyup change clear', function () {
-                    //         //             if (column.search() !== this.value) {
-                    //         //                 column.search(this.value).draw();
-                    //         //             }
-                    //         //         });
-                    //         // });
-                    //     },
-                    //     dom: 'Plfrtip',
-                    //     searchPanes: {
-                    //         viewTotal: true
-                    //     }
-                    // });
                     
                
                 }
@@ -215,7 +220,7 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
 
     }
 
-    getCommuneList('all')
+    getCommuneList('all','all')
 
 
     $(document).on("click","#showModal",function(){
@@ -254,7 +259,7 @@ console.log(date)
                 console.log(response)
                 $('#tableQst').DataTable().destroy();
 $('#list').empty();
-                getCommuneList('all')  
+                getCommuneList('all','all')  
                 
             }
         })
@@ -305,9 +310,9 @@ $('#wilaya').change(function(){
     
 
     var wilaya_code = $(this).val()
-   
+    commune(wilaya_code)
     $('#tableQst').DataTable().destroy();
-    getCommuneList(wilaya_code)
+    getCommuneList(wilaya_code,'all')
 })
     /***************************************************************************** */
 

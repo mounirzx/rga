@@ -87,7 +87,7 @@
             class="row"
             style="
               border: 2px solid white;
-              background-color:#ffffff9e;
+              background-color:#fff;
               margin: auto;
               height: 600px;
               width: 930px;

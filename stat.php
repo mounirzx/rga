@@ -5,14 +5,13 @@ include('includes/header.php');
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <!-- SearchPanes CSS -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchpanes/2.2.9/css/searchPanes.dataTables.min.css">
 
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- DataTables JS -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <!-- SearchPanes JS -->
-<script type="text/javascript" src="https://cdn.datatables.net/searchpanes/2.2.9/js/dataTables.searchPanes.min.js"></script>
+
 <style>
 
 .dt-type-numeric{
@@ -27,7 +26,12 @@ text-align:center !important;
 table.dataTable th, table.dataTable td{
     padding:2px;
 }
+.listCom{
 
+    width: auto !important;
+    background : transparent !important;
+
+}
 
 
 </style>
@@ -215,7 +219,11 @@ if($_SESSION['role']=="superviseur_national"){
                 </div>
               
                 <div class="card-body">
-
+<img id="spinner"  src="static/spinner.svg" style="position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+" />
 
                 <div class="row">
                     <div class="col table-responsive">
@@ -226,7 +234,12 @@ if($_SESSION['role']=="superviseur_national"){
                     <!-- <tr><td>Filtre par Commune</td><td><select id="listCommune" class="form-control"><option>Selectionner...</option></select></td><td colspan="9"></td></tr> -->
                         <tr style="background: #d5d5d5">
                             <th scope="col">#</th>
-                            <th  style="background:#8bdfb8;" scope="col">Commune</th>
+                
+                            <th  style="background:#8bdfb8;" scope="col">
+                            <select id="listCommune" class="form-control listCom">
+                                <option value="">Commune</option>
+                </select>
+                </th>
                             <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations à recenser</th>
                             <th  style="background:#8bdfb8;" scope="col">Nombre d'exploiatations recensées</th>
                             <th scope="col">Nombre de questionnaires saisis</th>

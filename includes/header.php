@@ -34,9 +34,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css
 https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
-<link rel="stylesheet" href="./static/datatable/dataTables.dataTables.css"/>  
-<link rel="stylesheet" href="./static/datatable/searchPanes.dataTables.css"/>  
-<link rel="stylesheet" href="./static/datatable/select.dataTables.css"/>  
+
  <style>
         /* @page {
             size: A4;
