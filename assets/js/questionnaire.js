@@ -154,16 +154,30 @@ $(document).ready(function () {
       "-";
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
 
+
+
+  
+    var formDataArraySuperficie ={};
+    $(".surface").each(function () {
+      formDataArraySuperficie[this.name] = $(this).val();
+    });
+   
+
+
+
+
     // Add values of all input fields with class "bneder" to formDataObj
     $(".bneder").each(function () {
       formDataObj[this.name] = $(this).val();
     });
 
+
+   
     console.log("formDataObj");
     console.log(formDataObj);
     $(function () {
       $.ajax({
-        url: "assets/php/add.php",
+        url: "assets/php/add2.php",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -171,6 +185,7 @@ $(document).ready(function () {
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+          formDataArraySuperficie: formDataArraySuperficie,
         }),
         dataType: "json",
         success: function (response) {

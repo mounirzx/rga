@@ -16,7 +16,12 @@
                          }
                    });
        
-                   $('#activite_exploitation').change(function() {
+                   $('#type_activite_exploitation').change(function() {
+                        var selectedValue = $(this).val(); // Use jQuery to get the value
+                        if (selectedValue === "2") {
+                              $('#sans_terre').hide(); // Hide Test 1 if option 1 is selected
+                           
+                        } 
                         
                       });
 
