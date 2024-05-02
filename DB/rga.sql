@@ -3641,6 +3641,7 @@ CREATE TABLE `users` (
 --
 -- Déchargement des données de la table `users`
 --
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
@@ -3650,6 +3651,9 @@ INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`)
 >>>>>>> Stashed changes
 
 -- --------------------------------------------------------
+=======
+--------------------------------------------------------
+>>>>>>> Stashed changes
 
 --
 -- Structure de la table `utilisation_du_sol`

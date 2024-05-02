@@ -1476,7 +1476,7 @@ acte de concession ?
 
             <div class="container mt-3">
    <div class="row" style="text-align: center;">
-      <div class="col-4"></div>
+      <div class="col-5"></div>
       <div class="col">
          (المساحة Superficie) جافة (هكتار) - En sec (Hectare)
       </div>
@@ -1486,10 +1486,12 @@ acte de concession ?
    </div>
    <br>
    <div class="row" style="text-align: center;">
-      <div class="col-4"></div>
-      <div class="col">
+      <div class="col-5"></div>
+      <div class="col-3">
          <div class="row">
-            <div class="col">
+      <div class="col"></div>
+
+            <div class="col" style="padding-left:15px">
                Hectare - هكتار
             </div>
             <div class="col">
@@ -1497,9 +1499,12 @@ acte de concession ?
             </div>
          </div>
       </div>
-      <div class="col">
-         <div class="row">
-            <div class="col">
+      <div class="col-3">
+      <div class="row">
+     
+      <div class="col"></div>
+
+            <div class="col" style="padding-left:15px">
                Hectare - هكتار
             </div>
             <div class="col">
@@ -1522,31 +1527,31 @@ acte de concession ?
     <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
 </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
-               <div class="small-space"></div>
+               
                      <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="4" num   >
              
-                 <div class="small-space"></div>
-                     <span style="width: 32px;"></span>
+                 
+                     
                  
                      
                      <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
+               
                      <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="4" num   value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
              
                      
                      
                      <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
          </tr>
@@ -1557,38 +1562,38 @@ acte de concession ?
             <p style="margin: 0px 0px 0px 25px;" >Terres au repos (jachères)</p>
             <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
                      
                      
-               <div class="small-space"></div>
+               
                      
                      <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="4" num   value="">
                   
-                  <span style="width: 32px;"></span>
-                  <div class="small-space"></div>
+                  
+                  
                      
                      
                      <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                 
                      
-               <div class="small-space"></div>
+               
                      
                      
                      <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="4" num   value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
                 
                       
                      
                      <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
          </tr>
@@ -1599,39 +1604,39 @@ acte de concession ?
          <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
          <p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                   
                      
                      
-               <div class="small-space"></div>
+               
                      
                      <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="4" num   value="">
                  
 
-                  <span style="width: 32px;"></span>
+                  
                  
                      
-                     <div class="small-space"></div>
+                     
                      <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                 
                      
                      
-                     <div class="small-space"></div>
+                     
                      
                      <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="4" num   value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
                  
                      
                      
                      <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
          </tr>
@@ -1643,38 +1648,38 @@ acte de concession ?
             <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
             <p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
                      
                      
-               <div class="small-space"></div>
+               
                      
                      <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="4" num   value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
                
                      
                      
                      <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
               
-               <div class="small-space"></div>
+               
                      
                      
                      
                      <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="4" num   value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
             
                      
                      
                      <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                  
                </div>
             </td>
@@ -1684,36 +1689,36 @@ acte de concession ?
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-               <b style="margin: 0px 0px 0px 19px;" >Superficie agricole utile(SAU)
-               المساحة الفلاحية المستخدَمَة</b>
+               <p style="margin: 0px 0px 5px 25px;" >Superficie agricole utile(SAU)
+               المساحة الفلاحية المستخدَمَة</p>
                <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
-               <div class="small-space"></div>
-                     <input class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   style="max-width: 80px;" value="">
+               
+                     <input style="border: 2px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="4" value="">
                      
-                     <div class="small-space"></div>
+                     
                 
-                  <span style="width: 32px;"></span>
+                  
                  
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""   style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     
                </div>
             </td>
-            <td>
+            <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
+               
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   style="max-width: 80px;" value="">
-                     <div class="mid-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="4" value="">
+                     
+                  
             
                      
-                     <input  class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  style="max-width: 60px;" value="">
-                 <div class="small-space"></div>
+                     <input style="border: 2px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                 
                </div>
             </td>
          </tr>
@@ -1726,21 +1731,21 @@ acte de concession ?
             <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             <p style="margin: 0px 0px 0px 25px;" > المراعي</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
 
-               <div class="small-space"></div>
+               
                      
                      
                      
                      <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="4" num   value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
                  
                      
                      
                      <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
             <td></td>
@@ -1754,22 +1759,22 @@ acte de concession ?
             <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             <p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                 
                      
-               <div class="small-space"></div>
+               
                      
                      
                      
                      <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="4" num   value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     
+                  
             
                      
                      
                      <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
-                     <div class="small-space"></div>
+                     
                </div>
             </td>
             <td></td>
@@ -1778,22 +1783,22 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <b style="margin: 0px 0px 0px 19px;" >Superficie agricole totale (SAT)
-               المساحة الفلاحية الإجمالية</b>
+         <p style="margin: 0px 0px 5px 25px;" >Superficie agricole totale (SAT)
+               المساحة الفلاحية الإجمالية</p>
                <div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>
 
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-               <div class="small-space"></div>
+               
                      
-                     <input class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""   style="max-width: 80px;" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+                     <input style="border: 2px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="4" value="">
+                     
+                  
                  
                      
-                     <input  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""   style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input style="border: 2px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1804,20 +1809,20 @@ acte de concession ?
 <p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>
                <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
                      
                   
-               <div class="small-space"></div>
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"   style="max-width: 80px;" value="">
-                     <div class="small-space"></div>
-                  <span style="width: 32px;"></span>
+               
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="4" value="">
+                     
+                  
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2"   style="max-width: 60px;" value="">
-                     <div class="small-space"></div>
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     
                </div>
             </td>
             <td></td>
@@ -1827,23 +1832,23 @@ acte de concession ?
 
 
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <b style="margin: 0px 0px 0px 19px;" >Surface totale (ST) المساحة الإجمالية</b>
+         <p style="margin: 0px 0px 5px 25px;" >Surface totale (ST) المساحة الإجمالية</p>
                <div style="border-top: 1px solid red; width:95px; margin:0px 30px 0px 65px;"></div>
              
             </td>
-            <td>
+            <td style="padding-left:15px">
                <div class="input-group input-group-sm">
             
-               <div class="small-space"></div>
+               
 
-                  <input  class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     style="max-width: 80px;"  >
-                     <div class="small-space"></div>
+                  <input  style="border: 2px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="4"  >
+                     
 
-                  <span style="width: 32px;"></span>
+                  
                 
                      
-                  <input  class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    style="max-width: 60px;" >
-                     <div class="small-space"></div>
+                  <input style="border: 2px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                     
 
                
                </div>
