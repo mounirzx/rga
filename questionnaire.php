@@ -4815,7 +4815,7 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div class="row">
 
-               <div class="col">
+               <div class="col ">
                   <div class="card">
                   <div class="card-body">
 
@@ -4862,7 +4862,7 @@ Petite et Moyenne Hydraulique
               
               
                </div></div>
-               <div class="col">
+               <div class="col 36_si_sont_terres">
                   <div class="card"> 
                   
                   <div class="card-body">
@@ -4901,7 +4901,7 @@ Petite et Moyenne Hydraulique
             
             
                </div></div>
-               <div class="col">
+               <div class="col 36_si_sont_terres">
 
                   <div class="card"> 
                   
@@ -4945,7 +4945,7 @@ Petite et Moyenne Hydraulique
               
               
                </div></div>
-               <div class="col">
+               <div class="col ">
 
 <div class="card"> 
 
@@ -5599,6 +5599,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script src="./assets/js/logique.js"></script>
 
              
              
