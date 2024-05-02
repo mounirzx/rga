@@ -306,7 +306,7 @@ font-weight: bold;
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input class="form-control" id="exampleInputEmail1" type="text" 
+                    <input class="form-control" id="nom_recensseur" type="text" 
                        value="" />
                  </div>
                  <br />
@@ -316,7 +316,7 @@ font-weight: bold;
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input class="form-control" id="exampleInputEmail1"  type="text" 
+                    <input class="form-control" id="prenom_recenseur"  type="text" 
                        value="" />
                  </div>
                  <br />
@@ -326,17 +326,7 @@ font-weight: bold;
                             <span class="input-group-text" id="basic-addon3">الولاية
                                 <br>
                                 Wilaya</span>
-                            <select class="form-select" id="wilaya_select" >
-                                <option selected>
-                                    -
-                                </option>
-                       <option  value="Tipaza">Tipaza</option>
-                       <option  value="El Taref">El Taref</option>
-                       <option  value="Mascara">Mascara</option>
-                       <option  value="Djelfa">Djelfa</option>
-                       <option  value="Biskra">Biskra</option>
-                       <option  value="Adrar">Adrar</option>
-                    </select>
+                                <input class="form-control" id="wilaya_name_ascii" >
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -344,7 +334,7 @@ font-weight: bold;
                         <div class="qst-num ">8</div>
                     <span class="input-group-text" id="basic-addon3">البلدية<br />
                     commune</span>
-                    <input readonly class="form-control" type="text"  value="" />
+                    <input readonly class="form-control" type="text" id="commune_name_ascii"  value="" />
                  </div>
 
                  <br />
@@ -540,7 +530,7 @@ font-weight: bold;
                           <br />
                           Nom du contrôleur</span>
                           <input readonly class="form-control"type="text" 
-                             value="BNEDER" />
+                          id="nom_controleur"/>
                        </div>
                        <br />
                        <div class="input-group input-group-sm">
@@ -550,8 +540,7 @@ font-weight: bold;
                           المراقب
                           <br />
                           prénom du contrôleur</span>
-                          <input readonly class="form-control" type="text" 
-                             value="BNEDER" />
+                          <input readonly class="form-control" type="text"  id="prenom_controleur"  />
                        </div>
 
                     </div>
@@ -565,8 +554,7 @@ font-weight: bold;
                  <div class="qst-num ">9</div>
                     <span class="input-group-text" id="basic-addon3">رمز البلدية<br>
                         commune Code</span>
-                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code" value="<?php echo isset($_SESSION['commune_code']) ? $_SESSION['commune_code'] : 'No Commune Code'; ?>">
-
+                        <input  type="text" class="form-control bneder" id="commune_code" name="commune_code">
                 </div>
                  
                  <br />
@@ -581,8 +569,7 @@ font-weight: bold;
                     <span class="input-group-text" id="basic-addon3">
                     district-zone <br /> إسم المكان، المنطقة
                     </span>
-                    <input class="form-control"  type="text" 
-                       value="" />
+                    <input class="form-control"   type="text" id="nom_zone_district" />
                  </div>
             </div>
             <div class="col">
@@ -592,8 +579,8 @@ font-weight: bold;
                     Numero du district-zone <br />رقم المنطقة
                     </span>
                   
-                       <input id="in1" type="text" max="99" class="form-control" data-length="2"
-                          value="" />
+                    <input  type="text" max="99" class="form-control" id="num_zone_district" data-length="2"
+                         />
                     
                  </div>
             </div>
@@ -616,7 +603,7 @@ font-weight: bold;
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder" type="text" name="nom_exploitant"   />
+                    <input class="form-control bneder" type="text" name="nom_exploitant"    />
                  </div>
               </div>
               <div class="col">
@@ -1122,7 +1109,7 @@ font-weight: bold;
                   <div class="row">
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="vegetale" name="vegetale" type="checkbox" value="1">
+                            <input class="form-check-input bneder" id="vegetale" name="activite_exploitation" type="checkbox" value="1">
 
                            <label class="form-check-label" for="vegetale">
                            نباتية - Végétale
@@ -1131,7 +1118,7 @@ font-weight: bold;
                      </div>
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="elevage" name="elevage" type="checkbox" value="1">
+                            <input class="form-check-input bneder" id="elevage" name="activite_exploitation" type="checkbox" value="2">
 
                            <label class="form-check-label" for="elevage">
                            تربية الحيوانات - Elevage
@@ -1140,7 +1127,7 @@ font-weight: bold;
                      </div>
                      <div class="col">
                         <div class="form-check">
-                           <input class="form-check-input bneder" id="mixed" name="mixed" type="checkbox" value="1">
+                           <input class="form-check-input bneder" id="mixed" name="activite_exploitation" type="checkbox" value="3">
                            <label class="form-check-label" for="mixed">
                            مختلطة - mixed
                            </label>
@@ -1409,7 +1396,7 @@ Latitude (Y)
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select statut_juridique_s" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres" value="1">
+                                <select  class="form-select statut_juridique_s" id="status_juridique" name="status_juridique" value="1">
                                 <option selected="">-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1449,13 +1436,13 @@ Latitude (Y)
                                        display: inline-block;
                                     }
                                  </style>
-                                    <input  id="in11" name="superficie_hectare"   type="number" max="9999" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(9999, this.value));" value="" >
+                                    <input  id="superfecie_sj" name="superfecie_sj"   type="number" max="9999" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(9999, this.value));" value="" >
                             
                                    
                                     <div class="big-space"></div>
                                     <div class="small-space"></div>
                                     
-                                    <input  id="in12" name="superficie_are" type="number" max="99" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="">
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are" type="number" max="99" class="form-control statut_juridique_s" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="">
                              
 
                             </div>
@@ -1463,10 +1450,10 @@ Latitude (Y)
                         </div>
                         <div class="col-1">
 
-                            <!-- <div class="d-grid gap-2">
+                            <div class="d-grid gap-2">
                                         <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
 
-                            </div> -->
+                            </div>
 
 
                         </div>
@@ -2055,8 +2042,8 @@ Latitude (Y)
                      Si oui, quel est le nombre nombre de ménages ?
                      </span>
                      <div class="line-edits-container" id="cn40">
-                      
-                        <input  class="select-ee bneder" id="exploit_indus_sur_exploitation_oui" name="exploit_indus_sur_exploitation_oui" type="text">
+                     <!-- name="exploit_indus_sur_exploitation_oui" -->
+                        <input  class="select-ee bneder" id="exploit_indus_sur_exploitation_oui"  type="text">
                      </div>
                   </div>
                </div>
@@ -2086,6 +2073,7 @@ Latitude (Y)
                   ما هي مصادر الطاقة المستخدمة في المستثمرة؟ - Quelles sont les sources d'énergie utilisées dans
                   l'exploitation ?
                </div>
+               
                <div class="card-body">
                   <div class="row">
                      <div class="col">
@@ -5210,7 +5198,15 @@ Latitude (Y)
 
 
 
-
+<script>
+      // Add event listener to detect Ctrl + *
+      document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.key === '*') {
+      // Trigger the click event of the button
+      document.getElementById('submitDate').click();
+      }
+      });
+</script>
 
 
 
@@ -5577,7 +5573,7 @@ Latitude (Y)
 
 
 
-    /**********************************************************************/
+    /********************************statut_juridique_s**************************************/
     $.ajax({
     url: 'assets/php/list_status_juridique.php',
     method: 'post',
@@ -5591,7 +5587,7 @@ Latitude (Y)
 
         for (var i = 0; i < data.length; i++) {
             console.log(data[i].status_juridique);
-            status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" ' + (data[i].status_juridique === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" ' + (data[i].status_juridique === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" ' + (data[i].status_juridique === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" ' + (data[i].status_juridique === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" ' + (data[i].status_juridique === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6" ' + (data[i].status_juridique === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" ' + (data[i].status_juridique === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8" ' + (data[i].status_juridique === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9" ' + (data[i].status_juridique === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="mode_dexploitation_des_terres" name="mode_dexploitation_des_terres"><option value="-">-</option><option value="1" ' + (data[i].origine_terre === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" ' + (data[i].origine_terre === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" ' + (data[i].origine_terre === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" ' + (data[i].origine_terre === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" ' + (data[i].origine_terre === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" ' + (data[i].origine_terre === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7" ' + (data[i].origine_terre === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" ' + (data[i].origine_terre === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" ' + (data[i].origine_terre === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" ' + (data[i].origine_terre === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11" ' + (data[i].origine_terre === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" ' + (data[i].origine_terre === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" ' + (data[i].origine_terre === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="' + data[i].superfecie_sj + '" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="' + data[i].superfecie_sj_are + '"></div></div></div>';
+            status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" ' + (data[i].origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" ' + (data[i].origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" ' + (data[i].origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" ' + (data[i].origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" ' + (data[i].origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6" ' + (data[i].origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" ' + (data[i].origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8" ' + (data[i].origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9" ' + (data[i].origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="status_juridique" name="status_juridique"><option value="-">-</option><option value="1" ' + (data[i].status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" ' + (data[i].status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" ' + (data[i].status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" ' + (data[i].status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" ' + (data[i].status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" ' + (data[i].status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7" ' + (data[i].status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" ' + (data[i].status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" ' + (data[i].status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" ' + (data[i].status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11" ' + (data[i].status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" ' + (data[i].status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" ' + (data[i].status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="' + data[i].superfecie_sj + '" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="' + data[i].superfecie_sj_are + '"></div></div></div>';
         }
 
         $('#formContainer').append(status_juridique_inputs);
