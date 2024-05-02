@@ -146,6 +146,15 @@ include('includes/header.php');
             if(role=="superviseur"){
                 window.location="superviseur_form.php?id_user="+id_user
             }
+            if(role=="controleur"){
+                window.location="controleur_form.php?id_user="+id_user
+            }
+            if(role=="recenseur"){
+                window.location="recenseur_form.php?id_user="+id_user
+            }
+            if(role=="superviseur_national"){
+                window.location="superviseur_national_form.php?id_user="+id_user
+            }
             //window.location="user_details.php?id_user="+id_user
         //     $.ajax({
         //         url:'assets/php/get_user_details.php',
