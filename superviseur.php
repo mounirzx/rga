@@ -12,7 +12,7 @@ include('includes/header.php');
                     <h5>Gestion des superviseurs</h5>
                 </div>
              <div class="col-3">
-             <a class="btn btn-success" href="./add_superviseur.php">Ajouter superviseur</a>
+             <a class="btn btn-success" href="AjouterSuperviseur">Ajouter superviseur</a>
              </div>
             </div>
             

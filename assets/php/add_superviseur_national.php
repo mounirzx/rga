@@ -16,14 +16,13 @@ $password = $_POST["password"];
 $nonhashedPass = $_POST["password"];
 $password=sha1($password);
 
-$role='superviseur national';
+$role='superviseur_national';
 try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 
     $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`, `role`, `date_creation`) VALUES(?,?,?,NOW()) ');
-    $req->execute(array($username,$password,'superviseur_national'));
 
     $id_user = $bdd->lastInsertId();
 
