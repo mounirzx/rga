@@ -1101,7 +1101,8 @@ font-weight: bold;
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="select-ee bneder" id="activite_exploitation" name="activite_exploitation">
+          Activité de l'exploitation</span>
+           <select class="select-ee bneder" id="activite_exploitation" name="activite_exploitation">
             <option>
               -
             </option>
@@ -1112,10 +1113,18 @@ font-weight: bold;
               2 - تربية الحيوانات - Elevage
             </option>
             <option value="2">
-              2 - مختلطة - mixte
+              3 - مختلطة - mixte
             </option>
           </select>
-        </div><br>
+        </div><br> 
+
+
+
+
+
+
+
+
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية المواشي<br>
           Si activité est l'élevage</span> <select class="select-ee bneder" id="type_activite_exploitation" name="type_activite_exploitation">
@@ -5757,6 +5766,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script src="./assets/js/logique.js"></script>
 
              
              

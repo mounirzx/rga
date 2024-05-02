@@ -337,3 +337,22 @@ Debug: stdClass Object
         )
 
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_culture] => 1
+            [superficie_hec] => 
+            [superficie_are] => 
+            [en_intercalaire] => 
+        )
+
+    [1] => stdClass Object
+        (
+            [code_culture] => 2
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 4
+        )
+
+)
