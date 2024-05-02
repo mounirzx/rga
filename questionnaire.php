@@ -1460,9 +1460,7 @@ acte de concession ?
 
 
 
-
-
-
+<div id='sans_terre'>
 
 
 
@@ -2965,6 +2963,8 @@ $(document).ready(function(){
 
             <br>
 
+
+            </div>
 
             <div style="border-top: 3px solid red;"></div>
 
