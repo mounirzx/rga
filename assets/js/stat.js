@@ -1,16 +1,7 @@
 
-var table
+
 $(document).ready(function(){
 
-   table   = $('#tableQst').DataTable({
-    searching: false,
-    "dom": '<"top"i>rt<"bottom"flp><"clear">',
-    "columnDefs": [
-        { "orderable": false, "targets": "_all" }, // Disable sorting for all columns
-       // { "orderable": true, "targets": [0] } // Enable sorting for the first column
-    ],
-    
-});
 function commune(wil){
 
     $.ajax({
@@ -45,8 +36,8 @@ commune('all')
 $("#listCommune").change(function(){
     var communeCode = $(this).val()
     console.log(communeCode)
-    console.log("Before filtering - Search criteria:", table.column(0));
-    table.column(0).search(communeCode).draw();
+    //console.log("Before filtering - Search criteria:", table.column(0));
+    //table.column(0).search(communeCode).draw();
 
 })
 /***************************************************************************************************/
@@ -136,7 +127,7 @@ var list_commune
                                     etat = "<td style='background:#ddffca5e'>"+approuvee+"</td><td style='background:#dc354526;'>"+rejete+"</td><td style='background:#ffff0038'>"+en_attente+"</td>"
                                 }
                             })
-
+                         
                         /******************************************** */
                         nb_qst_a_recense+= parseFloat(data[i].qst_a_recense)
                         nb_qst_recense+= parseFloat(data[i].qst_recense)
@@ -161,7 +152,41 @@ sum_taux_avancememnt_2+=taux_avancememnt_2
                     $('#list').empty(list)
                     $('#list').append(list)
 
+                    $('#tableQst').DataTable({
+                        searching: false,
+                        "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                        "columnDefs": [
+                            { "orderable": false, "targets": "_all" }, // Disable sorting for all columns
+                           // { "orderable": true, "targets": [0] } // Enable sorting for the first column
+                        ],
+                        
+                    });
 
+                    // new DataTable('#tableQst', {
+                    //     layout: {
+                    //         top2: 'searchPanes',
+                    //         top1: 'searchBuilder'
+                    //     },
+                    //     initComplete: function () {
+                    //         // this.api().columns().every(function () {
+                    //         //     var column = this;
+                    //         //     var title = column.header().textContent;
+                     
+                    //         //     $('<input type="text" placeholder="Search ' + title + '" />')
+                    //         //         .appendTo($(column.header()).empty())
+                    //         //         .on('keyup change clear', function () {
+                    //         //             if (column.search() !== this.value) {
+                    //         //                 column.search(this.value).draw();
+                    //         //             }
+                    //         //         });
+                    //         // });
+                    //     },
+                    //     dom: 'Plfrtip',
+                    //     searchPanes: {
+                    //         viewTotal: true
+                    //     }
+                    // });
+                    
                
                 }
           

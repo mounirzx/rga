@@ -59,14 +59,19 @@
   </head>
 
   <body
-    style="
-      background-image: url(./static/forest2.png);
+   
+  >
+
+  <div  style="
+      background-image: url(./static/forest3.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-    "
-  >
-    <div class="limiter">
+      width: 100%;
+    height: 100%;
+    ">
+    <div class="limiter" style="      background: #117042a3;
+    height: 100%;">
       <div
         class="container-login1005 text-center"
         style="
@@ -74,6 +79,7 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+    
         "
       >
         <div>
@@ -81,7 +87,7 @@
             class="row"
             style="
               border: 2px solid white;
-              background-color: white;
+              background-color:#ffffff9e;
               margin: auto;
               height: 600px;
               width: 930px;
@@ -190,7 +196,7 @@
         </div>
       </div>
     </div>
-
+</div>
     <!--===============================================================================================-->
     <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->

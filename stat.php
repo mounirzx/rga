@@ -1,6 +1,18 @@
 <?php
 include('includes/header.php');
 ?>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<!-- SearchPanes CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchpanes/2.2.9/css/searchPanes.dataTables.min.css">
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<!-- SearchPanes JS -->
+<script type="text/javascript" src="https://cdn.datatables.net/searchpanes/2.2.9/js/dataTables.searchPanes.min.js"></script>
 <style>
 
 .dt-type-numeric{
