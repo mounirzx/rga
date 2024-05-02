@@ -3642,8 +3642,12 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
+<<<<<<< Updated upstream
 INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `date_creation`) VALUES
 (1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-04-26 00:51:25');
+=======
+
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
