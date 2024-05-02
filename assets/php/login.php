@@ -20,15 +20,20 @@ function logFailedAttempt($username) {
     }
 }
 
-// Function to check if login attempts exceed limit
+// Function to check if login attempts exceed limit and log IP address if necessary
 function isBruteForce($username) {
     $maxAttempts = 5; // Set your maximum allowed attempts here
     $loginAttempts = isset($_SESSION['login_attempts'][$username]) ? $_SESSION['login_attempts'][$username] : 0;
     if ($loginAttempts >= $maxAttempts) {
+        // Log IP address if login attempts exceed the limit
+        $ipAddress = $_SERVER['REMOTE_ADDR'];
+        $logMessage = "[" . date("Y-m-d H:i:s") . "] IP: " . $ipAddress . " exceeded login attempts limit.";
+        file_put_contents('../../logs/sus_ips.log', $logMessage . PHP_EOL, FILE_APPEND | LOCK_EX);
         return true;
     }
     return false;
 }
+
 
 // Function to calculate and return remaining cooldown time
 function getCooldownTime($username) {
