@@ -35,7 +35,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 
-    <style>
+ <style>
         /* @page {
             size: A4;
             margin: 0;
@@ -213,16 +213,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
            }
            ?>
 
-<?php
-                if($_SESSION['role']=="recenseur" || $_SESSION['role']=="recenseur"){
-            ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="Recenseurs">Recenseur</a>
-            </li>
-          
-            <?php
-           }
-           ?>
+
+       
             </ul>
         </div>
 

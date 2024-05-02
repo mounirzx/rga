@@ -12,7 +12,7 @@ $wilaya = $_POST["wilaya"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
 $id_superviseur = $_POST["id_superviseur"];
-
+$role="superviseur";
 
 try {
     //connexion a la base de données
@@ -21,7 +21,10 @@ try {
     $req = $bdd->prepare('UPDATE `superviseur` SET `nom_superviseur`=?,`prenom_superviseur`=?,`wilaya`=?,`phone`=?,`email`=? WHERE id_user=?');
 $req->execute(array($nom_superviseur, $prenom_superviseur, $wilaya, $phone, $email, $id_superviseur));
 
+
 if((isset($_POST["password"]))){
+    
+$nonhashedPass= $_POST["password"];
     $password = $_POST["password"];
     if($password!=""){
         $password = sha1($password);
@@ -32,7 +35,20 @@ if((isset($_POST["password"]))){
     }
 }
 
+$url = 'https://dgl.bneder.dz/rga-update-mails.php';
+// Initialize cURL session
+$ch = curl_init($url);
 
+$data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+// Set the POST data
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
     echo "true";
 } catch (Exception $e) {
     $msg = $e->getMessage();
