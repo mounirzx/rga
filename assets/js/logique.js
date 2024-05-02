@@ -1,6 +1,7 @@
                //make document ready 
                $(document).ready(function(){
-                $('#type_activite_exploitation').prop('disabled', true);
+                 $('#type_activite_exploitation').prop('disabled', true);
+              
                    $('#activite_exploitation').change(function() {
                          var selectedValue = $(this).val(); // Use jQuery to get the value
        
@@ -18,6 +19,10 @@
                    $('#activite_exploitation').change(function() {
                         
                       });
+
+
+
+
        
         });
        

@@ -1965,23 +1965,7 @@ acte de concession ?
             <br>
 
 
-            <script>
-                        var select3 = document.getElementsByName('exploit_indus_sur_exploitation')[0];
-
-                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
-                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
-                     
-                        select3.addEventListener('input', function () {
-                            updateSelect3();
-                        });
-                     
-                        function updateSelect3() {
-                            var selectedValue = select3.value;
-                            
-                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
-                        }
-                     </script>
-
+     
 
 
 
@@ -5473,6 +5457,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script src="./assets/js/logique.js"></script>
 
              
              
