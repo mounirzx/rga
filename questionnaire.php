@@ -394,7 +394,7 @@ if ($_SESSION['role'] == "recenseur") {
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitation تعريف المستثمر</h5>
+           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitant تعريف المستثمر</h5>
            <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 
            <br />
@@ -789,7 +789,7 @@ if ($_SESSION['role'] == "recenseur") {
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitant تعريف المستثمرة</h5>
+    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitation تعريف المستثمرة</h5>
     <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
 <br>
 <br>
