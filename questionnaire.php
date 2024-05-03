@@ -5018,26 +5018,28 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="card-body">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="78278" name="fa_credit_bancaire" type="checkbox">
-                                    <label class="form-check-label" for="78278">
-                                    موارد ذاتية - Crédit bancaire
+                                    <input type="checkbox" class="form-check-input bneder" id="fa_credit_bancaire" name="fa_credit_bancaire" >
+                                    <label class="form-check-label" for="fa_credit_bancaire">
+                                       قرض بنكي - Crédit bancaire
+                                    </label>
+                                 </div>
+ 
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_propres_ressources" name="fa_propres_ressources" type="checkbox">
+                                    <label class="form-check-label" for="fa_propres_ressources">
+                                    موارد
+ذاتية   - Propres ressources
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="5461745612" name="fa_propres_ressources" type="checkbox">
-                                    <label class="form-check-label" for="5461745612">
-                                    قرض بنكي - Propres ressources
-                                    </label>
-                                 </div>
-                                 <div class="form-check">
-                                    <input class="form-check-input bneder" id="57148562" name="fa_soutien_public" type="checkbox">
-                                    <label class="form-check-label" for="57148562">
+                                    <input class="form-check-input bneder" id="fa_soutien_public" name="fa_soutien_public" type="checkbox">
+                                    <label class="form-check-label" for="fa_soutien_public">
                                     دَعْم عُمومي - Soutien public
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="875178275" name="fa_emprunt_a_un_tiers" type="checkbox">
-                                    <label class="form-check-label" for="875178275">
+                                    <input class="form-check-input bneder" id="fa_emprunt_a_un_tiers" name="fa_emprunt_a_un_tiers" type="checkbox">
+                                    <label class="form-check-label" for="fa_emprunt_a_un_tiers">
                                     استلاف من الغير - Emprunt à un tiers
                                     </label>
                                  </div>
@@ -5052,20 +5054,26 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="card-body">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="5642614" name="fa_financiere" type="checkbox">
-                                    <label class="form-check-label" for="5642614">
+                                    <input class="form-check-input bneder" id="fa_financiere" name="fa_financiere" type="checkbox">
+                                    <label class="form-check-label" for="fa_financiere">
                                     مالي - Financière
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="2498429824" name="fa_materiel" type="checkbox">
-                                    <label class="form-check-label" for="2498429824">
+                                    <input class="form-check-input bneder" id="fa_materiel" name="fa_materiel" type="checkbox">
+                                    <label class="form-check-label" for="fa_materiel">
                                     عتاد - Matériel
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="121545" name="fa_cultures" type="checkbox">
-                                    <label class="form-check-label" for="121545">
+                                    <input class="form-check-input bneder" id="fa_cultures" name="fa_cultures" type="checkbox">
+                                    <label class="form-check-label" for="fa_cultures">
+                                    محاصيل - Cultures
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
+                                    <label class="form-check-label" for="fa_intrants">
                                     محاصيل - Cultures
                                     </label>
                                  </div>
@@ -5111,30 +5119,30 @@ Petite et Moyenne Hydraulique
 
                            <div class="row">
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input bneder" id="5fd4g5fd" name="fa_ettahadi" type="checkbox">
+                                 <input class="form-check-input bneder" id="fa_ettahadi" name="fa_ettahadi" type="checkbox">
      
-                                   <label class="form-check-label" for="5fd4g5fd">
+                                   <label class="form-check-label" for="fa_ettahadi">
                                    التحدي - Ettahadi
                                    </label>
                                 </div></div>
                               <div class="col"> <div class="form-check">
-                                 <input class="form-check-input bneder" id="5d4t1y5hg" name="fa_classique" type="checkbox">
+                                 <input class="form-check-input bneder" id="fa_classique" name="fa_classique" type="checkbox">
      
-                                   <label class="form-check-label" for="5d4t1y5hg">
+                                   <label class="form-check-label" for="fa_classique">
                                    الكلاسيكي - Classique
                                    </label>
                                 </div></div>
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input bneder" id="tdf5h124s5h" name="fa_leasing" type="checkbox">
+                                 <input class="form-check-input bneder" id="fa_leasing" name="fa_leasing" type="checkbox">
      
-                                   <label class="form-check-label" for="tdf5h124s5h">
+                                   <label class="form-check-label" for="fa_leasing">
                                    تأجير - Leasing
                                    </label>
                                 </div></div>
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input bneder" id="5gfd4yyt" name="fa_rfig" type="checkbox">
+                                 <input class="form-check-input bneder" id="fa_rfig" name="fa_rfig" type="checkbox">
      
-                                   <label class="form-check-label" for="5gfd4yyt">
+                                   <label class="form-check-label" for="fa_rfig">
                                    الرفيق - R'fig </label>
                                 </div></div>
                            </div>
@@ -5234,16 +5242,16 @@ Petite et Moyenne Hydraulique
                            <div class="row">
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="er6g54er6g" name="fa_terre" type="checkbox">
+                                    <input class="form-check-input bneder" id="fa_terre" name="fa_terre" type="checkbox">
 
-                                    <label class="form-check-label" for="er6g54er6g">
+                                    <label class="form-check-label" for="fa_terre">
                                     الأرض - Terre
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="6er4ge8rg4" name="fa_personnel" type="checkbox">
+                                    <input class="form-check-input bneder" id="fa_personnel" name="fa_personnel" type="checkbox">
 
-                                    <label class="form-check-label" for="6er4ge8rg4">
+                                    <label class="form-check-label" for="fa_personnel">
                                     العمال - Personnel
                                     </label>
                                     
@@ -5251,25 +5259,25 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="564ger65g4erg" name="fa_batiments" type="checkbox">
+                                    <input class="form-check-input bneder" id="fa_batiments" name="fa_batiments" type="checkbox">
 
-                                    <label class="form-check-label" for="564ger65g4erg">
+                                    <label class="form-check-label" for="fa_batiments">
                                     المباني - Bâtiments
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="56er1t65er41yg" name="fa_materiels" type="checkbox">
+                                    <input class="form-check-input bneder" id="fa_materiels" name="fa_materiels" type="checkbox">
 
-                                    <label class="form-check-label" for="56er1t65er41yg">
+                                    <label class="form-check-label" for="fa_materiels">
                                     العتاد - Matériels
                                     </label>
                                  </div>
                               </div>
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="65ge4rg654erg" name="fa_cheptel" type="checkbox">
+                                    <input class="form-check-input bneder" id="fa_cheptel" name="fa_cheptel" type="checkbox">
 
-                                    <label class="form-check-label" for="65ge4rg654erg">
+                                    <label class="form-check-label" for="fa_cheptel">
                                     المواشي - Cheptel
                                     </label>
                                  </div>
