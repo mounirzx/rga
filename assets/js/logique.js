@@ -107,6 +107,22 @@ formContainer.addEventListener('click', function(event) {
 });
 
 
+
+//thoses are variables total that needs to be inserted in bd
+// total_forage
+// total_puits
+// total_source
+$('#forage, #puits, #source').change(function() {
+    
+      var isChecked = $(this).prop('checked');
+      var inputElement = $(this).closest('.form-check').find('.bneder-input');
+      
+      if (isChecked) {
+          inputElement.show();
+      } else {
+          inputElement.hide();
+      }
+  });
   
   });
   

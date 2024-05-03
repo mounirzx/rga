@@ -1877,8 +1877,8 @@ acte de concession ?
                            </span>
                            <select class="form-control bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
                               <option selected="" disabled value="-">  </option>
-                              <option value="1">1- Oui-نعم</option>
-                              <option value="2">2- Non-لا</option>
+                              <option value="1">1- Non-لا</option>
+                              <option value="2">2- Oui-نعم</option>
                            </select>
                         </div>
                      </div>
@@ -4190,20 +4190,28 @@ Petite et Moyenne Hydraulique
       </div>
      <br>
      </div>
-     <div class="col-4">
-       <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_forage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">بئر عميق<br>
-         Forage</label>
-       </div><br>
-       <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_puits" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">بئر<br>
-         Puits</label>
-       </div><br>
-       <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_source" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">منبع<br>
-         Source</label>
-       </div><br>
-     </div>
+ <!-- farouk touil -->
+ <div class="col-4">
+    <div class="form-check">
+        <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
+        <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
+        <!-- Input element to insert an integer value -->
+        <input type="number" id="total_forage" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+    </div><br>
+    <div class="form-check">
+        <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
+        <label class="form-check-label" for="Puits">بئر<br> Puits</label>
+        <!-- Input element to insert an integer value -->
+        <input type="number"  id="total_puits" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+    </div><br>
+    <div class="form-check">
+        <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
+        <label class="form-check-label" for="Source">منبع<br> Source</label>
+        <!-- Input element to insert an integer value -->
+        <input type="number"  id="total_source" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+    </div><br>
+</div>
+ <!-- farouk touil -->
      <div class="col">
        <div class="form-check">
          <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
