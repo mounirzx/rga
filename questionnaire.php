@@ -4761,7 +4761,7 @@ Petite et Moyenne Hydraulique
                </span>
              
                
-                  <input id="in178" tb name="ma_nombre_de_personnes"  maxlength="2" num class="form-control bneder"  value="">
+                  <input id="ma_nombre_de_personnes" tb name="ma_nombre_de_personnes"  maxlength="2" num class="form-control bneder"  value="">
                
                   
             </div>
@@ -4787,12 +4787,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in179" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_adultes_plus_15_ans_1" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
                       
                      </td>
                      <td>
                        
-                           <input id="in180" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_adultes_plus_15_ans_2" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
                         
                      </td>
                   </tr>
@@ -4804,12 +4804,12 @@ Petite et Moyenne Hydraulique
                      </td>
                      <td>
                        
-                           <input id="in181" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_enfants_moins_15_ans_11" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
                     
                      </td>
                      <td>
                       
-                           <input id="in182" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_enfants_moins_15_ans_22" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
                      
                      </td>
                   </tr>
