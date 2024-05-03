@@ -63,6 +63,50 @@ $(document).ready(function() {
               $('#reseau_internet_si_oui').prop('disabled', true); // [42]
           }
       });
+
+            //i have created an id on remove row red color button called statut_juridique_check
+            // [44] [45] [6]
+            $('#si_exploi_eai_eac').prop('disabled', true); 
+            $('#reference_cadastrale').prop('disabled', true); 
+            $('#si_exploi_eac').prop('disabled', true); 
+            $('#exploi_superficie_hec').prop('disabled', true); 
+            $('#exploi_superficie_are').prop('disabled', true); 
+            // [44] [45] [6]
+            document.getElementById('addForm').addEventListener('click', function () {
+    
+     
+             // [44] [45] [6]
+            $('#si_exploi_eai_eac').prop('disabled', false); 
+            $('#reference_cadastrale').prop('disabled', false); 
+            $('#si_exploi_eac').prop('disabled', false); 
+            $('#exploi_superficie_hec').prop('disabled', false); 
+            $('#exploi_superficie_are').prop('disabled', false); 
+             // [44] [45] [6]
+      
+})
+// Assuming you have a parent element with ID 'parentElement'
+// Assuming the parent container of the buttons has the ID 'formContainer'
+const formContainer = document.getElementById('formContainer');
+
+// Add a click event listener to the parent container
+formContainer.addEventListener('click', function(event) {
+    // Check if the clicked element has the class 'disable-44-45-46'
+    if (event.target.classList.contains('disable-44-45-46')) {
+        // Your event handling code here
+       // [44] [45] [6]
+       $('#si_exploi_eai_eac').prop('disabled', true); 
+       $('#reference_cadastrale').prop('disabled', true); 
+       $('#si_exploi_eac').prop('disabled', true); 
+       $('#exploi_superficie_hec').prop('disabled', true); 
+       $('#exploi_superficie_are').prop('disabled', true); 
+       // [44] [45] [6]
+        // Assuming you want to remove the parent row when the button is clicked
+        const formRow = event.target.closest('.row');
+        formRow.remove();
+    }
+});
+
+
   
   });
   

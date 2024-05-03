@@ -1306,7 +1306,7 @@ $(document).ready(function(){
     removeButton.textContent = '-';
     removeButton.type = 'button';
 
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46');
     removeButton.addEventListener('click', function () {
         formRow.remove();
     });
