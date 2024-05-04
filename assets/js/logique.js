@@ -35,6 +35,7 @@ $(document).ready(function() {
           if (selectedValue === "1") {
               $('#reseau_telephonique').prop('disabled', false); // [39]
               $('#reseau_telephonique_si_oui').prop('disabled', false); // [40]
+              $('#reseau_internet').prop('disabled', false); // [41]
           } else if (selectedValue === "2") {
                   $('#reseau_telephonique').prop('disabled', true); // [39]
                   $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
