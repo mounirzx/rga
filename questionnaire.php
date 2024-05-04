@@ -2122,15 +2122,15 @@ acte de concession ?
 <h5 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h5>
 <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 50px;"></div><br>
 <div class="card" style="font-size: 12px;">
-   <div class="card-header" style="text-align: center;">
+ 
+   <div class="card-header" style="text-align: center;"> <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
       <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
 
 </div>
     <div class="card-body">
-      <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;"></div>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-        <div style="margin-top: 74px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>          <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div>
+        <div style="margin-top: 75px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
         </div>
         <div class="col-4">
           Code culture - رقم الزراعة
@@ -3638,7 +3638,7 @@ $(document).ready(function(){
                 
                   <tr>
                      <td>
-                    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
                     <p style="margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
                      <p style="margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
@@ -3874,8 +3874,9 @@ $(document).ready(function(){
             <br>
             <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
-
- <div style="width:450px;" class="input-group input-group-sm">
+            <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+            <br>
+ <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
                   ما هي طريقة إستغالل العتاد الفالحي ؟
@@ -3890,7 +3891,7 @@ $(document).ready(function(){
               </select>
                   
             
-</div>
+</div> -->
 <br>
 
 
@@ -3902,32 +3903,68 @@ $(document).ready(function(){
                         filières?
                      </div> -->
 <div class="card" style="font-size: 12px;">
-<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">72</div>
+<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
 نوع و عدد العتاد الفالحي ؟ 
 <br>
 Type et nombre du matériel agricole ? 
                      </div>
     <div class="card-body">
-      <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;"></div>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-          <div style="margin-top: 59px;height: 40px;width: 696px;background-color: #f8f8f8;position: absolute;z-index: 99;"></div>
+          <div style="margin-top: 150px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
           <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
         </div>
-        <div class="col-3"></div>
-        <div class="col-3">
+        
+        <div class="col-2">
+         <br>
+         <br>
+
+         <br>
+         <br>
+         <br>
           <p>رمز العتاد<br>
           Code matériel</p>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-2">
+         <br>
+         <br>
+         <br>
+         <br>
+      
+         <br>
+         <br>
           <p>Nombre - العدد</p>
         </div>
+        <div class="col-3">
+ <div class="qst-num zxcount"></div>
+
+         <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Mode de mobilisation du matériel agricole ?
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-3">
+ <div class="qst-num zxcount"></div>
+
+         <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  طربقة إستغلال العتاد الفلاحي ؟
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
+                        </div>
+                     </div>
+                  </div> 
         <div class="col-1"></div>
+
       </div><br>
+      <br>
       <div id="formContainer3">
         <div class="row code_materiel_s" style="margin-bottom: 10px;">
-          <div class="col-8">
+          <div class="col-3">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
               Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
@@ -4017,11 +4054,39 @@ Type et nombre du matériel agricole ?
               </select>
             </div>
           </div>
-          <div class="col">
+          <div class="col-2">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control code_materiel_s"  value="">
             </div>
+          </div>
+          <div class="col">
+          <div class="input-group input-group-sm">
+              
+               <select class="form-control bneder" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+                  <option  selected="selected" vlaue="-">  </option>
+                  <option value="1">1- en proprièté - ملكية</option>
+                  <option value="2">2- en location - إجار</option>
+                  <option value="3">3- en prêt - إستلاف</option>
+              </select>
+                  
+            
+</div>
+          </div>
+          <div class="col">
+          <div class="input-group input-group-sm">
+              
+              <select class="form-control bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+                 <option  selected="selected" vlaue="-">  </option>
+                  <option value="1">1- en individuel - فردية</option>
+                  <option value="2">2- en collectif - جماعية</option>
+                  <option value="3">3- Mixte - مختلطة  </option>
+             </select>
+                 
+           
+</div>
+<div class="col-1">
+          </div>
           </div>
           <div class="col-1">
             <div class="d-grid gap-2">
@@ -4192,21 +4257,38 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <input type="number" id="total_forage" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
-    </div><br>
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+
+              <input num maxlength="2" id="total_forage" name="total_forage" class="form-control bneder-input bneder" style="display:none;" >
+                      <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+            </div>
+    
+      </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_puits" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+        <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
+              
+              <input num maxlength="2" name="total_puits"  id="total_puits" class="form-control bneder-input bneder" style="display:none;" >
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+            </div>
     </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_source" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
-    </div><br>
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+             
+        <input num maxlength="2" name="total_source"  id="total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+      </div>
+      </div><br>
 </div>
+
  <!-- farouk touil -->
      <div class="col">
        <div class="form-check">
@@ -4240,27 +4322,26 @@ Petite et Moyenne Hydraulique
                      <div class="card-body">
   <div class="row">
     <div class="row">
-      <div class="col-3"></div>
-      <div style=" font-size: 8px !important;" class="col">
+      <div class="col-2"></div>
+      <div style=" font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div class="col-2"></div>
-      <div style=" font-size: 8px !important;" class="col">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   
+      <div style=" font-size: 10px !important;" class="col-4">
+  
       المساحة (هكتار) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
      
       Superficie(ha)
       </div>
-      <div class="col-2"></div>
-      <div style=" font-size: 8px !important;" class="col">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+
+      <div style=" font-size: 10px !important;" class="col">
+      
       
       المساحة (هكتار) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
       
       Superficie(ha)
       </div>
@@ -4268,18 +4349,18 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">رشاش كلاسيكي<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">تقطير<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
         Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">فيض<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
         Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
@@ -4287,17 +4368,17 @@ Petite et Moyenne Hydraulique
       <br>
 
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">سطحي<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
         Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">رش محوري<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
         Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">لفاف<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
         Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
@@ -4305,18 +4386,18 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">فوقارة<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فوقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">أمطار إصطناعية<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
         Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">طرق أخرى<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
         Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
