@@ -20,7 +20,7 @@ $formDataArrayCodeMateriel = isset($form->formDataArrayCodeMateriel) ? $form->fo
 ob_start();
 echo "Debug: ", print_r($formDataArrayCodeCulture, true);
 $logData = ob_get_clean();
-$logFilePath = __DIR__ . '/logfile.log';
+$logFilePath = __DIR__ . '../../logs/payload.log';
 file_put_contents($logFilePath, $logData, FILE_APPEND);
 
 try {
