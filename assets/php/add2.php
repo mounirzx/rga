@@ -2,129 +2,66 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
- 
+header('Content-Type: application/json');
 include('config.php');
- 
+
 $form = json_decode(file_get_contents("php://input"));
-$data = $form->form;
- 
-// Define a mapping from form data keys to database table names
-$tableMappings = [
-    'data' => 'questionnaire',
-    'formDataArrayStatut' => 'status_juridique',
-    'formDataArrayCodeCulture' => 'utilisation_du_sol',
-    'formDataArrayCodeMateriel' => 'materiel_agricole',
-    'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
-];
- 
+$data = $form->form; // Make sure this variable is correctly assigned and not null
 
-
-ob_start();
-echo "Debug: ", print_r($form, true);
-$logData = ob_get_clean();
-$logFilePath = __DIR__ . '../../logs/payload_questionnaire.log';
-file_put_contents($logFilePath, $logData, FILE_APPEND);
- 
 try {
-    $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
     $bdd->exec("SET NAMES 'utf8'");
     $bdd->exec("SET CHARACTER SET utf8");
-    
- 
-    // Prepare parameters for SQL statement for questionnaire table
-    $paramsQuestionnaire = [];
-    $fieldsQuestionnaire = array_keys(get_object_vars($data));
- 
-    // Concatenate keys to create a unique identifier
-    $cle =  $data->nom_exploitant;
- 
-    // Add the new column and its dummy value to the parameters
-    $paramsQuestionnaire['exploitant_cle_unique'] = $cle;
-    $fieldsQuestionnaire[] = 'exploitant_cle_unique'; // Include the new column in the field list
- 
-    foreach ($fieldsQuestionnaire as $field) {
-        if (!isset($paramsQuestionnaire[$field])) {
-            $paramsQuestionnaire[$field] = isset($data->$field) ? $data->$field : null;
-        }
-    }
- 
-    // Prepare the SQL query
-    $sqlColumnsQuestionnaire = implode(", ", array_map(function($field) { return "`$field`"; }, $fieldsQuestionnaire));
-    $sqlValuesQuestionnaire = implode(", ", array_map(function($field) { return ":" . $field; }, $fieldsQuestionnaire));
-    $reqQuestionnaire = $bdd->prepare("INSERT INTO `questionnaire` ($sqlColumnsQuestionnaire) VALUES ($sqlValuesQuestionnaire)");
-    $reqQuestionnaire->execute($paramsQuestionnaire);
 
-    
+    // Generic function to insert data into any table
+    function insertData($pdo, $tableName, $dataObject, $lastInsertId) {
+        $stmt = $pdo->query("SHOW COLUMNS FROM `$tableName`");
+        $columns = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+        
+        $filteredData = array_intersect_key((array)$dataObject, array_flip($columns));
+        $filteredData['id_questionnaire'] = $lastInsertId; // Adding last inserted ID
+        
+
+        $sqlColumns = implode(", ", array_map(function($field) { return "`$field`"; }, array_keys($filteredData)));
+        $sqlValues = ":" . implode(", :", array_keys($filteredData));
+
+        $query = $pdo->prepare("INSERT INTO `$tableName` ($sqlColumns) VALUES ($sqlValues)");
+        $query->execute($filteredData);
+    }
+
+
+     // Query the database to get column names from the table
+     $stmt = $bdd->query("SHOW COLUMNS FROM superficie_exploitation");
+     $columns = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+     $columnFilter = array_flip($columns);
  
-    // Get the last inserted ID of the questionnaire table
-    $lastInsertId = $bdd->lastInsertId();
+     // Filter incoming data against the table columns
+     $filteredData = array_intersect_key((array)$data, $columnFilter);
+     
+     // Assume id_questionnaire is managed separately if not included in the form
+     $lastInsertId = $bdd->lastInsertId();
+     $filteredData['id_questionnaire'] = $lastInsertId; // Ensuring the questionnaire ID is set
  
-    // Process other collections
-    foreach ($tableMappings as $key => $tableName) {
-        if ($tableName !== 'questionnaire') {
-            if (isset($form->$key)) {
-                processCollection($bdd, $tableName, $form->$key, $key, $lastInsertId);
-            }
+     // Generate the SQL dynamically
+     $sqlColumns = implode(", ", array_map(function($field) { return "`$field`"; }, array_keys($filteredData)));
+     $sqlValues = ":" . implode(", :", array_keys($filteredData));
+     $query = $bdd->prepare("INSERT INTO `superficie_exploitation` ($sqlColumns) VALUES ($sqlValues)");
+     $query->execute($filteredData);
+
+
+    // Insert data into each table dynamically
+    foreach (['status_juridique', 'utilisation_du_sol', 'materiel_agricole'] as $table) {
+        $formDataArray = $form->{$table} ?? [];
+        foreach ($formDataArray as $item) {
+            insertData($bdd, $table, $item, $bdd->lastInsertId());
         }
     }
- 
-    // Send success response
+
     echo json_encode(['response' => true]);
 } catch (Exception $e) {
-    // Send error response
-    echo json_encode(["response" => false, "error" => $e->getMessage()]);
-}
- 
-function processCollection($db, $table, $collection, $key, $lastInsertId) {
-    foreach ($collection as $item) {
-        // Add id_questionnaire for child tables
-        $item->id_questionnaire = $lastInsertId;
- 
-        // Add cle for status_juridique table
-        if ($table === 'status_juridique') {
-            $item->cle_status_juridique = $lastInsertId . "-" . $item->origine_des_terres . "-" . $item->status_juridique;
-        }
-        // Add cle for utilisation_du_sol table
-        if ($table === 'utilisation_du_sol') {
-            $item->cle_code_culture = $lastInsertId . "-" . $item->code_culture . "-" . $item->superficie_hec . "-" . $item->superficie_are;
-        }
-        // Add cle for materiel_agricole table
-        if ($table === 'materiel_agricole') {
-            $item->cle_materiel_agricole = $lastInsertId . "-" . $item->code_materiel . "-" . $item->code_materiel_nombre;
-        }
-       
-
-        $item = (array)$item;
-        $item['id_questionnaire'] = $lastInsertId;
-        
-        if ($table === 'superficie_exploitation') {
-            insertSuperficieExploitation($db, $table, $item);
-        } else {
-            insertData($db, $table, $item);
-        }
-
-
-        insertData($db, $table, (array) $item, $key);
-        
-    }
-}
- 
-
-function insertSuperficieExploitation($db, $table, $data) {
-    $keys = array_keys($data);
-    $fields = implode(", ", array_map(function($field) { return "`$field`"; }, $keys));
-    $placeholders = ":" . implode(", :", $keys);
-    $stmt = $db->prepare("INSERT INTO `$table` ($fields) VALUES ($placeholders)");
-    $stmt->execute($data);
-}
-function insertData($db, $table, $data, $key) {
-    // Prepare the SQL statement
-    $keys = array_keys($data);
-    $fields = implode(", ", array_map(function($field) { return "`$field`"; }, $keys));
-    $placeholders = ":" . implode(", :", $keys);
-    $stmt = $db->prepare("INSERT INTO `$table` ($fields) VALUES ($placeholders)");
- 
-    // Execute the statement with filtered data
-    $stmt->execute($data);
+    http_response_code(500); // Set appropriate response code
+    echo json_encode(['response' => false, 'error' => $e->getMessage()]);
 }
 ?>

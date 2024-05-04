@@ -114,7 +114,7 @@ include('includes/header.php');
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input readonly class="form-control bneder" id="nom_recensseur" name="nom_recensseur"  value="" />
+                    <input readonly class="form-control " id="nom_recensseur" name="nom_recensseur"  value="" />
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -123,7 +123,7 @@ include('includes/header.php');
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input readonly class="form-control bneder" id="prenom_recenseur" name="prenom_recenseur"   
+                    <input readonly class="form-control " id="prenom_recenseur" name="prenom_recenseur"   
                        value="" />
                  </div>
                  <br />
@@ -673,7 +673,7 @@ if ($_SESSION['role'] == "recenseur") {
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
+              <input class="form-check-input " id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
@@ -3934,7 +3934,7 @@ Type et nombre du matériel agricole ?
           <div class="col-8">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="form-select" id="code_materiel" name="code_materiel">
+              Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
                 <option selected disabled>
                 </option>
                 <option value="1">
@@ -4024,7 +4024,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">العدد<br>
-              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control"  value="">
+              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control code_materiel_s"  value="">
             </div>
           </div>
           <div class="col-1">
@@ -5071,12 +5071,12 @@ Petite et Moyenne Hydraulique
                                     محاصيل - Cultures
                                     </label>
                                  </div>
-                                 <div class="form-check">
+                                 <!-- <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
                                     <label class="form-check-label" for="fa_intrants">
                                     محاصيل - Cultures
                                     </label>
-                                 </div>
+                                 </div> -->
                               </div>
                            </div>
                         </div>
