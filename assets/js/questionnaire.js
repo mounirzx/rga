@@ -163,7 +163,7 @@ $(document).ready(function () {
     });
    
 
-
+console.log(formDataArraySuperficie)
 
 
     // Add values of all input fields with class "bneder" to formDataObj

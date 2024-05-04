@@ -17,11 +17,7 @@ $formDataArrayStatut = isset($form->formDataArrayStatut) ? $form->formDataArrayS
 $formDataArrayCodeCulture = isset($form->formDataArrayCodeCulture) ? $form->formDataArrayCodeCulture : [];
 $formDataArrayCodeMateriel = isset($form->formDataArrayCodeMateriel) ? $form->formDataArrayCodeMateriel : [];
 //var_dump($formDataArrayCodeMateriel);
-ob_start();
-echo "Debug: ", print_r($formDataArrayCodeCulture, true);
-$logData = ob_get_clean();
-$logFilePath = __DIR__ . '/logfile.log';
-file_put_contents($logFilePath, $logData, FILE_APPEND);
+
 
 try {
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, [
@@ -168,7 +164,11 @@ try {
         }
     }
 
-
+    ob_start();
+    echo "Debug: ", print_r($formDataArrayCodeMateriel, true);
+    $logData = ob_get_clean();
+    $logFilePath = __DIR__ . '/logfile.log';
+    file_put_contents($logFilePath, $logData, FILE_APPEND);
 
 
 foreach ($formDataArrayCodeMateriel as $formData) {
