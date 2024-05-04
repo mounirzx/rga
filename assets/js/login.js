@@ -33,7 +33,7 @@ if (cooldownRemainingTime) {
       var password = $("#password").val();
 
       $.ajax({
-          url: "Log-in",
+          url: "assets/php/login.php",
           method: "post",
           data: { username: username, password: password },
           success: function (response) {
