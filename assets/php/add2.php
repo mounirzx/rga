@@ -22,7 +22,7 @@ $tableMappings = [
 ob_start();
 echo "Debug: ", print_r($form, true);
 $logData = ob_get_clean();
-$logFilePath = __DIR__ . '../../logs/payload.log';
+$logFilePath = __DIR__ . '../../logs/payload_questionnaire.log';
 file_put_contents($logFilePath, $logData, FILE_APPEND);
  
 try {
