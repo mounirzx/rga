@@ -163,3 +163,72 @@ Debug: Array
         )
 
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 17
+            [code_materiel_nombre] => 11
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 9
+            [code_materiel_nombre] => 11
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 9
+            [code_materiel_nombre] => 11
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 9
+            [code_materiel_nombre] => 11
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 9
+            [code_materiel_nombre] => 11
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 4
+        )
+
+)
