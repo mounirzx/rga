@@ -14,7 +14,7 @@ $tableMappings = [
     'formDataArrayStatut' => 'status_juridique',
     'formDataArrayCodeCulture' => 'utilisation_du_sol',
     'formDataArrayCodeMateriel' => 'materiel_agricole',
-    //'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
+    'formDataArraySuperficie' => 'superficie_exploitation' // Example mapping
 ];
  
 
@@ -92,12 +92,16 @@ function processCollection($db, $table, $collection, $key, $lastInsertId) {
         if ($table === 'materiel_agricole') {
             $item->cle_materiel_agricole = $lastInsertId . "-" . $item->code_materiel . "-" . $item->code_materiel_nombre;
         }
-        //   // Add cle for materiel_agricole table
-        //   if ($table === 'superficie_exploitation') {
-        //     $item->cle_materiel_agricole = $lastInsertId . "-" . $item->code_materiel . "-" . $item->code_materiel_nombre;
-        // }
+       
 
-
+        $item = (array)$item;
+        $item['id_questionnaire'] = $lastInsertId;
+        
+        if ($table === 'superficie_exploitation') {
+            insertSuperficieExploitation($db, $table, $item);
+        } else {
+            insertData($db, $table, $item);
+        }
 
 
         insertData($db, $table, (array) $item, $key);
@@ -105,6 +109,14 @@ function processCollection($db, $table, $collection, $key, $lastInsertId) {
     }
 }
  
+
+function insertSuperficieExploitation($db, $table, $data) {
+    $keys = array_keys($data);
+    $fields = implode(", ", array_map(function($field) { return "`$field`"; }, $keys));
+    $placeholders = ":" . implode(", :", $keys);
+    $stmt = $db->prepare("INSERT INTO `$table` ($fields) VALUES ($placeholders)");
+    $stmt->execute($data);
+}
 function insertData($db, $table, $data, $key) {
     // Prepare the SQL statement
     $keys = array_keys($data);
