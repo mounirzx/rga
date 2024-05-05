@@ -208,12 +208,14 @@ foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData->code_materiel) && !empty($formData->code_materiel_nombre)) {
         $cle_materiel_agricole = $lastInsertId . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre;
 
- $reqMaterielAgricole = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre)");
+ $reqMaterielAgricole = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`,`ee_mode_mobilisation_materiel`,`ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
         $reqMaterielAgricole->execute([
             'cle_materiel_agricole' => $cle_materiel_agricole,
             'id_questionnaire' => $lastInsertId,
             'code_materiel' => $formData->code_materiel,
-            'code_materiel_nombre' => $formData->code_materiel_nombre
+            'code_materiel_nombre' => $formData->code_materiel_nombre,
+            'ee_mode_mobilisation_materiel' => $formData->ee_mode_mobilisation_materiel,
+            'ee_mode_exploitation_materiel' => $formData->ee_mode_exploitation_materiel
         ]);
 
      //   echo "Insertion successful for ID: {$lastInsertId}, Key: {$cle_materiel_agricole}\n";
