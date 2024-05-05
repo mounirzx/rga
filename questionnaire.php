@@ -4954,8 +4954,9 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XII- Utilisation d'intrants - إستخدام المدخلات 
-             </h5>  <br>
+            <h5 style="margin-bottom:27px;">XII- Utilisation d'intrants - إستخدام المدخلات 
+            
+             </h5><div style="border-top: 1px solid red; width:270px; margin:-20px 0px 0px 50px; "></div>  <br>
              <div class="qst-num zxcount"></div>
              <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
             
@@ -5145,24 +5146,21 @@ Petite et Moyenne Hydraulique
                <br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5>XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
+               <h5 style="margin-bottom:27px;">XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
+               <div style="border-top: 1px solid red; width:500px; margin:-20px 0px 0px 120px; "></div>
                <br>
                <div class="card" style="font-size: 12px;">
+               
                   <div class="card-body">
                      <div class="row">
                         <div class="col">
                            <div class="card">
+                           <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                               <div class="card-header" style="text-align: center;">
+                              
                                  التمويل - Financement
                               </div>
                               <div class="card-body">
-                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input bneder" id="fa_credit_bancaire" name="fa_credit_bancaire" >
-                                    <label class="form-check-label" for="fa_credit_bancaire">
-                                       قرض بنكي - Crédit bancaire
-                                    </label>
-                                 </div>
- 
                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_propres_ressources" name="fa_propres_ressources" type="checkbox">
                                     <label class="form-check-label" for="fa_propres_ressources">
@@ -5170,6 +5168,15 @@ Petite et Moyenne Hydraulique
 ذاتية   - Propres ressources
                                     </label>
                                  </div>
+
+                                 <div class="form-check">
+                                    <input type="checkbox" class="form-check-input bneder" id="fa_credit_bancaire" name="fa_credit_bancaire" >
+                                    <label class="form-check-label" for="fa_credit_bancaire">
+                                       قرض بنكي - Crédit bancaire
+                                    </label>
+                                 </div>
+ 
+                                 
                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_soutien_public" name="fa_soutien_public" type="checkbox">
                                     <label class="form-check-label" for="fa_soutien_public">
@@ -5186,68 +5193,10 @@ Petite et Moyenne Hydraulique
                            </div>
                         </div>
                         <div class="col">
+                         
+                         
                            <div id="card2" class="card">
-                              <div class="card-header" style="text-align: center;">
-                                 إذا كان دَعْم عُمومي، ما نوعه ؟
-                                 <br> Si soutien public, quel type?
-                              </div>
-                              <div class="card-body">
-                                 <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_financiere" name="fa_financiere" type="checkbox">
-                                    <label class="form-check-label" for="fa_financiere">
-                                    مالي - Financière
-                                    </label>
-                                 </div>
-                                 <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_materiel" name="fa_materiel" type="checkbox">
-                                    <label class="form-check-label" for="fa_materiel">
-                                    عتاد - Matériel
-                                    </label>
-                                 </div>
-                                 <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_cultures" name="fa_cultures" type="checkbox">
-                                    <label class="form-check-label" for="fa_cultures">
-                                    محاصيل - Cultures
-                                    </label>
-                                 </div>
-                                 <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
-                                    <label class="form-check-label" for="fa_intrants">
-                                    مدخلات - Intrants
-                                    </label>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <script>
-                        // var check1 = document.getElementsByName('soutien_public')[0];
-                     
-                        // check1.addEventListener('input', function () {
-                        //     updateSelect8();
-                       // });
-                     
-                        function updateSelect8() {
-
-                            var div_to_effect6 = document.getElementById('card2');
-                            var child_inputs2 = div_to_effect6.getElementsByTagName('input');
-
-                            if(!check1.checked){
-                                for (var i = 0; i < child_inputs2.length; i++) {
-                                    child_inputs2[i].disabled = true;
-                                }
-                            }else{
-                                for (var i = 0; i < child_inputs2.length; i++) {
-                                    child_inputs2[i].disabled = false;
-                                }
-                            }
-                           
-                        }
-                     </script>
-
-                     <br>
-                     <div id="card3" class="card">
+                           <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                         
                         <div class="card-header" style="text-align: center;">
                            إذا كان قرض، ما نوعه ؟
@@ -5263,22 +5212,19 @@ Petite et Moyenne Hydraulique
                                    <label class="form-check-label" for="fa_ettahadi">
                                    التحدي - Ettahadi
                                    </label>
-                                </div></div>
-                              <div class="col"> <div class="form-check">
+                                </div> <div class="form-check">
                                  <input class="form-check-input bneder" id="fa_classique" name="fa_classique" type="checkbox">
      
                                    <label class="form-check-label" for="fa_classique">
                                    الكلاسيكي - Classique
                                    </label>
-                                </div></div>
-                              <div class="col"><div class="form-check">
+                                </div><div class="form-check">
                                  <input class="form-check-input bneder" id="fa_leasing" name="fa_leasing" type="checkbox">
      
                                    <label class="form-check-label" for="fa_leasing">
                                    تأجير - Leasing
                                    </label>
-                                </div></div>
-                              <div class="col"><div class="form-check">
+                                </div><div class="form-check">
                                  <input class="form-check-input bneder" id="fa_rfig" name="fa_rfig" type="checkbox">
      
                                    <label class="form-check-label" for="fa_rfig">
@@ -5316,6 +5262,82 @@ Petite et Moyenne Hydraulique
                            
                         </div>
                      </div>
+                        </div>
+                     </div>
+
+                     <script>
+                        // var check1 = document.getElementsByName('soutien_public')[0];
+                     
+                        // check1.addEventListener('input', function () {
+                        //     updateSelect8();
+                       // });
+                     
+                        function updateSelect8() {
+
+                            var div_to_effect6 = document.getElementById('card3');
+                            var child_inputs2 = div_to_effect6.getElementsByTagName('input');
+
+                            if(!check1.checked){
+                                for (var i = 0; i < child_inputs2.length; i++) {
+                                    child_inputs2[i].disabled = true;
+                                }
+                            }else{
+                                for (var i = 0; i < child_inputs2.length; i++) {
+                                    child_inputs2[i].disabled = false;
+                                }
+                            }
+                           
+                        }
+                     </script>
+
+                     <br>
+                     <div id="card3" class="card">
+                     <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+
+                              <div class="card-header" style="text-align: center;">
+                                 إذا كان دَعْم عُمومي، ما نوعه ؟
+                                 <br> Si soutien public, quel type?
+                              </div>
+                              <div class="card-body">
+                              <div class="row">
+                              <div class="col">
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_financiere" name="fa_financiere" type="checkbox">
+                                    <label class="form-check-label" for="fa_financiere">
+                                    مالي - Financière
+                                    </label>
+                                 </div>
+                                 </div>
+                                 <div class="col">
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_materiel" name="fa_materiel" type="checkbox">
+                                    <label class="form-check-label" for="fa_materiel">
+                                    عتاد - Matériel
+                                    </label>
+                                 </div>
+                                 </div>
+                                 <div class="col">
+
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_culture" name="fa_culture" type="checkbox">
+                                    <label class="form-check-label" for="fa_culture">
+                                    محاصيل - Cultures
+                                    </label>
+                                 </div>
+                                 </div>
+                                 <div class="col">
+
+                                 <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
+                                    <label class="form-check-label" for="fa_intrants">
+                                    مدخلات - Intrants
+                                    </label>
+                                 </div>
+                                 </div>
+                              </div>
+                              </div>
+                           </div>
+                     
                   </div>
                </div>
                <br>
@@ -5324,14 +5346,16 @@ Petite et Moyenne Hydraulique
                      <div class="row">
                         <div class="col">
                            <div class="input-group input-group-sm">
-                              <span class="input-group-text" id="basic-addon3">هل متعاقد
+                              <div class="qst-num zxcount"></div>
+                              <span class="input-group-text" id="basic-addon3">
+                              هل متعاقد
                               مع
                               التأمين الفلاحي؟
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
                               <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
-                                 <option selected="selected"> - </option>
+                                 <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
 
@@ -5341,13 +5365,14 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col-5">
                            <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
                               <span class="input-group-text" id="basic-addon3">
                               إذا كان نعم، مع أي شركة؟
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
                               <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
-                                 <option selected="selected"> - </option>
+                                 <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1"> ص,م,ز,ق - CRMA</option>
 
@@ -5374,6 +5399,7 @@ Petite et Moyenne Hydraulique
 
                      <br>
                      <div class="card">
+                     <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                         <div class="card-header" style="text-align: center;">
                            نوع التأمين - Type d'assurance
                         </div>
@@ -5397,6 +5423,7 @@ Petite et Moyenne Hydraulique
                                  </div>
                               </div>
                               <div class="col">
+                                 
                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_batiments" name="fa_batiments" type="checkbox">
 
@@ -5405,14 +5432,20 @@ Petite et Moyenne Hydraulique
                                     </label>
                                  </div>
                                  <div class="form-check">
+                                    <input class="form-check-input bneder" id="fa_cultures" name="fa_cultures" type="checkbox">
+                                    <label class="form-check-label" for="fa_cultures">
+                                    محاصيل - Cultures
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col">
+                              <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_materiels" name="fa_materiels" type="checkbox">
 
                                     <label class="form-check-label" for="fa_materiels">
                                     العتاد - Matériels
                                     </label>
                                  </div>
-                              </div>
-                              <div class="col">
                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_cheptel" name="fa_cheptel" type="checkbox">
 
@@ -5427,14 +5460,17 @@ Petite et Moyenne Hydraulique
                   </div>
                </div>
                <br><br><br>
-               <br><br><br>
+        
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5>XIV - Environnement de l'exploitation محيط المستثمرة</h5>
+               <h5 style="margin-bottom:27px;">XIV - Environnement de l'exploitation محيط المستثمرة</h5>
+               <div style="border-top: 1px solid red; width:365px; margin:-20px 0px 0px 50px; "></div>
                <br>
 
     <div class="row">  
                <div class="input-group input-group-sm">
+               <div class="qst-num zxcount"></div>
+
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
