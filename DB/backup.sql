@@ -16,35 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin_central`
---
-
-DROP TABLE IF EXISTS `admin_central`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin_central` (
-  `id_admin_central` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `prenom` varchar(100) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_admin_central`),
-  KEY `id_user` (`id_user`),
-  CONSTRAINT `admin_central_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin_central`
---
-
-LOCK TABLES `admin_central` WRITE;
-/*!40000 ALTER TABLE `admin_central` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin_central` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `communes`
 --
 
@@ -148,11 +119,13 @@ CREATE TABLE `materiel_agricole` (
   `id_questionnaire` int(11) NOT NULL,
   `code_materiel` varchar(100) NOT NULL,
   `code_materiel_nombre` varchar(100) NOT NULL,
+  `ee_mode_mobilisation_materiel` text NOT NULL,
+  `ee_mode_exploitation_materiel` text NOT NULL,
   PRIMARY KEY (`id_materiel_agricol`),
   UNIQUE KEY `cle_materiel_agricole` (`cle_materiel_agricole`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +134,7 @@ CREATE TABLE `materiel_agricole` (
 
 LOCK TABLES `materiel_agricole` WRITE;
 /*!40000 ALTER TABLE `materiel_agricole` DISABLE KEYS */;
+INSERT INTO `materiel_agricole` VALUES (1,'2-3-1',2,'3','1','2','1'),(2,'3-3-1',3,'3','1','2','1'),(3,'4-17-4',4,'17','4','2','2'),(4,'5-2-4',5,'2','4','2','2');
 /*!40000 ALTER TABLE `materiel_agricole` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,9 +266,9 @@ CREATE TABLE `questionnaire` (
   `eau_station_depuration` text DEFAULT NULL,
   `eau_ensemble_de_forages` text DEFAULT NULL,
   `eau_puits` text DEFAULT NULL,
-  `total_eau_puits` text DEFAULT NULL,
+  `eau_total_puits` text DEFAULT NULL,
   `eau_forage` text DEFAULT NULL,
-  `total_eau_forage` text DEFAULT NULL,
+  `eau_total_forage` text DEFAULT NULL,
   `eau_pompage_doued` text DEFAULT NULL,
   `eau_crues_doued` text DEFAULT NULL,
   `eau_petit_barrage` text DEFAULT NULL,
@@ -302,7 +276,7 @@ CREATE TABLE `questionnaire` (
   `eau_forage_collectif` text DEFAULT NULL,
   `eau_foggara` text DEFAULT NULL,
   `eau_source` text DEFAULT NULL,
-  `total_eau_source` text DEFAULT NULL,
+  `eau_total_source` text DEFAULT NULL,
   `eau_station_depuration_2` text DEFAULT NULL,
   `eau_autres_ress` text DEFAULT NULL,
   `eau_aspersion_classique` text DEFAULT NULL,
@@ -321,9 +295,6 @@ CREATE TABLE `questionnaire` (
   `eau_mare_deau` text DEFAULT NULL,
   `eau_ced` text DEFAULT NULL,
   `eau_digue` text DEFAULT NULL,
-  `eau_total_forage` text DEFAULT NULL,
-  `eau_total_puits` text DEFAULT NULL,
-  `eau_total_source` text DEFAULT NULL,
   `eau_autres_1` text DEFAULT NULL,
   `co_exploitants_y_compris_exploitant_principa_l` text DEFAULT NULL,
   `co_exploitants_y_compris_exploitant_principa_2` text DEFAULT NULL,
@@ -392,6 +363,7 @@ CREATE TABLE `questionnaire` (
   `fa_personnel` text DEFAULT NULL,
   `fa_batiments` text DEFAULT NULL,
   `fa_materiels` text DEFAULT NULL,
+  `fa_culture` text NOT NULL,
   `fa_cheptel` text DEFAULT NULL,
   `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
   `ee_mode_mobilisation_materiel` text DEFAULT NULL,
@@ -456,7 +428,7 @@ CREATE TABLE `questionnaire` (
   PRIMARY KEY (`id_questionnaire`),
   UNIQUE KEY `exploitant_cle_unique` (`exploitant_cle_unique`(157)),
   KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250))
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -465,7 +437,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (1,'N/A','','--02-02-null-7578578-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','7578578','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(2,'N/A','','--02-02-null-7578578777-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','7578578777','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(3,'N/A','','--02-02-null-951753-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','951753','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(4,'N/A','','--02-02-null-9517536458-N/A--10.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','9517536458','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(5,'N/A','','--02-02-null-951753645-N/A--10.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','951753645','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(6,'N/A','','--02-02-null-85785785-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','85785785','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(7,'N/A','','--02-02-null-8578578544-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','8578578544','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','','');
+INSERT INTO `questionnaire` VALUES (1,'N/A','','--02-02-null-4521541-N/A--24.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','4521541','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(2,'N/A','','--02-02-null-452452475-N/A-trst-4.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','452452475','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'trst','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(3,'N/A','','--02-02-null-452452476-N/A-trst-4.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','452452476','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'trst','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(4,'N/A','','--02-02-null-7474747444-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','7474747444','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(5,'N/A','','--02-02-null-74744185525-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','74744185525','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','-','-','on','on','on','on','','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','','');
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,7 +496,7 @@ CREATE TABLE `status_juridique` (
   UNIQUE KEY `cle_status_juridique` (`cle_status_juridique`) USING BTREE,
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_status_juridique`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -533,7 +505,7 @@ CREATE TABLE `status_juridique` (
 
 LOCK TABLES `status_juridique` WRITE;
 /*!40000 ALTER TABLE `status_juridique` DISABLE KEYS */;
-INSERT INTO `status_juridique` VALUES (1,'6-3-13',6,'3','13','155','77'),(2,'7-3-13',7,'3','13','155','77');
+INSERT INTO `status_juridique` VALUES (1,'1-1-13',1,'1','13','2','2'),(2,'2-1-13',2,'1','13','1','1'),(3,'3-1-13',3,'1','13','1','1'),(4,'4-4-13',4,'4','13','4','4'),(5,'5-2-13',5,'2','13','4','4');
 /*!40000 ALTER TABLE `status_juridique` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -579,7 +551,7 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_questionnaire` (`id_questionnaire`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -588,7 +560,7 @@ CREATE TABLE `superficie_exploitation` (
 
 LOCK TABLES `superficie_exploitation` WRITE;
 /*!40000 ALTER TABLE `superficie_exploitation` DISABLE KEYS */;
-INSERT INTO `superficie_exploitation` VALUES (1,1,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,3.00,3.00,3.00,3.00,0.00,0.00,0.00,0.00,6.00,6.00,0.00,0.00,6.00,6.00),(2,2,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(3,3,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(4,4,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(5,5,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(6,6,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(7,1,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(8,2,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(9,3,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(10,4,10.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,10.00,0.00),(11,5,10.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10.00,0.00,0.00,0.00,10.00,0.00),(12,7,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00);
+INSERT INTO `superficie_exploitation` VALUES (1,1,4.00,4.00,4.00,4.00,4.00,0.00,4.00,4.00,4.00,4.00,4.00,0.00,0.00,0.00,0.00,0.00,12.00,8.00,12.00,8.00,0.00,0.00,0.00,0.00,24.00,16.00,0.00,0.00,24.00,16.00),(2,2,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.00,2.00,2.00,2.00,0.00,0.00,0.00,0.00,4.00,4.00,0.00,0.00,4.00,4.00),(3,3,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.00,2.00,2.00,2.00,0.00,0.00,0.00,0.00,4.00,4.00,0.00,0.00,4.00,4.00),(4,4,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(5,5,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00);
 /*!40000 ALTER TABLE `superficie_exploitation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -610,7 +582,7 @@ CREATE TABLE `superviseur` (
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id_superviseur`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -619,7 +591,6 @@ CREATE TABLE `superviseur` (
 
 LOCK TABLES `superviseur` WRITE;
 /*!40000 ALTER TABLE `superviseur` DISABLE KEYS */;
-INSERT INTO `superviseur` VALUES (1,89,'test','test','9555555','04','w.omri@bneder.dz','2024-05-05 13:05:16');
 /*!40000 ALTER TABLE `superviseur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -641,7 +612,7 @@ CREATE TABLE `superviseur_national` (
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id_superviseur_national`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -650,7 +621,6 @@ CREATE TABLE `superviseur_national` (
 
 LOCK TABLES `superviseur_national` WRITE;
 /*!40000 ALTER TABLE `superviseur_national` DISABLE KEYS */;
-INSERT INTO `superviseur_national` VALUES (1,90,'test','test','9999999999','01','test@gh.fd','2024-05-05 13:05:39'),(2,91,'test','test','444444','05','w.omri@bneder.dz','2024-05-05 13:25:27');
 /*!40000 ALTER TABLE `superviseur_national` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -665,13 +635,12 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `nonhashedpass` varchar(50) DEFAULT NULL,
   `role` varchar(100) NOT NULL,
   `update_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_login` timestamp NULL DEFAULT NULL,
   `date_creation` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -680,7 +649,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (88,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin','admin','2024-05-02 09:31:42','2024-05-05 12:31:28','2024-05-02 09:31:42'),(89,'S04-01','c456bb151806ba490680949e946c44ec4fc0c15a','51998649','superviseur','2024-05-05 12:05:16','2024-05-05 12:05:16','2024-05-05 12:05:16'),(90,'SN-01','a32886590192430744d1524583bb13ce9d8a949f','15432739','superviseur_national','2024-05-05 12:05:39','2024-05-05 12:05:39','2024-05-05 12:05:39'),(91,'SN-02','231835c6facae63a12b9b7aca61449d80aa63581','41360526','superviseur_national','2024-05-05 12:25:27','2024-05-05 12:31:05','2024-05-05 12:25:27');
+INSERT INTO `users` VALUES (88,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin','2024-05-02 09:31:42','2024-05-05 09:10:22','2024-05-02 09:31:42');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -703,7 +672,7 @@ CREATE TABLE `utilisation_du_sol` (
   UNIQUE KEY `cle_code_culture` (`cle_code_culture`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_code_culture`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -712,7 +681,7 @@ CREATE TABLE `utilisation_du_sol` (
 
 LOCK TABLES `utilisation_du_sol` WRITE;
 /*!40000 ALTER TABLE `utilisation_du_sol` DISABLE KEYS */;
-INSERT INTO `utilisation_du_sol` VALUES (1,'7-2-25-25',7,'2','25','25','25');
+INSERT INTO `utilisation_du_sol` VALUES (1,'1-Grandes cultures -',1,'Grandes cultures - المحاصيل الكبرى','4','4','4'),(2,'2-2-1-1',2,'2','1','1','1'),(3,'3-2-1-1',3,'2','1','1','1'),(4,'4-14-4-4',4,'14','4','4','4'),(5,'5-16-4-4',5,'16','4','4','4');
 /*!40000 ALTER TABLE `utilisation_du_sol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -750,4 +719,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 14:59:18
+-- Dump completed on 2024-05-05 15:14:18
