@@ -5,7 +5,9 @@ include './config.php';
 
 session_start();
 
-
+if(empty($_POST['email']) ||   empty($_POST['username']) ||  empty($_POST['password'])){
+    echo json_encode(array("response"=> "false"));
+}else{
 $nom_superviseur = $_POST["first_name"];
 $prenom_superviseur = $_POST["last_name"];
 $role = $_POST["role"];
@@ -64,8 +66,8 @@ try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-    $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`, `role`, `date_creation`) VALUES(?,?,?,NOW()) ');
-    $req->execute(array($username, $password, $role));
+    $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`,nonhashedpass, `role`, `date_creation`) VALUES(?,?,?,?,NOW()) ');
+    $req->execute(array($username, $password, $nonhashedPass,$role));
 
     $id_user = $bdd->lastInsertId();
 
@@ -111,5 +113,6 @@ try {
 } catch (Exception $e) {
     $msg = $e->getMessage();
     echo $msg;
+}
 }
 ?>
