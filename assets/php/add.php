@@ -69,7 +69,7 @@ try {
     $lastInsertId = $bdd->lastInsertId();
 
      // Insert data into the status_juridique table for each set of dynamic data
-     $stat_jur_hectare_array=[];
+     //$stat_jur_hectare_array=[];
      foreach ($formDataArrayStatut as $formData) {
         if (!empty($formData->origine_des_terres) && !empty($formData->status_juridique) && !empty($formData->superfecie_sj) && !empty($formData->superfecie_sj_are)) {
             $cle_status_juridique = substr($lastInsertId . "-" .$formData->origine_des_terres."-".$formData->status_juridique, 0, 8);
@@ -85,7 +85,7 @@ try {
                     'superfecie_sj' => $formData->superfecie_sj,
                     'superfecie_sj_are' => $formData->superfecie_sj_are
                 ]);
-                array_push($stat_jur_hectare_array,$formData->superfecie_sj);
+               // array_push($stat_jur_hectare_array,$formData->superfecie_sj);
                 
                 //echo "Insertion successful for ID: {$lastInsertId}\n";
             } catch (PDOException $e) {
