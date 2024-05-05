@@ -265,9 +265,9 @@ CREATE TABLE `questionnaire` (
   `eau_station_depuration` text DEFAULT NULL,
   `eau_ensemble_de_forages` text DEFAULT NULL,
   `eau_puits` text DEFAULT NULL,
-  `total_eau_puits` text DEFAULT NULL,
+  `eau_total_puits` text DEFAULT NULL,
   `eau_forage` text DEFAULT NULL,
-  `total_eau_forage` text DEFAULT NULL,
+  `eau_total_forage` text DEFAULT NULL,
   `eau_pompage_doued` text DEFAULT NULL,
   `eau_crues_doued` text DEFAULT NULL,
   `eau_petit_barrage` text DEFAULT NULL,
@@ -275,7 +275,7 @@ CREATE TABLE `questionnaire` (
   `eau_forage_collectif` text DEFAULT NULL,
   `eau_foggara` text DEFAULT NULL,
   `eau_source` text DEFAULT NULL,
-  `total_eau_source` text DEFAULT NULL,
+  `eau_total_source` text DEFAULT NULL,
   `eau_station_depuration_2` text DEFAULT NULL,
   `eau_autres_ress` text DEFAULT NULL,
   `eau_aspersion_classique` text DEFAULT NULL,
@@ -714,4 +714,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 13:03:36
+-- Dump completed on 2024-05-05 13:08:36

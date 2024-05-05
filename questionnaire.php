@@ -4259,7 +4259,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="2" id="total_forage" name="total_forage" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4271,7 +4271,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="2" name="total_puits"  id="total_puits" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4282,7 +4282,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="2" name="total_source"  id="total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
