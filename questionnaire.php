@@ -4063,7 +4063,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
           <div class="input-group input-group-sm">
               
-               <select class="form-control bneder" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+               <select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
                   <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- en proprièté - ملكية</option>
                   <option value="2">2- en location - إجار</option>
@@ -4076,7 +4076,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
           <div class="input-group input-group-sm">
               
-              <select class="form-control bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+              <select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
                  <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- en individuel - فردية</option>
                   <option value="2">2- en collectif - جماعية</option>

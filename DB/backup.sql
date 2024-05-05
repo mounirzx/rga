@@ -119,11 +119,13 @@ CREATE TABLE `materiel_agricole` (
   `id_questionnaire` int(11) NOT NULL,
   `code_materiel` varchar(100) NOT NULL,
   `code_materiel_nombre` varchar(100) NOT NULL,
+  `ee_mode_mobilisation_materiel` text NOT NULL,
+  `ee_mode_exploitation_materiel` text NOT NULL,
   PRIMARY KEY (`id_materiel_agricol`),
   UNIQUE KEY `cle_materiel_agricole` (`cle_materiel_agricole`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +134,6 @@ CREATE TABLE `materiel_agricole` (
 
 LOCK TABLES `materiel_agricole` WRITE;
 /*!40000 ALTER TABLE `materiel_agricole` DISABLE KEYS */;
-INSERT INTO `materiel_agricole` VALUES (1,'1-13-1',1,'13','1');
 /*!40000 ALTER TABLE `materiel_agricole` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,6 +362,7 @@ CREATE TABLE `questionnaire` (
   `fa_personnel` text DEFAULT NULL,
   `fa_batiments` text DEFAULT NULL,
   `fa_materiels` text DEFAULT NULL,
+  `fa_culture` text NOT NULL,
   `fa_cheptel` text DEFAULT NULL,
   `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
   `ee_mode_mobilisation_materiel` text DEFAULT NULL,
@@ -425,7 +427,7 @@ CREATE TABLE `questionnaire` (
   PRIMARY KEY (`id_questionnaire`),
   UNIQUE KEY `exploitant_cle_unique` (`exploitant_cle_unique`(157)),
   KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250))
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,7 +436,6 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (1,'N/A','','test-test-02-02-null-45214-N/A-test-6.00','0--0--2024',88,'test','test','02-02-null-',NULL,NULL,NULL,'','','','45214','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'test','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','2','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','','');
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,7 +494,7 @@ CREATE TABLE `status_juridique` (
   UNIQUE KEY `cle_status_juridique` (`cle_status_juridique`) USING BTREE,
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_status_juridique`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -502,7 +503,6 @@ CREATE TABLE `status_juridique` (
 
 LOCK TABLES `status_juridique` WRITE;
 /*!40000 ALTER TABLE `status_juridique` DISABLE KEYS */;
-INSERT INTO `status_juridique` VALUES (1,'1-1-13',1,'1','13','1','1');
 /*!40000 ALTER TABLE `status_juridique` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -548,7 +548,7 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_questionnaire` (`id_questionnaire`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -557,7 +557,6 @@ CREATE TABLE `superficie_exploitation` (
 
 LOCK TABLES `superficie_exploitation` WRITE;
 /*!40000 ALTER TABLE `superficie_exploitation` DISABLE KEYS */;
-INSERT INTO `superficie_exploitation` VALUES (1,1,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,3.00,3.00,3.00,3.00,0.00,0.00,0.00,0.00,6.00,6.00,0.00,0.00,6.00,6.00);
 /*!40000 ALTER TABLE `superficie_exploitation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -669,7 +668,7 @@ CREATE TABLE `utilisation_du_sol` (
   UNIQUE KEY `cle_code_culture` (`cle_code_culture`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_code_culture`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -678,7 +677,6 @@ CREATE TABLE `utilisation_du_sol` (
 
 LOCK TABLES `utilisation_du_sol` WRITE;
 /*!40000 ALTER TABLE `utilisation_du_sol` DISABLE KEYS */;
-INSERT INTO `utilisation_du_sol` VALUES (1,'1-15-1-1',1,'15','1','1','1');
 /*!40000 ALTER TABLE `utilisation_du_sol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -716,4 +714,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 11:23:36
+-- Dump completed on 2024-05-05 11:53:36
