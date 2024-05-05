@@ -363,7 +363,7 @@ CREATE TABLE `questionnaire` (
   `fa_materiels` text DEFAULT NULL,
   `fa_cheptel` text DEFAULT NULL,
   `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
-  `see_mode_mobilisation_materiel` text DEFAULT NULL,
+  `ee_mode_mobilisation_materiel` text DEFAULT NULL,
   `ee_mode_exploitation_materiel` text DEFAULT NULL,
   `ee_banque` text DEFAULT NULL,
   `ee_poste` text DEFAULT NULL,
@@ -716,4 +716,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 10:35:05
+-- Dump completed on 2024-05-05 11:08:36
