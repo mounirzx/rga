@@ -4516,11 +4516,12 @@ Petite et Moyenne Hydraulique
                <div class="row" style="text-align: center;">
                   <div class="col-4" style="margin-left: 47px;"></div>
                   <div class="col">
+                     
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;"> توظيف دائم
                            
                         </div>
-                        <div class="card-header" style="text-align: center;">Elmploi permanent
+                        <div class="card-header" style="text-align: center;">Elmploi permanent <br> >= à 200 jours par an
                         </div>
                      </div>
                   </div>
@@ -4528,7 +4529,7 @@ Petite et Moyenne Hydraulique
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;">توظيف موسمي
                         </div>
-                        <div class="card-header" style="text-align: center;">Emploi saisonnier
+                        <div class="card-header" style="text-align: center;">Emploi saisonnier <br> < à 200 jours par an
                         </div>
                      </div>
                   </div>
@@ -4541,7 +4542,7 @@ Petite et Moyenne Hydraulique
                         عدد أجراء المستثمرة
                         <br>
                         Nombre de salariés de l'exploitation
-                        </b>
+         </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4560,78 +4561,89 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Co-exploitants (y compris exploitant principal)</b><br>
-                        مساعد المستثمر (مع المستثمر الرئيسي)
+                  <td style="width: 320px; ">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> مساعد المستثمر (مع المستثمر الرئيسي)<br>
+                        Co-exploitants (y compris exploitant principal)</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="3" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                         
-                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="3" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Ouvriers agricoles
-                        </b><br>
-                        العمال الفلاحيين
+                  <td style="width: 320px;">
+                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> العمال الفلاحيين المحليين 
+                  <br>
+                        Ouvriers agricoles nationaux</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                           
-                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="3" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                      
-                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Ouvriers agricoles étrangès
-                        </b><br>
-                        العمال الفلاحيين الأجانب
+                  <td style="width: 320px; ">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                <p style="padding-left:60px;">  العمال الفلاحيين الأجانب 
+                  <br>
+                        Ouvriers agricoles étrangès</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                       
-                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="3" num class="form-control bneder"  value="">
                          
-                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                            
-                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4641,10 +4653,11 @@ Petite et Moyenne Hydraulique
             <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
+
                         <b>
                         الأعضاء الناشطين ( أكثر من 18 سنة) <br>
                         Membres actifs ( + de 18 ans )
-                        </b>
+         </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4662,52 +4675,60 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Main d'œuvre ordinnaire (non qualifiée)
-                        </b><br>
-                     اليد العاملة العادية(الغير مؤهلة)
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> اليد العاملة العادية(الغير مؤهلة)
+                  <br>
+                        Main d'œuvre ordinnaire (non qualifiée)</p>
                      </td>
-                     <td>
+                                          <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                         
-                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="3" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
-                     <td>
+                                          <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                      
-                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="3" num class="form-control bneder"  value="">
                         
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Main d'œuvre qualifiée
-                        </b><br>
-                        اليد العاملة مؤهلة
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                  <p style="padding-left:60px;"> اليد العاملة مؤهلة
+                  <br>
+                        Main d'œuvre qualifiée</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                          
-                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                          
-                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4719,11 +4740,11 @@ Petite et Moyenne Hydraulique
             <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
-                        <b>
-                        عدد الأعضاء أو الأسر في المستثمر
-                        <br>
-                        Nombre des membres du ou des ménage (s) actifs de l'exploitation
-                        </b>
+                        <p>
+                           Nombre des membres du ou des ménage (s) actifs de l'exploitation
+                           <br>
+                           عدد الأعضاء أو الأسر في المستثمر
+                        </p>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4741,76 +4762,88 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Exploitant individuel
-                        </b><br>
-                        فلاح أو مستثمر فردي
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                  <p style="padding-left:60px;"> 
+                           فلاح أو مستثمر فردي
+                           <br>
+                           Exploitant individuel
+                        </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                      
-                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                          
-                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Adultes (+15 ans)
-                        </b><br>
-                        كبار (أكثر من 15 سنة)
+                     <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                    
+                     <p style="padding-left:60px;"> 
+                           كبار (أكثر من 15 سنة) 
+                           <br>
+                           Adultes (+15 ans)
+                     </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                       
-                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="2" num class="form-control bneder"  tb value="">
+                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="3" num class="form-control bneder"  tb value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                      
-                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Enfants (-15 ans)
-                        </b><br>
-                        أطفال (أقل من 15 سنة)
+                     <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                     <p style="padding-left:60px;"> 
+                           أطفال (أقل من 15 سنة)
+                           <br>
+                           Enfants (-15 ans)
+                     </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                        
-                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                            
-                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4831,7 +4864,52 @@ Petite et Moyenne Hydraulique
                </b>
             </div>
             <br>
-            <div class="input-group input-group-sm">
+
+            <br>
+            <div class="row">
+                     <div class="col-3">  </div>
+                     <div class="col" style="text-align: center;">
+                     <div class="qst-num zxcount"></div>
+                     <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;"> كبار (أكثر من 15 سنة)
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Adultes (+15 ans) 
+                        </div>
+                     </div>
+                     <br>
+                     <p style="margin-left: 25px;">
+                     (ذكور - Masculin) - (إناث - Féminin)
+         </p>
+                     </div>
+                     <div class="col" style="text-align: center;">
+                     <div class="qst-num zxcount"></div>
+                     <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  أطفال (أقل من 15 سنة أو أقل) 
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;"> Enfants (15 ans et)  
+                        </div>
+                     </div>
+                     <br>
+                     <p style="margin-left: 25px;">
+
+                        (ذكور - Masculin) - (إناث - Féminin)
+
+                     </p>
+                     </div>
+                     <div class="col-1">  </div>
+                  </div>
+                  <table  class="table table-sm">
+               <tbody>
+                  <!-- Labels for Superficie -->
+                  
+                  <!-- Cultures herbacées -->
+                  <tr >
+                     <td style="width: 269px;" >
+                     <div class="input-group input-group-sm">
+                     <div class="qst-num ">126</div>
+                     <div  hidden class="qst-num zxcount"></div>
                <span class="input-group-text" id="basic-addon3">
                عدد الأشخاص
                <br> Nombre de personnes
@@ -4842,51 +4920,26 @@ Petite et Moyenne Hydraulique
                
                   
             </div>
-            <br>
-            <div class="row">
-                     <div class="col-4"></div>
-                     <div class="col">
-                        ذكور - Masculin
-                     </div>
-                     <div class="col">
-                        إناث - Féminin
-                     </div>
-                  </div><table class="table table-sm">
-               <tbody>
-                  <!-- Labels for Superficie -->
-                  
-                  <!-- Cultures herbacées -->
-                  <tr>
-                     <td style="width: 269px;">
-                        <b>Adultes (+15 ans)
-                        </b><br>
-                        كبار (أكثر من 15 سنة)
                      </td>
                      <td>
-                       
-                           <input id="ma_adultes_plus_15_ans_1" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
-                      
-                     </td>
-                     <td>
-                       
-                           <input id="ma_adultes_plus_15_ans_2" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
-                        
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <b>Enfants (-15 ans)
-                        </b><br>
-                        أطفال (أقل من 15 سنة)
-                     </td>
-                     <td>
-                       
-                           <input id="ma_enfants_moins_15_ans_11" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
+                     <div class="input-group input-group-sm">
+
+                           <input id="ma_adultes_plus_15_ans_m" name="ma_adultes_plus_15_ans_m"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_adultes_plus_15_ans_f" style="max-width:80px;" name="ma_adultes_plus_15_ans_f"  maxlength="2" num class="form-control bneder"  value="">
+                           </div>
                     
-                     </td>
+                        </td>
+                  
+                
+             
+                   
                      <td>
-                      
-                           <input id="ma_enfants_moins_15_ans_22" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
+                     <div style="margin-left:20px;" class="input-group input-group-sm">
+
+                           <input id="ma_enfants_moins_15_ans_m" name="ma_enfants_moins_15_ans_m"  maxlength="2" num class="form-control bneder"  value="">
+                   
+                           <input id="ma_enfants_moins_15_ans_f" name="ma_enfants_moins_15_ans_f"  maxlength="2" num class="form-control bneder"  value="">
+                           </div>
                      
                      </td>
                   </tr>
@@ -4895,8 +4948,11 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
-            </h5>
+            <h5>XII- Utilisation d'intrants - إستخدام المدخلات 
+             </h5>  <br>
+             <div class="qst-num zxcount"></div>
+             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
+            
             <br><br>
             <div class="row">
 
@@ -4907,7 +4963,7 @@ Petite et Moyenne Hydraulique
                   <div class="form-check">
                      <input name="ui_semences_selectionnees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1441">
                      <label class="form-check-label" for="flexCheckDefault1441">
-                         بذور مختارة
+                         بذور منتقاة
                          <br>
                          Semences sélectionnées
                      </label>
