@@ -128,7 +128,7 @@ $('#forage, #puits, #source').change(function() {
   function calculateTotalFamilyMembers() {
       var total = 0;
       // Loop through each input field for adults and children
-      $('#ma_adultes_plus_15_ans_1, #ma_adultes_plus_15_ans_2, #ma_enfants_moins_15_ans_11, #ma_enfants_moins_15_ans_22').each(function() {
+      $('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').each(function() {
           // Parse the value as an integer and add it to the total
           total += parseInt($(this).val()) || 0;
       });
@@ -136,7 +136,7 @@ $('#forage, #puits, #source').change(function() {
   }
   
   // Event listener for input fields for adults and children
-  $('#ma_adultes_plus_15_ans_1, #ma_adultes_plus_15_ans_2, #ma_enfants_moins_15_ans_11, #ma_enfants_moins_15_ans_22').on('input', function() {
+  $('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').on('input', function() {
       var maxPersons = parseInt($('#ma_nombre_de_personnes').val()) || 0; // Get the maximum number of persons
       var totalFamilyMembers = calculateTotalFamilyMembers(); // Calculate the total number of family members
       // Compare the total number of family members with the maximum allowed

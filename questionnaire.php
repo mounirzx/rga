@@ -2120,16 +2120,17 @@ acte de concession ?
          
             <div style="border-top: 3px solid red;"></div><br>
 <h5 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h5>
-<div style="border-top: 1px solid red; width:270px; margin:-20px 0px 0px 30px;"></div><br>
-<h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6><br>
+<div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 50px;"></div><br>
 <div class="card" style="font-size: 12px;">
-  <div class="card-header" style="text-align: center;">
+ 
+   <div class="card-header" style="text-align: center;"> <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
+      <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
+
+</div>
     <div class="card-body">
-      <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;"></div>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-          <div style="margin-top: 59px;height: 40px;width: 696px;background-color: #f8f8f8;position: absolute;z-index: 99;"></div>
-          <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div>
+        <div style="margin-top: 75px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
         </div>
         <div class="col-4">
           Code culture - رقم الزراعة
@@ -2171,7 +2172,7 @@ acte de concession ?
                   4 - Avoine - خرطال
                 </option>
                 <option value="5">
-                  5 - Sorgho - الذرة البيضاء
+                  5 - Sorgho - الذرة البيضاء(سرغوم)
                 </option>
                 <option value="6">
                   6 - Maïsgrain - حبوب الذرة
@@ -2183,19 +2184,19 @@ acte de concession ?
                   Légumessecs - البقول الجافة
                 </option>
                 <option value="8">
-                  8 - Lentilles- عدس
+                  8 - Lentilles - عدس
                 </option>
                 <option value="9">
-                  9 - ois-chiche - حمص
+                  9 - Pois-chiche - حمص
                 </option>
                 <option value="10">
-                  10 - Poissec -بازلاء مجففة
+                  10 - Pois sec - بازلاء مجففة
                 </option>
                 <option value="11">
-                  11 - Haricotsec- الفاصوليا الجافة
+                  11 - Haricotsec - الفاصوليا الجافة
                 </option>
                 <option value="12">
-                  12 - Fèvesèche- فول جاف
+                  12 - Fèvesèche - فول جاف
                 </option>
                 <option value="13">
                   13 - Autres-أخرى
@@ -2225,22 +2226,22 @@ acte de concession ?
                   19 - Oignonsecet vert - بصل جاف وأخضر
                 </option>
                 <option value="20">
-                  20 - Ail -ثوم
+                  20 - Ail - ثوم
                 </option>
                 <option value="21">
-                  21 - Tomate-طماطم
+                  21 - Tomate - طماطم
                 </option>
                 <option value="22">
-                  22 - Piment-فلفل حار
+                  22 - Piment - فلفل حار
                 </option>
                 <option value="23">
                   23 - Poivron(frais et séché) - فلفل حلو
                 </option>
                 <option value="24">
-                  24 - Carotte-جزر
+                  24 - Carotte - جزر
                 </option>
                 <option value="25">
-                  25 - Courgette -كوسه
+                  25 - Courgette - كوسه
                 </option>
                 <option value="26">
                   26 - Navet - اللفت
@@ -2252,7 +2253,7 @@ acte de concession ?
                   28 - ChouetChou-fleur - الملفوف وكرمب
                 </option>
                 <option value="29">
-                  29 - Artichaut -قرنون
+                  29 - Artichaut - قرنون
                 </option>
                 <option value="30">
                   30 - Betterave -الشمندر
@@ -2264,10 +2265,10 @@ acte de concession ?
                   32 - Haricotvert - فاصوليا خضراء
                 </option>
                 <option value="33">
-                  33 - Petitpois- البازلاء
+                  33 - Petitpois - البازلاء
                 </option>
                 <option value="34">
-                  34 - Fraises-فراولة
+                  34 - Fraises - فراولة
                 </option>
                 <option value="35">
                   35 - Salade(laitue) - خس
@@ -2294,79 +2295,79 @@ acte de concession ?
                   41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
                 </option>
                 <option value="42">
-                  42 - Tabac-التبغ
+                  42 - Tabac - التبغ
                 </option>
                 <option value="43">
-                  43 - Autres-أخرى
+                  43 - Autres - أخرى
                 </option>
                 <option disabled style="font-weight: 700;">
                   Arboriculture - الأشجار
                 </option>
                 <option value="44">
-                  44 - Oranger-أشجار البرتقال
+                  44 - Oranger - أشجار البرتقال
                 </option>
                 <option value="45">
-                  45 - Citronnier-أشجار الليمون
+                  45 - Citronnier - أشجار الليمون
                 </option>
                 <option value="46">
-                  46 - Mandarinier-أشجار المندرين
+                  46 - Mandarinier - أشجار المندرين
                 </option>
                 <option value="47">
-                  47 - Clémentinier-أشجار الكليمنتين
+                  47 - Clémentinier - أشجار الكليمنتين
                 </option>
                 <option value="48">
-                  48 - Pamplemoussier-أشجار اليمون الهندي
+                  48 - Pamplemoussier - أشجار اليمون الهندي
                 </option>
                 <option value="49">
-                  49 - Abricotier-أشجار المشمش
+                  49 - Abricotier - أشجار المشمش
                 </option>
                 <option value="50">
-                  50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين
+                  50 - Pêchier et nectarinier - أشجار الخوخ والنكتارين
                 </option>
                 <option value="51">
-                  51 - Cognassier-أشجار السفرجل
+                  51 - Cognassier - أشجار السفرجل
                 </option>
                 <option value="52">
-                  52 - Poirier-أشجار اإلجاص
+                  52 - Poirier - أشجار اإلجاص
                 </option>
                 <option value="53">
-                  53 - Pommier-أشجار التفاح
+                  53 - Pommier - أشجار التفاح
                 </option>
                 <option value="54">
-                  54 - Prunier-أشجار البرقوق
+                  54 - Prunier - أشجار البرقوق
                 </option>
                 <option value="55">
-                  55 - Olivier de table-أشجار زيتون "زيتون المائدة"
+                  55 - Olivier de table - أشجار زيتون "زيتون المائدة"
                 </option>
                 <option value="56">
-                  56 - Olivier à huile-أشجار الزيتون "الزيت"
+                  56 - Olivier à huile - أشجار الزيتون "الزيت"
                 </option>
                 <option value="57">
-                  57 - Figuier-أشجار التين
+                  57 - Figuier - أشجار التين
                 </option>
                 <option value="58">
-                  58 - Amandier-أشجار اللوز
+                  58 - Amandier - أشجار اللوز
                 </option>
                 <option value="59">
-                  59 - Noyer -أشجار الجوز
+                  59 - Noyer - أشجار الجوز
                 </option>
                 <option value="60">
-                  60 - Cerisier-أشجار الكرز
+                  60 - Cerisier - أشجار الكرز
                 </option>
                 <option value="61">
                   61 - Neflier - أشجار الزعرور 
                 </option>
                 <option value="62">
-                  62 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"
+                  62 - Palmier dattier (Deglet Nour) - أشجار النخيل "دڨلة نور"
                 </option>
                 <option value="63">
-                  63 - Palmier dattier (Ghars)-أشجار النخيل "غرس"
+                  63 - Palmier dattier (Ghars) - أشجار النخيل "غرس"
                 </option>
                 <option value="64">
-                  64 - Palmier dattier (autres)-أشجار النخيل "أخرى"
+                  64 - Palmier dattier (autres) - أشجار النخيل "أخرى"
                 </option>
                 <option value="65">
-                  65 - Vigne de table - كروم الماىدة
+                  65 - Vigne de table - كروم المائدة
                 </option>
                 <option value="66">
                   66 - Vigne de cuve - كروم لصنع الخمور
@@ -2375,22 +2376,22 @@ acte de concession ?
                   67 - Vigne à raisin sec - كروم التجفيف
                 </option>
                 <option value="68">
-                  68 - Grenadier-أشجار الرمان
+                  68 - Grenadier - أشجار الرمان
                 </option>
                 <option value="69">
-                  69 - Arganier-أشجار األرقان
+                  69 - Arganier - أشجار األرقان
                 </option>
                 <option value="70">
-                  70 - Autres arbres-أشجار أخرى
+                  70 - Autres arbres - أشجار أخرى
                 </option>
                 <option disabled style="font-weight: 700;">
                   Divers - محاصيل مختلفة
                 </option>
                 <option value="71">
-                  71 - Herbes et épices - الأعشاب والتوابل
+                  71 - Herbes - الأعشاب 
                 </option>
                 <option value="72">
-                  72 - Plantes aromatiques et médicinales .. - نباتات العطرية و الطبية
+                  72 - Plantes aromatiques et médicinales - نباتات العطرية و الطبية
                 </option>
                 <option value="73">
                   73 - Pépinières fruitières - مشاتل الفاكهة
@@ -2413,7 +2414,8 @@ acte de concession ?
           <div class="col">
             <div class="row">
               <div class="col-5">
-                <input bigtb="" id="superficie_hec" name="superficie_hec"  maxlength="3" num class="form-control"  value="">
+               <!-- need to cahnge -->
+                <input  id="superficie_hec" name="superficie_hec"  maxlength="4" num class="form-control"  value="">
               </div>
               <div class="col">
                 <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
@@ -2570,8 +2572,9 @@ $(document).ready(function(){
                });
       </script> <!-- TODO -->
     </div>
-  </div>
-</div><br>
+  
+</div>
+<br>
 
 
 
@@ -2613,7 +2616,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار الزيتون <br> Oliviers
                                     </span>
-                                       <input class="form-control bneder" id="oliviers" name="oliviers">                   
+                                       <input class="form-control bneder" maxlength="4" num  id="oliviers" name="oliviers">                   
                                </div>
                                 <!-- Removed the similar input fields -->
                                 <!-- Continue with the other tree types -->
@@ -2623,7 +2626,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار التين <br> Figuiers
                                     </span>
-                                       <input class="form-control bneder" id="figuiers" name="figuiers">                   
+                                       <input class="form-control bneder" maxlength="4" num id="figuiers" name="figuiers">                   
                                </div>
                                 <!-- End of input group -->
                                 <!-- Start of input group -->
@@ -2633,7 +2636,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار الرمان <br> Grenadiers
                                     </span>
-                                       <input class="form-control bneder"  id="grenadiers" name="grenadiers">                   
+                                       <input class="form-control bneder" maxlength="4" num  id="grenadiers" name="grenadiers">                   
                                </div>
 
 
@@ -2644,7 +2647,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار اللوز <br> Amandiers
                                     </span>
-                                       <input class="form-control bneder" id="amandiers" name="amandiers">                   
+                                       <input class="form-control bneder" maxlength="4" num id="amandiers" name="amandiers">                   
                                </div>
                                 <!-- End of input group -->
                                 <!-- Start of input group -->
@@ -2654,7 +2657,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار العنب <br> Vigne
                                     </span>
-                                       <input class="form-control bneder" id="vigne" name="vigne">                   
+                                       <input class="form-control bneder" maxlength="4" num id="vigne" name="vigne">                   
                                </div>
                               
                                 <!-- End of input group -->
@@ -2667,7 +2670,7 @@ $(document).ready(function(){
                                <span class="input-group-text" id="basic-addon3">
                                   أشجار النخيل <br> Palmiers dattiers
                                </span>
-                               <input class="form-control bneder" id="palmiers_dattiers" name="palmiers_dattiers">                   
+                               <input class="form-control bneder" maxlength="4" num id="palmiers_dattiers" name="palmiers_dattiers">                   
                             </div>
                             <br>
                             
@@ -2681,7 +2684,7 @@ $(document).ready(function(){
                                <span class="input-group-text" id="basic-addon3">
                                   أشجار السفرجل<br> Cognassiers
                                  </span>
-                                 <input class="form-control bneder"  id="cognassiers" name="cognassiers">                   
+                                 <input class="form-control bneder" maxlength="4" num  id="cognassiers" name="cognassiers">                   
                               </div>
                               
                               <br>
@@ -2691,7 +2694,7 @@ $(document).ready(function(){
                                       <span class="input-group-text" id="basic-addon3">
                                       أشجار ذات النوات و البذرة<br> Noyaux-Pépins
                                       </span>
-                                         <input class="form-control bneder" id="noyaux_pepins" name="noyaux_pepins">                   
+                                         <input class="form-control bneder" maxlength="4" num id="noyaux_pepins" name="noyaux_pepins">                   
                                  </div>   
 
 
@@ -2700,7 +2703,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                         أشجار الخروب <br> Caroubier
                                     </span>
-                                       <input class="form-control bneder" id="caroubier" name="caroubier">                   
+                                       <input class="form-control bneder" maxlength="4" num id="caroubier" name="caroubier">                   
                                </div>
 
 
@@ -2711,7 +2714,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجارأخرى<br> Autres
                                     </span>
-                                    <input class="form-control bneder" id="autre_arbres_isoles" name="autre_arbres_isoles">   
+                                    <input class="form-control bneder" maxlength="4" num id="autre_arbres_isoles" name="autre_arbres_isoles">   
                                </div>
 
                                     <!-- New en new   -->
@@ -2752,8 +2755,8 @@ $(document).ready(function(){
                            هل تمارس الزراعة البيولوجية؟
                            <br>
                            Pratiquez-vous l'agriculture biologique?</span>
-                           <select class="form-control bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique" style="width: 268px; height: 28px;">
-                              <option disabled value="-" selected="">  </option>
+                           <select class="form-select bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique" style="max-width: 247px;height: 28px;margin-left: 21px;">
+                              <option disabled="" value="-" selected="">  </option>
                               <option value="1">1 - Oui - نعم</option>
                               <option value="2">2 - Non - لا</option>
                            </select>
@@ -2766,8 +2769,8 @@ $(document).ready(function(){
                            شهادة إعتماد؟
                            <br>
                            Si oui, Avez-vous un certificat ?</span>
-                           <select disabled="" class="form-control bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat" style="width: 183px; height: 28px;">
-                              <option disabled value="-" selected="">  </option>
+                          <select disabled="" class="form-select bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat" style="max-width: 247px;height: 28px;margin-left: 21px;">
+                              <option disabled="" value="-" selected="">  </option>
                               <option value="1">1 - Oui - نعم</option>
                               <option value="2">2 - Non - لا</option>
                            </select>
@@ -2792,41 +2795,41 @@ $(document).ready(function(){
 
 
                   
-                  <div class="input-group input-group-sm" >
+                  <div class="input-group input-group-sm" style="margin-left: 5px;">
                   <div class="qst-num zxcount"></div>
-                  <span class="input-group-text"  style="font-size: 10px !important; width: 260px;  text-align: center; " id="basic-addon3" >إذا نعم, هل
+                  <span class="input-group-text"  style="font-size: 10px !important; width: 270px;  text-align: center; " id="basic-addon3" >إذا نعم, هل
                   هل تمارس تربية المائيات المدمجة مع الفلاحة؟
                      <br>
                      Pratiquez-vous l'aquaculture intégrée à l'agriculture ?
                      </span><br>
-                  </div>
-                     <select style="font-size: 12px !important;" class="form-control bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture">
-                        <option disabled value="-" selected="">  </option>
+                 
+                     <select class="form-select bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style=" max-width: 270px; height: 28px; margin-left: 19px;">
+                        <option disabled="" value="-" selected="">  </option>
                         <option value="1">1 - Oui - نعم</option>
                         <option value="2">2 - Non - لا</option>
                      </select>
-                  
-                  <br>
-                  <div class="input-group input-group-sm">
+                 
+                  </div> <br>
+                  <div class="input-group input-group-sm" style="margin-left: 5px;">
                   <div class="qst-num zxcount"></div>
                      <span class="input-group-text" id="basic-addon3">هل تمارس تربية الحلزون
                      ؟
                      <br>
                      Pratiquez-vous l'Héliciculture?</span>
-                     <select class="form-control bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
+                     <select style=" max-width: 90px;" class="form-select bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
                         <option disabled value="-" selected="">  </option>
                         <option value="1">1 - Oui - نعم</option>
                         <option value="2">2 - Non - لا</option>
                      </select>
                   </div>
                   <br>
-                  <div class="input-group input-group-sm">
+                  <div class="input-group input-group-sm" style="margin-left: 5px;">
                   <div class="qst-num zxcount"></div>
                      <span class="input-group-text" id="basic-addon3">هل تمارس زراعة
                      الفطريات ؟
                      <br>
                      Pratiquez-vous la Myciculture ?</span>
-                     <select class="form-control bneder" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
+                     <select class="form-select bneder" style=" max-width: 80px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
                         <option disabled value="-" selected="">  </option>
                         <option value="1">1 - Oui - نعم</option>
                         <option value="2">2 - Non - لا</option>
@@ -2993,7 +2996,7 @@ $(document).ready(function(){
                             الأبقار
                             <br> Bovins
                             </span>
-                               <input class="form-control bneder" id="chapt_bovins" name="chapt_bovins">
+                               <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
                          </div>
                       </div>
                       <div class="col">
@@ -3003,7 +3006,7 @@ $(document).ready(function(){
                             منها الأبقار الحلوب المتطورة
                             <br> Dont vaches laitiéres BLM
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" name="chapt_dont_vaches_laitieres_blm" >
+                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
                          </div>
                       </div>
                    </div>
@@ -3016,7 +3019,7 @@ $(document).ready(function(){
                             منها الأبقار الحلوب المحسنة
                             <br> Dont vaches laitiéres BLA
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" name="chapt_dont_vaches_laitieres_bla" >
+                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
                          </div>
                       </div>
                       <div class="col">
@@ -3026,7 +3029,7 @@ $(document).ready(function(){
                             منها الأبقار الحلوب المحلية
                             <br> Dont vaches laitiéres BLL
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" name="chapt_dont_vaches_laitieres_bll" >
+                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
                          </div>
                       </div>
                    </div>
@@ -3063,7 +3066,7 @@ $(document).ready(function(){
                             <span class="input-group-text" id="chapt_basic-addon3" style="width: 81px;">
                             الأغنام<br>Ovins
                             </span>
-                               <input class="form-control bneder" id="chapt_ovins" name="chapt_ovins" >
+                               <input class="form-control bneder"  num maxlength="4" id="chapt_ovins" name="chapt_ovins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3072,7 +3075,7 @@ $(document).ready(function(){
                             منها النعاج
                             <br>Dont brebis
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_brebis" name="chapt_dont_brebis" >
+                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_brebis" name="chapt_dont_brebis" >
                          </div>
                       </div>
                    </div>
@@ -3092,7 +3095,7 @@ $(document).ready(function(){
                             الماعز
                             <br> Caprins
                             </span>
-                               <input class="form-control bneder" id="chapt_caprins" name="chapt_caprins" >
+                               <input class="form-control bneder" num maxlength="4" id="chapt_caprins" name="chapt_caprins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3101,7 +3104,7 @@ $(document).ready(function(){
                             منها العنزات
                             <br> Dont chèvres
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_chevres" name="chapt_dont_chevres" >
+                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_chevres" name="chapt_dont_chevres" >
                          </div>
                       </div>
                    </div>
@@ -3123,7 +3126,7 @@ $(document).ready(function(){
                             الإبل
                             <br> Camelins
                             </span>
-                               <input class="form-control bneder" id="chapt_camelins" name="chapt_camelins" >
+                               <input class="form-control bneder" num maxlength="4" id="chapt_camelins" name="chapt_camelins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3132,7 +3135,7 @@ $(document).ready(function(){
                             منها النق
                             <br> Dont chamelles
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
+                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
                          </div>
                       </div>
                    </div>
@@ -3154,16 +3157,16 @@ $(document).ready(function(){
 الخيل
 <br>Equins
 </span>
-<input class="form-control bneder" id="chapt_equins" name="chapt_equins" >
+<input class="form-control bneder" num maxlength="4"id="chapt_equins" name="chapt_equins" >
 </div>
 <br>
 <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
-<span class="input-group-text" id="chapt_basic-addon3">
+<span class="input-group-text"  id="chapt_basic-addon3">
 منها الفرس
 <br>Dont juments
 </span>
-<input class="form-control bneder" id="chapt_dont_juments" name="chapt_dont_juments" >
+<input class="form-control bneder" num maxlength="4" id="chapt_dont_juments" name="chapt_dont_juments" >
 </div>
 </div>
 </div>
@@ -3175,7 +3178,7 @@ $(document).ready(function(){
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="chapt_basic-addon3">الأرانب<br>Cuniculture</span>
-                        <input class="form-control bneder" id="chapt_cuniculture" name="chapt_cuniculture">
+                        <input class="form-control bneder" num maxlength="4" id="chapt_cuniculture" name="chapt_cuniculture">
                 </div>
             </div>
         </div>
@@ -3186,7 +3189,7 @@ $(document).ready(function(){
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="chapt_basic-addon3">البغال<br>Mulets</span>
-                        <input class="form-control bneder" id="chapt_mulets" name="chapt_mulets">
+                        <input class="form-control bneder" num maxlength="4" id="chapt_mulets" name="chapt_mulets">
                 </div>
             </div>
         </div>
@@ -3196,7 +3199,7 @@ $(document).ready(function(){
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="chapt_basic-addon3">الحمير<br>Anes</span>
-                        <input class="form-control bneder" id="chapt_anes" name="chapt_anes">
+                        <input class="form-control bneder" num maxlength="4" id="chapt_anes" name="chapt_anes">
                 </div>
             </div>
         </div>
@@ -3211,51 +3214,6 @@ $(document).ready(function(){
 
 
 
-
-<br>
-<div class="row">
-  <div class="col">
-    <div class="card" style="font-size: 12px;">
-      <div class="card-header" style="text-align: center;">
-        تربية النحل - Apiculture
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <div class="err" id="chapt_ruches_modernes_error"></div>
-            <div class="input-group input-group-sm">
-            <div class="qst-num zxcount"></div>
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">خلايا النحل العصرية<br>Ruches modernes</span>
-              <input class="form-control bneder" id="chapt_ruches_modernes" name="chapt_ruches_modernes">
-            </div>
-            </div><div class="col">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
-              <input class="form-control bneder" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
-            </div>
-          </div>
-        </div>
-        <br> <!-- Line break -->
-        <div class="row">
-          <div class="col">
-            <div class="err" id="chapt_ruches_traditionnelles_error"></div>
-            <div class="input-group input-group-sm">
-            <div class="qst-num zxcount"></div>
-              <span class="input-group-text" id="chapt_basic-addon3">خلايا النحل التقليدية<br>Ruches traditionnelles</span>
-              <input class="form-control bneder" id="chapt_ruches_traditionnelles" name="chapt_ruches_traditionnelles">
-            </div>
-            </div><div class="col">
-
-            <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
-              <input class="form-control bneder" id="chapt_dont_sont_pleines_2" name="chapt_dont_sont_pleines_2">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
             
@@ -3320,6 +3278,52 @@ $(document).ready(function(){
              
              
 <br>
+
+<br>
+<div class="row">
+  <div class="col">
+    <div class="card" style="font-size: 12px;">
+      <div class="card-header" style="text-align: center;">
+        تربية النحل - Apiculture
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="err" id="chapt_ruches_modernes_error"></div>
+            <div class="input-group input-group-sm">
+            <div class="qst-num zxcount"></div>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">خلايا النحل العصرية<br>Ruches modernes</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_ruches_modernes" name="chapt_ruches_modernes">
+            </div>
+            </div><div class="col">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
+            </div>
+          </div>
+        </div>
+        <br> <!-- Line break -->
+        <div class="row">
+          <div class="col">
+            <div class="err" id="chapt_ruches_traditionnelles_error"></div>
+            <div class="input-group input-group-sm">
+            <div class="qst-num zxcount"></div>
+              <span class="input-group-text" id="chapt_basic-addon3">خلايا النحل التقليدية<br>Ruches traditionnelles</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_ruches_traditionnelles" name="chapt_ruches_traditionnelles">
+            </div>
+            </div><div class="col">
+
+            <div class="input-group input-group-sm">
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines_2" name="chapt_dont_sont_pleines_2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 <div class="input-group input-group-sm">
                            <div class="qst-num zxcount"></div>
 
@@ -3336,19 +3340,7 @@ $(document).ready(function(){
                            </select>
                         </div>
 
-                           <span class="input-group-text" id="basic-addon3">
-                     
-
-                           هل تمارس الترحال الرعوي؟<br>
-                           Pratiquez-vous la transhumance ?
-                           </span>
-                           <select class="form-control bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
-                              <option selected="" disabled value="-">  </option>
-                              <option value="1">1- Oui-نعم</option>
-                              <option value="2">2- Non-لا</option>
-                           </select>
-                        </div>
-
+                    
 
 
 
@@ -3395,7 +3387,7 @@ $(document).ready(function(){
             
             <br>
             <h5 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h5>
-            <div style="border-top: 1px solid red; width:370px; margin:-20px 0px 0px 30px;"></div>
+            <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px;"></div>
             <br><br>
 
 
@@ -3422,197 +3414,184 @@ $(document).ready(function(){
 
 
 <div class="row">
-  <div class="col-5"></div>
-  <div class="col">
-    العدد - Nombre
-  </div>
-  <div class="col" style="text-align: center;">
-    المساحة (م²) - Surface (m²)
-  </div>
-</div>
+                           <div class="col-4"></div>
+                           <div class="col">
+                              العدد - Nombre
+                           </div>
+
+                           <div class="col" style="padding-right: 25px;">
+                              المساحة(م²)-Surface(m²)
+                           </div>
+  <div class="col-3"></div>
 <table class="table table-sm">
   <tbody>
     <!-- Labels for Superficie -->
     <!-- Cultures herbacées -->
     <tr>
-      <td style="width:330px">
+      <td style="width:280px">
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
-      <td><input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
-        <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiments_dhabitation_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
+      <div class="input-group input-group-sm">
+         <input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value="">
+      </div>
+      </td>
+      
+      
+      <td>
+     
+      <div class="input-group input-group-sm">
+          <input id="in83" name="batiments_dhabitation_surface" style="float:right;" class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
   </tbody>
 </table>
+</div>
 
 <br>
 <div class="card" style="font-size: 12px;">
-               <div class="card-header" style="text-align: center;">مباني تربية الحيوانات - Bâtiments
-                  d'élevage
-               </div>
-               <div class="card-body">
-                  <div class="row">
-                           <div class="col-4"></div>
-                           <div class="col">
-                              العدد - Nombre
-                           </div>
-                           <div class="col">
-                              المساحة (م²) - Surface (m²)
-                           </div>
-                        </div><table class="table table-sm">
-                     <tbody>
-                        <!-- Labels for Superficie -->
-    
-
-                        <tr>
-                           <td style="width:255px;">
-                        <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                        <p style="margin: 0px 0px 0px 25px;"> حضيرة</p>
-                        <p style="margin: 0px 0px 0px 25px;">Bergerie</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn102">
-                           
-                                 <input id="in102" name="bergerie_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn103" style="margin-left: 151px">
-                                
-                                 <input id="in103" name="bergerie_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td style="width:255px;">
-                        <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                        <p style="margin: 0px 0px 0px 25px;">  إسطبل</p>
-                        <p style="margin: 0px 0px 0px 25px;">Etable</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn104">
-                               
-                                 <input id="in104" name="etable_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn105" style="margin-left: 151px">
-                                
-                                 <input id="in105" name="etable_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td style="width:255px;">
-                        <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                        <p style="margin: 0px 0px 0px 25px;">  اسطبل خيول</p>
-                        <p style="margin: 0px 0px 0px 25px;">Ecurie de chevauxv  </p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn106">
-                             
-                                 <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn107" style="margin-left: 151px">
-                              
-                                 <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td style="width:255px;">
-                        <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                        <p style="margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
-                              <p style="margin: 0px 0px 0px 25px;">    Poulailler (bâtis en dur)</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn108">
-                           
-                                 <input id="in108" name="poulailler_batis_en_dur_nombre"  maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn109" style="margin-left: 151px">
-                                
-                                 <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td style="width:255px;">
-                           <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                           <p style="margin: 0px 0px 0px 25px;"> مدجنة (بيوت بلاستيكية)</p>
-                           <p style="margin: 0px 0px 0px 25px;">Poulailler (sous serre)</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn110">
-                              
-                                 <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn111" style="margin-left: 151px">
-                                
-                                 <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-
-
-                        <!-- ////new -->
-                        <tr>
-                           <td style="width:255px;">
-                           <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                           <p style="margin: 0px 0px 0px 25px;"> بيوت بالستيكية </p>
-                           <p style="margin: 0px 0px 0px 25px;">Serres Tunnels</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn110">
-                              
-                                 <input id="in110" name="serres_tunnels_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn111" style="margin-left: 151px">
-                                
-                                 <input id="in111" name="serres_tunnels_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td style="width:255px;">
-                           <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                           <p style="margin: 0px 0px 0px 25px;"> بيوت متعددة القبب</p>
-                           <p style="margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn110">
-                              
-                                 <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num class="form-control bneder"  value="">
-                              </div>
-                           </td>
-                           <td>
-                              <div class="line-edits-container" id="cn111" style="margin-left: 151px">
-                                
-                                 <input id="in111" name="serres_multichapelles_surface" class="form-control bneder"  maxlength="5" num   value="">
-                              </div>
-                           </td>
-                        </tr>
-
-
-
-
-                        <!-- ////end new -->
-                     </tbody>
-                  </table>
-               </div>
+  <div class="card-header" style="text-align: center;">
+    مباني تربية الحيوانات - Bâtiments d'élevage
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col">
+        العدد - Nombre
+      </div>
+      <div class="col" style="padding-right: 25px;">
+        المساحة(م²)-Surface(m²)
+      </div>
+      <div class="col-3"></div>
+    </div>
+    <table class="table table-sm">
+      <tbody>
+        <!-- Labels for Superficie -->
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">حضيرة</p>
+            <p style="margin: 0px 0px 0px 25px;">Bergerie</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in102" name="bergerie_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in103" name="bergerie_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">إسطبل</p>
+            <p style="margin: 0px 0px 0px 25px;">Etable</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in104" name="etable_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in105" name="etable_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">اسطبل خيول</p>
+            <p style="margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in108" name="poulailler_batis_en_dur_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">مدجنة (بيوت بلاستيكية)</p>
+            <p style="margin: 0px 0px 0px 25px;">Poulailler (sous serre)</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr><!-- ////new -->
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
+            <p style="margin: 0px 0px 0px 25px;">Serres Tunnels</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_tunnels_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
+            <p style="margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td>
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr><!-- ////end new -->
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 
@@ -3622,12 +3601,15 @@ $(document).ready(function(){
 <br>
             <div class="row">
                      <div class="col-5"></div>
-                     <div class="col">
+                     <div class="col-2">
                         العدد - Nombre
                      </div>
-                     <div class="col"  style="text-align: center;">
+
+                     <div class="col"  >
                         المساحة (م²) - Surface (m²)
                      </div>
+                     <div class="col-2"></div>
+
                   </div><table class="table table-sm">
                <tbody>
                   <!-- Labels for Superficie -->
@@ -3641,31 +3623,38 @@ $(document).ready(function(){
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
       <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
       <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
-      <td><input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
       <td>
-        <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-          <input id="in83" name="batiment_de_stockage_surface" style="margin:auto;" class="form-control bneder"  maxlength="5" num  value="">
+      <div class="input-group input-group-sm">
+         <input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
+         </div>
+      
+         <td>
+      <div class="input-group input-group-sm">
+
+          <input id="in83" name="batiment_de_stockage_surface"  class="form-control bneder"  maxlength="5" num  value="">
         </div>
       </td>
     </tr>
                 
                   <tr>
                      <td>
-                    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                    <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
                     <p style="margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
                      <p style="margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
                      <td>
+      <div class="input-group input-group-sm">
                       
                          
                            <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre" maxlength="2" num class="form-control bneder"  value="">
+                  </div>
                        
                      </td>
                      <td>
                      
-                     <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" style="    margin:auto;" class="form-control bneder"  maxlength="5" num   value="">
+                     <div class="input-group input-group-sm">
+                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3677,14 +3666,15 @@ $(document).ready(function(){
                      </td>
                      <td>
                        
+                     <div class="input-group input-group-sm">
                           
                            <input id="in86" name="autres_batiment_stockage_nombre"  maxlength="2" num class="form-control bneder"  value="">
-                        
+                  </div>
                      </td>
                      <td>
                   
-                     <div class="line-edits-container" id="cn91" style="padding-left: 132px">
-                           <input id="in87" name="autres_batiment_stockage_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                     <div class="input-group input-group-sm">
+                           <input id="in87" name="autres_batiment_stockage_surface" class="form-control bneder"  maxlength="5" num   value="">
                   </div>
                      </td>
                   </tr>
@@ -3696,14 +3686,16 @@ $(document).ready(function(){
                      </td>
                      <td>
                        
+                     <div class="input-group input-group-sm">
                            
                            <input id="in88" name="caves_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           </div>
                      
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn89" style="padding-left: 132px">
+                     <div class="input-group input-group-sm">
                            
-                           <input id="in89" name="caves_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in89" name="caves_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3714,15 +3706,15 @@ $(document).ready(function(){
                      <p style="margin: 0px 0px 0px 25px;">Unité de conditionnement</p>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn90">
+                     <div class="input-group input-group-sm">
                    
                            <input id="in90" name="unite_de_conditionnement_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn91" style="padding-left: 132px">
+                     <div class="input-group input-group-sm">
                            
-                           <input id="in91" name="unite_de_conditionnement_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in91" name="unite_de_conditionnement_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3733,15 +3725,15 @@ $(document).ready(function(){
                      <p style="margin: 0px 0px 0px 25px;">Unité de transformation</p>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn92">
+                     <div class="input-group input-group-sm">
                       
                            <input id="in92" name="unite_de_transformation_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn93" style="padding-left: 132px">
+                     <div class="input-group input-group-sm">
                            
-                           <input id="in93" name="unite_de_transformation_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in93" name="unite_de_transformation_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3754,15 +3746,15 @@ $(document).ready(function(){
                         <p style="margin: 0px 0px 0px 25px;"> مركز جمع الحليب</p>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn94">
+                     <div class="input-group input-group-sm">
                       
                            <input id="in94" name="centre_de_collecte_de_lait_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn95" style="padding-left: 132px">
+                     <div class="input-group input-group-sm">
                            
-                           <input id="in95" name="centre_de_collecte_de_lait_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in95" name="centre_de_collecte_de_lait_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3774,15 +3766,15 @@ $(document).ready(function(){
                     <p style="margin: 0px 0px 0px 25px;">Autre batiments</p>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn222">
+                     <div class="input-group input-group-sm">
                      
                            <input id="in222" name="autre_batiments_nombre" maxlength="2" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
-                        <div class="line-edits-container" id="cn223" style="padding-left: 132px">
+                     <div class="input-group input-group-sm">
                            
-                           <input id="in223" name="autre_batiments_surface" style="    margin:auto;"class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in223" name="autre_batiments_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr>
@@ -3805,7 +3797,7 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn99" style="padding-left: 132px">
                            
-                           <input id="in99" name="serres_tunnels_surface" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
+                           <input id="in99" name="serres_tunnels_surface" class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -3824,7 +3816,7 @@ $(document).ready(function(){
                      <td>
                         <div class="line-edits-container" id="cn101" style="padding-left: 132px">
                            
-                           <input id="in101" style="    margin:auto;"class="form-control"  maxlength="5" num   value="">
+                           <input id="in101" class="form-control"  maxlength="5" num   value="">
                         </div>
                      </td>
                   </tr> -->
@@ -3837,9 +3829,11 @@ $(document).ready(function(){
                      <div class="col">
                         العدد - Nombre
                      </div>
-                     <div class="col">
-                        المساحة (م³) - Surface (m³)
+                     <div class="col"  style="text-align: center;">
+                        المساحة (م²) - Surface (m²)
                      </div>
+                     <div class="col-3"></div>
+
                   </div><table class="table table-sm">
                <tbody>
                   <!-- Labels for Superficie -->
@@ -3851,12 +3845,14 @@ $(document).ready(function(){
                      <p style="margin: 0px 0px 0px 25px;">Chambre froide</p>
                      </td>
                      <td>
-                    
+                     <div class="input-group input-group-sm">
+
                            <input id="in112" name="chambre_froide_nombre" maxlength="2" num class="form-control bneder"  value="">
-                        
+                           </div>
+
                      </td>
-                     <td>
-                        <div class="line-edits-container" id="cn113" style="margin-left: 162px;">
+                     <td style="padding-left:65px">
+                     <div class="input-group input-group-sm">
                           
                            <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
                         </div>
@@ -3878,8 +3874,9 @@ $(document).ready(function(){
             <br>
             <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
-
- <div style="width:450px;" class="input-group input-group-sm">
+            <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+            <br>
+ <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
                   ما هي طريقة إستغالل العتاد الفالحي ؟
@@ -3894,7 +3891,7 @@ $(document).ready(function(){
               </select>
                   
             
-</div>
+</div> -->
 <br>
 
 
@@ -3906,32 +3903,68 @@ $(document).ready(function(){
                         filières?
                      </div> -->
 <div class="card" style="font-size: 12px;">
-<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">72</div>
+<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
 نوع و عدد العتاد الفالحي ؟ 
 <br>
 Type et nombre du matériel agricole ? 
                      </div>
     <div class="card-body">
-      <div style="margin-top: 62px;height: 34px;width: 90%;background-color: white;position: absolute;z-index: 99;"></div>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-          <div style="margin-top: 59px;height: 40px;width: 696px;background-color: #f8f8f8;position: absolute;z-index: 99;"></div>
+          <div style="margin-top: 150px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
           <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
         </div>
-        <div class="col-3"></div>
-        <div class="col-3">
+        
+        <div class="col-2">
+         <br>
+         <br>
+
+         <br>
+         <br>
+         <br>
           <p>رمز العتاد<br>
           Code matériel</p>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-2">
+         <br>
+         <br>
+         <br>
+         <br>
+      
+         <br>
+         <br>
           <p>Nombre - العدد</p>
         </div>
+        <div class="col-3">
+ <div class="qst-num zxcount"></div>
+
+         <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Mode de mobilisation du matériel agricole ?
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-3">
+ <div class="qst-num zxcount"></div>
+
+         <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  طربقة إستغلال العتاد الفلاحي ؟
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
+                        </div>
+                     </div>
+                  </div> 
         <div class="col-1"></div>
+
       </div><br>
+      <br>
       <div id="formContainer3">
         <div class="row code_materiel_s" style="margin-bottom: 10px;">
-          <div class="col-8">
+          <div class="col-3">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
               Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
@@ -4021,11 +4054,39 @@ Type et nombre du matériel agricole ?
               </select>
             </div>
           </div>
-          <div class="col">
+          <div class="col-2">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control code_materiel_s"  value="">
             </div>
+          </div>
+          <div class="col">
+          <div class="input-group input-group-sm">
+              
+               <select class="form-control bneder" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+                  <option  selected="selected" vlaue="-">  </option>
+                  <option value="1">1- en proprièté - ملكية</option>
+                  <option value="2">2- en location - إجار</option>
+                  <option value="3">3- en prêt - إستلاف</option>
+              </select>
+                  
+            
+</div>
+          </div>
+          <div class="col">
+          <div class="input-group input-group-sm">
+              
+              <select class="form-control bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+                 <option  selected="selected" vlaue="-">  </option>
+                  <option value="1">1- en individuel - فردية</option>
+                  <option value="2">2- en collectif - جماعية</option>
+                  <option value="3">3- Mixte - مختلطة  </option>
+             </select>
+                 
+           
+</div>
+<div class="col-1">
+          </div>
           </div>
           <div class="col-1">
             <div class="d-grid gap-2">
@@ -4196,21 +4257,38 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <input type="number" id="total_forage" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
-    </div><br>
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+
+              <input num maxlength="2" id="total_forage" name="total_forage" class="form-control bneder-input bneder" style="display:none;" >
+                      <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+            </div>
+    
+      </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_puits" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+        <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
+              
+              <input num maxlength="2" name="total_puits"  id="total_puits" class="form-control bneder-input bneder" style="display:none;" >
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+            </div>
     </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_source" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
-    </div><br>
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+             
+        <input num maxlength="2" name="total_source"  id="total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+              Nombre</span>
+      </div>
+      </div><br>
 </div>
+
  <!-- farouk touil -->
      <div class="col">
        <div class="form-check">
@@ -4244,27 +4322,26 @@ Petite et Moyenne Hydraulique
                      <div class="card-body">
   <div class="row">
     <div class="row">
-      <div class="col-3"></div>
-      <div style=" font-size: 8px !important;" class="col">
+      <div class="col-2"></div>
+      <div style=" font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div class="col-2"></div>
-      <div style=" font-size: 8px !important;" class="col">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   
+      <div style=" font-size: 10px !important;" class="col-4">
+  
       المساحة (هكتار) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
      
       Superficie(ha)
       </div>
-      <div class="col-2"></div>
-      <div style=" font-size: 8px !important;" class="col">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+
+      <div style=" font-size: 10px !important;" class="col">
+      
       
       المساحة (هكتار) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
       
       Superficie(ha)
       </div>
@@ -4272,18 +4349,18 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">رشاش كلاسيكي<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">تقطير<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
         Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">فيض<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
         Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
@@ -4291,17 +4368,17 @@ Petite et Moyenne Hydraulique
       <br>
 
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">سطحي<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
         Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">رش محوري<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
         Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">لفاف<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
         Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
@@ -4309,18 +4386,18 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">فوقارة<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فوقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">أمطار إصطناعية<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
         Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:170px;">طرق أخرى<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
         Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
@@ -4439,11 +4516,12 @@ Petite et Moyenne Hydraulique
                <div class="row" style="text-align: center;">
                   <div class="col-4" style="margin-left: 47px;"></div>
                   <div class="col">
+                     
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;"> توظيف دائم
                            
                         </div>
-                        <div class="card-header" style="text-align: center;">Elmploi permanent
+                        <div class="card-header" style="text-align: center;">Elmploi permanent <br> >= à 200 jours par an
                         </div>
                      </div>
                   </div>
@@ -4451,7 +4529,7 @@ Petite et Moyenne Hydraulique
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;">توظيف موسمي
                         </div>
-                        <div class="card-header" style="text-align: center;">Emploi saisonnier
+                        <div class="card-header" style="text-align: center;">Emploi saisonnier <br> < à 200 jours par an
                         </div>
                      </div>
                   </div>
@@ -4464,7 +4542,7 @@ Petite et Moyenne Hydraulique
                         عدد أجراء المستثمرة
                         <br>
                         Nombre de salariés de l'exploitation
-                        </b>
+         </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4483,78 +4561,89 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Co-exploitants (y compris exploitant principal)</b><br>
-                        مساعد المستثمر (مع المستثمر الرئيسي)
+                  <td style="width: 320px; ">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> مساعد المستثمر (مع المستثمر الرئيسي)<br>
+                        Co-exploitants (y compris exploitant principal)</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="3" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                         
-                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in140" tb name="co_exploitants_y_compris_exploitant_principa_3"  maxlength="3" num class="form-control bneder"  value="">
                         
                           
-                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in141" tb name="co_exploitants_y_compris_exploitant_principa_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Ouvriers agricoles
-                        </b><br>
-                        العمال الفلاحيين
+                  <td style="width: 320px;">
+                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> العمال الفلاحيين المحليين 
+                  <br>
+                        Ouvriers agricoles nationaux</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                           
-                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in142" tb name="ouvriers_agricoles_1"  maxlength="3" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in143" tb name="ouvriers_agricoles_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                      
-                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in144" tb name="ouvriers_agricoles_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in145" tb name="ouvriers_agricoles_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Ouvriers agricoles étrangès
-                        </b><br>
-                        العمال الفلاحيين الأجانب
+                  <td style="width: 320px; ">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                <p style="padding-left:60px;">  العمال الفلاحيين الأجانب 
+                  <br>
+                        Ouvriers agricoles étrangès</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                       
-                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in146" tb name="ouvriers_agricoles_etranges_1"  maxlength="3" num class="form-control bneder"  value="">
                          
-                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in147" tb name="ouvriers_agricoles_etranges_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                            
-                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in148" tb name="ouvriers_agricoles_etranges_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in149" tb name="ouvriers_agricoles_etranges_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4564,10 +4653,11 @@ Petite et Moyenne Hydraulique
             <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
+
                         <b>
                         الأعضاء الناشطين ( أكثر من 18 سنة) <br>
                         Membres actifs ( + de 18 ans )
-                        </b>
+         </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4585,52 +4675,60 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Main d'œuvre ordinnaire (non qualifiée)
-                        </b><br>
-                     اليد العاملة العادية(الغير مؤهلة)
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                 <p style="padding-left:60px;"> اليد العاملة العادية(الغير مؤهلة)
+                  <br>
+                        Main d'œuvre ordinnaire (non qualifiée)</p>
                      </td>
-                     <td>
+                                          <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                         
-                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in162" tb name="main_oeuvre_ordinnaire_1"  maxlength="3" num class="form-control bneder"  value="">
                          
                           
-                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in163" tb name="main_oeuvre_ordinnaire_2"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
-                     <td>
+                                          <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                      
-                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in164" tb  name="main_oeuvre_ordinnaire_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in165" tb  name="main_oeuvre_ordinnaire_4"  maxlength="3" num class="form-control bneder"  value="">
                         
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Main d'œuvre qualifiée
-                        </b><br>
-                        اليد العاملة مؤهلة
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                  <p style="padding-left:60px;"> اليد العاملة مؤهلة
+                  <br>
+                        Main d'œuvre qualifiée</p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
+
                         <div class="input-group input-group-sm">
                          
-                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in166" tb name="main_oeuvre_qualifiee_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in167" tb name="main_oeuvre_qualifiee_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
+
                         <div class="input-group input-group-sm">
                          
-                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in168" tb name="main_oeuvre_qualifiee_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in169" tb name="main_oeuvre_qualifiee_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
@@ -4642,11 +4740,11 @@ Petite et Moyenne Hydraulique
             <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
-                        <b>
-                        عدد الأعضاء أو الأسر في المستثمر
-                        <br>
-                        Nombre des membres du ou des ménage (s) actifs de l'exploitation
-                        </b>
+                        <p>
+                           Nombre des membres du ou des ménage (s) actifs de l'exploitation
+                           <br>
+                           عدد الأعضاء أو الأسر في المستثمر
+                        </p>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
@@ -4664,76 +4762,88 @@ Petite et Moyenne Hydraulique
                   
                   
                   <tr>
-                     <td style="width: 320px;">
-                        <b>Exploitant individuel
-                        </b><br>
-                        فلاح أو مستثمر فردي
+                  <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                  <p style="padding-left:60px;"> 
+                           فلاح أو مستثمر فردي
+                           <br>
+                           Exploitant individuel
+                        </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                      
-                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in150" tb name="mo_exploitant_individuel_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in151" tb name="mo_exploitant_individuel_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                          
-                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in152" tb name="mo_exploitant_individuel_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in153" tb name="mo_exploitant_individuel_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Adultes (+15 ans)
-                        </b><br>
-                        كبار (أكثر من 15 سنة)
+                     <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+                    
+                     <p style="padding-left:60px;"> 
+                           كبار (أكثر من 15 سنة) 
+                           <br>
+                           Adultes (+15 ans)
+                     </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                       
-                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in154" tb name="mo_adultes_plus_15_ans_11"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="2" num class="form-control bneder"  tb value="">
+                              <input id="in155" name="mo_adultes_plus_15_ans_22"  maxlength="3" num class="form-control bneder"  tb value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                      
-                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in156" tb name="mo_adultes_plus_15_ans_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in157" tb name="mo_adultes_plus_15_ans_4"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
                   </tr>
                   <tr>
-                     <td style="width: 277px;">
-                        <b>Enfants (-15 ans)
-                        </b><br>
-                        أطفال (أقل من 15 سنة)
+                     <td style="width: 320px;">
+                  <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+
+                     <p style="padding-left:60px;"> 
+                           أطفال (أقل من 15 سنة)
+                           <br>
+                           Enfants (-15 ans)
+                     </p>
                      </td>
-                     <td>
+                     <td style="padding-left:21px;">
                         <div class="input-group input-group-sm">
                        
-                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in158" tb name="mo_enfants_moins_15_ans_1"  maxlength="3" num class="form-control bneder"  value="">
                         
-                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in159" tb name="mo_enfants_moins_15_ans_2"  maxlength="3" num class="form-control bneder"  value="">
                           
                         </div>
                      </td>
-                     <td>
+                     <td style="padding-left:88px;">
                         <div class="input-group input-group-sm">
                            
-                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in160" tb name="mo_enfants_moins_15_ans_3"  maxlength="3" num class="form-control bneder"  value="">
                           
-                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="2" num class="form-control bneder"  value="">
+                              <input id="in161" tb name="mo_enfants_moins_15_ans_4"  maxlength="3" num class="form-control bneder"  value="">
                            
                         </div>
                      </td>
@@ -4754,7 +4864,52 @@ Petite et Moyenne Hydraulique
                </b>
             </div>
             <br>
-            <div class="input-group input-group-sm">
+
+            <br>
+            <div class="row">
+                     <div class="col-3">  </div>
+                     <div class="col" style="text-align: center;">
+                     <div class="qst-num zxcount"></div>
+                     <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;"> كبار (أكثر من 15 سنة)
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;">Adultes (+15 ans) 
+                        </div>
+                     </div>
+                     <br>
+                     <p style="margin-left: 25px;">
+                     (ذكور - Masculin) - (إناث - Féminin)
+         </p>
+                     </div>
+                     <div class="col" style="text-align: center;">
+                     <div class="qst-num zxcount"></div>
+                     <div class="card" style="font-size: 12px;">
+                        <div class="card-header" style="text-align: center;">  أطفال (أقل من 15 سنة أو أقل) 
+                           
+                        </div>
+                        <div class="card-header" style="text-align: center;"> Enfants (15 ans et)  
+                        </div>
+                     </div>
+                     <br>
+                     <p style="margin-left: 25px;">
+
+                        (ذكور - Masculin) - (إناث - Féminin)
+
+                     </p>
+                     </div>
+                     <div class="col-1">  </div>
+                  </div>
+                  <table  class="table table-sm">
+               <tbody>
+                  <!-- Labels for Superficie -->
+                  
+                  <!-- Cultures herbacées -->
+                  <tr >
+                     <td style="width: 269px;" >
+                     <div class="input-group input-group-sm">
+                     <div class="qst-num ">126</div>
+                     <div  hidden class="qst-num zxcount"></div>
                <span class="input-group-text" id="basic-addon3">
                عدد الأشخاص
                <br> Nombre de personnes
@@ -4765,51 +4920,26 @@ Petite et Moyenne Hydraulique
                
                   
             </div>
-            <br>
-            <div class="row">
-                     <div class="col-4"></div>
-                     <div class="col">
-                        ذكور - Masculin
-                     </div>
-                     <div class="col">
-                        إناث - Féminin
-                     </div>
-                  </div><table class="table table-sm">
-               <tbody>
-                  <!-- Labels for Superficie -->
-                  
-                  <!-- Cultures herbacées -->
-                  <tr>
-                     <td style="width: 269px;">
-                        <b>Adultes (+15 ans)
-                        </b><br>
-                        كبار (أكثر من 15 سنة)
                      </td>
                      <td>
-                       
-                           <input id="ma_adultes_plus_15_ans_1" name="ma_adultes_plus_15_ans_1"  maxlength="2" num class="form-control bneder"  value="">
-                      
-                     </td>
-                     <td>
-                       
-                           <input id="ma_adultes_plus_15_ans_2" style="max-width:80px;" name="ma_adultes_plus_15_ans_2"  maxlength="2" num class="form-control bneder"  value="">
-                        
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <b>Enfants (-15 ans)
-                        </b><br>
-                        أطفال (أقل من 15 سنة)
-                     </td>
-                     <td>
-                       
-                           <input id="ma_enfants_moins_15_ans_11" name="ma_enfants_moins_15_ans_11"  maxlength="2" num class="form-control bneder"  value="">
+                     <div class="input-group input-group-sm">
+
+                           <input id="ma_adultes_plus_15_ans_m" name="ma_adultes_plus_15_ans_m"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="ma_adultes_plus_15_ans_f" style="max-width:80px;" name="ma_adultes_plus_15_ans_f"  maxlength="2" num class="form-control bneder"  value="">
+                           </div>
                     
-                     </td>
+                        </td>
+                  
+                
+             
+                   
                      <td>
-                      
-                           <input id="ma_enfants_moins_15_ans_22" name="ma_enfants_moins_15_ans_22"  maxlength="2" num class="form-control bneder"  value="">
+                     <div style="margin-left:20px;" class="input-group input-group-sm">
+
+                           <input id="ma_enfants_moins_15_ans_m" name="ma_enfants_moins_15_ans_m"  maxlength="2" num class="form-control bneder"  value="">
+                   
+                           <input id="ma_enfants_moins_15_ans_f" name="ma_enfants_moins_15_ans_f"  maxlength="2" num class="form-control bneder"  value="">
+                           </div>
                      
                      </td>
                   </tr>
@@ -4818,8 +4948,11 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XII- Utilisation d'intrants - إستخدام المدخلات <br> (Campagne agricole الموسم الفلاحي 2023-2024)
-            </h5>
+            <h5>XII- Utilisation d'intrants - إستخدام المدخلات 
+             </h5>  <br>
+             <div class="qst-num zxcount"></div>
+             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
+            
             <br><br>
             <div class="row">
 
@@ -4830,7 +4963,7 @@ Petite et Moyenne Hydraulique
                   <div class="form-check">
                      <input name="ui_semences_selectionnees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1441">
                      <label class="form-check-label" for="flexCheckDefault1441">
-                         بذور مختارة
+                         بذور منتقاة
                          <br>
                          Semences sélectionnées
                      </label>
@@ -5071,12 +5204,12 @@ Petite et Moyenne Hydraulique
                                     محاصيل - Cultures
                                     </label>
                                  </div>
-                                 <!-- <div class="form-check">
+                                 <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
                                     <label class="form-check-label" for="fa_intrants">
-                                    محاصيل - Cultures
+                                    مدخلات - Intrants
                                     </label>
-                                 </div> -->
+                                 </div>
                               </div>
                            </div>
                         </div>
