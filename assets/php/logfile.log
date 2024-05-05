@@ -13,3 +13,12 @@ Debug: Array
 Debug: Array
 (
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 5
+        )
+
+)

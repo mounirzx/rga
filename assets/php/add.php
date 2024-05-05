@@ -97,30 +97,30 @@ try {
 
     /******************************************************************* */
     //test de coherence status juridique
-print_r($stat_jur_hectare_array);
+// print_r($stat_jur_hectare_array);
 
-function checkSatWithinRange($sat, $sj) {
-    $sum = array_sum($sj);
-    $threshold = 0.05 * $sum; // 5% of the sum
+// function checkSatWithinRange($sat, $sj) {
+//     $sum = array_sum($sj);
+//     $threshold = 0.05 * $sum; // 5% of the sum
 
-    $lowerBound = -0.05 * $sum; // -5% of the sum
+//     $lowerBound = -0.05 * $sum; // -5% of the sum
 
-    return ($sat > $lowerBound && $sat < $threshold);
-}
+//     return ($sat > $lowerBound && $sat < $threshold);
+// }
 
-// Example usage
-//$sj = $stat_jur_hectare_array;
-$sj = [5,4,1];
-$sat = intval($data->superficie_agricole_totale_sat_1);
+// // Example usage
+// //$sj = $stat_jur_hectare_array;
+// $sj = [5,4,1];
+// $sat = intval($data->superficie_agricole_totale_sat_1);
 
-if (checkSatWithinRange($sat, $sj)) {
+// if (checkSatWithinRange($sat, $sj)) {
 
-    echo typeof($sat);
-    echo $sat;
-    echo "sat is within the specified percentage range of the sum of sj.";
-} else {
-    echo "sat is NOT within the specified percentage range of the sum of sj.";
-}
+//     echo typeof($sat);
+//     echo $sat;
+//     echo "sat is within the specified percentage range of the sum of sj.";
+// } else {
+//     echo "sat is NOT within the specified percentage range of the sum of sj.";
+// }
 
 /**************************************************************************** */
 
