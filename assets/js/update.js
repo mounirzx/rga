@@ -1,4 +1,37 @@
 $(document).ready(function () {
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+  $.ajax({
+    url: "assets/php/getData.php",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      if (response.reponse !== "false") {
+        $("#nom_recensseur").val(response.nom_recensseur || "N/A");
+        $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
+        $("#nom_controleur").val(response.nom_controleur || "N/A");
+        $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+
+        $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
+        $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
+        $("#commune_code").val(response.commune || "N/A");
+        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        $("#num_zone_district").val(response.num_zone_district || "N/A");
+      } else {
+        console.error("Error: " + response.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("AJAX Error:", status, error);
+    },
+  });
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+  /*************************** recenseur details********************/
+
   $("#submitDate").click(function (e) {
     e.preventDefault();
 //
@@ -13,6 +46,10 @@ $(document).ready(function () {
       ).toString(CryptoJS.enc.Utf8)
     );
 
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
     var formDataArrayStatut = [];
     // Loop over each row
     $(".statut_juridique_s").each(function () {
@@ -21,27 +58,90 @@ $(document).ready(function () {
       var formDataObjStatus = {};
 
       // Get the values of the inputs within the current row
-      var origine_terres = $(this).find("[name^='origine_des_terres']").val();
-
-      var mode_dexploitation = $(this)
-        .find("[name^='mode_dexploitation_des_terres']")
+      var origine_des_terres = $(this)
+        .find("[name^='origine_des_terres']")
         .val();
-      var superficie_hectare = $(this)
-        .find("[name^='superficie_hectare']")
-        .val();
-      var superficie_are = $(this).find("[name^='superficie_are']").val();
+      var status_juridique = $(this).find("[name^='status_juridique']").val();
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
 
       // Add the values to the formDataObj
-      formDataObjStatus["origine_des_terres"] = origine_terres;
-      formDataObjStatus["mode_dexploitation_des_terres"] = mode_dexploitation;
-      formDataObjStatus["superficie_hectare"] = superficie_hectare;
-      formDataObjStatus["superficie_are"] = superficie_are;
+      formDataObjStatus["origine_des_terres"] = origine_des_terres;
+      formDataObjStatus["status_juridique"] = status_juridique;
+      formDataObjStatus["superfecie_sj"] = superfecie_sj;
+      formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
 
       // Push the formDataObj to the formDataArray
       formDataArrayStatut.push(formDataObjStatus);
     });
     console.log("formDataArrayStatut");
     console.log(formDataArrayStatut);
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+
+    var formDataArraySol = [];
+    // Loop over each row
+    $(".code_culture_s").each(function () {
+      // Initialize an object to store form data for the current row
+      var formDataObjSol = {};
+
+      // Get the values of the inputs within the current row
+      var code_culture = $(this).find("[name^='code_culture']").val();
+      var superficie_hec = $(this).find("[name^='superficie_hec']").val();
+      var superficie_are = $(this).find("[name^='superficie_are']").val();
+      var en_intercalaire = $(this).find("[name^='en_intercalaire']").val();
+
+      // Add the values to the formDataObj
+      formDataObjSol["code_culture"] = code_culture;
+      formDataObjSol["superficie_hec"] = superficie_hec;
+      formDataObjSol["superficie_are"] = superficie_are;
+      formDataObjSol["en_intercalaire"] = en_intercalaire;
+
+      // Push the formDataObj to the formDataArray
+      formDataArraySol.push(formDataObjSol);
+    });
+
+    console.log("formDataArraySol");
+    console.log(formDataArraySol);
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+
+    var formDataArrayMateriel = [];
+    // Loop over each row
+    $(".materiel_agricole_s").each(function () {
+      // Initialize an object to store form data for the current row
+      var formDataObjMateriel = {};
+
+      // Get the values of the inputs within the current row
+      var code_materiel = $(this).find("[name^='code_materiel']").val();
+      var code_materiel_nombre = $(this)
+        .find("[name^='code_materiel_nombre']")
+        .val();
+
+      // Add the values to the formDataObj
+      formDataObjMateriel["code_materiel"] = code_materiel;
+      formDataObjMateriel["code_materiel_nombre"] = code_materiel_nombre;
+
+      // Push the formDataObj to the formDataArray
+      formDataArrayMateriel.push(formDataObjMateriel);
+    });
+
+    console.log("formDataArrayMateriel");
+    console.log(formDataArrayMateriel);
+
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
+    /*************************** recenseur details********************/
 
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
@@ -70,7 +170,11 @@ $(document).ready(function () {
 
     // Add values of all input fields with class "bneder" to formDataObj
     $(".bneder").each(function () {
-      formDataObj[this.name] = $(this).val();
+      if (this.type === "checkbox") {
+        formDataObj[this.name] = this.checked; // This will set the value as true or false
+      } else {
+        formDataObj[this.name] = $(this).val();
+      }
     });
     console.log(
       "formDataObj++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -84,6 +188,8 @@ $(document).ready(function () {
         data: JSON.stringify({
           form: formDataObj,
           formDataArrayStatut: formDataArrayStatut,
+          formDataArraySol: formDataArraySol,
+          formDataArrayMateriel: formDataArrayMateriel,
         }),
         dataType: "json",
         success: function (response) {

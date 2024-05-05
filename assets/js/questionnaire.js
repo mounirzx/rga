@@ -3,7 +3,7 @@ $(document).ready(function () {
     url: "assets/php/getData.php",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+    //  console.log(response);
       if (response.reponse !== "false") {
         $("#nom_recensseur").val(response.nom_recensseur || "N/A");
         $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
@@ -87,32 +87,39 @@ $(document).ready(function () {
       formDataCodeCulture["superficie_are"] = superficie_are;
       formDataCodeCulture["en_intercalaire"] = en_intercalaire;
       // Push the formDataObj to the formDataArray
-      formDataArrayCodeCulture.push(formDataCodeCulture);
+     
+      if (isValidObject(formDataCodeCulture)) {
+        formDataArrayCodeCulture.push(formDataCodeCulture);
+        console.log("the array:", formDataArrayCodeCulture);
+    } else {
+      
+    }
+   // console.log(formDataArrayCodeCulture);
     });
 
     var formDataArrayCodeMateriel = [];
     // Loop over each row
-    //$(".code_materiel_s:gt(0)").each(function () {
     $(".code_materiel_s").each(function () {
-      // Initialize an object to store form data for the current row
-      var formDataCodeMateriel = {};
+        // Initialize an object to store form data for the current row
+        var formDataCodeMateriel = {};
 
-      // Get the values of the inputs within the current row
-      var code_materiel = $(this).find("[name^='code_materiel']").val();
-      var code_materiel_nombre = $(this)
-        .find("[name^='code_materiel_nombre']")
-        .val();
+        // Get the values of the inputs within the current row
+        var code_materiel = $(this).find("[name^='code_materiel']").val();
+        var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
 
-      // Add the values to the formDataObj
-      formDataCodeMateriel["code_materiel"] = code_materiel;
-      formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
+        // Add the values to the formDataObj
+        formDataCodeMateriel["code_materiel"] = code_materiel;
+        formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
 
-      // Log to console
-      console.log("formDataCodeMateriel:");
-      console.log(formDataCodeMateriel);
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayCodeMateriel.push(formDataCodeMateriel);
+        // Check if the object is valid before pushing to the array
+        if (isValidObject(formDataCodeMateriel)) {
+            // Push the formDataObj to the formDataArray if it is valid
+            formDataArrayCodeMateriel.push(formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
+        } else {
+            console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
+        }
     });
 
     // Initialize formDataObj outside the loop to make it accessible throughout the function
@@ -147,11 +154,27 @@ $(document).ready(function () {
       "-";
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
 
+
+
+  
+    var formDataArraySuperficie ={};
+    $(".surface").each(function () {
+      formDataArraySuperficie[this.name] = $(this).val();
+    });
+   
+
+console.log(formDataArraySuperficie)
+
+
     // Add values of all input fields with class "bneder" to formDataObj
     $(".bneder").each(function () {
       formDataObj[this.name] = $(this).val();
     });
 
+
+   
+    console.log("formDataObj");
+    console.log(formDataObj);
     $(function () {
       $.ajax({
         url: "assets/php/add.php",
@@ -159,63 +182,63 @@ $(document).ready(function () {
         contentType: "application/json",
         data: JSON.stringify({
           form: formDataObj,
-          formDataArray: formDataArray,
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+          formDataArraySuperficie: formDataArraySuperficie,
         }),
         dataType: "json",
         success: function (response) {
-          try {
-            // Parse JSON response if not already an object
-            var serverResponse =
-              typeof response === "string" ? JSON.parse(response) : response;
-
-            // Check the response 'response' key, which indicates success or failure
-            if (serverResponse.response === true) {
-              Swal.fire({
-                icon: "success",
-                title: "Succès!",
-                text: "Enregistrement effectué avec succès!",
-              });
-            } else {
-              // Server responded with an error
-              Swal.fire({
-                icon: "error",
-                title: "Erreur!",
-                html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>", // You can customize the error message here
-              });
-            }
-          } catch (e) {
-            // Handle any parsing errors or missing keys
+          if (response.response) {
             Swal.fire({
-              icon: "error",
-              title: "Erreur de Format",
-              text:
-                "La réponse du serveur n'était pas dans le format attendu: " +
-                e.message,
-            });
-          }
-        },
-        error: function (xhr, status, error) {
-          // More detailed error handling based on status and xhr state
-          if (!xhr.responseText || xhr.status === 0) {
-            Swal.fire({
-              icon: "error",
-              title: "Erreur de Réseau",
-              text: "Vérifiez votre connexion réseau ou l'accessibilité du serveur.",
+              icon: "success",
+              title: "Succès!",
+              text: "Enregistrement effectué avec succès!"
             });
           } else {
             Swal.fire({
               icon: "error",
-              title: "Échec de la requête",
-              text:
-                "Un problème est survenu lors de la requête: " + xhr.statusText,
+              title: "Erreur!",
+              text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
             });
           }
         },
+        error: function (xhr, status, error) {
+          // Check if there is a response text and if it contains valid JSON
+          if (xhr.responseText) {
+            try {
+              var resp = JSON.parse(xhr.responseText);
+              if (resp && resp.error) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Erreur de traitement",
+                  text: "Erreur lors de l'enregistrement: " + resp.error
+                });
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Erreur de Réseau",
+                  text: "Réponse inattendue du serveur: " + xhr.responseText
+                });
+              }
+            } catch (e) {
+              Swal.fire({
+                icon: "error",
+                title: "Erreur de format",
+                text: "Réponse non JSON du serveur: " + xhr.responseText
+              });
+            }
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Échec de la requête",
+              text: "Un problème est survenu lors de la requête: " + error
+            });
+          }
+        }
       });
     });
+    
   });
 
   function qstList(etat) {
@@ -225,7 +248,7 @@ $(document).ready(function () {
       async: false,
       data: { etat: etat },
       success: function (response) {
-        console.log(response);
+      //  console.log(response);
 
         var qst_list;
         var data = JSON.parse(response);
@@ -282,7 +305,7 @@ $(document).ready(function () {
 
   $(".etat").click(function () {
     var etat = $(this).attr("data");
-    console.log(etat);
+   // console.log(etat);
     qstList(etat);
   });
 
@@ -367,7 +390,7 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
 var sup_total =  $('#surface_totale_st_1').val()
 if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
   if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
-    console.log('ok')
+    //console.log('ok')
     $('.surface_total_error').css('border','3px solid red')
    }else{
     $('.surface_total_error').css('border','')
@@ -394,7 +417,7 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
                 }
             });
 
-            console.log(sum_superficie_are)
+            //console.log(sum_superficie_are)
              /***********************************************/
              var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
              var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
@@ -406,12 +429,12 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     /********************************************** */   
           
     var sup_total_are =  $('#surface_totale_st_2').val()
-    console.log(sup_total_are)
+    //console.log(sup_total_are)
 
-    console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+    //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
     if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
       if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
-        console.log('ok')
+      //  console.log('ok')
         $('.surface_total_error_are').css('border','3px solid red')
        }else{
         $('.surface_total_error_are').css('border','')
@@ -571,13 +594,13 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     $(document).on('change', '[id^="origine_des_terres_"]', function() {
       var fullId = $(this).attr('id'); // Get the full ID of the changed input
     var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
-    console.log(idPart); // Log the extracted part to the console
+   // console.log(idPart); // Log the extracted part to the console
 
 
       var id = $(this).val()
-      console.log(fullId)
+    //  console.log(fullId)
       var filtered = filterByKey(id);
-console.log(filtered[id]);
+//console.log(filtered[id]);
 $('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])
     })

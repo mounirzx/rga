@@ -1,14 +1,29 @@
 $(document).ready(function () {
-  // Check if there is a cooldown message stored in local storage
-  var cooldownRemainingTime = localStorage.getItem('cooldownRemainingTime');
-  if (cooldownRemainingTime) {
-      // Start countdown with the remaining time retrieved from local storage
-      disableLoginButton(); // Disable login button during cooldown
+   // Function to start the countdown timer
+   function startCountdown(remainingTime) {
+    var countdownInterval = setInterval(function () {
+        $(".error").html("Trop de tentatives de connexion. Veuillez réessayer dans " + remainingTime + " secondes.");
+        remainingTime--;
+        if (remainingTime < 0) {
+            clearInterval(countdownInterval);
+            $(".error").html(""); // Clear the message after the countdown ends
+            enableLoginButton(); // Enable the login button after cooldown ends
+            // Remove the remaining time from local storage after the cooldown ends
+            localStorage.removeItem('cooldownRemainingTime');
+        } else {
+            // Update the remaining time in local storage
+            localStorage.setItem('cooldownRemainingTime', remainingTime);
+        }
+    }, 1000);
+}
 
-      startCountdown(cooldownRemainingTime);
-// Enable the login button after cooldown ends
-      
-  }
+// Check if there is a cooldown message stored in local storage
+var cooldownRemainingTime = localStorage.getItem('cooldownRemainingTime');
+if (cooldownRemainingTime) {
+    // Start countdown with the remaining time retrieved from local storage
+    disableLoginButton(); // Disable login button during cooldown
+    startCountdown(cooldownRemainingTime);
+}
 
   $("#login").click(function (e) {
       e.preventDefault();
@@ -18,7 +33,7 @@ $(document).ready(function () {
       var password = $("#password").val();
 
       $.ajax({
-          url: "assets/php/Login",
+          url: "Log-in",
           method: "post",
           data: { username: username, password: password },
           success: function (response) {
