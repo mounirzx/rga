@@ -387,7 +387,7 @@ CREATE TABLE `questionnaire` (
   `ee_cooperative_agricole` text DEFAULT NULL,
   `ee_association_professionnelle_agricole` text DEFAULT NULL,
   `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
-  `ee_autre_associations` text DEFAULT NULL,
+  `ee_autre_organisation` text DEFAULT NULL,
   `ee_cwifa` text DEFAULT NULL,
   `etat` text DEFAULT NULL,
   `batiment_de_stockage_nombre` text DEFAULT NULL,
@@ -721,4 +721,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-05 11:52:58
+-- Dump completed on 2024-05-05 13:22:58

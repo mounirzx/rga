@@ -989,10 +989,11 @@ if ($_SESSION['role'] == "recenseur") {
 L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
-      <div class="col-auto">
+      
+         
         <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
-          <option selected>
-            -
+          <option selected disabled value="-">
+            
           </option>
           <option value="1">
             1 - Oui
@@ -1001,7 +1002,7 @@ réseau électrique ?
             2 - Non
           </option>
         </select>
-      </div>
+   
     
       </div>
       <br>
@@ -1066,7 +1067,7 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm">
    <div class="qst-num zxcount"></div>
-   <span class="input-group-text" id="basic-addon3" style="max-width: 82% !important; ">
+   <span class="input-group-text" id="basic-addon3" style=" font-size:10px; max-width: 81% !important; ">
     إذا نعم، هل تستخدم اإلنترنت
     ألغراض متعلقة بالفالحة؟
     <br>
@@ -3912,7 +3913,7 @@ Type et nombre du matériel agricole ?
     <div class="card-body">
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-          <div style="margin-top: 164px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
+          <div style="margin-top: 150px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
           <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
         </div>
         
@@ -5494,6 +5495,7 @@ Petite et Moyenne Hydraulique
 
                <br>
                <div class="card">
+               <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                   <div class="card-header" style="text-align: center;">
                      المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité (multichoice)
                   </div>
@@ -5581,6 +5583,8 @@ Petite et Moyenne Hydraulique
                </div>
                <br>
                <div class="card">
+               <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+
                   <div class="card-header" style="text-align: center;">
                      تسويق المنتوجات - Ecoulement des produits
                   </div>
@@ -5627,6 +5631,8 @@ Petite et Moyenne Hydraulique
                </div>
                <br>
                <div class="card">
+               <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+
                   <div class="card-header" style="text-align: center;">
                      Informations sur le marché de l’écoulement des produits de l’exploitation - معلومات عن سوق
                      تسويق منتجات المستثمرة
@@ -5665,6 +5671,8 @@ Petite et Moyenne Hydraulique
                </div>
                <br>
                <div class="card">
+               <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+
                   <div class="card-header" style="text-align: center;">
                      هل أنت منخرط في - Etes-vous adhérant à
                   </div>
@@ -5704,17 +5712,8 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <div class="row" style="margin-top: 5px;">
-                        <div class="col">
+                     <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input bneder" id="flexCheckDefault518" name="ee_autre_associations" type="checkbox">
-
-                              <label class="form-check-label" for="flexCheckDefault518">
-                              جمعيات أخرى - Autre associations
-                              </label>
-                           </div>
-                        </div>
-                        <div class="col">
-                           <div class="form-check" style="position: absolute; left: 266px;">
                             <input class="form-check-input bneder" id="flexCheckDefault519" name="ee_cwifa" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault519">
@@ -5723,6 +5722,16 @@ Petite et Moyenne Hydraulique
                               </label>
                            </div>
                         </div>
+                        <div class="col">
+                           <div class="form-check">
+                            <input class="form-check-input bneder" id="flexCheckDefault518" name="ee_autre_organisation" type="checkbox">
+
+                              <label class="form-check-label" for="flexCheckDefault518">
+                              منظمات أخرى - Autre organisations
+                              </label>
+                           </div>
+                        </div>
+                        
                      </div>
                   </div>
                </div>
