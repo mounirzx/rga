@@ -181,7 +181,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <?php
            }
            ?>
-          
+   <?php
+                if($_SESSION['role']=="admin"){
+            ?>
+            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <a class="nav-link active" aria-current="page" href="admin_central.php">Administrateurs central</a>
+            </li>
+            <?php
+           }
+           ?>       
           <?php
                 if($_SESSION['role']=="superviseur"){
             ?>
