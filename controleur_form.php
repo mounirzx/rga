@@ -1,7 +1,16 @@
 <?php
 include('includes/header.php');
-$wilaya = $_SESSION['wilaya'];
-$wilaya_name = $_SESSION['wilaya_name'];
+
+if(isset($_SESSION['wilaya'])){
+    $wilaya = $_SESSION['wilaya'];
+    $wilaya_name = $_SESSION['wilaya_name'];
+}else{
+    $wilaya_name = $_GET['wilaya'];
+     $wilaya = $_GET['wilaya_code_controleur'];
+   // $wilaya_name = $_SESSION['wilaya_name'];
+}
+
+
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -39,7 +48,7 @@ $wilaya_name = $_SESSION['wilaya_name'];
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Wilaya</span>
                     <select required id="wilaya"  class="form-control ">
                         <option></option>
-                        <option  value="<?php echo $wilaya;  ?>"><?php echo $wilaya_name;  ?></option>
+                        <option  value="<?php echo $wilaya;  ?>"  selected><?php echo $wilaya_name;  ?></option>
                        
                     </select>
                 </div>

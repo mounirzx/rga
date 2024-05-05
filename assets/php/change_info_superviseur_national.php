@@ -12,8 +12,8 @@ $wilaya = implode(',',$_POST['wilaya']);
 $phone = $_POST["phone"];
 $email = $_POST["email"];
 $id_superviseur = $_POST["id_superviseur"];
-
-
+$nonhashedPass= $_POST["password"];
+$role='Superviseur national';
 try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -33,7 +33,21 @@ if(isset($_POST["password"])){
     }
 }
 
+$username =$_POST['username'];
+$url = 'https://dgl.bneder.dz/rga-mails/rga-update-mails.php';
+// Initialize cURL session
+$ch = curl_init($url);
 
+$data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+// Set the POST data
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+// Execute the request
+$response = curl_exec($ch);
+
+// Close cURL session
+curl_close($ch);
     echo "true";
 } catch (Exception $e) {
     $msg = $e->getMessage();

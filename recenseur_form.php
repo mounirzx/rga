@@ -21,6 +21,17 @@ include('includes/header.php');
             <form method="post">
              
 <input type="hidden" value="<?php echo $_GET['id_user']; ?>" id="id_recenseur"/>
+
+<?php 
+
+if(isset($_GET['controleur'])){
+
+    ?>
+<input type="hidden" value="<?php echo $_GET['controleur']; ?>" id="controleur"/>
+    <?php
+}
+?>
+
             <b id="first_name_error"  style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Prénom</span>

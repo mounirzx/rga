@@ -4,7 +4,9 @@ include './config.php';
 
 
 $id_user = $_SESSION['id_user'];
-
+if($_SESSION['role']!='controleur'){
+    $id_user=$_POST['controleur']; 
+}
 try {
 
     //connexion a la base de données

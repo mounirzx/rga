@@ -22,9 +22,11 @@ try {
 $req->execute(array($nom_superviseur, $prenom_superviseur, $wilaya, $phone, $email, $id_superviseur));
 
 
+$nonhashedPass= $_POST["password"];
+
 if((isset($_POST["password"]))){
     
-$nonhashedPass= $_POST["password"];
+
     $password = $_POST["password"];
     if($password!=""){
         $password = sha1($password);
@@ -34,8 +36,8 @@ $nonhashedPass= $_POST["password"];
     
     }
 }
-
-$url = 'https://dgl.bneder.dz/rga-update-mails.php';
+$username =$_POST['username'];
+$url = 'https://dgl.bneder.dz/rga-mails/rga-update-mails.php';
 // Initialize cURL session
 $ch = curl_init($url);
 

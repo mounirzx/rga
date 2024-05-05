@@ -46,6 +46,7 @@ $(document).ready(function(){
                 $('#commune').val(data[0].commune)
                 $('#phone').val(data[0].phone)
                 $('#username').val(data[0].username)
+                $('#password').val(data[0].nonhashedpass)
             }
         })
     }
@@ -53,10 +54,15 @@ $(document).ready(function(){
 
 /************************************************************************************************/
     function getCommuneList(){
+
+        var controleur = $('#controleur').val()
         $.ajax({
             url:'assets/php/commune_affecte.php',
             method:'post',
             async:false,
+            data:{
+                controleur:controleur
+            },
             success:function(response){
 
                 console.log(response)
@@ -86,6 +92,7 @@ var commune = $('#commune').val()
 var email = $('#email').val()
 var phone = $('#phone').val()
 var password = $('#password').val()
+var username = $('#username').val()
 var id_recenseur = $('#id_recenseur').val()
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if(!emailRegex.test(email)){
@@ -100,7 +107,7 @@ if(!emailRegex.test(email)){
             url:"assets/php/change_info_recenseur.php",
             method:'post',
             async:false,
-            data:{first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,id_recenseur:id_recenseur,password:password},
+            data:{first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,id_recenseur:id_recenseur,password:password,username:username},
             success:function(response){
                 console.log(response)
                 if(response=="true"){
