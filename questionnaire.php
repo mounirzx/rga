@@ -1065,16 +1065,17 @@ au réseau internet ?
       </option>
     </select>
   </div><br>
-   <div class="input-group input-group-sm">
+   <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <span class="input-group-text" id="basic-addon3" style=" font-size:10px; max-width: 81% !important; ">
+   <p style="font-size:10px; !important" class="input-group-text" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
     ألغراض متعلقة بالفالحة؟
     <br>
     Si oui, utilisez-vous le réseau
     internet pour des besoins
     agricoles ?
-</span> <select class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+</p> 
+<select style="height:33px; !important" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
