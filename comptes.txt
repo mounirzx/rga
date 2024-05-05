@@ -28,6 +28,9 @@ FROM status_juridique
 GROUP BY id_questionnaire, status_juridique
 HAVING COUNT(*) > 1;
 
+taskschd.msc
+C:\\xampp\\mysql\\bin\\mysqldump.exe
+--user=root --password= --result-file="C:\\xampp\\htdocs\\rga\\DB\\backup.sql" rga
 cd C:\\xampp\\mysql\\bin\ && mysqldump.exe --user=root --password= --result-file="C:\\xampp\\htdocs\\rga\\DB\\backup.sql" rga
 C:\\xampp\\mysql\\bin\mysql.exe --user=root --password=  rga < "C:\\xampp\\htdocs\\rga\\DB\\backup.sql"
 
