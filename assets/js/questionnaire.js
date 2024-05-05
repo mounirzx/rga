@@ -106,10 +106,15 @@ $(document).ready(function () {
         // Get the values of the inputs within the current row
         var code_materiel = $(this).find("[name^='code_materiel']").val();
         var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
-
+        var ee_mode_mobilisation_materiel = $(this).find("[name^='ee_mode_mobilisation_materiel']").val();
+        var ee_mode_exploitation_materiel = $(this).find("[name^='ee_mode_exploitation_materiel']").val();
+        
+        
         // Add the values to the formDataObj
         formDataCodeMateriel["code_materiel"] = code_materiel;
         formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
+        formDataCodeMateriel["ee_mode_mobilisation_materiel"] = ee_mode_mobilisation_materiel;
+        formDataCodeMateriel["ee_mode_exploitation_materiel"] = ee_mode_exploitation_materiel;
 
         // Check if the object is valid before pushing to the array
         if (isValidObject(formDataCodeMateriel)) {

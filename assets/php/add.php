@@ -205,7 +205,8 @@ try {
 
 
 foreach ($formDataArrayCodeMateriel as $formData) {
-    if (!empty($formData->code_materiel) && !empty($formData->code_materiel_nombre)) {
+    if (!empty($formData->code_materiel) && !empty($formData->code_materiel_nombre)
+    && !empty($formData->ee_mode_mobilisation_materiel) &&  !empty($formData->ee_mode_exploitation_materiel)) {
         $cle_materiel_agricole = $lastInsertId . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre;
 
  $reqMaterielAgricole = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`,`ee_mode_mobilisation_materiel`,`ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
