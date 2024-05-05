@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 05 mai 2024 à 09:47
--- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.1.1
+-- Généré le : dim. 05 mai 2024 à 11:09
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,7 @@ CREATE TABLE `communes` (
   `wilaya_name_ascii` varchar(255) NOT NULL COMMENT 'Name of wilaya in ASCII characters (french)',
   `qst_a_recense` int(11) NOT NULL,
   `qst_recense` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `communes`
@@ -1603,7 +1603,7 @@ CREATE TABLE `communes2` (
   `daira_name` varchar(45) DEFAULT NULL,
   `wilaya_code` varchar(3) DEFAULT NULL,
   `wilaya_name` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `communes2`
@@ -3171,7 +3171,7 @@ CREATE TABLE `controleur` (
   `phone` varchar(10) NOT NULL,
   `added_by` int(11) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3185,7 +3185,7 @@ CREATE TABLE `materiel_agricole` (
   `id_questionnaire` int(11) NOT NULL,
   `code_materiel` varchar(100) NOT NULL,
   `code_materiel_nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `materiel_agricole`
@@ -3479,7 +3479,7 @@ CREATE TABLE `questionnaire` (
   `autre_batiments_surface` text DEFAULT NULL,
   `chambre_froide_nombre` text DEFAULT NULL,
   `chambre_froide_surface` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `questionnaire`
@@ -3507,7 +3507,7 @@ CREATE TABLE `recenseur` (
   `num_exploitation` int(11) NOT NULL,
   `nom_zone_district` varchar(50) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3523,7 +3523,7 @@ CREATE TABLE `status_juridique` (
   `status_juridique` varchar(100) DEFAULT NULL,
   `superfecie_sj` varchar(20) DEFAULT NULL,
   `superfecie_sj_are` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `status_juridique`
@@ -3571,14 +3571,14 @@ CREATE TABLE `superficie_exploitation` (
   `terres_forestieres_bois_forets_maquis_vides_labourables_2` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_1` decimal(10,2) DEFAULT NULL,
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `superficie_exploitation`
 --
 
 INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
-(1, 1, '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '0.00', '0.00', '0.00', '0.00', '3.00', '3.00', '3.00', '3.00', '0.00', '0.00', '0.00', '0.00', '6.00', '6.00', '0.00', '0.00', '6.00', '6.00');
+(1, 1, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 0.00, 0.00, 0.00, 0.00, 3.00, 3.00, 3.00, 3.00, 0.00, 0.00, 0.00, 0.00, 6.00, 6.00, 0.00, 0.00, 6.00, 6.00);
 
 -- --------------------------------------------------------
 
@@ -3595,7 +3595,7 @@ CREATE TABLE `superviseur` (
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3612,7 +3612,7 @@ CREATE TABLE `superviseur_national` (
   `wilaya` varchar(5) NOT NULL,
   `email` varchar(200) NOT NULL,
   `creation_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -3624,18 +3624,19 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `nonhashedpass` varchar(50) NOT NULL,
   `role` varchar(100) NOT NULL,
   `update_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_login` timestamp NULL DEFAULT NULL,
   `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `update_date`, `last_login`, `date_creation`) VALUES
-(88, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-05-02 09:31:42', '2024-05-05 06:57:26', '2024-05-02 09:31:42');
+INSERT INTO `users` (`id_user`, `username`, `password`, `nonhashedpass`, `role`, `update_date`, `last_login`, `date_creation`) VALUES
+(88, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', 'admin', '2024-05-02 09:31:42', '2024-05-05 06:57:26', '2024-05-02 09:31:42');
 
 -- --------------------------------------------------------
 
@@ -3651,7 +3652,7 @@ CREATE TABLE `utilisation_du_sol` (
   `superficie_hec` varchar(10) DEFAULT NULL,
   `superficie_are` varchar(10) DEFAULT NULL,
   `en_intercalaire` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisation_du_sol`
@@ -3670,7 +3671,7 @@ CREATE TABLE `validation_questionnaire` (
   `id_validation` int(11) NOT NULL,
   `id_questionnaire` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Index pour les tables déchargées
