@@ -28,3 +28,5 @@ FROM status_juridique
 GROUP BY id_questionnaire, status_juridique
 HAVING COUNT(*) > 1;
 
+cd C:\\xampp\\mysql\\bin\ && mysqldump.exe --user=root --password= --result-file="C:\\xampp\\htdocs\\rga\\DB\\backup.sql" rga
+
