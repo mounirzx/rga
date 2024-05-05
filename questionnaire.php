@@ -5207,7 +5207,7 @@ Petite et Moyenne Hydraulique
                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
                                     <label class="form-check-label" for="fa_intrants">
-                                    محاصيل - Cultures
+                                    مدخلات - Intrants
                                     </label>
                                  </div>
                               </div>
