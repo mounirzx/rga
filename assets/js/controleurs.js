@@ -49,7 +49,7 @@ var wilaya_code;
                 $('#phone').val(data[0].phone)
                 $('#username').val(data[0].username)
                 wilaya_code = data[0].wilaya
-               
+               $('#password').val(data[0].nonhashedpass)
                 
                 getCommuneList()
                 $('#commune').val(data[0].commune).trigger('change');
@@ -163,6 +163,8 @@ var commune = $('#commune').val()
 var email = $('#email').val()
 var phone = $('#phone').val()
 var id_controleur = $('#id_controleur').val()
+var username = $('#username').val()
+var password = $('#password').val()
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if(!emailRegex.test(email)){
     $('#email_error').html('email format invalid')
@@ -176,7 +178,7 @@ if(!emailRegex.test(email)){
             url:"assets/php/change_info_controleur.php",
             method:'post',
             async:false,
-            data:{first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,id_controleur:id_controleur,wilaya:wilaya},
+            data:{first_name:first_name,last_name:last_name,commune:commune,email:email,phone:phone,id_controleur:id_controleur,wilaya:wilaya,password:password,username:username},
             success:function(response){
                 console.log(response)
                 if(response=="true"){

@@ -48,7 +48,7 @@ $(document).ready(function(){
                    // $('#commune').val(data[0].commune)
                     $('#phone').val(data[0].phone)
                     $('#username').val(data[0].username)
-                    
+                    $('#password').val(data[0].nonhashedpass)
                     
                    
                 }
@@ -93,6 +93,7 @@ $(document).ready(function(){
     var email = $('#email').val()
     var phone = $('#phone').val()
     var password = $('#password').val()
+    var username = $('#username').val()
     var id_superviseur = $('#id_controleur').val()
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
@@ -108,7 +109,7 @@ $(document).ready(function(){
             url:"assets/php/change_info_superviseur_national.php",
             method:'post',
             async:false,
-            data:{first_name:first_name,last_name:last_name,email:email,phone:phone,id_superviseur:id_superviseur,wilaya:wilaya,password:password},
+            data:{first_name:first_name,last_name:last_name,email:email,phone:phone,id_superviseur:id_superviseur,wilaya:wilaya,password:password,username:username},
             success:function(response){
                 console.log(response)
                 if(response=="true"){

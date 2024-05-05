@@ -66,12 +66,13 @@ include('includes/header.php');
                 </div>
                 <br>
                
-                <!-- <div class="input-group input-group-sm">
+             <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-password">Mot de passe</span>
-                    <input type="text" class="form-control" name="password1" id="password1" required>
-                    <button type="button" class="btn btn-secondary" onclick="generatePassword()">Générer un mot de passe</button>
+                    <input type="text" class="form-control" name="password" id="password" required>
+                    <button type="button" class="btn btn-primary" onclick="generatePassword()">Générer un mot de passe</button>
                 </div>
                 <br>
+                <!--
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text">Confirmez le mot de passe</span>
                     <input class="form-control" name="password2" id="password2" required>
@@ -83,8 +84,8 @@ include('includes/header.php');
                         var newPassword = Math.floor(10000000 + Math.random() * 90000000);
                         
                         // Set the generated password to the password input field
-                        document.getElementById("password1").value = newPassword;
-                        document.getElementById("password2").value = newPassword;
+                        document.getElementById("password").value = newPassword;
+                        //document.getElementById("password2").value = newPassword;
                     }
                 </script>
                 <br>

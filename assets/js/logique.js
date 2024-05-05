@@ -168,21 +168,21 @@ function toggleElements($elements, disabled) {
   
   
   // Désactiver tous les éléments par défaut
-  toggleElements($('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_cultures, #fa_intrants, #fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_materiels, #fa_cheptel'), true);
+  toggleElements($('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants, #fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_cultures, #fa_materiels, #fa_cheptel'), true);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la case à cocher "Crédit bancaire"
   toggleByCheckbox($('#fa_credit_bancaire'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig'), true);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la case à cocher "Soutien public"
-  toggleByCheckbox($('#fa_soutien_public'), $('#fa_financiere, #fa_materiel, #fa_cultures, #fa_intrants'), true);
+  toggleByCheckbox($('#fa_soutien_public'), $('#fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), true);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la case à cocher "Ressources propres"
-  toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_cultures, #fa_intrants'), false);
+  toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), false);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la sélection de l'assurance agricole
   $('#fa_avez_vous_contracte_une_assurance_agricole').change(function() {
       var selectedValue = $(this).val();
-      toggleElements($('#fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_materiels, #fa_cheptel'), selectedValue !== "1");
+      toggleElements($('#fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_cultures, #fa_materiels, #fa_cheptel'), selectedValue !== "1");
   });
   
 });

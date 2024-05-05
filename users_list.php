@@ -97,6 +97,11 @@ include('includes/header.php');
                         var phone="-";
                         var id_user="";
                         
+
+                        var controleur =""
+                        var wilaya_code_controleur="";
+                      
+
                             if(data[i].role=="superviseur_national"){
                                 nom =  data[i].nom_superviseur_national
                                 prenom =  data[i].prenom_superviseur_national
@@ -110,14 +115,18 @@ include('includes/header.php');
                                 phone =  data[i].superviseur_phone
                                 id_user = data[i].id_user_superviseur
                             }if(data[i].role=="controleur"){
+                                wilaya_code_controleur=data[i].wilaya_code_controleur
                                 nom =  data[i].nom_controleur
                                 prenom =  data[i].prenom_controleur
                                 wilaya =  data[i].controleur_wilaya
+                                
                                 phone =  data[i].controleur_phone
                                 commune =  data[i].controleur_commune
                                 id_user = data[i].id_user_controleur
                             }
                             if(data[i].role=="recenseur"){
+                                controleur=data[i].controleur
+                                console.log(controleur)
                                 nom =  data[i].nom_recensseur
                                 prenom =  data[i].prenom_recenseur
                                 phone =  data[i].recenseur_phone
@@ -126,7 +135,7 @@ include('includes/header.php');
                             }
 
 
-                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button id="user_details" role="'+data[i].role+'" data="'+id_user+'" class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button></td></tr>'
+                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button id="user_details" controleur="'+controleur+'" role="'+data[i].role+'" data="'+id_user+'" wilaya="'+wilaya+'"  wilaya_code_controleur ="'+wilaya_code_controleur+'"class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button></td></tr>'
                     }
                     $('#list_users').empty()
                     $('#list_users').append(list_users)
@@ -147,10 +156,14 @@ include('includes/header.php');
                 window.location="superviseur_form.php?id_user="+id_user
             }
             if(role=="controleur"){
-                window.location="controleur_form.php?id_user="+id_user
+                var wilaya= $(this).attr('wilaya')
+                var wilaya_code_controleur= $(this).attr('wilaya_code_controleur')
+                window.location="controleur_form.php?id_user="+id_user+"&wilaya="+wilaya+"&wilaya_code_controleur="+wilaya_code_controleur
             }
             if(role=="recenseur"){
-                window.location="recenseur_form.php?id_user="+id_user
+
+                var controleur = $(this).attr('controleur')
+                window.location="recenseur_form.php?id_user="+id_user+"&controleur="+controleur
             }
             if(role=="superviseur_national"){
                 window.location="superviseur_national_form.php?id_user="+id_user

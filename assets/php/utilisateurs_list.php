@@ -54,7 +54,9 @@ $i=0;
             $req2 = $bdd->prepare('select * from communes where wilaya_code =? ');
             $req2->execute(array($res['controleur_wilaya']));
             $res2 = $req2->fetch(PDO::FETCH_ASSOC);
+            $wilaya_code = $res['controleur_wilaya'];
             $wilaya = $res2['wilaya_name_ascii'];
+            $output[$i]['wilaya_code_controleur']=$wilaya_code;
             $output[$i]['controleur_wilaya']=$wilaya;
             /************************************************* */
             ///commune

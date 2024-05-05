@@ -9,13 +9,31 @@ $prenom_recenseur = $_POST['last_name'];
 $commune = $_POST['commune'];
 $email = $_POST['email'];
 $id_recensseur = $_POST['id_recenseur'];
-
+$username = $_POST['username'];
+$role="recenseur";
 try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
     $req = $bdd->prepare('UPDATE `recenseur` SET `nom_recensseur` = ?, `prenom_recenseur` = ?, `commune` = ?, `email` = ? WHERE `id_user` = ?');
     $req->execute(array($nom_recensseur, $prenom_recenseur, $commune,  $email, $id_recensseur));
+
+
+    $nonhashedPass= $_POST["password"];
+    $url = 'https://dgl.bneder.dz/rga-mails/rga-update-mails.php';
+    // Initialize cURL session
+    $ch = curl_init($url);
+    
+    $data = ['username'=>$username,'nonhashedPass'=>$nonhashedPass,'role'=>$role,'email'=>$email];
+    // Set the POST data
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    
+    // Execute the request
+    $response = curl_exec($ch);
+    
+    // Close cURL session
+    curl_close($ch);
 
     echo "true";
 } catch (Exception $e) {
