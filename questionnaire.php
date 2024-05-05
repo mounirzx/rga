@@ -3423,6 +3423,7 @@ $(document).ready(function(){
                               المساحة(م²)-Surface(m²)
                            </div>
   <div class="col-3"></div>
+  </div>
 <table class="table table-sm">
   <tbody>
     <!-- Labels for Superficie -->
@@ -3461,7 +3462,7 @@ $(document).ready(function(){
       <div class="col">
         العدد - Nombre
       </div>
-      <div class="col" style="padding-right: 25px;">
+      <div class="col" style="padding-right: 207pxpx;">
         المساحة(م²)-Surface(m²)
       </div>
       <div class="col-3"></div>
@@ -3911,7 +3912,7 @@ Type et nombre du matériel agricole ?
     <div class="card-body">
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-          <div style="margin-top: 150px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
+          <div style="margin-top: 164px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
           <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
         </div>
         
@@ -3940,6 +3941,8 @@ Type et nombre du matériel agricole ?
  <div class="qst-num zxcount"></div>
 
          <div class="card" style="font-size: 12px;">
+         <br>
+         <br>
                         <div class="card-header" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
@@ -4063,7 +4066,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
           <div class="input-group input-group-sm">
               
-               <select class="form-control bneder" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+               <select class="form-select bneder" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
                   <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- en proprièté - ملكية</option>
                   <option value="2">2- en location - إجار</option>
@@ -4076,7 +4079,7 @@ Type et nombre du matériel agricole ?
           <div class="col">
           <div class="input-group input-group-sm">
               
-              <select class="form-control bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+              <select class="form-select bneder" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
                  <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- en individuel - فردية</option>
                   <option value="2">2- en collectif - جماعية</option>
@@ -4198,7 +4201,7 @@ $(document).ready(function(){
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-control bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
                   <option value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
                   <option value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
@@ -4259,7 +4262,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="2" id="total_forage" name="total_forage" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4271,7 +4274,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="2" name="total_puits"  id="total_puits" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4282,7 +4285,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="2" name="total_source"  id="total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="2" name="eau_total_source"  id="total_source" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -4510,7 +4513,7 @@ Petite et Moyenne Hydraulique
             <div style="border-top: 3px solid red;"></div>
             <br>
             <h5 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h5>
-            <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
+            <div style="border-top: 1px solid red; width:150px; margin:-20px 0px 0px 50px; "></div>
             <br>
             <div class="row">
                <div class="row" style="text-align: center;">
@@ -4857,7 +4860,10 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>XI- Ménage agricole <br> الأسرة الفلاحية</h5>
+            <h5 style="margin-bottom:27px;">XI- Ménage agricole الأسرة الفلاحية</h5>
+
+            <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 50px; "></div>
+            <br>
             <div style="text-align: center;">
                <b>
                تكوين أسرة رئيس المستثمرة <br> Composition du ménage du Chef d'exploitation
@@ -4878,7 +4884,7 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p style="margin-left: 25px;">
+                     <p style="margin-left: -4px;">
                      (ذكور - Masculin) - (إناث - Féminin)
          </p>
                      </div>
@@ -4888,11 +4894,11 @@ Petite et Moyenne Hydraulique
                         <div class="card-header" style="text-align: center;">  أطفال (أقل من 15 سنة أو أقل) 
                            
                         </div>
-                        <div class="card-header" style="text-align: center;"> Enfants (15 ans et)  
+                        <div class="card-header" style="text-align: center;"> Enfants (15 ans et moins)  
                         </div>
                      </div>
                      <br>
-                     <p style="margin-left: 25px;">
+                     <p style="margin-left: 3px;">
 
                         (ذكور - Masculin) - (إناث - Féminin)
 
@@ -4908,7 +4914,7 @@ Petite et Moyenne Hydraulique
                   <tr >
                      <td style="width: 269px;" >
                      <div class="input-group input-group-sm">
-                     <div class="qst-num ">126</div>
+                     <div class="qst-num ">127</div>
                      <div  hidden class="qst-num zxcount"></div>
                <span class="input-group-text" id="basic-addon3">
                عدد الأشخاص
@@ -4934,7 +4940,7 @@ Petite et Moyenne Hydraulique
              
                    
                      <td>
-                     <div style="margin-left:20px;" class="input-group input-group-sm">
+                     <div style="margin-left:110px;" class="input-group input-group-sm">
 
                            <input id="ma_enfants_moins_15_ans_m" name="ma_enfants_moins_15_ans_m"  maxlength="2" num class="form-control bneder"  value="">
                    
