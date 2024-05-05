@@ -1,5 +1,5 @@
 
-<?php
+<?php //fa_intrants total_eau_forage total_eau_puits total_eau_source
 include('includes/header.php');
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
@@ -4194,21 +4194,21 @@ Petite et Moyenne Hydraulique
  <div class="col-4">
     <div class="form-check">
         <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
-        <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
+        <label class="form-check-label" for="eau_forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <input type="number" id="total_forage" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+        <input type="number" id="total_eau_forage" class="form-control bneder-input bneder" style="display:none;width:100px;margin-left:30px;" >
     </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
-        <label class="form-check-label" for="Puits">بئر<br> Puits</label>
+        <label class="form-check-label" for="eau_puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_puits" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+        <input type="number"  id="total_eau_puits" class="form-control bneder-input bneder" style="display:none;width:100px;margin-left:30px;" >
     </div><br>
     <div class="form-check">
         <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
-        <label class="form-check-label" for="Source">منبع<br> Source</label>
+        <label class="form-check-label" for="eau_source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <input type="number"  id="total_source" class="form-control bneder-input" style="display:none;width:100px;margin-left:30px;" >
+        <input type="number"  id="total_eau_source" class="form-control bneder-input bneder" style="display:none;width:100px;margin-left:30px;" >
     </div><br>
 </div>
  <!-- farouk touil -->
@@ -5071,12 +5071,12 @@ Petite et Moyenne Hydraulique
                                     محاصيل - Cultures
                                     </label>
                                  </div>
-                                 <!-- <div class="form-check">
+                                 <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
                                     <label class="form-check-label" for="fa_intrants">
-                                    محاصيل - Cultures
+                                    مدخلات - intrants
                                     </label>
-                                 </div> -->
+                                 </div>
                               </div>
                            </div>
                         </div>
