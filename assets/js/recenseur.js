@@ -31,7 +31,7 @@ $(document).ready(function(){
         var id_user=$('#id_recenseur').val()
         console.log(id_user)
         $.ajax({
-            url:'assets/php/get_recenseur_data.php',
+            url: urls.getRecenseurData,
             method:'post',
             async:false,
             data:{id_user:id_user},

@@ -214,5 +214,6 @@
     <!--===============================================================================================-->
     <script src="statc/js/main.js"></script>
     <script src="assets/js/login.js"></script>
+    <script src="assets/js/login-urls.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@ $(document).ready(function () {
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   $.ajax({
-    url: "assets/php/getData.php",
+    url: url.GetData,
     dataType: "json",
     success: function (response) {
       console.log(response);
@@ -221,7 +221,7 @@ $(document).ready(function () {
 
     function qstList(etat) {
       $.ajax({
-        url: "assets/php/qst_list.php",
+        url: urls.qstList,
         method: "post",
         async: false,
         data: { etat: etat },

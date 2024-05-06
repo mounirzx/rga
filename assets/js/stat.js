@@ -5,7 +5,7 @@ $(document).ready(function(){
 function commune(wil,comm){
 
     $.ajax({
-        url:'assets/php/commune_by_user.php',
+        url: url.ComByUser,
         method:'post',
         async:false,
         data:{wil:wil,comm:comm},
@@ -86,7 +86,7 @@ var list_commune
         var sum_taux_avancememnt_2=0;
         
             $.ajax({
-                url:'assets/php/commune_by_user.php',
+                url: url.ComByUser,
                 method:'post',
                 async:false,
                 data:{wil:wil,comm:comm},
@@ -106,7 +106,7 @@ var list_commune
                         var commune = data[i].commune_code;
                         var count=0;
                         $.ajax({
-                            url:'assets/php/nb_qst.php',
+                            url: url.nbQst,
                             method:'post',
                             async:false,
                             data:{commune:commune},
@@ -121,7 +121,7 @@ var list_commune
                             //etat questionnaire
                             var etat="<td></td><td></td><td></td>"
                             $.ajax({
-                                url:'assets/php/etat_questionnaire.php',
+                                url: url.etatQst,
                                 method:'post',
                                 async:false,
                                 data:{commune:commune},
@@ -251,7 +251,7 @@ console.log(sum_taux_avancememnt_1)
 console.log(date)
 
         $.ajax({
-            url:'assets/php/update_nb_quesionnaire.php',
+            url: url.updateNbQuestionnaire,
             method:'post',
             async:false,
             data:{code_commune:code_commune,nb_qst_recense:nb_qst_recense,nb_qst_a_recense:nb_qst_a_recense,date:date},
@@ -280,7 +280,8 @@ $('#list').empty();
 
 function getWilaya(){
         $.ajax({
-        url:'assets/php/wilaya_list_sup_nat.php',
+        url: url.listWilSupNat,
+        
         method:'post',
         async:false,
         success:function(response){
