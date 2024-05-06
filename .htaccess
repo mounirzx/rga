@@ -15,6 +15,7 @@ RewriteRule ^AjouterRecenseurs$ add_recenseur.php [NC,L]
 RewriteRule ^Questionnaire$ questionnaire.php [NC,L]
 RewriteRule ^Log-in$ assets/php/login.php [NC,L]
 RewriteRule ^Login$ index.php [NC,L]
+RewriteRule ^Logout$ assets/php/logout.php [NC,L]
 
 # Redirect to questionnaire_update.php with the hashed id
 

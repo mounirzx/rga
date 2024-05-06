@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $.ajax({
-    url: "assets/php/getData.php",
+    url: url.GetData,
     dataType: "json",
     success: function (response) {
     //  console.log(response);
@@ -182,7 +182,7 @@ console.log(formDataArraySuperficie)
     console.log(formDataObj);
     $(function () {
       $.ajax({
-        url: "assets/php/add.php",
+        url: url.InsertQst,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -248,7 +248,7 @@ console.log(formDataArraySuperficie)
 
   function qstList(etat) {
     $.ajax({
-      url: "assets/php/qst_list.php",
+      url: url.qstList,
       method: "post",
       async: false,
       data: { etat: etat },
@@ -277,7 +277,7 @@ console.log(formDataArraySuperficie)
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='QuestionnairePreview?id=" +
+            "'><td><a class='btn btn-primary updateBtn' href="+url.questionnairePreview+"?id=" +
             btoa(encryptedId) +
             "' data-id='" +
             data[i].id_questionnaire +
