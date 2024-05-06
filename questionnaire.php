@@ -3026,7 +3026,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المتطورة
-                            <br> Dont vaches laitiéres BLM
+                            <br> Dont vaches laitières BLM
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
                          </div>
@@ -3039,7 +3039,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المحسنة
-                            <br> Dont vaches laitiéres BLA
+                            <br> Dont vaches laitières BLA
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
                          </div>
@@ -3049,7 +3049,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
                             منها الأبقار الحلوب المحلية
-                            <br> Dont vaches laitiéres BLL
+                            <br> Dont vaches laitières BLL
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
                          </div>
@@ -3852,7 +3852,7 @@ $(document).ready(function(){
                         العدد - Nombre
                      </div>
                      <div class="col"  style="text-align: center;">
-                        المساحة (م²) - Surface (m²)
+                     الحجم (م²) - Volume (m3)
                      </div>
                      <div class="col-3"></div>
 
