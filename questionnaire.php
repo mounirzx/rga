@@ -1202,7 +1202,7 @@ au réseau internet ?
                                 <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
                                 <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
                                 <option value="13">13- Inconnu غير معروف</option> -->
-                                <option  disabled=""  selected value="-"></option>
+                                <!-- <option  disabled=""  selected value="-"></option>
                                 <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
                                   <option value="13">13 - Vente/Achat بيع/شراء</option>
                                  <option value="14">14 - Succession إرث</option>
@@ -1213,7 +1213,7 @@ au réseau internet ?
                                  <option value="19">19 - Certificat de possession شهادة حيازة</option>
                                  <option value="20">20 - Location إجار</option>
                                  <option value="21">21 - Autre  آخرى </option>
-                                 <option value="22">22 - Inconnu غير معروف</option>
+                                 <option value="22">22 - Inconnu غير معروف</option> -->
                                 </select>
                                
                          </div>
