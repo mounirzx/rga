@@ -431,7 +431,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3" style="width: 165px;">
                       تاريخ الميلاد  Date de naissance</span>
-                    <select class="form-select " id="jour_de_naissance"  style="width: 65px;">
+                    <select class="form-select" id="jour_de_naissance"  style="width: 65px;">
                        <option value="02"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -4059,18 +4059,18 @@ Type et nombre du matériel agricole ?
               Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control code_materiel_s"  value="">
             </div>
           </div>
-          <div class="col">
-          <div class="input-group input-group-sm">
-              
-               <select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
-                  <option  selected="selected" vlaue="-">  </option>
-                  <option value="1">1- en proprièté - ملكية</option>
-                  <option value="2">2- en location - إجار</option>
-                  <option value="3">3- en prêt - إستلاف</option>
-              </select>
-                  
-            
-</div>
+            <div class="col">
+                     <div class="input-group input-group-sm">
+                        
+                           <select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+                              <option  selected="selected" vlaue="-">  </option>
+                              <option value="1">1- en proprièté - ملكية</option>
+                              <option value="2">2- en location - إجار</option>
+                              <option value="3">3- en prêt - إستلاف</option>
+                        </select>
+                              
+                        
+            </div>
           </div>
           <div class="col">
           <div class="input-group input-group-sm">
@@ -4084,8 +4084,7 @@ Type et nombre du matériel agricole ?
                  
            
 </div>
-<div class="col-1">
-          </div>
+<div class="col-1"></div>
           </div>
           <div class="col-1">
             <div class="d-grid gap-2">

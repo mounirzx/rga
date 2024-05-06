@@ -3558,63 +3558,16 @@ Latitude (Y)
 
 
             <div id="formContainer3">
-               <div class="row" style="margin-bottom: 10px;">
-                  <div class="col-7">
-                     <div class="input-group input-group-sm">
-                        <span class="input-group-text" id="basic-addon3">
-                        رقم العتاد
-                        <br>
-                        Code matériel
-                        </span>
-                        <select disabled="disabled" class="select-ee materiel_agricole" id="inputGroupSelect01" names="code_materiel">
-                           <option selected="selected"> - </option>
-                           <option value="1">1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>
-                           <option value="2">2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>
-                           <option value="3">3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص</option>
-                           <option value="4">4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص</option>
-                           <option value="5">5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص</option>
-                           <option value="6">6 - Motoculteur - جرار صغير</option>
-                           <option value="7">7 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م</option>
-                           <option value="8">8 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م</option>
-                           <option value="9">9 - Véhicules légers - مركبة خفيفة</option>
-                           <option value="10">10 - Véhicules lourds - مركبة ثقيلة</option>
-                           <option value="11">11 - Charrue - محراث</option>
-                           <option value="12">12 - Covercrop - مغطي المزروعات</option>
-                           <option value="13">13 - Epandeur d’engrais - ناثر الأسمدة</option>
-                           <option value="14">14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ</option>
-                           <option value="15">15 - Poudreuses tractées - آلة السحق المقطورة</option>
-                           <option value="16">16 - Semoir - آلة التبذير</option>
-                           <option value="17">17 - Faucheuse - آلة الحش</option>
-                           <option value="18">18 - Ramasseuse-presse - آلة الجمع والربط</option>
-                           <option value="19">19 - Planteuse pomme de terre - آلة غرس البطاطا</option>
-                           <option value="20">20 - Arracheuse pomme de terre - آلة قلع البطاطا</option>
-                           <option value="21">21 - Remorque - مقطورة</option>
-                           <option value="22">22 - Citerne - صهريج</option>
-                           <option value="23">23 - Motopompe - مضخة ميكانيكية</option>
-                           <option value="24">24 - Electropompe - مضخة كهربائية</option>
-                           <option value="25">25 - Ensileuse - الة حصد الاعلاف</option>
-                           <option value="26">26 - Emrubaneuse - الة التغليف</option>
-                           <option value="27">27 - Autre matériel - عتاد آخر</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="col">
-                     <div class="input-group input-group-sm">
-                        <span class="input-group-text" id="basic-addon3">
-                        العدد
-                        <br>
-                        Nombre
-                        </span>
-                      
-                           <input id="in114"  names="code_materiel_nombre "type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">
-                        
-                     </div>
-                  </div>
-                  <div class="col-1">
-                     <div class="d-grid gap-2">
-                        <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" id="addForm3" type="button">+</button>
-                     </div>
-                  </div>
+               <div class="row" style="margin-bottom: 100px;">
+             
+            </div>
+
+
+            <div class="col-1">
+            <div class="d-grid gap-2">
+              <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" id="addForm3" type="button">+</button>
+            </div>
+          </div>
                </div>
 
 
@@ -5505,11 +5458,11 @@ Latitude (Y)
          for(var i = 0; i<data.length;i++){
             console.log(data[i].code_materiel)
             inputs += '<div class="row" style="margin-bottom: 10px;">';
-    inputs += '<div class="col-7">';
-    inputs += '<div class="input-group input-group-sm">';
-    inputs += '<span class="input-group-text" id="basic-addon3"> رقم العتاد<br>Code matériel</span>';
-    inputs += '<select class="select-ee materiel_agricole" id="inputGroupSelect01" name="code_materiel">';
-    inputs += '<option> - </option>';
+            inputs += '<div class="col-3">'; // Adjust column size as needed
+inputs += '<div class="input-group input-group-sm">';
+inputs += '<label for="inputGroupSelect01" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
+inputs += '<select class="select-ee materiel_agricole form-control" id="inputGroupSelect01" name="code_materiel">';
+inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     inputs += '<option value="1" ' + (data[i].code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
     inputs += '<option value="2" ' + (data[i].code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
     inputs += '<option value="3" ' + (data[i].code_materiel === "3" ? 'selected' : '') + '>3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص</option>';
@@ -5540,12 +5493,38 @@ Latitude (Y)
     inputs += '</select>';
     inputs += '</div>';
     inputs += '</div>';
-    inputs += '<div class="col">';
-    inputs += '<div class="input-group input-group-sm">';
-    inputs += '<span class="input-group-text" id="basic-addon3"> العدد<br>Nombre</span>';
-    inputs += '<input id="in114" value="' + data[i].code_materiel_nombre + '" name="code_materiel_nombre" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">';
-    inputs += '</div>';
-    inputs += '</div>';
+   // Existing JavaScript code to dynamically create inputs
+   inputs += '<div class="col-2">';
+   inputs += '<div class="input-group input-group-sm">';
+   inputs += '<span class="input-group-text" id="basic-addon3"> العدد<br>Nombre</span>';
+   inputs += '<input id="in114" value="' + data[i].code_materiel_nombre + '" name="code_materiel_nombre" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">';
+   inputs += '</div>';
+   inputs += '</div>';
+
+   // Additional code for 'Mode of Mobilization' select input
+   inputs += '<div class="col">';
+   inputs += '<div class="input-group input-group-sm">';
+   inputs += '<select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
+   inputs += '<option selected="selected" value="-"> </option>';
+   inputs += '<option value="1">1- en proprièté - ملكية</option>';
+   inputs += '<option value="2">2- en location - إجار</option>';
+   inputs += '<option value="3">3- en prêt - إستلاف</option>';
+   inputs += '</select>';
+   inputs += '</div>';
+   inputs += '</div>';
+
+   // Additional code for 'Mode of Exploitation' select input
+   inputs += '<div class="col">';
+   inputs += '<div class="input-group input-group-sm">';
+   inputs += '<select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
+   inputs += '<option selected="selected" value="-"> </option>';
+   inputs += '<option value="1">1- en individuel - فردية</option>';
+   inputs += '<option value="2">2- en collectif - جماعية</option>';
+   inputs += '<option value="3">3- Mixte - مختلطة</option>';
+   inputs += '</select>';
+   inputs += '</div>';
+   inputs += '</div>';
+
     inputs += '<div class="col-1">';
     inputs += '<div class="d-grid gap-2"></div>';
     inputs += '</div>';
