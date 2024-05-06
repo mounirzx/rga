@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $.ajax({
-    url: "assets/php/getData.php",
+    url: url.GetData,
     dataType: "json",
     success: function (response) {
     //  console.log(response);
@@ -106,10 +106,15 @@ $(document).ready(function () {
         // Get the values of the inputs within the current row
         var code_materiel = $(this).find("[name^='code_materiel']").val();
         var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
-
+        var ee_mode_mobilisation_materiel = $(this).find("[name^='ee_mode_mobilisation_materiel']").val();
+        var ee_mode_exploitation_materiel = $(this).find("[name^='ee_mode_exploitation_materiel']").val();
+        
+        
         // Add the values to the formDataObj
         formDataCodeMateriel["code_materiel"] = code_materiel;
         formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
+        formDataCodeMateriel["ee_mode_mobilisation_materiel"] = ee_mode_mobilisation_materiel;
+        formDataCodeMateriel["ee_mode_exploitation_materiel"] = ee_mode_exploitation_materiel;
 
         // Check if the object is valid before pushing to the array
         if (isValidObject(formDataCodeMateriel)) {
@@ -177,7 +182,7 @@ console.log(formDataArraySuperficie)
     console.log(formDataObj);
     $(function () {
       $.ajax({
-        url: "assets/php/add.php",
+        url: url.InsertQst,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -243,7 +248,7 @@ console.log(formDataArraySuperficie)
 
   function qstList(etat) {
     $.ajax({
-      url: "assets/php/qst_list.php",
+      url: url.qstList,
       method: "post",
       async: false,
       data: { etat: etat },
@@ -272,7 +277,7 @@ console.log(formDataArraySuperficie)
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='Questionnaire?id=" +
+            "'><td><a class='btn btn-primary updateBtn' href="+url.questionnairePreview+"?id=" +
             btoa(encryptedId) +
             "' data-id='" +
             data[i].id_questionnaire +
@@ -515,61 +520,33 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     /*************************************************** */
     //origine des terres
 
-    var listOrigineTerre ={
-      "1":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "2":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "3":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "4":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "5":
-        ' <option  selected="" disabled>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
-      ,
-      "6":
-        '<option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
-      ,
-      "7":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "8":
-       '  <option  selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13">13- Inconnu غير معروف</option>'
-      ,
-      "9":
-        '<option  selected="" disabled>-</option><option value="13">13- Inconnu غير معروف</option>'
-        
-      
-    }
+    var commonOptions = '<option value="1">1- APFA «18-83» - ح.م.أ.ف</option>' +
+    '<option value="2">2- Ex EAC «03-10» - م.ف.ج</option>' +
+    '<option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>' +
+    '<option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>' +
+    '<option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
+    '<option value="6">6- Concession CIM 108, CIM 1839</option>' +
+    '<option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option>' +
+    '<option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option>' +
+    '<option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option>' +
+    '<option value="10">10 - Ferme pilote مزرعة نموذجية</option>' +
+    '<option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
+    '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
+    '<option value="13">13 - Inconnu غير معروف</option>';
 
-    // <!-- <option  selected="" disabled>-</option>
-    // <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
-    // <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
-    // <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
-    // <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
-    // <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
-    // <option value="6">6- Concession CIM 108, CIM 1839</option>
-    // <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
-    // <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
-    // <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
-    // <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
-    // <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
-    // <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-  //   <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
-  //   <option value="13">13 - Vente/Achat بيع/شراء</option>
-  //  <option value="14">14 - Succession إرث</option>
-  //  <option value="15">15 - Donation هبة</option>
-  //  <option value="16">16 - Testament وصية</option>
-  //  <option value="17">17 - Droit préemption حق الشفاعة</option>
-  //  <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
-  //  <option value="19">19 - Certificat de possession شهادة حيازة</option>
-  //  <option value="20">20 - Location إجار</option>
-  //  <option value="21">21 - Autre  آخرى </option>
-  //  <option value="22">22 - Inconnu غير معروف</option>
+var listOrigineTerre = {
+"1": '<option selected="" disabled>-</option>' + commonOptions,
+"2": '<option selected="" disabled>-</option>' + commonOptions,
+"3": '<option selected="" disabled>-</option>' + commonOptions,
+"4": '<option selected="" disabled>-</option>' + commonOptions,
+"5": '<option selected="" disabled>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>',
+"6": '<option selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+"7": '<option selected="" disabled>-</option>' + commonOptions,
+"8": '<option selected="" disabled>-</option>' + commonOptions,
+"9": '<option selected="" disabled>-</option>' + commonOptions
+};
+
+// Use listOrigineTerre in your dropdown manipulations
 
 
 

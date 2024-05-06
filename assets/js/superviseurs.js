@@ -41,6 +41,7 @@ var wilaya_code;
                // $('#commune').val(data[0].commune)
                 $('#phone').val(data[0].phone)
                 $('#username').val(data[0].username)
+                $('#password').val(data[0].nonhashedpass)
                 
                 
                
@@ -87,6 +88,8 @@ var wilaya = $('#wilaya').val()
 var email = $('#email').val()
 var phone = $('#phone').val()
 var id_superviseur = $('#id_superviseur').val()
+var username = $('#username').val()
+var password = $('#password').val()
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if(!emailRegex.test(email)){
     $('#email_error').html('email format invalid')
@@ -100,7 +103,7 @@ if(!emailRegex.test(email)){
             url:"assets/php/change_info_superviseur.php",
             method:'post',
             async:false,
-            data:{first_name:first_name,last_name:last_name,email:email,phone:phone,id_superviseur:id_superviseur,wilaya:wilaya},
+            data:{first_name:first_name,last_name:last_name,email:email,phone:phone,id_superviseur:id_superviseur,wilaya:wilaya,username:username,password:password},
             success:function(response){
                 console.log(response)
                 if(response=="true"){
@@ -201,6 +204,13 @@ if(!emailRegex.test(email)){
                               $('#phone').val("")
                               $('#username').val("")
                               $('#password').val("")
+                        }else{
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Veuillez remplir les champs obligatoire!",
+                               
+                              });
                         }
                     },
                     error: function(xhr, status, error) {

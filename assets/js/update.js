@@ -1,10 +1,11 @@
 $(document).ready(function () {
+ 
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   $.ajax({
-    url: "assets/php/getData.php",
+    url: url.GetData,
     dataType: "json",
     success: function (response) {
       console.log(response);
@@ -115,29 +116,36 @@ $(document).ready(function () {
     /*************************** recenseur details********************/
     /*************************** recenseur details********************/
 
-    var formDataArrayMateriel = [];
+
+    var formDataArrayCodeMateriel = [];
     // Loop over each row
-    $(".materiel_agricole_s").each(function () {
-      // Initialize an object to store form data for the current row
-      var formDataObjMateriel = {};
+    $(".code_materiel_s").each(function () {
+        // Initialize an object to store form data for the current row
+        var formDataCodeMateriel = {};
 
-      // Get the values of the inputs within the current row
-      var code_materiel = $(this).find("[name^='code_materiel']").val();
-      var code_materiel_nombre = $(this)
-        .find("[name^='code_materiel_nombre']")
-        .val();
+        // Get the values of the inputs within the current row
+        var code_materiel = $(this).find("[name^='code_materiel']").val();
+        var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
+        var ee_mode_mobilisation_materiel = $(this).find("[name^='ee_mode_mobilisation_materiel']").val();
+        var ee_mode_exploitation_materiel = $(this).find("[name^='ee_mode_exploitation_materiel']").val();
+        
+        
+        // Add the values to the formDataObj
+        formDataCodeMateriel["code_materiel"] = code_materiel;
+        formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
+        formDataCodeMateriel["ee_mode_mobilisation_materiel"] = ee_mode_mobilisation_materiel;
+        formDataCodeMateriel["ee_mode_exploitation_materiel"] = ee_mode_exploitation_materiel;
 
-      // Add the values to the formDataObj
-      formDataObjMateriel["code_materiel"] = code_materiel;
-      formDataObjMateriel["code_materiel_nombre"] = code_materiel_nombre;
-
-      // Push the formDataObj to the formDataArray
-      formDataArrayMateriel.push(formDataObjMateriel);
+        // Check if the object is valid before pushing to the array
+        if (isValidObject(formDataCodeMateriel)) {
+            // Push the formDataObj to the formDataArray if it is valid
+            formDataArrayCodeMateriel.push(formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataCodeMateriel);
+            console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
+        } else {
+            console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
+        }
     });
-
-    console.log("formDataArrayMateriel");
-    console.log(formDataArrayMateriel);
-
     /*************************** recenseur details********************/
     /*************************** recenseur details********************/
     /*************************** recenseur details********************/
@@ -189,7 +197,7 @@ $(document).ready(function () {
           form: formDataObj,
           formDataArrayStatut: formDataArrayStatut,
           formDataArraySol: formDataArraySol,
-          formDataArrayMateriel: formDataArrayMateriel,
+          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
@@ -221,7 +229,7 @@ $(document).ready(function () {
 
     function qstList(etat) {
       $.ajax({
-        url: "assets/php/qst_list.php",
+        url: url.qstList,
         method: "post",
         async: false,
         data: { etat: etat },

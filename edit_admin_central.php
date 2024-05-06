@@ -10,7 +10,7 @@ include('includes/header.php');
         <div style="text-align: center;" class="card-header">
             <div class="row">
                 <div class="col-8">
-                    <h5>Changer les informations du recenseur</h5>
+                    <h5>Changer les informations de l'administrateur central</h5>
                 </div>
               
             </div>
@@ -20,18 +20,7 @@ include('includes/header.php');
 
             <form method="post">
              
-<input type="hidden" value="<?php echo $_GET['id_user']; ?>" id="id_recenseur"/>
-
-<?php 
-
-if(isset($_GET['controleur'])){
-
-    ?>
-<input type="hidden" value="<?php echo $_GET['controleur']; ?>" id="controleur"/>
-    <?php
-}
-?>
-
+<input type="hidden" value="<?php echo $_GET['id_user']; ?>" id="id_admin"/>
             <b id="first_name_error"  style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Prénom</span>
@@ -43,13 +32,10 @@ if(isset($_GET['controleur'])){
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom de famille</span>
                     <input type="text" class="form-control" name="last_name" id="last_name" required>
                 </div>
-                <br>
-                <div class="input-group input-group-sm">
-                    <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Commune</span>
-                    <select required id="commune"  class="form-control">
-                        <option></option>
-                    </select>
-                </div>
+
+         
+              
+               
                 <br>
                 <b id="email_error" style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
@@ -73,10 +59,11 @@ if(isset($_GET['controleur'])){
                     <input type="text" class="form-control" name="username" id="username" disabled>
                 </div>
                 <br>
-                <br><div class="input-group input-group-sm">
+                <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Mot de passe</span>
                     <input type="text" class="form-control" name="password" id="password" ><button  type="button" onclick="generatePassword()" class="btn btn-primary btn-sm">Generer un mot de passe</button>
                 </div>
+               
                 <!-- <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-password">Mot de passe</span>
                     <input type="text" class="form-control" name="password1" id="password1" required>
@@ -107,7 +94,7 @@ if(isset($_GET['controleur'])){
 
 
    <!--===============================================================================================-->
-   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+
     <!--===============================================================================================-->
     <script src="static/vendor/bootstrap/js/popper.js"></script>
     <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -117,8 +104,9 @@ if(isset($_GET['controleur'])){
     <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" ></script>
 
-<script src="assets/js/recenseur.js"></script>
+<script src="assets/js/admin_central.js"></script>
 
 </body>
 

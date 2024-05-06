@@ -34,6 +34,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css
 https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script src="assets/js/urls.js"></script>
+
 
  <style>
         /* @page {
@@ -101,6 +103,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         }
         .select2-container--default .select2-selection--multiple .select2-selection__choice{
             height:20px;
+        }
+        .fontbneder1{
+            font-size: 8px !important;
+        }
+        .fontbneder2{
+            font-size: 10px !important;
+        }
+        #niveau_instruction{
+            width: 12px;
         }
     </style>
 
@@ -181,7 +192,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <?php
            }
            ?>
-          
+   <?php
+                if($_SESSION['role']=="admin"){
+            ?>
+            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <a class="nav-link active" aria-current="page" href="admin_central.php">Administrateurs central</a>
+            </li>
+            <?php
+           }
+           ?>       
           <?php
                 if($_SESSION['role']=="superviseur"){
             ?>
@@ -224,7 +243,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
         </a>
 
-        <a href="assets/php/logout.php" class="btn btn-danger btn-sm logout" style="border-radius: 17px;">
+        <a href="Logout"  class="btn btn-danger btn-sm logout" style="border-radius: 17px;">
             <img src="static/icons/signout.svg" alt="Logout Icon" style="width: 25px; height: 29px; margin-right: 5px;">
             
         </a>

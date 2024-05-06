@@ -10,7 +10,7 @@ include('includes/header.php');
         <div style="text-align: center;" class="card-header">
             <div class="row">
                 <div class="col-8">
-                    <h5>Changer les informations du recenseur</h5>
+                    <h5>Ajouter administrateur central</h5>
                 </div>
               
             </div>
@@ -20,18 +20,6 @@ include('includes/header.php');
 
             <form method="post">
              
-<input type="hidden" value="<?php echo $_GET['id_user']; ?>" id="id_recenseur"/>
-
-<?php 
-
-if(isset($_GET['controleur'])){
-
-    ?>
-<input type="hidden" value="<?php echo $_GET['controleur']; ?>" id="controleur"/>
-    <?php
-}
-?>
-
             <b id="first_name_error"  style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Prénom</span>
@@ -44,12 +32,9 @@ if(isset($_GET['controleur'])){
                     <input type="text" class="form-control" name="last_name" id="last_name" required>
                 </div>
                 <br>
-                <div class="input-group input-group-sm">
-                    <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Commune</span>
-                    <select required id="commune"  class="form-control">
-                        <option></option>
-                    </select>
-                </div>
+              
+              
+               
                 <br>
                 <b id="email_error" style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
@@ -73,33 +58,16 @@ if(isset($_GET['controleur'])){
                     <input type="text" class="form-control" name="username" id="username" disabled>
                 </div>
                 <br>
-                <br><div class="input-group input-group-sm">
+                <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Mot de passe</span>
                     <input type="text" class="form-control" name="password" id="password" ><button  type="button" onclick="generatePassword()" class="btn btn-primary btn-sm">Generer un mot de passe</button>
                 </div>
-                <!-- <div class="input-group input-group-sm">
-                    <span style="width: 180px;" class="input-group-text" id="basic-addon-password">Mot de passe</span>
-                    <input type="text" class="form-control" name="password1" id="password1" required>
-                    <button type="button" class="btn btn-secondary" onclick="generatePassword()">Générer un mot de passe</button>
-                </div>
-                <br>
-                <div class="input-group input-group-sm">
-                    <span style="width: 180px;" class="input-group-text">Confirmez le mot de passe</span>
-                    <input class="form-control" name="password2" id="password2" required>
-                </div> -->
+               
+           
 
-                <script>
-                    function generatePassword() {
-                        // Generate a random 8-digit password
-                        var newPassword = Math.floor(10000000 + Math.random() * 90000000);
-                        
-                        // Set the generated password to the password input field
-                        document.getElementById("password").value = newPassword;
-                        //document.getElementById("password2").value = newPassword;
-                    }
-                </script>
+       
                 <br>
-                <button class="btn btn-success btn-lg" style="width: 100%;" id="valider">Valider</button>
+                <button class="btn btn-success btn-lg" style="width: 100%;" id="add_user">Valider</button>
             </form>
         </div>
     </div>
@@ -107,7 +75,7 @@ if(isset($_GET['controleur'])){
 
 
    <!--===============================================================================================-->
-   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+
     <!--===============================================================================================-->
     <script src="static/vendor/bootstrap/js/popper.js"></script>
     <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -117,8 +85,20 @@ if(isset($_GET['controleur'])){
     <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" ></script>
 
-<script src="assets/js/recenseur.js"></script>
+<script src="assets/js/admin_central.js"></script>
+<script>
+                    function generatePassword() {
+                    
+                        // Generate a random 8-digit password
+                        var newPassword = Math.floor(10000000 + Math.random() * 90000000);
+                        
+                        // Set the generated password to the password input field
+                        document.getElementById("password").value = newPassword;
+                        //document.getElementById("password2").value = newPassword;
+                    }
+                </script>
 
 </body>
 
