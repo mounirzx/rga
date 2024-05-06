@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: rga
 -- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
+-- Server version	10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,35 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `admin_central`
---
-
-DROP TABLE IF EXISTS `admin_central`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin_central` (
-  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `nom_admin` varchar(50) NOT NULL,
-  `prenom_admin` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_admin`),
-  KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin_central`
---
-
-LOCK TABLES `admin_central` WRITE;
-/*!40000 ALTER TABLE `admin_central` DISABLE KEYS */;
-INSERT INTO `admin_central` VALUES (1,89,'test','test','4566321','test@gh.de'),(2,90,'gg','gg','48787','tez@dfg.dg');
-/*!40000 ALTER TABLE `admin_central` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `communes`
@@ -148,13 +119,11 @@ CREATE TABLE `materiel_agricole` (
   `id_questionnaire` int(11) NOT NULL,
   `code_materiel` varchar(100) NOT NULL,
   `code_materiel_nombre` varchar(100) NOT NULL,
-  `ee_mode_mobilisation_materiel` text NOT NULL,
-  `ee_mode_exploitation_materiel` text NOT NULL,
   PRIMARY KEY (`id_materiel_agricol`),
   UNIQUE KEY `cle_materiel_agricole` (`cle_materiel_agricole`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,7 +132,7 @@ CREATE TABLE `materiel_agricole` (
 
 LOCK TABLES `materiel_agricole` WRITE;
 /*!40000 ALTER TABLE `materiel_agricole` DISABLE KEYS */;
-INSERT INTO `materiel_agricole` VALUES (1,'2-3-1',2,'3','1','2','1'),(2,'3-3-1',3,'3','1','2','1'),(3,'4-17-4',4,'17','4','2','2'),(4,'5-2-4',5,'2','4','2','2'),(5,'3-3-4',3,'3','4','1','1');
+INSERT INTO `materiel_agricole` VALUES (1,'1-13-1',1,'13','1');
 /*!40000 ALTER TABLE `materiel_agricole` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +429,7 @@ CREATE TABLE `questionnaire` (
   PRIMARY KEY (`id_questionnaire`),
   UNIQUE KEY `exploitant_cle_unique` (`exploitant_cle_unique`(157)),
   KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250))
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +438,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (1,'N/A','','test-test-02-02-null-45214-N/A-test-6.00','0--0--2024',88,'test','test','02-02-null-',NULL,NULL,NULL,'','','','45214','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'test','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','2','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on',NULL,NULL,NULL,'on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on',NULL,'on','','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','En attente','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(2,'N/A','','--02-02-null--N/A--','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on',NULL,'on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','En attente','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(3,'N/A','','--02-02-null-7474859869-N/A--0.00','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','7474859869','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on',NULL,'-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on',NULL,'on','on','on','on','on','on','-','-','on','on','on','on','on','-',NULL,NULL,'on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','En attente','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','','');
+INSERT INTO `questionnaire` VALUES (1,'N/A','','test-test-02-02-null-45214-N/A-test-6.00','0--0--2024',88,'test','test','02-02-null-',NULL,NULL,NULL,'','','','45214','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'test','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','2','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on','','on','','on','on','on','on','on','on','on','',NULL,'on','','','','','','','','','','on','on','0','on','0','on','on',NULL,NULL,NULL,'on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on',NULL,'on','','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','',''),(2,'N/A','','--02-02-null--N/A--','0--0--2024',88,'','','02-02-null-',NULL,NULL,NULL,'','','','','','0','0','0','0','0','0','',NULL,'',NULL,NULL,'',NULL,'','',NULL,NULL,NULL,'','','EST','on','on','on','on','on','on','-','-','-','-','-','','-','','','',NULL,'',NULL,'','','','on','on','on','on','on','on','','','','','','','','','',0,NULL,NULL,NULL,NULL,NULL,'on','on','on','on','on','on',NULL,'','','','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'on','','on','on','on',NULL,'on',NULL,'on','on','on','on','on','on','on',NULL,NULL,'on','','','','','','','','','','on','on','0','on','0','on','on','','','','on','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on',NULL,'on','on','on','on','on','on','-','-','on','on','on','on','on','-','','','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','on','en attent','','','','','','','','','','','','','','','','','','','','','','',NULL,NULL,'','','','','','','','','','','','');
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -528,7 +497,7 @@ CREATE TABLE `status_juridique` (
   UNIQUE KEY `cle_status_juridique` (`cle_status_juridique`) USING BTREE,
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_status_juridique`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -537,7 +506,7 @@ CREATE TABLE `status_juridique` (
 
 LOCK TABLES `status_juridique` WRITE;
 /*!40000 ALTER TABLE `status_juridique` DISABLE KEYS */;
-INSERT INTO `status_juridique` VALUES (1,'1-1-13',1,'1','13','2','2'),(2,'2-1-13',2,'1','13','1','1'),(3,'3-1-13',3,'1','13','1','1'),(4,'4-4-13',4,'4','13','4','4'),(5,'5-2-13',5,'2','13','4','4'),(6,'3-3-13',3,'3','13','4','4');
+INSERT INTO `status_juridique` VALUES (1,'1-1-13',1,'1','13','1','1');
 /*!40000 ALTER TABLE `status_juridique` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -583,7 +552,7 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_questionnaire` (`id_questionnaire`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -592,7 +561,7 @@ CREATE TABLE `superficie_exploitation` (
 
 LOCK TABLES `superficie_exploitation` WRITE;
 /*!40000 ALTER TABLE `superficie_exploitation` DISABLE KEYS */;
-INSERT INTO `superficie_exploitation` VALUES (1,1,4.00,4.00,4.00,4.00,4.00,0.00,4.00,4.00,4.00,4.00,4.00,0.00,0.00,0.00,0.00,0.00,12.00,8.00,12.00,8.00,0.00,0.00,0.00,0.00,24.00,16.00,0.00,0.00,24.00,16.00),(2,2,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.00,2.00,2.00,2.00,0.00,0.00,0.00,0.00,4.00,4.00,0.00,0.00,4.00,4.00),(3,3,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.00,2.00,2.00,2.00,0.00,0.00,0.00,0.00,4.00,4.00,0.00,0.00,4.00,4.00),(4,4,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(5,5,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00),(6,3,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00);
+INSERT INTO `superficie_exploitation` VALUES (1,1,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00,0.00,0.00,0.00,3.00,3.00,3.00,3.00,0.00,0.00,0.00,0.00,6.00,6.00,0.00,0.00,6.00,6.00),(2,2,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00);
 /*!40000 ALTER TABLE `superficie_exploitation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,13 +636,13 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `nonhashedpass` varchar(50) NOT NULL,
+  `nonhashedpass` varchar(50) DEFAULT NULL,
   `role` varchar(100) NOT NULL,
   `update_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_login` timestamp NULL DEFAULT NULL,
   `date_creation` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -682,7 +651,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (88,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','','admin','2024-05-02 09:31:42','2024-05-06 07:36:34','2024-05-02 09:31:42'),(89,'AC-01','f00feb01e9482d881c3c5e96fbdaee684e08f0b3','','admin_central','2024-05-06 07:44:01',NULL,'2024-05-06 07:44:01'),(90,'AC-02','279e6ef88918c31d6999b4691ccd5e1e46302b32','73033723','admin_central','2024-05-06 08:24:03','2024-05-06 08:24:03','2024-05-06 08:24:03');
+INSERT INTO `users` VALUES (88,'admin','d033e22ae348aeb5660fc2140aec35850c4da997',NULL,'admin','2024-05-02 09:31:42','2024-05-06 08:21:15','2024-05-02 09:31:42');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -705,7 +674,7 @@ CREATE TABLE `utilisation_du_sol` (
   UNIQUE KEY `cle_code_culture` (`cle_code_culture`),
   KEY `id_questionnaire` (`id_questionnaire`),
   KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_code_culture`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -714,7 +683,7 @@ CREATE TABLE `utilisation_du_sol` (
 
 LOCK TABLES `utilisation_du_sol` WRITE;
 /*!40000 ALTER TABLE `utilisation_du_sol` DISABLE KEYS */;
-INSERT INTO `utilisation_du_sol` VALUES (1,'1-Grandes cultures -',1,'Grandes cultures - المحاصيل الكبرى','4','4','4'),(2,'2-2-1-1',2,'2','1','1','1'),(3,'3-2-1-1',3,'2','1','1','1'),(4,'4-14-4-4',4,'14','4','4','4'),(5,'5-16-4-4',5,'16','4','4','4'),(6,'3-3-44-44',3,'3','44','44','4');
+INSERT INTO `utilisation_du_sol` VALUES (1,'1-15-1-1',1,'15','1','1','1');
 /*!40000 ALTER TABLE `utilisation_du_sol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -752,4 +721,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-06 11:24:18
+-- Dump completed on 2024-05-06  9:37:58
