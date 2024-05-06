@@ -431,7 +431,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3" style="width: 165px;">
                       تاريخ الميلاد  Date de naissance</span>
-                    <select class="form-select " id="jour_de_naissance"  style="width: 65px;">
+                    <select class="form-select" id="jour_de_naissance"  style="width: 65px;">
                        <option value="02"></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
