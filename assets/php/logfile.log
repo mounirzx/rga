@@ -471,3 +471,60 @@ Debug: Array
         )
 
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 4
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 4
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 4
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 4
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 4
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 3
+        )
+
+)
