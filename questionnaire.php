@@ -409,17 +409,6 @@ if ($_SESSION['role'] == "recenseur") {
                  </div>
               </div>
 
-           	<script>
-               $(document).ready(function() {
-    // Function to capitalize the first letter of the input
-    $('#nom_exploitant,#prenom_exploitant ').on('input', function() {
-        var inputText = $(this).val();
-        var capitalizedText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
-        $(this).val(capitalizedText);
-    });
-});
-               
-               </script>
 
 
       
@@ -590,6 +579,18 @@ Sexe</span>
                  </div>
               </div>
             </div> 
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <div class="row">
                <div class="col">
@@ -599,7 +600,7 @@ Sexe</span>
               عنوان المستثمر الفلاحي (الفلاح) - Adresse de l'exploitant agricole
               </span>
               <input class="form-control bneder"   
-                 name="adress_exploitant" />
+                 name="adress_exploitant" id="adress_exploitant" />
            </div>
            </div>
            </div>
@@ -717,7 +718,7 @@ Sexe</span>
              La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
            </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label" for="dispositif_social">الأجهزة الإجتماعية<br>
+              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label " for="dispositif_social">الأجهزة الإجتماعية<br>
               جهاز إجتماعي - Dispositif Social</label>
             </div>
           </div>
@@ -732,11 +733,11 @@ Sexe</span>
     <br>
     <br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">رقم بطاقة الفلاح<br>
       Numéro de la carte fellah</span> <input num maxlength="7" class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
+      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
       Issu d'une famille agricole</span> <select class="form-select col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
         <option value="-" disabled selected>
         </option>
@@ -749,7 +750,7 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
+      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
       Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
@@ -763,11 +764,11 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
+      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
       Nombre de co-exploitants, si</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
+      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
       Nature de l'exploitant</span> 
       <select class="form-select col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -817,7 +818,7 @@ Sexe</span>
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
+  Nom de  l'exploitation agricole</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
@@ -1030,7 +1031,7 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder1" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
 </span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
@@ -1089,7 +1090,7 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p style="font-size:10px; !important" class="input-group-text" id="basic-addon3" >
+   <p  class="input-group-text fontbneder1" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
     ألغراض متعلقة بالفالحة؟
     <br>
