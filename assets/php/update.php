@@ -11,7 +11,7 @@ $form = json_decode(file_get_contents("php://input"), true);
    // $cle_status_juridique=$form['id_questionnaire'].$form['status_juridique'];
 
     ob_start();
-    echo "Debug: ", print_r($cle_status_juridiqu, true);
+    echo "Debug: ", print_r($form, true);
     $logData = ob_get_clean();
     
     // Define log file path
@@ -23,16 +23,16 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
-// Start capturing the output
-ob_start();
-echo "Debug: ", print_r($paramsQuestionnaire, true);
-$logData = ob_get_clean();
+// // Start capturing the output
+// ob_start();
+// echo "Debug: ", print_r($paramsQuestionnaire, true);
+// $logData = ob_get_clean();
 
-// Define log file path
-$logFilePath = __DIR__ . '/logfile.log';
+// // Define log file path
+// $logFilePath = __DIR__ . '/logfile.log';
 
-// Append the captured data to the log file
-file_put_contents($logFilePath, $logData, FILE_APPEND);
+// // Append the captured data to the log file
+// file_put_contents($logFilePath, $logData, FILE_APPEND);
 
 
 // Log received data
@@ -71,10 +71,7 @@ if (isset($form['form']) && isset($form['formDataArrayStatut'])) {
 
 
 
-
-
-
-        // Prepare SQL set part
+         // Prepare SQL set part
         $sqlSetPart = [];
         foreach ($paramsQuestionnaire as $key => $value) {
             $sqlSetPart[] = "`$key` = :$key";
