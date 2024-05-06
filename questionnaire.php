@@ -992,11 +992,11 @@ Sexe</span>
             </div><br>
             <div class="form-check">
               <input class="form-check-input bneder" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
-              Accés agricole</label>
+              Accès agricole</label>
             </div><br>
             <div class="form-check">
               <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
-              Accés rural</label>
+              Accès rural</label>
             </div>
           </div>
         </div>
@@ -1147,7 +1147,7 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-4">أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
+                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
                      <div class="col"></div>
 
                      <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
