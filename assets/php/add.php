@@ -69,6 +69,7 @@ try {
     $lastInsertId = $bdd->lastInsertId();
 
      // Insert data into the status_juridique table for each set of dynamic data
+     //$stat_jur_hectare_array=[];
      foreach ($formDataArrayStatut as $formData) {
         if (!empty($formData->origine_des_terres) && !empty($formData->status_juridique) && !empty($formData->superfecie_sj) && !empty($formData->superfecie_sj_are)) {
             $cle_status_juridique = substr($lastInsertId . "-" .$formData->origine_des_terres."-".$formData->status_juridique, 0, 8);
@@ -84,12 +85,44 @@ try {
                     'superfecie_sj' => $formData->superfecie_sj,
                     'superfecie_sj_are' => $formData->superfecie_sj_are
                 ]);
+               // array_push($stat_jur_hectare_array,$formData->superfecie_sj);
+                
                 //echo "Insertion successful for ID: {$lastInsertId}\n";
             } catch (PDOException $e) {
                // echo "Insertion failed: " . $e->getMessage() . "\n";
             }
         }
     }
+
+
+    /******************************************************************* */
+    //test de coherence status juridique
+// print_r($stat_jur_hectare_array);
+
+// function checkSatWithinRange($sat, $sj) {
+//     $sum = array_sum($sj);
+//     $threshold = 0.05 * $sum; // 5% of the sum
+
+//     $lowerBound = -0.05 * $sum; // -5% of the sum
+
+//     return ($sat > $lowerBound && $sat < $threshold);
+// }
+
+// // Example usage
+// //$sj = $stat_jur_hectare_array;
+// $sj = [5,4,1];
+// $sat = intval($data->superficie_agricole_totale_sat_1);
+
+// if (checkSatWithinRange($sat, $sj)) {
+
+//     echo typeof($sat);
+//     echo $sat;
+//     echo "sat is within the specified percentage range of the sum of sj.";
+// } else {
+//     echo "sat is NOT within the specified percentage range of the sum of sj.";
+// }
+
+/**************************************************************************** */
 
 
     if (!empty($lastInsertId)) {

@@ -277,7 +277,7 @@ console.log(formDataArraySuperficie)
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
-            "'><td><a class='btn btn-primary updateBtn' href='Questionnaire?id=" +
+            "'><td><a class='btn btn-primary updateBtn' href='QuestionnairePreview?id=" +
             btoa(encryptedId) +
             "' data-id='" +
             data[i].id_questionnaire +

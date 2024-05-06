@@ -140,6 +140,8 @@ include('includes/header.php');
                     $('#list_users').empty()
                     $('#list_users').append(list_users)
 
+                    $('#tableUsers').DataTable();
+
                 }
             })
         }

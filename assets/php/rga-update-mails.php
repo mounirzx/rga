@@ -34,7 +34,7 @@ $body ="
 <ul>
 
 <li>
-<strong>Le lien :</strong><a href='http://213.179.181.50/rga'>application RGA</a></li>
+<strong>Le lien :</strong><a href='http://213.179.181.50/rga'>la plate-forme de saisie de l'RGA 2024</a></li>
 <li>
 <strong>Compte:</strong> $role</li>
     <li><strong>Nom d'utilisateur:</strong> $username</li>

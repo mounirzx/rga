@@ -213,6 +213,13 @@ $(document).ready(function(){
                               $('#phone').val("")
                               $('#username').val("")
                               $('#password').val("")
+                        }else{
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Veuillez remplir les champs obligatoire!",
+                               
+                              });
                         }
                     },
                     error: function(xhr, status, error) {

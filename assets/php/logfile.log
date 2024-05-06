@@ -405,3 +405,69 @@ Debug: Array
         )
 
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 19
+            [code_materiel_nombre] => 14
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 17
+            [code_materiel_nombre] => 4
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 17
+            [code_materiel_nombre] => 4
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 17
+            [code_materiel_nombre] => 4
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 4
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 3
+            [code_materiel_nombre] => 4
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 1
+        )
+
+)
