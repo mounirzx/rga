@@ -222,7 +222,7 @@ $(document).ready(function () {
 
     function qstList(etat) {
       $.ajax({
-        url: urls.qstList,
+        url: url.qstList,
         method: "post",
         async: false,
         data: { etat: etat },

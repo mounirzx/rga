@@ -234,7 +234,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
         </a>
 
-        <a href="Logout" href="<script>document.write(urls.Login)</script>"  class="btn btn-danger btn-sm logout" style="border-radius: 17px;">
+        <a href="Logout"  class="btn btn-danger btn-sm logout" style="border-radius: 17px;">
             <img src="static/icons/signout.svg" alt="Logout Icon" style="width: 25px; height: 29px; margin-right: 5px;">
             
         </a>
