@@ -195,7 +195,12 @@ function toggleElements($elements, disabled) {
 
 
     //*********************************************Farouk Touil start ******************************************************** */
-
+  // Function to capitalize the first letter of the input
+  $('#capitalizeInput').on('input', function() {
+    var inputText = $(this).val();
+    var capitalizedText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
+    $(this).val(capitalizedText);
+});
     //**********************************************Farouk Touil end  ******************************************************* */
 
 
