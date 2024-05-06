@@ -1146,7 +1146,7 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-4">أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accés à l'exploitation des terres </div>
+                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
                      <div class="col"></div>
 
                      <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
@@ -1165,12 +1165,11 @@ au réseau internet ?
                         <div class="input-group input-group-sm">
 
                             <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
-                                <option selected="" disabled ></option>
+                                <option selected="" disabled value="-"></option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
                                 <option value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option value="4">4 - Melk en indivision non titré ملك مشترك غير موثق
-                                </option>
+                                <option value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
                                 <option value="5">5 - Domaine public ملكية عامة للدولة</option>
                                 <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option value="7">7 - Wakf privé وقف خاص</option>
