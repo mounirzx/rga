@@ -23,7 +23,7 @@ include('includes/header.php');
     
 
                         <br>
-                        <input  name="etat" hidden disabled class="bneder" value="en attent">
+                        <input  name="etat" hidden disabled class="bneder" value="En attente">
                 <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
                 <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
                 
