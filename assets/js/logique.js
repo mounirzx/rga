@@ -274,6 +274,20 @@ $('#reseau_electrique').change(function() {
 });
 
 
+// $('#origine_des_terres').on('change', function() {
+//     var selectedValue = $(this).val(); // Get the selected value from the first dropdown
+//     if (selectedValue !== '6') { // Check if the selected value is not '6'
+//         $('#si_exploi_eai_eac').prop('disabled', true).val('-'); // Disable the second dropdown and reset its value to '-'
+//     } else {
+//         $('#si_exploi_eai_eac').prop('disabled', false); // Enable the second dropdown if the value is '6'
+//     }
+// });
+
+// // Optional: Disable the second dropdown initially if the first dropdown is not on '6'
+// if ($('#origine_des_terres').val() !== '6') {
+//     $('#si_exploi_eai_eac').prop('disabled', true).val('-');
+// }
+
     //**********************************************Farouk Touil end  ******************************************************* */
 
 
