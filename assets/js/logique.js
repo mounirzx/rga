@@ -185,7 +185,15 @@ function toggleElements($elements, disabled) {
       toggleElements($('#fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_cultures, #fa_materiels, #fa_cheptel'), selectedValue !== "1");
   });
   
+
+
+  //--------------------------------------------------- mounir's part start ! -----------------------------------------------------------//
+
+
+        //   var test="mmounir";
+  //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
+
+
 });
 
 
-  
