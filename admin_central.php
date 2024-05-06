@@ -12,7 +12,7 @@ include('includes/header.php');
                     <h5>Gestion des Administrateurs central</h5>
                 </div>
              <div class="col-3">
-             <a class="btn btn-success" href="AjouterSuperviseur">Ajouter un utilisateur</a>
+             <a class="btn btn-success" href="add_admin_central.php">Ajouter un utilisateur</a>
              </div>
             </div>
             
@@ -45,7 +45,7 @@ include('includes/header.php');
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="list_superviseurs" >
+                        <tbody id="list_admin_central" >
                         </tbody>
                     </table>
                 </div>

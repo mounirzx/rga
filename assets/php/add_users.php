@@ -84,6 +84,10 @@ try {
         $req2 = $bdd->prepare('INSERT INTO `recenseur`( `id_user`, `nom_recensseur`, `prenom_recenseur`, `commune`, `email`, `controleur`,phone) VALUES(?,?,?,?,?,?,?)');
         $req2->execute(array($id_user,$nom_recensseur, $prenom_recenseur, $commune,  $email, $id_controleur,$phone));
     
+    }elseif ($role == 'admin_central') {
+        $req2 = $bdd->prepare('INSERT INTO `admin_central`(`id_user`, `nom_admin`, `prenom_admin`, `phone`, `email`) VALUES(?,?,?,?,?)');
+        $req2->execute(array($id_user,$nom_superviseur, $prenom_superviseur, $phone, $email));
+    
     }
 
     
