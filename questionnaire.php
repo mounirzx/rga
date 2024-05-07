@@ -1163,8 +1163,8 @@ au réseau internet ?
                      <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
                      <div class="col"></div>
 
-                     <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col-2">المساحة(ار) <br> Superficie(Are)</div>
+                     <div class="col-2" style="padding-left: 12px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
+                     <div class="col-2" style="padding-left: 33px;">المساحة(ار) <br> Superficie(Are)</div>
                      <div class="col"></div>
                   </div>
                   <hr>
@@ -1282,7 +1282,7 @@ $(document).ready(function(){
 
 
                         <div class="col-3">
-                            <div class="input-group input-group-sm">
+                            <div style="margin-left:20px" class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
                     
                                     
@@ -2163,22 +2163,30 @@ acte de concession ?
 
 </div>
     <div class="card-body">
+      <div class="row">
+         <div class="col-5">
+         </div>
+         <div class="col" style="text-align:center;">
+         (هكتار) <u>المساحة Superficie</u> (Ha)
+
+         </div>
+         
+      </div>
+      <br>
       <div class="row" style="text-align: center;">
         <div class="row" style="text-align: center;">
-        <div style="margin-top: 75px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
+        <div style="margin-top: 40px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
         </div>
-        <div class="col-4">
+        <div class="col-6">
           Code culture - رقم الزراعة
         </div>
-        <div class="col-3">
-          (المساحة Superficie)<br>
-          جافة (هكتار) - En sec (Hectare)
+        <div class="col">
+          جافة <br> En sec 
         </div>
-        <div class="col-2">
-          (المساحة Superficie)<br>
-          (هكتار) مروية - En irriguée (Hectare)
+        <div class="col">
+           مروية <br> En irriguée
         </div>
-        <div class="col-2">
+        <div class="col">
           مقحمة<br>
           En intercalaire
         </div>
@@ -2186,280 +2194,286 @@ acte de concession ?
       </div><br>
       <div id="formContainer2">
         <div class="row code_culture_s" style="margin-bottom: 10px;">
-          <div class="col-4" style="margin-right: 20px;">
+          <div class="col-6">
             <div class="input-group input-group-sm">
-              <select class="form-select code_culture_s code_culture_check" id="code_culture" name="code_culture">
+              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
-                <option style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Grandes cultures - المحاصيل الكبرى
-                </option>
-                <option value="1">
+                </>
+                <option BoldText value="1">
                   1 - Blé dur - قمح صلب
                 </option>
-                <option value="2">
+                <option BoldText value="2">
                   2 - Blétendre - قمح لين
                 </option>
-                <option value="3">
+                <option BoldText value="3">
                   3 - Orge - شعير
                 </option>
-                <option value="4">
+                <option BoldText value="4">
                   4 - Avoine - خرطال
                 </option>
-                <option value="5">
+                <option BoldText value="5">
                   5 - Sorgho - الذرة البيضاء(سرغوم)
                 </option>
-                <option value="6">
+                <option BoldText value="6">
                   6 - Maïsgrain - حبوب الذرة
                 </option>
-                <option value="7">
+                <option BoldText value="7">
                   7 - Autrescéréales - الحبوب الأخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Légumessecs - البقول الجافة
                 </option>
-                <option value="8">
+                <option BoldText value="8">
                   8 - Lentilles - عدس
                 </option>
-                <option value="9">
+                <option BoldText value="9">
                   9 - Pois-chiche - حمص
                 </option>
-                <option value="10">
+                <option BoldText value="10">
                   10 - Pois sec - بازلاء مجففة
                 </option>
-                <option value="11">
+                <option BoldText value="11">
                   11 - Haricotsec - الفاصوليا الجافة
                 </option>
-                <option value="12">
+                <option BoldText value="12">
                   12 - Fèvesèche - فول جاف
                 </option>
-                <option value="13">
+                <option BoldText value="13">
                   13 - Autres-أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Fourrages - الأعلاف
                 </option>
-                <option value="14">
+                <option BoldText value="14">
                   14 - Vesce et Vesce-avoine - البيقية والخرطال
                 </option>
-                <option value="15">
+                <option BoldText value="15">
                   15 - Luzerne - فصة
                 </option>
-                <option value="16">
+                <option BoldText value="16">
                   16 - Maïs fourrager - الذرة العلفية
                 </option>
-                <option value="17">
+                <option BoldText value="17">
                   17 - Autres fourrages - أعلاف أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Maraîchage - الخضروات
                 </option>
-                <option value="18">
+                <option BoldText value="18">
                   18 - Pomme de terre - البطاطا
                 </option>
-                <option value="19">
+                <option BoldText value="19">
                   19 - Oignonsecet vert - بصل جاف وأخضر
                 </option>
-                <option value="20">
+                <option BoldText value="20">
                   20 - Ail - ثوم
                 </option>
-                <option value="21">
+                <option BoldText value="21">
                   21 - Tomate - طماطم
                 </option>
-                <option value="22">
+                <option BoldText value="22">
                   22 - Piment - فلفل حار
                 </option>
-                <option value="23">
+                <option BoldText value="23">
                   23 - Poivron(frais et séché) - فلفل حلو
                 </option>
-                <option value="24">
+                <option BoldText value="24">
                   24 - Carotte - جزر
                 </option>
-                <option value="25">
+                <option BoldText value="25">
                   25 - Courgette - كوسه
                 </option>
-                <option value="26">
+                <option BoldText value="26">
                   26 - Navet - اللفت
                 </option>
-                <option value="27">
+                <option BoldText value="27">
                   27 - Concombre - خيار
                 </option>
-                <option value="28">
+                <option BoldText value="28">
                   28 - ChouetChou-fleur - الملفوف وكرمب
                 </option>
-                <option value="29">
+                <option BoldText value="29">
                   29 - Artichaut - قرنون
                 </option>
-                <option value="30">
+                <option BoldText value="30">
                   30 - Betterave -الشمندر
                 </option>
-                <option value="31">
+                <option BoldText value="31">
                   31 - Fèveverte- فول أخضر
                 </option>
-                <option value="32">
+                <option BoldText value="32">
                   32 - Haricotvert - فاصوليا خضراء
                 </option>
-                <option value="33">
+                <option BoldText value="33">
                   33 - Petitpois - البازلاء
                 </option>
-                <option value="34">
+                <option BoldText value="34">
                   34 - Fraises - فراولة
                 </option>
-                <option value="35">
+                <option BoldText value="35">
                   35 - Salade(laitue) - خس
                 </option>
-                <option value="36">
+                <option BoldText value="36">
                   36 - Melon - بطيخ
                 </option>
-                <option value="37">
+                <option BoldText value="37">
                   37 - Pastéque - دلاع
                 </option>
-                <option value="38">
+                <option BoldText value="38">
                   38 - Autres-أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Cultures industrielles - المحاصيل الصناعية
                 </option>
-                <option value="39">
+                <option BoldText value="39">
                   39 - Tomateindustrielle - الطماطم الصناعية
                 </option>
-                <option value="40">
+                <option BoldText value="40">
                   40 - Betterave àsucre - شمندر سكري
                 </option>
-                <option value="41">
+                <option BoldText value="41">
                   41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
                 </option>
-                <option value="42">
+                <option BoldText value="42">
                   42 - Tabac - التبغ
                 </option>
-                <option value="43">
+                <option BoldText value="43">
                   43 - Autres - أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Arboriculture - الأشجار
                 </option>
-                <option value="44">
+                <option BoldText value="44">
                   44 - Oranger - أشجار البرتقال
                 </option>
-                <option value="45">
+                <option BoldText value="45">
                   45 - Citronnier - أشجار الليمون
                 </option>
-                <option value="46">
+                <option BoldText value="46">
                   46 - Mandarinier - أشجار المندرين
                 </option>
-                <option value="47">
+                <option BoldText value="47">
                   47 - Clémentinier - أشجار الكليمنتين
                 </option>
-                <option value="48">
+                <option BoldText value="48">
                   48 - Pamplemoussier - أشجار اليمون الهندي
                 </option>
-                <option value="49">
+                <option BoldText value="49">
                   49 - Abricotier - أشجار المشمش
                 </option>
-                <option value="50">
+                <option BoldText value="50">
                   50 - Pêchier et nectarinier - أشجار الخوخ والنكتارين
                 </option>
-                <option value="51">
+                <option BoldText value="51">
                   51 - Cognassier - أشجار السفرجل
                 </option>
-                <option value="52">
+                <option BoldText value="52">
                   52 - Poirier - أشجار اإلجاص
                 </option>
-                <option value="53">
+                <option BoldText value="53">
                   53 - Pommier - أشجار التفاح
                 </option>
-                <option value="54">
+                <option BoldText value="54">
                   54 - Prunier - أشجار البرقوق
                 </option>
-                <option value="55">
+                <option BoldText value="55">
                   55 - Olivier de table - أشجار زيتون "زيتون المائدة"
                 </option>
-                <option value="56">
+                <option BoldText value="56">
                   56 - Olivier à huile - أشجار الزيتون "الزيت"
                 </option>
-                <option value="57">
+                <option BoldText value="57">
                   57 - Figuier - أشجار التين
                 </option>
-                <option value="58">
+                <option BoldText value="58">
                   58 - Amandier - أشجار اللوز
                 </option>
-                <option value="59">
+                <option BoldText value="59">
                   59 - Noyer - أشجار الجوز
                 </option>
-                <option value="60">
+                <option BoldText value="60">
                   60 - Cerisier - أشجار الكرز
                 </option>
-                <option value="61">
+                <option BoldText value="61">
                   61 - Neflier - أشجار الزعرور 
                 </option>
-                <option value="62">
+                <option BoldText value="62">
                   62 - Palmier dattier (Deglet Nour) - أشجار النخيل "دڨلة نور"
                 </option>
-                <option value="63">
+                <option BoldText value="63">
                   63 - Palmier dattier (Ghars) - أشجار النخيل "غرس"
                 </option>
-                <option value="64">
+                <option BoldText value="64">
                   64 - Palmier dattier (autres) - أشجار النخيل "أخرى"
                 </option>
-                <option value="65">
+                <option BoldText value="65">
                   65 - Vigne de table - كروم المائدة
                 </option>
-                <option value="66">
+                <option BoldText value="66">
                   66 - Vigne de cuve - كروم لصنع الخمور
                 </option>
-                <option value="67">
+                <option BoldText value="67">
                   67 - Vigne à raisin sec - كروم التجفيف
                 </option>
-                <option value="68">
+                <option BoldText value="68">
                   68 - Grenadier - أشجار الرمان
                 </option>
-                <option value="69">
+                <option BoldText value="69">
                   69 - Arganier - أشجار األرقان
                 </option>
-                <option value="70">
+                <option BoldText value="70">
                   70 - Autres arbres - أشجار أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Divers - محاصيل مختلفة
                 </option>
-                <option value="71">
+                <option BoldText value="71">
                   71 - Herbes - الأعشاب 
                 </option>
-                <option value="72">
+                <option BoldText value="72">
                   72 - Plantes aromatiques et médicinales - نباتات العطرية و الطبية
                 </option>
-                <option value="73">
+                <option BoldText value="73">
                   73 - Pépinières fruitières - مشاتل الفاكهة
                 </option>
-                <option value="74">
+                <option BoldText value="74">
                   74 - Pépinières maraichères - مشاتل الخضار
                 </option>
-                <option value="75">
+                <option BoldText value="75">
                   75 - Pépinières forestières - مشاتل الغابات
                 </option>
-                <option value="76">
+                <option BoldText value="76">
                   76 - Autres Pépinières - مشاتل أخرى
                 </option>
-                <option value="77">
+                <option BoldText value="77">
                   77 - Autres Cultures - محاصيل أخرى
                 </option>
               </select>
             </div>
           </div>
-          <div class="col">
-            <div class="row">
-              <div class="col-5">
+              <div class="col">
                <!-- need to cahnge -->
-                <input  id="superficie_hec" name="superficie_hec"  maxlength="4" num class="form-control"  value="">
+               <div class="input-group input-group-sm">
+               
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control"  value="">
+
+              </div>
               </div>
               <div class="col">
-                <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
+              <div class="input-group input-group-sm">
+                <input double id="superficie_are" name="superficie_are"  class="form-control"  value="">
+              </div>
               </div>
               <div class="col">
-                <input id="en_intercalaire" name="en_intercalaire"  maxlength="2" num class="form-control"  value="">
+              <div class="input-group input-group-sm">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control"  value="">
               </div>
-            </div>
-          </div>
+              </div>
+           
+          
           <div class="col-1">
             <div class="d-grid gap-2">
               <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
@@ -2581,33 +2595,34 @@ $(document).ready(function(){
                    formRow.querySelectorAll('[id], [name]').forEach(function (element) {
                        element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
                        element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-           
                        // Remove the "disabled" attribute if present
                        element.removeAttribute('disabled');
-                   });
-           
-                   // Remove the add button from the cloned row and add a remove button
-                   const removeButton = document.createElement('button');
-                   removeButton.textContent = '-';
-                   removeButton.type = 'button';
-                   removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-                   removeButton.addEventListener('click', function () {
+                     });
+                     
+                     // Remove the add button from the cloned row and add a remove button
+                     const removeButton = document.createElement('button');
+                     removeButton.textContent = '-';
+                     removeButton.type = 'button';
+                     removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+                     removeButton.addEventListener('click', function () {
                        formRow.remove();
-                   });
-                   formRow.querySelector('.d-grid').innerHTML = '';
+                     });
+                     formRow.querySelector('.d-grid').innerHTML = '';
                    formRow.querySelector('.d-grid').appendChild(removeButton);
-           
+                   
                    formContainer.appendChild(formRow);
-           
+                   
                    // Enable the cloned input elements inside the replicated HTML code
                    formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-                       inputElement.removeAttribute('disabled');
-                   });
-           
-               });
-      </script> <!-- TODO -->
+                      inputElement.removeAttribute('disabled');
+                     });
+                  
+       
+                     restrictInputToDoubles();
+                  });
+                  </script> <!-- TODO -->
     </div>
-  
+    
 </div>
 <br>
 
@@ -2631,7 +2646,7 @@ $(document).ready(function(){
 
 
            <div class="row">
-               <div class="col-7">
+               <div class="col-6">
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;"> <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>عدد الأشجار المتفرقة - Nombre d'arbres épars
                     
@@ -2661,6 +2676,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار التين <br> Figuiers
                                     </span>
+                                    
                                        <input class="form-control bneder" maxlength="4" num id="figuiers" name="figuiers">                   
                                </div>
                                 <!-- End of input group -->
@@ -2726,10 +2742,10 @@ $(document).ready(function(){
                                   <!-- Continue with the other tree types -->
                                   <!-- Start of input group -->
                                     <div class="input-group input-group-sm">
-                                      <span class="input-group-text" id="basic-addon3">
+                                      <span class="input-group-text fontbneder2"  style="max-width: 115px;" id="basic-addon3">
                                       أشجار ذات النوات و البذرة<br> Noyaux-Pépins
                                       </span>
-                                         <input class="form-control bneder" maxlength="4" num id="noyaux_pepins" name="noyaux_pepins">                   
+                                         <input class="form-control bneder" style="min-width:50px;" maxlength="4" num id="noyaux_pepins" name="noyaux_pepins">                   
                                  </div>   
 
 
@@ -2785,8 +2801,8 @@ $(document).ready(function(){
                <div class="card" style="font-size: 12px;">
   <div class="card-body">
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3" style="width: 247px; display: block; margin: 0 auto; text-align: center;">هل تمارس الزراعة البيولوجية؟<br>
-      Pratiquez-vous l'agriculture biologique?</span> <select class="form-select bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique" style="max-width: 247px;height: 28px;margin-left: 21px;">
+      <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس الزراعة البيولوجية؟<br>
+      Pratiquez-vous l'agriculture biologique?</span> <select class="form-select fontbneder2 bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique">
         <option disabled value="-" selected>
         </option>
         <option value="1">
@@ -2798,8 +2814,8 @@ $(document).ready(function(){
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3" style="width: 247px; display: block; margin: 0 auto; text-align: center;">إذا نعم, هل لديك شهادة إعتماد؟<br>
-      Si oui, Avez-vous un certificat ?</span> <select disabled class="form-select bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat" style="max-width: 247px;height: 28px;margin-left: 21px;">
+      <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3" >إذا نعم, هل لديك شهادة إعتماد؟<br>
+      Si oui, Avez-vous un certificat ?</span> <select disabled class="form-select fontbneder2 bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat">
         <option disabled value="-" selected>
         </option>
         <option value="1">
@@ -2824,11 +2840,25 @@ $(document).ready(function(){
                         select27.disabled = (selectedValue != '1');
                      }
   </script>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div>
-    <span class="input-group-text" style="font-size: 10px !important; width: 270px; text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
+  <div class="input-group input-group-sm" >
+    <div style="margin-left:5px;" class="qst-num zxcount"></div>
+    <span class="input-group-text fontbneder1" style="font-weight: bold;  text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
     Pratiquez-vous l'aquaculture intégrée à l'agriculture ?</span><br>
-    <select class="form-select bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 270px; height: 28px; margin-left: 19px;">
+    <select class="form-select fontbneder1 bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 108px;" >
+      <option disabled value="-" selected>
+      </option>
+      <option BoldText value="1">
+        1 - Oui - نعم
+      </option>
+      <option BoldText value="2">
+        2 - Non - لا
+      </option>
+    </select>
+  </div>
+  <br>
+  <div class="input-group input-group-sm" style="margin-left: 5px;">
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
+    Pratiquez-vous l'Héliciculture?</span> <select style="max-width:120px;" class="form-select fontbneder2 bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
       <option disabled value="-" selected>
       </option>
       <option value="1">
@@ -2841,22 +2871,8 @@ $(document).ready(function(){
   </div>
   <br>
   <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
-    Pratiquez-vous l'Héliciculture?</span> <select style="max-width: 90px;" class="form-select bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
-      <option disabled value="-" selected>
-      </option>
-      <option value="1">
-        1 - Oui - نعم
-      </option>
-      <option value="2">
-        2 - Non - لا
-      </option>
-    </select>
-  </div>
-  <br>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
-    Pratiquez-vous la Myciculture ?</span> <select class="form-select bneder" style="max-width: 80px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
+    Pratiquez-vous la Myciculture ?</span> <select class="form-select fontbneder2 bneder" style="max-width: 118px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
       <option disabled value="-" selected>
       </option>
       <option value="1">
@@ -3252,12 +3268,17 @@ $(document).ready(function(){
              <br>
              <br>
              <div class="row">
-                <div class="col-3"></div>
+               <div class="col-3"></div>
+               <div class="col" style="text-align:center;"> <u>العدد - Nombre de sujets</u> </div>
+             </div>
+             <br>
+             <div class="row">
+                <div class="col-5"></div>
                 <div class="col">
-                   (العدد - Nombre de sujets) <br> البيض - Ponte
+                   البيض - Ponte
                 </div>
                 <div class="col">
-                   (العدد - Nombre de sujets) <br> اللحم - Chair
+                  اللحم - Chair
                 </div>
              </div>
              <table class="table table-sm">
@@ -3269,41 +3290,64 @@ $(document).ready(function(){
   
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Poules</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الدجاج</p>
+                      <p style="margin: 0px 0px 0px 80px;">Poules</p>
+                      <p style="margin: 0px 0px 0px 80px;"> الدجاج</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
+                           <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
+                            </div>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
+                            </div>
+                      
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Dindes</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الديك الرومي</p>
+                      <p style="margin: 0px 0px 0px 80px;">Dindes</p>
+                      <p style="margin: 0px 0px 0px 80px;"> الديك الرومي</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
+                            </div>
+                     
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
+                            </div>
+                      
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Autre aviculture</p>
-                         <p style="margin: 0px 0px 0px 25px;"> دواجن أخرى</p>
+                      <p style="margin: 0px 0px 0px 80px;">Autre aviculture</p>
+                         <p style="margin: 0px 0px 0px 80px;"> دواجن أخرى</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
-                      </td>
+                      
+                      <div class="input-group input-group-sm">
+
+                            <input  num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
+                            </div>
+                      
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
+                            </div>
+                     
+                           </td>
                    </tr>
                 </tbody>
              </table>
@@ -4382,18 +4426,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
+        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
+        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
+        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4401,17 +4445,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
+        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
+        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
+        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
     </div>
@@ -4419,18 +4463,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فوقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Foggara</span> <input id="in136" id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
+        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
   </div>
@@ -5828,6 +5872,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
 <script src="./assets/js/logique.js"></script>
+<script src="./assets/js/questionnaire-mask.js"></script>
 
              
              

@@ -190,7 +190,56 @@ function toggleElements($elements, disabled) {
   //--------------------------------------------------- mounir's part start ! -----------------------------------------------------------//
 
 
-        //   var test="mmounir";
+  
+  function handleInputComparison(inputId1, inputId2, errorMessage) {
+    $(inputId1 + ', ' + inputId2).on('input', function() {
+        var inputValue1 = parseInt($(inputId1).val()) || 0;
+        var inputValue2 = parseInt($(inputId2).val()) || 0;
+        if (inputValue1 >= inputValue2) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Limite dépassée',
+                text: errorMessage,
+            });
+            $(this).val('');
+        }
+    });
+}
+//   77 <= 78
+handleInputComparisonEqualOrBigger('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Dont Berbis ne peut pas dépasser le nombre total de Ovins');
+//   79 <= 80
+handleInputComparisonEqualOrBigger('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de Dont chèvres ne peut pas dépasser le nombre total de Caprins');
+//   81 <= 82
+handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de Dont chamelles ne peut pas dépasser le nombre total de Camelins');
+//   83 <= 84
+handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de Dont juments ne peut pas dépasser le nombre total de Equins');
+// 91 dont pleins <= Ruches Modernes
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+// 92 dont pleins <= Ruches Traditionnelles
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+
+function calculateTotalModeIrrigation() {
+    var total = 0;
+    // Loop through each input field for adults and children
+    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+function calculateTotalModeIrrigation() {
+    var total = 0;
+    // Loop through each input field for adults and children
+    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+var totalModeIrrigation=calculateTotalModeIrrigation();
+// handleInputComparisonEqualOrBigger( totalModeIrrigation,'#chapt_ruches_traditionnelles', "Le some de Dont pleines ne peut pas dépasser le somme  des modes d'irrigations");
+
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
