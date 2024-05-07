@@ -104,6 +104,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         .select2-container--default .select2-selection--multiple .select2-selection__choice{
             height:20px;
         }
+        .fontbneder1{
+            font-size: 8px !important;
+        }
+        .fontbneder2{
+            font-size: 10px !important;
+        }
+        #niveau_instruction{
+            width: 12px;
+        }
     </style>
 
 

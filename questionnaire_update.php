@@ -791,7 +791,7 @@ font-weight: bold;
               عنوان المستثمر الفلاحي (الفلاح) - Adresse de l'exploitant agricole
               </span>
               <input class="form-control bneder"  type="text" 
-                 name="adress_exploitant" />
+                 name="adress_exploitant"  data-uppercase-first="true"/>
            </div>
            <br />
          
