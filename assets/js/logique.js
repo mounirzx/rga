@@ -314,23 +314,23 @@ $('#reseau_electrique').change(function() {
 
     /*********************************** */
 
-    $('#reference_cadastrale').on('input', function() {
-        var userInput = $(this).val().trim();
-        var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
+    // $('#reference_cadastrale').on('input', function() {
+    //     var userInput = $(this).val().trim();
+    //     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
 
-        if (/^\d{3}$/.test(userInput)) {
-            // If user has entered 3 numbers, automatically add "/"
-            $(this).val(userInput + '/');
-        }
+    //     if (/^\d{3}$/.test(userInput)) {
+    //         // If user has entered 3 numbers, automatically add "/"
+    //         $(this).val(userInput + '/');
+    //     }
 
-        if (regex.test(userInput)) {
-            // Valid input format
-            $(this).css('border-color', 'green');
-        } else {
-            // Invalid input format
-            $(this).css('border-color', 'red');
-        }
-    });
+    //     if (regex.test(userInput)) {
+    //         // Valid input format
+    //         $(this).css('border-color', 'green');
+    //     } else {
+    //         // Invalid input format
+    //         $(this).css('border-color', 'red');
+    //     }
+    // });
     /****************************************************************** wissem end********************************************************************** */
 
 
