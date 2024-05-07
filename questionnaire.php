@@ -4,7 +4,16 @@ include('includes/header.php');
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
-   
+   <style>
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color:#000;
+    outline: 0;
+    box-shadow: none;
+}
+</style>
     
    <body>
 
@@ -610,12 +619,16 @@ Sexe</span>
 
             <div class="row">
                <div class="col">
+               <div id="error_message" style="color: red;"></div>
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
+          
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
-            <input class="form-control bneder" num   maxlength="18" id="nin_exploitant" name="nin_exploitant"   />
+          
+            <input class="form-control bneder" num   maxlength="18" minlength='18' id="nin_exploitant" name="nin_exploitant"   />
+            
             </div>
 <br>
 
@@ -1385,7 +1398,7 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder" num maxlength="6"   id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
 
 
 
@@ -3570,7 +3583,7 @@ $(document).ready(function(){
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
             <p style="margin: 0px 0px 0px 25px;">اسطبل خيول</p>
-            <p style="margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
+            <p style="margin: 0px 0px 0px 25px;">Ecurie de Chevaux</p>
           </td>
           <td>
             <div class="input-group input-group-sm">
@@ -4688,7 +4701,7 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
                 <p style="padding-left:60px;">  العمال الفلاحيين الأجانب 
                   <br>
-                        Ouvriers agricoles étrangès</p>
+                  Ouvriers agricoles étrangers</p>
                      </td>
                      <td style="padding-left:21px;">
 
@@ -4806,8 +4819,8 @@ Petite et Moyenne Hydraulique
                         <p>
                            Nombre des membres du ou des ménage (s) actifs de l'exploitation
                            <br>
-                           عدد الأعضاء أو الأسر في المستثمر
-                        </p>
+
+                           عدد الأعضاء أو الأسر في المستثمرة                        </p>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
