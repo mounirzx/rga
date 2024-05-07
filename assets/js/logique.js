@@ -188,23 +188,31 @@ function toggleElements($elements, disabled) {
 
 
   //--------------------------------------------------- mounir's part start ! -----------------------------------------------------------//
+
+
+  
+  function handleInputComparison(inputId1, inputId2, errorMessage) {
+    $(inputId1 + ', ' + inputId2).on('input', function() {
+        var inputValue1 = parseInt($(inputId1).val()) || 0;
+        var inputValue2 = parseInt($(inputId2).val()) || 0;
+        if (inputValue1 >= inputValue2) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Limite dépassée',
+                text: errorMessage,
+            });
+            $(this).val('');
+        }
+    });
+}
 //   77 <= 78
-  $('#chapt_dont_brebis, #chapt_ovins').on('input', function() {
-    var inputBrebis = parseInt($('#chapt_dont_brebis').val()) || 0;
-    var inputOvins = parseInt($('#chapt_ovins').val()) || 0;
-console.log('input')
-    if (inputBrebis >= inputOvins) {
-        console.log('bigger')
-        // Show error message
-     Swal.fire({
-                  icon: 'error',
-                  title: 'Limite dépassée',
-                  text: 'Le nombre total de membres de la famille ne peut pas dépasser ',
-              });
-          $(this).val('')
-    }
-});
+handleInputComparison('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Dont Berbis ne peut pas dépasser le nombre total de Ovins');
 //   79 <= 80
+handleInputComparison('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de Dont chèvres ne peut pas dépasser le nombre total de Caprins');
+//   81 <= 82
+handleInputComparison('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de Dont chamelles ne peut pas dépasser le nombre total de Camelins');
+//   83 <= 84
+handleInputComparison('#chapt_dont_juments','#chapt_equins', 'Le nombre de Dont juments ne peut pas dépasser le nombre total de Equins');
 
 
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
