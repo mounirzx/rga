@@ -105,10 +105,16 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             height:20px;
         }
         .fontbneder1{
-            font-size: 8px !important;
+            font-size: 8px !important; 
         }
         .fontbneder2{
-            font-size: 10px !important;
+            font-size: 10px !important;  
+        }
+        [InputHeight]{
+            height: 31px;  
+        }
+        [BoldText]{
+            font-weight: bold;
         }
         #niveau_instruction{
             width: 12px;
