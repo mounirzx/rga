@@ -1875,13 +1875,13 @@ acte de concession ?
             
                
 
-                  <input  style="border: 1px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                  <input  readonly style="border: 1px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
                      
 
                   
                 
                      
-                  <input style="border: 1px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                  <input readonly style="border: 1px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
                      
 
                
@@ -6016,7 +6016,7 @@ document.getElementById('submitDate').click();
 
 
              
-<script>
+<!-- <script>
    document.getElementById("info_form").addEventListener("input", function () {
        console.log("capturing")
 
@@ -6070,7 +6070,7 @@ document.getElementById('submitDate').click();
        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
    });
-</script>       
+</script>        -->
 
 <script>
 
