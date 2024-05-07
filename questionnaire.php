@@ -1573,20 +1573,20 @@ acte de concession ?
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" id="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1611,7 +1611,7 @@ acte de concession ?
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1622,13 +1622,13 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" id="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
                   
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1647,14 +1647,14 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1" id="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
                   
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1665,13 +1665,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3" id="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1691,13 +1691,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" id="prairies_naturelles_1" maxlength="5" num   value="">
                      
                   
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1708,13 +1708,13 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3" id="prairies_naturelles_3"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
                      
                  
                </div>
@@ -1733,10 +1733,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input style="border: 1px solid " class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
-                     
-                     
-                
+                     <input style="border: 1px solid " class="surface bneder form-control" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1"  readonly=""   num maxlength="5" value="">
+
                   
                  
                      
@@ -1912,8 +1910,8 @@ acte de concession ?
                            </span>
                            <select class="form-control bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
                               <option selected="" disabled value="-">  </option>
-                              <option value="1">1- Non-لا</option>
-                              <option value="2">2- Oui-نعم</option>
+                              <option value="1">1- Oui-نعم</option>
+                              <option value="2">2- Non-لا</option>
                            </select>
                         </div>
                      </div>
@@ -1933,22 +1931,7 @@ acte de concession ?
                         </div>
                      </div>
 
-                     <script>
-                        var select_exploit_est_un_bloc = document.getElementsByName('exploit_est_un_bloc')[0];
-
-                        var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
-                        var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
-                        select_exploit_est_un_bloc.addEventListener('input', function () {
-                           update_exploit_est_un_bloc_oui();
-                        });
-                     
-                        function update_exploit_est_un_bloc_oui() {
-                            var selectedValue = select_exploit_est_un_bloc.value;
-                            
-                            exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
-                        }
-                     </script>
 
 
                   </div>
