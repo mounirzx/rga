@@ -2633,7 +2633,7 @@ $(document).ready(function(){
 
 
            <div class="row">
-               <div class="col-7">
+               <div class="col-6">
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;"> <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>عدد الأشجار المتفرقة - Nombre d'arbres épars
                     
@@ -2674,7 +2674,7 @@ $(document).ready(function(){
                                     <span class="input-group-text" id="basic-addon3">
                                     أشجار الرمان <br> Grenadiers
                                     </span>
-                                       <input class="form-control bneder" double  id="grenadiers" name="grenadiers">                   
+                                       <input class="form-control bneder" maxlength="4" num  id="grenadiers" name="grenadiers">                   
                                </div>
 
 
@@ -2729,10 +2729,10 @@ $(document).ready(function(){
                                   <!-- Continue with the other tree types -->
                                   <!-- Start of input group -->
                                     <div class="input-group input-group-sm">
-                                      <span class="input-group-text" id="basic-addon3">
+                                      <span class="input-group-text fontbneder2"  style="max-width: 115px;" id="basic-addon3">
                                       أشجار ذات النوات و البذرة<br> Noyaux-Pépins
                                       </span>
-                                         <input class="form-control bneder" maxlength="4" num id="noyaux_pepins" name="noyaux_pepins">                   
+                                         <input class="form-control bneder" style="min-width:50px;" maxlength="4" num id="noyaux_pepins" name="noyaux_pepins">                   
                                  </div>   
 
 
@@ -2788,8 +2788,8 @@ $(document).ready(function(){
                <div class="card" style="font-size: 12px;">
   <div class="card-body">
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3" style="width: 247px; display: block; margin: 0 auto; text-align: center;">هل تمارس الزراعة البيولوجية؟<br>
-      Pratiquez-vous l'agriculture biologique?</span> <select class="form-select bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique" style="max-width: 247px;height: 28px;margin-left: 21px;">
+      <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس الزراعة البيولوجية؟<br>
+      Pratiquez-vous l'agriculture biologique?</span> <select class="form-select fontbneder2 bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique">
         <option disabled value="-" selected>
         </option>
         <option value="1">
@@ -2801,8 +2801,8 @@ $(document).ready(function(){
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3" style="width: 247px; display: block; margin: 0 auto; text-align: center;">إذا نعم, هل لديك شهادة إعتماد؟<br>
-      Si oui, Avez-vous un certificat ?</span> <select disabled class="form-select bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat" style="max-width: 247px;height: 28px;margin-left: 21px;">
+      <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3" >إذا نعم, هل لديك شهادة إعتماد؟<br>
+      Si oui, Avez-vous un certificat ?</span> <select disabled class="form-select fontbneder2 bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat">
         <option disabled value="-" selected>
         </option>
         <option value="1">
@@ -2827,11 +2827,25 @@ $(document).ready(function(){
                         select27.disabled = (selectedValue != '1');
                      }
   </script>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div>
-    <span class="input-group-text" style="font-size: 10px !important; width: 270px; text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
+  <div class="input-group input-group-sm" >
+    <div style="margin-left:5px;" class="qst-num zxcount"></div>
+    <span class="input-group-text fontbneder1" style="font-weight: bold;  text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
     Pratiquez-vous l'aquaculture intégrée à l'agriculture ?</span><br>
-    <select class="form-select bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 270px; height: 28px; margin-left: 19px;">
+    <select class="form-select fontbneder1 bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 108px;" >
+      <option disabled value="-" selected>
+      </option>
+      <option BoldText value="1">
+        1 - Oui - نعم
+      </option>
+      <option BoldText value="2">
+        2 - Non - لا
+      </option>
+    </select>
+  </div>
+  <br>
+  <div class="input-group input-group-sm" style="margin-left: 5px;">
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
+    Pratiquez-vous l'Héliciculture?</span> <select style="max-width:120px;" class="form-select fontbneder2 bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
       <option disabled value="-" selected>
       </option>
       <option value="1">
@@ -2844,22 +2858,8 @@ $(document).ready(function(){
   </div>
   <br>
   <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
-    Pratiquez-vous l'Héliciculture?</span> <select style="max-width: 90px;" class="form-select bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
-      <option disabled value="-" selected>
-      </option>
-      <option value="1">
-        1 - Oui - نعم
-      </option>
-      <option value="2">
-        2 - Non - لا
-      </option>
-    </select>
-  </div>
-  <br>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
-    Pratiquez-vous la Myciculture ?</span> <select class="form-select bneder" style="max-width: 80px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
+    Pratiquez-vous la Myciculture ?</span> <select class="form-select fontbneder2 bneder" style="max-width: 118px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
       <option disabled value="-" selected>
       </option>
       <option value="1">

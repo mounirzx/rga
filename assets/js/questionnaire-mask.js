@@ -30,45 +30,7 @@
             });
         });
         // Restrict doubles to numbers only
-        var inputDouble = document.querySelectorAll('input[double]');
-
-        inputDouble.forEach(function(input) {
-            input.addEventListener('input', function() {
-                // Log the initial value for debugging
-                console.log('Initial value:', this.value);
-        
-                // Remove non-numeric characters except '.' and ','
-                this.value = this.value.replace(/[^\d.,]/g, '');
-        
-                // Log the value after removing non-numeric characters
-                console.log('After removing non-numeric characters:', this.value);
-        
-                // Replace ',' with '.' if present
-                this.value = this.value.replace(',', '.');
-        
-                // Log the value after replacing ',' with '.'
-                console.log('After replacing ",", if present:', this.value);
-        
-                // Split the value by '.' to separate the integer and decimal parts
-                var parts = this.value.split('.');
-        
-                // Ensure the integer part has a maximum of 5 digits
-                if (parts[0].length > 5) {
-                    parts[0] = parts[0].slice(0, 5);
-                }
-        
-                // Ensure the decimal part has a maximum of 2 digits
-                if (parts[1] && parts[1].length > 2) {
-                    parts[1] = parts[1].slice(0, 2);
-                }
-        
-                // Combine the integer and decimal parts with a dot
-                this.value = parts.join('.');
-        
-                // Log the final value after processing
-                console.log('Final value:', this.value);
-            });
-        });
+     
         
 
         elements.forEach(function(element, index) {
