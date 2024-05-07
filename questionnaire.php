@@ -1165,29 +1165,29 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                            <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                                <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                                <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                                <option value="5">5 - Domaine public ملكية عامة للدولة</option>
-                                <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                                <option value="7">7 - Wakf privé وقف خاص</option>
-                                <option value="8">8 - Wakf public وقف عام</option>
-                                <option value="9">9 - Inconnue مجهول</option>
+                                <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                                <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                                <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                                <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                                <option BoldText value="7">7 - Wakf privé وقف خاص</option>
+                                <option BoldText value="8">8 - Wakf public وقف عام</option>
+                                <option BoldText value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-4">
 
                         
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1219,7 +1219,7 @@ au réseau internet ?
                          </div>
 
                       </div>
-                      <div class="col-1"></div>
+                      
                       <style>
 .error {
     border: 2px solid red;
@@ -1268,13 +1268,10 @@ $(document).ready(function(){
 
 
 
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-                       </div>
-                       </div>
-                       <div class="col-1"> 
-                       <div class="input-group input-group-sm">
+                    
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
@@ -1369,7 +1366,7 @@ $(document).ready(function(){
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
-   <select class="form-select bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
+   <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
       <option selected="">-</option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
