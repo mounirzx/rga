@@ -525,11 +525,11 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     //origine des terres
 
     var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
-    '<option value="14">14 - Succession إرث</option>' +
-    '<option value="15">15 - Donation هبة</option>' +
-    '<option value="16">16 - Testament وصية</option>' +
-    '<option value="17">17 - Droit préemption حق الشفاعة</option>' +
-    '<option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>';
+    '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="15" BoldText>15 - Donation هبة</option>' +
+    '<option value="16" BoldText>16 - Testament وصية</option>' +
+    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>';
 
     var listOrigineTerre = {
       "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
