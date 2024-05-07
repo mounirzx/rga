@@ -1150,8 +1150,8 @@ au réseau internet ?
                      <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
                      <div class="col"></div>
 
-                     <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col-2">المساحة(ار) <br> Superficie(Are)</div>
+                     <div class="col-2" style="padding-left: 12px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
+                     <div class="col-2" style="padding-left: 33px;">المساحة(ار) <br> Superficie(Are)</div>
                      <div class="col"></div>
                   </div>
                   <hr>
@@ -1269,7 +1269,7 @@ $(document).ready(function(){
 
 
                         <div class="col-3">
-                            <div class="input-group input-group-sm">
+                            <div style="margin-left:20px" class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
                     
                                     
