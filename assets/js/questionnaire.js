@@ -500,6 +500,10 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
           var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
           var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
           document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+
+
+          
    
         });
     }

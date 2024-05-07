@@ -201,7 +201,44 @@ function toggleElements($elements, disabled) {
 
 
     /***************************************************************** wissem start*********************************************************************** */
+    $('#nin_exploitant').blur(function(){
+        var inputLength = $(this).val().length;
+        if (inputLength < 18) {
+            // If length is less than 18, display an error message or perform any other action.
+            $('#error_message').text('le nin doit etre 18 characters.');
+            ('#nin_exploitant').css('border','2px solid red')
+        } else {
+            // If length is 18 or more, clear the error message.
+            $('#error_message').text('');
+            nin_exploitant.css('border','2px solid green')
+        }
+    });
 
+
+    $('#nom_exploitation').on('input', function(){
+        var inputVal = $(this).val();
+        $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
+    });
+
+    /*********************************** */
+
+    $('#reference_cadastrale').on('input', function() {
+        var userInput = $(this).val().trim();
+        var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
+
+        if (/^\d{3}$/.test(userInput)) {
+            // If user has entered 3 numbers, automatically add "/"
+            $(this).val(userInput + '/');
+        }
+
+        if (regex.test(userInput)) {
+            // Valid input format
+            $(this).css('border-color', 'green');
+        } else {
+            // Invalid input format
+            $(this).css('border-color', 'red');
+        }
+    });
     /****************************************************************** wissem end********************************************************************** */
 });
 

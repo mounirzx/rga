@@ -4,7 +4,16 @@ include('includes/header.php');
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
-   
+   <style>
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color:#000;
+    outline: 0;
+    box-shadow: none;
+}
+</style>
     
    <body>
 
@@ -586,12 +595,16 @@ if ($_SESSION['role'] == "recenseur") {
 
             <div class="row">
                <div class="col">
+               <div id="error_message" style="color: red;"></div>
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
+          
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
-            <input class="form-control bneder" num   maxlength="18" id="nin_exploitant" name="nin_exploitant"   />
+          
+            <input class="form-control bneder" num   maxlength="18" minlength='18' id="nin_exploitant" name="nin_exploitant"   />
+            
             </div>
 <br>
 
@@ -795,7 +808,7 @@ if ($_SESSION['role'] == "recenseur") {
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom des investissements agricoles</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
+  Nom de l'exploitation agricole</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
@@ -1365,7 +1378,7 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder" num maxlength="6"   id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
 
 
 
@@ -3003,7 +3016,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المتطورة
-                            <br> Dont vaches laitiéres BLM
+                            <br> Dont vaches laitières BLM
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
                          </div>
@@ -3016,7 +3029,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المحسنة
-                            <br> Dont vaches laitiéres BLA
+                            <br> Dont vaches laitières BLA
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
                          </div>
@@ -3026,7 +3039,7 @@ $(document).ready(function(){
                          <div class="qst-num zxcount"></div>
                             <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
                             منها الأبقار الحلوب المحلية
-                            <br> Dont vaches laitiéres BLL
+                            <br> Dont vaches laitières BLL
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
                          </div>
@@ -3296,7 +3309,7 @@ $(document).ready(function(){
             </div>
             </div><div class="col">
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
             </div>
           </div>
@@ -3313,7 +3326,7 @@ $(document).ready(function(){
             </div><div class="col">
 
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines_2" name="chapt_dont_sont_pleines_2">
             </div>
           </div>
@@ -3506,7 +3519,7 @@ $(document).ready(function(){
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
             <p style="margin: 0px 0px 0px 25px;">اسطبل خيول</p>
-            <p style="margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
+            <p style="margin: 0px 0px 0px 25px;">Ecurie de Chevaux</p>
           </td>
           <td>
             <div class="input-group input-group-sm">
@@ -3829,8 +3842,7 @@ $(document).ready(function(){
                         العدد - Nombre
                      </div>
                      <div class="col"  style="text-align: center;">
-                        المساحة (م²) - Surface (m²)
-                     </div>
+                     Volume (m3)                     </div>
                      <div class="col-3"></div>
 
                   </div><table class="table table-sm">
@@ -4623,7 +4635,7 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
                 <p style="padding-left:60px;">  العمال الفلاحيين الأجانب 
                   <br>
-                        Ouvriers agricoles étrangès</p>
+                  Ouvriers agricoles étrangers</p>
                      </td>
                      <td style="padding-left:21px;">
 
@@ -4741,8 +4753,8 @@ Petite et Moyenne Hydraulique
                         <p>
                            Nombre des membres du ou des ménage (s) actifs de l'exploitation
                            <br>
-                           عدد الأعضاء أو الأسر في المستثمر
-                        </p>
+
+                           عدد الأعضاء أو الأسر في المستثمرة                        </p>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
