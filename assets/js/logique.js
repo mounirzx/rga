@@ -188,9 +188,25 @@ function toggleElements($elements, disabled) {
 
 
   //--------------------------------------------------- mounir's part start ! -----------------------------------------------------------//
+//   77 <= 78
+  $('#chapt_dont_brebis, #chapt_ovins').on('input', function() {
+    var inputBrebis = parseInt($('#chapt_dont_brebis').val()) || 0;
+    var inputOvins = parseInt($('#chapt_ovins').val()) || 0;
+console.log('input')
+    if (inputBrebis >= inputOvins) {
+        console.log('bigger')
+        // Show error message
+     Swal.fire({
+                  icon: 'error',
+                  title: 'Limite dépassée',
+                  text: 'Le nombre total de membres de la famille ne peut pas dépasser ',
+              });
+          $(this).val('')
+    }
+});
+//   79 <= 80
 
 
-        //   var test="mmounir";
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
