@@ -542,20 +542,12 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
     /*************************************************** */
     //origine des terres
 
-    var commonOptions = '<option value="1" BoldText>1- APFA «18-83» - ح.م.أ.ف</option>' +
-    '<option value="2" BoldText>2- Ex EAC «03-10» - م.ف.ج</option>' +
-    '<option value="3" BoldText>3- Ex EAI «م.ف,ف - « 10-03 </option>' +
-    '<option value="4" BoldText>4- Ex GCA «483-97» - ع.إ.ف</option>' +
-    '<option value="5" BoldText>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
-    '<option value="6" BoldText>6- Concession CIM 108, CIM 1839</option>' +
-    '<option value="7" BoldText>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option>' +
-    '<option value="8" BoldText>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option>' +
-    '<option value="9" BoldText>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option>' +
-    '<option value="10" BoldText>10 - Ferme pilote مزرعة نموذجية</option>' +
-    '<option value="11" BoldText>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
-    '<option value="12" BoldText>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
-    '<option value="13" BoldText>13 - Inconnu غير معروف</option>';
-
+    var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+    '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="15" BoldText>15 - Donation هبة</option>' +
+    '<option value="16" BoldText>16 - Testament وصية</option>' +
+    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>';
 
     var listOrigineTerre = {
       "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
@@ -596,7 +588,15 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
       var fullId = $(this).attr('id'); // Get the full ID of the changed input
     var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
    // console.log(idPart); // Log the extracted part to the console
-
+  
+   var selectedValue = $(this).val();
+   if (selectedValue !== '6') {  // Check if the selected value is not '6'
+       $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+       $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+   } else {
+       $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+   }
+   
 
       var id = $(this).val()
     //  console.log(fullId)
@@ -605,4 +605,10 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
 $('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])
     })
+
+
+
+
+
+
 });

@@ -29,21 +29,22 @@ $(document).ready(function() {
 
 
 
-  
-      $('#reseau_electrique').change(function() { // [38]
-          var selectedValue = $(this).val();
-          if (selectedValue === "1") {
-              $('#reseau_telephonique').prop('disabled', false); // [39]
-              $('#reseau_telephonique_si_oui').prop('disabled', false); // [40]
-              $('#reseau_internet').prop('disabled', false); // [41]
-          } else if (selectedValue === "2") {
-                  $('#reseau_telephonique').prop('disabled', true); // [39]
-                  $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
-                  $('#reseau_internet').prop('disabled', true); // [41]
-                  $('#reseau_internet_si_oui').prop('disabled', true); // [42]
-          }
-      });
-
+      $('#reseau_electrique').change(function() {
+        var selectedValue = $(this).val();
+    
+        if (selectedValue === "1") {
+            // Enable checkboxes
+            $('#eng_reseau_electrique, #eng_groupe_electrogene, #eng_energie_solaire, #eng_energie_eolienne, #eng_energie_carburant, #autres_sources_d_energie')
+                .prop('disabled', false)
+                .prop('checked', false); // Optionally uncheck on enable, depending on your needs
+        } else if (selectedValue === "2") {
+            // Disable and uncheck checkboxes
+            $('#eng_reseau_electrique, #eng_groupe_electrogene, #eng_energie_solaire, #eng_energie_eolienne, #eng_energie_carburant, #autres_sources_d_energie')
+                .prop('disabled', true)
+                .prop('checked', false);
+        }
+    });
+    
 
 
       $('#reseau_telephonique').change(function() { // [39]
@@ -67,7 +68,7 @@ $(document).ready(function() {
 
             //i have created an id on remove row red color button called statut_juridique_check
             // [44] [45] [6]
-            $('#si_exploi_eai_eac').prop('disabled', true); 
+           // $('#si_exploi_eai_eac').prop('disabled', true); 
             $('#reference_cadastrale').prop('disabled', true); 
             $('#si_exploi_eac').prop('disabled', true); 
             $('#exploi_superficie_hec').prop('disabled', true); 
@@ -77,11 +78,11 @@ $(document).ready(function() {
     
      
              // [44] [45] [6]
-            $('#si_exploi_eai_eac').prop('disabled', false); 
-            $('#reference_cadastrale').prop('disabled', false); 
-            $('#si_exploi_eac').prop('disabled', false); 
-            $('#exploi_superficie_hec').prop('disabled', false); 
-            $('#exploi_superficie_are').prop('disabled', false); 
+          //  $('#si_exploi_eai_eac').prop('disabled', false); 
+          $('#reference_cadastrale').prop('disabled', true); 
+          $('#si_exploi_eac').prop('disabled', true); 
+          $('#exploi_superficie_hec').prop('disabled', true); 
+          $('#exploi_superficie_are').prop('disabled', true);
              // [44] [45] [6]
       
 })
@@ -95,7 +96,7 @@ formContainer.addEventListener('click', function(event) {
     if (event.target.classList.contains('disable-44-45-46')) {
         // Your event handling code here
        // [44] [45] [6]
-       $('#si_exploi_eai_eac').prop('disabled', true); 
+      // $('#si_exploi_eai_eac').prop('disabled', true); 
        $('#reference_cadastrale').prop('disabled', true); 
        $('#si_exploi_eac').prop('disabled', true); 
        $('#exploi_superficie_hec').prop('disabled', true); 
@@ -311,16 +312,6 @@ $('#exploitant').on('change', function() {
 
 
 
-$('#reseau_electrique').change(function() {
-    var selectedValue = $(this).val(); // Get the selected value from the first dropdown
-    if (selectedValue === '2') { // If "Non" (value 2) is selected
-        $('#reseau_telephonique').prop('disabled', false); // Enable the second select
-    } else {
-        $('#reseau_telephonique')
-            .prop('disabled', true) // Disable the second select
-            .val('-'); // Reset its value to the placeholder or default value
-    }
-});
 
 
 // $('#origine_des_terres').on('change', function() {
@@ -337,6 +328,185 @@ $('#reseau_electrique').change(function() {
 //     $('#si_exploi_eai_eac').prop('disabled', true).val('-');
 // }
 
+
+
+// $('#origine_des_terres').on('change', function() {
+//     var selectedValue = $(this).val();
+//     var accessOptions = '';
+//     var generalOptions = {
+//         '14': '14 - Succession إرث',
+//         '15': '15 - Donation هبة',
+//         '16': '16 - Testament وصية',
+//         '17': '17 - Droit préemption حق الشفاعة',
+//         '18': '18 - Préscription acquisitive ملكية مكتسبة',
+//         '21': '21 - Autre  آخرى',
+//         '22': '22 - Inconnu غير معروف'
+//     };
+
+//     // Disable the other field (assuming its ID is 'another_field')
+//     $('#another_field').prop('disabled', selectedValue !== '6').val('-');
+
+//     // Check conditions to append specific options
+//     if (selectedValue !== '5' && selectedValue !== '6') {
+//         // Appending specific options for selected values not equal to '5' and '6'
+//         accessOptions += '<option value="13">13 - Vente/Achat بيع/شراء</option>';
+//         accessOptions += '<option value="18">' + generalOptions['18'] + '</option>'; // Prescription acquisitive
+//         accessOptions += '<option value="21">' + generalOptions['21'] + '</option>'; // Autre
+//         accessOptions += '<option value="15">' + generalOptions['15'] + '</option>'; // Donation
+//         accessOptions += '<option value="16">' + generalOptions['16'] + '</option>'; // Testament
+//         accessOptions += '<option value="14">' + generalOptions['14'] + '</option>'; // Succession
+//     } else {
+//         accessOptions = '<option selected="" disabled="" value="-">Unavailable for selected origin</option>';
+//     }
+
+//     // Update the access_mode dropdown
+//     $('#access_mode').html(accessOptions);
+// });
+
+$('#origine_des_terres').on('change', function() {
+    var selectedValue = $(this).val();
+    if (selectedValue !== '6') {  // Check if the selected value is not '6'
+        $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+        $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+    } else {
+        $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+    }
+});
+
+
+$(document).on('change', '[id^="status_juridique"]', function() {
+    // Extract the unique identifier suffix from the ID
+    var suffix = this.id.match(/\d+$/)[0]; // Matches the number at the end of the ID
+
+    // Get the value from the corresponding 'origine_des_terres' dropdown
+    var origineValue = $('#origine_des_terres_' + suffix).val();
+    var statusValue = $(this).val();
+
+    // Define the specific conditions under which the alert should be displayed
+    if (origineValue === '6' && statusValue === '2') {
+        $('#reference_cadastrale').prop('disabled', false); 
+          $('#si_exploi_eac').prop('disabled', false); 
+          $('#exploi_superficie_hec').prop('disabled', false); 
+          $('#exploi_superficie_are').prop('disabled', false);
+    }else{
+
+        $('#reference_cadastrale').prop('disabled', true); 
+          $('#si_exploi_eac').prop('disabled', true); 
+          $('#exploi_superficie_hec').prop('disabled', true); 
+          $('#exploi_superficie_are').prop('disabled', true);
+
+    }
+});
+
+
+$('#exploit_est_un_bloc').on('change', function() {
+    // Retrieve the selected value from the dropdown
+    var selectedValue = $(this).val();
+
+    // Check if the selected value is '2' (Non)
+    if (selectedValue === '2') {
+          $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
+          $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
+    } else {
+          $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
+    }
+ });
+
+ $('#exploit_indus_sur_exploitation').on('change', function() {
+    // Retrieve the selected value
+    var selectedValue = $(this).val();
+    
+    // Check the selected value and adjust the input field accordingly
+    if(selectedValue !== '1') {
+        $('#exp_indu_si_oui_nombre_menage').prop('disabled', true); // Disable the input field
+        $('#exp_indu_si_oui_nombre_menage').val(''); // Clear the input field
+    } else {
+        $('#exp_indu_si_oui_nombre_menage').prop('disabled', false); // Enable the input field if the value is '1'
+    }
+});
+
+
+
+
+
+function updateSAU() {
+    var totalHectares = 0;
+
+    // Combine hectare inputs
+    $('input[id$="_1"], input[id$="_3"]').each(function() {
+        totalHectares += parseFloat($(this).val()) || 0;
+    });
+
+    // Combine are inputs, converting to hectares
+    $('input[id$="_2"], input[id$="_4"]').each(function() {
+        totalHectares += (parseFloat($(this).val()) || 0) / 100;
+    });
+
+    // Update the SAU field and alert the total
+    $('#superficie_agricole_utile_sau_1').val(totalHectares.toFixed(2));
+    console.log('Total hectares: ' + totalHectares.toFixed(2));
+}
+
+// Trigger update on input changes
+$('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
+
+
+
+
+// Attach input event listener to all related hectare and are inputs
+$('.ares_to_hectares').on('input', updateSAU);
+
+// Event listener for changes to the SAU input field to alert the value
+$('#superficie_agricole_utile_sau_1').on('change', function() {
+    var currentValue = $(this).val();
+    console.log('Current SAU value: ' + currentValue);
+});
+
+// Dropdown change events for handling specific conditions
+function updateFields() {
+    var totalHectares = 0;
+    var totalAres = 0;
+    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+
+    $('#formContainer2 .row').each(function() {
+        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        var cultureCode = parseInt($(this).find('.code_culture_s').val());
+        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+
+        totalHectares += hectares;
+        totalAres += ares;
+
+        // Convert total ares to hectares for calculation
+        totalHectares += totalAres / 100;
+
+        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+            intercalaireField.val('').prop('disabled', true);
+        } else {
+            intercalaireField.prop('disabled', false);
+        }
+
+        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+        if (intercalaireField.val()) {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
+        } else {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+        }
+    });
+
+    if (totalHectares > 2.99 * SAU) {
+        alert('The total area exceeds 2.99 times the SAU.');
+    }
+
+    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+}
+
+// Bind the update function to input events on all related hectare and are inputs
+$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+
+// Initialize the fields correctly on page load
+updateFields();
     //**********************************************Farouk Touil end  ******************************************************* */
 
 
