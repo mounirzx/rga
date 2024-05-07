@@ -3255,12 +3255,17 @@ $(document).ready(function(){
              <br>
              <br>
              <div class="row">
-                <div class="col-3"></div>
+               <div class="col-3"></div>
+               <div class="col" style="text-align:center;"> <u>العدد - Nombre de sujets</u> </div>
+             </div>
+             <br>
+             <div class="row">
+                <div class="col-5"></div>
                 <div class="col">
-                   (العدد - Nombre de sujets) <br> البيض - Ponte
+                   البيض - Ponte
                 </div>
                 <div class="col">
-                   (العدد - Nombre de sujets) <br> اللحم - Chair
+                  اللحم - Chair
                 </div>
              </div>
              <table class="table table-sm">
@@ -3272,41 +3277,64 @@ $(document).ready(function(){
   
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Poules</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الدجاج</p>
+                      <p style="margin: 0px 0px 0px 80px;">Poules</p>
+                      <p style="margin: 0px 0px 0px 80px;"> الدجاج</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
+                           <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
+                            </div>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
+                            </div>
+                      
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Dindes</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الديك الرومي</p>
+                      <p style="margin: 0px 0px 0px 80px;">Dindes</p>
+                      <p style="margin: 0px 0px 0px 80px;"> الديك الرومي</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
+                            </div>
+                     
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
+                            </div>
+                      
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
                       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Autre aviculture</p>
-                         <p style="margin: 0px 0px 0px 25px;"> دواجن أخرى</p>
+                      <p style="margin: 0px 0px 0px 80px;">Autre aviculture</p>
+                         <p style="margin: 0px 0px 0px 80px;"> دواجن أخرى</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
-                      </td>
+                      
+                      <div class="input-group input-group-sm">
+
+                            <input  num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
+                            </div>
+                      
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
-                      </td>
+                      <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
+                            </div>
+                     
+                           </td>
                    </tr>
                 </tbody>
              </table>
