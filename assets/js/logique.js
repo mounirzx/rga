@@ -192,10 +192,11 @@ function toggleElements($elements, disabled) {
 
 
   
-  function handleInputComparison(inputId1, inputId2, errorMessage) {
+  function handleInputComparisonEqualOrBigger(inputId1, inputId2, errorMessage) {
     $(inputId1 + ', ' + inputId2).on('input', function() {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
+        console.log('val1: '+inputValue2+" val2: "+inputValue2)
         if (inputValue1 >= inputValue2) {
             Swal.fire({
                 icon: 'error',
@@ -218,29 +219,50 @@ handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le no
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
 // 92 dont pleins <= Ruches Traditionnelles
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+//  117 <= 64
+function calculateTotalSupIrrigation() {
+    var totalAres = 0;
+    // Loop through each input field for adults and children
+    $('#formContainer2 .row').each(function() {
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        totalAres += ares;
+    });
+    return totalAres;
 
+}
 function calculateTotalModeIrrigation() {
     var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
         // Parse the value as an integer and add it to the total
         total += parseInt($(this).val()) || 0;
     });
     return total;
 }
-
-function calculateTotalModeIrrigation() {
-    var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
-        // Parse the value as an integer and add it to the total
-        total += parseInt($(this).val()) || 0;
-    });
-    return total;
+function compareIrrigationTotals() {
+    var totalAres = calculateTotalSupIrrigation();
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    // console.log("totalAres: "+totalAres);
+    // console.log("totalModeIrrigation: "+totalModeIrrigation);
+    if (totalAres <=  totalModeIrrigation) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite dépassée',
+            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+        });
+    }
 }
-var totalModeIrrigation=calculateTotalModeIrrigation();
-// handleInputComparisonEqualOrBigger( totalModeIrrigation,'#chapt_ruches_traditionnelles', "Le some de Dont pleines ne peut pas dépasser le somme  des modes d'irrigations");
+$(document).on('input', '[id^="superficie_are_"]', function() {
 
+
+    compareIrrigationTotals();
+});
+$(document).on('input', '.Mode_irrigation', function() {
+
+    compareIrrigationTotals();
+});
+
+// end  117 <= 64
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
