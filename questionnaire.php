@@ -2820,7 +2820,12 @@ $(document).ready(function(){
                   
                      function updateSelect7() {
                         var selectedValue = select7.value;
+                        console.log(selectedValue)
                         select27.disabled = (selectedValue != '1');
+                        if(selectedValue!="1"){
+                           select27.value=''
+                        }
+                       
                      }
   </script>
   <div class="input-group input-group-sm" >
