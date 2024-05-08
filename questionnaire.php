@@ -1567,7 +1567,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
@@ -2502,22 +2502,22 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            // console.log("This combination has already been selected in this row.");
-            // Swal.fire({
-            //     title: 'Attention!',
-            //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-            //     icon: 'warning',
-            //     confirmButtonText: 'OK'
-            // });
+            console.log("This combination has already been selected in this row.");
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
 
-            // // Reset all selects and inputs in this row
-            // $row.find('.code_culture_check').each(function() {
-            //     if ($(this).is('select')) {
-            //         $(this).val($(this).find('option:first').val());
-            //     } else {
-            //         $(this).val('');
-            //     }
-            // });
+            // Reset all selects and inputs in this row
+            $row.find('.code_culture_check').each(function() {
+                if ($(this).is('select')) {
+                    $(this).val($(this).find('option:first').val());
+                } else {
+                    $(this).val('');
+                }
+            });
         } else {
             // If the combination is unique, add it to the array
             selectedCombinations.push(rowIdentifier);
@@ -2820,12 +2820,7 @@ $(document).ready(function(){
                   
                      function updateSelect7() {
                         var selectedValue = select7.value;
-                        console.log(selectedValue)
                         select27.disabled = (selectedValue != '1');
-                        if(selectedValue!="1"){
-                           select27.value=''
-                        }
-                       
                      }
   </script>
   <div class="input-group input-group-sm" >
@@ -2980,10 +2975,8 @@ $(document).ready(function(){
                          var child_inputs1 = div_to_effect5.getElementsByTagName('input');
 
                          if(select5.value != '1'){
-                           console.log(child_inputs1)
                              for (var i = 0; i < child_inputs1.length; i++) {
                                  child_inputs1[i].disabled = true;
-                                 child_inputs1[i].checked = false;
                              }
                          }else{
                              for (var i = 0; i < child_inputs1.length; i++) {
