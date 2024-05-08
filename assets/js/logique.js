@@ -1,17 +1,18 @@
 $(document).ready(function() {
      $('#type_activite_exploitation').prop('disabled', true); // [36]
-      $('#reseau_telephonique').prop('disabled', true); // [39]
+     // $('#reseau_telephonique').prop('disabled', true); // [39]
      $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
-
+     $('#si_exploi_eai_eac').prop('disabled', true); 
      
   
       $('#activite_exploitation').change(function() { // [35]
           var selectedValue = $(this).val();
           if (selectedValue === "1") {
-              $('#chapt_animals').hide(); // [VI]
-              $('#type_activite_exploitation').prop('disabled', true); // [36]
-          } else if (selectedValue === "2" || selectedValue === "3") {
-              $('#chapt_animals').show(); // [VI]
+            $('#ui_vaccins').prop('disabled', true); //
+              $('#ui_medicaments_veterinaires').prop('disabled', true); //
+              $('#type_activite_exploitation').prop('disabled', true); //
+          }else if(selectedValue === "2") {
+             // $('#chapt_animals').show(); // [VI]
               $('#type_activite_exploitation').prop('disabled', false); // [36]
           }
       });
@@ -475,7 +476,7 @@ $('#nom_exploitant,#prenom_exploitant,#adress_exploitant, #nom_exploitation ').o
  // 16 Mapping from first dropdown value to acceptable values for the second dropdown
  var dropdownMapping = {
     '1': ['1'],       // Values for 16 (1) -> 17 (1)
-    '2': ['2', '3', '4', '5', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
+    '2': ['2', '3', '4', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
     '3': ['2', '3', '4', '5', '9'],  // Repeated as specified
     '4': ['2', '3', '4', '5', '9'],  // Repeated as specified
     '5': ['6', '7', '8']             // Values for 16 (5) -> 17 (6,7,8)
@@ -532,6 +533,18 @@ $('#exploitant').on('change', function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // $('#origine_des_terres').on('change', function() {
 //     var selectedValue = $(this).val(); // Get the selected value from the first dropdown
 //     if (selectedValue !== '6') { // Check if the selected value is not '6'
@@ -581,41 +594,45 @@ $('#exploitant').on('change', function() {
 //     $('#access_mode').html(accessOptions);
 // });
 
-$('#origine_des_terres').on('change', function() {
-    var selectedValue = $(this).val();
-    if (selectedValue !== '6') {  // Check if the selected value is not '6'
-        $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
-        $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
-    } else {
-        $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
-    }
+
+
+// Handler for changes in 'origine_des_terres'
+$(document).on('change', '[id^="origine_des_terres"]', function() {
+    updateControlsBasedOnConditions($(this));
 });
 
-
+// Handler for changes in 'status_juridique'
 $(document).on('change', '[id^="status_juridique"]', function() {
-    // Extract the unique identifier suffix from the ID
-    var suffix = this.id.match(/\d+$/)[0]; // Matches the number at the end of the ID
-
-    // Get the value from the corresponding 'origine_des_terres' dropdown
-    var origineValue = $('#origine_des_terres_' + suffix).val();
-    var statusValue = $(this).val();
-
-    // Define the specific conditions under which the alert should be displayed
-    if (origineValue === '6' && statusValue === '2') {
-        $('#reference_cadastrale').prop('disabled', false); 
-          $('#si_exploi_eac').prop('disabled', false); 
-          $('#exploi_superficie_hec').prop('disabled', false); 
-          $('#exploi_superficie_are').prop('disabled', false);
-    }else{
-
-        $('#reference_cadastrale').prop('disabled', true); 
-          $('#si_exploi_eac').prop('disabled', true); 
-          $('#exploi_superficie_hec').prop('disabled', true); 
-          $('#exploi_superficie_are').prop('disabled', true);
-
-    }
+    updateControlsBasedOnConditions($(this));
 });
 
+// Function to update control states based on specific conditions
+function updateControlsBasedOnConditions($changedElement) {
+    var suffix = $changedElement.attr('id').match(/\d+$/)[0];  // Get the suffix from the ID
+    var origineValue = $('#origine_des_terres_' + suffix).val();
+    var statusValue = $('#status_juridique_' + suffix).val();
+
+    var siExploiField = $('#si_exploi_eai_eac');
+    var referenceCadastraleField = $('#reference_cadastrale_' + suffix);
+    var siExploiEacField = $('#si_exploi_eac_' + suffix);
+    var exploiSuperficieHecField = $('#exploi_superficie_hec_' + suffix);
+    var exploiSuperficieAreField = $('#exploi_superficie_are_' + suffix);
+
+    // Check conditions to enable/disable fields
+    if (origineValue === '6' && (statusValue == '2' || statusValue == '3')) {
+        siExploiField.prop('disabled', false);
+        referenceCadastraleField.prop('disabled', false);
+        siExploiEacField.prop('disabled', false);
+        exploiSuperficieHecField.prop('disabled', false);
+        exploiSuperficieAreField.prop('disabled', false);
+    } else {
+        siExploiField.prop('disabled', true);
+        referenceCadastraleField.prop('disabled', true);
+        siExploiEacField.prop('disabled', true);
+        exploiSuperficieHecField.prop('disabled', true);
+        exploiSuperficieAreField.prop('disabled', true);
+    }
+}
 
 $('#exploit_est_un_bloc').on('change', function() {
     // Retrieve the selected value from the dropdown
@@ -623,10 +640,10 @@ $('#exploit_est_un_bloc').on('change', function() {
 
     // Check if the selected value is '2' (Non)
     if (selectedValue === '2') {
-          $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
-          $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
+        $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
     } else {
-          $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
+        $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
+        $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
     }
  });
 
@@ -706,7 +723,7 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 
             // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
             if (intercalaireField.val()) {
-                $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
+                $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
                 $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
                
               
@@ -741,6 +758,14 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 /*********************************************************************************************************** */
 /*********************************************************************************************************** */
 /*********************************************************************************************************** */
+
+ // Unbind any previously attached click events to prevent multiple bindings
+
+
+
+
+
+
 
 
 
@@ -784,12 +809,115 @@ $('#formContainer2 .row').each(function() {
     checkAndDisableIntercalaire($(this));
 });
 
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+
+function updateSurfaceFields() {
+    var rules = [
+        { idPrefix: 'bergerie', nombreThreshold: 0, cultureCodes: [96] }, // Ovins with brebis
+        { idPrefix: 'etable', nombreThreshold: 0, cultureCodes: [97], additionalCriteria: ['BLM', 'BLA', 'BLL'] }, // Bovins with BLM, BLA, BLL
+        { idPrefix: 'ecurie_de_chevaux', nombreThreshold: 0, cultureCodes: [98] }, // Equin with juments
+        { idPrefix: 'poulailler_batis_en_dur', nombreThreshold: 0, cultureCodes: [99, 100] }, // Poules, chair et ponte
+        { idPrefix: 'poulailler_sous_serre', nombreThreshold: 0, cultureCodes: [99, 100] } // Poules, chair et ponte
+    ];
+
+    rules.forEach(function(rule) {
+        var nombre = parseInt($('#' + rule.idPrefix + '_nombre').val(), 10);
+        var surfaceInput = $('#' + rule.idPrefix + '_surface');
+        var isValid = nombre > rule.nombreThreshold;
+        var isSelected = false;
+
+        // Check for specific culture codes if applicable
+        if (rule.cultureCodes) {
+            var cultureValue = parseInt($('#code_culture_1').val(), 10);
+            isSelected = rule.cultureCodes.includes(cultureValue);
+        }
+
+        // Apply additional criteria for specific codes (example: BLM, BLA, BLL)
+        if (rule.additionalCriteria) {
+            isSelected = rule.additionalCriteria.includes($('#additional_criteria_field').val());
+        }
+
+        // Enable or disable the surface input based on the criteria
+        if (isValid && isSelected) {
+            surfaceInput.prop('disabled', false);
+        } else {
+            surfaceInput.prop('disabled', true);
+            surfaceInput.val(''); // Optionally clear the value
+        }
+    });
+}
+
+// Initialize fields on document ready to ensure they are set correctly when the page loads
+$(document).ready(function() {
+    updateSurfaceFields();
+});
+
+// Bind the update function to input events on all related hectare and are inputs
+$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateSurfaceFields);
 
 
 
 
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+
+var selectedValues = []; // Array to hold unique combinations of selected values
+
+    // Listen for changes on any select elements within formContainer3
+    $('#formContainer3').on('change', 'select', function() {
+        var $row = $(this).closest('.row'); // Get the closest parent row of the changed select
+        var codeMateriel = $row.find('[id^="code_materiel"]').val();
+        var modeMobilisation = $row.find('[id^="ee_mode_mobilisation_materiel"]').val();
+        var modeExploitation = $row.find('[id^="ee_mode_exploitation_materiel"]').val();
+
+        // Form a unique identifier using the selected values
+        var identifier = codeMateriel + '|' + modeMobilisation + '|' + modeExploitation;
+
+        // Remove error class from all selects in the row
+        $row.find('select').removeClass('error');
+
+        // Check if the identifier is already used
+        if (selectedValues.includes(identifier)) {
+            console.log("Combination already selected: " + identifier);
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette combinaison de valeurs est déjà sélectionnée. Veuillez choisir une autre combinaison.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            // Add error class back to selects
+            $row.find('select').addClass('error');
+            // Optionally reset the current select to its default state
+            $(this).val($(this).find('option:first').val());
+        } else {
+            // If the combination is new, add it to the array
+            selectedValues.push(identifier);
+        }
+    });
+
+    // Example: Dynamically add rows and handle them
+    $('#addForm3').on('click', function() {
+        var newRow = $('#formContainer3 .row:first').clone();
+        newRow.find('input, select').val('').removeClass('error');
+        newRow.find('select').attr('id', function(i, val) {
+            return val.replace(/\d+$/, function(n) { return parseInt(n) + 1; });
+        });
+        $('#formContainer3').append(newRow);
+    });
 
 
+    // code_materiel
+    // code_materiel_nombre
+    // ee_mode_mobilisation_materiel
 
 
     //**********************************************Farouk Touil end  ******************************************************* */
