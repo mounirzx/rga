@@ -442,9 +442,7 @@ function updateSAU() {
         totalHectares += (parseFloat($(this).val()) || 0) / 100;
     });
 
-    // Update the SAU field and alert the total
-    $('#superficie_agricole_utile_sau_1').val(totalHectares.toFixed(2));
-    console.log('Total hectares: ' + totalHectares.toFixed(2));
+ 
 }
 
 // Trigger update on input changes
@@ -492,15 +490,22 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
             if (intercalaireField.val()) {
                 $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
                 $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+               
               
                 
             } else {
                 $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+                $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
             }
         });
 
         if (totalHectares > 2.99 * SAU) {
-            alert('The total area exceeds 2.99 times the SAU.');
+           
+            Swal.fire({
+                icon: 'error',
+                title: 'Limite dépassée',
+                text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
+            });
         }
 
         console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
