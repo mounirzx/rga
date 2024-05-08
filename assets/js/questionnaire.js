@@ -549,12 +549,20 @@ console.log(superficie_agricole_utile_sau_4)
 
 
 
+    var commonOptionsForUniqueExploitant = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+    '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="14" BoldText>14 - Héritage ورث</option>' +
+    '<option value="15" BoldText>15 - Donation هبة</option>' +
+    '<option value="16" BoldText>16 - Testament وصية</option>' +
+    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>';
 
     /*************************************************** */
     //origine des terres
 
     var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
     '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="14" BoldText>14 - Héritage ورث</option>' +
     '<option value="15" BoldText>15 - Donation هبة</option>' +
     '<option value="16" BoldText>16 - Testament وصية</option>' +
     '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
@@ -565,7 +573,7 @@ console.log(superficie_agricole_utile_sau_4)
       "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
       "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
       "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-      "5": '<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>',
+      "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
       "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
       "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
       "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
@@ -575,7 +583,10 @@ console.log(superficie_agricole_utile_sau_4)
 
 // Use listOrigineTerre in your dropdown manipulations
 
+$('#exploitant').on('change', function() {
+  var exploitantSelectedValue = $(this).val();
 
+});
 
     /*************************************************/
 
@@ -587,7 +598,8 @@ console.log(superficie_agricole_utile_sau_4)
     function filterByKey(prefix) {
       var filteredObj = {};
       Object.keys(listOrigineTerre).forEach(function(key) {
-          if (key.startsWith(prefix)) {
+
+      if (key.startsWith(prefix)) {
               filteredObj[key] = listOrigineTerre[key];
           }
       });
