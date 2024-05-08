@@ -359,15 +359,15 @@ $('#niveau_instruction').on('change', function() {
         $('#niveau_formation_agricole').val(validOptions[0]);
     }
 });
-$('#nin_exploitant').on('input', function() {
-    // Remove non-digit characters
-    this.value = this.value.replace(/[^0-9]/g, '');
+// $('#nin_exploitant').on('input', function() {
+//     // Remove non-digit characters
+//     this.value = this.value.replace(/[^0-9]/g, '');
 
-    // Limit to 18 characters (extra safety layer)
-    if (this.value.length > 18) {
-        this.value = this.value.slice(0, 18);
-    }
-});
+//     // Limit to 18 characters (extra safety layer)
+//     if (this.value.length > 18) {
+//         this.value = this.value.slice(0, 18);
+//     }
+// });
 
 
 
@@ -543,50 +543,112 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 });
 
 // Dropdown change events for handling specific conditions
-function updateFields() {
-    var totalHectares = 0;
-    var totalAres = 0;
-    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-    $('#formContainer2 .row').each(function() {
-        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        var cultureCode = parseInt($(this).find('.code_culture_s').val());
-        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+    function updateFields() {
+        var totalHectares = 0;
+        var totalAres = 0;
+        var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-        totalHectares += hectares;
-        totalAres += ares;
+        $('#formContainer2 .row').each(function() {
+            var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+            var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+            var cultureCode = parseInt($(this).find('.code_culture_s').val());
+            var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-        // Convert total ares to hectares for calculation
-        totalHectares += totalAres / 100;
+            totalHectares += hectares;
+            totalAres += ares;
 
-        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-            intercalaireField.val('').prop('disabled', true);
-        } else {
-            intercalaireField.prop('disabled', false);
+            // Convert total ares to hectares for calculation
+            totalHectares += totalAres / 100;
+
+            // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+            if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+                intercalaireField.val('').prop('disabled', true);
+            } else {
+                intercalaireField.prop('disabled', false);
+            }
+
+            // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+            if (intercalaireField.val()) {
+                $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
+                $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+              
+                
+            } else {
+                $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+            }
+        });
+
+        if (totalHectares > 2.99 * SAU) {
+            alert('The total area exceeds 2.99 times the SAU.');
         }
 
-        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-        if (intercalaireField.val()) {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
-        } else {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-        }
-    });
-
-    if (totalHectares > 2.99 * SAU) {
-        alert('The total area exceeds 2.99 times the SAU.');
+        console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
     }
 
-    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+    // Bind the update function to input events on all related hectare and are inputs
+    $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+
+    // Initialize the fields correctly on page load
+    updateFields();
+
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+
+
+
+  // Function to check and set the disabled property for en_intercalaire based on the crop code
+  function checkAndDisableIntercalaire($row) {
+    var cropCode = parseInt($row.find('.code_culture_s').val());
+    var isArboriculture = (cropCode >= 44 && cropCode <= 70);
+    $row.find('[id^="en_intercalaire"]').prop('disabled', !isArboriculture);
 }
 
-// Bind the update function to input events on all related hectare and are inputs
-$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+// When the crop culture select changes, check and potentially disable the intercalaire field
+$('#formContainer2').on('change', '.code_culture_s', function() {
+    var $row = $(this).closest('.row');
+    checkAndDisableIntercalaire($row);
+});
 
-// Initialize the fields correctly on page load
-updateFields();
+// Check when other fields are updated
+$('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
+    var $row = $(this).closest('.row');
+    var hectares = $row.find('[id^="superficie_hec_"]').val();
+    var ares = $row.find('[id^="superficie_are_"]').val();
+    var intercalaireInput = $row.find('[id^="en_intercalaire"]');
+
+    // Disable en_intercalaire if both hectares and ares fields have values
+    if (hectares && ares) {
+        intercalaireInput.prop('disabled', true);
+    } else {
+        checkAndDisableIntercalaire($row); // Re-check if it should be enabled based on crop code
+    }
+
+    // Disable hectares and ares if intercalaire has a value
+    if (intercalaireInput.val()) {
+        $row.find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', true);
+    } else {
+        $row.find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+    }
+});
+
+// Initialize all rows on document ready
+$('#formContainer2 .row').each(function() {
+    checkAndDisableIntercalaire($(this));
+});
+
+
+
+
+
+
+
+
+
     //**********************************************Farouk Touil end  ******************************************************* */
 
 
