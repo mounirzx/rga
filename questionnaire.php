@@ -2980,8 +2980,10 @@ $(document).ready(function(){
                          var child_inputs1 = div_to_effect5.getElementsByTagName('input');
 
                          if(select5.value != '1'){
+                           console.log(child_inputs1)
                              for (var i = 0; i < child_inputs1.length; i++) {
                                  child_inputs1[i].disabled = true;
+                                 child_inputs1[i].checked = false;
                              }
                          }else{
                              for (var i = 0; i < child_inputs1.length; i++) {
