@@ -513,6 +513,7 @@ updateFields();
 
     /***************************************************************** wissem start*********************************************************************** */
     $('#nin_exploitant').blur(function(){
+        console.log('gg')
         var inputLength = $(this).val().length;
         if (inputLength < 18) {
             // If length is less than 18, display an error message or perform any other action.
