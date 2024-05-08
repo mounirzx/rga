@@ -2502,22 +2502,22 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            console.log("This combination has already been selected in this row.");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+            // console.log("This combination has already been selected in this row.");
+            // Swal.fire({
+            //     title: 'Attention!',
+            //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
 
-            // Reset all selects and inputs in this row
-            $row.find('.code_culture_check').each(function() {
-                if ($(this).is('select')) {
-                    $(this).val($(this).find('option:first').val());
-                } else {
-                    $(this).val('');
-                }
-            });
+            // // Reset all selects and inputs in this row
+            // $row.find('.code_culture_check').each(function() {
+            //     if ($(this).is('select')) {
+            //         $(this).val($(this).find('option:first').val());
+            //     } else {
+            //         $(this).val('');
+            //     }
+            // });
         } else {
             // If the combination is unique, add it to the array
             selectedCombinations.push(rowIdentifier);
