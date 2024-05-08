@@ -660,7 +660,7 @@ $('#formContainer2 .row').each(function() {
         if (inputLength < 18) {
             // If length is less than 18, display an error message or perform any other action.
             $('#error_message').text('le nin doit etre 18 characters.');
-            ('#nin_exploitant').css('border','2px solid red')
+            $('#nin_exploitant').css('border','2px solid red')
         } else {
             // If length is 18 or more, clear the error message.
             $('#error_message').text('');
