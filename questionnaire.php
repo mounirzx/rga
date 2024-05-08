@@ -1261,16 +1261,16 @@ $(document).ready(function(){
 
         // Check if this combination already exists in the array
         if($.inArray(cc, selectedValues) !== -1){
-            // console.log("This combination of values has already been selected.");
-            // Swal.fire({
-            //    title: 'Attention!',
-            //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-            //     icon: 'warning',
-            //     confirmButtonText: 'OK'
-            // });
-            // $('#origine_des_terres_' + idPart).addClass('error');
-            // $('#status_juridique_' + idPart).addClass('error');
-            // $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+            console.log("This combination of values has already been selected.");
+            Swal.fire({
+               title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            $('#origine_des_terres_' + idPart).addClass('error');
+            $('#status_juridique_' + idPart).addClass('error');
+            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
         } else {
             // If the combination is unique, add it to the array and ensure no error class is present
             selectedValues.push(cc);
@@ -1567,7 +1567,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
              
                  
                      
@@ -2502,22 +2502,22 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            console.log("This combination has already been selected in this row.");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+            // console.log("This combination has already been selected in this row.");
+            // Swal.fire({
+            //     title: 'Attention!',
+            //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
 
-            // Reset all selects and inputs in this row
-            $row.find('.code_culture_check').each(function() {
-                if ($(this).is('select')) {
-                    $(this).val($(this).find('option:first').val());
-                } else {
-                    $(this).val('');
-                }
-            });
+            // // Reset all selects and inputs in this row
+            // $row.find('.code_culture_check').each(function() {
+            //     if ($(this).is('select')) {
+            //         $(this).val($(this).find('option:first').val());
+            //     } else {
+            //         $(this).val('');
+            //     }
+            // });
         } else {
             // If the combination is unique, add it to the array
             selectedCombinations.push(rowIdentifier);
@@ -2568,61 +2568,41 @@ $(document).ready(function(){
 
 
 
-document.getElementById('addForm2').addEventListener('click', function() {
-    const formContainer = document.getElementById('formContainer2');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
-
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
-        var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
-        var newIndex = formContainer.children.length; // New index based on the number of existing rows
-        element.id = baseId + '_' + newIndex;
-        element.name = baseId + '_' + newIndex;
-        element.removeAttribute('disabled'); // Remove "disabled" attribute if present
-
-        if (element.tagName === 'SELECT') {
-            element.selectedIndex = 0; // Reset select element to default value
-            // Add an event listener to enforce selection
-            element.addEventListener('blur', function() {
-                if (this.value === "-" || this.value === "") {
-                    Swal.fire({
-                        title: 'Attention !',
-                        text: 'Veuillez faire une sélection avant de continuer.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#3085d6'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            this.focus(); // Refocus on the dropdown if user closes the alert
-                        }
-                    });
-                }
-            });
-        } else if (element.type === 'text') {
-            element.value = ''; // Clear input text fields
-        }
-    });
-
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-    removeButton.addEventListener('click', function() {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
-
-    formContainer.appendChild(formRow);
-
-    // Focus on the 'code_culture' select element in the newly added row
-    formRow.querySelector('.code_culture_s').focus();
-
-    // Optionally call any other functions that need to reinitialize settings or bindings
-});
 
 
+               document.getElementById('addForm2').addEventListener('click', function () {
+                   const formContainer = document.getElementById('formContainer2');
+                   const formRow = formContainer.firstElementChild.cloneNode(true);
+           
+                   // Generate unique IDs and names for the cloned form elements
+                   formRow.querySelectorAll('[id], [name]').forEach(function (element) {
+                       element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
+                       element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
+                       // Remove the "disabled" attribute if present
+                       element.removeAttribute('disabled');
+                     });
+                     
+                     // Remove the add button from the cloned row and add a remove button
+                     const removeButton = document.createElement('button');
+                     removeButton.textContent = '-';
+                     removeButton.type = 'button';
+                     removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+                     removeButton.addEventListener('click', function () {
+                       formRow.remove();
+                     });
+                     formRow.querySelector('.d-grid').innerHTML = '';
+                   formRow.querySelector('.d-grid').appendChild(removeButton);
+                   
+                   formContainer.appendChild(formRow);
+                   
+                   // Enable the cloned input elements inside the replicated HTML code
+                   formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
+                      inputElement.removeAttribute('disabled');
+                     });
+                  
+       
+                     restrictInputToDoubles();
+                  });
                   </script> <!-- TODO -->
     </div>
     
@@ -2840,7 +2820,12 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   
                      function updateSelect7() {
                         var selectedValue = select7.value;
+                        console.log(selectedValue)
                         select27.disabled = (selectedValue != '1');
+                        if(selectedValue!="1"){
+                           select27.value=''
+                        }
+                       
                      }
   </script>
   <div class="input-group input-group-sm" >
@@ -2995,8 +2980,10 @@ document.getElementById('addForm2').addEventListener('click', function() {
                          var child_inputs1 = div_to_effect5.getElementsByTagName('input');
 
                          if(select5.value != '1'){
+                           console.log(child_inputs1)
                              for (var i = 0; i < child_inputs1.length; i++) {
                                  child_inputs1[i].disabled = true;
+                                 child_inputs1[i].checked = false;
                              }
                          }else{
                              for (var i = 0; i < child_inputs1.length; i++) {
@@ -5175,8 +5162,8 @@ Petite et Moyenne Hydraulique
 <div class="card-body">
 
 <div class="form-check">
-   <input class="form-check-input bneder" id="ui_vaccins" name="ui_vaccins" type="checkbox">
-   <label class="form-check-label" for="ui_vaccins">
+   <input class="form-check-input bneder" id="flexCheckDefault2112" name="ui_vaccins" type="checkbox">
+   <label class="form-check-label" for="flexCheckDefault2112">
    اللقاحات
        <br>
        Vaccins
@@ -5184,8 +5171,8 @@ Petite et Moyenne Hydraulique
 </div>
 <br>
 <div class="form-check">
-   <input class="form-check-input bneder" id="ui_medicaments_veterinaires" name="ui_medicaments_veterinaires" type="checkbox">
-   <label class="form-check-label" for="ui_medicaments_veterinaires">
+   <input class="form-check-input bneder" id="flexCheckDefault22212" name="ui_medicaments_veterinaires" type="checkbox">
+   <label class="form-check-label" for="flexCheckDefault22212">
    الأدوية البيطرية
 
 
