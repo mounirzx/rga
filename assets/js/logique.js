@@ -148,7 +148,25 @@ $('#forage, #puits, #source').change(function() {
                   text: 'Le nombre total de membres de la famille ne peut pas dépasser ' + maxPersons,
               });
           $(this).val(''); // Clear the input field
+
       }
+
+      var ma_adultes_plus_15_ans_m = $('#ma_adultes_plus_15_ans_m').val();
+      var ma_adultes_plus_15_ans_f = $('#ma_adultes_plus_15_ans_f').val();
+      var ma_enfants_moins_15_ans_m = $('#ma_enfants_moins_15_ans_m').val();
+      var ma_enfants_moins_15_ans_f = $('#ma_enfants_moins_15_ans_f').val();
+      if(ma_adultes_plus_15_ans_m!="" && ma_adultes_plus_15_ans_f!="" && ma_enfants_moins_15_ans_m!="" && ma_enfants_moins_15_ans_f){
+         if(totalFamilyMembers < maxPersons){
+            Swal.fire({
+                icon: 'error',
+                title: 'Insuffisant',
+                text: 'Le nombre total de membres de la famille ne peut pas être inférieur à ' + maxPersons + '.'
+            });
+        $(this).val(''); // Clear the input field
+    
+          }
+      }
+
   });
   
 
