@@ -263,6 +263,64 @@ $(document).on('input', '.Mode_irrigation', function() {
 });
 
 // end  117 <= 64
+
+
+
+
+
+
+// Input event handler for chapt_bovins and related input fields
+var lastEditedInputs = [];
+var lastEditedInput ;
+
+$(document).on('blur', '#chapt_bovins, [id^="chapt_dont_vaches_laitieres_blm"], [id^="chapt_dont_vaches_laitieres_bla"], [id^="chapt_dont_vaches_laitieres_bll"]', function() {
+    // Update the last edited input fields reference
+    lastEditedInputs = $('[id^="chapt_dont_vaches_laitieres_blm"], [id^="chapt_dont_vaches_laitieres_bla"], [id^="chapt_dont_vaches_laitieres_bll"], #chapt_bovins');
+    // Update the last edited input fields reference
+    lastEditedInput = $(this);
+    compareBovinsTotals();
+});
+
+// Compare the total number of bovins to the maximum number of bovins
+function compareBovinsTotals() {
+    var maxBovins = parseInt($('#chapt_bovins').val()) || 0; // Get the maximum number of bovins
+    var totalBovins = calculateTotalBovins(); 
+    if (maxBovins < totalBovins) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite dépassée',
+            text: "Le total des vaches laitières ne peut pas dépasser le total des bovins.",
+            didClose: function() {
+                // Add a red border to the last edited input fields
+                lastEditedInput.focus();
+                lastEditedInputs.css('border', '2px solid red');    
+                lastEditedInput.val('');
+            }
+        });
+    } else {
+        // Remove the red border from the last edited input fields
+        lastEditedInputs.css('border', '');
+    }
+}
+
+// Clear the red border when retyping on the inputs
+$(document).on('input', '[id^="chapt_dont_vaches_laitieres_blm"], [id^="chapt_dont_vaches_laitieres_bla"], [id^="chapt_dont_vaches_laitieres_bll"]', function() {
+    // Remove the red border from the last edited input fields
+    lastEditedInputs.css('border', '');
+})
+// Calculate the total number of bovins
+function calculateTotalBovins() {
+    var total = 0;
+    // Loop through each input field for bovins
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+
+
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 

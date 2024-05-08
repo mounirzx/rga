@@ -882,7 +882,7 @@ Sexe</span>
   </select>
 </div><br>
 <div class="row">
-  <div class="col">
+<div class="col">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
         الإحداثيات الجغرافية للمستثمرة<br>
@@ -890,12 +890,12 @@ Sexe</span>
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select  style="max-width: 30px;" class="form-control  bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
-              +
+            +
             </option>
             <option value="OUEST">
-              -
+            -
             </option>
           </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
@@ -3016,59 +3016,58 @@ $(document).ready(function(){
 
 
 
-            <div class="card" style="font-size: 12px;">
-                <div class="card-body">
-                   <div class="row">
-                      <div class="col">
-                         <div class="err" id="chapt_bovins_error"></div>
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 152px">
+   <div id="relatedInputs">
+    <div class="card" style="font-size: 12px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="err" id="chapt_bovins_error"></div>
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3" style="width: 152px">
                             الأبقار
                             <br> Bovins
-                            </span>
-                               <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
-                         </div>
-                      </div>
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                        </span>
+                        <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المتطورة
                             <br> Dont vaches laitières BLM
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
-                         </div>
-                      </div>
-                   </div>
-                   <br>
-                   <div class="row">
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المحسنة
                             <br> Dont vaches laitières BLA
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
-                         </div>
-                      </div>
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
                             منها الأبقار الحلوب المحلية
                             <br> Dont vaches laitières BLL
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
-                         </div>
-                      </div>
-                   </div>
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll">
+                    </div>
                 </div>
-             </div>
-             
-
-
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -5892,7 +5891,7 @@ document.getElementById('submitDate').click();
 </script>
 
 
-<script>
+<!-- <script>
     
 
     
@@ -6012,7 +6011,7 @@ document.getElementById('submitDate').click();
    });
 </script>
 
-
+ -->
 
 
              
