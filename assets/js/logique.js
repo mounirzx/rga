@@ -1,20 +1,78 @@
 $(document).ready(function() {
-     $('#type_activite_exploitation').prop('disabled', true); // [36]
+    // $('#type_activite_exploitation').prop('disabled', true); // [36]
      // $('#reseau_telephonique').prop('disabled', true); // [39]
      $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
      $('#si_exploi_eai_eac').prop('disabled', true); 
      
   
+
+
+     $('#ui_medicaments_veterinaires').prop('disabled', true);
+    //  ui_semences_selectionnees
+    //  ui_semences_certifiees
+    //  ui_semences_de_la_ferme
+    //  ui_bio
+    //  ui_engrais_azotes
+    //  ui_engrais_phosphates
+    //  ui_autres_engrais_mineraux
+    //  ui_engrais_organique
+    //  ui_fumier
+    //  ui_produits_phytosanitaires
+
+
+
+
+
+
+
       $('#activite_exploitation').change(function() { // [35]
           var selectedValue = $(this).val();
           if (selectedValue === "1") {
             $('#ui_vaccins').prop('disabled', true); //
               $('#ui_medicaments_veterinaires').prop('disabled', true); //
-              $('#type_activite_exploitation').prop('disabled', true); //
+              //$('#type_activite_exploitation').prop('disabled', true); //
           }else if(selectedValue === "2") {
              // $('#chapt_animals').show(); // [VI]
-              $('#type_activite_exploitation').prop('disabled', false); // [36]
-          }
+              //$('#type_activite_exploitation').prop('disabled', false); // [36]
+              $('#ui_vaccins').prop('disabled', false); //
+              $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', true);
+            $('#ui_semences_certifiees').prop('disabled', true);
+            $('#ui_semences_de_la_ferme').prop('disabled', true);
+            $('#ui_bio').prop('disabled', true);
+            $('#ui_engrais_azotes').prop('disabled', true);
+            $('#ui_engrais_phosphates').prop('disabled', true);
+            $('#ui_autres_engrais_mineraux').prop('disabled', true);
+            $('#ui_engrais_organique').prop('disabled', true);
+            $('#ui_fumier').prop('disabled', true);
+            $('#ui_produits_phytosanitaires').prop('disabled', true);
+          }else if(selectedValue === "3") {
+            $('#ui_vaccins').prop('disabled', false); //
+            $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', false);
+            $('#ui_semences_certifiees').prop('disabled', false);
+            $('#ui_semences_de_la_ferme').prop('disabled', false);
+            $('#ui_bio').prop('disabled', false);
+            $('#ui_engrais_azotes').prop('disabled', false);
+            $('#ui_engrais_phosphates').prop('disabled', false);
+            $('#ui_autres_engrais_mineraux').prop('disabled', false);
+            $('#ui_engrais_organique').prop('disabled', false);
+            $('#ui_fumier').prop('disabled', false);
+            $('#ui_produits_phytosanitaires').prop('disabled', false);
+        }else{
+            $('#ui_vaccins').prop('disabled', false); //
+            $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', false);
+            $('#ui_semences_certifiees').prop('disabled', false);
+            $('#ui_semences_de_la_ferme').prop('disabled', false);
+            $('#ui_bio').prop('disabled', false);
+            $('#ui_engrais_azotes').prop('disabled', false);
+            $('#ui_engrais_phosphates').prop('disabled', false);
+            $('#ui_autres_engrais_mineraux').prop('disabled', false);
+            $('#ui_engrais_organique').prop('disabled', false);
+            $('#ui_fumier').prop('disabled', false);
+            $('#ui_produits_phytosanitaires').prop('disabled', false);
+        }
       });
   
       $('#type_activite_exploitation').change(function() { // [36]
@@ -724,7 +782,7 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
             // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
             if (intercalaireField.val()) {
                 $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-                $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+                $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
                
               
                 

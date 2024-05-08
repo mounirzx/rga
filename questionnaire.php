@@ -5043,8 +5043,8 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input name="ui_semences_selectionnees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1441">
-                     <label class="form-check-label" for="flexCheckDefault1441">
+                     <input name="ui_semences_selectionnees" class="form-check-input bneder" type="checkbox" id="ui_semences_selectionnees">
+                     <label class="form-check-label" for="ui_semences_selectionnees">
                          بذور منتقاة
                          <br>
                          Semences sélectionnées
@@ -5052,16 +5052,16 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input name="ui_semences_certifiees" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1552">
-                     <label class="form-check-label" for="flexCheckDefault1552">
+                     <input name="ui_semences_certifiees" class="form-check-input bneder" type="checkbox" id="ui_semences_certifiees">
+                     <label class="form-check-label" for="ui_semences_certifiees">
                          بذور معتمدة
                          <br>
                          Semences certifiées
                  </label></div>
                  <br>
                  <div class="form-check">
-                     <input name="ui_semences_de_la_ferme" class="form-check-input bneder" type="checkbox" id="flexCheckDefault1663">
-                     <label class="form-check-label" for="flexCheckDefault1663">
+                     <input name="ui_semences_de_la_ferme" id="ui_semences_de_la_ferme" class="form-check-input bneder" type="checkbox" >
+                     <label class="form-check-label" for="ui_semences_de_la_ferme">
                          بذور المزرعة
                          <br>
                          Semences de la ferme
@@ -5070,8 +5070,8 @@ Petite et Moyenne Hydraulique
                  <br>
 
                  <div class="form-check">
-                  <input class="form-check-input bneder" id="flexCheckDefault233" name="ui_bio" type="checkbox">
-                  <label class="form-check-label" for="flexCheckDefault233">
+                  <input class="form-check-input bneder" id="ui_bio" name="ui_bio" type="checkbox">
+                  <label class="form-check-label" for="ui_bio">
                       بيولوجية
                       <br>
                       Bio
@@ -5091,8 +5091,8 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault1774" name="ui_engrais_azotes" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault1774">
+                     <input class="form-check-input bneder" id="ui_engrais_azotes" name="ui_engrais_azotes" type="checkbox">
+                     <label class="form-check-label" for="ui_engrais_azotes">
                          أسمدة آزوتية
                          <br>
                          Engrais azotés
@@ -5100,8 +5100,8 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault188" name="ui_engrais_phosphates" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault188">
+                     <input class="form-check-input bneder" id="ui_engrais_phosphates" name="ui_engrais_phosphates" type="checkbox">
+                     <label class="form-check-label" for="ui_engrais_phosphates">
                          أسمدة فوسفاتية
                          <br>
                          Engrais phosphatés
@@ -5109,8 +5109,8 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault199" name="ui_autres_engrais_mineraux" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault199">
+                     <input class="form-check-input bneder" id="ui_autres_engrais_mineraux" name="ui_autres_engrais_mineraux" type="checkbox">
+                     <label class="form-check-label" for="ui_autres_engrais_mineraux">
                          أسمدة معدنية أخرى
                          <br>
                          Autres engrais minéraux
@@ -5131,8 +5131,8 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
 
                   <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault2110" name="ui_engrais_organique" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault2110">
+                     <input class="form-check-input bneder" id="ui_engrais_organique" name="ui_engrais_organique" type="checkbox">
+                     <label class="form-check-label" for="ui_engrais_organique">
                      أسمدة عضوية
                          <br>
                          Engrais organique
@@ -5140,8 +5140,8 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault22210" name="ui_fumier" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault22210">
+                     <input class="form-check-input bneder" id="ui_fumier" name="ui_fumier" type="checkbox">
+                     <label class="form-check-label" for="ui_fumier">
                          سماد
                          <br>
                          Fumier
@@ -5149,8 +5149,8 @@ Petite et Moyenne Hydraulique
                  </div>
                  <br>
                  <div class="form-check">
-                     <input class="form-check-input bneder" id="flexCheckDefault22211" name="ui_produits_phytosanitaires" type="checkbox">
-                     <label class="form-check-label" for="flexCheckDefault22211">
+                     <input class="form-check-input bneder" id="ui_produits_phytosanitaires" name="ui_produits_phytosanitaires" type="checkbox">
+                     <label class="form-check-label" for="ui_produits_phytosanitaires">
                          المُبيدات
                          <br>
                          Produits phytosanitaires
