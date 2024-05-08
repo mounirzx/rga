@@ -530,7 +530,7 @@ if ($_SESSION['role'] == "recenseur") {
 <span class="input-group-text" id="basic-addon3">الجنس
 <br />
 Sexe</span>
-<select class="form-select bneder"   name="sexe_exploitant"  >
+<select class="form-select bneder main_oeuvre" id="sexe_exploitant"  name="sexe_exploitant"  >
    <option value="-" disabled selected> 
    </option>
    <option  value="1"> Masculin - ذكر
@@ -764,7 +764,7 @@ Sexe</span>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder main_oeuvre" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
@@ -2983,7 +2983,7 @@ $(document).ready(function(){
                            console.log(child_inputs1)
                              for (var i = 0; i < child_inputs1.length; i++) {
                                  child_inputs1[i].disabled = true;
-                                 child_inputs1[i].checked = false;
+                                child_inputs[i].checked = false;
                              }
                          }else{
                              for (var i = 0; i < child_inputs1.length; i++) {
@@ -4289,30 +4289,30 @@ Petite et Moyenne Hydraulique
 <div class="row">
 <div class="col">
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault666" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault666">سد<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault666" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault666">سد<br>
          Barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
          Station d'épuration</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault888" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="flexCheckDefault888">مجموعة آبار عميقة<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault888" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="flexCheckDefault888">مجموعة آبار عميقة<br>
          Ensemble de forages</label>
        </div>
      </div>
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">سد صغير<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault1010" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">سد صغير<br>
          Petit barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">خزان التلال<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault1011" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">خزان التلال<br>
          Retenu collinaire</label>
        </div><br>
 <!-- herere -->
       <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_forage_collectif" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">بئر عميق جماعي<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault122" name="eau_forage_collectif" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">بئر عميق جماعي<br>
          Forage collectif </label>
       </div>
      <br>
@@ -4320,35 +4320,35 @@ Petite et Moyenne Hydraulique
  <!-- farouk touil -->
  <div class="col-4">
     <div class="form-check">
-        <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
+        <input class="form-check-input bneder pm_hydraulique" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
     
       </div><br>
     <div class="form-check">
-        <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
+        <input class="form-check-input bneder pm_hydraulique" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
     </div><br>
     <div class="form-check">
-        <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
+        <input class="form-check-input bneder pm_hydraulique" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -4358,19 +4358,19 @@ Petite et Moyenne Hydraulique
  <!-- farouk touil -->
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
          Pompage d'Oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">فيض الوادي<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault1011" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">فيض الوادي<br>
          Crues d'oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فوقارة<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فوقارة<br>
          Foggara</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">مصادر أخرى<br>
+         <input class="form-check-input bneder pm_hydraulique" id="flexCheckDefault122" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">مصادر أخرى<br>
          Autres</label>
        </div><br>
      </div>
@@ -4637,7 +4637,7 @@ Petite et Moyenne Hydraulique
 
                         <div class="input-group input-group-sm">
                           
-                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"  maxlength="3" num class="form-control bneder"  value="">
+                              <input id="in138" tb name="co_exploitants_y_compris_exploitant_principa_l"   maxlength="3" num class="form-control bneder"  value="">
                         
                           
                               <input id="in139" tb name="co_exploitants_y_compris_exploitant_principa_2"  maxlength="3" num class="form-control bneder"  value="">

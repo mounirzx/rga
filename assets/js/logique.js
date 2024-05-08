@@ -636,6 +636,49 @@ $('#formContainer2 .row').each(function() {
     //         $(this).css('border-color', 'red');
     //     }
     // });
+
+
+    $('#eau_exploitation_type_irrigation').change(function(){
+        $('.pm_hydraulique').prop('checked', false);
+    });
+
+
+
+    /**************** */
+    //28==>119
+
+$('.main_oeuvre').on('input', function(){
+
+    var sexe_exploitant = $('#sexe_exploitant').val(); 
+    var exploitant = $('#exploitant').val(); //
+
+
+    if (exploitant == 1) {
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
+    }else {
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
+    }
+    
+
+    if (sexe_exploitant !== null && exploitant !== null) {
+        console.log('not null ')
+        
+
+        if (sexe_exploitant == '1' && exploitant== '1') {
+           
+            $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
+
+        } else if(sexe_exploitant == '2' && exploitant== '1')
+            {
+            $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
+           
+        }
+    }
+});
+
+
     /****************************************************************** wissem end********************************************************************** */
 
 
