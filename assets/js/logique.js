@@ -873,46 +873,46 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
 var selectedValues = []; // Array to hold unique combinations of selected values
 
     // Listen for changes on any select elements within formContainer3
-    // $('#formContainer3').on('change', 'select', function() {
-    //     var $row = $(this).closest('.row'); // Get the closest parent row of the changed select
-    //     var codeMateriel = $row.find('[id^="code_materiel"]').val();
-    //     var modeMobilisation = $row.find('[id^="ee_mode_mobilisation_materiel"]').val();
-    //     var modeExploitation = $row.find('[id^="ee_mode_exploitation_materiel"]').val();
+    $('#formContainer3').on('change', 'select', function() {
+        var $row = $(this).closest('.row'); // Get the closest parent row of the changed select
+        var codeMateriel = $row.find('[id^="code_materiel"]').val();
+        var modeMobilisation = $row.find('[id^="ee_mode_mobilisation_materiel"]').val();
+        var modeExploitation = $row.find('[id^="ee_mode_exploitation_materiel"]').val();
 
-    //     // Form a unique identifier using the selected values
-    //     var identifier = codeMateriel + '|' + modeMobilisation + '|' + modeExploitation;
+        // Form a unique identifier using the selected values
+        var identifier = codeMateriel + '|' + modeMobilisation + '|' + modeExploitation;
 
-    //     // Remove error class from all selects in the row
-    //     $row.find('select').removeClass('error');
+        // Remove error class from all selects in the row
+        $row.find('select').removeClass('error');
 
-    //     // Check if the identifier is already used
-    //     if (selectedValues.includes(identifier)) {
-    //         console.log("Combination already selected: " + identifier);
-    //         Swal.fire({
-    //             title: 'Attention!',
-    //             text: 'Cette combinaison de valeurs est déjà sélectionnée. Veuillez choisir une autre combinaison.',
-    //             icon: 'warning',
-    //             confirmButtonText: 'OK'
-    //         });
-    //         // Add error class back to selects
-    //         $row.find('select').addClass('error');
-    //         // Optionally reset the current select to its default state
-    //         $(this).val($(this).find('option:first').val());
-    //     } else {
-    //         // If the combination is new, add it to the array
-    //         selectedValues.push(identifier);
-    //     }
-    // });
+        // Check if the identifier is already used
+        if (selectedValues.includes(identifier)) {
+            console.log("Combination already selected: " + identifier);
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette combinaison de valeurs est déjà sélectionnée. Veuillez choisir une autre combinaison.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            // Add error class back to selects
+            $row.find('select').addClass('error');
+            // Optionally reset the current select to its default state
+            $(this).val($(this).find('option:first').val());
+        } else {
+            // If the combination is new, add it to the array
+            selectedValues.push(identifier);
+        }
+    });
 
-    // // Example: Dynamically add rows and handle them
-    // $('#addForm3').on('click', function() {
-    //     var newRow = $('#formContainer3 .row:first').clone();
-    //     newRow.find('input, select').val('').removeClass('error');
-    //     newRow.find('select').attr('id', function(i, val) {
-    //         return val.replace(/\d+$/, function(n) { return parseInt(n) + 1; });
-    //     });
-    //     $('#formContainer3').append(newRow);
-    // });
+    // Example: Dynamically add rows and handle them
+    $('#addForm3').on('click', function() {
+        var newRow = $('#formContainer3 .row:first').clone();
+        newRow.find('input, select').val('').removeClass('error');
+        newRow.find('select').attr('id', function(i, val) {
+            return val.replace(/\d+$/, function(n) { return parseInt(n) + 1; });
+        });
+        $('#formContainer3').append(newRow);
+    });
 
 
     // code_materiel
