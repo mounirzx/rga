@@ -149,7 +149,25 @@ $('#forage, #puits, #source').change(function() {
                   text: 'Le nombre total de membres de la famille ne peut pas dépasser ' + maxPersons,
               });
           $(this).val(''); // Clear the input field
+
       }
+
+      var ma_adultes_plus_15_ans_m = $('#ma_adultes_plus_15_ans_m').val();
+      var ma_adultes_plus_15_ans_f = $('#ma_adultes_plus_15_ans_f').val();
+      var ma_enfants_moins_15_ans_m = $('#ma_enfants_moins_15_ans_m').val();
+      var ma_enfants_moins_15_ans_f = $('#ma_enfants_moins_15_ans_f').val();
+      if(ma_adultes_plus_15_ans_m!="" && ma_adultes_plus_15_ans_f!="" && ma_enfants_moins_15_ans_m!="" && ma_enfants_moins_15_ans_f){
+         if(totalFamilyMembers < maxPersons){
+            Swal.fire({
+                icon: 'error',
+                title: 'Insuffisant',
+                text: 'Le nombre total de membres de la famille ne peut pas être inférieur à ' + maxPersons + '.'
+            });
+        $(this).val(''); // Clear the input field
+    
+          }
+      }
+
   });
   
 
@@ -197,6 +215,7 @@ function toggleElements($elements, disabled) {
     $(inputId1 + ', ' + inputId2).on('input', function() {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
+        console.log('val1: '+inputValue2+" val2: "+inputValue2)
         if (inputValue1 >= inputValue2) {
             Swal.fire({
                 icon: 'error',
@@ -219,29 +238,228 @@ handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le no
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
 // 92 dont pleins <= Ruches Traditionnelles
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+//  117 <= 64
+function calculateTotalSupIrrigation() {
+    var totalAres = 0;
+    // Loop through each input field for adults and children
+    $('#formContainer2 .row').each(function() {
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        totalAres += ares;
+    });
+    return totalAres;
 
+}
 function calculateTotalModeIrrigation() {
     var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
         // Parse the value as an integer and add it to the total
         total += parseInt($(this).val()) || 0;
     });
     return total;
 }
-
-function calculateTotalModeIrrigation() {
-    var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
-        // Parse the value as an integer and add it to the total
-        total += parseInt($(this).val()) || 0;
-    });
-    return total;
+function compareIrrigationTotals() {
+    var totalAres = calculateTotalSupIrrigation();
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    // console.log("totalAres: "+totalAres);
+    // console.log("totalModeIrrigation: "+totalModeIrrigation);
+    if (totalAres <=  totalModeIrrigation) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite dépassée',
+            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+        });
+    }
 }
-var totalModeIrrigation=calculateTotalModeIrrigation();
-// handleInputComparisonEqualOrBigger( totalModeIrrigation,'#chapt_ruches_traditionnelles', "Le some de Dont pleines ne peut pas dépasser le somme  des modes d'irrigations");
+$(document).on('input', '[id^="superficie_are_"]', function() {
 
+
+    compareIrrigationTotals();
+});
+$(document).on('input', '.Mode_irrigation', function() {
+
+    compareIrrigationTotals();
+});
+
+// end  117 <= 64
+//124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
+// 126 Somme(Masculin + féminin) pour les 2 classes d'âge <= Nombre des membres du ou des ménage (s) actifs de l'exploitation (somme 124 masculin, féminin par type d'emploi)
+
+    // Function to check equality and apply border colors
+//     function checkEquality(exploitantInput, adultesInput, enfantsInput) {
+//         const exploitantValue = parseInt(exploitantInput.val()) || 0;
+//         const adultesValue = parseInt(adultesInput.val()) || 0;
+//         const enfantsValue = parseInt(enfantsInput.val()) || 0;
+//         const totalValue = adultesValue + enfantsValue;
+
+//         // Check if the values are not equal
+//         if (exploitantValue !== totalValue) {
+//             // Apply red border to all inputs
+//             exploitantInput.css('border-color', 'red');
+//             adultesInput.css('border-color', 'red');
+//             enfantsInput.css('border-color', 'red');
+//         } else if(exploitantValue === totalValue && exploitantValue !== 0) {
+//             // Apply green border to all inputs
+//             exploitantInput.css('border-color', 'green');
+//             adultesInput.css('border-color', 'green');
+//             enfantsInput.css('border-color', 'green');
+//         } else {
+//             // Reset border color for all inputs
+//             exploitantInput.css('border-color', '');
+//             adultesInput.css('border-color', '');
+//             enfantsInput.css('border-color', '');
+//         }
+//     }
+    
+// //************* */ first group
+//     // Call checkEquality for the first group of inputs
+// const exploitantInput1 = $('#in150');
+// const adultesInput1 = $('#in154');
+// const enfantsInput1 = $('#in158');
+// checkEquality(exploitantInput1, adultesInput1, enfantsInput1);
+
+// // Attach event listeners to inputs of the first group
+// const inputsGroup1 = [exploitantInput1, adultesInput1, enfantsInput1];
+// inputsGroup1.forEach(input => {
+//     input.on('input', function() {
+//         checkEquality(exploitantInput1, adultesInput1, enfantsInput1);
+//     });
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup1.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//             input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
+// //************** */ Second group
+// // Call checkEquality for the second group of inputs
+// const exploitantInput2 = $('#in151');
+// const adultesInput2 = $('#in155');
+// const enfantsInput2 = $('#in159');
+// checkEquality(exploitantInput2, adultesInput2, enfantsInput2);
+
+// // Attach event listeners to inputs of the second group
+// const inputsGroup2 = [exploitantInput2, adultesInput2, enfantsInput2];
+// inputsGroup2.forEach(input => {
+//     input.on('input', function() {
+//         checkEquality(exploitantInput2, adultesInput2, enfantsInput2);
+//     });
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup2.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//                 input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
+
+
+
+//124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
+
+// Dynamic  version 
+$(document).ready(function() {
+    // Define input IDs for each group
+    const inputGroups = {
+        1: { exploitant: 'in150', adultes: 'in154', enfants: 'in158' },
+        2: { exploitant: 'in151', adultes: 'in155', enfants: 'in159' },
+        3: { exploitant: 'in152', adultes: 'in156', enfants: 'in160' },
+        4: { exploitant: 'in153', adultes: 'in157', enfants: 'in161' }
+    };
+
+    // Function to check equality and apply border colors
+    function checkEquality(group) {
+        const exploitantInput = $(`#${inputGroups[group].exploitant}`);
+        const adultesInput = $(`#${inputGroups[group].adultes}`);
+        const enfantsInput = $(`#${inputGroups[group].enfants}`);
+
+        const exploitantValue = parseInt(exploitantInput.val()) || 0;
+        const adultesValue = parseInt(adultesInput.val()) || 0;
+        const enfantsValue = parseInt(enfantsInput.val()) || 0;
+        const totalValue = adultesValue + enfantsValue;
+
+        // Check if the values are not equal
+        if (exploitantValue !== totalValue) {
+            // Apply red border to all inputs
+            exploitantInput.css({
+                'border-color': 'red',
+                'border-width': '2px' // Set border width to 2 pixels
+            });
+            adultesInput.css({
+                'border-color': 'red',
+                'border-width': '2px'
+            });
+            enfantsInput.css({
+                'border-color': 'red',
+                'border-width': '2px'
+            });
+        } else if (exploitantValue === totalValue && exploitantValue !== 0) {
+            // Apply green border to all inputs
+            exploitantInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+            adultesInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+            enfantsInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+        } else {
+            // Reset border color and width for all inputs
+            exploitantInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+            adultesInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+            enfantsInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+        }
+    }
+
+ // Iterate over inputGroups object properties and process each group
+ Object.keys(inputGroups).forEach(group => {
+    const { exploitant, adultes, enfants } = inputGroups[group];
+    
+    // Attach event listeners to inputs of the group
+    $(`#${exploitant}, #${adultes}, #${enfants}`).on('input', function() {
+        checkEquality(group);
+    });
+
+    // Remove borders when any input in the group loses focus
+    $(`#${exploitant}, #${adultes}, #${enfants}`).on('blur', function() {
+        const borderColor = $(this).css('border-color');
+        if (borderColor === 'rgb(0, 128, 0)') { // Check for green color
+            $(`#${exploitant}, #${adultes}, #${enfants}`).css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+        }
+    });
+});
+});
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup2.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//                 input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
@@ -708,11 +926,12 @@ var selectedValues = []; // Array to hold unique combinations of selected values
 
     /***************************************************************** wissem start*********************************************************************** */
     $('#nin_exploitant').blur(function(){
+        console.log('gg')
         var inputLength = $(this).val().length;
         if (inputLength < 18) {
             // If length is less than 18, display an error message or perform any other action.
             $('#error_message').text('le nin doit etre 18 characters.');
-            ('#nin_exploitant').css('border','2px solid red')
+            $('#nin_exploitant').css('border','2px solid red')
         } else {
             // If length is 18 or more, clear the error message.
             $('#error_message').text('');

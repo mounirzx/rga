@@ -882,7 +882,7 @@ Sexe</span>
   </select>
 </div><br>
 <div class="row">
-  <div class="col">
+<div class="col">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
         الإحداثيات الجغرافية للمستثمرة<br>
@@ -890,12 +890,12 @@ Sexe</span>
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select  style="max-width: 30px;" class="form-control  bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
-              +
+            +
             </option>
             <option value="OUEST">
-              -
+            -
             </option>
           </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
@@ -1567,7 +1567,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
@@ -2502,22 +2502,22 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            // console.log("This combination has already been selected in this row.");
-            // Swal.fire({
-            //     title: 'Attention!',
-            //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-            //     icon: 'warning',
-            //     confirmButtonText: 'OK'
-            // });
+            console.log("This combination has already been selected in this row.");
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
 
-            // // Reset all selects and inputs in this row
-            // $row.find('.code_culture_check').each(function() {
-            //     if ($(this).is('select')) {
-            //         $(this).val($(this).find('option:first').val());
-            //     } else {
-            //         $(this).val('');
-            //     }
-            // });
+            // Reset all selects and inputs in this row
+            $row.find('.code_culture_check').each(function() {
+                if ($(this).is('select')) {
+                    $(this).val($(this).find('option:first').val());
+                } else {
+                    $(this).val('');
+                }
+            });
         } else {
             // If the combination is unique, add it to the array
             selectedCombinations.push(rowIdentifier);
@@ -3036,59 +3036,58 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
 
 
-            <div class="card" style="font-size: 12px;">
-                <div class="card-body">
-                   <div class="row">
-                      <div class="col">
-                         <div class="err" id="chapt_bovins_error"></div>
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 152px">
+   <div id="relatedInputs">
+    <div class="card" style="font-size: 12px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="err" id="chapt_bovins_error"></div>
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3" style="width: 152px">
                             الأبقار
                             <br> Bovins
-                            </span>
-                               <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
-                         </div>
-                      </div>
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                        </span>
+                        <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المتطورة
                             <br> Dont vaches laitières BLM
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
-                         </div>
-                      </div>
-                   </div>
-                   <br>
-                   <div class="row">
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3">
                             منها الأبقار الحلوب المحسنة
                             <br> Dont vaches laitières BLA
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
-                         </div>
-                      </div>
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-sm">
+                        <div class="qst-num zxcount"></div>
+                        <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
                             منها الأبقار الحلوب المحلية
                             <br> Dont vaches laitières BLL
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
-                         </div>
-                      </div>
-                   </div>
+                        </span>
+                        <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll">
+                    </div>
                 </div>
-             </div>
-             
-
-
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -4429,18 +4428,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
+        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
+        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
+        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4448,17 +4447,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
+        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
+        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
+        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       
     </div>
@@ -4466,18 +4465,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فوقارة<br>
-        Foggara</span> <input id="in136" id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Foggara</span> <input id="in136" id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
+        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
     </div>
   </div>
@@ -5912,7 +5911,7 @@ document.getElementById('submitDate').click();
 </script>
 
 
-<script>
+<!-- <script>
     
 
     
@@ -6032,7 +6031,7 @@ document.getElementById('submitDate').click();
    });
 </script>
 
-
+ -->
 
 
              
