@@ -107,8 +107,17 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         .fontbneder1{
             font-size: 8px !important;
         }
+        .fontbneder11{
+            font-size: 8px !important;
+            font-weight: bold !important;
+        }
         .fontbneder2{
             font-size: 10px !important;
+        }
+        .fontbneder22{
+            font-size: 10px !important;
+            font-weight: bold !important;
+
         }
         #niveau_instruction{
             width: 12px;

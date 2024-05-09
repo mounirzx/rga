@@ -521,14 +521,14 @@ if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arb
     //origine des terres
 
     var commonOptions = '<option value="1">1- APFA «18-83» - ح.م.أ.ف</option>' +
-    '<option value="2">2- Ex EAC «03-10» - م.ف.ج</option>' +
-    '<option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>' +
+    '<option value="2">2- Ex EAC «10-03» - م.ف.ج</option>' +
+    '<option value="3">3- Ex EAI «م.ف,ف - «03-10 </option>' +
     '<option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>' +
     '<option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
-    '<option value="6">6- Concession CIM 108, CIM 1839</option>' +
-    '<option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option>' +
-    '<option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option>' +
-    '<option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option>' +
+    '<option value="6">6- Concession CIM 108, CIM 1839 إمتياز</option>' +
+    '<option value="7">7 - Nouvelle concession ONTA  «21-432»إمتياز جديد </option>' +
+    '<option value="8">8 - Nouvelle concession ODAS «20-265» إمتياز جديد</option>' +
+    '<option value="9">9 - Exploitation sans titre «21-432» إستغلال بدون سند </option>' +
     '<option value="10">10 - Ferme pilote مزرعة نموذجية</option>' +
     '<option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
     '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
@@ -540,7 +540,7 @@ var listOrigineTerre = {
 "3": '<option selected="" disabled>-</option>' + commonOptions,
 "4": '<option selected="" disabled>-</option>' + commonOptions,
 "5": '<option selected="" disabled>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>',
-"6": '<option selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+"6": '<option selected="" disabled>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC ««10-03» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - «10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839 إمتياز</option><option value="7">7 - Nouvelle concession ONTA «21-432» إمتياز جديد </option><option value="8">8 - Nouvelle concession ODAS «20-265» إمتياز جديد </option><option value="9">9 - Exploitation sans titre «21-432» إستغلال بدون سند </option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
 "7": '<option selected="" disabled>-</option>' + commonOptions,
 "8": '<option selected="" disabled>-</option>' + commonOptions,
 "9": '<option selected="" disabled>-</option>' + commonOptions

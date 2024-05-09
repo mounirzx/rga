@@ -671,9 +671,9 @@ Sexe</span>
         <div class="row">
   <div class="col-5">
     <div class="card">
-      <div class="card-header" style="text-align: center;">
+      <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 8px 0px 0px 0px; position:absolute ;text-align: left;"></div>
         هل أنت مسجل في<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Etes-vous inscrit à?
+        Etes-vous inscrit à?
       </div>
       <div class="card-body">
         <div class="row">
@@ -857,13 +857,16 @@ l'exploitant est principal
 <div class="row">
   <div class="col">
     <div class="card" style="font-size: 12px;">
-      <div class="card-header" style="text-align: center;">
-        الإحداثيات الجغرافية للمستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Coordonnées géographiques de l'exploitation
+      <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 20px 0px 0px 0px; position:absolute ;text-align: left;"></div>
+       br الإحداثيات الجغرافية للمستثمرة<br>
+      (النظام الجيوديزي العالمي لعام 1984)
+<br>
+        Coordonnées géographiques de l'exploitation <br> (Système de projection
+géographique WGS 1984)
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول "س" (بالدرجة العشرية) <br>Longitude "X" (en degré décimal) </span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
               +
             </option>
@@ -873,7 +876,7 @@ l'exploitant est principal
           </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
+          <span class="input-group-text" id="basic-addon3">خط العرض "ع" (بالدرجة العشرية) <br>Latitude "Y" (en degré décimal)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
         </div>
       </div>
     </div>
@@ -924,8 +927,8 @@ l'exploitant est principal
             <option value="2">
               2 - تربية الحيوانات - Animale
             </option>
-            <option value="2">
-              2 - مختلط - mixte
+            <option value="3">
+              3 - مختلط - mixte
             </option>
           </select>
         </div><br>
@@ -952,8 +955,8 @@ l'exploitant est principal
   <div class="col-5">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
+         <div class="qst-num zxcount" style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>Accessibilité de l’exploitation
         إمكانية الوصول إلى المستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Accessibilité de l’exploitation
       </div>
       <div class="card-body">
         <div class="row">
@@ -974,15 +977,15 @@ l'exploitant est principal
           <div class="col">
             <div class="form-check">
               <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
-              Piste</label>
+              Piste rurale</label>
             </div><br>
             <div class="form-check">
               <input class="form-check-input bneder" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
-              Accès agricole</label>
+              Piste agricole</label>
             </div><br>
             <div class="form-check">
               <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
-              Accès rural</label>
+              Accès </label>
             </div>
           </div>
         </div>
@@ -1017,7 +1020,7 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text fontbneder1" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder11" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
 </span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
@@ -1076,15 +1079,15 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p  class="input-group-text fontbneder1" id="basic-addon3" >
+   <p  class="input-group-text fontbneder11" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
-    ألغراض متعلقة بالفالحة؟
+    لأغراض متعلقة بالفالحة؟
     <br>
     Si oui, utilisez-vous le réseau
     internet pour des besoins
     agricoles ?
 </p> 
-<select style="height:33px; !important" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<select style="height:34px; !important" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1118,14 +1121,14 @@ au réseau internet ?
 <br/>
 
 <div class="card" style="font-size: 12px;">
-               <div class="card-header" style="text-align: center;">
+               <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 8px 0px 0px 0px; position:absolute ;text-align: left;"></div>
                   الوضع القانوني للأرض
-                  <br><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+                  <br>
                   Statut juridique des terres
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 62px;height: 50px;width: 90%;background-color: white;position: absolute;z-index: 99;">
+                  <div style="margin-top: 123px;height: 50px;width: 90%;background-color: white;position: absolute;z-index: 99;">
                         </div>
 
 
@@ -1136,11 +1139,31 @@ au réseau internet ?
                      <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
                      <div class="col"></div>
 
-                     <div class="col-2" style="padding-left: 33px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col-2">المساحة(ار) <br> Superficie(Are)</div>
+                     <div class="col-4">&#160;&#160;&#160;&#160; &#160; Superficie - المساحة </div>
                      <div class="col"></div>
                   </div>
-                  <hr>
+                  <br>
+<hr>
+
+                  <div class="row"style="text-align: center;">
+   <div class="col-4">
+   الرمز - Code
+   </div>
+   <div class="col-3">
+   الرمز - Code
+</div>
+   <div class="col"></div>
+   <div class="col"></div>
+   <div class="col-2"> هكتار <br>Hectare</div>
+   <div class="col-1">آر <br>Are </div>
+   <div class="col-1"></div>
+
+ 
+   
+
+</div>
+<br>
+                  
 
 
                   <div id="formContainer">
@@ -1155,9 +1178,9 @@ au réseau internet ?
                                 <option selected="" disabled value="-"></option>
                                 <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                                <option value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option value="3">3 - Melk en indivision titré ملك في الشيوع موثق</option>
+                                <option value="4">4 - Melk en indivision non titré ملك في الشيوع غير موثق </option>
+                                <option value="5">5 - Domaine public de l'état ملكية عامة للدولة</option>
                                 <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option value="7">7 - Wakf privé وقف خاص</option>
                                 <option value="8">8 - Wakf public وقف عام</option>
@@ -1349,7 +1372,7 @@ $(document).ready(function(){
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
@@ -1399,51 +1422,49 @@ acte de concession ?
 
  <div class="card" style="font-size: 12px;">
     <div class="card-header" style="text-align: center;">
+      <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+      <div class="qst-num" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">45</div>
         إذا كانت م.ف.ج - Si Ex-EAC
-        <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
-        <div class="qst-num" style="margin: 0px 0px 0px 0px; text-align: left;">45</div>
     </div>
     <!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
     <br>
-    <div class="row">
+    <div class="row" style="text-align:center;">
         <div class="col-2"></div>
-        <div class="col-4">
+        <div class="col-3">
             عدد األعضاء<br>
-            Nombre des <br>exploitants
+            Nombre des exploitants
         </div>
         <div class="col">
-            مساحة م.ف.ج<br>
-            Superficie de l'Ex-EAC
+         &nbsp;  <u>   مساحة م.ف.ج
+            Superficie de l'Ex-EAC</u>
         </div>
+    <div class="col-2"></div>
+
     </div>
     <div class="row">
     <div class="col-2"></div>
         <div class="col-4"></div>
         <div class="col-2">Hectar - هكتار</div>
-        <div class="col"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Are - آر</div>
+        <div class="col">  Are - آر</div>
+   
+        
     </div>
     <br>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
+        <div class="col-3"></div>
+        <div class="col-3">
             <div class="input-group input-group-sm">
                 <input style="width:100px;" class="form-control bneder" num maxlength="2" id="si_exploi_eac" name="si_exploi_eac" value="">
             </div>
         </div>
         <div class="col-4">
-            <div class="row">
-                <div class="col">
-                    <div class="input-group input-group-sm">
+            
+                    <div class="input-group input-group-sm" style="padding-left:10px;">
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-                    </div>
-                </div>
-                
-                <div class="col-5">
-                    <div class="input-group input-group-sm">
                         <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
-                        <br>
-                    </div>
-                </div>
+               
+                
+              
             </div>
         </div>
        
@@ -1477,8 +1498,8 @@ acte de concession ?
 
             <div style="border-top: 3px solid red;"></div>
 <br>
-            <h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
-            <div style="border-top: 1px solid red; width:250px; margin:-20px 0px 0px 50px;"></div>
+            <h6 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h6>
+            <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px;"></div>
             <br>
             <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
 
@@ -1487,43 +1508,38 @@ acte de concession ?
             <div class="container mt-3">
    <div class="row" style="text-align: center;">
       <div class="col-5"></div>
-      <div class="col">
-         (المساحة Superficie) جافة (هكتار) - En sec (Hectare)
+      <div class="col-3" style="padding-left:62px">
+       <u>   جافة - En sec </u>
       </div>
-      <div class="col">
-         (المساحة Superficie) (هكتار) مروية - En irriguée (Hectare)
+      <div class="col" style="padding-right:5px">
+        <u> مروية - En irriguée </u>
       </div>
    </div>
    <br>
    <div class="row" style="text-align: center;">
       <div class="col-5"></div>
-      <div class="col-3">
-         <div class="row">
-         <div class="col"></div>
-            <div class="col-5" style="padding-left:15px">
-               Hectare  هكتار
+      <div class="col-2" style="padding-left:36px" >
+               Hectare - هكتار
             </div>
-            <div class="col-3">
-               Are  آر
+            <div class="col" >
+               Are - آر
             </div>
-         </div>
-      </div>
-      <div class="col-3">
-      <div class="row">
+
+
      
 
-      <div class="col-5"></div>
-            <div class="col-4" style="padding-left:15px">
-               Hectare  هكتار
+
+            <div class="col"  >
+               Hectare - هكتار
             </div>
   
-            <div class="col-3">
+            <div class="col" style="padding-right:21px" >
             
            
-               Are  آر
+               Are - آر
             </div>
-         </div>
-      </div>
+          
+     
    </div>
    <table class="table table-sm">
       <tbody>
@@ -1536,8 +1552,8 @@ acte de concession ?
             
          <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
+    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
 </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1571,8 +1587,8 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+    <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             <p style="margin: 0px 0px 0px 25px;" >Terres au repos (jachères)</p>
-            <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1613,8 +1629,8 @@ acte de concession ?
            
             <td style="width: 233px;">
          <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
          <p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>
+         <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1657,8 +1673,8 @@ acte de concession ?
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
           
-            <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
             <p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>
+            <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1740,8 +1756,8 @@ acte de concession ?
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-            <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             <p style="margin: 0px 0px 0px 25px;" > المراعي</p>
+            <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1768,8 +1784,8 @@ acte de concession ?
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-            <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             <p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>
+            <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1818,8 +1834,8 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+            <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
 <p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>
-               <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1886,10 +1902,10 @@ acte de concession ?
                            هل المستثمرة مكونة من قطعة واحدة؟ <br>
                            L'exploitation est elle d'un seul bloc ?
                            </span>
-                           <select class="form-control bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
+                           <select class="form-select  fontbneder11 bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
                               <option selected="" disabled value="-">  </option>
-                              <option value="1">1- Non-لا</option>
-                              <option value="2">2- Oui-نعم</option>
+                              <option  class="fontbneder11" value="1">1- Non-لا</option>
+                              <option class="fontbneder11" TextBold value="2">2- Oui-نعم</option>
                            </select>
                         </div>
                      </div>
@@ -1947,10 +1963,10 @@ acte de concession ?
                      <br>
                      Existe t’il des indus occupants sur votre exploitation ?
                      </span>
-                     <select class="form-control bneder" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
+                     <select class="form-select fontbneder11 bneder" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
                         <option selected="" disabled value="-">  </option>
-                        <option value="1">1- Oui-نعم</option>
-                        <option value="2">2- Non-لا</option>
+                        <option class="fontbneder11" value="1">1- Oui-نعم</option>
+                        <option class="fontbneder11" value="2">2- Non-لا</option>
                      </select>
                   </div>
                   </div>
@@ -2106,9 +2122,9 @@ acte de concession ?
                            <input class="form-check-input bneder" id="autres_sources_d_energie" name="autres_sources_d_energie" type="checkbox">
                            <label class="form-check-label" for="autres_sources_d_energie">
                               
-                           مصادر أخرى للطاقة
+                           مصادر أخرى 
                            <br>
-                           Autres sources d'énergie
+                           Autres sources
                            </label>
                         </div>
                      </div>
