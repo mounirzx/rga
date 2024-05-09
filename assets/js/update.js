@@ -140,9 +140,9 @@ $(document).ready(function () {
     var formDataObj = {};
 
     // Handle checkboxes explicitly to include them in formDataObj
-    $(".form-check-input").each(function () {
-      formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
-    });
+    // $(".form-check-input").each(function () {
+    //   formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
+    // });
 
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
@@ -182,10 +182,13 @@ $(document).ready(function () {
 
 //console.log(formDataArraySuperficie)
 
-
+$("input[type='checkbox']").each(function() {
+  formDataObj[this.name] = this.checked ? "1" : "0";
+});
     // Add values of all input fields with class "bneder" to formDataObj
     $(".bneder").each(function () {
       formDataObj[this.name] = $(this).val();
+      
     });
 
 
@@ -196,7 +199,7 @@ $(document).ready(function () {
         contentType: "application/json",
         data: JSON.stringify({
           form: formDataObj,
-          //formDataArrayStatut: formDataArrayStatut,
+          formDataArrayStatut: formDataArrayStatut,
          // formDataArraySol: formDataArraySol,
           //formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
