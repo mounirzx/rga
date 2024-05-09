@@ -122,6 +122,23 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         #niveau_instruction{
             width: 12px;
         }
+        [bleuBG]:focus-within{
+            background-color: #0095ff26;
+        }
+        [bleuBG]{
+            background-color: #0095ff26;
+        }
+        [inptSZ]{
+            height:32px !important;
+        }
+        [arbresEparsSpanSize]{
+            width: 84px !important;
+
+        }
+        [arbresEparsSpanSize2]{
+            width: 94px !important;
+
+        }
     </style>
 
 
