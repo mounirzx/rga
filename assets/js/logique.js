@@ -424,10 +424,10 @@ $(document).on('input', '.Mode_irrigation', function() {
 $(document).ready(function() {
     // Define input IDs for each group
     const inputGroups = {
-        1: { exploitant: 'in150', adultes: 'in154', enfants: 'in158' },
-        2: { exploitant: 'in151', adultes: 'in155', enfants: 'in159' },
-        3: { exploitant: 'in152', adultes: 'in156', enfants: 'in160' },
-        4: { exploitant: 'in153', adultes: 'in157', enfants: 'in161' }
+        1: { exploitant: 'mo_exploitant_individuel_1', adultes: 'mo_adultes_plus_15_ans_11', enfants: 'mo_enfants_moins_15_ans_1' },
+        2: { exploitant: 'mo_exploitant_individuel_2', adultes: 'adultes_plus_15_ans_22', enfants: 'mo_enfants_moins_15_ans_2' },
+        3: { exploitant: 'mo_exploitant_individuel_3', adultes: 'mo_adultes_plus_15_ans_3', enfants: 'mo_enfants_moins_15_ans_3' },
+        4: { exploitant: 'mo_exploitant_individuel_4', adultes: 'mo_adultes_plus_15_ans_4', enfants: 'mo_enfants_moins_15_ans_4' }
     };
 
     // Function to check equality and apply border colors
