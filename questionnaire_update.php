@@ -6139,6 +6139,7 @@ document.getElementById('submitDate').click();
             data: { id: id },
             dataType: 'json',
             success: function (response) {
+               
     // Iterate over the response object keys
    
     Object.keys(response).forEach(function(key) {
