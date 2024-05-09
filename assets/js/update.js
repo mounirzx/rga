@@ -40,13 +40,15 @@ $(document).ready(function () {
     var formDataObj = {};
     var urlParams = new URLSearchParams(window.location.search);
 
-    var id = parseInt(
-      CryptoJS.AES.decrypt(
-        atob(urlParams.get("id")),
-        "your_secret_key"
-      ).toString(CryptoJS.enc.Utf8)
-    );
-
+    var id = urlParams.get("id")
+    function isValidObject(obj) {
+      for (let key in obj) {
+          if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
+              return false; // If any property is undefined, null, or an empty string, return false
+          }
+      }
+      return true; // If all properties are valid, return true
+  }
     /*************************** recenseur details********************/
     /*************************** recenseur details********************/
     /*************************** recenseur details********************/
@@ -258,7 +260,7 @@ $(document).ready(function () {
               "<tr style='border:1px solid #262626; background:" +
               classes +
               "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
-              btoa(encryptedId) +
+             data[i].id_questionnaire +
               "' data-id='" +
               data[i].id_questionnaire +
               "'>Update</a></td><td>" +

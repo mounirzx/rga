@@ -269,16 +269,16 @@ console.log(formDataArraySuperficie)
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          var encryptedId = CryptoJS.AES.encrypt(
-            data[i].id_questionnaire.toString(),
-            "your_secret_key"
-          ).toString();
+          // var encryptedId = CryptoJS.AES.encrypt(
+          //   data[i].id_questionnaire.toString(),
+          //   "your_secret_key"
+          // ).toString();
 
           qst_list +=
             "<tr style='border:1px solid #262626; background:" +
             classes +
             "'><td><a class='btn btn-primary updateBtn' href="+url.questionnairePreview+"?id=" +
-            btoa(encryptedId) +
+            data[i].id_questionnaire+
             "' data-id='" +
             data[i].id_questionnaire +
             "'>Update</a></td><td>" +
