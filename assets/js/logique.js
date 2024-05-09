@@ -441,6 +441,21 @@ $(document).ready(function() {
         const enfantsValue = parseInt(enfantsInput.val()) || 0;
         const totalValue = adultesValue + enfantsValue;
 
+       /************************************************ */
+  // Calculate sums
+  const sumExploitant = exploitantValue + adultesValue;
+  const sumAdultesEnfants = adultesValue + enfantsValue;
+
+      // Check if the sums are equal
+      if (group <= 2 && sumExploitant !== sumAdultesEnfants) {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'red');
+    } else if (group > 2 && exploitantValue !== sumAdultesEnfants) {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'red');
+    } else {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'green');
+    }
+
+       /************************************************* */
         // Check if the values are not equal
         if (exploitantValue !== totalValue) {
             // Apply red border to all inputs
@@ -486,6 +501,21 @@ $(document).ready(function() {
             });
         }
     }
+// Function to apply border color
+function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
+    exploitantInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+    adultesInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+    enfantsInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+}
 
  // Iterate over inputGroups object properties and process each group
  Object.keys(inputGroups).forEach(group => {
@@ -949,18 +979,31 @@ $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 /*************************** */
 
 
-$('.exploitant_indiv').on('input', function(){
-console.log('okkk')
-  var mo_exploitant_individuel_1 =   $('[name="mo_exploitant_individuel_1"]').val(1);
-  var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
-  var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+// $('.exploitant_indiv').on('input', function(){
+// console.log('okkk')
+//   var mo_exploitant_individuel_1 =   $('[name="mo_exploitant_individuel_1"]').val(1);
+//   var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+//   var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
 
 
 
-  ///////
-  var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
-  var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
-})
+//   ///////
+//   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+//   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+// })
+
+
+$('#fa_credit_bancaire').change(function(){
+    if(!$(this).is(":checked")) {
+       $('.type_credit_bancaire').prop('checked', false);
+    }
+});
+$('#fa_soutien_public').change(function(){
+    if(!$(this).is(":checked")) {
+       $('.soutien_public_ckeckbox').prop('checked', false);
+    }
+});
+
     /****************************************************** wissem end************* ************************************** */
 
 

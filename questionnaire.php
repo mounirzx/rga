@@ -5288,25 +5288,25 @@ Petite et Moyenne Hydraulique
 
                            <div class="row">
                               <div class="col"><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_ettahadi" name="fa_ettahadi" type="checkbox">
+                                 <input class="form-check-input bneder type_credit_bancaire" id="fa_ettahadi" name="fa_ettahadi" type="checkbox">
      
                                    <label class="form-check-label" for="fa_ettahadi">
                                    التحدي - Ettahadi
                                    </label>
                                 </div> <div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_classique" name="fa_classique" type="checkbox">
+                                 <input class="form-check-input bneder type_credit_bancaire" id="fa_classique" name="fa_classique" type="checkbox">
      
                                    <label class="form-check-label" for="fa_classique">
                                    الكلاسيكي - Classique
                                    </label>
                                 </div><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_leasing" name="fa_leasing" type="checkbox">
+                                 <input class="form-check-input bneder type_credit_bancaire" id="fa_leasing" name="fa_leasing" type="checkbox">
      
                                    <label class="form-check-label" for="fa_leasing">
                                    تأجير - Leasing
                                    </label>
                                 </div><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_rfig" name="fa_rfig" type="checkbox">
+                                 <input class="form-check-input bneder type_credit_bancaire" id="fa_rfig" name="fa_rfig" type="checkbox">
      
                                    <label class="form-check-label" for="fa_rfig">
                                    الرفيق - R'fig </label>
@@ -5383,7 +5383,7 @@ Petite et Moyenne Hydraulique
                               <div class="row">
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_financiere" name="fa_financiere" type="checkbox">
+                                    <input class="form-check-input bneder soutien_public_ckeckbox" id="fa_financiere" name="fa_financiere" type="checkbox">
                                     <label class="form-check-label" for="fa_financiere">
                                     مالي - Financière
                                     </label>
@@ -5391,7 +5391,7 @@ Petite et Moyenne Hydraulique
                                  </div>
                                  <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_materiel" name="fa_materiel" type="checkbox">
+                                    <input class="form-check-input bneder soutien_public_ckeckbox" id="fa_materiel" name="fa_materiel" type="checkbox">
                                     <label class="form-check-label" for="fa_materiel">
                                     عتاد - Matériel
                                     </label>
@@ -5400,7 +5400,7 @@ Petite et Moyenne Hydraulique
                                  <div class="col">
 
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_culture" name="fa_culture" type="checkbox">
+                                    <input class="form-check-input bneder soutien_public_ckeckbox" id="fa_culture" name="fa_culture" type="checkbox">
                                     <label class="form-check-label" for="fa_culture">
                                     محاصيل - Cultures
                                     </label>
@@ -5409,7 +5409,7 @@ Petite et Moyenne Hydraulique
                                  <div class="col">
 
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_intrants" name="fa_intrants" type="checkbox">
+                                    <input class="form-check-input bneder soutien_public_ckeckbox" id="fa_intrants" name="fa_intrants" type="checkbox">
                                     <label class="form-check-label" for="fa_intrants">
                                     مدخلات - Intrants
                                     </label>
