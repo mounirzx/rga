@@ -5470,14 +5470,14 @@ Petite et Moyenne Hydraulique
                            <div class="row">
                               <div class="col">
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_terre" name="fa_terre" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_terre" name="fa_terre" type="checkbox">
 
                                     <label class="form-check-label" for="fa_terre">
                                     الأرض - Terre
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_personnel" name="fa_personnel" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_personnel" name="fa_personnel" type="checkbox">
 
                                     <label class="form-check-label" for="fa_personnel">
                                     العمال - Personnel
@@ -5488,14 +5488,14 @@ Petite et Moyenne Hydraulique
                               <div class="col">
                                  
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_batiments" name="fa_batiments" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_batiments" name="fa_batiments" type="checkbox">
 
                                     <label class="form-check-label" for="fa_batiments">
                                     المباني - Bâtiments
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_cultures" name="fa_cultures" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_cultures" name="fa_cultures" type="checkbox">
                                     <label class="form-check-label" for="fa_cultures">
                                     محاصيل - Cultures
                                     </label>
@@ -5503,14 +5503,14 @@ Petite et Moyenne Hydraulique
                               </div>
                               <div class="col">
                               <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_materiels" name="fa_materiels" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_materiels" name="fa_materiels" type="checkbox">
 
                                     <label class="form-check-label" for="fa_materiels">
                                     العتاد - Matériels
                                     </label>
                                  </div>
                                  <div class="form-check">
-                                    <input class="form-check-input bneder" id="fa_cheptel" name="fa_cheptel" type="checkbox">
+                                    <input class="form-check-input bneder type_assurance" id="fa_cheptel" name="fa_cheptel" type="checkbox">
 
                                     <label class="form-check-label" for="fa_cheptel">
                                     المواشي - Cheptel
