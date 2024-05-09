@@ -690,6 +690,18 @@ $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 /*************************** */
 
 
+$('.exploitant_indiv').on('input', function(){
+console.log('okkk')
+  var mo_exploitant_individuel_1 =   $('[name="mo_exploitant_individuel_1"]').val(1);
+  var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+  var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+
+
+
+  ///////
+  var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+  var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+})
     /****************************************************** wissem end************* ************************************** */
 
 
