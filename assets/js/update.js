@@ -258,9 +258,7 @@ $(document).ready(function () {
             qst_list +=
               "<tr style='border:1px solid #262626; background:" +
               classes +
-              "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id=" +
-             data[i].id_questionnaire +
-              "' data-id='" +
+              "'><td><a class='btn btn-primary updateBtn' href='questionnaire_update.php?id="+data[i].id_questionnaire +"'data-id='"+
               data[i].id_questionnaire +
               "'>Update</a></td><td>" +
               data[i].nom_exploitant +

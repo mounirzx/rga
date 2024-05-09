@@ -274,30 +274,24 @@ console.log(formDataArraySuperficie)
           //   "your_secret_key"
           // ).toString();
 
-          qst_list +=
-            "<tr style='border:1px solid #262626; background:" +
-            classes +
-            "'><td><a class='btn btn-primary updateBtn' href="+url.questionnairePreview+"?id=" +
-            data[i].id_questionnaire+
-            "' data-id='" +
-            data[i].id_questionnaire +
-            "'>Update</a></td><td>" +
-            data[i].nom_exploitant +
-            " " +
-            data[i].prenom_exploitant +
-            "</td><td>" +
-            data[i].nom_exploitation +
-            "</td><td>" +
-            data[i].nom_exploitation +
-            "</td><td>" +
-            data[i].wilaya_name_ascii +
-            "</td><td>" +
-            data[i].commune_name_ascii +
-            "</td><td></td><td>" +
-            data[i].nom_recensseur +
-            " " +
-            data[i].prenom_recenseur +
-            "</td></tr>";
+          qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
+    "<td><a class='btn btn-primary updateBtn' href='" + url.questionnairePreview + "?id=" +
+    encodeURIComponent(data[i].id_questionnaire) + 
+    "' data-id='" + data[i].id_questionnaire +
+    "'>Update</a></td><td>" +
+    data[i].nom_exploitant + " " + data[i].prenom_exploitant +
+    "</td><td>" +
+    data[i].nom_exploitation +
+    "</td><td>" +
+    data[i].nom_exploitation +
+    "</td><td>" +
+    data[i].wilaya_name_ascii +
+    "</td><td>" +
+    data[i].commune_name_ascii +
+    "</td><td></td><td>" +
+    data[i].nom_recensseur + " " + data[i].prenom_recenseur +
+    "</td></tr>";
+
         }
         $("#qst_list").empty();
         $("#qst_list").append(qst_list);

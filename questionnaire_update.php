@@ -5876,6 +5876,9 @@ document.getElementById('submitDate').click();
     <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./assets/js/questionnaire.js"></script>
+<script src="./assets/js/logique.js"></script>
+<script src="./assets/js/questionnaire-mask.js"></script>
       <script src="./assets/js/update.js"></script>
 
              
@@ -6139,10 +6142,11 @@ document.getElementById('submitDate').click();
             data: { id: id },
             dataType: 'json',
             success: function (response) {
-               
+
     // Iterate over the response object keys
    
     Object.keys(response).forEach(function(key) {
+      console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
         $('[name="' + key + '"]').val(response[key]);
 
