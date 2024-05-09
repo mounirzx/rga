@@ -8,7 +8,7 @@ $(document).ready(function () {
     url: url.GetData,
     dataType: "json",
     success: function (response) {
-      console.log(response);
+      //console.log(response);
       if (response.reponse !== "false") {
         $("#nom_recensseur").val(response.nom_recensseur || "N/A");
         $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
@@ -35,12 +35,11 @@ $(document).ready(function () {
 
   $("#submitDate").click(function (e) {
     e.preventDefault();
-//
-    // Initialize formDataObj outside the loop to make it accessible throughout the function
-    var formDataObj = {};
-    var urlParams = new URLSearchParams(window.location.search);
 
-    var id = urlParams.get("id")
+    // Initialize an empty array to store form data for each row
+    var formDataArray = [];
+
+    var formDataArrayStatut = [];
     function isValidObject(obj) {
       for (let key in obj) {
           if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
@@ -49,75 +48,63 @@ $(document).ready(function () {
       }
       return true; // If all properties are valid, return true
   }
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    var formDataArrayStatut = [];
-    // Loop over each row
-    $(".statut_juridique_s").each(function () {
+  
+  // Assuming formDataArrayStatut is already defined
+
+  
+  $(".statut_juridique_s").each(function () {
       // Initialize an object to store form data for the current row
-
       var formDataObjStatus = {};
-
+  
       // Get the values of the inputs within the current row
-      var origine_des_terres = $(this)
-        .find("[name^='origine_des_terres']")
-        .val();
+      var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
       var status_juridique = $(this).find("[name^='status_juridique']").val();
       var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
       var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
-
+  
       // Add the values to the formDataObj
       formDataObjStatus["origine_des_terres"] = origine_des_terres;
       formDataObjStatus["status_juridique"] = status_juridique;
       formDataObjStatus["superfecie_sj"] = superfecie_sj;
       formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
+  
+      // Check if formDataObjStatus contains valid data before adding it to the array
+      if (isValidObject(formDataObjStatus)) {
+          formDataArrayStatut.push(formDataObjStatus);
+          //console.log("the array:", formDataArrayStatut);
+      } else {
+        
+      }
+  });
 
-      // Push the formDataObj to the formDataArray
-      formDataArrayStatut.push(formDataObjStatus);
-    });
-    console.log("formDataArrayStatut");
-    console.log(formDataArrayStatut);
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-
-    var formDataArraySol = [];
+    var formDataArrayCodeCulture = [];
     // Loop over each row
+
     $(".code_culture_s").each(function () {
       // Initialize an object to store form data for the current row
-      var formDataObjSol = {};
-
+      var formDataCodeCulture = {};
       // Get the values of the inputs within the current row
       var code_culture = $(this).find("[name^='code_culture']").val();
+
       var superficie_hec = $(this).find("[name^='superficie_hec']").val();
       var superficie_are = $(this).find("[name^='superficie_are']").val();
       var en_intercalaire = $(this).find("[name^='en_intercalaire']").val();
-
       // Add the values to the formDataObj
-      formDataObjSol["code_culture"] = code_culture;
-      formDataObjSol["superficie_hec"] = superficie_hec;
-      formDataObjSol["superficie_are"] = superficie_are;
-      formDataObjSol["en_intercalaire"] = en_intercalaire;
 
+      formDataCodeCulture["code_culture"] = code_culture;
+      formDataCodeCulture["superficie_hec"] = superficie_hec;
+      formDataCodeCulture["superficie_are"] = superficie_are;
+      formDataCodeCulture["en_intercalaire"] = en_intercalaire;
       // Push the formDataObj to the formDataArray
-      formDataArraySol.push(formDataObjSol);
+     
+      if (isValidObject(formDataCodeCulture)) {
+        formDataArrayCodeCulture.push(formDataCodeCulture);
+        //console.log("the array:", formDataArrayCodeCulture);
+    } else {
+      
+    }
+   // //console.log(formDataArrayCodeCulture);
     });
-
-    console.log("formDataArraySol");
-    console.log(formDataArraySol);
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-
 
     var formDataArrayCodeMateriel = [];
     // Loop over each row
@@ -142,16 +129,20 @@ $(document).ready(function () {
         if (isValidObject(formDataCodeMateriel)) {
             // Push the formDataObj to the formDataArray if it is valid
             formDataArrayCodeMateriel.push(formDataCodeMateriel);
-            console.log("Data for code_materiel collected:", formDataCodeMateriel);
-            console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
+            //console.log("Data for code_materiel collected:", formDataCodeMateriel);
+            //console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
         } else {
-            console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
+            //console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
         }
     });
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
-    /*************************** recenseur details********************/
+
+    // Initialize formDataObj outside the loop to make it accessible throughout the function
+    var formDataObj = {};
+
+    // Handle checkboxes explicitly to include them in formDataObj
+    $(".form-check-input").each(function () {
+      formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
+    });
 
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
@@ -173,23 +164,31 @@ $(document).ready(function () {
       "-" +
       mois_de_naissance.padStart(2, "0") +
       "-" +
-      annee_de_naissance +
-      "-";
+      annee_de_naissance;
+     
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
-    formDataObj["id_questionnaire"] = id;
+    
+     console.log("formDataObj");
+     console.log(formDataObj);
+
+
+
+  
+    var formDataArraySuperficie ={};
+    $(".surface").each(function () {
+      formDataArraySuperficie[this.name] = $(this).val();
+    });
+   
+
+//console.log(formDataArraySuperficie)
+
 
     // Add values of all input fields with class "bneder" to formDataObj
     $(".bneder").each(function () {
-      if (this.type === "checkbox") {
-        formDataObj[this.name] = this.checked; // This will set the value as true or false
-      } else {
-        formDataObj[this.name] = $(this).val();
-      }
+      formDataObj[this.name] = $(this).val();
     });
-    console.log(
-      "formDataObj++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    );
-    console.log(formDataObj);
+
+
     $(function () {
       $.ajax({
         url: "assets/php/update.php",
@@ -197,9 +196,9 @@ $(document).ready(function () {
         contentType: "application/json",
         data: JSON.stringify({
           form: formDataObj,
-          formDataArrayStatut: formDataArrayStatut,
-          formDataArraySol: formDataArraySol,
-          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+          //formDataArrayStatut: formDataArrayStatut,
+         // formDataArraySol: formDataArraySol,
+          //formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
@@ -236,7 +235,7 @@ $(document).ready(function () {
         async: false,
         data: { etat: etat },
         success: function (response) {
-          console.log(response);
+          //console.log(response);
 
           var qst_list;
           var data = JSON.parse(response);
@@ -292,7 +291,7 @@ $(document).ready(function () {
 
     $(".etat").click(function () {
       var etat = $(this).attr("data");
-      console.log(etat);
+      //console.log(etat);
       qstList(etat);
     });
   });
