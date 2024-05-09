@@ -10,6 +10,7 @@ $form = json_decode(file_get_contents("php://input"), true);
 $data = $form['form'];
 $formDataArrayStatut = $form['formDataArrayStatut'] ?? [];
 
+
 // Debugging: Log formDataArrayStatut to check content
 ob_start();
 echo "Debug: ", print_r($formDataArrayStatut, true);
