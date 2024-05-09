@@ -51,31 +51,25 @@ $(document).ready(function () {
   
   // Assuming formDataArrayStatut is already defined
 
-  
+  var formDataArrayStatut = [];
   $(".statut_juridique_s").each(function () {
-      // Initialize an object to store form data for the current row
       var formDataObjStatus = {};
   
-      // Get the values of the inputs within the current row
-      var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
-      var status_juridique = $(this).find("[name^='status_juridique']").val();
-      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
-      var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
+      // Collect values from inputs
+      formDataObjStatus["origine_des_terres"] = $(this).find("[name^='origine_des_terres']").val();
+      formDataObjStatus["status_juridique"] = $(this).find("[name^='status_juridique']").val();
+      formDataObjStatus["superfecie_sj"] = $(this).find("[name^='superfecie_sj']").val();
+      formDataObjStatus["superfecie_sj_are"] = $(this).find("[name^='superfecie_sj_are']").val();
   
-      // Add the values to the formDataObj
-      formDataObjStatus["origine_des_terres"] = origine_des_terres;
-      formDataObjStatus["status_juridique"] = status_juridique;
-      formDataObjStatus["superfecie_sj"] = superfecie_sj;
-      formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are;
-  
-      // Check if formDataObjStatus contains valid data before adding it to the array
+      // Check the validity of the data object
       if (isValidObject(formDataObjStatus)) {
           formDataArrayStatut.push(formDataObjStatus);
-          //console.log("the array:", formDataArrayStatut);
+          console.log("Data for statut juridique collected:", formDataObjStatus);
       } else {
-        
+          console.log("Invalid data detected in statut juridique:", formDataObjStatus);
       }
   });
+  
 
     var formDataArrayCodeCulture = [];
     // Loop over each row
@@ -168,8 +162,8 @@ $(document).ready(function () {
      
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
     
-     console.log("formDataObj");
-     console.log(formDataObj);
+     //console.log("formDataObj");
+     //console.log(formDataObj);
 
 
 

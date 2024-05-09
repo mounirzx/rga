@@ -6146,7 +6146,7 @@ document.getElementById('submitDate').click();
     // Iterate over the response object keys
    
     Object.keys(response).forEach(function(key) {
-      console.log(key, response[key]); // Log each key and value
+      //console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
         $('[name="' + key + '"]').val(response[key]);
 
