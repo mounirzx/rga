@@ -1519,7 +1519,7 @@ acte de concession ?
 
 
             <div class="container mt-3">
-   <div class="row" style="text-align: center;">
+   <div class="row" style=" background-color:#f8f8f8;text-align: center;">
       <div class="col-5"></div>
       <div class="col-3" style="padding-left:62px">
        <u>   جافة - En sec </u>
@@ -1531,10 +1531,10 @@ acte de concession ?
    <br>
    <div class="row" style="text-align: center;">
       <div class="col-5"></div>
-      <div class="col-2" style="padding-left:36px" >
+      <div class="col-2 fontbneder2" style="padding-left:43px" >
                Hectare - هكتار
             </div>
-            <div class="col" >
+            <div class="col fontbneder2" style="padding-left:43px" >
                Are - آر
             </div>
 
@@ -1542,11 +1542,11 @@ acte de concession ?
      
 
 
-            <div class="col"  >
+            <div class="col fontbneder2"  >
                Hectare - هكتار
             </div>
   
-            <div class="col" style="padding-right:21px" >
+            <div class="col  fontbneder2"  >
             
            
                Are - آر
@@ -2169,8 +2169,8 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 11px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
-      <div class="row" style="text-align: center;">
+      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
      <div class="col-6" style="padding-right:75px;">
         رقم الزراعة
@@ -2481,8 +2481,7 @@ acte de concession ?
           </div>
           <div class="col-1">
             <div class="d-grid gap-2">
-            <button style="width: 50px;position: absolute;left: 698px;z-index: 500"class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
-
+            <button style="width: 50px;top: 107px;position: absolute;height: 34px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
             </div>
           </div>
         </div>
@@ -2765,32 +2764,13 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                   </div>
                </div>
                <div class="col">
                <div class="card" style="font-size: 12px;">
   <div class="card-body">
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount">66</div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس الزراعة البيولوجية؟<br>
+      <div class="qst-num zxcount" style="margin: 5px 5px 5px 0px;"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس الزراعة البيولوجية؟<br>
       Pratiquez-vous l'agriculture biologique?</span> <select class="form-select fontbneder2 bneder" id="pratiquez_vous_lagriculture_biologique" name="pratiquez_vous_lagriculture_biologique">
         <option disabled="" value="-" selected="">
         </option>
@@ -2803,7 +2783,7 @@ $(document).ready(function(){
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount">67</div><span class="input-group-text fontbneder2" id="basic-addon3">إذا نعم, هل لديك شهادة إعتماد؟<br>
+      <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">إذا نعم, هل لديك شهادة إعتماد؟<br>
       Si oui, Avez-vous un certificat ?</span> <select disabled="" class="form-select fontbneder2 bneder" id="si_oui_avez_vous_un_certificat" name="si_oui_avez_vous_un_certificat">
         <option disabled="" value="-" selected="">
         </option>
@@ -2815,7 +2795,7 @@ $(document).ready(function(){
         </option>
       </select>
     </div>
-  </div>
+  
   <script>
                      var select7 = document.getElementsByName('pratiquez_vous_lagriculture_biologique')[0];
                      var select27 = document.getElementsByName('si_oui_avez_vous_un_certificat')[0];
@@ -2829,8 +2809,9 @@ $(document).ready(function(){
                         select27.disabled = (selectedValue != '1');
                      }
   </script>
+  <br>
   <div class="input-group input-group-sm">
-    <div style="margin-left:5px;" class="qst-num zxcount">68</div>
+    <div  class="qst-num zxcount"></div>
     <span class="input-group-text fontbneder11" style="text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
     Pratiquez-vous l'aquaculture intégrée à l'agriculture ?</span><br>
     <select class="form-select fontbneder11 bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 108px;">
@@ -2845,9 +2826,9 @@ $(document).ready(function(){
     </select>
   </div>
   <br>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount">69</div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
-    Pratiquez-vous l'Héliciculture?</span> <select style="max-width:120px;" class="form-select fontbneder2 bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
+  <div class="input-group input-group-sm" >
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس تربية الحلزون ؟<br>
+    Pratiquez-vous l'Héliciculture?</span> <select  class="form-select fontbneder2 bneder" id="pratiquez_vous_l_heliciculture" name="pratiquez_vous_l_heliciculture">
       <option disabled="" value="-" selected="">
       </option>
       <option value="1">
@@ -2859,9 +2840,9 @@ $(document).ready(function(){
     </select>
   </div>
   <br>
-  <div class="input-group input-group-sm" style="margin-left: 5px;">
-    <div class="qst-num zxcount">70</div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
-    Pratiquez-vous la Myciculture ?</span> <select class="form-select fontbneder2 bneder" style="max-width: 118px;" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
+  <div class="input-group input-group-sm" >
+    <div class="qst-num zxcount"></div><span class="input-group-text fontbneder2" id="basic-addon3">هل تمارس زراعة الفطريات ؟<br>
+    Pratiquez-vous la Myciculture ?</span> <select class="form-select fontbneder2 bneder" id="pratiquez_vous_la_myciculture" name="pratiquez_vous_la_myciculture">
       <option disabled="" value="-" selected="">
       </option>
       <option value="1">
@@ -2872,7 +2853,7 @@ $(document).ready(function(){
       </option>
     </select>
   </div>
-  <br>
+</div>
 </div>
             </div>
          </div>
@@ -3013,94 +2994,78 @@ $(document).ready(function(){
 
             <br>
             <div id="chapt_animals">
-            <h5 style="margin-bottom: 27px;">VI-Cheptel المواشي</h5>
-            <div style="border-top: 1px solid red; width:155px; margin:-20px 0px 0px 15px; "></div>
+            <h6 style="margin-bottom: 27px;">VI-Cheptel المواشي</h6>
+            <div style="border-top: 1px solid red; width:60px; margin:-20px 0px 0px 40px; "></div>
             <br>
-            <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
+            <div class="row" >
+               
+                     <div class="col" style="align-items:center;">
+                        <b>
+                        (تعداد يوم 19 ماي 2024)
+                        <br>
+                        (Effectif du 19 Mai 2024)   
+                        </b>
+                     </div>
+            </div>
             <br>
             <br>
 
 
 
             <div class="card" style="font-size: 12px;">
-                <div class="card-body">
+                <div class="card-body" >
                    <div class="row">
-                      <div class="col">
+                      <div class="col" >
                          <div class="err" id="chapt_bovins_error"></div>
-                         <div class="input-group input-group-sm">
+                         <div class="input-group input-group-sm" >
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 152px">
+                            <span cheptelEparsSpanSize class="input-group-text " id="chapt_basic-addon3"style="display: inline-block;">
                             الأبقار
                             <br> Bovins
                             </span>
                                <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
                          </div>
-                      </div>
-                      <div class="col">
+
+                         <br>
+                         <div class="input-group input-group-sm" >
+    <div class="qst-num zxcount"></div>
+    <span cheptelEparsSpanSize class="input-group-text " id="chapt_basic-addon3" style="display: inline-block;">
+        منها الأبقار الحلوب المتطورة
+        <br> 
+        Dont vaches laitières BLM
+    </span>
+    <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm">
+</div>
+
+                  <br>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
-                            منها الأبقار الحلوب المتطورة
-                            <br> Dont vaches laitières BLM
-                            </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm" >
-                         </div>
-                      </div>
-                   </div>
-                   <br>
-                   <div class="row">
-                      <div class="col">
-                         <div class="input-group input-group-sm">
-                         <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                            <span cheptelEparsSpanSize class="input-group-text "  id="chapt_basic-addon3">
                             منها الأبقار الحلوب المحسنة
                             <br> Dont vaches laitières BLA
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
-                         </div>
-                      </div>
-                      <div class="col">
+                               <input  class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
+                       
+                               </div> 
+                               <br>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 155px;">
+                            <span  cheptelEparsSpanSize class="input-group-text " id="chapt_basic-addon3" style="width: 155px;">
                             منها الأبقار الحلوب المحلية
                             <br> Dont vaches laitières BLL
                             </span>
                                <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
-                         </div>
-                      </div>
+                       
+                               </div>
                    </div>
-                </div>
-             </div>
-             
+            <div class="col">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <br>
-            <br>
-            <div class="row">
-                <div class="col">
-                   <div class="card" style="font-size: 12px;">
-                      <div class="card-body">
+            <!-- <div class="card" style="font-size: 12px;"> -->
+                      <!-- <div class="card-body"> -->
                          <div class="err" id="chapt_ovins_error"></div>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" style="width: 81px;">
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3" style="width: 81px;">
                             الأغنام<br>Ovins
                             </span>
                                <input class="form-control bneder"  num maxlength="4" id="chapt_ovins" name="chapt_ovins" >
@@ -3108,27 +3073,26 @@ $(document).ready(function(){
                          <br>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">
                             منها النعاج
                             <br>Dont brebis
                             </span>
                                <input class="form-control bneder" num maxlength="4" id="chapt_dont_brebis" name="chapt_dont_brebis" >
                          </div>
-                      </div>
-                   </div>
-                   <br>
+                      <!-- </div> -->
+                   <!-- </div> -->
 
 
 
 
-                </div>
-                <div class="col">
-                   <div class="card" style="font-size: 12px;">
+                   <!-- <div class="card" style="font-size: 12px;">
                       <div class="card-body">
-                         <div class="err" id="chapt_caprins_error"></div>
+                    -->
+                   <br>
+      <div class="err" id="chapt_caprins_error"></div>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" >
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3" >
                             الماعز
                             <br> Caprins
                             </span>
@@ -3137,29 +3101,23 @@ $(document).ready(function(){
                          <br>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">
                             منها العنزات
                             <br> Dont chèvres
                             </span>
                                <input class="form-control bneder" num maxlength="4" id="chapt_dont_chevres" name="chapt_dont_chevres" >
                          </div>
-                      </div>
-                   </div>
+                         <!-- </div>
+                   </div> -->
                    
-                 
-
-
-                  
-                </div>
-                
-                <div class="col">
-
-<div class="card" style="font-size: 12px;">
-                      <div class="card-body">
+            </div>
+<div class="col">
+<!-- <div class="card" style="font-size: 12px;">
+                      <div class="card-body"> -->
                          <div class="err" id="chapt_camelins_error"></div>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3" >
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3" >
                             الإبل
                             <br> Camelins
                             </span>
@@ -3168,29 +3126,23 @@ $(document).ready(function(){
                          <br>
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
-                            <span class="input-group-text" id="chapt_basic-addon3">
+                            <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">
                             منها النق
                             <br> Dont chamelles
                             </span>
                                <input class="form-control bneder" num maxlength="4" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
                          </div>
-                      </div>
-                   </div>
+                      <!-- </div>
+                   </div> -->
 
-</div>
-             </div>
-             <br>
+<br>
+<!-- <div class="card" style="font-size: 12px;">
 
-
-             <div class="row">
-             <div class="col">
-             <div class="card" style="font-size: 12px;">
-
-<div class="card-body">
+<div class="card-body"> -->
 <div class="err" id="chapt_equins_error"></div>
 <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
-<span class="input-group-text" id="chapt_basic-addon3" >
+<span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3" >
 الخيل
 <br>Equins
 </span>
@@ -3199,47 +3151,105 @@ $(document).ready(function(){
 <br>
 <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
-<span class="input-group-text"  id="chapt_basic-addon3">
+<span cheptelEparsSpanSize class="input-group-text"  id="chapt_basic-addon3">
 منها الفرس
 <br>Dont juments
+<br>
 </span>
 <input class="form-control bneder" num maxlength="4" id="chapt_dont_juments" name="chapt_dont_juments" >
 </div>
+<!-- </div>
+</div> -->
+
 </div>
+
+
+
+<div class="row">
+   <br>
+   <div class="col-2"></div>
+   <div class="col"><hr></div>
+   <div class="col-2"></div>
+
 </div>
+<div class="row">
+   <div class="col">
+   <!-- <div class="card" style="font-size: 12px;">
+            <div class="card-body"> -->
+                <div class="input-group input-group-sm">
+                <div class="qst-num zxcount"></div>
+                    <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">الأرانب<br>Cuniculture</span>
+                        <input class="form-control bneder" num maxlength="4" id="chapt_cuniculture" name="chapt_cuniculture">
+                </div>
+                <!-- </div>
+               </div> -->
+        </div>
+
+  
+   <div class="col">
+   <!-- <div class="card" style="font-size: 12px;">
+            <div class="card-body"> -->
+                <div class="input-group input-group-sm">
+                <div class="qst-num zxcount"></div>
+                    <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">البغال<br>Mulets</span>
+                        <input class="form-control bneder" num maxlength="4" id="chapt_mulets" name="chapt_mulets" style="max-width: 88px;">
+                </div>
+            <!-- </div>
+        </div> -->
+
+</div>
+<div class="col">
+
+<!-- <div class="card" style="font-size: 12px;">
+            <div class="card-body"> -->
+                <div  class="input-group input-group-sm">
+                <div class="qst-num zxcount"></div>
+                    <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">الحمير<br>Anes</span>
+                        <input class="form-control bneder" num maxlength="4" id="chapt_anes" name="chapt_anes" style="max-width: 88px;">
+                </div>
+            <!-- </div>
+        </div> -->
+</div> 
+</div>
+                   </div>
+                </div>
+             </div>
+             
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <br>
+    
+             <br>
+
+
+             <div class="row">
+             <div class="col">
+
 </div>
 
  <div class="col">
-        <div class="card" style="font-size: 12px;">
-            <div class="card-body">
-                <div class="input-group input-group-sm">
-                <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="chapt_basic-addon3">الأرانب<br>Cuniculture</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_cuniculture" name="chapt_cuniculture">
-                </div>
-            </div>
-        </div>
+       
     </div>
     <div class="col">
-        <div class="card" style="font-size: 12px;">
-            <div class="card-body">
-                <div class="input-group input-group-sm">
-                <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="chapt_basic-addon3">البغال<br>Mulets</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_mulets" name="chapt_mulets">
-                </div>
-            </div>
-        </div>
+      
     
-        <div class="card" style="font-size: 12px;">
-            <div class="card-body">
-                <div class="input-group input-group-sm">
-                <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="chapt_basic-addon3">الحمير<br>Anes</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_anes" name="chapt_anes">
-                </div>
-            </div>
-        </div>
+      
     </div>
    
 </div>

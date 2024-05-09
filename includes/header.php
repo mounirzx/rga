@@ -13,7 +13,7 @@ if(!isset($_SESSION['is_login'])){
 <head>
     <meta charset="UTF-8">
     <title>RGA</title>
-
+<link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link  rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.min.css"/>
@@ -104,41 +104,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         .select2-container--default .select2-selection--multiple .select2-selection__choice{
             height:20px;
         }
-        .fontbneder1{
-            font-size: 8px !important;
-        }
-        .fontbneder11{
-            font-size: 8px !important;
-            font-weight: bold !important;
-        }
-        .fontbneder2{
-            font-size: 10px !important;
-        }
-        .fontbneder22{
-            font-size: 10px !important;
-            font-weight: bold !important;
-
-        }
-        #niveau_instruction{
-            width: 12px;
-        }
-        [bleuBG]:focus-within{
-            background-color: #0095ff26;
-        }
-        [bleuBG]{
-            background-color: #0095ff26;
-        }
-        [inptSZ]{
-            height:32px !important;
-        }
-        [arbresEparsSpanSize]{
-            width: 84px !important;
-
-        }
-        [arbresEparsSpanSize2]{
-            width: 94px !important;
-
-        }
+       
     </style>
 
 
