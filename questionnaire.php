@@ -24,8 +24,8 @@ include('includes/header.php');
 
                         <br>
                         <input  name="etat" hidden disabled class="bneder" value="En attente">
-                <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
-                <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+                <h6 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h6>
+                <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 40px; "></div>
                 
                 <div class="row">
                     <div class="col">
@@ -215,7 +215,7 @@ if ($_SESSION['role'] == "recenseur") {
       <br />
       Date de contrôle
       </span>
-      <select  <?= $disabled ?> class="form-control" id="inputGroupSelect01">
+      <select  <?= $disabled ?> class="form-select" id="inputGroupSelect01">
          <option value="-"></option>
          <option  value="1">1</option>
          <option  value="2">2</option>
@@ -271,36 +271,14 @@ if ($_SESSION['role'] == "recenseur") {
          <option  value="30"> 31
          </option>
       </select>
-      <select  <?= $disabled ?>  class="form-control" id="inputGroupSelect01" >
+      <select  <?= $disabled ?>  class="form-select" id="inputGroupSelect01" >
          <option value="-"></option>
-         <option  value="1">Janvier</option>
-         <option  value="2">Février</option>
-         <option  value="3">Mars</option>
-         <option  value="4">Avril</option>
          <option  value="5">Mai</option>
          <option  value="6">Juin</option>
          <option  value="7">Juillet</option>
-         <option  value="8">Août</option>
-         <option  value="9">Septembre</option>
-         <option  value="10">Octobre</option>
-         <option  value="11">Novembre</option>
-         <option  value="12">Décembre</option>
       </select>
       <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
-         <option value="-"></option>
          <option  value="2024">2024
-         </option>
-         <option  value="2025">2025
-         </option>
-         <option  value="2026">2026
-         </option>
-         <option  value="2027">2027
-         </option>
-         <option  value="2028">2028
-         </option>
-         <option  value="2029">2029
-         </option>
-         <option  value="2030">2030
          </option>
       </select>
    </div>
@@ -353,7 +331,9 @@ if ($_SESSION['role'] == "recenseur") {
                  <div class="input-group input-group-sm">
                  <div  class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
-                    district-zone <br /> إسم المكان، المنطقة
+                      إسم المنطقة (المكان المسمى)
+                      <br>
+                      Le nom de la zone, lieu-dit (district)
                     </span>
                     <input class="form-control"   id="nom_zone_district" />
 
@@ -373,7 +353,10 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="input-group input-group-sm">
                  <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
-                    Numero du district-zone <br />رقم المنطقة
+ رقم المنطقة
+ <br>
+ Numero de la zone, (district)
+
                     </span>
                   
                        <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
@@ -394,8 +377,8 @@ if ($_SESSION['role'] == "recenseur") {
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitant تعريف المستثمر</h5>
-           <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
+           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitant  (الفلاح)تعريف المستثمر </h5>
+           <div style="border-top: 1px solid red; width:370px; margin:-20px 0px 0px 50px; "></div>
 
            <br />
            <div class="row">
@@ -507,7 +490,7 @@ if ($_SESSION['role'] == "recenseur") {
                     </select>
                     <select class="form-select" id="annee_de_naissance"   >
                     <option value="-" disabled selected> </option>
-                        <option value="1880">1880</option><option value="1881">1881</option><option value="1882">1882</option><option value="1883">1883</option><option value="1884">1884</option><option value="1885">1885</option><option value="1886">1886</option><option value="1887">1887</option><option value="1888">1888</option><option value="1889">1889</option><option value="1890">1890</option><option value="1891">1891</option><option value="1892">1892</option><option value="1893">1893</option><option value="1894">1894</option><option value="1895">1895</option><option value="1896">1896</option><option value="1897">1897</option><option value="1898">1898</option><option value="1899">1899</option><option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
+                        <option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
                     </select>
                     
                     
@@ -658,12 +641,12 @@ Sexe</span>
          <div class="input-group input-group-sm">
          <div class="qst-num zxcount"></div>
             <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
-               <br>
+          
                Type d'assurance, si assuré</span>
 
            
           
-                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
+                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" >
                 <option disabled value="-" selected="">  </option>
                         <option value="1">1 - CASNOS
                         </option>
@@ -686,17 +669,17 @@ Sexe</span>
         
         <br />
         <div class="row">
-  <div class="col-4">
+  <div class="col-5">
     <div class="card">
       <div class="card-header" style="text-align: center;">
-        هل أنت مسجل في?<br>
+        هل أنت مسجل في<br>
         <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Etes-vous inscrit à?
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input " id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
+              <input class="form-check-input " id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفلاحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
@@ -706,28 +689,28 @@ Sexe</span>
             <div class="form-check">
               <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
               L’Union Nationale des Paysans Algériens (UNPA)</label>
-            </div>
+            </div><br>
             <div class="form-check">
                <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
                La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
-         </div><br>
-         <div class="col">
+       
+      
            <div class="form-check">
              <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
              La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
            </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label " for="dispositif_social">الأجهزة الإجتماعية<br>
+              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label " for="dispositif_social">
               جهاز إجتماعي - Dispositif Social</label>
             </div>
-          </div>
+            </div><br>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-8">
+  <div class="col">
     <br>
     <br>
     <br>
@@ -737,8 +720,8 @@ Sexe</span>
       Numéro de la carte fellah</span> <input num maxlength="7" class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
-      Issu d'une famille agricole</span> <select class="form-select col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
+      Issu d'une famille agricole</span> <select class="form-select fontbneder2 col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
         <option value="-" disabled selected>
         </option>
         <option value="1">
@@ -750,8 +733,8 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
+      Etes-vous l'exploitant ?</span> <select class="form-select fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
@@ -764,13 +747,15 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
+      Nombre de co-exploitants, si
+l'exploitant est principal
+</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> 
-      <select class="form-select col-6 bneder" id="nature_exploitant" name="nature_exploitant">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      Type d'exploitant</span> 
+      <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
          
         </option>
@@ -812,17 +797,18 @@ Sexe</span>
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitation تعريف المستثمرة</h5>
-    <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
+    <h6 style="margin-bottom: 27px;">III- Identification de l'exploitation تعريف المستثمرة</h6>
+    <div style="border-top: 1px solid red; width:260px; margin:-20px 0px 0px 50px; "></div>
 <br>
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom de  l'exploitation agricole</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
+  Nom de  l'exploitation </span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
-  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
-  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
+  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3"> عنوان المستثمرة أو المكان المسمى<br>
+  Adresse de l'exploitation ou lieu dit 
+</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
@@ -864,7 +850,7 @@ Sexe</span>
       11 - Privé individuel - فردي خاص
     </option>
     <option value="12">
-      11 - Autre - آخر
+      12 - Autre - آخر
     </option>
   </select>
 </div><br>
