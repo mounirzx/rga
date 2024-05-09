@@ -4,6 +4,25 @@ $(document).ready(function() {
      $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
 
      
+
+
+
+
+     $('#eau_bassin_d_accumulation').prop('disabled', true);
+     $('#eau_bassin_geomembrane').prop('disabled', true);
+     $('#eau_reservoir').prop('disabled', true);
+     $('#eau_citrene_souple').prop('disabled', true);
+     $('#eau_mare_deau').prop('disabled', true);
+     $('#eau_ced').prop('disabled', true);
+     $('#eau_digue').prop('disabled', true);
+     $('#eau_autres_1').prop('disabled', true);
+
+
+
+
+
+
+     
   
 
 
@@ -850,6 +869,32 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
 $('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
     var $row = $(this).closest('.row');
     var hectares = $row.find('[id^="superficie_hec_"]').val();
+
+
+
+if(hectares){
+    $('#eau_bassin_d_accumulation').prop('disabled', false);
+    $('#eau_bassin_geomembrane').prop('disabled', false);
+    $('#eau_reservoir').prop('disabled', false);
+    $('#eau_citrene_souple').prop('disabled', false);
+    $('#eau_mare_deau').prop('disabled', false);
+    $('#eau_ced').prop('disabled', false);
+    $('#eau_digue').prop('disabled', false);
+    $('#eau_autres_1').prop('disabled', false);
+}else{
+    $('#eau_bassin_d_accumulation').prop('disabled', true);
+    $('#eau_bassin_geomembrane').prop('disabled', true);
+    $('#eau_reservoir').prop('disabled', true);
+    $('#eau_citrene_souple').prop('disabled', true);
+    $('#eau_mare_deau').prop('disabled', true);
+    $('#eau_ced').prop('disabled', true);
+    $('#eau_digue').prop('disabled', true);
+    $('#eau_autres_1').prop('disabled', true);
+}
+
+    
+
+
     var ares = $row.find('[id^="superficie_are_"]').val();
     var intercalaireInput = $row.find('[id^="en_intercalaire"]');
 
@@ -877,9 +922,61 @@ $('#formContainer2 .row').each(function() {
 
 
 
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+/*********************************************************************************************************** */
+
+var selectedValues = []; // Array to hold unique combinations of selected values
+
+    // Listen for changes on any select elements within formContainer3
+    // $('#formContainer3').on('change', 'select', function() {
+    //     var $row = $(this).closest('.row'); // Get the closest parent row of the changed select
+    //     var codeMateriel = $row.find('[id^="code_materiel"]').val();
+    //     var modeMobilisation = $row.find('[id^="ee_mode_mobilisation_materiel"]').val();
+    //     var modeExploitation = $row.find('[id^="ee_mode_exploitation_materiel"]').val();
+
+    //     // Form a unique identifier using the selected values
+    //     var identifier = codeMateriel + '|' + modeMobilisation + '|' + modeExploitation;
+
+    //     // Remove error class from all selects in the row
+    //     $row.find('select').removeClass('error');
+
+    //     // Check if the identifier is already used
+    //     if (selectedValues.includes(identifier)) {
+    //         console.log("Combination already selected: " + identifier);
+    //         Swal.fire({
+    //             title: 'Attention!',
+    //             text: 'Cette combinaison de valeurs est déjà sélectionnée. Veuillez choisir une autre combinaison.',
+    //             icon: 'warning',
+    //             confirmButtonText: 'OK'
+    //         });
+    //         // Add error class back to selects
+    //         $row.find('select').addClass('error');
+    //         // Optionally reset the current select to its default state
+    //         $(this).val($(this).find('option:first').val());
+    //     } else {
+    //         // If the combination is new, add it to the array
+    //         selectedValues.push(identifier);
+    //     }
+    // });
+
+    // // Example: Dynamically add rows and handle them
+    // $('#addForm3').on('click', function() {
+    //     var newRow = $('#formContainer3 .row:first').clone();
+    //     newRow.find('input, select').val('').removeClass('error');
+    //     newRow.find('select').attr('id', function(i, val) {
+    //         return val.replace(/\d+$/, function(n) { return parseInt(n) + 1; });
+    //     });
+    //     $('#formContainer3').append(newRow);
+    // });
 
 
 
+
+    
 
     //**********************************************Farouk Touil end  ******************************************************* */
 
