@@ -532,19 +532,37 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
 
 
 
+    $('#exploitant').on('change', function() {
+      var exploitantValue = $(this).val();
+     
+      // Determine which list to use based on the 'exploitant' value
+     // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
+      if(exploitantValue === "1"){
+
+
+        $('#origine_des_terres').html("<option selected='' disabled BoldText>-</option><option BoldText value='6'>6 - Domaine privé de létat ملكية خاصة للدولة</option>")
+
+
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+        
+      }else{
+        $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+      }
+     
+  
+  });
 
 
 
 
 
-
-    var commonOptionsForUniqueExploitant = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
-    '<option value="14" BoldText>14 - Succession إرث</option>' +
-    '<option value="14" BoldText>14 - Héritage ورث</option>' +
-    '<option value="15" BoldText>15 - Donation هبة</option>' +
-    '<option value="16" BoldText>16 - Testament وصية</option>' +
-    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
-    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>';
 
     /*************************************************** */
     //origine des terres
@@ -570,25 +588,12 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
   };
   
 
-// Use listOrigineTerre in your dropdown manipulations
 
-$('#exploitant').on('change', function() {
-  var exploitantSelectedValue = $(this).val();
-
-});
-
-    /*************************************************/
-
-    // $('#origine_des_terres').change(function(){
-    //   var id = $(this)
-    //   console.log(id)
-    // })
 
     function filterByKey(prefix) {
       var filteredObj = {};
       Object.keys(listOrigineTerre).forEach(function(key) {
-
-      if (key.startsWith(prefix)) {
+          if (key.startsWith(prefix)) {
               filteredObj[key] = listOrigineTerre[key];
           }
       });
@@ -613,6 +618,7 @@ $('#exploitant').on('change', function() {
       var id = $(this).val()
     //  console.log(fullId)
       var filtered = filterByKey(id);
+      
 //console.log(filtered[id]);
 $('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])

@@ -4046,7 +4046,7 @@ Type et nombre du matériel agricole ?
           <div class="col-3">
             <div class="input-group input-group-sm">
               <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+              Code matériel</span> <select  class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
                 <option selected disabled>
                 </option>
                 <option value="1">
@@ -4180,71 +4180,70 @@ Type et nombre du matériel agricole ?
 
 
 $(document).ready(function(){
-    var selectedValues = []; // Array to hold the unique values selected
+   var combinations = {}; // Object to hold combinations to ensure uniqueness
 
-    // Event handler for changes on any select with the class 'code_culture_check'
-    $(document).on('change', '.code_materiel_check', function() {
-        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+// Function to generate a unique combination based on row inputs
+function generateCombination(row) {
+    return row.find('[id^="code_materiel"]').val() + '-' +
+           row.find('[id^="code_materiel_nombre"]').val() + '-' +
+           row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
+           row.find('[id^="ee_mode_exploitation_materiel"]').val();
+}
 
-        if (selectedValues.indexOf(selectedValue) !== -1) {
-            // If the value already exists in the array, display a SweetAlert message in French
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+// Function to check and manage unique combinations
+function manageCombinations(row) {
+    var key = generateCombination(row);
+    if (combinations[key]) {
+        Swal.fire({
+            title: 'Attention!',
+            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        // Reset the row's selects to the default option
+        row.find('select').val(function() {
+            return $(this).children('option:first').val();
+        });
+    } else {
+        // Add or update the combination in the map
+        Object.values(combinations).forEach((val, idx) => {
+            if (val.row.is(row)) {
+                delete combinations[idx];
+            }
+        });
+        combinations[key] = { row: row };
+    }
+}
 
-            // Optionally reset to the first option or default state
-            $(this).val($(this).find('option:first').val());
-        } else {
-            // Add the new value to the array if it's not already there
-            selectedValues.push(selectedValue);
-            console.log('Selected value:', selectedValue); // Log the newly added value
-        }
+// Handle changes in any of the dropdowns
+$('#formContainer3').on('change', 'select', function() {
+    manageCombinations($(this).closest('.row'));
+});
+
+// Handle the addition of new rows
+$('#addForm3').click(function() {
+    var formContainer = $('#formContainer3');
+    var formRow = formContainer.children('.row').first().clone();
+    formRow.find('input').val('');
+    formRow.find('select').each(function() {
+        $(this).val($(this).find('option:first').val());
     });
+
+    // Append a remove button to the new row
+    var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
+        delete combinations[generateCombination($(this).closest('.row'))];
+        $(this).closest('.row').remove();
+    });
+
+    formRow.find('.d-grid').empty().append(removeButton);
+    formContainer.append(formRow);
+});
 });
 
 
 
 
-           document.getElementById('addForm3').addEventListener('click', function () {
-               const formContainer = document.getElementById('formContainer3');
-               const formRow = formContainer.firstElementChild.cloneNode(true);
-
-               // Generate unique IDs and names for the cloned form elements
-               formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-                   element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-                   element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-
-                   // Remove the "disabled" attribute if present
-                   element.removeAttribute('disabled');
-               });
-
-               // Remove the add button from the cloned row and add a remove button
-               const removeButton = document.createElement('button');
-               removeButton.textContent = '-';
-               removeButton.type = 'button';
-               removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-
-               removeButton.addEventListener('click', function () {
-                   formRow.remove();
-               });
-               formRow.querySelector('.d-grid').innerHTML = '';
-
-               formRow.querySelector('.d-grid').appendChild(removeButton);
-
-               formContainer.appendChild(formRow);
-
-               // Enable the cloned input elements inside the replicated HTML code (if needed)
-               formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-                   inputElement.removeAttribute('disabled');
-               });
-
-               // Assuming the InputHandler class is correctly implemented
-               var inputHandler = new InputHandler(`cn114_${formContainer.children.length - 1}`, `in114_${formContainer.children.length - 1}`);
-               inputHandler.handleHiddenInputChange();
-           });
+ 
       </script> <!-- TODO -->
     </div>
   </div>
@@ -4507,8 +4506,8 @@ Petite et Moyenne Hydraulique
                   </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault666" name="eau_bassin_d_accumulation" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault666">
+                                 <input class="form-check-input bneder" id="eau_bassin_d_accumulation" name="eau_bassin_d_accumulation" type="checkbox">
+                                 <label class="form-check-label" for="eau_bassin_d_accumulation">
                                  أحواض التجميع
                                  <br>
                                  Bassin d’accumulation
@@ -4516,8 +4515,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault777" name="eau_bassin_geomembrane" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault777">
+                                 <input class="form-check-input bneder" id="eau_bassin_geomembrane" name="eau_bassin_geomembrane" type="checkbox">
+                                 <label class="form-check-label" for="eau_bassin_geomembrane">
                                  الأحواض الأرضية
                                  <br>
                                  Bassin géomembrane
@@ -4525,8 +4524,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bender" id="flexCheckDefault888" name="eau_reservoir" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault888">
+                                 <input class="form-check-input bender" id="eau_reservoir" name="eau_reservoir" type="checkbox">
+                                 <label class="form-check-label" for="eau_reservoir">
                                  خزان
                                  <br>
                                  Réservoir
@@ -4534,8 +4533,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault999" name="eau_citrene_souple" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault999">
+                                 <input class="form-check-input bneder" id="eau_citrene_souple" name="eau_citrene_souple" type="checkbox">
+                                 <label class="form-check-label" for="eau_citrene_souple">
                                  صهريج
                                  <br>
                                  Citrene
@@ -4544,8 +4543,8 @@ Petite et Moyenne Hydraulique
                            </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input bender" id="flexCheckDefault1010" name="eau_mare_deau" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault1010">
+                                 <input class="form-check-input bender" id="eau_mare_deau" name="eau_mare_deau" type="checkbox">
+                                 <label class="form-check-label" for="eau_mare_deau">
                                  بركة الماء
                                  <br>
                                  Marre d'eau
@@ -4553,8 +4552,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_ced" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault1011">
+                                 <input class="form-check-input bneder" id="eau_ced" name="eau_ced" type="checkbox">
+                                 <label class="form-check-label" for="eau_ced">
                                  سد الماء
                                  <br>
                                  Ced
@@ -4562,8 +4561,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_digue" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault122">
+                                 <input class="form-check-input bneder" id="eau_digue" name="eau_digue" type="checkbox">
+                                 <label class="form-check-label" for="eau_digue">
                                  حاجز الماء
                                  <br>
                                  Digue
@@ -4571,8 +4570,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault133" name="eau_autres_1" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault133">
+                                 <input class="form-check-input bneder" id="eau_autres_1" name="eau_autres_1" type="checkbox">
+                                 <label class="form-check-label" for="eau_autres_1">
                                  طرق أخرى
                                  <br>
                                  Autres
