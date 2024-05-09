@@ -5410,9 +5410,13 @@ Latitude (Y)
     <script>       
              
       $(document).ready(function () {
+         console.log("id")
+         //alert('ok')
     // Fetch questionnaire data by ID on page load
     var urlParams = new URLSearchParams(window.location.search);
+
     var id = parseInt( CryptoJS.AES.decrypt(atob(urlParams.get('id')), 'your_secret_key').toString(CryptoJS.enc.Utf8));
+
     if (id) {
         fetchQuestionnaireById(id);
     }

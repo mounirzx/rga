@@ -477,4 +477,71 @@ Debug: Array
 Debug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: Array
 (
 )
-Debug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseur
+Debug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: superviseurDebug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 2
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+    [1] => stdClass Object
+        (
+            [code_materiel] => 17
+            [code_materiel_nombre] => 2
+            [ee_mode_mobilisation_materiel] => 2
+            [ee_mode_exploitation_materiel] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_materiel] => 5
+            [code_materiel_nombre] => 1
+            [ee_mode_mobilisation_materiel] => 1
+            [ee_mode_exploitation_materiel] => 2
+        )
+
+)
