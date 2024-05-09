@@ -1,6 +1,10 @@
 
 <?php
 include('includes/header.php');
+if (isset($_GET['id'])) {
+   $id = $_GET['id'];  // Retrieve the id
+
+} 
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
@@ -415,8 +419,10 @@ if ($_SESSION['role'] == "recenseur") {
                     اللقب <br /> Nom
                     </span>
                     <input class="form-control bneder"  name="nom_exploitant" id="nom_exploitant" />
-                 </div>
-              </div>
+                    
+                  </div>
+               </div>
+               <input hidden class="form-control bneder"  name="id_questionnaire" id="id_questionnaire"  value="<?php echo $id;?>"/>
 
 
 
@@ -1255,13 +1261,13 @@ $(document).ready(function(){
         $('#status_juridique_' + idPart).removeClass('error');
 
         if(val1 === "" || val2 === "") {
-            console.log("Both selections are required.");
+           //console.log("Both selections are required.");
             return; // Exit the function if one of the dropdowns is not selected
         }
 
         // Check if this combination already exists in the array
         if($.inArray(cc, selectedValues) !== -1){
-            // console.log("This combination of values has already been selected.");
+            ////console.log("This combination of values has already been selected.");
             // Swal.fire({
             //    title: 'Attention!',
             //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
@@ -2493,7 +2499,7 @@ $(document).ready(function(){
 
         // If not all inputs/selects are filled, do not proceed with duplicate check
         if (!isValid) {
-            console.log("All selections are required in each row.");
+           //console.log("All selections are required in each row.");
             return;
         }
 
@@ -2502,7 +2508,7 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            // console.log("This combination has already been selected in this row.");
+            ////console.log("This combination has already been selected in this row.");
             // Swal.fire({
             //     title: 'Attention!',
             //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
@@ -2535,13 +2541,13 @@ $(document).ready(function(){
       //   $('#status_juridique_' + idPart).removeClass('error');
 
       //   if(val1 === "" || val2 === "") {
-      //       console.log("Both selections are required.");
+      //      //console.log("Both selections are required.");
       //       return; // Exit the function if one of the dropdowns is not selected
       //   }
 
       //   // Check if this combination already exists in the array
       //   if($.inArray(cc, selectedValues) !== -1){
-      //       console.log("This combination of values has already been selected.");
+      //      //console.log("This combination of values has already been selected.");
       //       Swal.fire({
       //           icon: "error",
       //           title: "Erreur",
@@ -5897,7 +5903,7 @@ document.getElementById('submitDate').click();
 
        inputs.forEach(function (input) {
            if (input.value.toLowerCase() === 'none') {
-            console.log(input.value)
+           //console.log(input.value)
                input.value = ''; // Clear the input field
            }
        });
@@ -5950,7 +5956,7 @@ document.getElementById('submitDate').click();
        function clear_err(){
 
            for(i in errs){
-               console.log(i)
+              //console.log(i)
                errs[i].textContent = ""
            }
        }
@@ -6060,7 +6066,7 @@ document.getElementById('submitDate').click();
              
 <script>
    document.getElementById("info_form").addEventListener("input", function () {
-       console.log("capturing")
+      //console.log("capturing")
 
        var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
        var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
@@ -6134,7 +6140,7 @@ document.getElementById('submitDate').click();
             dataType: 'json',
             success: function (response) {
     // Iterate over the response object keys
-    console.log(response)
+   
     Object.keys(response).forEach(function(key) {
         // Target the form field by name and set its value to the corresponding value in the response
         $('[name="' + key + '"]').val(response[key]);
@@ -6145,7 +6151,19 @@ document.getElementById('submitDate').click();
         } else {
             $('[name="' + key + '"]').prop('checked', false);
         }
-    }); 
+
+         // Special handling for the date of birth
+         if (key === 'annee_naissance_exploitant' && response[key]) {
+            var dateParts = response[key].split('-'); // Split the date into [dd, mm, yyyy]
+            if (dateParts.length === 3) {
+                $('#jour_de_naissance').val(parseInt(dateParts[0])); // Set the day
+                $('#mois_de_naissance').val(dateParts[1]); // Set the month
+                $('#annee_de_naissance').val(dateParts[2]); // Set the year
+            }
+ }
+
+
+}); 
 
 
 
@@ -6159,12 +6177,12 @@ document.getElementById('submitDate').click();
       async:false,
       data:{id:id},
       success:function(response){
-        // console.log(response)
+        ////console.log(response)
 
          var data = JSON.parse(response);
          var inputs="";
          for(var i = 0; i<data.length;i++){
-            console.log(data[i].code_materiel)
+           //console.log(data[i].code_materiel)
             inputs += '<div class="row" style="margin-bottom: 10px;">';
             inputs += '<div class="col-3">'; // Adjust column size as needed
 inputs += '<div class="input-group input-group-sm">';
@@ -6254,13 +6272,13 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     async: false,
     data: { id: id },
     success: function (response) {
-        console.log(response);
+       //console.log(response);
 
         var data = JSON.parse(response);
         var status_juridique_inputs = "";
 
         for (var i = 0; i < data.length; i++) {
-            console.log(data[i].status_juridique);
+           //console.log(data[i].status_juridique);
             status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" ' + (data[i].origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" ' + (data[i].origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" ' + (data[i].origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" ' + (data[i].origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" ' + (data[i].origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6" ' + (data[i].origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" ' + (data[i].origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8" ' + (data[i].origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9" ' + (data[i].origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="status_juridique" name="status_juridique"><option value="-">-</option><option value="1" ' + (data[i].status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" ' + (data[i].status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" ' + (data[i].status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" ' + (data[i].status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" ' + (data[i].status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" ' + (data[i].status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7" ' + (data[i].status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" ' + (data[i].status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" ' + (data[i].status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" ' + (data[i].status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11" ' + (data[i].status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" ' + (data[i].status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" ' + (data[i].status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="' + data[i].superfecie_sj + '" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="' + data[i].superfecie_sj_are + '"></div></div></div>';
         }
 
@@ -6278,7 +6296,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
       async:false,
       data:{id:id},
       success:function(response){
-         console.log(response)
+        //console.log(response)
          var data = JSON.parse(response)
 
          var inputs="";
