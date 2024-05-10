@@ -155,8 +155,7 @@ $(document).ready(function () {
       "-" +
       mois_de_naissance.padStart(2, "0") +
       "-" +
-      annee_de_naissance +
-      "-";
+      annee_de_naissance;
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
 
 
@@ -563,7 +562,7 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
 
     var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
     '<option value="14" BoldText>14 - Succession إرث</option>' +
-    '<option value="14" BoldText>14 - Héritage ورث</option>' +
+    '<option value="23" BoldText>23 - Héritage ورث</option>' +
     '<option value="15" BoldText>15 - Donation هبة</option>' +
     '<option value="16" BoldText>16 - Testament وصية</option>' +
     '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +

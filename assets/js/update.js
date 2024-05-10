@@ -21,11 +21,11 @@ $(document).ready(function () {
         $("#nom_zone_district").val(response.nom_zone_district || "N/A");
         $("#num_zone_district").val(response.num_zone_district || "N/A");
       } else {
-        console.error("Error: " + response.message);
+        //console.error("Error: " + response.message);
       }
     },
     error: function (xhr, status, error) {
-      console.error("AJAX Error:", status, error);
+      //console.error("AJAX Error:", status, error);
     },
   });
   /*************************** recenseur details********************/
@@ -39,37 +39,44 @@ $(document).ready(function () {
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
+    
     var formDataArrayStatut = [];
-    function isValidObject(obj) {
-      for (let key in obj) {
-          if (obj[key] == 'undefined' || obj[key] == undefined || obj[key] == 'null' ) {
-              return false; // If any property is undefined, null, or an empty string, return false
-          }
-      }
-      return true; // If all properties are valid, return true
-  }
-  
-  // Assuming formDataArrayStatut is already defined
 
-  var formDataArrayStatut = [];
-  $(".statut_juridique_s").each(function () {
-      var formDataObjStatus = {};
-  
-      // Collect values from inputs
-      formDataObjStatus["origine_des_terres"] = $(this).find("[name^='origine_des_terres']").val();
-      formDataObjStatus["status_juridique"] = $(this).find("[name^='status_juridique']").val();
-      formDataObjStatus["superfecie_sj"] = $(this).find("[name^='superfecie_sj']").val();
-      formDataObjStatus["superfecie_sj_are"] = $(this).find("[name^='superfecie_sj_are']").val();
-  
-      // Check the validity of the data object
-      if (isValidObject(formDataObjStatus)) {
-          formDataArrayStatut.push(formDataObjStatus);
-          console.log("Data for statut juridique collected:", formDataObjStatus);
-      } else {
-          console.log("Invalid data detected in statut juridique:", formDataObjStatus);
-      }
-  });
-  
+    function isValidObject(obj) {
+        for (let key in obj) {
+            if (obj[key]) {
+                return true; // If any property is defined and not null, return true
+            }
+        }
+        return false; // If all properties are undefined or null, return false
+    }
+    
+    // Iterate over each .statut_juridique_s element
+    $(".statut_juridique_s").each(function () {
+        var formDataObjStatus = {};
+    
+        // Extract values from the current element
+        var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
+        var status_juridique = $(this).find("[name^='status_juridique']").val();
+        var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+        var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
+    
+        // Assign values to the formDataObjStatus object
+        formDataObjStatus["origine_des_terres"] = origine_des_terres;
+        formDataObjStatus["status_juridique"] = status_juridique;
+        formDataObjStatus["superfecie_sj"] = superfecie_sj; // Assign an empty string if the value is undefined
+        formDataObjStatus["superfecie_sj_are"] = superfecie_sj_are; // Assign an empty string if the value is undefined
+    
+        // Check if the object contains any defined properties
+        if (isValidObject(formDataObjStatus)) {
+            formDataArrayStatut.push(formDataObjStatus); // Push the object to the array
+        }
+    });
+    
+    // Output the formDataArrayStatut array
+    console.log("the array:", formDataArrayStatut);
+    
+    
 
     var formDataArrayCodeCulture = [];
     // Loop over each row
@@ -156,9 +163,7 @@ $(document).ready(function () {
     var formattedDateNaissance =
       jour_de_naissance.padStart(2, "0") +
       "-" +
-      mois_de_naissance.padStart(2, "0") +
-      "-" +
-      annee_de_naissance;
+      mois_de_naissance.padStart(2, "0") +"-"+annee_de_naissance;
      
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
     

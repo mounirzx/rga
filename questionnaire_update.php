@@ -17,8 +17,25 @@ if (isset($_GET['id'])) {
     outline: 0;
     box-shadow: none;
 }
+.error {
+    border: 2px solid red;
+}
+    .big-space {
+        width: 50px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .small-space {
+        width: 20px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .mid-space {
+      width: 35px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
 </style>
     
+
+          
    <body>
 
      
@@ -1176,156 +1193,156 @@ au réseau internet ?
                   <hr>
 
 
-                  <div id="formContainer">
+ 
 
 
 
-                  <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
-                        <div class="col-4">
-                        <div class="input-group input-group-sm">
 
-                            <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
-                                <option selected="" disabled value="-"></option>
-                                <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                                <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                                <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-                                <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                                <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-                                <option BoldText value="8">8 - Wakf public وقف عام</option>
-                                <option BoldText value="9">9 - Inconnue مجهول</option>
-                            </select>
 
-                            </div>
-                        </div>
+<div id="formContainer">
 
-                        <div class="col-4">
 
-                        
 
-                        <div class="input-group input-group-sm">
+<div style="margin-bottom: 5px;" class="row statut_juridique_s ">
+      <div class="col-4">
+      <div class="input-group input-group-sm">
 
-                                <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
-                                <!-- <option  selected="" disabled>-</option>
-                                <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
-                                <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
-                                <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
-                                <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
-                                <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
-                                <option value="6">6- Concession CIM 108, CIM 1839</option>
-                                <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
-                                <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
-                                <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
-                                <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
-                                <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
-                                <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-                                <option value="13">13- Inconnu غير معروف</option> -->
-                                <!-- <option  disabled=""  selected value="-"></option>
-                                <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
-                                  <option value="13">13 - Vente/Achat بيع/شراء</option>
-                                 <option value="14">14 - Succession إرث</option>
-                                 <option value="15">15 - Donation هبة</option>
-                                 <option value="16">16 - Testament وصية</option>
-                                 <option value="17">17 - Droit préemption حق الشفاعة</option>
-                                 <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
-                                 <option value="19">19 - Certificat de possession شهادة حيازة</option>
-                                 <option value="20">20 - Location إجار</option>
-                                 <option value="21">21 - Autre  آخرى </option>
-                                 <option value="22">22 - Inconnu غير معروف</option> -->
-                                </select>
-                               
-                         </div>
+          <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+              <option selected="" disabled value="-"></option>
+              <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+              <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+              <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+              <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+              <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
+              <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+              <option BoldText value="7">7 - Wakf privé وقف خاص</option>
+              <option BoldText value="8">8 - Wakf public وقف عام</option>
+              <option BoldText value="9">9 - Inconnue مجهول</option>
+          </select>
 
-                      </div>
-                      
-                      <style>
+          </div>
+      </div>
+
+      <div class="col-4">
+
+      
+
+      <div class="input-group input-group-sm">
+
+              <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+              <option  selected="" disabled>-</option>
+              <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
+              <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
+              <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
+              <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
+              <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
+              <option value="6">6- Concession CIM 108, CIM 1839</option>
+              <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
+              <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
+              <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
+              <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
+              <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
+              <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
+              <option value="13">13- Inconnu غير معروف</option> 
+              <option  disabled=""  selected value="-"></option>
+              <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
+                <option value="13">13 - Vente/Achat بيع/شراء</option>
+               <option value="14">14 - Succession إرث</option>
+               <option value="15">15 - Donation هبة</option>
+               <option value="16">16 - Testament وصية</option>
+               <option value="17">17 - Droit préemption حق الشفاعة</option>
+               <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+               <option value="19">19 - Certificat de possession شهادة حيازة</option>
+               <option value="20">20 - Location إجار</option>
+               <option value="21">21 - Autre  آخرى </option>
+               <option value="22">22 - Inconnu غير معروف</option>
+              </select>
+             
+       </div>
+
+    </div>
+    
+    <style>
 .error {
-    border: 2px solid red;
+border: 2px solid red;
 }
 </style>
 <script>
 $(document).ready(function(){
-    var selectedValues = []; // Array to hold the counts of each combined value selected
+var selectedValues = []; // Array to hold the counts of each combined value selected
 
-    $(document).on('change', '.statut_juridique_check', function() {
-        var fullId = $(this).attr('id');
-        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
+$(document).on('change', '.statut_juridique_check', function() {
+var fullId = $(this).attr('id');
+var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
 
-        var val1 = $('#origine_des_terres_' + idPart).val() || "";
-        var val2 = $('#status_juridique_' + idPart).val() || "";
-        var cc = val1 + val2; // Combine the values to form a unique identifier
+var val1 = $('#origine_des_terres_' + idPart).val() || "";
+var val2 = $('#status_juridique_' + idPart).val() || "";
+var cc = val1 + val2; // Combine the values to form a unique identifier
 
-        // Clear any previous error indication before any new validation
-        $('#origine_des_terres_' + idPart).removeClass('error');
-        $('#status_juridique_' + idPart).removeClass('error');
+// Clear any previous error indication before any new validation
+$('#origine_des_terres_' + idPart).removeClass('error');
+$('#status_juridique_' + idPart).removeClass('error');
 
-        if(val1 === "" || val2 === "") {
-           //console.log("Both selections are required.");
-            return; // Exit the function if one of the dropdowns is not selected
-        }
+if(val1 === "" || val2 === "") {
+//console.log("Both selections are required.");
+return; // Exit the function if one of the dropdowns is not selected
+}
 
-        // Check if this combination already exists in the array
-        if($.inArray(cc, selectedValues) !== -1){
-            ////console.log("This combination of values has already been selected.");
-            // Swal.fire({
-            //    title: 'Attention!',
-            //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-            //     icon: 'warning',
-            //     confirmButtonText: 'OK'
-            // });
-            // $('#origine_des_terres_' + idPart).addClass('error');
-            // $('#status_juridique_' + idPart).addClass('error');
-            // $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-        } else {
-            // If the combination is unique, add it to the array and ensure no error class is present
-            selectedValues.push(cc);
-        }
-    });
+// Check if this combination already exists in the array
+if($.inArray(cc, selectedValues) !== -1){
+////console.log("This combination of values has already been selected.");
+// Swal.fire({
+//    title: 'Attention!',
+//     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+//     icon: 'warning',
+//     confirmButtonText: 'OK'
+// });
+// $('#origine_des_terres_' + idPart).addClass('error');
+// $('#status_juridique_' + idPart).addClass('error');
+// $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+} else {
+// If the combination is unique, add it to the array and ensure no error class is present
+selectedValues.push(cc);
+}
+});
 });
 </script>
 
 
 
-                        <div class="col-3">
-                            <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-                    
-                                    
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
-                             
+      <div class="col-3">
+          <div style="margin-left:20px" class="input-group input-group-sm">
+     <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+  
+                  
+                  <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
+           
 
-                            </div>
+          </div>
 
-                        </div>
-                        <div class="col-1">
+      </div>
+      <div class="col-1">
 
-                            <div class="d-grid gap-2">
-                                        <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
+          <div class="d-grid gap-2">
+                      <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
 
-                            </div>
+          </div>
 
 
-                        </div>
+      </div>
 
-                    </div>
+  </div>
+  </div>
+
+
+
+
+   
+
+
+                  
               
-
-                    <style>
-    .big-space {
-        width: 50px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .small-space {
-        width: 20px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .mid-space {
-      width: 35px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-</style>
-             
+   
 
 
                   <script>
@@ -1366,10 +1383,7 @@ $(document).ready(function(){
 
                  </script>
                  
-                 
-               </div>
-            </div>
- </div>    
+ 
 
 
  <br/>
@@ -5864,22 +5878,7 @@ document.getElementById('submitDate').click();
 </script>
 
 
-         
-          <!--===============================================================================================-->
-   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="static/vendor/bootstrap/js/popper.js"></script>
-    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="static/vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
-    <script src="./assets/js/questionnaire.js"></script>
-<script src="./assets/js/logique.js"></script>
-<script src="./assets/js/questionnaire-mask.js"></script>
-      <script src="./assets/js/update.js"></script>
+
 
              
              
@@ -6142,11 +6141,12 @@ document.getElementById('submitDate').click();
             data: { id: id },
             dataType: 'json',
             success: function (response) {
+               var data = response;
 
     // Iterate over the response object keys
    
     Object.keys(response).forEach(function(key) {
-      //console.log(key, response[key]); // Log each key and value
+      console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
         $('[name="' + key + '"]').val(response[key]);
 
@@ -6191,8 +6191,8 @@ document.getElementById('submitDate').click();
             inputs += '<div class="row" style="margin-bottom: 10px;">';
             inputs += '<div class="col-3">'; // Adjust column size as needed
 inputs += '<div class="input-group input-group-sm">';
-inputs += '<label for="inputGroupSelect01" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
-inputs += '<select class="select-ee materiel_agricole form-control" id="inputGroupSelect01" name="code_materiel">';
+inputs += '<label for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
+inputs += '<select class="select-ee materiel_agricole form-control" id="code_materiel" name="code_materiel">';
 inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     inputs += '<option value="1" ' + (data[i].code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
     inputs += '<option value="2" ' + (data[i].code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
@@ -6237,9 +6237,9 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
-   inputs += '<option value="1">1- en proprièté - ملكية</option>';
-   inputs += '<option value="2">2- en location - إجار</option>';
-   inputs += '<option value="3">3- en prêt - إستلاف</option>';
+   inputs += '<option value="1" ' + (data[i].ee_mode_mobilisation_materiel === "1" ? 'selected' : '') + '>1- en proprièté - ملكية</option>';
+   inputs += '<option value="2" ' + (data[i].ee_mode_mobilisation_materiel === "2" ? 'selected' : '') + '>2- en location - إجار</option>';
+   inputs += '<option value="3" ' + (data[i].ee_mode_mobilisation_materiel === "3" ? 'selected' : '') + '>3- en prêt - إستلاف</option>';
    inputs += '</select>';
    inputs += '</div>';
    inputs += '</div>';
@@ -6249,9 +6249,9 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
-   inputs += '<option value="1">1- en individuel - فردية</option>';
-   inputs += '<option value="2">2- en collectif - جماعية</option>';
-   inputs += '<option value="3">3- Mixte - مختلطة</option>';
+   inputs += '<option value="1" ' + (data[i].ee_mode_exploitation_materiel === "1" ? 'selected' : '') + '>1- en individuel - فردية</option>';
+   inputs += '<option value="2" ' + (data[i].ee_mode_exploitation_materiel === "2" ? 'selected' : '') + '>2- en collectif - جماعية</option>';
+   inputs += '<option value="3" ' + (data[i].ee_mode_exploitation_materiel === "3" ? 'selected' : '') + '>3- Mixte - مختلطة</option>';
    inputs += '</select>';
    inputs += '</div>';
    inputs += '</div>';
@@ -6271,25 +6271,17 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 
 
     /********************************statut_juridique_s**************************************/
-    $.ajax({
-    url: 'assets/php/list_status_juridique.php',
-    method: 'post',
-    async: false,
-    data: { id: id },
-    success: function (response) {
-       //console.log(response);
+   
+    var status_juridique_inputs = "";
 
-        var data = JSON.parse(response);
-        var status_juridique_inputs = "";
-
-        for (var i = 0; i < data.length; i++) {
-           //console.log(data[i].status_juridique);
-            status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1" ' + (data[i].origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2" ' + (data[i].origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3" ' + (data[i].origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4" ' + (data[i].origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5" ' + (data[i].origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6" ' + (data[i].origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7" ' + (data[i].origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8" ' + (data[i].origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9" ' + (data[i].origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select" id="status_juridique" name="status_juridique"><option value="-">-</option><option value="1" ' + (data[i].status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2" ' + (data[i].status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3" ' + (data[i].status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4" ' + (data[i].status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5" ' + (data[i].status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6" ' + (data[i].status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7" ' + (data[i].status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8" ' + (data[i].status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9" ' + (data[i].status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10" ' + (data[i].status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11" ' + (data[i].status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12" ' + (data[i].status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13" ' + (data[i].status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input value="' + data[i].superfecie_sj + '" id="in11" name="superficie_hectare" type="number" max="9999" class="form-control" oninput="this.value = Math.max(0, Math.min(9999, this.value));"><div class="big-space"></div><div class="small-space"></div> <input id="in12" name="superficie_are" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));" value="' + data[i].superfecie_sj_are + '"></div></div></div>';
-        }
-
-        $('#formContainer').append(status_juridique_inputs);
-    }
+// Append each status_juridique input
+data.status_juridique.forEach(function(item) {
+    status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1"' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2"' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3"' + (item.origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4"' + (item.origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5"' + (item.origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6"' + (item.origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7"' + (item.origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8"' + (item.origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9"' + (item.origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select statut_juridique_s" id="status_juridique" name="status_juridique"><option value="-">-</option><option value="1"' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2"' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3"' + (item.status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4"' + (item.status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5"' + (item.status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6"' + (item.status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7"' + (item.status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8"' + (item.status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد 20-265 »</option><option value="9"' + (item.status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند 21-432 »</option><option value="10"' + (item.status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11"' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12"' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13"' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input id="superfecie_sj" name="superfecie_sj" type="number" max="9999" class="form-control statut_juridique_s" value="' + item.superfecie_sj + '"><div class="big-space"></div><div class="small-space"></div> <input id="superfecie_sj_are" name="superfecie_sj_are" value="' + item.superfecie_sj_are + '" type="number" max="99" class="form-control statut_juridique_s" ></div></div></div>';
 });
+
+$('#formContainer').append(status_juridique_inputs);
+
+
 
 
 
@@ -6327,6 +6319,23 @@ inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style
 });
 
     </script>
+
+             
+          <!--===============================================================================================-->
+   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/bootstrap/js/popper.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+   
+<script src="./assets/js/logique.js"></script>
+<!-- <script src="./assets/js/questionnaire-mask.js"></script> -->
+      <script src="./assets/js/update.js"></script>
 </body>
 
 </html>

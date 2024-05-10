@@ -1,27 +1,945 @@
 Debug: Array
 (
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 3
+            [superfecie_sj] => 3
+            [superfecie_sj_are] => 3
+        )
+
 )
 Debug: Array
 (
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
 )
 Debug: Array
 (
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
 )
 Debug: Array
 (
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
 )
 Debug: Array
 (
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 3
+            [superfecie_sj] => 31
+            [superfecie_sj_are] => 133
+        )
+
 )
 Debug: Array
 (
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
 )
 Debug: Array
 (
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 1
+            [superfecie_sj] => 31
+            [superfecie_sj_are] => 133
+        )
+
 )
 Debug: Array
 (
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
 )
 Debug: Array
 (
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 1
+            [superfecie_sj] => 31
+            [superfecie_sj_are] => 133
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 4
+            [superfecie_sj] => 12
+            [superfecie_sj_are] => 12
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 1
+            [superfecie_sj] => 31
+            [superfecie_sj_are] => 133
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 4
+            [superfecie_sj] => 12
+            [superfecie_sj_are] => 12
+        )
+
+)
+Debug: Array
+(
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
+)
+Debug: Array
+(
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 13
+            [superfecie_sj_are] => 13
+        )
+
+)
+Debug: Array
+(
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 13
+            [superfecie_sj_are] => 13
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 6
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+)
+Debug: Array
+(
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
+)
+Debug: Array
+(
+    [id_status_juridique] => 5
+    [cle_status_juridique] => 2-3-15
+    [id_questionnaire] => 2
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 13
+            [superfecie_sj_are] => 13
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 13
+            [superfecie_sj_are] => 13
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 3
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 3
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 7
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 45
+            [superfecie_sj_are] => 45
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 46
+            [superfecie_sj_are] => 46
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 10
+            [superfecie_sj] => 47
+            [superfecie_sj_are] => 47
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => -
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 3
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 4
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 10
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 10
+            [superfecie_sj] => 5
+            [superfecie_sj_are] => 5
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 9
+            [status_juridique] => 11
+            [superfecie_sj] => 5
+            [superfecie_sj_are] => 5
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 9
+            [status_juridique] => 11
+            [superfecie_sj] => 5
+            [superfecie_sj_are] => 5
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 6
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: <br />
+<b>Warning</b>:  Undefined variable $cle_status_juridiqu in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>14</b><br />
+Debug: <br />
+<b>Warning</b>:  Undefined variable $paramsQuestionnaire in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>28</b><br />
+Debug: <br />
+<b>Warning</b>:  Undefined variable $cle_status_juridiqu in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>14</b><br />
+Debug: <br />
+<b>Warning</b>:  Undefined variable $paramsQuestionnaire in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>28</b><br />
+Debug: <br />
+<b>Warning</b>:  Undefined variable $cle_status_juridiqu in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>14</b><br />
+Debug: <br />
+<b>Warning</b>:  Undefined variable $paramsQuestionnaire in <b>C:\xampp\htdocs\rga\assets\php\update.php</b> on line <b>28</b><br />
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 2
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 8
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 5
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 3
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 1
+            [status_juridique] => 1
+            [superfecie_sj] => 1
+            [superfecie_sj_are] => 1
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 5
+            [status_juridique] => 5
+            [superfecie_sj] => 4
+            [superfecie_sj_are] => 4
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 6
+            [superfecie_sj] => 6
+            [superfecie_sj_are] => 6
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 6
+            [superfecie_sj] => 6
+            [superfecie_sj_are] => 6
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 3
+            [superfecie_sj] => 3
+            [superfecie_sj_are] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 6
+            [superfecie_sj] => 7
+            [superfecie_sj_are] => 7
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 3
+            [superfecie_sj] => 3
+            [superfecie_sj_are] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 6
+            [status_juridique] => 7
+            [superfecie_sj] => 7
+            [superfecie_sj_are] => 7
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 3
+            [superfecie_sj] => 3
+            [superfecie_sj_are] => 3
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [origine_des_terres] => 2
+            [status_juridique] => 2
+            [superfecie_sj] => 2
+            [superfecie_sj_are] => 2
+        )
+
+    [1] => Array
+        (
+            [origine_des_terres] => 7
+            [status_juridique] => 7
+            [superfecie_sj] => 7
+            [superfecie_sj_are] => 7
+        )
+
+    [2] => Array
+        (
+            [origine_des_terres] => 3
+            [status_juridique] => 3
+            [superfecie_sj] => 3
+            [superfecie_sj_are] => 3
+        )
+
 )

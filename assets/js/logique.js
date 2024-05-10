@@ -409,7 +409,8 @@ $(document).on('change', '[id^="status_juridique"]', function() {
 
 // Function to update control states based on specific conditions
 function updateControlsBasedOnConditions($changedElement) {
-    var suffix = $changedElement.attr('id').match(/\d+$/)[0];  // Get the suffix from the ID
+    var matchResult = $changedElement.attr('id').match(/\d+$/);  // Get the suffix from the ID
+    var suffix = matchResult ? matchResult[0] : null; // Get the suffix from the ID
     var origineValue = $('#origine_des_terres_' + suffix).val();
     var statusValue = $('#status_juridique_' + suffix).val();
 
