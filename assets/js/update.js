@@ -199,8 +199,8 @@ $("input[type='checkbox']").each(function() {
         data: JSON.stringify({
           form: formDataObj,
           formDataArrayStatut: formDataArrayStatut,
+          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
          // formDataArraySol: formDataArraySol,
-          //formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         }),
         dataType: "json",
         success: function (response) {
