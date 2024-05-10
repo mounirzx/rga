@@ -6176,17 +6176,10 @@ document.getElementById('submitDate').click();
     //get list Materiel Agricol
 
 
-    $.ajax({
-      url:'assets/php/list_materiel_agricol.php',
-      method:'post',
-      async:false,
-      data:{id:id},
-      success:function(response){
-        ////console.log(response)
+    var inputs = "";
 
-         var data = JSON.parse(response);
-         var inputs="";
-         for(var i = 0; i<data.length;i++){
+// Append each status_juridique input
+data.materiel_agricole.forEach(function(item) {
            //console.log(data[i].code_materiel)
             inputs += '<div class="row" style="margin-bottom: 10px;">';
             inputs += '<div class="col-3">'; // Adjust column size as needed
@@ -6194,33 +6187,33 @@ inputs += '<div class="input-group input-group-sm">';
 inputs += '<label for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
 inputs += '<select class="select-ee materiel_agricole form-control" id="code_materiel" name="code_materiel">';
 inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
-    inputs += '<option value="1" ' + (data[i].code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
-    inputs += '<option value="2" ' + (data[i].code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
-    inputs += '<option value="3" ' + (data[i].code_materiel === "3" ? 'selected' : '') + '>3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص</option>';
-    inputs += '<option value="4" ' + (data[i].code_materiel === "4" ? 'selected' : '') + '>4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص</option>';
-    inputs += '<option value="5" ' + (data[i].code_materiel === "5" ? 'selected' : '') + '>5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص</option>';
-    inputs += '<option value="6" ' + (data[i].code_materiel === "6" ? 'selected' : '') + '>6 - Motoculteur - جرار صغير</option>';
-    inputs += '<option value="7" ' + (data[i].code_materiel === "7" ? 'selected' : '') + '>7 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م</option>';
-    inputs += '<option value="8" ' + (data[i].code_materiel === "8" ? 'selected' : '') + '>8 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م</option>';
-    inputs += '<option value="9" ' + (data[i].code_materiel === "9" ? 'selected' : '') + '>9 - Véhicules légers - مركبة خفيفة</option>';
-    inputs += '<option value="10" ' + (data[i].code_materiel === "10" ? 'selected' : '') + '>10 - Véhicules lourds - مركبة ثقيلة</option>';
-    inputs += '<option value="11" ' + (data[i].code_materiel === "11" ? 'selected' : '') + '>11 - Charrue - محراث</option>';
-    inputs += '<option value="12" ' + (data[i].code_materiel === "12" ? 'selected' : '') + '>12 - Covercrop - مغطي المزروعات</option>';
-    inputs += '<option value="13" ' + (data[i].code_materiel === "13" ? 'selected' : '') + '>13 - Epandeur d’engrais - ناثر الأسمدة</option>';
-    inputs += '<option value="14" ' + (data[i].code_materiel === "14" ? 'selected' : '') + '>14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ</option>';
-    inputs += '<option value="15" ' + (data[i].code_materiel === "15" ? 'selected' : '') + '>15 - Poudreuses tractées - آلة السحق المقطورة</option>';
-    inputs += '<option value="16" ' + (data[i].code_materiel === "16" ? 'selected' : '') + '>16 - Semoir - آلة التبذير</option>';
-    inputs += '<option value="17" ' + (data[i].code_materiel === "17" ? 'selected' : '') + '>17 - Faucheuse - آلة الحش</option>';
-    inputs += '<option value="18" ' + (data[i].code_materiel === "18" ? 'selected' : '') + '>18 - Ramasseuse-presse - آلة الجمع والربط</option>';
-    inputs += '<option value="19" ' + (data[i].code_materiel === "19" ? 'selected' : '') + '>19 - Planteuse pomme de terre - آلة غرس البطاطا</option>';
-    inputs += '<option value="20" ' + (data[i].code_materiel === "20" ? 'selected' : '') + '>20 - Arracheuse pomme de terre - آلة قلع البطاطا</option>';
-    inputs += '<option value="21" ' + (data[i].code_materiel === "21" ? 'selected' : '') + '>21 - Remorque - مقطورة</option>';
-    inputs += '<option value="22" ' + (data[i].code_materiel === "22" ? 'selected' : '') + '>22 - Citerne - صهريج</option>';
-    inputs += '<option value="23" ' + (data[i].code_materiel === "23" ? 'selected' : '') + '>23 - Motopompe - مضخة ميكانيكية</option>';
-    inputs += '<option value="24" ' + (data[i].code_materiel === "24" ? 'selected' : '') + '>24 - Electropompe - مضخة كهربائية</option>';
-    inputs += '<option value="25" ' + (data[i].code_materiel === "25" ? 'selected' : '') + '>25 - Ensileuse - الة حصد الاعلاف</option>';
-    inputs += '<option value="26" ' + (data[i].code_materiel === "26" ? 'selected' : '') + '>26 - Emrubaneuse - الة التغليف</option>';
-    inputs += '<option value="27" ' + (data[i].code_materiel === "27" ? 'selected' : '') + '>27 - Autre matériel - عتاد آخر</option>';
+    inputs += '<option value="1" ' + (item.code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
+    inputs += '<option value="2" ' + (item.code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
+    inputs += '<option value="3" ' + (item.code_materiel === "3" ? 'selected' : '') + '>3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص</option>';
+    inputs += '<option value="4" ' + (item.code_materiel === "4" ? 'selected' : '') + '>4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص</option>';
+    inputs += '<option value="5" ' + (item.code_materiel === "5" ? 'selected' : '') + '>5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص</option>';
+    inputs += '<option value="6" ' + (item.code_materiel === "6" ? 'selected' : '') + '>6 - Motoculteur - جرار صغير</option>';
+    inputs += '<option value="7" ' + (item.code_materiel === "7" ? 'selected' : '') + '>7 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م</option>';
+    inputs += '<option value="8" ' + (item.code_materiel === "8" ? 'selected' : '') + '>8 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م</option>';
+    inputs += '<option value="9" ' + (item.code_materiel === "9" ? 'selected' : '') + '>9 - Véhicules légers - مركبة خفيفة</option>';
+    inputs += '<option value="10" ' + (item.code_materiel === "10" ? 'selected' : '') + '>10 - Véhicules lourds - مركبة ثقيلة</option>';
+    inputs += '<option value="11" ' + (item.code_materiel === "11" ? 'selected' : '') + '>11 - Charrue - محراث</option>';
+    inputs += '<option value="12" ' + (item.code_materiel === "12" ? 'selected' : '') + '>12 - Covercrop - مغطي المزروعات</option>';
+    inputs += '<option value="13" ' + (item.code_materiel === "13" ? 'selected' : '') + '>13 - Epandeur d’engrais - ناثر الأسمدة</option>';
+    inputs += '<option value="14" ' + (item.code_materiel === "14" ? 'selected' : '') + '>14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ</option>';
+    inputs += '<option value="15" ' + (item.code_materiel === "15" ? 'selected' : '') + '>15 - Poudreuses tractées - آلة السحق المقطورة</option>';
+    inputs += '<option value="16" ' + (item.code_materiel === "16" ? 'selected' : '') + '>16 - Semoir - آلة التبذير</option>';
+    inputs += '<option value="17" ' + (item.code_materiel === "17" ? 'selected' : '') + '>17 - Faucheuse - آلة الحش</option>';
+    inputs += '<option value="18" ' + (item.code_materiel === "18" ? 'selected' : '') + '>18 - Ramasseuse-presse - آلة الجمع والربط</option>';
+    inputs += '<option value="19" ' + (item.code_materiel === "19" ? 'selected' : '') + '>19 - Planteuse pomme de terre - آلة غرس البطاطا</option>';
+    inputs += '<option value="20" ' + (item.code_materiel === "20" ? 'selected' : '') + '>20 - Arracheuse pomme de terre - آلة قلع البطاطا</option>';
+    inputs += '<option value="21" ' + (item.code_materiel === "21" ? 'selected' : '') + '>21 - Remorque - مقطورة</option>';
+    inputs += '<option value="22" ' + (item.code_materiel === "22" ? 'selected' : '') + '>22 - Citerne - صهريج</option>';
+    inputs += '<option value="23" ' + (item.code_materiel === "23" ? 'selected' : '') + '>23 - Motopompe - مضخة ميكانيكية</option>';
+    inputs += '<option value="24" ' + (item.code_materiel === "24" ? 'selected' : '') + '>24 - Electropompe - مضخة كهربائية</option>';
+    inputs += '<option value="25" ' + (item.code_materiel === "25" ? 'selected' : '') + '>25 - Ensileuse - الة حصد الاعلاف</option>';
+    inputs += '<option value="26" ' + (item.code_materiel === "26" ? 'selected' : '') + '>26 - Emrubaneuse - الة التغليف</option>';
+    inputs += '<option value="27" ' + (item.code_materiel === "27" ? 'selected' : '') + '>27 - Autre matériel - عتاد آخر</option>';
     inputs += '</select>';
     inputs += '</div>';
     inputs += '</div>';
@@ -6228,7 +6221,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="col-2">';
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<span class="input-group-text" id="basic-addon3"> العدد<br>Nombre</span>';
-   inputs += '<input id="in114" value="' + data[i].code_materiel_nombre + '" name="code_materiel_nombre" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">';
+   inputs += '<input id="in114" value="' + item.code_materiel_nombre + '" name="code_materiel_nombre" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">';
    inputs += '</div>';
    inputs += '</div>';
 
@@ -6237,9 +6230,9 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
-   inputs += '<option value="1" ' + (data[i].ee_mode_mobilisation_materiel === "1" ? 'selected' : '') + '>1- en proprièté - ملكية</option>';
-   inputs += '<option value="2" ' + (data[i].ee_mode_mobilisation_materiel === "2" ? 'selected' : '') + '>2- en location - إجار</option>';
-   inputs += '<option value="3" ' + (data[i].ee_mode_mobilisation_materiel === "3" ? 'selected' : '') + '>3- en prêt - إستلاف</option>';
+   inputs += '<option value="1" ' + (item.ee_mode_mobilisation_materiel === "1" ? 'selected' : '') + '>1- en proprièté - ملكية</option>';
+   inputs += '<option value="2" ' + (item.ee_mode_mobilisation_materiel === "2" ? 'selected' : '') + '>2- en location - إجار</option>';
+   inputs += '<option value="3" ' + (item.ee_mode_mobilisation_materiel === "3" ? 'selected' : '') + '>3- en prêt - إستلاف</option>';
    inputs += '</select>';
    inputs += '</div>';
    inputs += '</div>';
@@ -6249,9 +6242,9 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
-   inputs += '<option value="1" ' + (data[i].ee_mode_exploitation_materiel === "1" ? 'selected' : '') + '>1- en individuel - فردية</option>';
-   inputs += '<option value="2" ' + (data[i].ee_mode_exploitation_materiel === "2" ? 'selected' : '') + '>2- en collectif - جماعية</option>';
-   inputs += '<option value="3" ' + (data[i].ee_mode_exploitation_materiel === "3" ? 'selected' : '') + '>3- Mixte - مختلطة</option>';
+   inputs += '<option value="1" ' + (item.ee_mode_exploitation_materiel === "1" ? 'selected' : '') + '>1- en individuel - فردية</option>';
+   inputs += '<option value="2" ' + (item.ee_mode_exploitation_materiel === "2" ? 'selected' : '') + '>2- en collectif - جماعية</option>';
+   inputs += '<option value="3" ' + (item.ee_mode_exploitation_materiel === "3" ? 'selected' : '') + '>3- Mixte - مختلطة</option>';
    inputs += '</select>';
    inputs += '</div>';
    inputs += '</div>';
@@ -6260,13 +6253,8 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     inputs += '<div class="d-grid gap-2"></div>';
     inputs += '</div>';
     inputs += '</div>';
-
-         }
-
-         $('#formContainer3').append(inputs)
-      }
-
-    })
+});
+    $('#formContainer3').append(inputs);
 
 
 

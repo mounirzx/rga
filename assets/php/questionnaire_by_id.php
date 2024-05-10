@@ -13,10 +13,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
         $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
-    
-        // Initialize an array to hold the results
-        $results = [];
-    
+
         // Prepare the SQL query to fetch all related data by ID using LEFT JOIN
         $stmt = $bdd->prepare("
             SELECT q.*, 
@@ -32,68 +29,44 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
             LEFT JOIN status_juridique sj ON q.id_questionnaire = sj.id_questionnaire
             WHERE q.id_questionnaire = :id
         ");
-    
+
         // Bind the ID parameter and execute the query
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-    
+
         // Fetch the results as an associative array
-        $questionnaire_data = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-        // Check if result is empty (no data found for the provided ID)
-        if (!$questionnaire_data) {
-            echo json_encode(["error" => "No data found for the provided ID"]);
-            exit; // Terminate execution
-        }
-    
-        // Add questionnaire data to the results array
-        $results['questionnaire'] = $questionnaire_data;
-    
-        // Fetch data from utilisation_du_sol table
-        $stmt_uds = $bdd->prepare("
-            SELECT code_culture, superficie_hec, superficie_are, en_intercalaire
-            FROM utilisation_du_sol
-            WHERE id_questionnaire = :id
-        ");
-        $stmt_uds->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt_uds->execute();
-        $results['utilisation_du_sol'] = $stmt_uds->fetchAll(PDO::FETCH_ASSOC);
-    
-        // Fetch data from superficie_exploitation table
-        $stmt_se = $bdd->prepare("
-            SELECT cultures_herbacees_1, terres_au_repos_jacheres_1, plantations_arboriculture_1, prairies_naturelles_1, superficie_agricole_utile_sau_1
-            FROM superficie_exploitation
-            WHERE id_questionnaire = :id
-        ");
-        $stmt_se->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt_se->execute();
-        $results['superficie_exploitation'] = $stmt_se->fetchAll(PDO::FETCH_ASSOC);
-    
-        // Fetch data from materiel_agricole table
-        $stmt_ma = $bdd->prepare("
-            SELECT code_materiel, code_materiel_nombre, ee_mode_mobilisation_materiel, ee_mode_exploitation_materiel
-            FROM materiel_agricole
-            WHERE id_questionnaire = :id
-        ");
-        $stmt_ma->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt_ma->execute();
-        $results['materiel_agricole'] = $stmt_ma->fetchAll(PDO::FETCH_ASSOC);
-    
-        // Fetch data from status_juridique table
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+          // Fetch data from status_juridique table
         $stmt_sj = $bdd->prepare("
-            SELECT origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
-            FROM status_juridique
-            WHERE id_questionnaire = :id
+        SELECT origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
+        FROM status_juridique
+        WHERE id_questionnaire = :id
         ");
         $stmt_sj->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt_sj->execute();
-        $results['status_juridique'] = $stmt_sj->fetchAll(PDO::FETCH_ASSOC);
-    
-        // Output the combined array
-        echo json_encode($results);
+        $result['status_juridique'] = $stmt_sj->fetchAll(PDO::FETCH_ASSOC);
+
+
+          // Fetch data from materiel_agricole table
+        $stmt_ma = $bdd->prepare("
+        SELECT code_materiel, code_materiel_nombre, ee_mode_mobilisation_materiel, ee_mode_exploitation_materiel
+        FROM materiel_agricole
+        WHERE id_questionnaire = :id
+        ");
+        $stmt_ma->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt_ma->execute();
+        $result['materiel_agricole'] = $stmt_ma->fetchAll(PDO::FETCH_ASSOC);
+
+        // Check if result is empty (no data found for the provided ID)
+        if (!$result) {
+            echo json_encode(["error" => "No data found for the provided ID"]);
+        } else {
+            echo json_encode($result);
+        }
     } catch (PDOException $e) {
         echo json_encode(["error" => $e->getMessage()]);
     }
+} else {
+    echo json_encode(["error" => "ID parameter is missing or invalid"]);
 }
-    ?>
-    
+?>
