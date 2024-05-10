@@ -1087,7 +1087,7 @@ au réseau internet ?
     internet pour des besoins
     agricoles ?
 </p> 
-<select style="height:34px; !important" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<select style="height:34px !important; " class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1128,20 +1128,23 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 54px;height: 42px;width: 96%;background-color: white;position: absolute;z-index: 99;">
+                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
                   <div class="row"style="text-align: center;">
-   <div class="col-4">
-      <br>
+   <div style="padding-top: 7px;" class="col-4">
+
    الرمز - Code
    </div>
-   <div class="col-3">
-      <br>
+   <div style="padding-top: 7px;" class="col-3">
+  
    الرمز - Code
 </div>
-  
-   <div class="col-2"> هكتار <br>Hectare</div>
-   <div class="col-1">آر <br>Are </div>
-   <div class="col-2"></div>
+
+
+
+   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   &nbsp;&nbsp;&nbsp;
+ Are - آر </div>
+   <div class="col"></div>
 
 
  
@@ -1154,10 +1157,10 @@ au réseau internet ?
 
                   <div class="row" style="text-align: center;">
                     <!-- <div class="col-1"></div> -->
-                    <div class="col-4"><br>أصل الأرضي <br> Origine des terres</div>
+                    <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-3" >كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col-4" style="padding-right:40px;"><br><br> <u>Superficie - المساحة</u> </div>
+                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
                   <br>
@@ -1277,14 +1280,13 @@ $(document).ready(function(){
 </script>
 
 
+<div class="col-1">
+</div>
 
-                        <div class="col-2">
+                        <div class="col">
                             <div class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-                       </div>
-                       </div>
-                       <div class="col-1"> 
-                       <div class="input-group input-group-sm">
+                   
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
@@ -1293,12 +1295,13 @@ $(document).ready(function(){
                             
 
                         </div>
-                        <div class="col"></div>
+                        
                         <div class="col-1">
                    
 
                             <div class="d-grid gap-2">
-                                        <button style="width: 50px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
+                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
+
 
                             </div>
 
@@ -1519,7 +1522,7 @@ acte de concession ?
 
 
             <div class="container mt-3">
-   <div class="row" style=" background-color:#f8f8f8;text-align: center;">
+   <div class="row" style=" height:20px;background-color:#d4e7fe;text-align: center;">
       <div class="col-5"></div>
       <div class="col-3" style="padding-left:62px">
        <u>   جافة - En sec </u>
@@ -3267,12 +3270,20 @@ $(document).ready(function(){
              <br>
              <br>
              <div class="row">
-                <div class="col-3"></div>
-                <div class="col">
-                   (العدد - Nombre de sujets) <br> البيض - Ponte
+                <div class="col-5"></div>
+                <div class="col" style="padding-left:91px;">
+                 <u> العدد - Nombre de sujets</u>
+            <br>
+                
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-4"></div>
+                <div style="padding-left:60px;" class="col">
+                    لإنتاج البيض - Ponte
                 </div>
                 <div class="col">
-                   (العدد - Nombre de sujets) <br> اللحم - Chair
+                لإنتاج اللحم - Chair
                 </div>
              </div>
              <table class="table table-sm">
@@ -3283,42 +3294,66 @@ $(document).ready(function(){
                    <tr>
   
                       <td colspan="2">
-                      <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Poules</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الدجاج</p>
+                      <div class="qst-num zxcount" style="padding-left:52px; margin: 5px 0px 2px 0px; position: absolute; "></div>
+                      <p style="padding-left:52px; margin: 0px 0px 0px 25px;">Poules</p>
+                      <p style="padding-left:52px; margin: 0px 0px 0px 25px;"> الدجاج</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
-                      </td>
-                      <td>
-                            <input class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
-                      </td>
+            <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_ponte" name="chapt_poules_ponte" >
+                            </div> 
+                     
+                           </td>
+                      <td style="max-width:30px;">
+            <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_poules_chair" name="chapt_poules_chair" >
+                            </div> 
+                    
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
-                      <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Dindes</p>
-                      <p style="margin: 0px 0px 0px 25px;"> الديك الرومي</p>
+                      <div class="qst-num zxcount" style=" padding-left:52px; margin: 5px 0px 2px 0px; position: absolute; "></div>
+                      <p style="padding-left:52px; margin: 0px 0px 0px 25px;">Dindes</p>
+                      <p style="padding-left:52px; margin: 0px 0px 0px 25px;"> الديك الرومي</p>
                       </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
-                      </td>
+            <div class="input-group input-group-sm">
+                        
+                            <input num maxlength="6" class="form-control bneder" id="chapt_dindes_ponte" name="chapt_dindes_ponte" >
+                            </div> 
+                    
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
-                      </td>
+            <div class="input-group input-group-sm">
+                            
+                      <input num maxlength="6" class="form-control bneder" id="chapt_dindes_chair" name="chapt_dindes_chair" >
+                            </div> 
+                     
+                           </td>
                    </tr>
                    <tr>
                       <td colspan="2">
-                      <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                      <p style="margin: 0px 0px 0px 25px;">Autre aviculture</p>
-                         <p style="margin: 0px 0px 0px 25px;"> دواجن أخرى</p>
+                      <div class="qst-num zxcount" style="padding-left:52px; margin: 5px 0px 2px 0px; position: absolute; "></div>
+                      <p style="padding-left:52px; margin: 0px 0px 0px 25px;">Autre aviculture</p>
+                         <p style="padding-left:52px; margin: 0px 0px 0px 25px;"> دواجن أخرى</p>
                       </td>
+                      <td >
+            <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
+                            </div> 
+                    
+                           </td>
                       <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_ponte" name="chapt_autre_aviculture_ponte" >
-                      </td>
-                      <td>
-                            <input class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
-                      </td>
+            <div class="input-group input-group-sm">
+
+                            <input num maxlength="6" class="form-control bneder" id="chapt_autre_aviculture_chair" name="chapt_autre_aviculture_chair" >
+                          </div> 
+                           </td>
+                    
                    </tr>
                 </tbody>
              </table>
@@ -3328,29 +3363,17 @@ $(document).ready(function(){
 
 <br>
 <div class="row">
+  
   <div class="col">
+
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
         تربية النحل - Apiculture
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <div class="err" id="chapt_ruches_modernes_error"></div>
-            <div class="input-group input-group-sm">
-            <div class="qst-num zxcount"></div>
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">خلايا النحل العصرية<br>Ruches modernes</span>
-              <input class="form-control bneder" num maxlength="4" id="chapt_ruches_modernes" name="chapt_ruches_modernes">
-            </div>
-            </div><div class="col">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
-              <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
-            </div>
-          </div>
-        </div>
-        <br> <!-- Line break -->
-        <div class="row">
+      <div class="row">
+      <div class="col-1">
+  </div>
           <div class="col">
             <div class="err" id="chapt_ruches_traditionnelles_error"></div>
             <div class="input-group input-group-sm">
@@ -3366,11 +3389,33 @@ $(document).ready(function(){
             </div>
           </div>
         </div>
+        <div class="row">
+         <div class="col-1">
+  </div>
+          <div class="col">
+            <div class="err" id="chapt_ruches_modernes_error"></div>
+            <div class="input-group input-group-sm">
+            <div class="qst-num zxcount"></div>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">خلايا النحل العصرية<br>Ruches modernes</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_ruches_modernes" name="chapt_ruches_modernes">
+            </div>
+            </div>
+            <div class="col">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
+            </div>
+          </div>
+        </div>
+        <br> <!-- Line break -->
+    
       </div>
     </div>
   </div>
 </div>
 <br>
+<div class="row">
+<div class="col">
 <div class="input-group input-group-sm">
                            <div class="qst-num zxcount"></div>
 
@@ -3380,19 +3425,16 @@ $(document).ready(function(){
                            هل تمارس الترحال الرعوي؟<br>
                            Pratiquez-vous la transhumance ?
                            </span>
-                           <select class="form-control bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
+                           <select   class="form-select bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
                               <option selected="" disabled value="-">  </option>
                               <option value="1">1- Oui-نعم</option>
                               <option value="2">2- Non-لا</option>
                            </select>
                         </div>
 
-                    
-
-
-
-
-
+</div>
+<div class="col-5"></div>
+</div>
 
 
 
@@ -3439,7 +3481,8 @@ $(document).ready(function(){
 
 
 
-            
+            <div class="row">
+<div class="col">
             <div class="input-group input-group-sm">
             <div class="qst-num zxcount"></div>
 
@@ -3456,6 +3499,10 @@ $(document).ready(function(){
                </select>
 
            </div>
+           </div>
+<div class="col-3"></div>
+</div>
+
 <br>
 
 
