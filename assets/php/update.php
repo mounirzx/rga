@@ -122,6 +122,7 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+        
 
 // Check if the questionnaire already exists
 $cleQuery = $bdd->prepare("SELECT `id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire` FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
