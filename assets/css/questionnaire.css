@@ -160,6 +160,11 @@ body label {
     font-weight: bold !important;
 
 }
+.fontbneder33{
+    font-size: 6px !important;
+    font-weight: bold !important;
+
+}
 #niveau_instruction{
     width: 12px;
 }
@@ -185,4 +190,10 @@ body label {
     text-align: center  !important;
     display: inline-block;
     height: 35px !important;
+}
+[optTitle]{
+    font-weight: 700;
+    /* font-weight: bold !important; */
+    text-decoration: underline !important;
+    color: blue !important; /* Change color as needed */
 }

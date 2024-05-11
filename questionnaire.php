@@ -3425,7 +3425,7 @@ $(document).ready(function(){
                            هل تمارس الترحال الرعوي؟<br>
                            Pratiquez-vous la transhumance ?
                            </span>
-                           <select   class="form-select bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
+                           <select   class="form-select fontbneder2 bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
                               <option selected="" disabled value="-">  </option>
                               <option value="1">1- Oui-نعم</option>
                               <option value="2">2- Non-لا</option>
@@ -3475,8 +3475,8 @@ $(document).ready(function(){
 <br><div style="border-top: 3px solid red;"></div>
             
             <br>
-            <h5 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h5>
-            <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px;"></div>
+            <h6 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h6>
+            <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 40px;"></div>
             <br><br>
 
 
@@ -3487,11 +3487,11 @@ $(document).ready(function(){
             <div class="qst-num zxcount"></div>
 
                <span class="input-group-text" id="basic-addon3"> 
-                   إستغلال المباني الفلاحية بطريقة 
+                   إستغلال المباني الفلاحية بطريقة؟ 
                    <br>
-                   Les bâtiments d'exploitation agricole sont exploités 
+                   Les bâtiments d'exploitation agricole sont exploités? 
                </span>
-               <select class="form-select bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
+               <select class="form-select fontbneder2 bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
                    <option value="-" disabled selected="selected">  </option>
                    <option value="1">1 - En individuel - فردية</option>
                    <option value="2">2 - En collectif - جماعية</option>
@@ -3508,24 +3508,24 @@ $(document).ready(function(){
 
 
 <div class="row">
-                           <div class="col-4"></div>
+                           <div class="col-5"></div>
                            <div class="col">
-                              العدد - Nombre
+                           <span>   العدد - Nombre
+                           </span>
+                           <span style="margin-left: 48px;">
+                                                         المساحة(م²)-Surface(m²)</span>
                            </div>
-
-                           <div class="col" style="padding-right: 25px;">
-                              المساحة(م²)-Surface(m²)
-                           </div>
-  <div class="col-3"></div>
-<table class="table table-sm">
+  <div class="col-2"></div>
+  </div>
+  <table class="table table-sm">
   <tbody>
     <!-- Labels for Superficie -->
     <!-- Cultures herbacées -->
     <tr>
-      <td style="width:280px">
+      <td style="width:330px">
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="margin: 0px 0px 0px 25px;">مباني سكنية</p>
-      <p style="margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
+      <p style="padding-left:28px;margin: 0px 0px 0px 25px;">مباني سكنية</p>
+      <p style="padding-left:28px;margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
       <td>
       <div class="input-group input-group-sm">
          <input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value="">
@@ -3542,7 +3542,6 @@ $(document).ready(function(){
     </tr>
   </tbody>
 </table>
-</div>
 
 <br>
 <div class="card" style="font-size: 12px;">
@@ -3551,14 +3550,14 @@ $(document).ready(function(){
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-4"></div>
-      <div class="col">
-        العدد - Nombre
+      <div class="col-5" ></div>
+      <div class="col"style="padding-left: 5px;">
+      <span>   العدد - Nombre
+    </span>
+     <span style="margin-left: 48px;">
+        المساحة(م²)-Surface(m²)</span>
       </div>
-      <div class="col" style="padding-right: 25px;">
-        المساحة(م²)-Surface(m²)
-      </div>
-      <div class="col-3"></div>
+      <div class="col-2"></div>
     </div>
     <table class="table table-sm">
       <tbody>
@@ -3566,15 +3565,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">حضيرة</p>
-            <p style="margin: 0px 0px 0px 25px;">Bergerie</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">حضيرة</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Bergerie</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in102" name="bergerie_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in103" name="bergerie_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3583,15 +3582,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">إسطبل</p>
-            <p style="margin: 0px 0px 0px 25px;">Etable</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">إسطبل</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Etable</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in104" name="etable_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in105" name="etable_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3600,15 +3599,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">اسطبل خيول</p>
-            <p style="margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">اسطبل خيول</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3617,15 +3616,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
-            <p style="margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in108" name="poulailler_batis_en_dur_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3634,15 +3633,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">مدجنة (بيوت بلاستيكية)</p>
-            <p style="margin: 0px 0px 0px 25px;">Poulailler (sous serre)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (بيوت بلاستيكية)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (sous serre)</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3651,15 +3650,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
-            <p style="margin: 0px 0px 0px 25px;">Serres Tunnels</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in110" name="serres_tunnels_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3668,15 +3667,15 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
-            <p style="margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
           </td>
-          <td>
+          <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
               <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num="" class="form-control bneder" value="">
             </div>
           </td>
-          <td>
+          <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
               <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
@@ -3713,10 +3712,10 @@ $(document).ready(function(){
                   
 
                   <tr>
-      <td style="width:330px">
+      <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="margin: 0px 0px 0px 25px;">مباني التخزين</p>
-      <p style="margin: 0px 0px 0px 25px;">Bâtiment de stockage</p></td>
+      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفالحية</p>
+      <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
          <input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
@@ -3733,8 +3732,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-                    <p style="margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
-                     <p style="margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
                      <td>
@@ -3755,8 +3754,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">  مباني تخزين اخرى </p>
-                     <p style="margin: 0px 0px 0px 25px;">Autres Bâtiment de stockage </p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني تخزين اخرى </p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Autres Bâtiment de stockage </p>
                      </td>
                      <td>
                        
@@ -3775,8 +3774,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">أقبية</p>
-                     <p style="margin: 0px 0px 0px 25px;">Caves</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">أقبية</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Caves</p>
                      </td>
                      <td>
                        
@@ -3796,8 +3795,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">  وحدة التوظيب</p>
-                     <p style="margin: 0px 0px 0px 25px;">Unité de conditionnement</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  وحدة التوظيب</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Unité de conditionnement</p>
                      </td>
                      <td>
                      <div class="input-group input-group-sm">
@@ -3815,8 +3814,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;">وحدة التحويل</p>
-                     <p style="margin: 0px 0px 0px 25px;">Unité de transformation</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">وحدة التحويل</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Unité de transformation</p>
                      </td>
                      <td>
                      <div class="input-group input-group-sm">
@@ -3836,8 +3835,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                     <p style="margin: 0px 0px 0px 25px;">Centre de collecte de lait</p>
-                        <p style="margin: 0px 0px 0px 25px;"> مركز جمع الحليب</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;"> مركز جمع الحليب</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Centre de collecte de lait</p>
                      </td>
                      <td>
                      <div class="input-group input-group-sm">
@@ -3856,8 +3855,8 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                    <p style="margin: 0px 0px 0px 25px;"> مباني أخرى</p>
-                    <p style="margin: 0px 0px 0px 25px;">Autre batiments</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;"> مباني أخرى</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Autre batiments</p>
                      </td>
                      <td>
                      <div class="input-group input-group-sm">
@@ -3919,24 +3918,24 @@ $(document).ready(function(){
            
             <br>
             <div class="row">
-                     <div class="col-4"></div>
+                     <div class="col-5"></div>
                      <div class="col">
-                        العدد - Nombre
+                     <span >    العدد - Nombre
+                        </span>
+                           <span style="margin-left: 42px;">
+                     السعة (م²) - Capacité (m3) </span>
                      </div>
-                     <div class="col"  style="text-align: center;">
-                     الحجم (م²) - Volume (m3)
-                     </div>
-                     <div class="col-3"></div>
+                     <div class="col-2"></div>
 
                   </div><table class="table table-sm">
                <tbody>
                   <!-- Labels for Superficie -->
                   
                   <tr>
-                     <td style="width:264px;">
+                     <td style="width:330px;">
                         <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-                        <p style="margin: 0px 0px 0px 25px;">  غرف التبريد</p>
-                     <p style="margin: 0px 0px 0px 25px;">Chambre froide</p>
+                        <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  غرف التبريد</p>
+                     <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Chambre froide</p>
                      </td>
                      <td>
                      <div class="input-group input-group-sm">
@@ -3945,7 +3944,7 @@ $(document).ready(function(){
                            </div>
 
                      </td>
-                     <td style="padding-left:65px">
+                     <td >
                      <div class="input-group input-group-sm">
                           
                            <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
@@ -3969,7 +3968,7 @@ $(document).ready(function(){
             <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
             <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
-            <br>
+ 
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
@@ -3986,7 +3985,6 @@ $(document).ready(function(){
                   
             
 </div> -->
-<br>
 
 
 
@@ -3996,199 +3994,237 @@ $(document).ready(function(){
                         quelles
                         filières?
                      </div> -->
+                     <br>
 <div class="card" style="font-size: 12px;">
-<div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
-نوع و عدد العتاد الفالحي ؟ 
+<div class="card-header" style="text-align: center;">
+العتاد الفالحي 
+<br>
+ matériel agricole 
+
+
+                     </div>
+    <div class="card-body" style="padding-top: 0px;">
+       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
+       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <div class="row">
+          
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
+            <div class="col-4" style="text-align: center;" >
+         نوع وعدد العتاد الفالحي ؟
 <br>
 Type et nombre du matériel agricole ? 
-                     </div>
-    <div class="card-body">
-      <div class="row" style="text-align: center;">
-        <div class="row" style="text-align: center;">
-          <div style="margin-top: 150px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;"></div>
-          <!-- <div style="margin-top: 0px; text-align: left; position: absolute" class="qst-num zxcount"></div> -->
-        </div>
-        
-        <div class="col-2">
-         <br>
-         <br>
+<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Code matériel</span>
 
-         <br>
-         <br>
-         <br>
-          <p>رمز العتاد<br>
-          Code matériel</p>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-2">
-         <br>
-         <br>
-         <br>
-         <br>
-      
-         <br>
-         <br>
-          <p>Nombre - العدد</p>
-        </div>
+
+
+
+<sapn>Nombre - العدد</sapn>
+         </div>
+        
+        
         <div class="col-3">
- <div class="qst-num zxcount"></div>
+ <div style="margin: -27px 7px -2px -126px;" class="qst-num zxcount"></div>
 
          <div class="card" style="font-size: 12px;">
-                        <div class="card-header" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
+                        <div class="card-header fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
-                        <div class="card-header" style="text-align: center;">Mode de mobilisation du matériel agricole ?
+                        <div class="card-header fontbneder33" style="text-align: center;">Mode de mobilisation du matériel agricole ?
                         </div>
                      </div>
                   </div>
                   <div class="col-3">
- <div class="qst-num zxcount"></div>
+ <div style=" margin: -27px 7px -2px -126px;" class="qst-num zxcount"></div>
 
          <div class="card" style="font-size: 12px;">
-                        <div class="card-header" style="text-align: center;">  طربقة إستغلال العتاد الفلاحي ؟
+                        <div class="card-header fontbneder22" style="text-align: center;">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
-                        <div class="card-header" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
+                        <div class="card-header fontbneder33" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
                         </div>
                      </div>
                   </div> 
         <div class="col-1"></div>
 
-      </div><br>
-      <br>
-      <div id="formContainer3">
-        <div class="row code_materiel_s" style="margin-bottom: 10px;">
-          <div class="col-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-              Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
-                <option selected disabled>
-                </option>
-                <option value="1">
-                  1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص
-                </option>
-                <option value="2">
-                  2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص
-                </option>
-                <option value="3">
-                  3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص
-                </option>
-                <option value="4">
-                  4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص
-                </option>
-                <option value="5">
-                  5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص
-                </option>
-                <option value="6">
-                  6 - Motoculteur - جرار صغير
-                </option>
-                <option value="7">
-                  7 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م
-                </option>
-                <option value="8">
-                  8 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م
-                </option>
-                <option value="9">
-                  9 - Véhicules légers - مركبة خفيفة
-                </option>
-                <option value="10">
-                  10 - Véhicules lourds - مركبة ثقيلة
-                </option>
-                <option value="11">
-                  11 - Charrue - محراث
-                </option>
-                <option value="12">
-                  12 - Covercrop - مغطي المزروعات
-                </option>
-                <option value="13">
-                  13 - Epandeur d’engrais - ناثر الأسمدة
-                </option>
-                <option value="14">
-                  14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ
-                </option>
-                <option value="15">
-                  15 - Poudreuses tractées - آلة السحق المقطورة
-                </option>
-                <option value="16">
-                  16 - Semoir - آلة التبذير
-                </option>
-                <option value="17">
-                  17 - Faucheuse - آلة الحش
-                </option>
-                <option value="18">
-                  18 - Ramasseuse-presse - آلة الجمع والربط
-                </option>
-                <option value="19">
-                  19 - Planteuse pomme de terre - آلة غرس البطاطا
-                </option>
-                <option value="20">
-                  20 - Arracheuse pomme de terre - آلة قلع البطاطا
-                </option>
-                <option value="21">
-                  21 - Remorque - مقطورة
-                </option>
-                <option value="22">
-                  22 - Citerne - صهريج
-                </option>
-                <option value="23">
-                  23 - Motopompe - مضخة ميكانيكية
-                </option>
-                <option value="24">
-                  24 - Electropompe - مضخة كهربائية
-                </option>
-                <option value="25">
-                  25 - Ensileuse - الة حصد الاعلاف
-                </option>
-                <option value="26">
-                  26 - Emrubaneuse - الة التغليف
-                </option>
-                <option value="27">
-                  27 - Autre matériel - عتاد آخر
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text" id="basic-addon3">العدد<br>
-              Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre"  maxlength="3" num class="form-control code_materiel_s"  value="">
-            </div>
-          </div>
-          <div class="col">
-          <div class="input-group input-group-sm">
-              
-               <select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
-                  <option  selected="selected" vlaue="-">  </option>
-                  <option value="1">1- en proprièté - ملكية</option>
-                  <option value="2">2- en location - إجار</option>
-                  <option value="3">3- en prêt - إستلاف</option>
-              </select>
-                  
-            
-</div>
-          </div>
-          <div class="col">
-          <div class="input-group input-group-sm">
-              
-              <select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
-                 <option  selected="selected" vlaue="-">  </option>
-                  <option value="1">1- en individuel - فردية</option>
-                  <option value="2">2- en collectif - جماعية</option>
-                  <option value="3">3- Mixte - مختلطة  </option>
-             </select>
-                 
-           
-</div>
-<div class="col-1">
-          </div>
-          </div>
-          <div class="col-1">
-            <div class="d-grid gap-2">
-              <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" id="addForm3" type="button">+</button>
-            </div>
-          </div>
-        </div>
       </div>
+      </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <script>
+
+</script>
+<div id="formContainer3">
+  <div class="row code_materiel_s" style="margin-bottom: 10px;">
+    <div class="col-3">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
+        Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+          <option selected disabled>
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            اآلالت - Engins
+          </option>
+          <option value="1">
+            1 - جرار ذو عجلات &lt;=45 حص - Tracteur à roue &lt;=45 CV
+          </option>
+          <option value="2">
+            2 - جرار ذو عجلات65-45 حص - Tracteur à roue 45 CV- 65CV
+          </option>
+          <option value="3">
+            3 - جرار ذو عجلات &gt;65 حص - Tracteur à roue &gt;65 CV
+          </option>
+          <option value="4">
+            4 - جرار ذو سلاسل&lt;=80حص - Tracteur à chenilles &lt;=80 CV
+          </option>
+          <option value="5">
+            5 - جرار ذو سلاسل&gt;80حص - Tracteur à chenilles &gt; 80 CV
+          </option>
+          <option value="6">
+            6 - جرار صغير - Motoculteur
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            المعدات الزراعية - Matériel aratoire
+          </option>
+          <option value="7">
+            7 - محراث - Charrue
+          </option>
+          <option value="8">
+            8 - مغطي المزروعات - Cover croop
+          </option>
+          <option value="9">
+            9 - مسلفة - Herse
+          </option>
+          <option value="10">
+            10 - آلة زرع - Cultivateur
+          </option>
+          <option value="11">
+            11 - آلة بذر - Semoir
+          </option>
+          <option value="12">
+            12 - آلة غرس البطاطا - Planteuse pomme de terre
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات المعالجة والتسميد الزراعي - Matériel de traitement et de fertilisation aratoire
+          </option>
+          <option value="13">
+            13 - ناثر الأسمدة - Epandeur d’engrais
+          </option>
+          <option value="14">
+            14 - آلة الرش والرذاذ - Pulvérisateur, atomiseurs
+          </option>
+          <option value="15">
+            15 - آلة السحق المقطورة - Poudreuses tractées
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات الحصاد - Matériel de récolte
+          </option>
+          <option value="16">
+            16 - آلة حصاد و درس 6م - Moissonneuse-batteuse 6m
+          </option>
+          <option value="17">
+            17 - آلة حصاد و درس 3م - Moissonneuse-batteuse 3m
+          </option>
+          <option value="18">
+            18 - آلة الحش - Faucheuse
+          </option>
+          <option value="19">
+            19 - آلة الجمع والربط - Ramasseuse-presse
+          </option>
+          <option value="20">
+            20 - آلة قلع البطاطا - Arracheuse pomme de terre
+          </option>
+          <option value="21">
+            21 - الة حصد الاعلاف - Ensileuse
+          </option>
+          <option value="22">
+            22 - الة التغليف - Emrubaneuse
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات النقل - Matériel roulant
+          </option>
+          <option value="23">
+            23 - مركبة خفيفة - Véhicules légers
+          </option>
+          <option value="24">
+            24 - مركبة ثقيلة - Véhicules lourds
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات أخرى - Divers matériel
+          </option>
+          <option value="25">
+            25 - مقطورة - Remorque
+          </option>
+          <option value="26">
+            26 - صهريج - Citerne
+          </option>
+          <option value="27">
+            27 - مضخة ميكانيكية - Motopompe
+          </option>
+          <option value="28">
+            28 - مضخة كهربائية - Electropompe
+          </option>
+          <option value="29">
+            29 - عتاد آخر - Autre matériel
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+        Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" maxlength="3" num="" class="form-control code_materiel_s" value="">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select inptsz="" class="form-select fontbneder22 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder22" value="1">
+            1- en proprièté - ملكية
+          </option>
+          <option class="fontbneder22" value="2">
+            2- en location - إجار
+          </option>
+          <option class="fontbneder22" value="3">
+            3- en prêt - إستلاف
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select inptsz="" class="form-select fontbneder22 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder22" value="1">
+            1- en individuel - فردية
+          </option>
+          <option class="fontbneder22" value="2">
+            2- en collectif - جماعية
+          </option>
+          <option class="fontbneder22" value="3">
+            3- Mixte - مختلطة
+          </option>
+        </select>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="col-1">
+      <div class="d-grid gap-2">
+        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+      </div>
+    </div>
+  </div>
+</div>
       <script>
 
 
@@ -4262,6 +4298,7 @@ $(document).ready(function(){
            });
       </script> <!-- TODO -->
     </div>
+    
   </div>
 
             <br>
