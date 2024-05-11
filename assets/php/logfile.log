@@ -1,41 +1,186 @@
 Debug: Array
 (
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
 )
 Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 12
         )
 
     [1] => Array
         (
-            [code_materiel] => 8
-            [code_materiel_nombre] => 4
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 12
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 12
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 12
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 12
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 12
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 12
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 12
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 12
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 12
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 12
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 12
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 12
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 2
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 12
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 12
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 48.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 38.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 48.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 48.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 12
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 12
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 12
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 12
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 120.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 110.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 12
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 12
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 132.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 122.00
         )
 
 )
@@ -43,40 +188,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 12
         )
 
     [1] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 12
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 12
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 12
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 12
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 12
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 12
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 12
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 12
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 12
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 12
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 12
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 12
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 2
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 12
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 12
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 48.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 38.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 48.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 48.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 12
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 12
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 12
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 12
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 120.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 110.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 12
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 12
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 132.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 122.00
         )
 
 )
@@ -84,18 +371,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 12
         )
 
     [1] => Array
         (
-            [code_materiel] => 16
-            [code_materiel_nombre] => 5
-            [ee_mode_mobilisation_materiel] => 2
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 12
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 12
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 12
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 12
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 12
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 12
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 12
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 12
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 12
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 12
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 12
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 12
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 2
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 12
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 12
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 48.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 38.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 48.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 48.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 12
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 12
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 12
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 12
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 120.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 110.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 12
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 12
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 132.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 122.00
         )
 
 )
@@ -103,29 +554,350 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 12.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 4
-            [code_materiel_nombre] => 4
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 12.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 12.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 12.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 12.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 12.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 12.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 12.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 12.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 12.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 12.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 12.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 12.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 2.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 12.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 12.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 48.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 38.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 48.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 48.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 12.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 12.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 12.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 12.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 120.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 110.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 12.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 12.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 132.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 122.00
+        )
+
+    [30] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 12.00
+        )
+
+    [31] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 
+        )
+
+    [32] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 
+        )
+
+    [33] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 
+        )
+
+    [34] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 12.00
+        )
+
+    [35] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 
+        )
+
+    [36] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 
+        )
+
+    [37] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 
+        )
+
+    [38] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 12.00
+        )
+
+    [39] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 
+        )
+
+    [40] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 
+        )
+
+    [41] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 
+        )
+
+    [42] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 12.00
+        )
+
+    [43] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 
+        )
+
+    [44] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 
+        )
+
+    [45] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 
+        )
+
+    [46] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 48.00
+        )
+
+    [47] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 
+        )
+
+    [48] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 
+        )
+
+    [49] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 
+        )
+
+    [50] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 
+        )
+
+    [51] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 
+        )
+
+    [52] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 
+        )
+
+    [53] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 
+        )
+
+    [54] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 
+        )
+
+    [55] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 
+        )
+
+    [56] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 
+        )
+
+    [57] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 
         )
 
 )
@@ -133,29 +905,350 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 0.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 2
-            [code_materiel_nombre] => 4
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 0.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 0.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 0.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 0.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 0.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 0.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 0.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 0.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 0.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 0.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 0.00
+        )
+
+    [30] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 0.00
+        )
+
+    [31] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 
+        )
+
+    [32] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 
+        )
+
+    [33] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 
+        )
+
+    [34] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [35] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 
+        )
+
+    [36] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 
+        )
+
+    [37] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 
+        )
+
+    [38] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [39] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 
+        )
+
+    [40] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 
+        )
+
+    [41] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 
+        )
+
+    [42] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [43] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 
+        )
+
+    [44] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 
+        )
+
+    [45] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 
+        )
+
+    [46] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 0.00
+        )
+
+    [47] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 
+        )
+
+    [48] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 
+        )
+
+    [49] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 
+        )
+
+    [50] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 
+        )
+
+    [51] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 
+        )
+
+    [52] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 
+        )
+
+    [53] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 
+        )
+
+    [54] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 
+        )
+
+    [55] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 
+        )
+
+    [56] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 
+        )
+
+    [57] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 
         )
 
 )
@@ -163,18 +1256,350 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45
         )
 
     [1] => Array
         (
-            [code_materiel] => 1
-            [code_materiel_nombre] => 4
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 45
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 45
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 45
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 45
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 5
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 54
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 5
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 5
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 40
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 54
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 5
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 5
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 198.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 95.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 100.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 95.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 5
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 45
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 303.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 235.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 303.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 235.00
+        )
+
+    [30] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 0.00
+        )
+
+    [31] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 
+        )
+
+    [32] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 
+        )
+
+    [33] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 
+        )
+
+    [34] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [35] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 
+        )
+
+    [36] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 
+        )
+
+    [37] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 
+        )
+
+    [38] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [39] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 
+        )
+
+    [40] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 
+        )
+
+    [41] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 
+        )
+
+    [42] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [43] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 
+        )
+
+    [44] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 
+        )
+
+    [45] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 
+        )
+
+    [46] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 0.00
+        )
+
+    [47] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 
+        )
+
+    [48] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 
+        )
+
+    [49] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 
+        )
+
+    [50] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 
+        )
+
+    [51] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 
+        )
+
+    [52] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 
+        )
+
+    [53] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 
+        )
+
+    [54] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 
+        )
+
+    [55] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 
+        )
+
+    [56] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 
+        )
+
+    [57] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 
         )
 
 )
@@ -182,18 +1607,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 44
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45
         )
 
     [1] => Array
         (
-            [code_materiel] => 16
-            [code_materiel_nombre] => 7
-            [ee_mode_mobilisation_materiel] => 3
-            [ee_mode_exploitation_materiel] => 3
+            [name] => cultures_herbacees_2
+            [value] => 45
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -201,18 +1790,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 18
-            [code_materiel_nombre] => 5
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -220,18 +1973,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 5
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -239,40 +2156,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
-        )
-
-)
-Debug: Array
-(
-    [0] => Array
-        (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 4
-            [code_materiel_nombre] => 8
-            [ee_mode_mobilisation_materiel] => 3
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -280,18 +2339,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 17
-            [code_materiel_nombre] => 8
-            [ee_mode_mobilisation_materiel] => 3
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -299,18 +2522,182 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 17
-            [code_materiel_nombre] => 8
-            [ee_mode_mobilisation_materiel] => 3
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )
@@ -318,18 +2705,1097 @@ Debug: Array
 (
     [0] => Array
         (
-            [code_materiel] => 15
-            [code_materiel_nombre] => 1
-            [ee_mode_mobilisation_materiel] => 1
-            [ee_mode_exploitation_materiel] => 1
+            [name] => cultures_herbacees_1
+            [value] => 45.00
         )
 
     [1] => Array
         (
-            [code_materiel] => 17
-            [code_materiel_nombre] => 8
-            [ee_mode_mobilisation_materiel] => 3
-            [ee_mode_exploitation_materiel] => 2
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 45.00
+        )
+
+    [1] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 45.00
+        )
+
+    [1] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 45.00
+        )
+
+    [1] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 45.00
+        )
+
+    [1] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
+        )
+
+)
+Debug: Array
+(
+    [0] => Array
+        (
+            [name] => cultures_herbacees_1
+            [value] => 45.00
+        )
+
+    [1] => Array
+        (
+            [name] => cultures_herbacees_2
+            [value] => 45.00
+        )
+
+    [2] => Array
+        (
+            [name] => cultures_herbacees_3
+            [value] => 45.00
+        )
+
+    [3] => Array
+        (
+            [name] => cultures_herbacees_4
+            [value] => 45.00
+        )
+
+    [4] => Array
+        (
+            [name] => terres_au_repos_jacheres_1
+            [value] => 0.00
+        )
+
+    [5] => Array
+        (
+            [name] => terres_au_repos_jacheres_2
+            [value] => 0.00
+        )
+
+    [6] => Array
+        (
+            [name] => terres_au_repos_jacheres_3
+            [value] => 0.00
+        )
+
+    [7] => Array
+        (
+            [name] => terres_au_repos_jacheres_4
+            [value] => 0.00
+        )
+
+    [8] => Array
+        (
+            [name] => plantations_arboriculture_1
+            [value] => 0.00
+        )
+
+    [9] => Array
+        (
+            [name] => plantations_arboriculture_2
+            [value] => 0.00
+        )
+
+    [10] => Array
+        (
+            [name] => plantations_arboriculture_3
+            [value] => 0.00
+        )
+
+    [11] => Array
+        (
+            [name] => plantations_arboriculture_4
+            [value] => 0.00
+        )
+
+    [12] => Array
+        (
+            [name] => prairies_naturelles_1
+            [value] => 0.00
+        )
+
+    [13] => Array
+        (
+            [name] => prairies_naturelles_2
+            [value] => 0.00
+        )
+
+    [14] => Array
+        (
+            [name] => prairies_naturelles_3
+            [value] => 0.00
+        )
+
+    [15] => Array
+        (
+            [name] => prairies_naturelles_4
+            [value] => 0.00
+        )
+
+    [16] => Array
+        (
+            [name] => superficie_agricole_utile_sau_1
+            [value] => 45.00
+        )
+
+    [17] => Array
+        (
+            [name] => superficie_agricole_utile_sau_2
+            [value] => 45.00
+        )
+
+    [18] => Array
+        (
+            [name] => superficie_agricole_utile_sau_3
+            [value] => 45.00
+        )
+
+    [19] => Array
+        (
+            [name] => superficie_agricole_utile_sau_4
+            [value] => 45.00
+        )
+
+    [20] => Array
+        (
+            [name] => pacages_et_parcours_1
+            [value] => 0.00
+        )
+
+    [21] => Array
+        (
+            [name] => pacages_et_parcours_2
+            [value] => 0.00
+        )
+
+    [22] => Array
+        (
+            [name] => surfaces_improductives_1
+            [value] => 0.00
+        )
+
+    [23] => Array
+        (
+            [name] => surfaces_improductives_2
+            [value] => 0.00
+        )
+
+    [24] => Array
+        (
+            [name] => superficie_agricole_totale_sat_1
+            [value] => 90.00
+        )
+
+    [25] => Array
+        (
+            [name] => superficie_agricole_totale_sat_2
+            [value] => 90.00
+        )
+
+    [26] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_1
+            [value] => 0.00
+        )
+
+    [27] => Array
+        (
+            [name] => terres_forestieres_bois_forets_maquis_vides_labourables_2
+            [value] => 0.00
+        )
+
+    [28] => Array
+        (
+            [name] => surface_totale_st_1
+            [value] => 90.00
+        )
+
+    [29] => Array
+        (
+            [name] => surface_totale_st_2
+            [value] => 90.00
         )
 
 )

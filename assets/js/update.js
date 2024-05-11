@@ -74,7 +74,7 @@ $(document).ready(function () {
     });
     
     // Output the formDataArrayStatut array
-    console.log("the array:", formDataArrayStatut);
+    //console.log("the array:", formDataArrayStatut);
     
     
 
@@ -166,20 +166,25 @@ $(document).ready(function () {
       mois_de_naissance.padStart(2, "0") +"-"+annee_de_naissance;
      
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
-    
-     //console.log("formDataObj");
-     //console.log(formDataObj);
-
 
 
   
-    var formDataArraySuperficie ={};
-    $(".surface").each(function () {
-      formDataArraySuperficie[this.name] = $(this).val();
-    });
-   
+// var formDataArraySuperficie ={};
+// $(".surface").each(function () {
+//   formDataArraySuperficie[this.name] = $(this).val();
+// });
+// console.log(formDataArraySuperficie)
 
-//console.log(formDataArraySuperficie)
+
+var formDataArraySuperficie = [];
+$(".surface").each(function() {
+    formDataArraySuperficie.push({ name: this.name, value: $(this).val() });
+});
+console.log(formDataArraySuperficie)
+
+
+
+
 
 $("input[type='checkbox']").each(function() {
   formDataObj[this.name] = this.checked ? "1" : "0";
@@ -200,7 +205,8 @@ $("input[type='checkbox']").each(function() {
           form: formDataObj,
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-         // formDataArraySol: formDataArraySol,
+          formDataArrayCodeCulture: formDataArrayCodeCulture,
+          formDataArraySuperficie:formDataArraySuperficie
         }),
         dataType: "json",
         success: function (response) {

@@ -57,6 +57,58 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
         $stmt_ma->execute();
         $result['materiel_agricole'] = $stmt_ma->fetchAll(PDO::FETCH_ASSOC);
 
+
+            // Fetch data from utilisation_du_sol table
+        $stmt_uds = $bdd->prepare("
+        SELECT code_culture, superficie_hec, superficie_are, en_intercalaire
+        FROM utilisation_du_sol
+        WHERE id_questionnaire = :id
+        ");
+        $stmt_uds->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt_uds->execute();
+        $result['utilisation_du_sol'] = $stmt_uds->fetchAll(PDO::FETCH_ASSOC);
+
+
+          // Fetch data from superficie_exploitation table
+        $stmt_se = $bdd->prepare("
+        SELECT 
+        cultures_herbacees_1,
+        cultures_herbacees_2,
+        cultures_herbacees_3,
+        cultures_herbacees_4,
+        terres_au_repos_jacheres_1,
+        terres_au_repos_jacheres_2,
+        terres_au_repos_jacheres_3,
+        terres_au_repos_jacheres_4,
+        plantations_arboriculture_1,
+        plantations_arboriculture_2,
+        plantations_arboriculture_3,
+        plantations_arboriculture_4,
+        prairies_naturelles_1,
+        prairies_naturelles_2,
+        prairies_naturelles_3,
+        prairies_naturelles_4,
+        superficie_agricole_utile_sau_1,
+        superficie_agricole_utile_sau_2,
+        superficie_agricole_utile_sau_3,
+        superficie_agricole_utile_sau_4,
+        pacages_et_parcours_1,
+        pacages_et_parcours_2,
+        surfaces_improductives_1,
+        surfaces_improductives_2,
+        superficie_agricole_totale_sat_1,
+        superficie_agricole_totale_sat_2,
+        terres_forestieres_bois_forets_maquis_vides_labourables_1,
+        terres_forestieres_bois_forets_maquis_vides_labourables_2,
+        surface_totale_st_1,
+        surface_totale_st_2 
+        FROM superficie_exploitation
+        WHERE id_questionnaire = :id
+        ");
+        $stmt_se->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt_se->execute();
+        $result['superficie_exploitation'] = $stmt_se->fetchAll(PDO::FETCH_ASSOC);
+
         // Check if result is empty (no data found for the provided ID)
         if (!$result) {
             echo json_encode(["error" => "No data found for the provided ID"]);
