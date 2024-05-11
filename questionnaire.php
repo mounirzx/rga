@@ -5640,27 +5640,32 @@ Petite et Moyenne Hydraulique
         
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5 style="margin-bottom:27px;">XIV - Environnement de l'exploitation محيط المستثمرة</h5>
-               <div style="border-top: 1px solid red; width:365px; margin:-20px 0px 0px 50px; "></div>
+               <h6 style="margin-bottom:27px;">XIV - Environnement de l'exploitation محيط المستثمرة</h6>
+               <div style="border-top: 1px solid red; width:255px; margin:-20px 0px 0px 70px; "></div>
                <br>
 
     <div class="row">  
+    <div class="col-8">
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
 
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
-                      Fournisseurs de services situés dans la commune ?
-                  </span>
-               <select class="form-select bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
-                  <option selected="selected"> - </option>
-                  <option value="1">1 - Oui - نعم</option>
-                  <option value="2">2 - Non - لا</option>
+                      Prestataire de servicessitués dans la commune ?                  </span>
+               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+                  <option style="width:150px;" selected="selected" disabled value="-">  </option>
+                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
               </select>
                   
             
 </div>
+         </div>
+         <div class="col">
+         
+      </div>
+         
             
 </div>
 
@@ -5704,7 +5709,10 @@ Petite et Moyenne Hydraulique
                               </label>
                            </div>
                         </div>
-                        <div class="col">
+                       
+                     </div>
+                     <div class="row" style="margin-top: 5px;">
+                     <div class="col">
                            <div class="form-check">
                             <input class="form-check-input bneder" id="flexCheckDefault54" name="ee_veterinaire" type="checkbox">
 
@@ -5722,9 +5730,6 @@ Petite et Moyenne Hydraulique
                               </label>
                            </div>
                         </div>
-                     </div>
-                     <div class="row" style="margin-top: 5px;">
-                  
                         <div class="col">
                            <div class="form-check">
                             <input class="form-check-input bneder" id="flexCheckDefault56" name="ee_bureau_detudes" type="checkbox">
@@ -5734,23 +5739,25 @@ Petite et Moyenne Hydraulique
                               </label>
                            </div>
                         </div>
-                        <div class="col">
-                           <div class="form-check" style="position: absolute;right: 154px;">
-                            <input class="form-check-input bneder" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
-
-                              <label class="form-check-label" for="flexCheckDefault57">
-                              التعاونيات المتخصصة - Coopératives spécialisées
-                              </label>
-                           </div>
-                        </div>
+                       
                      </div>
                      <div class="row">
-                        <div class="col">
+                   
+                        <div class="col-4">
                            <div class="form-check">
                             <input class="form-check-input bneder" id="ge29r85b4er" name="ee_assurances" type="checkbox">
 
                               <label class="form-check-label" for="ge29r85b4er">
                               التأمينات- Assurances
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col">
+                           <div class="form-check">
+                            <input class="form-check-input bneder" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
+
+                              <label class="form-check-label" for="flexCheckDefault57">
+                              التعاونيات المتخصصة - Coopératives spécialisées
                               </label>
                            </div>
                         </div>
@@ -5771,7 +5778,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input bneder" id="flexCheckDefault85" name="ee_vente_sur_pied" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault85">
-                              البيع قبل الجني - Vente sur pied
+                              بيع قبل الجني - Vente sur pied
                               </label>
                            </div>
                         </div>
@@ -5780,7 +5787,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input bneder" id="flexCheckDefault95" name="ee_au_marche_de_gros" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault95">
-                              البيع في سوق الجملة - Au marché de gros
+                              بيع في سوق الجملة - Au marché de gros
                               </label>
                            </div>
                         </div>
@@ -5789,19 +5796,32 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input bneder" id="flexCheckDefault105" name="ee_intermediaire" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault105">
-                              البيع عن طريق الوسطاء - Intermédiaire
+                              بيع عن طريق الوسطاء - Intermédiaire
                               </label>
                            </div>
                         </div>
+                        </div>
+                        <div class="row">
                         <div class="col">
                            <div class="form-check">
                             <input class="form-check-input bneder" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
-                              البيع المباشر - Vente directe
+                              بيع المباشر - Vente directe
                               </label>
                            </div>
                         </div>
+                        <div class="col">
+                           <div class="form-check">
+                            <input class="form-check-input bneder" id="flexCheckDefault511" name="ee_consommation-auto" type="checkbox">
+
+                              <label class="form-check-label" for="flexCheckDefault511">
+                            استهالك ذاتي - consommation-Auto 
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col">
+                     </div>
                      </div>
                   </div>
                </div>
@@ -5850,7 +5870,7 @@ Petite et Moyenne Hydraulique
                <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
 
                   <div class="card-header" style="text-align: center;">
-                     هل أنت منخرط في - Etes-vous adhérant à
+                    :هل أنت منخرط في - Etes-vous adhérant à:
                   </div>
                   <div class="card-body">
                      <div class="row">
@@ -5882,19 +5902,21 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input bneder" id="flexCheckDefault517" name="ee_groupe_d_interet_commun_gic" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault517">
-                              مجموعة المصالح المشتركة - Groupe d’intérêt commun (GIC)
+                              تجمع مصالح مشتركة - Groupe d’intérêt commun (GIC)
                               </label>
                            </div>
                         </div>
                      </div>
                      <div class="row" style="margin-top: 5px;">
-                     <div class="col">
+                     <div class="col-8">
                            <div class="form-check">
                             <input class="form-check-input bneder" id="flexCheckDefault519" name="ee_cwifa" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault519">
-                              Conseil de wilaya interprofessionnel des filiales agricoles "CWIFA" - المجلس
-                              الولائي المهني المشترك للشعب الفلاحية
+                              المجلس الولائي المهني المشترك للشعب الفلاحية
+                              -
+                              <br>
+                              Conseil de wilaya interprofessionnel des filiales agricoles "CWIFA" 
                               </label>
                            </div>
                         </div>
