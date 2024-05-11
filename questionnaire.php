@@ -3965,9 +3965,9 @@ $(document).ready(function(){
 
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
+            <h6>VIII- Matériel agricole العتاد الفلاحي</h6>
             <br>
-            <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+            <div style="border-top: 1px solid red; width:150px; margin:-20px 0px 0px 50px; "></div>
  
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
@@ -4318,8 +4318,8 @@ $(document).ready(function(){
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h5>
-            <div style="border-top: 1px solid red; width:320px; margin:-20px 0px 0px 25px; "></div>
+            <h6 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h6>
+            <div style="border-top: 1px solid red; width:170px; margin:-20px 0px 0px 40px; "></div>
             <br>
 
             <div  class="input-group input-group-sm">
@@ -4329,10 +4329,10 @@ $(document).ready(function(){
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
+                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
 
               </select>
 
@@ -4384,18 +4384,18 @@ Petite et Moyenne Hydraulique
      </div>
  <!-- farouk touil -->
  <div class="col-4">
-    <div class="form-check">
-        <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
-        <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
+ <div class="form-check">
+        <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
+        <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
-
-              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
-                      <span class="input-group-text" id="basic-addon3">العدد<br>
+             
+        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
-            </div>
-    
-      </div><br>
+      </div>
+      </div>
+ <br>
     <div class="form-check">
         <input class="form-check-input bneder" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
@@ -4407,17 +4407,20 @@ Petite et Moyenne Hydraulique
               Nombre</span>
             </div>
     </div><br>
-    <div class="form-check">
-        <input class="form-check-input bneder" id="source" name="eau_source" type="checkbox">
-        <label class="form-check-label" for="Source">منبع<br> Source</label>
+  
+      <div class="form-check">
+        <input class="form-check-input bneder" id="forage" name="eau_forage" type="checkbox">
+        <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
-             
-        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
-        <span class="input-group-text" id="basic-addon3">العدد<br>
+
+              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
+                      <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
+            </div>
+    
       </div>
-      </div><br>
+      <br>
 </div>
 
  <!-- farouk touil -->
@@ -4431,7 +4434,7 @@ Petite et Moyenne Hydraulique
          Crues d'oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فوقارة<br>
+         <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فقارة<br>
          Foggara</label>
        </div><br>
        <div class="form-check">
@@ -4517,7 +4520,7 @@ Petite et Moyenne Hydraulique
     <div class="col">
       <br>
       <div class="input-group input-group-sm">
-        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فوقارة<br>
+        <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
@@ -4640,8 +4643,8 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h5>
-            <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 15px; "></div>
+            <h6 style="margin-bottom:27px;">X- Main d'œuvre اليد العاملة</h6>
+            <div style="border-top: 1px solid red; width:100px; margin:-20px 0px 0px 50px; "></div>
             <br>
             <div class="row">
                <div class="row" style="text-align: center;">
@@ -4671,17 +4674,17 @@ Petite et Moyenne Hydraulique
                      <div class="col">
                         <b>
                         عدد أجراء المستثمرة
-                        <br>
+                    -
                         Nombre de salariés de l'exploitation
          </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col" style="padding-left: 30px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-left: 30px;">
+                        ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col" style="padding-right: 34px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4786,17 +4789,18 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        الأعضاء الناشطين ( أكثر من 18 سنة) <br>
-                        Membres actifs ( + de 18 ans )
+                        العاملة اليد نوعية 
+                        -
+                        Qualité de la main d'œuvre de l'exploitation
          </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col" style="padding-left: 30px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-left: 30px;">
+                        ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col" style="padding-right: 34px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 34px;">
+                        ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><br><table class="table table-sm">
                <tbody>
@@ -4869,21 +4873,20 @@ Petite et Moyenne Hydraulique
                </tbody>
             </table>
             <div class="row" style="text-align: center;">
-                     <div class="col-4"></div>
+                    
                      <div class="col">
-                        <p>
-                           Nombre des membres du ou des ménage (s) actifs de l'exploitation
-                           <br>
-                           عدد الأعضاء أو الأسر في المستثمر
-                        </p>
+                        <b>
+عدد أعضاء الأسر الناشطة في المستثمرة      
+                        -
+                        Nombre de(s) membres de(s) ménage(s) actif(s) dans l'exploitation                        </b>
                      </div>
                   </div><br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col" style="padding-left: 30px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-left: 30px;">
+                       ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col" style="padding-right: 34px;">
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 34px;">
+                        ذكور - Masculin - (إناث - Féminin)
                      </div>
                   </div><br><table class="table table-sm">
                <tbody>
@@ -4897,9 +4900,9 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
                   <p style="padding-left:60px;"> 
-                           فلاح أو مستثمر فردي
+                  عدد الأعضاء الناشطين 
                            <br>
-                           Exploitant individuel
+                           Nombre des membres actifs 
                         </p>
                      </td>
                      <td style="padding-left:21px;">
@@ -4926,9 +4929,9 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
                     
                      <p style="padding-left:60px;"> 
-                           كبار (أكثر من 15 سنة) 
+                     عدد الأعضاء الأكثر من 15 سنة
                            <br>
-                           Adultes (+15 ans)
+                           Nombre des membres adultes (plus de 15 ans) 
                      </p>
                      </td>
                      <td style="padding-left:21px;">
@@ -4955,9 +4958,9 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
                      <p style="padding-left:60px;"> 
-                           أطفال (أقل من 15 سنة)
+                     عدد الأعضاء 15 سنة أو أقل
                            <br>
-                           Enfants (-15 ans)
+                           Nombre des membres de 15 ans et moins
                      </p>
                      </td>
                      <td style="padding-left:21px;">
@@ -4988,9 +4991,9 @@ Petite et Moyenne Hydraulique
             <br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5 style="margin-bottom:27px;">XI- Ménage agricole الأسرة الفلاحية</h5>
+            <h6 style="margin-bottom:27px;">XI- Ménage agricole الأسرة الفلاحية</h6>
 
-            <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 50px; "></div>
+            <div style="border-top: 1px solid red; width:140px; margin:-20px 0px 0px 50px; "></div>
             <br>
             <div style="text-align: center;">
                <b>
@@ -5003,7 +5006,8 @@ Petite et Moyenne Hydraulique
             <div class="row">
                      <div class="col-3">  </div>
                      <div class="col" style="text-align: center;">
-                     <div class="qst-num zxcount"></div>
+                     <div class="qst-num ">128</div>
+                     <div  hidden class="qst-num zxcount"></div>
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;"> كبار (أكثر من 15 سنة)
                            
@@ -5012,12 +5016,13 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p style="margin-left: -4px;">
-                     (ذكور - Masculin) - (إناث - Féminin)
+                     <p class="fontbneder11" style="margin-left: -4px;">
+                     ذكور - Masculin - إناث - Féminin
          </p>
                      </div>
                      <div class="col" style="text-align: center;">
-                     <div class="qst-num zxcount"></div>
+                     <div class="qst-num ">129</div>
+                     <div  hidden class="qst-num zxcount"></div>
                      <div class="card" style="font-size: 12px;">
                         <div class="card-header" style="text-align: center;">  أطفال (أقل من 15 سنة أو أقل) 
                            
@@ -5026,11 +5031,11 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p style="margin-left: 3px;">
+                     <span  class="fontbneder11" style="margin-left: 3px;">
 
-                        (ذكور - Masculin) - (إناث - Féminin)
+                     ذكور - Masculin - إناث - Féminin
 
-                     </p>
+                     </span>
                      </div>
                      <div class="col-1">  </div>
                   </div>
@@ -5082,12 +5087,16 @@ Petite et Moyenne Hydraulique
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
-            <h5 style="margin-bottom:27px;">XII- Utilisation d'intrants - إستخدام المدخلات 
+            <h6 style="margin-bottom:27px;">XII- Utilisation d'intrants - إستخدام المدخلات 
             
-             </h5><div style="border-top: 1px solid red; width:270px; margin:-20px 0px 0px 50px; "></div>  <br>
-             <div class="qst-num zxcount"></div>
-             <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
-            
+             </h6><div style="border-top: 1px solid red; width:200px; margin:-20px 0px 0px 50px; "></div>  <br>
+             <div class="card">
+             <div class="card-header" style="text-align: center;">
+             <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
+                              <h6>(Campagne agricole الموسم الفلاحي 2023-2024)</h6>
+                           </div>
+                  <div class="card-body">
+
             <br><br>
             <div class="row">
 
@@ -5246,6 +5255,8 @@ Petite et Moyenne Hydraulique
        Médicaments vétérinaires
    </label>
 </div>
+</div>
+</div>
 
 <br>
 
@@ -5274,22 +5285,23 @@ Petite et Moyenne Hydraulique
                <br><br>
                <div style="border-top: 3px solid red;"></div>
                <br>
-               <h5 style="margin-bottom:27px;">XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h5>
-               <div style="border-top: 1px solid red; width:500px; margin:-20px 0px 0px 120px; "></div>
+               <h6 style="margin-bottom:27px;">XIII - Financement des activités agricoles et assurances تمويل النشاط الفلاحي و التأمينات</h6>
+               <div style="border-top: 1px solid red; width:420px; margin:-20px 0px 0px 100px; "></div>
                <br>
                <div class="card" style="font-size: 12px;">
                
                   <div class="card-body">
-                     <div class="row">
-                        <div class="col">
-                           <div class="card">
-                           <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
-                              <div class="card-header" style="text-align: center;">
-                              
-                                 التمويل - Financement
-                              </div>
-                              <div class="card-body">
-                                 <div class="form-check">
+                     
+                     <div class="card">
+                        <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+                        <div class="card-header" style="text-align: center;">
+                           
+                        التمويل - Financement
+                     </div>
+                     <div class="card-body">
+                                 <div class="row">
+                                 <div class="col">
+  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_propres_ressources" name="fa_propres_ressources" type="checkbox">
                                     <label class="form-check-label" for="fa_propres_ressources">
                                     موارد
@@ -5297,100 +5309,41 @@ Petite et Moyenne Hydraulique
                                     </label>
                                  </div>
 
-                                 <div class="form-check">
+                                 </div>
+                                 <div class="col">
+                                    <div class="form-check">
                                     <input type="checkbox" class="form-check-input bneder" id="fa_credit_bancaire" name="fa_credit_bancaire" >
                                     <label class="form-check-label" for="fa_credit_bancaire">
                                        قرض بنكي - Crédit bancaire
                                     </label>
                                  </div>
- 
-                                 
-                                 <div class="form-check">
+    
+                                    </div>
+                                    <div class="col">
+                                   <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_soutien_public" name="fa_soutien_public" type="checkbox">
                                     <label class="form-check-label" for="fa_soutien_public">
                                     دَعْم عُمومي - Soutien public
                                     </label>
-                                 </div>
-                                 <div class="form-check">
+                                 </div>  
+                                    </div>
+                                    <div class="col">
+                                  <div class="form-check">
                                     <input class="form-check-input bneder" id="fa_emprunt_a_un_tiers" name="fa_emprunt_a_un_tiers" type="checkbox">
                                     <label class="form-check-label" for="fa_emprunt_a_un_tiers">
                                     استلاف من الغير - Emprunt à un tiers
                                     </label>
-                                 </div>
+                                 </div>  
+                                    </div>
+                               
+                              
+                                 
+                                
+                                 
                               </div>
                            </div>
-                        </div>
-                        <div class="col">
-                         
-                         
-                           <div id="card2" class="card">
-                           <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                         
-                        <div class="card-header" style="text-align: center;">
-                           إذا كان قرض، ما نوعه ؟
-                           <br>
-                           Si crédit bancaire, quel type?
-                        </div>
-                        <div class="card-body">
-
-                           <div class="row">
-                              <div class="col"><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_ettahadi" name="fa_ettahadi" type="checkbox">
-     
-                                   <label class="form-check-label" for="fa_ettahadi">
-                                   التحدي - Ettahadi
-                                   </label>
-                                </div> <div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_classique" name="fa_classique" type="checkbox">
-     
-                                   <label class="form-check-label" for="fa_classique">
-                                   الكلاسيكي - Classique
-                                   </label>
-                                </div><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_leasing" name="fa_leasing" type="checkbox">
-     
-                                   <label class="form-check-label" for="fa_leasing">
-                                   تأجير - Leasing
-                                   </label>
-                                </div><div class="form-check">
-                                 <input class="form-check-input bneder" id="fa_rfig" name="fa_rfig" type="checkbox">
-     
-                                   <label class="form-check-label" for="fa_rfig">
-                                   الرفيق - R'fig </label>
-                                </div></div>
-                           </div>
-
-
-                           <script>
-                              // var check2 = document.getElementsByName('propres_ressources')[0];
-                           
-                              // check2.addEventListener('input', function () {
-                              //    updateSelect9();
-                              // });
-                           
-                              // function updateSelect9() {
-                           
-                              //    var div_to_effect7 = document.getElementById('card3');
-                              //    var child_inputs3 = div_to_effect7.getElementsByTagName('input');
-                           
-                              //    if(!check2.checked){
-                              //       for (var i = 0; i < child_inputs3.length; i++) {
-                              //             child_inputs3[i].disabled = true;
-                              //       }
-                              //    }else{
-                              //       for (var i = 0; i < child_inputs3.length; i++) {
-                              //             child_inputs3[i].disabled = false;
-                              //       }
-                              //    }
-                                 
-                              // }
-                           </script>
-                          
-                           
-                           
-                        </div>
-                     </div>
-                        </div>
+                       
                      </div>
 
                      <script>
@@ -5419,7 +5372,97 @@ Petite et Moyenne Hydraulique
                      </script>
 
                      <br>
-                     <div id="card3" class="card">
+                     <div class="row">
+                     <div class="col">
+                         
+                         
+                         <div id="card2" class="card">
+                         <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
+                      
+                      <div class="card-header" style="text-align: center;">
+                         إذا كان قرض، ما نوعه ؟
+                         <br>
+                         Si crédit bancaire, quel type?
+                      </div>
+                      <div class="card-body">
+
+                         <div class="row">
+                            <div class="col">
+                              
+                            <div class="form-check">
+                               <input class="form-check-input bneder" id="fa_ettahadi" name="fa_ettahadi" type="checkbox">
+   
+                                 <label class="form-check-label" for="fa_ettahadi">
+                                 التحدي - Ettahadi
+                                 </label>
+                              </div>
+                           </div>
+                           <div class="col">
+                              
+                              <div class="form-check">
+                               <input class="form-check-input bneder" id="fa_classique" name="fa_classique" type="checkbox">
+   
+                                 <label class="form-check-label" for="fa_classique">
+                                 الكلاسيكي - Classique
+                                 </label>
+                              </div>
+                              </div>
+                              
+                              </div>
+                              <div class="row">
+                              <div class="col">
+                              <div class="form-check">
+                               <input class="form-check-input bneder" id="fa_leasing" name="fa_leasing" type="checkbox">
+   
+                                 <label class="form-check-label" for="fa_leasing">
+                                  تأجير مالي- Leasing
+                                 </label>
+                              </div>
+                              
+                              </div>
+                              <div class="col">
+                              <div class="form-check">
+                               <input class="form-check-input bneder" id="fa_rfig" name="fa_rfig" type="checkbox">
+   
+                                 <label class="form-check-label" for="fa_rfig">
+                                 الرفيق - R'fig </label>
+                              </div>
+                              </div>
+                         </div>
+
+
+                         <script>
+                            // var check2 = document.getElementsByName('propres_ressources')[0];
+                         
+                            // check2.addEventListener('input', function () {
+                            //    updateSelect9();
+                            // });
+                         
+                            // function updateSelect9() {
+                         
+                            //    var div_to_effect7 = document.getElementById('card3');
+                            //    var child_inputs3 = div_to_effect7.getElementsByTagName('input');
+                         
+                            //    if(!check2.checked){
+                            //       for (var i = 0; i < child_inputs3.length; i++) {
+                            //             child_inputs3[i].disabled = true;
+                            //       }
+                            //    }else{
+                            //       for (var i = 0; i < child_inputs3.length; i++) {
+                            //             child_inputs3[i].disabled = false;
+                            //       }
+                            //    }
+                               
+                            // }
+                         </script>
+                        
+                         
+                         
+                      </div>
+                   </div>
+                      </div>
+                        <div class="col">
+ <div id="card3" class="card">
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
 
                               <div class="card-header" style="text-align: center;">
@@ -5444,6 +5487,9 @@ Petite et Moyenne Hydraulique
                                     </label>
                                  </div>
                                  </div>
+                                 </div>
+                              <div class="row">
+
                                  <div class="col">
 
                                  <div class="form-check">
@@ -5465,6 +5511,9 @@ Petite et Moyenne Hydraulique
                               </div>
                               </div>
                            </div>
+                        </div>
+                     </div>
+                    
                      
                   </div>
                </div>
@@ -5502,9 +5551,9 @@ Petite et Moyenne Hydraulique
                               <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
-                                 <option value="1"> ص,م,ز,ق - CRMA</option>
+                                 <option value="1">1- ص,م,ز,ق - CRMA</option>
 
-                                 <option value="2"> أخرى - Cultures</option>
+                                 <option value="2">2- أخرى - Cultures</option>
                               </select>
                            </div>
                         </div>
