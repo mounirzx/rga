@@ -1516,97 +1516,102 @@ acte de concession ?
 
 
 <div id='sans_terre'>
-
-
-
+   
+   
+   
             <div style="border-top: 3px solid red;"></div>
 <br>
-            <h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
+<h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
             <div style="border-top: 1px solid red; width:250px; margin:-20px 0px 0px 50px;"></div>
             <br>
-            <h6><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></h6>
-
-
-
+            <div class="card" style="font-size: 12px;">
+               
+            <div class="card-header" style="text-align: center;">
+               
+            
+            <p style="text-align:center;"><b>(Campagne agricole الموسم الفلاحي 2023-2024)</b></p>
+            
+         </div>
+         <div class="card-body">
+            
+            
+            
             <div class="container mt-3">
-   <div class="row" style="text-align: center;">
-      <div class="col-5"></div>
-      <div class="col">
-         (المساحة Superficie) جافة (هكتار) - En sec (Hectare)
-      </div>
-      <div class="col">
-         (المساحة Superficie) (هكتار) مروية - En irriguée (Hectare)
-      </div>
-   </div>
+               <div class="row" style=" height:20px;background-color:#d4e7fe;text-align: center;">
+                  <div class="col-5"></div>
+                  <div class="col-3" style="padding-left:62px">
+                     <u>   جافة - En sec </u>
+                  </div>
+                  <div class="col" style="padding-right:5px">
+                     <u> مروية - En irriguée </u>
+                  </div>
+               </div>
    <br>
    <div class="row" style="text-align: center;">
       <div class="col-5"></div>
-      <div class="col-3">
-         <div class="row">
-         <div class="col"></div>
-            <div class="col-5" style="padding-left:15px">
-               Hectare  هكتار
-            </div>
-            <div class="col-3">
-               Are  آر
-            </div>
-         </div>
+      <div class="col-2 fontbneder2" style="padding-left:43px" >
+         Hectare - هكتار
       </div>
-      <div class="col-3">
-      <div class="row">
-     
-
-      <div class="col-5"></div>
-            <div class="col-4" style="padding-left:15px">
-               Hectare  هكتار
-            </div>
-  
-            <div class="col-3">
-            
-           
-               Are  آر
-            </div>
-         </div>
+      <div class="col fontbneder2" style="padding-left:43px" >
+         Are - آر
       </div>
+      
+      
+      
+      
+      
+      <div class="col fontbneder2"  >
+         Hectare - هكتار
+      </div>
+      
+      <div class="col  fontbneder2"  >
+         
+         
+         Are - آر
+      </div>
+      
+      
    </div>
    <table class="table table-sm">
-      <tbody>
+   <div id="superficieExploitation">
+      <tbody hidden>
          <!-- Labels for Superficie -->
          
+        
          
          
          <!-- Cultures herbacées -->
          <tr>
-            
+           
          <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
+    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
 </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-                
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
+               
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
              
                  
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" id="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
                      
-                  
+                 
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1615,40 +1620,40 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+    <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             <p style="margin: 0px 0px 0px 25px;" >Terres au repos (jachères)</p>
-            <p style="margin: 0px 0px 0px 25px;" > أراضي مستريحة (البور)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-                
+               
                      
                      
                
                      
                      <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
-                  
-                  
-                  
+                 
+                 
+                 
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-                
+               
                      
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" id="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
-                  
-                
-                      
+                 
+               
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1657,41 +1662,41 @@ acte de concession ?
            
             <td style="width: 233px;">
          <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-         <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
          <p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>
+         <p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-                  
+                 
                      
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1" id="plantations_arboriculture_1"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
-                  
+                 
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-                
+               
                      
                      
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3" id="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
-                  
+                 
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1700,9 +1705,9 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-          
-            <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
+         
             <p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>
+            <p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1711,30 +1716,30 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" id="prairies_naturelles_1" maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
                      
-                  
+                 
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
-              
+             
                
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3" id="prairies_naturelles_3"  maxlength="5" num   value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
                      
-                  
-            
+                 
+           
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
                      
                  
                </div>
@@ -1753,12 +1758,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input style="border: 1px solid " class="surface bneder form-control" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1"  readonly=""   num maxlength="5" value="">
-
-                  
-                 
-                     
-                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1766,24 +1767,24 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
                      
-                  
-            
+                 
+           
                      
-                     <input style="border: 1px solid " class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
                  
                </div>
             </td>
          </tr>
          <!-- Pacages et parcours -->
          <tr>
-        
+       
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-            <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             <p style="margin: 0px 0px 0px 25px;" > المراعي</p>
+            <p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -1794,7 +1795,7 @@ acte de concession ?
                      
                      <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
                      
-                  
+                 
                  
                      
                      
@@ -1810,12 +1811,12 @@ acte de concession ?
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
 
-            <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             <p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>
+            <p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-                
+               
                      
                
                      
@@ -1823,8 +1824,8 @@ acte de concession ?
                      
                      <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
-                  
-            
+                 
+           
                      
                      
                      <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
@@ -1846,12 +1847,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input style="border: 1px solid " class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input  bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
-                  
+                 
                  
                      
-                     <input style="border: 1px solid "  class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     <input   bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1860,18 +1861,18 @@ acte de concession ?
          <tr>
             <td style="width: 233px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
+            <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
 <p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>
-               <p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
                
                      
-                  
+                 
                
                      <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_1"  num maxlength="5" value="">
                      
-                  
+                 
                
                      
                      
@@ -1892,16 +1893,16 @@ acte de concession ?
             </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
-            
+           
                
 
-                  <input  readonly style="border: 1px solid " class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                  <input   bleuBG class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
                      
 
-                  
-                
+                 
+               
                      
-                  <input readonly style="border: 1px solid " class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                  <input  bleuBG class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
                      
 
                
@@ -1912,9 +1913,8 @@ acte de concession ?
       </tbody>
    </table>
 </div>
-
-
-
+</div>
+</div>
 <br/>
 
 <div class="card" style="font-size: 12px;">
@@ -2461,18 +2461,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control code_culture_s"  value="">
               </div>
               </div>
            
@@ -6074,6 +6074,7 @@ document.getElementById('submitDate').click();
        var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
        var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
        var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+       
        var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
        document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
@@ -6149,6 +6150,7 @@ document.getElementById('submitDate').click();
       console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
         $('[name="' + key + '"]').val(response[key]);
+       
 
         // For checkboxes, if the value is '1', check the checkbox
        if (response[key] == 1 || response[key] =="on" ) {
@@ -6169,6 +6171,220 @@ document.getElementById('submitDate').click();
 
 
 }); 
+
+/**************superficie_exploitation ********/
+// cultures_herbacees_1
+// terres_au_repos_jacheres_1
+// plantations_arboriculture_1
+// prairies_naturelles_1
+// superficie_agricole_utile_sau_1
+// cultures_herbacees_2
+var tableHTML = '<table class="table table-sm"><tbody>';
+
+data.superficie_exploitation.forEach(function(item) {
+    tableHTML += '<tr>';
+    tableHTML += '<td style="width: 233px;">';
+    tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">47</div>';
+    tableHTML += '<p style="margin: 0px 0px 0px 25px;">Cultures herbacées</p>';
+    tableHTML += '<p style="margin: 0px 0px 0px 25px;">محاصيل عشبية نباتية</p>';
+    tableHTML += '</td>';
+    tableHTML += '<td style="padding-left:15px">';
+    tableHTML += '<div class="input-group input-group-sm">';
+    tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="cultures_herbacees_1" name="cultures_herbacees_1" maxlength="5" num="" value="' + (item.cultures_herbacees_1 || '') + '" style="max-width: 110px;">';
+    tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="cultures_herbacees_2" name="cultures_herbacees_2" maxlength="2" num="" value="' + (item.cultures_herbacees_2 || '') + '" style="max-width: 44px;">';
+    tableHTML += '</div>';
+    tableHTML += '</td>';
+    tableHTML += '<td style="padding-left:10px">';
+    tableHTML += '<div class="input-group input-group-sm">';
+    tableHTML += '<input class="surface form-control " id="cultures_herbacees_3" name="cultures_herbacees_3" maxlength="5" num="" value="' + (item.cultures_herbacees_3 || '') + '" style="max-width: 110px;">';
+    tableHTML += '<input class="surface form-control " id="cultures_herbacees_4" name="cultures_herbacees_4" maxlength="2" num="" value="' + (item.cultures_herbacees_4 || '') + '" style="max-width: 44px;">';
+    tableHTML += '</div>';
+    tableHTML += '</td>';
+    tableHTML += '</tr>';
+
+    
+    // New row for "Terres au repos (jachères)"
+    tableHTML += '<tr>';
+    tableHTML += '<td style="width: 233px;">';
+    tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">48</div>';
+    tableHTML += '<p style="margin: 0px 0px 0px 25px;">أراضي مستريحة (البور)</p>';
+    tableHTML += '<p style="margin: 0px 0px 0px 25px;">Terres au repos (jachères)</p>';
+    tableHTML += '</td>';
+    tableHTML += '<td style="padding-left:15px">';
+    tableHTML += '<div class="input-group input-group-sm">';
+    tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="terres_au_repos_jacheres_1" name="terres_au_repos_jacheres_1" maxlength="5" value="' + (item.terres_au_repos_jacheres_1 || '') + '" style="max-width: 110px;">';
+    tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="terres_au_repos_jacheres_2" name="terres_au_repos_jacheres_2" maxlength="2" value="' + (item.terres_au_repos_jacheres_2 || '')  + '" style="max-width: 44px;">';
+    tableHTML += '</div>';
+    tableHTML += '</td>';
+    tableHTML += '<td style="padding-left:10px">';
+    tableHTML += '<div class="input-group input-group-sm">';
+    tableHTML += '<input class="surface  form-control" id="terres_au_repos_jacheres_3" name="terres_au_repos_jacheres_3" maxlength="5" value="' + (item.terres_au_repos_jacheres_3 || '') + '" style="max-width: 110px;">';
+    tableHTML += '<input class="surface  form-control" id="terres_au_repos_jacheres_4" name="terres_au_repos_jacheres_4" maxlength="2" value="' + (item.terres_au_repos_jacheres_4 || '')  + '" style="max-width: 44px;">';
+    tableHTML += '</div>';
+    tableHTML += '</td>';
+    tableHTML += '</tr>';
+
+
+     // "Plantations (arboriculture)"
+     tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">49</div>';
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >مغروسات (أشجار)</p>'; // Arabic label
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >Plantations (arboriculture)</p>'; // French label
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="plantations_arboriculture_1" name="plantations_arboriculture_1" maxlength="5" num="" value="' + (item.plantations_arboriculture_1 || '')  + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="plantations_arboriculture_2" name="plantations_arboriculture_2" maxlength="2" num="" value="' + (item.plantations_arboriculture_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:10px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control" id="plantations_arboriculture_3" name="plantations_arboriculture_3" maxlength="5" num="" value="' + (item.plantations_arboriculture_3 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control" id="plantations_arboriculture_4" name="plantations_arboriculture_4" maxlength="2" num="" value="' + (item.plantations_arboriculture_4 || '') + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '</tr>';
+
+
+
+        // "Prairies naturelles"
+        tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">50</div>';
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >مروج طبيعية</p>'; // Arabic label
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >Prairies naturelles</p>'; // French label
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="prairies_naturelles_1" name="prairies_naturelles_1" maxlength="5" num="" value="' + (item.prairies_naturelles_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="prairies_naturelles_2"  name="prairies_naturelles_2" maxlength="2" num="" value="' + (item.prairies_naturelles_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:10px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control" id="prairies_naturelles_3" name="prairies_naturelles_3" maxlength="5" num="" value="' + (item.prairies_naturelles_3 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control" id="prairies_naturelles_4" name="prairies_naturelles_4" maxlength="2" num="" value="' + (item.prairies_naturelles_4 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '</tr>';
+
+         // "Superficie agricole utile (SAU)"
+         tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">51</div>';
+        tableHTML += '<p style="margin: 0px 0px 5px 25px;" >Superficie agricole utile(SAU) المساحة الفلاحية المستخدَمَة</p>'; // Combined label
+        tableHTML += '<div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control" id="superficie_agricole_utile_sau_1" name="superficie_agricole_utile_sau_1" readonly maxlength="5" num="" value="' + (item.superficie_agricole_utile_sau_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control" id="superficie_agricole_utile_sau_2" name="superficie_agricole_utile_sau_2" readonly maxlength="2" num="" value="' + (item.superficie_agricole_utile_sau_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:10px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control" id="superficie_agricole_utile_sau_3" name="superficie_agricole_utile_sau_3" readonly maxlength="5" num="" value="' + (item.superficie_agricole_utile_sau_3 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control" id="superficie_agricole_utile_sau_4" name="superficie_agricole_utile_sau_4" readonly maxlength="2" num="" value="' + (item.superficie_agricole_utile_sau_4 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '</tr>';
+
+        
+        // "Pacages et parcours"
+        tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">52</div>';
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" > المراعي</p>'; // Arabic label
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >Pacages et parcours</p>'; // French label
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="pacages_et_parcours_1"  name="pacages_et_parcours_1" maxlength="5" num="" value="' + (item.pacages_et_parcours_1 || '')  + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="pacages_et_parcours_2" name="pacages_et_parcours_2" maxlength="2" num="" value="' + (item.pacages_et_parcours_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td></td>'; // Empty column as per original HTML structure
+        tableHTML += '</tr>';
+
+
+           // "Surfaces improductives"
+           tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">53</div>';
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" > مساحات غير منتجة</p>'; // Arabic label
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >Surfaces improductives</p>'; // French label
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface form-control  coherence_surface_total-surface surface_total"  id="surfaces_improductives_1" name="surfaces_improductives_1" maxlength="5" num="" value="' + (item.surfaces_improductives_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface form-control  coherence_surface_total-surface_are" id="surfaces_improductives_2" name="surfaces_improductives_2" maxlength="2" num="" value="' + (item.surfaces_improductives_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td></td>'; // Empty column as per original structure
+        tableHTML += '</tr>';
+
+
+        // "Superficie agricole totale (SAT)"
+        tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">54</div>';
+        tableHTML += '<p style="margin: 0px 0px 5px 25px;" >Superficie agricole totale (SAT) المساحة الفلاحية الإجمالية</p>'; // Arabic label
+      
+        tableHTML += '<div style="border-top: 1px solid red; width:260px; margin:0px 30px 0px 30px;"></div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface form-control " id="superficie_agricole_totale_sat_1" name="superficie_agricole_totale_sat_1" readonly maxlength="5" num="" value="' + (item.superficie_agricole_totale_sat_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface form-control " id="superficie_agricole_totale_sat_2" name="superficie_agricole_totale_sat_2" readonly maxlength="2" num="" value="' + (item.superficie_agricole_totale_sat_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td></td>'; // Empty column as per original HTML structure
+        tableHTML += '</tr>';
+
+
+           // "Terres forestières (bois, forêts, maquis, vides labourables)"
+           tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">55</div>';
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >  أراضي الغابات (غابات,أدغال,فراغات للحرث)</p>'; // Arabic label
+        tableHTML += '<p style="margin: 0px 0px 0px 25px;" >Terres forestières(bois, forêts, maquis, vides labourables)</p>'; // French label
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="terres_forestieres_bois_forets_maquis_vides_labourables_1" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" maxlength="5" num="" value="' + (item.terres_forestieres_bois_forets_maquis_vides_labourables_1 || '')  + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="terres_forestieres_bois_forets_maquis_vides_labourables_2"  name="terres_forestieres_bois_forets_maquis_vides_labourables_2" maxlength="2" num="" value="' + (item.terres_forestieres_bois_forets_maquis_vides_labourables_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td></td>'; // Empty column as per the original HTML structure
+        tableHTML += '</tr>';
+
+
+         // "Surface totale (ST)"
+         tableHTML += '<tr>';
+        tableHTML += '<td style="width: 233px;">';
+        tableHTML += '<div class="qst-num " style="margin: 5px 0px 2px 0px; position: absolute;">56</div>';
+       
+        tableHTML += '<p style="margin: 0px 0px 5px 25px;" >Surface totale (ST) المساحة الإجمالية</p>'; // French label
+        tableHTML += '<div style="border-top: 1px solid red; width:95px; margin:0px 30px 0px 65px;"></div>';
+        tableHTML += '</td>';
+        tableHTML += '<td style="padding-left:15px">';
+        tableHTML += '<div class="input-group input-group-sm">';
+        tableHTML += '<input class="surface  form-control surface_total_error"  id="surface_totale_st_1" name="surface_totale_st_1" maxlength="5" num="" value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are surface_total_error_are" id="surface_totale_st_2" name="surface_totale_st_2" maxlength="2" num="" value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '</div>';
+        tableHTML += '</td>';
+        tableHTML += '<td></td>'; // Empty column as per original HTML structure
+        tableHTML += '</tr>';
+
+
+});
+
+tableHTML += '</tbody></table>';
+$('#superficieExploitation').append(tableHTML);
+
+
+
 
 
 
@@ -6273,31 +6489,21 @@ $('#formContainer').append(status_juridique_inputs);
 
 
 
-    /************************************************************************************* */
+    /****************************************utilisation_du_sol********************************************* */
 
-    $.ajax({
-      url:'assets/php/list_utilisation_sol.php',
-      method:'post',
-      async:false,
-      data:{id:id},
-      success:function(response){
-        //console.log(response)
-         var data = JSON.parse(response)
+    var utilisation_du_sol_inputs = "";
 
-         var inputs="";
+// Append each status_juridique input
+data.utilisation_du_sol.forEach(function(item) {
+utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><div class="row"><div class="col-5"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div></div></div></div>'
+});
 
-         for(var i=0; i<data.length; i++){
-inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select " id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(data[i].code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(data[i].code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(data[i].code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(data[i].code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(data[i].code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(data[i].code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(data[i].code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(data[i].code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(data[i].code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(data[i].code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(data[i].code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(data[i].code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(data[i].code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(data[i].code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(data[i].code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(data[i].code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(data[i].code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(data[i].code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(data[i].code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(data[i].code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(data[i].code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(data[i].code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(data[i].code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(data[i].code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(data[i].code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(data[i].code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(data[i].code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(data[i].code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(data[i].code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(data[i].code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(data[i].code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(data[i].code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(data[i].code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(data[i].code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(data[i].code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(data[i].code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(data[i].code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(data[i].code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(data[i].code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(data[i].code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(data[i].code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(data[i].code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(data[i].code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(data[i].code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(data[i].code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(data[i].code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(data[i].code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(data[i].code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(data[i].code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(data[i].code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(data[i].code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(data[i].code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(data[i].code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(data[i].code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(data[i].code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(data[i].code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(data[i].code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(data[i].code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(data[i].code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(data[i].code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(data[i].code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(data[i].code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(data[i].code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(data[i].code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(data[i].code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(data[i].code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(data[i].code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(data[i].code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(data[i].code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><div class="row"><div class="col-5"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+data[i].superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+data[i].superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+data[i].en_intercalaire+'"></div></div></div></div>'
+$('#formContainer2').append(utilisation_du_sol_inputs);
+
+           
          }
-         $('#formContainer2').append(inputs)
-      }
-    })
-},
-            error: function (xhr, status, error) {
-                console.error('Error fetching questionnaire data:', error);
-            }
-        });
-    }
+      })
+}
 
     // Submit form event handler
     $('#questionnaireForm').submit(function (event) {
@@ -6322,7 +6528,7 @@ inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
    
 <script src="./assets/js/logique.js"></script>
-<!-- <script src="./assets/js/questionnaire-mask.js"></script> -->
+<script src="./assets/js/questionnaire-mask.js"></script>
       <script src="./assets/js/update.js"></script>
 </body>
 

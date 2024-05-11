@@ -7,16 +7,20 @@ include('config.php');
 
 // Decode the JSON input into an associative array
 $form = json_decode(file_get_contents("php://input"), true);
+   
 
 
     $data = $form['form'];
     $formDataArrayStatut = $form['formDataArrayStatut'];
     $formDataArrayCodeMateriel = $form['formDataArrayCodeMateriel'];
-   // $formDataArrayCodeCulture = isset($form->formDataArrayCodeCulture) ? $form->formDataArrayCodeCulture : [];
+    $formDataArrayCodeCulture = $form['formDataArrayCodeCulture'];
+    $formDataArraySuperficie = $form['formDataArraySuperficie'];
+   
+    
 
     // Debugging: Log formDataArrayStatut to check content
     ob_start();
-    echo "Debug: ", print_r($formDataArrayCodeMateriel, true);
+    echo "Debug: ", print_r($formDataArraySuperficie, true);
     $logData = ob_get_clean();
     $logFilePath = __DIR__ . '/logfile.log';
     file_put_contents($logFilePath, $logData, FILE_APPEND);
@@ -62,10 +66,18 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+   // Prepare SQL query to update each field based on name and value pairs
+   foreach ($formDataArraySuperficie as $item) {
+    $field = $item['name'];
+    $value = $item['value'];
 
-
-
-
+    // Construct SQL statement
+    $sql = "UPDATE superficie_exploitation SET `$field` = :value WHERE id_questionnaire = :id_questionnaire";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindParam(':value', $value, PDO::PARAM_STR);
+    $stmt->bindParam(':id_questionnaire', $data['id_questionnaire'], PDO::PARAM_INT);
+    $stmt->execute();
+}
 
 
 
@@ -122,10 +134,31 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
 
 // Check if the questionnaire already exists
-$cleQuery = $bdd->prepare("SELECT `id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire` FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
+$cleQuery = $bdd->prepare("SELECT `id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`,`code_materiel_nombre` FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
 $cleQuery->bindValue(':id_questionnaire', $data['id_questionnaire']);
 $cleQuery->execute();
 $cleResult = $cleQuery->fetch(PDO::FETCH_ASSOC);
@@ -135,7 +168,7 @@ $cle_materiel_agricole = ($cleResult !== false && is_array($cleResult)) ? $cleRe
 $id_questionnaire = ($cleResult !== false && is_array($cleResult)) ? $cleResult['id_questionnaire'] : 0;
 
 // Insert new record if the questionnaire does not exist
-if ($id_status_juridique > 0) {
+if ($id_materiel_agricol > 0) {
     $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
     $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
     $deleteStmt->execute();
@@ -175,6 +208,100 @@ foreach ($formDataArrayCodeMateriel as $formData) {
     }
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Check if the questionnaire already exists
+$query = $bdd->prepare("SELECT `id`, `cle_code_culture`, `id_questionnaire`, `code_culture` FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+$query->bindValue(':id_questionnaire', $data['id_questionnaire']);
+$query->execute();
+$result = $query->fetch(PDO::FETCH_ASSOC);
+
+$id = ($result !== false && is_array($result)) ? $result['id'] : 0;
+$cle_code_culture = ($result !== false && is_array($result)) ? $result['cle_code_culture'] : '';
+$id_questionnaire = ($result !== false && is_array($result)) ? $result['id_questionnaire'] : 0;
+
+// Insert new record if the questionnaire does not exist
+if ($id > 0) {
+    $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    $deleteStmt->execute();
+}
+
+foreach ($formDataArrayCodeCulture as $formData) {
+    if (!empty($formData['code_culture'])) {
+        // Generate a unique cle_code_culture value
+        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'], 0, 20);
+
+        // Check if the generated cle_code_culture already exists
+        $checkDuplicateQuery = $bdd->prepare("SELECT COUNT(*) AS count FROM `utilisation_du_sol` WHERE `cle_code_culture` = :cle_code_culture");
+        $checkDuplicateQuery->bindValue(':cle_code_culture', $cle_code_culture);
+        $checkDuplicateQuery->execute();
+        $duplicateCount = $checkDuplicateQuery->fetchColumn();
+
+        if ($duplicateCount == 0) {
+            // Insert new record
+            $insertStmt = $bdd->prepare("INSERT INTO `utilisation_du_sol` (`cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES (:cle_code_culture, :id_questionnaire, :code_culture, :superficie_hec, :superficie_are, :en_intercalaire)");
+
+            $insertStmt->execute([
+                'cle_code_culture' => $cle_code_culture,
+                'id_questionnaire' => $data['id_questionnaire'],
+                'code_culture' => $formData['code_culture'],
+                'superficie_hec' => $formData['superficie_hec'] ?? NULL,
+                'superficie_are' => $formData['superficie_are'] ?? NULL,
+                'en_intercalaire' => $formData['en_intercalaire'] ?? NULL
+            ]);
+        } else {
+            // Duplicate found, update the existing record
+            $updateStmt = $bdd->prepare("UPDATE `utilisation_du_sol` SET `code_culture` = :code_culture, `superficie_hec` = :superficie_hec, `superficie_are` = :superficie_are, `en_intercalaire` = :en_intercalaire WHERE `cle_code_culture` = :cle_code_culture");
+            $updateStmt->bindValue(':code_culture', $formData['code_culture']);
+            $updateStmt->bindValue(':superficie_hec', $formData['superficie_hec']);
+            $updateStmt->bindValue(':superficie_are', $formData['superficie_are']);
+            $updateStmt->bindValue(':en_intercalaire', $formData['en_intercalaire']);
+            $updateStmt->bindValue(':cle_code_culture', $cle_code_culture);
+            $updateStmt->execute();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
