@@ -169,12 +169,16 @@ try {
 
 
 
-
+    // ob_start();
+    // echo "Debug: ", print_r($formDataArrayCodeCulture, true);
+    // $logData = ob_get_clean();
+    // $logFilePath = __DIR__ . '/logfile.log';
+    // file_put_contents($logFilePath, $logData, FILE_APPEND);
 
 
     foreach ($formDataArrayCodeCulture as $formData) {
         // Check for non-empty necessary fields
-        if (!empty($formData->code_culture) && !empty($formData->superficie_hec) && !empty($formData->superficie_are) && !empty($formData->en_intercalaire)) {
+        if (!empty($formData->code_culture) && !empty($formData->superficie_hec) && !empty($formData->superficie_are)) {
             // Generate a unique key for `cle_code_culture`
             $cle_code_culture = $lastInsertId . "-" . $formData->code_culture . "-" . $formData->superficie_hec . "-" . $formData->superficie_are;
     
@@ -197,11 +201,7 @@ try {
         }
     }
 
-    ob_start();
-    echo "Debug: ", print_r($formDataArrayCodeMateriel, true);
-    $logData = ob_get_clean();
-    $logFilePath = __DIR__ . '/logfile.log';
-    file_put_contents($logFilePath, $logData, FILE_APPEND);
+   
 
 
 foreach ($formDataArrayCodeMateriel as $formData) {

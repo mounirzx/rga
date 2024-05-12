@@ -4,7 +4,16 @@ include('includes/header.php');
 ?>
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
-   
+   <style>
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color:#000;
+    outline: 0;
+    box-shadow: none;
+}
+</style>
     
    <body>
 
@@ -593,12 +602,16 @@ Sexe</span>
 
             <div class="row">
                <div class="col">
+               <div id="error_message" style="color: red;"></div>
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
+          
             <span class="input-group-text" id="basic-addon3">
             رقم التعريف الوطني <br> Numéro d’identité nationale
             </span>
-            <input class="form-control bneder" num   maxlength="18" id="nin_exploitant" name="nin_exploitant"   />
+          
+            <input class="form-control bneder" num   maxlength="18" minlength='18' id="nin_exploitant" name="nin_exploitant"   />
+            
             </div>
 <br>
 
@@ -1178,29 +1191,29 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  class="form-select statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                            <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                                <option value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                                <option value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option value="3">3 - Melk en indivision titré ملك في الشيوع موثق</option>
-                                <option value="4">4 - Melk en indivision non titré ملك في الشيوع غير موثق </option>
-                                <option value="5">5 - Domaine public de l'état ملكية عامة للدولة</option>
-                                <option value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                                <option value="7">7 - Wakf privé وقف خاص</option>
-                                <option value="8">8 - Wakf public وقف عام</option>
-                                <option value="9">9 - Inconnue مجهول</option>
+                                <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                                <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                                <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                                <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                                <option BoldText value="7">7 - Wakf privé وقف خاص</option>
+                                <option BoldText value="8">8 - Wakf public وقف عام</option>
+                                <option BoldText value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-4">
 
                         
 
                         <div class="input-group input-group-sm">
 
-                                <select  class="form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1261,16 +1274,16 @@ $(document).ready(function(){
 
         // Check if this combination already exists in the array
         if($.inArray(cc, selectedValues) !== -1){
-            console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            $('#origine_des_terres_' + idPart).addClass('error');
-            $('#status_juridique_' + idPart).addClass('error');
-            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+            // console.log("This combination of values has already been selected.");
+            // Swal.fire({
+            //    title: 'Attention!',
+            //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
+            // $('#origine_des_terres_' + idPart).addClass('error');
+            // $('#status_juridique_' + idPart).addClass('error');
+            // $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
         } else {
             // If the combination is unique, add it to the array and ensure no error class is present
             selectedValues.push(cc);
@@ -1283,10 +1296,10 @@ $(document).ready(function(){
 <div class="col-1">
 </div>
 
-                        <div class="col">
-                            <div class="input-group input-group-sm">
+                        <div class="col-3">
+                            <div style="margin-left:20px" class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-                   
+                    
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
@@ -1385,7 +1398,7 @@ $(document).ready(function(){
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
-   <select class="form-select bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
+   <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
       <option selected="">-</option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
@@ -1404,7 +1417,7 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder" num maxlength="6"   id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
 
 
 
@@ -1575,26 +1588,26 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   >
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
              
                  
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" id="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1619,7 +1632,7 @@ acte de concession ?
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1630,13 +1643,13 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" id="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
                   
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1655,14 +1668,14 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1" id="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
                   
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1673,13 +1686,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_3" id="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1699,13 +1712,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" id="prairies_naturelles_1" maxlength="5" num   value="">
                      
                   
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1716,13 +1729,13 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3"  maxlength="5" num   value="">
+                     <input class="surface bneder form-control" name="prairies_naturelles_3" id="prairies_naturelles_3"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
                      
                  
                </div>
@@ -1936,22 +1949,7 @@ acte de concession ?
                         </div>
                      </div>
 
-                     <script>
-                        var select_exploit_est_un_bloc = document.getElementsByName('exploit_est_un_bloc')[0];
-
-                        var exploit_est_un_bloc = document.getElementById('exploit_est_un_bloc');
-                        var exploit_est_un_bloc_oui = document.getElementById('exploit_est_un_bloc_oui');
                      
-                        select_exploit_est_un_bloc.addEventListener('input', function () {
-                           update_exploit_est_un_bloc_oui();
-                        });
-                     
-                        function update_exploit_est_un_bloc_oui() {
-                            var selectedValue = select_exploit_est_un_bloc.value;
-                            
-                            exploit_est_un_bloc_oui.disabled = (selectedValue != '2');
-                        }
-                     </script>
 
 
                   </div>
@@ -2207,7 +2205,7 @@ acte de concession ?
               <select inptSZ class="form-select code_culture_s fontbneder11 code_culture_check" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
-                <option style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Grandes cultures - المحاصيل الكبرى
                 </option>
                 <option class="fontbneder22" value="1">
@@ -2231,7 +2229,7 @@ acte de concession ?
                 <option class="fontbneder22" value="7">
                   7 - Autres céréales - الحبوب الأخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Légumessecs - البقول الجافة
                 </option>
                 <option class="fontbneder22" value="8">
@@ -2252,7 +2250,7 @@ acte de concession ?
                 <option class="fontbneder22" value="13">
                   13 - Autres - أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Fourrages - الأعلاف
                 </option>
                 <option class="fontbneder22" value="14">
@@ -2267,7 +2265,7 @@ acte de concession ?
                 <option class="fontbneder22" value="17">
                   17 - Autres fourrages - أعلاف أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Maraîchage - الخضروات
                 </option>
                 <option class="fontbneder22" value="18">
@@ -2333,7 +2331,7 @@ acte de concession ?
                 <option class="fontbneder22" value="38">
                   38 - Autres - أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Cultures industrielles - المحاصيل الصناعية
                 </option>
                 <option class="fontbneder22" value="39">
@@ -2351,7 +2349,7 @@ acte de concession ?
                 <option class="fontbneder22" value="43">
                   43 - Autres - أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
+                <option BoldText disabled style="font-weight: 700;">
                   Arboriculture - الأشجار
                 </option>
                 <option class="fontbneder22" value="44">
@@ -2527,22 +2525,22 @@ $(document).ready(function(){
 
         if ($.inArray(rowIdentifier, selectedCombinations) !== -1) {
             // If the combination already exists in the array
-            console.log("This combination has already been selected in this row.");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+            // console.log("This combination has already been selected in this row.");
+            // Swal.fire({
+            //     title: 'Attention!',
+            //     text: 'Cette combinaison de valeurs a déjà été sélectionnée dans cette ligne. Veuillez modifier votre choix.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
 
-            // Reset all selects and inputs in this row
-            $row.find('.code_culture_check').each(function() {
-                if ($(this).is('select')) {
-                    $(this).val($(this).find('option:first').val());
-                } else {
-                    $(this).val('');
-                }
-            });
+            // // Reset all selects and inputs in this row
+            // $row.find('.code_culture_check').each(function() {
+            //     if ($(this).is('select')) {
+            //         $(this).val($(this).find('option:first').val());
+            //     } else {
+            //         $(this).val('');
+            //     }
+            // });
         } else {
             // If the combination is unique, add it to the array
             selectedCombinations.push(rowIdentifier);
@@ -2593,43 +2591,64 @@ $(document).ready(function(){
 
 
 
+document.getElementById('addForm2').addEventListener('click', function() {
+    const formContainer = document.getElementById('formContainer2');
+    const formRow = formContainer.firstElementChild.cloneNode(true);
+
+    // Generate unique IDs and names for the cloned form elements
+    formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
+        var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
+        var newIndex = formContainer.children.length; // New index based on the number of existing rows
+        element.id = baseId + '_' + newIndex;
+        element.name = baseId + '_' + newIndex;
+        element.removeAttribute('disabled'); // Remove "disabled" attribute if present
+
+        if (element.tagName === 'SELECT') {
+            element.selectedIndex = 0; // Reset select element to default value
+            // Add an event listener to enforce selection
+            element.addEventListener('blur', function() {
+                if (this.value === "-" || this.value === "") {
+                    Swal.fire({
+                        title: 'Attention !',
+                        text: 'Veuillez faire une sélection avant de continuer.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.focus(); // Refocus on the dropdown if user closes the alert
+                        }
+                    });
+                }
+            });
+        } else if (element.type === 'text') {
+            element.value = ''; // Clear input text fields
+        }
+    });
+
+    // Remove the add button from the cloned row and add a remove button
+    const removeButton = document.createElement('button');
+    removeButton.textContent = '-';
+    removeButton.type = 'button';
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+    removeButton.addEventListener('click', function() {
+        formRow.remove();
+    });
+    formRow.querySelector('.d-grid').innerHTML = '';
+    formRow.querySelector('.d-grid').appendChild(removeButton);
+
+    formContainer.appendChild(formRow);
+
+    // Focus on the 'code_culture' select element in the newly added row
+    formRow.querySelector('.code_culture_s').focus();
+
+    // Optionally call any other functions that need to reinitialize settings or bindings
+});
 
 
-               document.getElementById('addForm2').addEventListener('click', function () {
-                   const formContainer = document.getElementById('formContainer2');
-                   const formRow = formContainer.firstElementChild.cloneNode(true);
-           
-                   // Generate unique IDs and names for the cloned form elements
-                   formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-                       element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-                       element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-           
-                       // Remove the "disabled" attribute if present
-                       element.removeAttribute('disabled');
-                   });
-           
-                   // Remove the add button from the cloned row and add a remove button
-                   const removeButton = document.createElement('button');
-                   removeButton.textContent = '-';
-                   removeButton.type = 'button';
-                   removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-                   removeButton.addEventListener('click', function () {
-                       formRow.remove();
-                   });
-                   formRow.querySelector('.d-grid').innerHTML = '';
-                   formRow.querySelector('.d-grid').appendChild(removeButton);
-           
-                   formContainer.appendChild(formRow);
-           
-                   // Enable the cloned input elements inside the replicated HTML code
-                   formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-                       inputElement.removeAttribute('disabled');
-                   });
-           
-               });
-      </script> <!-- TODO -->
+                  </script> <!-- TODO -->
     </div>
-  
+    
 </div>
 <br>
 
@@ -3384,7 +3403,7 @@ $(document).ready(function(){
             </div><div class="col">
 
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines_2" name="chapt_dont_sont_pleines_2">
             </div>
           </div>
@@ -4231,71 +4250,70 @@ Code matériel</span>
 
 
 $(document).ready(function(){
-    var selectedValues = []; // Array to hold the unique values selected
+   var combinations = {}; // Object to hold combinations to ensure uniqueness
 
-    // Event handler for changes on any select with the class 'code_culture_check'
-    $(document).on('change', '.code_materiel_check', function() {
-        var selectedValue = $(this).val(); // Fetch the value of the selected option in the select element
+// Function to generate a unique combination based on row inputs
+function generateCombination(row) {
+    return row.find('[id^="code_materiel"]').val() + '-' +
+           row.find('[id^="code_materiel_nombre"]').val() + '-' +
+           row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
+           row.find('[id^="ee_mode_exploitation_materiel"]').val();
+}
 
-        if (selectedValues.indexOf(selectedValue) !== -1) {
-            // If the value already exists in the array, display a SweetAlert message in French
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+// Function to check and manage unique combinations
+function manageCombinations(row) {
+    var key = generateCombination(row);
+    if (combinations[key]) {
+        Swal.fire({
+            title: 'Attention!',
+            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        // Reset the row's selects to the default option
+        row.find('select').val(function() {
+            return $(this).children('option:first').val();
+        });
+    } else {
+        // Add or update the combination in the map
+        Object.values(combinations).forEach((val, idx) => {
+            if (val.row.is(row)) {
+                delete combinations[idx];
+            }
+        });
+        combinations[key] = { row: row };
+    }
+}
 
-            // Optionally reset to the first option or default state
-            $(this).val($(this).find('option:first').val());
-        } else {
-            // Add the new value to the array if it's not already there
-            selectedValues.push(selectedValue);
-            console.log('Selected value:', selectedValue); // Log the newly added value
-        }
+// Handle changes in any of the dropdowns
+$('#formContainer3').on('change', 'select', function() {
+    manageCombinations($(this).closest('.row'));
+});
+
+// Handle the addition of new rows
+$('#addForm3').click(function() {
+    var formContainer = $('#formContainer3');
+    var formRow = formContainer.children('.row').first().clone();
+    formRow.find('input').val('');
+    formRow.find('select').each(function() {
+        $(this).val($(this).find('option:first').val());
     });
+
+    // Append a remove button to the new row
+    var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
+        delete combinations[generateCombination($(this).closest('.row'))];
+        $(this).closest('.row').remove();
+    });
+
+    formRow.find('.d-grid').empty().append(removeButton);
+    formContainer.append(formRow);
+});
 });
 
 
 
 
-           document.getElementById('addForm3').addEventListener('click', function () {
-               const formContainer = document.getElementById('formContainer3');
-               const formRow = formContainer.firstElementChild.cloneNode(true);
-
-               // Generate unique IDs and names for the cloned form elements
-               formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-                   element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-                   element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-
-                   // Remove the "disabled" attribute if present
-                   element.removeAttribute('disabled');
-               });
-
-               // Remove the add button from the cloned row and add a remove button
-               const removeButton = document.createElement('button');
-               removeButton.textContent = '-';
-               removeButton.type = 'button';
-               removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-
-               removeButton.addEventListener('click', function () {
-                   formRow.remove();
-               });
-               formRow.querySelector('.d-grid').innerHTML = '';
-
-               formRow.querySelector('.d-grid').appendChild(removeButton);
-
-               formContainer.appendChild(formRow);
-
-               // Enable the cloned input elements inside the replicated HTML code (if needed)
-               formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-                   inputElement.removeAttribute('disabled');
-               });
-
-               // Assuming the InputHandler class is correctly implemented
-               var inputHandler = new InputHandler(`cn114_${formContainer.children.length - 1}`, `in114_${formContainer.children.length - 1}`);
-               inputHandler.handleHiddenInputChange();
-           });
+ 
       </script> <!-- TODO -->
     </div>
     
@@ -4484,18 +4502,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
+        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
+        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
+        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4503,17 +4521,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
+        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="3" num class="form-control bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
+        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
+        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="3" num class="form-control bneder"  value="">
       </div><br>
       
     </div>
@@ -4527,12 +4545,12 @@ Petite et Moyenne Hydraulique
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
+        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="3" num class="form-control bneder"  value="">
       </div>
     </div>
   </div>
@@ -4562,8 +4580,8 @@ Petite et Moyenne Hydraulique
                   </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault666" name="eau_bassin_d_accumulation" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault666">
+                                 <input class="form-check-input bneder" id="eau_bassin_d_accumulation" name="eau_bassin_d_accumulation" type="checkbox">
+                                 <label class="form-check-label" for="eau_bassin_d_accumulation">
                                  أحواض التجميع
                                  <br>
                                  Bassin d’accumulation
@@ -4571,8 +4589,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault777" name="eau_bassin_geomembrane" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault777">
+                                 <input class="form-check-input bneder" id="eau_bassin_geomembrane" name="eau_bassin_geomembrane" type="checkbox">
+                                 <label class="form-check-label" for="eau_bassin_geomembrane">
                                  الأحواض الأرضية
                                  <br>
                                  Bassin géomembrane
@@ -4580,8 +4598,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bender" id="flexCheckDefault888" name="eau_reservoir" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault888">
+                                 <input class="form-check-input bender" id="eau_reservoir" name="eau_reservoir" type="checkbox">
+                                 <label class="form-check-label" for="eau_reservoir">
                                  خزان
                                  <br>
                                  Réservoir
@@ -4589,8 +4607,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault999" name="eau_citrene_souple" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault999">
+                                 <input class="form-check-input bneder" id="eau_citrene_souple" name="eau_citrene_souple" type="checkbox">
+                                 <label class="form-check-label" for="eau_citrene_souple">
                                  صهريج
                                  <br>
                                  Citrene
@@ -4599,8 +4617,8 @@ Petite et Moyenne Hydraulique
                            </div>
                            <div class="col">
                               <div class="form-check">
-                                 <input class="form-check-input bender" id="flexCheckDefault1010" name="eau_mare_deau" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault1010">
+                                 <input class="form-check-input bender" id="eau_mare_deau" name="eau_mare_deau" type="checkbox">
+                                 <label class="form-check-label" for="eau_mare_deau">
                                  بركة الماء
                                  <br>
                                  Marre d'eau
@@ -4608,8 +4626,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault1011" name="eau_ced" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault1011">
+                                 <input class="form-check-input bneder" id="eau_ced" name="eau_ced" type="checkbox">
+                                 <label class="form-check-label" for="eau_ced">
                                  سد الماء
                                  <br>
                                  Ced
@@ -4617,8 +4635,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault122" name="eau_digue" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault122">
+                                 <input class="form-check-input bneder" id="eau_digue" name="eau_digue" type="checkbox">
+                                 <label class="form-check-label" for="eau_digue">
                                  حاجز الماء
                                  <br>
                                  Digue
@@ -4626,8 +4644,8 @@ Petite et Moyenne Hydraulique
                               </div>
                               <br>
                               <div class="form-check">
-                                 <input class="form-check-input bneder" id="flexCheckDefault133" name="eau_autres_1" type="checkbox">
-                                 <label class="form-check-label" for="flexCheckDefault133">
+                                 <input class="form-check-input bneder" id="eau_autres_1" name="eau_autres_1" type="checkbox">
+                                 <label class="form-check-label" for="eau_autres_1">
                                  طرق أخرى
                                  <br>
                                  Autres
@@ -4759,7 +4777,7 @@ Petite et Moyenne Hydraulique
                   <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
                 <p style="padding-left:60px;">  العمال الفلاحيين الأجانب 
                   <br>
-                        Ouvriers agricoles étrangès</p>
+                  Ouvriers agricoles étrangers</p>
                      </td>
                      <td style="padding-left:21px;">
 
@@ -5237,8 +5255,8 @@ Petite et Moyenne Hydraulique
 <div class="card-body">
 
 <div class="form-check">
-   <input class="form-check-input bneder" id="flexCheckDefault2112" name="ui_vaccins" type="checkbox">
-   <label class="form-check-label" for="flexCheckDefault2112">
+   <input class="form-check-input bneder" id="ui_vaccins" name="ui_vaccins" type="checkbox">
+   <label class="form-check-label" for="ui_vaccins">
    اللقاحات
        <br>
        Vaccins
@@ -5246,8 +5264,8 @@ Petite et Moyenne Hydraulique
 </div>
 <br>
 <div class="form-check">
-   <input class="form-check-input bneder" id="flexCheckDefault22212" name="ui_medicaments_veterinaires" type="checkbox">
-   <label class="form-check-label" for="flexCheckDefault22212">
+   <input class="form-check-input bneder" id="ui_medicaments_veterinaires" name="ui_medicaments_veterinaires" type="checkbox">
+   <label class="form-check-label" for="ui_medicaments_veterinaires">
    الأدوية البيطرية
 
 
@@ -5998,6 +6016,7 @@ document.getElementById('submitDate').click();
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
 <script src="./assets/js/logique.js"></script>
+<script src="./assets/js/questionnaire-mask.js"></script>
 
              
              
@@ -6158,7 +6177,7 @@ document.getElementById('submitDate').click();
 
 
              
-<script>
+<!-- <script>
    document.getElementById("info_form").addEventListener("input", function () {
        console.log("capturing")
 
@@ -6212,7 +6231,7 @@ document.getElementById('submitDate').click();
        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
 
    });
-</script>       
+</script>        -->
 
 <script>
 
