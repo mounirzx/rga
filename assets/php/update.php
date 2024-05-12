@@ -18,12 +18,12 @@ $form = json_decode(file_get_contents("php://input"), true);
    
     
 
-    // Debugging: Log formDataArrayStatut to check content
-    ob_start();
-    echo "Debug: ", print_r($formDataArraySuperficie, true);
-    $logData = ob_get_clean();
-    $logFilePath = __DIR__ . '/logfile.log';
-    file_put_contents($logFilePath, $logData, FILE_APPEND);
+    // // Debugging: Log formDataArrayStatut to check content
+    // ob_start();
+    // echo "Debug: ", print_r($formDataArraySuperficie, true);
+    // $logData = ob_get_clean();
+    // $logFilePath = __DIR__ . '/logfile.log';
+    // file_put_contents($logFilePath, $logData, FILE_APPEND);
 
     // Prepare the list of fields to update, excluding specific fields
     $excludeFields = ['origine_des_terres', 'status_juridique', 'superficie_hectare', 'superficie_are'];
