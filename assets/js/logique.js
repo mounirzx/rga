@@ -1,8 +1,8 @@
 $(document).ready(function() {
      $('#type_activite_exploitation').prop('disabled', true); // [36]
-     // $('#reseau_telephonique').prop('disabled', true); // [39]
+      $('#reseau_telephonique').prop('disabled', true); // [39]
      $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
-     $('#si_exploi_eai_eac').prop('disabled', true); 
+
      
 
 
@@ -24,16 +24,74 @@ $(document).ready(function() {
 
      
   
+
+
+     $('#ui_medicaments_veterinaires').prop('disabled', true);
+    //  ui_semences_selectionnees
+    //  ui_semences_certifiees
+    //  ui_semences_de_la_ferme
+    //  ui_bio
+    //  ui_engrais_azotes
+    //  ui_engrais_phosphates
+    //  ui_autres_engrais_mineraux
+    //  ui_engrais_organique
+    //  ui_fumier
+    //  ui_produits_phytosanitaires
+
+
+
+
+
+
+
       $('#activite_exploitation').change(function() { // [35]
           var selectedValue = $(this).val();
           if (selectedValue === "1") {
             $('#ui_vaccins').prop('disabled', true); //
               $('#ui_medicaments_veterinaires').prop('disabled', true); //
-              $('#type_activite_exploitation').prop('disabled', true); //
+              //$('#type_activite_exploitation').prop('disabled', true); //
           }else if(selectedValue === "2") {
              // $('#chapt_animals').show(); // [VI]
-              $('#type_activite_exploitation').prop('disabled', false); // [36]
-          }
+              //$('#type_activite_exploitation').prop('disabled', false); // [36]
+              $('#ui_vaccins').prop('disabled', false); //
+              $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', true);
+            $('#ui_semences_certifiees').prop('disabled', true);
+            $('#ui_semences_de_la_ferme').prop('disabled', true);
+            $('#ui_bio').prop('disabled', true);
+            $('#ui_engrais_azotes').prop('disabled', true);
+            $('#ui_engrais_phosphates').prop('disabled', true);
+            $('#ui_autres_engrais_mineraux').prop('disabled', true);
+            $('#ui_engrais_organique').prop('disabled', true);
+            $('#ui_fumier').prop('disabled', true);
+            $('#ui_produits_phytosanitaires').prop('disabled', true);
+          }else if(selectedValue === "3") {
+            $('#ui_vaccins').prop('disabled', false); //
+            $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', false);
+            $('#ui_semences_certifiees').prop('disabled', false);
+            $('#ui_semences_de_la_ferme').prop('disabled', false);
+            $('#ui_bio').prop('disabled', false);
+            $('#ui_engrais_azotes').prop('disabled', false);
+            $('#ui_engrais_phosphates').prop('disabled', false);
+            $('#ui_autres_engrais_mineraux').prop('disabled', false);
+            $('#ui_engrais_organique').prop('disabled', false);
+            $('#ui_fumier').prop('disabled', false);
+            $('#ui_produits_phytosanitaires').prop('disabled', false);
+        }else{
+            $('#ui_vaccins').prop('disabled', false); //
+            $('#ui_medicaments_veterinaires').prop('disabled', false); //
+            $('#ui_semences_selectionnees').prop('disabled', false);
+            $('#ui_semences_certifiees').prop('disabled', false);
+            $('#ui_semences_de_la_ferme').prop('disabled', false);
+            $('#ui_bio').prop('disabled', false);
+            $('#ui_engrais_azotes').prop('disabled', false);
+            $('#ui_engrais_phosphates').prop('disabled', false);
+            $('#ui_autres_engrais_mineraux').prop('disabled', false);
+            $('#ui_engrais_organique').prop('disabled', false);
+            $('#ui_fumier').prop('disabled', false);
+            $('#ui_produits_phytosanitaires').prop('disabled', false);
+        }
       });
   
       $('#type_activite_exploitation').change(function() { // [36]
@@ -168,7 +226,25 @@ $('#forage, #puits, #source').change(function() {
                   text: 'Le nombre total de membres de la famille ne peut pas dépasser ' + maxPersons,
               });
           $(this).val(''); // Clear the input field
+
       }
+
+      var ma_adultes_plus_15_ans_m = $('#ma_adultes_plus_15_ans_m').val();
+      var ma_adultes_plus_15_ans_f = $('#ma_adultes_plus_15_ans_f').val();
+      var ma_enfants_moins_15_ans_m = $('#ma_enfants_moins_15_ans_m').val();
+      var ma_enfants_moins_15_ans_f = $('#ma_enfants_moins_15_ans_f').val();
+      if(ma_adultes_plus_15_ans_m!="" && ma_adultes_plus_15_ans_f!="" && ma_enfants_moins_15_ans_m!="" && ma_enfants_moins_15_ans_f){
+         if(totalFamilyMembers < maxPersons){
+            Swal.fire({
+                icon: 'error',
+                title: 'Insuffisant',
+                text: 'Le nombre total de membres de la famille ne peut pas être inférieur à ' + maxPersons + '.'
+            });
+        $(this).val(''); // Clear the input field
+    
+          }
+      }
+
   });
   
 
@@ -216,6 +292,7 @@ function toggleElements($elements, disabled) {
     $(inputId1 + ', ' + inputId2).on('input', function() {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
+        console.log('val1: '+inputValue2+" val2: "+inputValue2)
         if (inputValue1 >= inputValue2) {
             Swal.fire({
                 icon: 'error',
@@ -238,29 +315,258 @@ handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le no
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
 // 92 dont pleins <= Ruches Traditionnelles
 handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+//  117 <= 64
+function calculateTotalSupIrrigation() {
+    var totalAres = 0;
+    // Loop through each input field for adults and children
+    $('#formContainer2 .row').each(function() {
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        totalAres += ares;
+    });
+    return totalAres;
 
+}
 function calculateTotalModeIrrigation() {
     var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
         // Parse the value as an integer and add it to the total
         total += parseInt($(this).val()) || 0;
     });
     return total;
 }
-
-function calculateTotalModeIrrigation() {
-    var total = 0;
-    // Loop through each input field for adults and children
-    $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').each(function() {
-        // Parse the value as an integer and add it to the total
-        total += parseInt($(this).val()) || 0;
-    });
-    return total;
+function compareIrrigationTotals() {
+    var totalAres = calculateTotalSupIrrigation();
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    // console.log("totalAres: "+totalAres);
+    // console.log("totalModeIrrigation: "+totalModeIrrigation);
+    if (totalAres <=  totalModeIrrigation) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite dépassée',
+            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+        });
+    }
 }
-var totalModeIrrigation=calculateTotalModeIrrigation();
-// handleInputComparisonEqualOrBigger( totalModeIrrigation,'#chapt_ruches_traditionnelles', "Le some de Dont pleines ne peut pas dépasser le somme  des modes d'irrigations");
+$(document).on('input', '[id^="superficie_are_"]', function() {
 
+
+    compareIrrigationTotals();
+});
+$(document).on('input', '.Mode_irrigation', function() {
+
+    compareIrrigationTotals();
+});
+
+// end  117 <= 64
+//124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
+// 126 Somme(Masculin + féminin) pour les 2 classes d'âge <= Nombre des membres du ou des ménage (s) actifs de l'exploitation (somme 124 masculin, féminin par type d'emploi)
+
+    // Function to check equality and apply border colors
+//     function checkEquality(exploitantInput, adultesInput, enfantsInput) {
+//         const exploitantValue = parseInt(exploitantInput.val()) || 0;
+//         const adultesValue = parseInt(adultesInput.val()) || 0;
+//         const enfantsValue = parseInt(enfantsInput.val()) || 0;
+//         const totalValue = adultesValue + enfantsValue;
+
+//         // Check if the values are not equal
+//         if (exploitantValue !== totalValue) {
+//             // Apply red border to all inputs
+//             exploitantInput.css('border-color', 'red');
+//             adultesInput.css('border-color', 'red');
+//             enfantsInput.css('border-color', 'red');
+//         } else if(exploitantValue === totalValue && exploitantValue !== 0) {
+//             // Apply green border to all inputs
+//             exploitantInput.css('border-color', 'green');
+//             adultesInput.css('border-color', 'green');
+//             enfantsInput.css('border-color', 'green');
+//         } else {
+//             // Reset border color for all inputs
+//             exploitantInput.css('border-color', '');
+//             adultesInput.css('border-color', '');
+//             enfantsInput.css('border-color', '');
+//         }
+//     }
+    
+// //************* */ first group
+//     // Call checkEquality for the first group of inputs
+// const exploitantInput1 = $('#in150');
+// const adultesInput1 = $('#in154');
+// const enfantsInput1 = $('#in158');
+// checkEquality(exploitantInput1, adultesInput1, enfantsInput1);
+
+// // Attach event listeners to inputs of the first group
+// const inputsGroup1 = [exploitantInput1, adultesInput1, enfantsInput1];
+// inputsGroup1.forEach(input => {
+//     input.on('input', function() {
+//         checkEquality(exploitantInput1, adultesInput1, enfantsInput1);
+//     });
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup1.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//             input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
+// //************** */ Second group
+// // Call checkEquality for the second group of inputs
+// const exploitantInput2 = $('#in151');
+// const adultesInput2 = $('#in155');
+// const enfantsInput2 = $('#in159');
+// checkEquality(exploitantInput2, adultesInput2, enfantsInput2);
+
+// // Attach event listeners to inputs of the second group
+// const inputsGroup2 = [exploitantInput2, adultesInput2, enfantsInput2];
+// inputsGroup2.forEach(input => {
+//     input.on('input', function() {
+//         checkEquality(exploitantInput2, adultesInput2, enfantsInput2);
+//     });
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup2.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//                 input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
+
+
+
+//124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
+
+// Dynamic  version 
+$(document).ready(function() {
+    // Define input IDs for each group
+    const inputGroups = {
+        1: { exploitant: 'mo_exploitant_individuel_1', adultes: 'mo_adultes_plus_15_ans_11', enfants: 'mo_enfants_moins_15_ans_1' },
+        2: { exploitant: 'mo_exploitant_individuel_2', adultes: 'adultes_plus_15_ans_22', enfants: 'mo_enfants_moins_15_ans_2' },
+        3: { exploitant: 'mo_exploitant_individuel_3', adultes: 'mo_adultes_plus_15_ans_3', enfants: 'mo_enfants_moins_15_ans_3' },
+        4: { exploitant: 'mo_exploitant_individuel_4', adultes: 'mo_adultes_plus_15_ans_4', enfants: 'mo_enfants_moins_15_ans_4' }
+    };
+
+    // Function to check equality and apply border colors
+    function checkEquality(group) {
+        const exploitantInput = $(`#${inputGroups[group].exploitant}`);
+        const adultesInput = $(`#${inputGroups[group].adultes}`);
+        const enfantsInput = $(`#${inputGroups[group].enfants}`);
+
+        const exploitantValue = parseInt(exploitantInput.val()) || 0;
+        const adultesValue = parseInt(adultesInput.val()) || 0;
+        const enfantsValue = parseInt(enfantsInput.val()) || 0;
+        const totalValue = adultesValue + enfantsValue;
+
+       /************************************************ */
+  // Calculate sums
+  const sumExploitant = exploitantValue + adultesValue;
+  const sumAdultesEnfants = adultesValue + enfantsValue;
+
+      // Check if the sums are equal
+      if (group <= 2 && sumExploitant !== sumAdultesEnfants) {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'red');
+    } else if (group > 2 && exploitantValue !== sumAdultesEnfants) {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'red');
+    } else {
+        applyBorderColor(exploitantInput, adultesInput, enfantsInput, 'green');
+    }
+
+       /************************************************* */
+        // Check if the values are not equal
+        if (exploitantValue !== totalValue) {
+            // Apply red border to all inputs
+            exploitantInput.css({
+                'border-color': 'red',
+                'border-width': '2px' // Set border width to 2 pixels
+            });
+            adultesInput.css({
+                'border-color': 'red',
+                'border-width': '2px'
+            });
+            enfantsInput.css({
+                'border-color': 'red',
+                'border-width': '2px'
+            });
+        } else if (exploitantValue === totalValue && exploitantValue !== 0) {
+            // Apply green border to all inputs
+            exploitantInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+            adultesInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+            enfantsInput.css({
+                'border-color': 'green',
+                'border-width': '2px'
+            });
+        } else {
+            // Reset border color and width for all inputs
+            exploitantInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+            adultesInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+            enfantsInput.css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+        }
+    }
+// Function to apply border color
+function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
+    exploitantInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+    adultesInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+    enfantsInput.css({
+        'border-color': color,
+        'border-width': '2px'
+    });
+}
+
+ // Iterate over inputGroups object properties and process each group
+ Object.keys(inputGroups).forEach(group => {
+    const { exploitant, adultes, enfants } = inputGroups[group];
+    
+    // Attach event listeners to inputs of the group
+    $(`#${exploitant}, #${adultes}, #${enfants}`).on('input', function() {
+        checkEquality(group);
+    });
+
+    // Remove borders when any input in the group loses focus
+    $(`#${exploitant}, #${adultes}, #${enfants}`).on('blur', function() {
+        const borderColor = $(this).css('border-color');
+        if (borderColor === 'rgb(0, 128, 0)') { // Check for green color
+            $(`#${exploitant}, #${adultes}, #${enfants}`).css({
+                'border-color': '',
+                'border-width': '1px'
+            });
+        }
+    });
+});
+});
+
+//     // Remove borders when any input in the group loses focus
+//     input.on('blur', function() {
+//         inputsGroup2.forEach(input => {
+//             if (input.css('border-color') === 'rgb(0, 128, 0)') {
+//                 input.css('border-color', '');
+//             }
+//         });
+//     });
+// });
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
@@ -277,7 +583,7 @@ $('#nom_exploitant,#prenom_exploitant,#adress_exploitant, #nom_exploitation ').o
  // 16 Mapping from first dropdown value to acceptable values for the second dropdown
  var dropdownMapping = {
     '1': ['1'],       // Values for 16 (1) -> 17 (1)
-    '2': ['2', '3', '4', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
+    '2': ['2', '3', '4', '5', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
     '3': ['2', '3', '4', '5', '9'],  // Repeated as specified
     '4': ['2', '3', '4', '5', '9'],  // Repeated as specified
     '5': ['6', '7', '8']             // Values for 16 (5) -> 17 (6,7,8)
@@ -334,18 +640,6 @@ $('#exploitant').on('change', function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // $('#origine_des_terres').on('change', function() {
 //     var selectedValue = $(this).val(); // Get the selected value from the first dropdown
 //     if (selectedValue !== '6') { // Check if the selected value is not '6'
@@ -395,46 +689,41 @@ $('#exploitant').on('change', function() {
 //     $('#access_mode').html(accessOptions);
 // });
 
-
-
-// Handler for changes in 'origine_des_terres'
-$(document).on('change', '[id^="origine_des_terres"]', function() {
-    updateControlsBasedOnConditions($(this));
-});
-
-// Handler for changes in 'status_juridique'
-$(document).on('change', '[id^="status_juridique"]', function() {
-    updateControlsBasedOnConditions($(this));
-});
-
-// Function to update control states based on specific conditions
-function updateControlsBasedOnConditions($changedElement) {
-    var matchResult = $changedElement.attr('id').match(/\d+$/);  // Get the suffix from the ID
-    var suffix = matchResult ? matchResult[0] : null; // Get the suffix from the ID
-    var origineValue = $('#origine_des_terres_' + suffix).val();
-    var statusValue = $('#status_juridique_' + suffix).val();
-
-    var siExploiField = $('#si_exploi_eai_eac');
-    var referenceCadastraleField = $('#reference_cadastrale_' + suffix);
-    var siExploiEacField = $('#si_exploi_eac_' + suffix);
-    var exploiSuperficieHecField = $('#exploi_superficie_hec_' + suffix);
-    var exploiSuperficieAreField = $('#exploi_superficie_are_' + suffix);
-
-    // Check conditions to enable/disable fields
-    if (origineValue === '6' && (statusValue == '2' || statusValue == '3')) {
-        siExploiField.prop('disabled', false);
-        referenceCadastraleField.prop('disabled', false);
-        siExploiEacField.prop('disabled', false);
-        exploiSuperficieHecField.prop('disabled', false);
-        exploiSuperficieAreField.prop('disabled', false);
+$('#origine_des_terres').on('change', function() {
+    var selectedValue = $(this).val();
+    if (selectedValue !== '6') {  // Check if the selected value is not '6'
+        $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+        $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
     } else {
-        siExploiField.prop('disabled', true);
-        referenceCadastraleField.prop('disabled', true);
-        siExploiEacField.prop('disabled', true);
-        exploiSuperficieHecField.prop('disabled', true);
-        exploiSuperficieAreField.prop('disabled', true);
+        $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
     }
-}
+});
+
+
+$(document).on('change', '[id^="status_juridique"]', function() {
+    // Extract the unique identifier suffix from the ID
+    var suffix = this.id.match(/\d+$/)[0]; // Matches the number at the end of the ID
+
+    // Get the value from the corresponding 'origine_des_terres' dropdown
+    var origineValue = $('#origine_des_terres_' + suffix).val();
+    var statusValue = $(this).val();
+
+    // Define the specific conditions under which the alert should be displayed
+    if (origineValue === '6' && statusValue === '2') {
+        $('#reference_cadastrale').prop('disabled', false); 
+          $('#si_exploi_eac').prop('disabled', false); 
+          $('#exploi_superficie_hec').prop('disabled', false); 
+          $('#exploi_superficie_are').prop('disabled', false);
+    }else{
+
+        $('#reference_cadastrale').prop('disabled', true); 
+          $('#si_exploi_eac').prop('disabled', true); 
+          $('#exploi_superficie_hec').prop('disabled', true); 
+          $('#exploi_superficie_are').prop('disabled', true);
+
+    }
+});
+
 
 $('#exploit_est_un_bloc').on('change', function() {
     // Retrieve the selected value from the dropdown
@@ -442,10 +731,10 @@ $('#exploit_est_un_bloc').on('change', function() {
 
     // Check if the selected value is '2' (Non)
     if (selectedValue === '2') {
-        $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
+          $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
+          $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
     } else {
-        $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
-        $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
+          $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
     }
  });
 
@@ -526,7 +815,7 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
             // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
             if (intercalaireField.val()) {
                 $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-                $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+                $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
                
               
                 
@@ -560,14 +849,6 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 /*********************************************************************************************************** */
 /*********************************************************************************************************** */
 /*********************************************************************************************************** */
-
- // Unbind any previously attached click events to prevent multiple bindings
-
-
-
-
-
-
 
 
 
@@ -637,56 +918,6 @@ $('#formContainer2 .row').each(function() {
     checkAndDisableIntercalaire($(this));
 });
 
-/*********************************************************************************************************** */
-/*********************************************************************************************************** */
-/*********************************************************************************************************** */
-/*********************************************************************************************************** */
-/*********************************************************************************************************** */
-/*********************************************************************************************************** */
-
-function updateSurfaceFields() {
-    var rules = [
-        { idPrefix: 'bergerie', nombreThreshold: 0, cultureCodes: [96] }, // Ovins with brebis
-        { idPrefix: 'etable', nombreThreshold: 0, cultureCodes: [97], additionalCriteria: ['BLM', 'BLA', 'BLL'] }, // Bovins with BLM, BLA, BLL
-        { idPrefix: 'ecurie_de_chevaux', nombreThreshold: 0, cultureCodes: [98] }, // Equin with juments
-        { idPrefix: 'poulailler_batis_en_dur', nombreThreshold: 0, cultureCodes: [99, 100] }, // Poules, chair et ponte
-        { idPrefix: 'poulailler_sous_serre', nombreThreshold: 0, cultureCodes: [99, 100] } // Poules, chair et ponte
-    ];
-
-    rules.forEach(function(rule) {
-        var nombre = parseInt($('#' + rule.idPrefix + '_nombre').val(), 10);
-        var surfaceInput = $('#' + rule.idPrefix + '_surface');
-        var isValid = nombre > rule.nombreThreshold;
-        var isSelected = false;
-
-        // Check for specific culture codes if applicable
-        if (rule.cultureCodes) {
-            var cultureValue = parseInt($('#code_culture_1').val(), 10);
-            isSelected = rule.cultureCodes.includes(cultureValue);
-        }
-
-        // Apply additional criteria for specific codes (example: BLM, BLA, BLL)
-        if (rule.additionalCriteria) {
-            isSelected = rule.additionalCriteria.includes($('#additional_criteria_field').val());
-        }
-
-        // Enable or disable the surface input based on the criteria
-        if (isValid && isSelected) {
-            surfaceInput.prop('disabled', false);
-        } else {
-            surfaceInput.prop('disabled', true);
-            surfaceInput.val(''); // Optionally clear the value
-        }
-    });
-}
-
-// Initialize fields on document ready to ensure they are set correctly when the page loads
-$(document).ready(function() {
-    updateSurfaceFields();
-});
-
-// Bind the update function to input events on all related hectare and are inputs
-$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateSurfaceFields);
 
 
 
@@ -743,9 +974,6 @@ var selectedValues = []; // Array to hold unique combinations of selected values
     // });
 
 
-    // code_materiel
-    // code_materiel_nombre
-    // ee_mode_mobilisation_materiel
 
 
     
@@ -756,6 +984,7 @@ var selectedValues = []; // Array to hold unique combinations of selected values
 
     /***************************************************************** wissem start*********************************************************************** */
     $('#nin_exploitant').blur(function(){
+        console.log('gg')
         var inputLength = $(this).val().length;
         if (inputLength < 18) {
             // If length is less than 18, display an error message or perform any other action.
@@ -793,7 +1022,86 @@ var selectedValues = []; // Array to hold unique combinations of selected values
     //         $(this).css('border-color', 'red');
     //     }
     // });
-    /****************************************************************** wissem end********************************************************************** */
+
+
+    $('#eau_exploitation_type_irrigation').change(function(){
+        $('.pm_hydraulique').prop('checked', false);
+    });
+
+
+
+    /**************** */
+    //28==>119
+
+$('.main_oeuvre').on('input', function(){
+
+    var sexe_exploitant = $('#sexe_exploitant').val(); 
+    var exploitant = $('#exploitant').val(); //
+
+
+    if (exploitant == 1) {
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
+    }else {
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
+    }
+    
+
+    if (sexe_exploitant !== null && exploitant !== null) {
+        console.log('not null ')
+        
+
+        if (sexe_exploitant == '1' && exploitant== '1') {
+           
+            $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
+
+        } else if(sexe_exploitant == '2' && exploitant== '1')
+            {
+            $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
+           
+        }
+    }
+});
+
+
+/********************* */
+$('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
+
+    $('#fa_si_oui_quelle_compagnie').val('')
+    $('.type_assurance').prop('checked', false);
+})
+
+
+/*************************** */
+
+
+// $('.exploitant_indiv').on('input', function(){
+// console.log('okkk')
+//   var mo_exploitant_individuel_1 =   $('[name="mo_exploitant_individuel_1"]').val(1);
+//   var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+//   var mo_adultes_plus_15_ans_11 =   $('[name="mo_adultes_plus_15_ans_11"]').val(1);
+
+
+
+//   ///////
+//   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+//   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
+// })
+
+
+$('#fa_credit_bancaire').change(function(){
+    if(!$(this).is(":checked")) {
+       $('.type_credit_bancaire').prop('checked', false);
+    }
+});
+$('#fa_soutien_public').change(function(){
+    if(!$(this).is(":checked")) {
+       $('.soutien_public_ckeckbox').prop('checked', false);
+    }
+});
+
+    /****************************************************** wissem end************* ************************************** */
 
 
 });
