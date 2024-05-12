@@ -81,6 +81,15 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+
+
+
+
+
+try {
+    $bdd->beginTransaction();
+
+
         // Check if the questionnaire already exists
         $cleQuery = $bdd->prepare("SELECT  `id_status_juridique`, `cle_status_juridique`, `id_questionnaire` FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
         $cleQuery->bindValue(':id_questionnaire', $data['id_questionnaire']);
@@ -134,6 +143,11 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+        $bdd->commit();
+    } catch (PDOException $e) {
+        $bdd->rollBack();
+        throw $e;
+    }
 
 
 
@@ -153,6 +167,9 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
+    try {
+        $bdd->beginTransaction();
+    
 
 
         
@@ -169,9 +186,9 @@ $id_questionnaire = ($cleResult !== false && is_array($cleResult)) ? $cleResult[
 
 // Insert new record if the questionnaire does not exist
 if ($id_materiel_agricol > 0) {
-    $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
-    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-    $deleteStmt->execute();
+    //$deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
+    //$deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    //$deleteStmt->execute();
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
         // Generate a unique cle_materiel_agricole value
@@ -213,6 +230,11 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 
 
+$bdd->commit();
+} catch (PDOException $e) {
+    $bdd->rollBack();
+    throw $e;
+}
 
 
 
@@ -229,6 +251,13 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 
 
+
+
+
+
+
+try {
+    $bdd->beginTransaction();
 
 
 
@@ -254,7 +283,8 @@ if ($id > 0) {
 }
 
 foreach ($formDataArrayCodeCulture as $formData) {
-    if (!empty($formData['code_culture'])) {
+
+    if (!empty($formData['code_culture']) && !empty($formData['superficie_hec']) && !empty($formData['superficie_are']) && !empty($formData['en_intercalaire'])) {
         // Generate a unique cle_code_culture value
         $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'], 0, 20);
 
@@ -291,6 +321,14 @@ foreach ($formDataArrayCodeCulture as $formData) {
 
 
 
+
+
+
+$bdd->commit();
+} catch (PDOException $e) {
+    $bdd->rollBack();
+    throw $e;
+}
 
 
 
