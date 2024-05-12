@@ -6144,8 +6144,52 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 
 // Append each status_juridique input
 data.status_juridique.forEach(function(item) {
-    status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s"><div class="col"><div class="input-group input-group-sm"><select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres"><option value="-">-</option><option value="1"' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option><option value="2"' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option><option value="3"' + (item.origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option><option value="4"' + (item.origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option><option value="5"' + (item.origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option><option value="6"' + (item.origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option><option value="7"' + (item.origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option><option value="8"' + (item.origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option><option value="9"' + (item.origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option></select></div></div><div class="col"><div class="input-group input-group-sm"> <select class="form-select statut_juridique_s" id="status_juridique" name="status_juridique"><option value="-">-</option><option value="1"' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option><option value="2"' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option><option value="3"' + (item.status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4"' + (item.status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option><option value="5"' + (item.status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6"' + (item.status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option><option value="7"' + (item.status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8"' + (item.status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODASإمتياز جديد 20-265 »</option><option value="9"' + (item.status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند 21-432 »</option><option value="10"' + (item.status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option><option value="11"' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="12"' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="13"' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option></select><div class="big-space"></div></div></div><div class="col"><div class="input-group input-group-sm"><input id="superfecie_sj" name="superfecie_sj" type="number" max="9999" class="form-control statut_juridique_s" value="' + item.superfecie_sj + '"><div class="big-space"></div><div class="small-space"></div> <input id="superfecie_sj_are" name="superfecie_sj_are" value="' + item.superfecie_sj_are + '" type="number" max="99" class="form-control statut_juridique_s" ></div></div></div>';
+    status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
+        '<div class="col">' +
+        '<div class="input-group input-group-sm">' +
+        '<select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
+        '<option value="-">-</option>' +
+        '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
+        '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
+        '<option value="3" ' + (item.origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option>' +
+        '<option value="4" ' + (item.origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option>' +
+        '<option value="5" ' + (item.origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option>' +
+        '<option value="6" ' + (item.origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option>' +
+        '<option value="7" ' + (item.origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option>' +
+        '<option value="8" ' + (item.origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option>' +
+        '<option value="9" ' + (item.origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option>' +
+        '</select>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col">' +
+        '<div class="input-group input-group-sm">' +
+        '<select class="form-select statut_juridique_s" id="status_juridique" name="status_juridique">' +
+        '<option value="-">-</option>' +
+        '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
+        '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
+        '<option value="3" ' + (item.status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «10-03» - م.ف,ف</option>' +
+        '<option value="4" ' + (item.status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option>' +
+        '<option value="5" ' + (item.status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
+        '<option value="6" ' + (item.status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option>' +
+        '<option value="7" ' + (item.status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA إمتياز جديد «21-432»</option>' +
+        '<option value="8" ' + (item.status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODAS إمتياز جديد «20-265»</option>' +
+        '<option value="9" ' + (item.status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند «21-432»</option>' +
+        '<option value="10" ' + (item.status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option>' +
+        '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
+        '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
+        '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
+        '</select>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col">' +
+        '<div class="input-group input-group-sm">' +
+        '<input id="superfecie_sj" name="superfecie_sj" type="number" max="9999" class="form-control statut_juridique_s" value="' + (item.superfecie_sj || '') + '">' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are" type="number" max="99" class="form-control statut_juridique_s" value="' + (item.superfecie_sj_are || '') + '">' +
+        '</div>' +
+        '</div>' +
+        '</div>';
 });
+
 
 $('#formContainer').append(status_juridique_inputs);
 
