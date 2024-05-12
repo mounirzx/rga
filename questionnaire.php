@@ -747,7 +747,7 @@ Sexe</span>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      Etes-vous l'exploitant ?</span> <select class="form-select fontbneder2 col-6 bneder main_oeuvre" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
