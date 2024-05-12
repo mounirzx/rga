@@ -5446,3 +5446,14 @@ Debug: Array
         )
 
 )
+Debug: Array
+(
+    [0] => stdClass Object
+        (
+            [code_culture] => 2
+            [superficie_hec] => 4
+            [superficie_are] => 4
+            [en_intercalaire] => 
+        )
+
+)

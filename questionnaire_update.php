@@ -5791,9 +5791,12 @@ document.getElementById('submitDate').click();
     <script>       
              
       $(document).ready(function () {
+         console.log("id")
+         //alert('ok')
     // Fetch questionnaire data by ID on page load
     var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
+   var id = urlParams.get('id');
+
     if (id) {
         fetchQuestionnaireById(id);
     }
