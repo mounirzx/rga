@@ -274,10 +274,10 @@ console.log(formDataArraySuperficie)
           // ).toString();
 
           qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
-    "<td><a class='btn btn-primary updateBtn' href='" + url.questionnairePreview + "?id=" +
+    "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
     "' data-id='" + data[i].id_questionnaire +
-    "'>Update</a></td><td>" +
+    "'><i class='fa-solid fa-eye'></i></a></td><td>" +
     data[i].nom_exploitant + " " + data[i].prenom_exploitant +
     "</td><td>" +
     data[i].nom_exploitation +
@@ -289,7 +289,7 @@ console.log(formDataArraySuperficie)
     data[i].commune_name_ascii +
     "</td><td></td><td>" +
     data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td></tr>";
+    "</td> <td><i style='font-size:28px'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
 
         }
         $("#qst_list").empty();
