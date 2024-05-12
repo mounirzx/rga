@@ -993,7 +993,7 @@ var selectedValues = []; // Array to hold unique combinations of selected values
         } else {
             // If length is 18 or more, clear the error message.
             $('#error_message').text('');
-            nin_exploitant.css('border','2px solid green')
+            $('#nin_exploitant').css('border','2px solid green')
         }
     });
 
