@@ -1801,13 +1801,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
+                     <input  class="form-control bneder surface coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="form-control bneder coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control bneder surface coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
