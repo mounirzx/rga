@@ -1191,7 +1191,7 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
                                 <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
@@ -1213,7 +1213,7 @@ au réseau internet ?
 
                         <div class="input-group input-group-sm">
 
-                                <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select  class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1293,8 +1293,6 @@ $(document).ready(function(){
 </script>
 
 
-<div class="col-1">
-</div>
 
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
@@ -4050,29 +4048,32 @@ Code matériel</span>
          </div>
         
         
-        <div class="col-3">
- <div style="margin: -27px 7px -2px -126px;" class="qst-num zxcount"></div>
+        <div class="col">
+ <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
 
-         <div class="card" style="font-size: 12px;">
-                        <div class="card-header fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
+         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
+                        <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
-                        <div class="card-header fontbneder33" style="text-align: center;">Mode de mobilisation du matériel agricole ?
+                        <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
+
+                        <div class=" fontbneder11" style="text-align: center;">Mode de mobilisation du matériel agricole ?
                         </div>
                      </div>
                   </div>
-                  <div class="col-3">
- <div style=" margin: -27px 7px -2px -126px;" class="qst-num zxcount"></div>
+                  <div class="col">
+ <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
 
-         <div class="card" style="font-size: 12px;">
-                        <div class="card-header fontbneder22" style="text-align: center;">  طربقة إستغلال العتاد الفلاحي ؟
+         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
+                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
-                        <div class="card-header fontbneder33" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
+                        <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
+                        <div class=" fontbneder11" style="text-align: center;">Mode de d'éxploitation du matériel agricole ?
                         </div>
                      </div>
                   </div> 
-        <div class="col-1"></div>
+
 
       </div>
       </div>
@@ -4210,7 +4211,7 @@ Code matériel</span>
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select inptsz="" class="form-select fontbneder22 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+        <select inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
           <option selected="selected" vlaue="-">
           </option>
           <option class="fontbneder22" value="1">
@@ -4227,7 +4228,7 @@ Code matériel</span>
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select inptsz="" class="form-select fontbneder22 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
           <option selected="selected" vlaue="-">
           </option>
           <option class="fontbneder22" value="1">
