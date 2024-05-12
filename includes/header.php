@@ -98,6 +98,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 zoom: 90%;
                 /* Adjust the value as needed */
             }
+            
 
         }
         .select2-container--default .select2-results>.select2-results__options{
