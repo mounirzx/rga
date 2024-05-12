@@ -131,10 +131,10 @@ $(document).ready(function () {
     var formDataObj = {};
 
     // Handle checkboxes explicitly to include them in formDataObj
-    $(".form-check-input").each(function () {
-      formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
+    $("input[type='checkbox']").each(function() {
+      formDataObj[this.name] = this.checked ? "1" : "0";
     });
-
+    
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
     var month_of_passage = $("#month_of_passage").val();
