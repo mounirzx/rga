@@ -155,8 +155,7 @@ $(document).ready(function () {
       "-" +
       mois_de_naissance.padStart(2, "0") +
       "-" +
-      annee_de_naissance +
-      "-";
+      annee_de_naissance;
     formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
 
 
@@ -269,35 +268,29 @@ console.log(formDataArraySuperficie)
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          var encryptedId = CryptoJS.AES.encrypt(
-            data[i].id_questionnaire.toString(),
-            "your_secret_key"
-          ).toString();
+          // var encryptedId = CryptoJS.AES.encrypt(
+          //   data[i].id_questionnaire.toString(),
+          //   "your_secret_key"
+          // ).toString();
 
-          qst_list +=
-            "<tr style='border:1px solid #262626; background:" +
-            classes +
-            "'><td><a class='btn btn-primary updateBtn' href="+url.questionnairePreview+"?id=" +
-            btoa(encryptedId) +
-            "' data-id='" +
-            data[i].id_questionnaire +
-            "'>Update</a></td><td>" +
-            data[i].nom_exploitant +
-            " " +
-            data[i].prenom_exploitant +
-            "</td><td>" +
-            data[i].nom_exploitation +
-            "</td><td>" +
-            data[i].nom_exploitation +
-            "</td><td>" +
-            data[i].wilaya_name_ascii +
-            "</td><td>" +
-            data[i].commune_name_ascii +
-            "</td><td></td><td>" +
-            data[i].nom_recensseur +
-            " " +
-            data[i].prenom_recenseur +
-            "</td></tr>";
+          qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
+    "<td><a class='btn btn-primary updateBtn' href='" + url.questionnairePreview + "?id=" +
+    encodeURIComponent(data[i].id_questionnaire) + 
+    "' data-id='" + data[i].id_questionnaire +
+    "'>Update</a></td><td>" +
+    data[i].nom_exploitant + " " + data[i].prenom_exploitant +
+    "</td><td>" +
+    data[i].nom_exploitation +
+    "</td><td>" +
+    data[i].nom_exploitation +
+    "</td><td>" +
+    data[i].wilaya_name_ascii +
+    "</td><td>" +
+    data[i].commune_name_ascii +
+    "</td><td></td><td>" +
+    data[i].nom_recensseur + " " + data[i].prenom_recenseur +
+    "</td></tr>";
+
         }
         $("#qst_list").empty();
         $("#qst_list").append(qst_list);
@@ -616,6 +609,7 @@ if(surface_totale_st_2>=100){
 
     var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
     '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="23" BoldText>23 - Héritage ورث</option>' +
     '<option value="15" BoldText>15 - Donation هبة</option>' +
     '<option value="16" BoldText>16 - Testament وصية</option>' +
     '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +

@@ -169,11 +169,11 @@ try {
 
 
 
-    ob_start();
-    echo "Debug: ", print_r($formDataArrayCodeCulture, true);
-    $logData = ob_get_clean();
-    $logFilePath = __DIR__ . '/logfile.log';
-    file_put_contents($logFilePath, $logData, FILE_APPEND);
+    // ob_start();
+    // echo "Debug: ", print_r($formDataArrayCodeCulture, true);
+    // $logData = ob_get_clean();
+    // $logFilePath = __DIR__ . '/logfile.log';
+    // file_put_contents($logFilePath, $logData, FILE_APPEND);
 
 
     foreach ($formDataArrayCodeCulture as $formData) {

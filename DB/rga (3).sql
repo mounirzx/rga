@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : sam. 11 mai 2024 à 16:11
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.0.28
+-- Host: 127.0.0.1
+-- Generation Time: May 10, 2024 at 11:57 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `rga`
+-- Database: `rga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `communes`
+-- Table structure for table `communes`
 --
 
 CREATE TABLE `communes` (
@@ -42,11 +42,11 @@ CREATE TABLE `communes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `communes`
+-- Dumping data for table `communes`
 --
 
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
-(1, '0101', 'أدرار', 'Adrar', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 996, 200),
+(1, '0101', 'أدرار', 'Adrar', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 1000, 200),
 (2, '0119', 'اقبلي', 'Akabli', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 500, 200),
 (3, '4903', 'أوقروت', 'Aougrout', 'أوقروت', 'Aougrout', '49', 'تيميمون', 'Timimoun', 0, 0),
 (4, '0112', 'أولف', 'Aoulef', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 200, 1200),
@@ -1594,7 +1594,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 -- --------------------------------------------------------
 
 --
--- Structure de la table `communes2`
+-- Table structure for table `communes2`
 --
 
 CREATE TABLE `communes2` (
@@ -1606,7 +1606,7 @@ CREATE TABLE `communes2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `communes2`
+-- Dumping data for table `communes2`
 --
 
 INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_code`, `wilaya_name`) VALUES
@@ -3157,7 +3157,7 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 -- --------------------------------------------------------
 
 --
--- Structure de la table `controleur`
+-- Table structure for table `controleur`
 --
 
 CREATE TABLE `controleur` (
@@ -3176,7 +3176,7 @@ CREATE TABLE `controleur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `materiel_agricole`
+-- Table structure for table `materiel_agricole`
 --
 
 CREATE TABLE `materiel_agricole` (
@@ -3184,20 +3184,27 @@ CREATE TABLE `materiel_agricole` (
   `cle_materiel_agricole` varchar(20) NOT NULL,
   `id_questionnaire` int(11) NOT NULL,
   `code_materiel` varchar(100) NOT NULL,
-  `code_materiel_nombre` varchar(100) NOT NULL
+  `code_materiel_nombre` varchar(100) NOT NULL,
+  `ee_mode_mobilisation_materiel` text NOT NULL,
+  `ee_mode_exploitation_materiel` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `materiel_agricole`
+-- Dumping data for table `materiel_agricole`
 --
 
-INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`) VALUES
-(1, '1-13-1', 1, '13', '1');
+INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`) VALUES
+(1, '1-15-1', 1, '15', '1', '1', '1'),
+(2, '1-11-2', 1, '11', '2', '1', '1'),
+(3, '1-5-5', 1, '5', '5', '2', '2'),
+(4, '2-10-5', 2, '10', '5', '2', '1'),
+(9, '3-10-5', 3, '10', '5', '2', '1'),
+(10, '3-27-53', 3, '27', '53', '3', '3');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questionnaire`
+-- Table structure for table `questionnaire`
 --
 
 CREATE TABLE `questionnaire` (
@@ -3446,7 +3453,6 @@ CREATE TABLE `questionnaire` (
   `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
   `ee_autre_organisation` text DEFAULT NULL,
   `ee_cwifa` text DEFAULT NULL,
-  `ee_consommation-auto` text DEFAULT NULL,
   `etat` text DEFAULT NULL,
   `batiment_de_stockage_nombre` text DEFAULT NULL,
   `batiment_de_stockage_surface` text DEFAULT NULL,
@@ -3487,18 +3493,18 @@ CREATE TABLE `questionnaire` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `questionnaire`
+-- Dumping data for table `questionnaire`
 --
 
-INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `total_eau_puits`, `eau_forage`, `total_eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `total_eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_total_forage`, `eau_total_puits`, `eau_total_source`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_m`, `ma_adultes_plus_15_ans_f`, `ma_enfants_moins_15_ans_m`, `ma_enfants_moins_15_ans_f`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_culture`, `fa_cultures`, `fa_intrants`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_organisation`, `ee_cwifa`, `ee_consommation-auto`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`) VALUES
-(1, 'N/A', '', 'test-test-02-02-null-45214-N/A-test-6.00', '0--0--2024', 88, 'test', 'test', '02-02-null-', NULL, NULL, NULL, '', '', '', '45214', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, 'test', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '2', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', '', 'on', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '', NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', NULL, NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', '', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'N/A', '', '--02-02-null--N/A--', '0--0--2024', 88, '', '', '02-02-null-', NULL, NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'en attent', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(3, 'N/A', '', '12--02-02-null-12-N/A--0.00', '0--0--2024', 88, '12', '', '02-02-null-', NULL, NULL, NULL, '', '', '', '12', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', '-', '-', 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `total_eau_puits`, `eau_forage`, `total_eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `total_eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_total_forage`, `eau_total_puits`, `eau_total_source`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_m`, `ma_adultes_plus_15_ans_f`, `ma_enfants_moins_15_ans_m`, `ma_enfants_moins_15_ans_f`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_culture`, `fa_cultures`, `fa_intrants`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_organisation`, `ee_cwifa`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`) VALUES
+(1, 'N/A', '', 'Farouk-Touil-02-02-null51-N/A--', '0--0--2024', 88, 'Farouk', 'Touil', '02-02-null', NULL, NULL, NULL, '', '', '', '51', '654', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'N/A', '', '--02-02-null84-N/A--', '0--0--2024', 88, '', '', '02-02-null', NULL, NULL, NULL, '', '', '', '84', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 'N/A', '', '--02-02-null85-N/A--', '0--0--2024', 88, '', '', '02-02-null', NULL, NULL, NULL, '', '', '', '85', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '1', '1', '1', '1', NULL, '-', '-', '-', '-', '', '-', '', '', '', NULL, '', NULL, '', '', '', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '1', '1', '1', '1', '1', '1', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '1', '', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '', '', '', '', '', '', '', '', '', '1', '1', '0', '1', '0', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '-', NULL, NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `recenseur`
+-- Table structure for table `recenseur`
 --
 
 CREATE TABLE `recenseur` (
@@ -3519,7 +3525,7 @@ CREATE TABLE `recenseur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `status_juridique`
+-- Table structure for table `status_juridique`
 --
 
 CREATE TABLE `status_juridique` (
@@ -3533,16 +3539,19 @@ CREATE TABLE `status_juridique` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `status_juridique`
+-- Dumping data for table `status_juridique`
 --
 
 INSERT INTO `status_juridique` (`id_status_juridique`, `cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES
-(1, '1-1-13', 1, '1', '13', '1', '1');
+(1, '1-3-15', 1, '3', '15', '4', '4'),
+(2, '1-8-16', 1, '8', '16', '5', '5'),
+(3, '2-2-23', 2, '2', '23', '5', '5'),
+(6, '3-2--', 3, '2', '-', '5', '5');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `superficie_exploitation`
+-- Table structure for table `superficie_exploitation`
 --
 
 CREATE TABLE `superficie_exploitation` (
@@ -3581,18 +3590,18 @@ CREATE TABLE `superficie_exploitation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `superficie_exploitation`
+-- Dumping data for table `superficie_exploitation`
 --
 
 INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
-(1, 1, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 0.00, 0.00, 0.00, 0.00, 3.00, 3.00, 3.00, 3.00, 0.00, 0.00, 0.00, 0.00, 6.00, 6.00, 0.00, 0.00, 6.00, 6.00),
+(1, 1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
 (2, 2, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
 (3, 3, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `superviseur`
+-- Table structure for table `superviseur`
 --
 
 CREATE TABLE `superviseur` (
@@ -3606,17 +3615,10 @@ CREATE TABLE `superviseur` (
   `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `superviseur`
---
-
-INSERT INTO `superviseur` (`id_superviseur`, `id_user`, `nom_superviseur`, `prenom_superviseur`, `phone`, `wilaya`, `email`, `creation_date`) VALUES
-(1, 89, '4545', '54', '0665195617', '01', 'mounir2013b@gmail.com', '2024-05-06 10:01:34');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `superviseur_national`
+-- Table structure for table `superviseur_national`
 --
 
 CREATE TABLE `superviseur_national` (
@@ -3633,14 +3635,13 @@ CREATE TABLE `superviseur_national` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `nonhashedpass` varchar(50) DEFAULT NULL,
   `role` varchar(100) NOT NULL,
   `update_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_login` timestamp NULL DEFAULT NULL,
@@ -3648,17 +3649,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `password`, `nonhashedpass`, `role`, `update_date`, `last_login`, `date_creation`) VALUES
-(88, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', NULL, 'admin', '2024-05-02 09:31:42', '2024-05-11 08:19:55', '2024-05-02 09:31:42'),
-(89, 'S01-01', '10cdfaafa09e7355b0437d1d885498435eced907', '29715049', 'superviseur', '2024-05-06 09:01:34', '2024-05-06 09:02:03', '2024-05-06 09:01:34');
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`, `update_date`, `last_login`, `date_creation`) VALUES
+(88, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', '2024-05-02 09:31:42', '2024-05-10 21:48:53', '2024-05-02 09:31:42');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisation_du_sol`
+-- Table structure for table `utilisation_du_sol`
 --
 
 CREATE TABLE `utilisation_du_sol` (
@@ -3671,17 +3671,10 @@ CREATE TABLE `utilisation_du_sol` (
   `en_intercalaire` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `utilisation_du_sol`
---
-
-INSERT INTO `utilisation_du_sol` (`id`, `cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES
-(1, '1-15-1-1', 1, '15', '1', '1', '1');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `validation_questionnaire`
+-- Table structure for table `validation_questionnaire`
 --
 
 CREATE TABLE `validation_questionnaire` (
@@ -3691,33 +3684,33 @@ CREATE TABLE `validation_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `communes`
+-- Indexes for table `communes`
 --
 ALTER TABLE `communes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `controleur`
+-- Indexes for table `controleur`
 --
 ALTER TABLE `controleur`
   ADD PRIMARY KEY (`id_controleur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `materiel_agricole`
+-- Indexes for table `materiel_agricole`
 --
 ALTER TABLE `materiel_agricole`
   ADD PRIMARY KEY (`id_materiel_agricol`),
   ADD UNIQUE KEY `cle_materiel_agricole` (`cle_materiel_agricole`),
-  ADD KEY `id_questionnaire` (`id_questionnaire`),
-  ADD KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE;
+  ADD KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE,
+  ADD KEY `id_questionnaire` (`id_questionnaire`) USING BTREE;
 
 --
--- Index pour la table `questionnaire`
+-- Indexes for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   ADD PRIMARY KEY (`id_questionnaire`),
@@ -3725,7 +3718,7 @@ ALTER TABLE `questionnaire`
   ADD KEY `idx_exploitant_cle_unique` (`exploitant_cle_unique`(250));
 
 --
--- Index pour la table `recenseur`
+-- Indexes for table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD PRIMARY KEY (`id_recensseur`),
@@ -3733,7 +3726,7 @@ ALTER TABLE `recenseur`
   ADD KEY `controleur` (`controleur`);
 
 --
--- Index pour la table `status_juridique`
+-- Indexes for table `status_juridique`
 --
 ALTER TABLE `status_juridique`
   ADD PRIMARY KEY (`id_status_juridique`),
@@ -3742,34 +3735,34 @@ ALTER TABLE `status_juridique`
   ADD KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_status_juridique`) USING BTREE;
 
 --
--- Index pour la table `superficie_exploitation`
+-- Indexes for table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- Index pour la table `superviseur`
+-- Indexes for table `superviseur`
 --
 ALTER TABLE `superviseur`
   ADD PRIMARY KEY (`id_superviseur`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `superviseur_national`
+-- Indexes for table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   ADD PRIMARY KEY (`id_superviseur_national`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Index pour la table `utilisation_du_sol`
+-- Indexes for table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
   ADD PRIMARY KEY (`id`),
@@ -3778,88 +3771,88 @@ ALTER TABLE `utilisation_du_sol`
   ADD KEY `idx_cle_questionnaire` (`id_questionnaire`,`cle_code_culture`);
 
 --
--- Index pour la table `validation_questionnaire`
+-- Indexes for table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   ADD PRIMARY KEY (`id_validation`),
   ADD KEY `id_questionnaire` (`id_questionnaire`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `controleur`
+-- AUTO_INCREMENT for table `controleur`
 --
 ALTER TABLE `controleur`
   MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `materiel_agricole`
+-- AUTO_INCREMENT for table `materiel_agricole`
 --
 ALTER TABLE `materiel_agricole`
-  MODIFY `id_materiel_agricol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_materiel_agricol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT pour la table `questionnaire`
+-- AUTO_INCREMENT for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
   MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `recenseur`
+-- AUTO_INCREMENT for table `recenseur`
 --
 ALTER TABLE `recenseur`
   MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `status_juridique`
+-- AUTO_INCREMENT for table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `superficie_exploitation`
+-- AUTO_INCREMENT for table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `superviseur`
+-- AUTO_INCREMENT for table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `superviseur_national`
+-- AUTO_INCREMENT for table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
   MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT pour la table `utilisation_du_sol`
+-- AUTO_INCREMENT for table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `validation_questionnaire`
+-- AUTO_INCREMENT for table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
   MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `recenseur`
+-- Constraints for table `recenseur`
 --
 ALTER TABLE `recenseur`
   ADD CONSTRAINT `recenseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;

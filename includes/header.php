@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -13,7 +14,7 @@ if(!isset($_SESSION['is_login'])){
 <head>
     <meta charset="UTF-8">
     <title>RGA</title>
-
+<link rel="stylesheet" href="./assets/css/questionnaire.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link  rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.min.css"/>
@@ -35,6 +36,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 <script src="assets/js/urls.js"></script>
+
 
 
  <style>
@@ -96,6 +98,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 zoom: 90%;
                 /* Adjust the value as needed */
             }
+            
 
         }
         .select2-container--default .select2-results>.select2-results__options{
@@ -104,21 +107,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         .select2-container--default .select2-selection--multiple .select2-selection__choice{
             height:20px;
         }
-        .fontbneder1{
-            font-size: 8px !important; 
-        }
-        .fontbneder2{
-            font-size: 10px !important;  
-        }
-        [InputHeight]{
-            height: 31px;  
-        }
-        [BoldText]{
-            font-weight: bold;
-        }
-        #niveau_instruction{
-            width: 12px;
-        }
+       
     </style>
 
 
@@ -256,4 +245,5 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         
     </div>
 </nav>
+
 
