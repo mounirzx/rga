@@ -4091,7 +4091,7 @@ Code matériel</span>
     <div class="col-3">
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
-        Code matériel</span> <select disabled="disabled" class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+        Code matériel</span> <select  class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
           <option selected disabled>
           </option>
           <option style="font-weight: 700; align-items:center;" disabled>
