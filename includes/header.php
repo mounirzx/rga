@@ -150,7 +150,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             </style>
             
             <?php
-                if($_SESSION['role']=="admin" || $_SESSION['role']=="recenseur"  || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur" ){
+                if($_SESSION['role']=="admin" || $_SESSION['role']=="recenseur"  || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur" || $_SESSION['role']=="admin_central" ){
 
                 
             ?>
@@ -217,7 +217,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
            }
            ?>   
      <?php
-                if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national"){
+                if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
                <a class="nav-link " aria-current="page" href="Statistiques">Statistique</a>

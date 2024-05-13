@@ -27,17 +27,22 @@ $.ajax({
 /********************************************************************************* */
 
 ///get username
-count_users = count_users+1
-if(count_users < 10) {
-    // If it is, prepend '0' to the number
-    count_users = ("0" + count_users).slice(-2);
+
+function getUsername(){
+    count_users = parseInt(count_users) + 1;
+
+    if(count_users < 10) {
+        // If it is, prepend '0' to the number
+        count_users = ("0" + count_users).slice(-2);
+    }
+    $('#username').val('AC-'+count_users)
+    
+    
+    
 }
-$('#username').val('AC-'+count_users)
+getUsername()
 
-
-
-
-/*********************************************************************************** */
+/***********************************************************************************/
 
 ///ajouter admin central
 
@@ -81,8 +86,9 @@ $('#add_user').click(function(e){
                       $('#last_name').val("")
                       $('#email').val("")
                       $('#phone').val("")
-                      $('#username').val("")
+                      //$('#username').val("")
                       $('#password').val("")
+                      getUsername()
                 }else{
                     Swal.fire({
                         icon: "error",
@@ -131,9 +137,9 @@ getAdminData()
 
 //edit admin central
 
-    $('#valider').click(function(){
+    $('#valider').click(function(e){
 
-
+e.preventDefault()
         /***********/
         //data
 
@@ -143,7 +149,8 @@ getAdminData()
         var phone = $('#phone').val();
         var username = $('#username').val();
         var password = $('#password').val();
-
+        var id_user = $('#id_admin').val();
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!emailRegex.test(email)){
             $('#email_error').html('email format invalid')
         }else{
@@ -155,6 +162,21 @@ getAdminData()
                 url:'assets/php/edit_admin_central.php',
                 method:'post',
                 async:false,
+                data:{
+                    first_name:first_name,last_name:last_name,email:email,phone:phone,username:username,password:password,id_user:id_user
+                },
+                success:function(response){
+                    console.log(response)
+                    if(response=='true'){
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Changement effectué avec succès",
+                            showConfirmButton: true,
+                            
+                          });
+                    }
+                }
             })
 
         }

@@ -6,22 +6,21 @@ include './config.php';
 
 
 
-$nom_controleur = $_POST["first_name"];
-$prenom_controleur = $_POST["last_name"];
-$wilaya = $_POST["wilaya"];
-$commune = implode(',',$_POST['commune']);
+$first_name = $_POST["first_name"];
+$last_name = $_POST["last_name"];
+
 $email = $_POST["email"];
 $phone = $_POST["phone"];
-$id_controleur = $_POST["id_controleur"];
-$role = "controleur";
+$id_user=$_POST["id_user"];
+$role = "administrateur central";
 $username = $_POST["username"];
 $nonhashedPass= $_POST["password"];
 try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-    $req = $bdd->prepare('UPDATE `controleur` SET `nom_controleur` = ?, `prenom_controleur` = ?, `wilaya` = ?, `commune` = ?, `email` = ? ,phone=? WHERE `id_user` = ?');
-$req->execute(array($nom_controleur, $prenom_controleur, $wilaya, $commune, $email, $phone,$id_controleur));
+    $req = $bdd->prepare('UPDATE `admin_central` SET `nom_admin`=?,`prenom_admin`=?,`phone`=?,`email`=? WHERE id_user=? ');
+$req->execute(array($first_name, $last_name, $phone, $email,$id_user));
 
 
 
@@ -31,7 +30,7 @@ if(isset($_POST['password'])){
         $password = sha1($password);
     
         $req = $bdd->prepare('UPDATE `users` SET password=?,nonhashedpass=? WHERE id_user=?');
-        $req->execute(array($password,$nonhashedPass, $id_controleur));
+        $req->execute(array($password,$nonhashedPass, $id_user));
     
     }
 }
