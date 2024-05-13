@@ -130,10 +130,19 @@ $(document).ready(function () {
     // Initialize formDataObj outside the loop to make it accessible throughout the function
     var formDataObj = {};
 
-    // Handle checkboxes explicitly to include them in formDataObj
-    $(".form-check-input").each(function () {
-      formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
-    });
+
+    // Initialize all checkboxes to "0"
+    $("input[type='checkbox']").each(function() {
+      formDataObj[this.name] = "0";
+  });
+
+  // Update the object for checked boxes to "1"
+  $("input[type='checkbox']").each(function() {
+      if (this.checked) {
+          formDataObj[this.name] = "1";
+      }
+      console.log("Checkbox Name: " + this.name + ", Value: " + formDataObj[this.name]);
+  });
 
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();

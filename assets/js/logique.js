@@ -518,15 +518,15 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 
             // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
             if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-                intercalaireField.val('').prop('disabled', true);
+               // intercalaireField.val('').prop('disabled', false);
             } else {
-                intercalaireField.prop('disabled', false);
+               // intercalaireField.prop('disabled', false);
             }
 
             // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
             if (intercalaireField.val()) {
                 $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-                $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+               // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
                
               
                 
