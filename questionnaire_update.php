@@ -6152,9 +6152,12 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
         data: {code_materiel: code_materiel},
         success: function(response) {
             // Handle the response from the server
-            console.log(response);
-            // Optionally, you can remove the row from the DOM
-            row.remove();
+            Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
         },
         error: function(xhr, status, error) {
             // Handle the error
@@ -6212,6 +6215,7 @@ data.status_juridique.forEach(function(item) {
         '<div class="input-group input-group-sm">' +
         '<input id="superfecie_sj" name="superfecie_sj" type="number" max="9999" class="form-control statut_juridique_s" value="' + (item.superfecie_sj || '') + '">' +
         '<input id="superfecie_sj_are" name="superfecie_sj_are" type="number" max="99" class="form-control statut_juridique_s" value="' + (item.superfecie_sj_are || '') + '">' +
+        '<button style="width: 28px; position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm" type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >+</button>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -6220,7 +6224,36 @@ data.status_juridique.forEach(function(item) {
 
 $('#formContainer').append(status_juridique_inputs);
 
-
+$('#delete4').on('click', function() {
+ alert("formContainer4")
+       // Get the code_materiel value from data attribute
+       var origine_des_terres = $(this).data('code-origine_des_terres');
+     
+     
+        console.log(origine_des_terres);
+    $.ajax({
+        url: 'delete_row4.php',
+        type: 'POST',
+        data: {
+            // cle_code_culture: cle_code_culture,
+            // id_questionnaire: id_questionnaire,
+            // code_culture: code_culture,
+            origine_des_terres: origine_des_terres
+        },
+        success: function(response) {
+         Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
 
 
 
@@ -6252,9 +6285,12 @@ $('#delete2').on('click', function() {
             superficie_are: superficie_are
         },
         success: function(response) {
-            // Handle the response from the server
-            // Optionally, you can remove the row from the DOM
-            row.remove();
+         Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
         },
         error: function(xhr, status, error) {
             // Handle the error
