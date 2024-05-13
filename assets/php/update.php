@@ -94,7 +94,7 @@ $form = json_decode(file_get_contents("php://input"), true);
             $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
             $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
             $deleteStmt->execute();
-            // Insert new record if the questionnaire does not exist
+          
             foreach ($formDataArrayStatut as $formData) {
                 if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {
                     // Generate a unique cle_status_juridique value
@@ -169,9 +169,10 @@ $id_questionnaire = ($cleResult !== false && is_array($cleResult)) ? $cleResult[
 
 // Insert new record if the questionnaire does not exist
 if ($id_materiel_agricol > 0) {
-    $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
-    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-    $deleteStmt->execute();
+    // $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
+    // $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    // $deleteStmt->execute();
+}
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
         // Generate a unique cle_materiel_agricole value
@@ -207,7 +208,7 @@ foreach ($formDataArrayCodeMateriel as $formData) {
         }
     }
 }
-}
+
 
 
 
@@ -247,11 +248,11 @@ $cle_code_culture = ($result !== false && is_array($result)) ? $result['cle_code
 $id_questionnaire = ($result !== false && is_array($result)) ? $result['id_questionnaire'] : 0;
 
 // Insert new record if the questionnaire does not exist
-if ($id > 0) {
-    $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
-    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-    $deleteStmt->execute();
-}
+// if ($id > 0) {
+//     $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+//     $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+//     $deleteStmt->execute();
+// }
 
 foreach ($formDataArrayCodeCulture as $formData) {
     if (!empty($formData['code_culture'])) {
