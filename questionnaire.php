@@ -2480,7 +2480,7 @@ acte de concession ?
           
           <div class="col-1">
             <div class="d-grid gap-2">
-              <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
+            <button style="width: 50px;top: 107px;position: absolute;height: 34px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
             </div>
           </div>
         </div>
