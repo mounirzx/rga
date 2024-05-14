@@ -636,7 +636,11 @@ $('#niveau_instruction').on('change', function() {
     var selectedValue = $('#exploitant').val(); // Get the selected value
     if (selectedValue === '1') { // If "1 - Unique" is selected
         $('#nb_co_exploitants').prop('disabled', true).val(''); // Disable the input and clear its value
-    } else {
+        // $('#origine_des_terres').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#status_juridique').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#superfecie_sj').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#superfecie_sj_are').prop('disabled', true).val(''); // Disable the input and clear its value
+        } else {
         $('#nb_co_exploitants').prop('disabled', false); // Enable the input
     }
 }
