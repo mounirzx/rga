@@ -825,13 +825,22 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
             }
         });
 
-        if (totalHectares > 2.99 * SAU) {
+        if (totalHectares > (2.99 * SAU)) {
+            console.log(totalHectares)
            
             Swal.fire({
                 icon: 'error',
                 title: 'Limite dépassée',
                 text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
             });
+        }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Limite dépassée',
+                text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+            });
+        }else if(totalHectares  == SAU){
+console.log('good')
         }
 
         console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
