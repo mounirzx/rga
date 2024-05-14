@@ -1752,7 +1752,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
