@@ -301,12 +301,4 @@ $("input[type='checkbox']").each(function() {
       qstList(etat);
     });
   });
-
-
-
-
-
-
-
-
 });

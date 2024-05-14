@@ -1,4 +1,3 @@
-
 <?php
 include('includes/header.php');
 if (isset($_GET['id'])) {
@@ -17,25 +16,8 @@ if (isset($_GET['id'])) {
     outline: 0;
     box-shadow: none;
 }
-.error {
-    border: 2px solid red;
-}
-    .big-space {
-        width: 50px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .small-space {
-        width: 20px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
-    .mid-space {
-      width: 35px; /* Adjust the width to increase or decrease the space */
-        display: inline-block;
-    }
 </style>
     
-
-          
    <body>
 
      
@@ -54,8 +36,8 @@ if (isset($_GET['id'])) {
 
                         <br>
                         <input  name="etat" hidden disabled class="bneder" value="En attente">
-                <h5 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h5>
-                <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px; "></div>
+                <h6 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h6>
+                <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 40px; "></div>
                 
                 <div class="row">
                     <div class="col">
@@ -245,7 +227,7 @@ if ($_SESSION['role'] == "recenseur") {
       <br />
       Date de contrôle
       </span>
-      <select  <?= $disabled ?> class="form-control" id="inputGroupSelect01">
+      <select  <?= $disabled ?> class="form-select" id="inputGroupSelect01">
          <option value="-"></option>
          <option  value="1">1</option>
          <option  value="2">2</option>
@@ -301,36 +283,14 @@ if ($_SESSION['role'] == "recenseur") {
          <option  value="30"> 31
          </option>
       </select>
-      <select  <?= $disabled ?>  class="form-control" id="inputGroupSelect01" >
+      <select  <?= $disabled ?>  class="form-select" id="inputGroupSelect01" >
          <option value="-"></option>
-         <option  value="1">Janvier</option>
-         <option  value="2">Février</option>
-         <option  value="3">Mars</option>
-         <option  value="4">Avril</option>
          <option  value="5">Mai</option>
          <option  value="6">Juin</option>
          <option  value="7">Juillet</option>
-         <option  value="8">Août</option>
-         <option  value="9">Septembre</option>
-         <option  value="10">Octobre</option>
-         <option  value="11">Novembre</option>
-         <option  value="12">Décembre</option>
       </select>
       <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
-         <option value="-"></option>
          <option  value="2024">2024
-         </option>
-         <option  value="2025">2025
-         </option>
-         <option  value="2026">2026
-         </option>
-         <option  value="2027">2027
-         </option>
-         <option  value="2028">2028
-         </option>
-         <option  value="2029">2029
-         </option>
-         <option  value="2030">2030
          </option>
       </select>
    </div>
@@ -383,7 +343,9 @@ if ($_SESSION['role'] == "recenseur") {
                  <div class="input-group input-group-sm">
                  <div  class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
-                    district-zone <br /> إسم المكان، المنطقة
+                      إسم المنطقة (المكان المسمى)
+                      <br>
+                      Le nom de la zone, lieu-dit (district)
                     </span>
                     <input class="form-control"   id="nom_zone_district" />
 
@@ -403,7 +365,10 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="input-group input-group-sm">
                  <div class="qst-num zxcount"></div>
                     <span class="input-group-text" id="basic-addon3">
-                    Numero du district-zone <br />رقم المنطقة
+ رقم المنطقة
+ <br>
+ Numero de la zone, (district)
+
                     </span>
                   
                        <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
@@ -424,8 +389,8 @@ if ($_SESSION['role'] == "recenseur") {
            <br />
            <div style="border-top: 3px solid red;"></div>
            <br />
-           <h5 style="margin-bottom: 27px;">II- Identification de l'exploitant تعريف المستثمر</h5>
-           <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
+           <h6 style="margin-bottom: 27px;">II- Identification de l'exploitant  (الفلاح)تعريف المستثمر </h6>
+           <div style="border-top: 1px solid red; width:290px; margin:-20px 0px 0px 50px; "></div>
 
            <br />
            <div class="row">
@@ -435,12 +400,10 @@ if ($_SESSION['role'] == "recenseur") {
                    <span class="input-group-text" id="basic-addon3">
                     اللقب <br /> Nom
                     </span>
-                    <input class="form-control bneder"  name="nom_exploitant" id="nom_exploitant" />
-                    
-                  </div>
-               </div>
-               <input hidden class="form-control bneder"  name="id_questionnaire" id="id_questionnaire"  value="<?php echo $id;?>"/>
-
+                    <input class="form-control bneder"  name="nom_exploitant" id="nom_exploitant"   />
+                 </div>
+              </div>
+              <input hidden class="form-control bneder"  name="id_questionnaire" id="id_questionnaire"  value="<?php echo $id;?>"/>
 
 
       
@@ -452,7 +415,7 @@ if ($_SESSION['role'] == "recenseur") {
                    <span class="input-group-text" id="basic-addon3">
                     الإسم<br /> Prénom
                     </span>
-                    <input class="form-control bneder" name="prenom_exploitant"  id="prenom_exploitant" />
+                    <input class="form-control bneder"    name="prenom_exploitant"  id="prenom_exploitant" />
                  </div>
               </div>
            </div>
@@ -523,7 +486,7 @@ if ($_SESSION['role'] == "recenseur") {
                        </option>
                     </select>
                     <select class="form-select"   id="mois_de_naissance" >
-                       <option value="02"></option>
+                     <option value="-"></option>
                        <option  value="01">Janvier</option>
                        <option  value="02">Février</option>
                        <option  value="03">Mars</option>
@@ -537,9 +500,9 @@ if ($_SESSION['role'] == "recenseur") {
                        <option  value="11">Novembre</option>
                        <option  value="12">Décembre</option>
                     </select>
-                    <select class="form-select" id="annee_de_naissance" >
-                    <option value="-" disabled selected> </option>
-                        <option value="1880">1880</option><option value="1881">1881</option><option value="1882">1882</option><option value="1883">1883</option><option value="1884">1884</option><option value="1885">1885</option><option value="1886">1886</option><option value="1887">1887</option><option value="1888">1888</option><option value="1889">1889</option><option value="1890">1890</option><option value="1891">1891</option><option value="1892">1892</option><option value="1893">1893</option><option value="1894">1894</option><option value="1895">1895</option><option value="1896">1896</option><option value="1897">1897</option><option value="1898">1898</option><option value="1899">1899</option><option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
+                    <select class="form-select" id="annee_de_naissance"   >
+                    <option value="-" disabled selected > </option>
+                        <option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
                     </select>
                     
                     
@@ -553,7 +516,7 @@ if ($_SESSION['role'] == "recenseur") {
 <span class="input-group-text" id="basic-addon3">الجنس
 <br />
 Sexe</span>
-<select class="form-select bneder"   name="sexe_exploitant"  >
+<select class="form-select main_oeuvre bneder" id="sexe_exploitant"  name="sexe_exploitant"  >
    <option value="-" disabled selected> 
    </option>
    <option  value="1"> Masculin - ذكر
@@ -694,12 +657,12 @@ Sexe</span>
          <div class="input-group input-group-sm">
          <div class="qst-num zxcount"></div>
             <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
-               <br>
+          
                Type d'assurance, si assuré</span>
 
            
           
-                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" style="width: 200px;">
+                <select class="form-select col-6 bneder" id="assurance_exploitant" name="assurance_exploitant" >
                 <option disabled value="-" selected="">  </option>
                         <option value="1">1 - CASNOS
                         </option>
@@ -722,17 +685,17 @@ Sexe</span>
         
         <br />
         <div class="row">
-  <div class="col-4">
+  <div class="col-5">
     <div class="card">
-      <div class="card-header" style="text-align: center;">
-        هل أنت مسجل في?<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Etes-vous inscrit à?
+      <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 8px 0px 0px 0px; position:absolute ;text-align: left;"></div>
+        هل أنت مسجل في<br>
+        Etes-vous inscrit à?
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input " id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفالحية الوالئية<br>
+              <input class="form-check-input " id="caw" name="caw" type="checkbox" > <label class="form-check-label" for="caw">الغرفة الفلاحية الوالئية<br>
               La Chambre d’Agriculture de la Wilaya (CAW)</label>
             </div><br>
             <div class="form-check">
@@ -742,28 +705,28 @@ Sexe</span>
             <div class="form-check">
               <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
               L’Union Nationale des Paysans Algériens (UNPA)</label>
-            </div>
+            </div><br>
             <div class="form-check">
                <input class="form-check-input" id="cam" name="cam" type="checkbox" > <label class="form-check-label" for="cam">غرفة الصناعة التقليدية والحرف<br>
                La Chambre de l'Artisanat et des Metiers (CAM)</label>
             </div><br>
-         </div><br>
-         <div class="col">
+       
+      
            <div class="form-check">
              <input class="form-check-input" id="ccw" name="ccw" type="checkbox" > <label class="form-check-label" for="ccw">الغرفة الوالئية للتجارية والصناعة<br>
              La Chambre du Commerce et de l'industrie de la Wilaya (CCW) </label>
            </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label " for="dispositif_social">الأجهزة الإجتماعية<br>
+              <input class="form-check-input" id="dispositif_social" name="dispositif_social" type="checkbox" > <label class="form-check-label " for="dispositif_social">
               جهاز إجتماعي - Dispositif Social</label>
             </div>
-          </div>
+            </div><br>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-8">
+  <div class="col">
     <br>
     <br>
     <br>
@@ -773,8 +736,8 @@ Sexe</span>
       Numéro de la carte fellah</span> <input num maxlength="7" class="form-control bneder"  id="num_carte_fellah_exploitant" name="num_carte_fellah_exploitant">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
-      Issu d'une famille agricole</span> <select class="form-select col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">منحدر من عائلة فلاحية<br>
+      Issu d'une famille agricole</span> <select class="form-select fontbneder2 col-6 bneder" id="issu_famille_agricole" name="issu_famille_agricole">
         <option value="-" disabled selected>
         </option>
         <option value="1">
@@ -786,8 +749,8 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
+      Etes-vous l'exploitant ?</span> <select class="form-select main_oeuvre fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
@@ -800,13 +763,15 @@ Sexe</span>
       </select>
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
-      Nombre de co-exploitants, si</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">عدد المتعاونين أو الشركاء إذا كان الفلاح - المستثمر هو الرئيسي<br>
+      Nombre de co-exploitants, si
+l'exploitant est principal
+</span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount fontbneder1"></div><span class="input-group-text" id="basic-addon3">طبيعة المستثمر (الفلاح) -<br>
-      Nature de l'exploitant</span> 
-      <select class="form-select col-6 bneder" id="nature_exploitant" name="nature_exploitant">
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      Type d'exploitant</span> 
+      <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
          
         </option>
@@ -848,17 +813,18 @@ Sexe</span>
              
          <div style="border-top: 3px solid red;"></div>
     <br />
-    <h5 style="margin-bottom: 27px;">III- Identification de l'exploitation تعريف المستثمرة</h5>
-    <div style="border-top: 1px solid red; width:300px; margin:-20px 0px 0px 50px; "></div>
+    <h6 style="margin-bottom: 27px;">III- Identification de l'exploitation تعريف المستثمرة</h6>
+    <div style="border-top: 1px solid red; width:260px; margin:-20px 0px 0px 50px; "></div>
 <br>
 <br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إسم المستثمرة<br>
-  Nom de  l'exploitation agricole</span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
+  Nom de  l'exploitation </span> <input class="form-control bneder" id="nom_exploitation" name="nom_exploitation"  >
 </div><br>
 <div class="input-group input-group-sm">
-  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">عنوان المستثمرة (أو إسم المكان)<br>
-  Adresse de l'exploitation (ou lieu dit)</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
+  <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3"> عنوان المستثمرة أو المكان المسمى<br>
+  Adresse de l'exploitation ou lieu dit 
+</span> <input class="form-control bneder" id="adress_exploitation" name="adress_exploitation"  value="">
 </div><br>
 <div class="input-group input-group-sm">
   <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">الوضع القانوني للمستثمرة<br>
@@ -900,30 +866,33 @@ Sexe</span>
       11 - Privé individuel - فردي خاص
     </option>
     <option value="12">
-      11 - Autre - آخر
+      12 - Autre - آخر
     </option>
   </select>
 </div><br>
 <div class="row">
-  <div class="col">
+<div class="col">
     <div class="card" style="font-size: 12px;">
-      <div class="card-header" style="text-align: center;">
+      <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 20px 0px 0px 0px; position:absolute ;text-align: left;"></div>
         الإحداثيات الجغرافية للمستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Coordonnées géographiques de l'exploitation
+      (النظام الجيوديزي العالمي لعام 1984)
+<br>
+        Coordonnées géographiques de l'exploitation <br> (Système de projection
+géographique WGS 1984)
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول (س) Longitude (X)</span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول "س" (بالدرجة العشرية) <br>Longitude "X" (en degré décimal) </span> <select style="max-width: 33px;" class="form-control bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
-              +
+            +
             </option>
             <option value="OUEST">
-              -
+            -
             </option>
           </select> <input class="form-control bneder"  id="lon_exploitation" name="lon_exploitation">
         </div><br>
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط العرض (ع) Latitude (Y)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
+          <span class="input-group-text" id="basic-addon3">خط العرض "ع" (بالدرجة العشرية) <br>Latitude "Y" (en degré décimal)</span> <input class="form-control bneder"  id="lat_exploitation" name="lat_exploitation">
         </div>
       </div>
     </div>
@@ -937,7 +906,7 @@ Sexe</span>
         <!-- <div class="row">
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" id="vegetale" name="vegetale" type="checkbox" >
+                            <input class="form-check-input bneder" id="vegetale" name="vegetale" type="checkbox" >
 
                            <label class="form-check-label" for="vegetale">
                            نباتية - Végétale
@@ -946,7 +915,7 @@ Sexe</span>
                      </div>
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" id="elevage" name="elevage" type="checkbox" >
+                            <input class="form-check-input bneder" id="elevage" name="elevage" type="checkbox" >
 
                            <label class="form-check-label" for="elevage">
                            تربية الحيوانات - Elevage
@@ -955,7 +924,7 @@ Sexe</span>
                      </div>
                      <div class="col">
                         <div class="form-check">
-                           <input class="form-check-input" id="mixed" name="mixed" type="checkbox" >
+                           <input class="form-check-input bneder" id="mixed" name="mixed" type="checkbox" >
                            <label class="form-check-label" for="mixed">
                            مختلطة - mixed
                            </label>
@@ -974,8 +943,8 @@ Sexe</span>
             <option value="2">
               2 - تربية الحيوانات - Animale
             </option>
-            <option value="2">
-              2 - مختلط - mixte
+            <option value="3">
+              3 - مختلط - mixte
             </option>
           </select>
         </div><br>
@@ -1002,37 +971,37 @@ Sexe</span>
   <div class="col-5">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;">
+         <div class="qst-num zxcount" style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>Accessibilité de l’exploitation
         إمكانية الوصول إلى المستثمرة<br>
-        <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>Accessibilité de l’exploitation
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="route_national" name="route_national" type="checkbox" > <label class="form-check-label" for="route_national">طريق وطني<br>
+              <input class="form-check-input bneder" id="route_national" name="route_national" type="checkbox" > <label class="form-check-label" for="route_national">طريق وطني<br>
               Route national</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" > <label class="form-check-label" for="chemin_de_wilaya">طريق ولائي<br>
+              <input class="form-check-input bneder" id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" > <label class="form-check-label" for="chemin_de_wilaya">طريق ولائي<br>
               Chemin de wilaya</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="route_communale" name="route_communale" type="checkbox" > <label class="form-check-label" for="route_communale">طريق بلدي<br>
+              <input class="form-check-input bneder" id="route_communale" name="route_communale" type="checkbox" > <label class="form-check-label" for="route_communale">طريق بلدي<br>
               Route communale</label>
             </div>
           </div>
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
-              Piste</label>
+              <input class="form-check-input bneder" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
+              Piste rurale</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
-              Accès agricole</label>
+              <input class="form-check-input bneder" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
+              Piste agricole</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
-              Accès rural</label>
+              <input class="form-check-input bneder" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
+              Accès </label>
             </div>
           </div>
         </div>
@@ -1067,7 +1036,7 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text fontbneder1" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder11" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
 </span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
@@ -1126,15 +1095,15 @@ au réseau internet ?
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p  class="input-group-text fontbneder1" id="basic-addon3" >
+   <p  class="input-group-text fontbneder11" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
-    ألغراض متعلقة بالفالحة؟
+    لأغراض متعلقة بالفالحة؟
     <br>
     Si oui, utilisez-vous le réseau
     internet pour des besoins
     agricoles ?
 </p> 
-<select style="height:33px; !important" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<select style="height:33px !important;" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -1168,181 +1137,209 @@ au réseau internet ?
 <br/>
 
 <div class="card" style="font-size: 12px;">
-               <div class="card-header" style="text-align: center;">
+               <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 8px 0px 0px 0px; position:absolute ;text-align: left;"></div>
                   الوضع القانوني للأرض
-                  <br><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+                  <br>
                   Statut juridique des terres
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 62px;height: 50px;width: 90%;background-color: white;position: absolute;z-index: 99;">
+                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
+                  <div class="row"style="text-align: center;">
+   <div style="padding-top: 7px;" class="col-4">
+
+   الرمز - Code
+   </div>
+   <div style="padding-top: 7px;" class="col-3">
+  
+   الرمز - Code
+</div>
+
+
+
+   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   &nbsp;&nbsp;&nbsp;
+ Are - آر </div>
+   <div class="col"></div>
+
+
+ 
+   
+
+</div>
+
                         </div>
 
 
                   <div class="row" style="text-align: center;">
                     <!-- <div class="col-1"></div> -->
-                    <div class="col-4">أصل الأرضي <br> Origine des terres</div>
+                    <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-3">كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col"></div>
-
-                     <div class="col-2" style="padding-left: 12px;">المساحة(هكتار) <br> Superficie(Hectare)</div>
-                     <div class="col-2" style="padding-left: 33px;">المساحة(ار) <br> Superficie(Are)</div>
+                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
-                  <hr>
+                  <br>
 
 
- 
+                 
+                  
 
 
-
-
-
-<div id="formContainer">
+                  <div id="formContainer">
 
 
 
-<div style="margin-bottom: 5px;" class="row statut_juridique_s ">
-      <div class="col-4">
-      <div class="input-group input-group-sm">
+                  <div style="margin-bottom: 5px;" class="row statut_juridique_s ">
+                        <div class="col-4">
+                        <div class="input-group input-group-sm">
 
-          <select  InputHeight class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
-              <option selected="" disabled value="-"></option>
-              <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-              <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-              <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-              <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-              <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-              <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-              <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-              <option BoldText value="8">8 - Wakf public وقف عام</option>
-              <option BoldText value="9">9 - Inconnue مجهول</option>
-          </select>
+                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                              <option selected="" disabled value="-"></option>
+                              <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                              <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                              <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                              <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                              <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
+                              <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                              <option BoldText value="7">7 - Wakf privé وقف خاص</option>
+                              <option BoldText value="8">8 - Wakf public وقف عام</option>
+                              <option BoldText value="9">9 - Inconnue مجهول</option>
+                            </select>
 
-          </div>
-      </div>
+                            </div>
+                        </div>
 
-      <div class="col-4">
+                        <div class="col-4">
 
-      
+                        
 
-      <div class="input-group input-group-sm">
+                        <div class="input-group input-group-sm">
 
-              <select InputHeight class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
-              <option  selected="" disabled>-</option>
-              <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
-              <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
-              <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
-              <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
-              <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
-              <option value="6">6- Concession CIM 108, CIM 1839</option>
-              <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
-              <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
-              <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
-              <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
-              <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
-              <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
-              <option value="13">13- Inconnu غير معروف</option> 
-              <option  disabled=""  selected value="-"></option>
-              <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
-                <option value="13">13 - Vente/Achat بيع/شراء</option>
-               <option value="14">14 - Succession إرث</option>
-               <option value="15">15 - Donation هبة</option>
-               <option value="16">16 - Testament وصية</option>
-               <option value="17">17 - Droit préemption حق الشفاعة</option>
-               <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
-               <option value="19">19 - Certificat de possession شهادة حيازة</option>
-               <option value="20">20 - Location إجار</option>
-               <option value="21">21 - Autre  آخرى </option>
-               <option value="22">22 - Inconnu غير معروف</option>
-              </select>
-             
-       </div>
+                                <select InptSZ class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <option  selected="" disabled>-</option>
+                                    <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
+                                    <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
+                                    <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
+                                    <option value="4">4- Ex GCA «483-97» - ع.إ.ف</option>
+                                    <option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>
+                                    <option value="6">6- Concession CIM 108, CIM 1839</option>
+                                    <option value="7">7 - Nouvelle concession ONTA  إمتياز جديد«&nbsp;21-432&nbsp;»</option>
+                                    <option value="8">8 - Nouvelle concession ODASإمتياز جديد «&nbsp;20-265&nbsp;»</option>
+                                    <option value="9">9 - Exploitation sans titre إستغلال بدون سند «&nbsp;21-432&nbsp;»</option>
+                                    <option value="10">10 - Ferme pilote مزرعة نموذجية</option>
+                                    <option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>
+                                    <option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>
+                                    <option value="13">13- Inconnu غير معروف</option> 
+                                    <option  disabled=""  selected value="-"></option>
+                                    <option  disabled="" style="font-weight: 700;">حق الإنتفاع في استخدام  غابات للملكية العمومية</option>
+                                       <option value="13">13 - Vente/Achat بيع/شراء</option>
+                                       <option value="14">14 - Succession إرث</option>
+                                       <option value="15">15 - Donation هبة</option>
+                                       <option value="16">16 - Testament وصية</option>
+                                       <option value="17">17 - Droit préemption حق الشفاعة</option>
+                                       <option value="18">18 - Préscription acquisitive ملكية مكتسبة</option>
+                                       <option value="19">19 - Certificat de possession شهادة حيازة</option>
+                                       <option value="20">20 - Location إجار</option>
+                                       <option value="21">21 - Autre  آخرى </option>
+                                       <option value="22">22 - Inconnu غير معروف</option>
+                                </select>
+                               
+                         </div>
 
-    </div>
-    
-    <style>
+                      </div>
+                      
+                      <style>
 .error {
-border: 2px solid red;
+    border: 2px solid red;
 }
 </style>
 <script>
 $(document).ready(function(){
-var selectedValues = []; // Array to hold the counts of each combined value selected
+    var selectedValues = []; // Array to hold the counts of each combined value selected
 
-$(document).on('change', '.statut_juridique_check', function() {
-var fullId = $(this).attr('id');
-var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
+    $(document).on('change', '.statut_juridique_check', function() {
+        var fullId = $(this).attr('id');
+        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
 
-var val1 = $('#origine_des_terres_' + idPart).val() || "";
-var val2 = $('#status_juridique_' + idPart).val() || "";
-var cc = val1 + val2; // Combine the values to form a unique identifier
+        var val1 = $('#origine_des_terres_' + idPart).val() || "";
+        var val2 = $('#status_juridique_' + idPart).val() || "";
+        var cc = val1 + val2; // Combine the values to form a unique identifier
 
-// Clear any previous error indication before any new validation
-$('#origine_des_terres_' + idPart).removeClass('error');
-$('#status_juridique_' + idPart).removeClass('error');
+        // Clear any previous error indication before any new validation
+        $('#origine_des_terres_' + idPart).removeClass('error');
+        $('#status_juridique_' + idPart).removeClass('error');
 
-if(val1 === "" || val2 === "") {
-//console.log("Both selections are required.");
-return; // Exit the function if one of the dropdowns is not selected
-}
+        if(val1 === "" || val2 === "") {
+            console.log("Both selections are required.");
+            return; // Exit the function if one of the dropdowns is not selected
+        }
 
-// Check if this combination already exists in the array
-if($.inArray(cc, selectedValues) !== -1){
-////console.log("This combination of values has already been selected.");
-// Swal.fire({
-//    title: 'Attention!',
-//     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-//     icon: 'warning',
-//     confirmButtonText: 'OK'
-// });
-// $('#origine_des_terres_' + idPart).addClass('error');
-// $('#status_juridique_' + idPart).addClass('error');
-// $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-} else {
-// If the combination is unique, add it to the array and ensure no error class is present
-selectedValues.push(cc);
-}
-});
+        // Check if this combination already exists in the array
+        if($.inArray(cc, selectedValues) !== -1){
+            console.log("This combination of values has already been selected.");
+            Swal.fire({
+               title: 'Attention!',
+                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            $('#origine_des_terres_' + idPart).addClass('error');
+            $('#status_juridique_' + idPart).addClass('error');
+            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+        } else {
+            // If the combination is unique, add it to the array and ensure no error class is present
+            selectedValues.push(cc);
+        }
+    });
 });
 </script>
 
 
 
-      <div class="col-3">
-          <div style="margin-left:20px" class="input-group input-group-sm">
-     <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
-  
-                  
-                  <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
-           
+                        <div class="col-3">
+                            <div style="margin-left:20px" class="input-group input-group-sm">
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                    
+                                    
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
+                             
 
-          </div>
+                            </div>
+                            
 
-      </div>
-      <div class="col-1">
+                        </div>
+                        
+                        <div class="col-1">
+                   
 
-          <div class="d-grid gap-2">
-                      <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
-
-          </div>
-
-
-      </div>
-
-  </div>
-  </div>
+                            <div class="d-grid gap-2">
+                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
 
 
+                            </div>
 
 
-   
+                        </div>
 
-
-                  
+                    </div>
               
-   
+
+                    <style>
+    .big-space {
+        width: 50px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .small-space {
+        width: 20px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+    .mid-space {
+      width: 35px; /* Adjust the width to increase or decrease the space */
+        display: inline-block;
+    }
+</style>
+             
 
 
                   <script>
@@ -1364,7 +1361,7 @@ selectedValues.push(cc);
     removeButton.textContent = '-';
     removeButton.type = 'button';
 
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46');
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
     removeButton.addEventListener('click', function () {
         formRow.remove();
     });
@@ -1383,7 +1380,10 @@ selectedValues.push(cc);
 
                  </script>
                  
- 
+                 
+               </div>
+            </div>
+ </div>    
 
 
  <br/>
@@ -1393,7 +1393,7 @@ selectedValues.push(cc);
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
@@ -1443,51 +1443,49 @@ acte de concession ?
 
  <div class="card" style="font-size: 12px;">
     <div class="card-header" style="text-align: center;">
+      <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
+      <div class="qst-num" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">45</div>
         إذا كانت م.ف.ج - Si Ex-EAC
-        <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
-        <div class="qst-num" style="margin: 0px 0px 0px 0px; text-align: left;">45</div>
     </div>
     <!-- <div class="qst-num zxcount"  style="margin: 2px 0px 2px 0px;"></div> -->
     <br>
-    <div class="row">
+    <div class="row" style="text-align:center;">
         <div class="col-2"></div>
-        <div class="col-4">
+        <div class="col-3">
             عدد األعضاء<br>
-            Nombre des <br>exploitants
+            Nombre des exploitants
         </div>
         <div class="col">
-            مساحة م.ف.ج<br>
-            Superficie de l'Ex-EAC
+         &nbsp;  <u>   مساحة م.ف.ج
+            Superficie de l'Ex-EAC</u>
         </div>
+    <div class="col-2"></div>
+
     </div>
     <div class="row">
     <div class="col-2"></div>
         <div class="col-4"></div>
         <div class="col-2">Hectar - هكتار</div>
-        <div class="col"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Are - آر</div>
+        <div class="col">  Are - آر</div>
+   
+        
     </div>
     <br>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
+        <div class="col-3"></div>
+        <div class="col-3">
             <div class="input-group input-group-sm">
                 <input style="width:100px;" class="form-control bneder" num maxlength="2" id="si_exploi_eac" name="si_exploi_eac" value="">
             </div>
         </div>
         <div class="col-4">
-            <div class="row">
-                <div class="col">
-                    <div class="input-group input-group-sm">
+            
+                    <div class="input-group input-group-sm" style="padding-left:10px;">
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-                    </div>
-                </div>
-                
-                <div class="col-5">
-                    <div class="input-group input-group-sm">
                         <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
-                        <br>
-                    </div>
-                </div>
+               
+                
+              
             </div>
         </div>
        
@@ -1516,9 +1514,9 @@ acte de concession ?
 
 
 <div id='sans_terre'>
-   
-   
-   
+
+
+
             <div style="border-top: 3px solid red;"></div>
 <br>
 <h5 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h5>
@@ -6150,7 +6148,7 @@ data.status_juridique.forEach(function(item) {
     status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
         '<div class="col">' +
         '<div class="input-group input-group-sm">' +
-        '<select class="form-select statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
+        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
         '<option value="-">-</option>' +
         '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
         '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
@@ -6166,7 +6164,7 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col">' +
         '<div class="input-group input-group-sm">' +
-        '<select class="form-select statut_juridique_s" id="status_juridique" name="status_juridique">' +
+        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="status_juridique" name="status_juridique">' +
         '<option value="-">-</option>' +
         '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
         '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
@@ -6186,8 +6184,10 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col">' +
         '<div class="input-group input-group-sm">' +
-        '<input id="superfecie_sj" name="superfecie_sj" type="number" max="9999" class="form-control statut_juridique_s" value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are" type="number" max="99" class="form-control statut_juridique_s" value="' + (item.superfecie_sj_are || '') + '">' +
+        '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s" style="max-width: 88px;margin-left:20px" value="' + (item.superfecie_sj || '') + '">' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  style="max-width: 44px;" value="' + (item.superfecie_sj_are || '') + '">' +
+        '<div class="col">' +
+        '</div>' +
         '</div>' +
         '</div>' +
         '</div>';
