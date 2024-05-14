@@ -981,95 +981,94 @@ var selectedValues = []; // Array to hold unique combinations of selected values
     //**********************************************Farouk Touil end  ******************************************************* */
 
 
-
-    /***************************************************************** wissem start*********************************************************************** */
-    $('#nin_exploitant').blur(function(){
-        console.log('gg')
-        var inputLength = $(this).val().length;
-        if (inputLength < 18) {
-            // If length is less than 18, display an error message or perform any other action.
-            $('#error_message').text('le nin doit etre 18 characters.');
-            $('#nin_exploitant').css('border','2px solid red')
-        } else {
-            // If length is 18 or more, clear the error message.
-            $('#error_message').text('');
-            $('#nin_exploitant').css('border','2px solid green')
-        }
-    });
-
-
-    $('#nom_exploitation').on('input', function(){
-        var inputVal = $(this).val();
-        $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
-    });
-
-    /*********************************** */
-
-    // $('#reference_cadastrale').on('input', function() {
-    //     var userInput = $(this).val().trim();
-    //     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
-
-    //     if (/^\d{3}$/.test(userInput)) {
-    //         // If user has entered 3 numbers, automatically add "/"
-    //         $(this).val(userInput + '/');
-    //     }
-
-    //     if (regex.test(userInput)) {
-    //         // Valid input format
-    //         $(this).css('border-color', 'green');
-    //     } else {
-    //         // Invalid input format
-    //         $(this).css('border-color', 'red');
-    //     }
-    // });
+ /***************************************************************** wissem start*********************************************************************** */
+ $('#nin_exploitant').blur(function(){
+    console.log('gg')
+    var inputLength = $(this).val().length;
+    if (inputLength < 18) {
+        // If length is less than 18, display an error message or perform any other action.
+        $('#error_message').text('le nin doit etre 18 characters.');
+        $('#nin_exploitant').css('border','2px solid red')
+    } else {
+        // If length is 18 or more, clear the error message.
+        $('#error_message').text('');
+        $('#nin_exploitant').css('border','2px solid green')
+    }
+});
 
 
-    $('#eau_exploitation_type_irrigation').change(function(){
-        $('.pm_hydraulique').prop('checked', false);
-    });
+$('#nom_exploitation').on('input', function(){
+    var inputVal = $(this).val();
+    $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
+});
+
+/*********************************** */
+
+// $('#reference_cadastrale').on('input', function() {
+//     var userInput = $(this).val().trim();
+//     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
+
+//     if (/^\d{3}$/.test(userInput)) {
+//         // If user has entered 3 numbers, automatically add "/"
+//         $(this).val(userInput + '/');
+//     }
+
+//     if (regex.test(userInput)) {
+//         // Valid input format
+//         $(this).css('border-color', 'green');
+//     } else {
+//         // Invalid input format
+//         $(this).css('border-color', 'red');
+//     }
+// });
+
+
+$('#eau_exploitation_type_irrigation').change(function(){
+    $('.pm_hydraulique').prop('checked', false);
+});
 
 
 
-    /**************** */
-    //28==>119
+/**************** */
+//28==>119
 
 $('.main_oeuvre').on('input', function(){
 
-    var sexe_exploitant = $('#sexe_exploitant').val(); 
-    var exploitant = $('#exploitant').val(); //
+var sexe_exploitant = $('#sexe_exploitant').val(); 
+var exploitant = $('#exploitant').val(); //
 
 
-    if (exploitant == 1) {
-        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
-        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
-    }else {
-        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
-        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
-    }
+if (exploitant == 1) {
+    $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
+    $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
+}else {
+    $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
+    $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
+}
+
+
+if (sexe_exploitant !== null && exploitant !== null) {
+    console.log('not null ')
     
 
-    if (sexe_exploitant !== null && exploitant !== null) {
-        console.log('not null ')
-        
+    if (sexe_exploitant == '1' && exploitant== '1') {
+       
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
 
-        if (sexe_exploitant == '1' && exploitant== '1') {
-           
-            $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
-
-        } else if(sexe_exploitant == '2' && exploitant== '1')
-            {
-            $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
-           
-        }
+    } else if(sexe_exploitant == '2' && exploitant== '1')
+        {
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
+       
     }
+}
 });
 
 
 /********************* */
 $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 
-    $('#fa_si_oui_quelle_compagnie').val('')
-    $('.type_assurance').prop('checked', false);
+$('#fa_si_oui_quelle_compagnie').val('')
+$('.type_assurance').prop('checked', false);
 })
 
 
@@ -1091,17 +1090,17 @@ $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 
 
 $('#fa_credit_bancaire').change(function(){
-    if(!$(this).is(":checked")) {
-       $('.type_credit_bancaire').prop('checked', false);
-    }
+if(!$(this).is(":checked")) {
+   $('.type_credit_bancaire').prop('checked', false);
+}
 });
 $('#fa_soutien_public').change(function(){
-    if(!$(this).is(":checked")) {
-       $('.soutien_public_ckeckbox').prop('checked', false);
-    }
+if(!$(this).is(":checked")) {
+   $('.soutien_public_ckeckbox').prop('checked', false);
+}
 });
 
-    /****************************************************** wissem end************* ************************************** */
+/****************************************************** wissem end************* ************************************** */
 
 
 });
