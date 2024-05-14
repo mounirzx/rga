@@ -513,7 +513,7 @@ if ($_SESSION['role'] == "recenseur") {
 <span class="input-group-text" id="basic-addon3">الجنس
 <br />
 Sexe</span>
-<select class="form-select bneder" id="sexe_exploitant"  name="sexe_exploitant"  >
+<select class="form-select main_oeuvre bneder" id="sexe_exploitant"  name="sexe_exploitant"  >
    <option value="-" disabled selected> 
    </option>
    <option  value="1"> Masculin - ذكر
@@ -747,7 +747,7 @@ Sexe</span>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      Etes-vous l'exploitant ?</span> <select class="form-select main_oeuvre fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
