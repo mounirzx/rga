@@ -5818,7 +5818,7 @@ document.getElementById('submitDate').click();
        
 
         // For checkboxes, if the value is '1', check the checkbox
-       if (response[key] == 1 || response[key] =="on" ) {
+       if (response[key] == 1) {
             $('[name="' + key + '"]').prop('checked', true);
         } else {
             $('[name="' + key + '"]').prop('checked', false);
@@ -6165,7 +6165,7 @@ data.status_juridique.forEach(function(item) {
         '<div class="col">' +
         '<div class="input-group input-group-sm">' +
         '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="status_juridique" name="status_juridique">' +
-        '<option value="-">-</option>' +
+        '<option disabled value="-"></option>' +
         '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
         '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
         '<option value="3" ' + (item.status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «10-03» - م.ف,ف</option>' +
@@ -6179,6 +6179,15 @@ data.status_juridique.forEach(function(item) {
         '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
         '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
         '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
+        ' <option value="14"'+(item.status_juridique === "14" ? 'selected' : '')+'14 - Succession إرث</option>' +
+         ' <option value="15"'+(item.status_juridique === "15" ? 'selected' : '')+'15 - Donation هبة</option>' +
+         ' <option value="16"'+(item.status_juridique === "16" ? 'selected' : '')+'16 - Testament وصية</option>' +
+         ' <option value="17"'+(item.status_juridique === "17" ? 'selected' : '')+'17 - Droit préemption حق الشفاعة</option>' +
+         ' <option value="18"'+(item.status_juridique === "18" ? 'selected' : '')+'18 - Préscription acquisitive ملكية مكتسبة</option>' +
+         ' <option value="19"'+(item.status_juridique === "19" ? 'selected' : '')+'19 - Certificat de possession شهادة حيازة</option>' +
+         ' <option value="20"'+(item.status_juridique === "20" ? 'selected' : '')+'20 - Location إجار</option>' +
+         ' <option value="21"'+(item.status_juridique === "21" ? 'selected' : '')+'21 - Autre  آخرى </option>' +
+         ' <option value="22"'+(item.status_juridique === "22" ? 'selected' : '')+'22 - Inconnu غير معروف</option>' + 
         '</select>' +
         '</div>' +
         '</div>' +

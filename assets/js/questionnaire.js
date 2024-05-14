@@ -242,10 +242,14 @@ var message = updateFields()
     // Initialize formDataObj outside the loop to make it accessible throughout the function
     var formDataObj = {};
 
-    // Handle checkboxes explicitly to include them in formDataObj
-    $(".form-check-input").each(function () {
-      formDataObj[this.name] = this.checked ? this.value : "0"; // Use "0" to indicate unchecked
-    });
+// Handle checkboxes explicitly to include them in formDataObj
+//  $("input[type='checkbox']").each(function() {
+//   formDataObj[this.name] = this.checked ? "1" : "0";
+// });
+
+$("input[type='checkbox']").each(function() {
+  formDataObj[this.name] = this.checked ? "1" : "0";
+});
 
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();
@@ -780,7 +784,7 @@ if(surface_totale_st_2>=100){
       var filtered = filterByKey(id);
       
 //console.log(filtered[id]);
-$('#status_juridique_'+idPart).empty()
+//$('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])
     })
 
