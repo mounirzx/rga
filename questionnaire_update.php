@@ -5318,9 +5318,9 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check" style="position: absolute;right: 154px;">
-                            <input class="form-check-input" id="ee_cooperatives_specialisees" name="ee_cooperatives_specialisees" type="checkbox">
+                            <input class="form-check-input" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
 
-                              <label class="form-check-label" for="ee_cooperatives_specialisees">
+                              <label class="form-check-label" for="flexCheckDefault57">
                               التعاونيات المتخصصة - Coopératives spécialisées
                               </label>
                            </div>
@@ -5816,8 +5816,18 @@ document.getElementById('submitDate').click();
         $('[name="' + key + '"]').val(response[key]);
        
 
-        // For checkboxes, if the value is '1', check the checkbox
-       if (response[key] == 1 || response[key] =="on" ) {
+
+      //   if (response[key] == 1 || response[key] =="on" ) {
+      //       $('[name="' + key + '"]').prop('checked', true);
+      //   } else {
+      //       $('[name="' + key + '"]').prop('checked', false);
+      //   }
+
+
+
+
+
+       if (response[key] == 1 ) {
             $('[name="' + key + '"]').prop('checked', true);
         } else {
             $('[name="' + key + '"]').prop('checked', false);
@@ -6147,7 +6157,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 
     // Send the data to the PHP file using AJAX
     $.ajax({
-        url: 'assets/delete_row2.php',
+        url: 'assets/php/delete_row2.php',
         type: 'POST',
         data: {code_materiel: code_materiel},
         success: function(response) {
@@ -6232,7 +6242,7 @@ $('#delete4').on('click', function() {
      
         console.log(origine_des_terres);
     $.ajax({
-        url: 'assets/delete_row4.php',
+        url: 'assets/php/delete_row4.php',
         type: 'POST',
         data: {
             // cle_code_culture: cle_code_culture, 75E92EyTOmst
@@ -6275,7 +6285,7 @@ $('#delete2').on('click', function() {
      
         console.log(superficie_hec);
     $.ajax({
-        url: 'assets/delete_row.php',
+        url: 'assets/php/delete_row.php',
         type: 'POST',
         data: {
             // cle_code_culture: cle_code_culture,
