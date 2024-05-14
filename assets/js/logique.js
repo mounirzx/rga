@@ -570,10 +570,15 @@ function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
-    //*********************************************Farouk Touil start ******************************************************** */
+ //*********************************************Farouk Touil start ******************************************************** */
   // Function to capitalize the first letter of the input
+  $('#nom_exploitant').on('input', function() {
+    var inputText = $(this).val();
+    var capitalizedText = inputText.toUpperCase() ;
+    $(this).val(capitalizedText);
+});
 
-$('#nom_exploitant,#prenom_exploitant,#adress_exploitant, #nom_exploitation ').on('input', function() {
+$('#prenom_exploitant,#adress_exploitant, #nom_exploitation ').on('input', function() {
     var inputText = $(this).val();
     var capitalizedText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
     $(this).val(capitalizedText);
@@ -977,8 +982,7 @@ var selectedValues = []; // Array to hold unique combinations of selected values
 
 
     
-
-    //**********************************************Farouk Touil end  ******************************************************* */
+//**********************************************Farouk Touil end  ******************************************************* */
 
 
  /***************************************************************** wissem start*********************************************************************** */

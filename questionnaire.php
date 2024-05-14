@@ -871,7 +871,7 @@ l'exploitant est principal
 <div class="col">
     <div class="card" style="font-size: 12px;">
       <div class="card-header" style="text-align: center;"><div class="qst-num zxcount" style="margin: 20px 0px 0px 0px; position:absolute ;text-align: left;"></div>
-       br الإحداثيات الجغرافية للمستثمرة<br>
+        الإحداثيات الجغرافية للمستثمرة<br>
       (النظام الجيوديزي العالمي لعام 1984)
 <br>
         Coordonnées géographiques de l'exploitation <br> (Système de projection
@@ -879,7 +879,7 @@ géographique WGS 1984)
       </div>
       <div class="card-body">
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="basic-addon3">خط الطول "س" (بالدرجة العشرية) <br>Longitude "X" (en degré décimal) </span> <select style="max-width: 33px;" class="form-select bneder" id="longitude_x_prefix" name="longitude_x_prefix">
+          <span class="input-group-text" id="basic-addon3">خط الطول "س" (بالدرجة العشرية) <br>Longitude "X" (en degré décimal) </span> <select style="max-width: 33px;" class="form-control bneder" id="longitude_x_prefix" name="longitude_x_prefix">
             <option value="EST">
             +
             </option>
@@ -1100,7 +1100,7 @@ au réseau internet ?
     internet pour des besoins
     agricoles ?
 </p> 
-<select style="height:34px !important; " class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<select style="height:33px !important;" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
       <option selected>
         -
       </option>
@@ -2196,297 +2196,296 @@ acte de concession ?
    
    </div>
    <br>
-      <div id="formContainer2">
-        <div class="row code_culture_s" style="margin-bottom: 10px;">
-          <div class="col-5" style="margin-right:20px;">
+   <div id="formContainer2">
+        <div class="row " style="margin-bottom: 10px;">
+          <div class="col-6">
             <div class="input-group input-group-sm">
-              <select inptSZ class="form-select code_culture_s fontbneder11 code_culture_check" id="code_culture" name="code_culture">
+              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Grandes cultures - المحاصيل الكبرى
                 </option>
-                <option class="fontbneder22" value="1">
+                <option BoldText value="1">
                   1 - Blé dur - قمح صلب
                 </option>
-                <option class="fontbneder22" value="2">
-                  2 - Blé tendre - قمح لين
+                <option BoldText value="2">
+                  2 - Blétendre - قمح لين
                 </option>
-                <option class="fontbneder22" value="3">
+                <option BoldText value="3">
                   3 - Orge - شعير
                 </option>
-                <option class="fontbneder22" value="4">
+                <option BoldText value="4">
                   4 - Avoine - خرطال
                 </option>
-                <option class="fontbneder22" value="5">
+                <option BoldText value="5">
                   5 - Sorgho - الذرة البيضاء(سرغوم)
                 </option>
-                <option class="fontbneder22" value="6">
-                  6 - Maïs grain - حبوب الذرة
+                <option BoldText value="6">
+                  6 - Maïsgrain - حبوب الذرة
                 </option>
-                <option class="fontbneder22" value="7">
-                  7 - Autres céréales - الحبوب الأخرى
+                <option BoldText value="7">
+                  7 - Autrescéréales - الحبوب الأخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Légumessecs - البقول الجافة
                 </option>
-                <option class="fontbneder22" value="8">
+                <option BoldText value="8">
                   8 - Lentilles - عدس
                 </option>
-                <option class="fontbneder22" value="9">
+                <option BoldText value="9">
                   9 - Pois-chiche - حمص
                 </option>
-                <option class="fontbneder22" value="10">
+                <option BoldText value="10">
                   10 - Pois sec - بازلاء مجففة
                 </option>
-                <option class="fontbneder22" value="11">
-                  11 - Haricot sec - الفاصوليا الجافة
+                <option BoldText value="11">
+                  11 - Haricotsec - الفاصوليا الجافة
                 </option>
-                <option class="fontbneder22" value="12">
-                  12 - Fève sèche - فول جاف
+                <option BoldText value="12">
+                  12 - Fèvesèche - فول جاف
                 </option>
-                <option class="fontbneder22" value="13">
-                  13 - Autres - أخرى
+                <option BoldText value="13">
+                  13 - Autres-أخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Fourrages - الأعلاف
                 </option>
-                <option class="fontbneder22" value="14">
+                <option BoldText value="14">
                   14 - Vesce et Vesce-avoine - البيقية والخرطال
                 </option>
-                <option class="fontbneder22" value="15">
+                <option BoldText value="15">
                   15 - Luzerne - فصة
                 </option>
-                <option class="fontbneder22" value="16">
+                <option BoldText value="16">
                   16 - Maïs fourrager - الذرة العلفية
                 </option>
-                <option class="fontbneder22" value="17">
+                <option BoldText value="17">
                   17 - Autres fourrages - أعلاف أخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Maraîchage - الخضروات
                 </option>
-                <option class="fontbneder22" value="18">
+                <option BoldText value="18">
                   18 - Pomme de terre - البطاطا
                 </option>
-                <option class="fontbneder22" value="19">
-                  19 - Oignon sec et vert - بصل جاف وأخضر
+                <option BoldText value="19">
+                  19 - Oignonsecet vert - بصل جاف وأخضر
                 </option>
-                <option class="fontbneder22" value="20">
+                <option BoldText value="20">
                   20 - Ail - ثوم
                 </option>
-                <option class="fontbneder22" value="21">
+                <option BoldText value="21">
                   21 - Tomate - طماطم
                 </option>
-                <option class="fontbneder22" value="22">
+                <option BoldText value="22">
                   22 - Piment - فلفل حار
                 </option>
-                <option class="fontbneder22" value="23">
+                <option BoldText value="23">
                   23 - Poivron(frais et séché) - فلفل حلو
                 </option>
-                <option class="fontbneder22" value="24">
+                <option BoldText value="24">
                   24 - Carotte - جزر
                 </option>
-                <option class="fontbneder22" value="25">
+                <option BoldText value="25">
                   25 - Courgette - كوسه
                 </option>
-                <option class="fontbneder22" value="26">
+                <option BoldText value="26">
                   26 - Navet - اللفت
                 </option>
-                <option class="fontbneder22" value="27">
+                <option BoldText value="27">
                   27 - Concombre - خيار
                 </option>
-                <option class="fontbneder22" value="28">
+                <option BoldText value="28">
                   28 - ChouetChou-fleur - الملفوف وكرمب
                 </option>
-                <option class="fontbneder22" value="29">
+                <option BoldText value="29">
                   29 - Artichaut - قرنون
                 </option>
-                <option class="fontbneder22" value="30">
+                <option BoldText value="30">
                   30 - Betterave -الشمندر
                 </option>
-                <option class="fontbneder22" value="31">
+                <option BoldText value="31">
                   31 - Fèveverte- فول أخضر
                 </option>
-                <option class="fontbneder22" value="32">
-                  32 - Haricot vert - فاصوليا خضراء
+                <option BoldText value="32">
+                  32 - Haricotvert - فاصوليا خضراء
                 </option>
-                <option class="fontbneder22" value="33">
-                  33 - Petit pois - البازلاء
+                <option BoldText value="33">
+                  33 - Petitpois - البازلاء
                 </option>
-                <option class="fontbneder22" value="34">
+                <option BoldText value="34">
                   34 - Fraises - فراولة
                 </option>
-                <option class="fontbneder22" value="35">
-                  35 - Salade (laitue) - خس
+                <option BoldText value="35">
+                  35 - Salade(laitue) - خس
                 </option>
-                <option class="fontbneder22" value="36">
+                <option BoldText value="36">
                   36 - Melon - بطيخ
                 </option>
-                <option class="fontbneder22" value="37">
+                <option BoldText value="37">
                   37 - Pastéque - دلاع
                 </option>
-                <option class="fontbneder22" value="38">
-                  38 - Autres - أخرى
+                <option BoldText value="38">
+                  38 - Autres-أخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Cultures industrielles - المحاصيل الصناعية
                 </option>
-                <option class="fontbneder22" value="39">
-                  39 - Tomate industrielle - الطماطم الصناعية
+                <option BoldText value="39">
+                  39 - Tomateindustrielle - الطماطم الصناعية
                 </option>
-                <option class="fontbneder22" value="40">
-                  40 - Betterave à sucre - شمندر سكري
+                <option BoldText value="40">
+                  40 - Betterave àsucre - شمندر سكري
                 </option>
-                <option class="fontbneder22" value="41">
-                  41 - Oléagineux (arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
+                <option BoldText value="41">
+                  41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
                 </option>
-                <option class="fontbneder22" value="42">
+                <option BoldText value="42">
                   42 - Tabac - التبغ
                 </option>
-                <option class="fontbneder22" value="43">
+                <option BoldText value="43">
                   43 - Autres - أخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
                   Arboriculture - الأشجار
                 </option>
-                <option class="fontbneder22" value="44">
+                <option BoldText value="44">
                   44 - Oranger - أشجار البرتقال
                 </option>
-                <option class="fontbneder22" value="45">
+                <option BoldText value="45">
                   45 - Citronnier - أشجار الليمون
                 </option>
-                <option class="fontbneder22" value="46">
+                <option BoldText value="46">
                   46 - Mandarinier - أشجار المندرين
                 </option>
-                <option class="fontbneder22" value="47">
+                <option BoldText value="47">
                   47 - Clémentinier - أشجار الكليمنتين
                 </option>
-                <option class="fontbneder22" value="48">
+                <option BoldText value="48">
                   48 - Pamplemoussier - أشجار اليمون الهندي
                 </option>
-                <option class="fontbneder22" value="49">
+                <option BoldText value="49">
                   49 - Abricotier - أشجار المشمش
                 </option>
-                <option class="fontbneder22" value="50">
+                <option BoldText value="50">
                   50 - Pêchier et nectarinier - أشجار الخوخ والنكتارين
                 </option>
-                <option class="fontbneder22" value="51">
+                <option BoldText value="51">
                   51 - Cognassier - أشجار السفرجل
                 </option>
-                <option class="fontbneder22" value="52">
+                <option BoldText value="52">
                   52 - Poirier - أشجار اإلجاص
                 </option>
-                <option class="fontbneder22" value="53">
+                <option BoldText value="53">
                   53 - Pommier - أشجار التفاح
                 </option>
-                <option class="fontbneder22" value="54">
+                <option BoldText value="54">
                   54 - Prunier - أشجار البرقوق
                 </option>
-                <option class="fontbneder22" value="55">
+                <option BoldText value="55">
                   55 - Olivier de table - أشجار زيتون "زيتون المائدة"
                 </option>
-                <option class="fontbneder22" value="56">
+                <option BoldText value="56">
                   56 - Olivier à huile - أشجار الزيتون "الزيت"
                 </option>
-                <option class="fontbneder22" value="57">
+                <option BoldText value="57">
                   57 - Figuier - أشجار التين
                 </option>
-                <option class="fontbneder22" value="58">
+                <option BoldText value="58">
                   58 - Amandier - أشجار اللوز
                 </option>
-                <option class="fontbneder22" value="59">
+                <option BoldText value="59">
                   59 - Noyer - أشجار الجوز
                 </option>
-                <option class="fontbneder22" value="60">
+                <option BoldText value="60">
                   60 - Cerisier - أشجار الكرز
                 </option>
-                <option class="fontbneder22" value="61">
+                <option BoldText value="61">
                   61 - Neflier - أشجار الزعرور 
                 </option>
-                <option class="fontbneder22" value="62">
+                <option BoldText value="62">
                   62 - Palmier dattier (Deglet Nour) - أشجار النخيل "دڨلة نور"
                 </option>
-                <option class="fontbneder22" value="63">
+                <option BoldText value="63">
                   63 - Palmier dattier (Ghars) - أشجار النخيل "غرس"
                 </option>
-                <option class="fontbneder22" value="64">
+                <option BoldText value="64">
                   64 - Palmier dattier (autres) - أشجار النخيل "أخرى"
                 </option>
-                <option class="fontbneder22" value="65">
+                <option BoldText value="65">
                   65 - Vigne de table - كروم المائدة
                 </option>
-                <option class="fontbneder22" value="66">
+                <option BoldText value="66">
                   66 - Vigne de cuve - كروم لصنع الخمور
                 </option>
-                <option class="fontbneder22" value="67">
+                <option BoldText value="67">
                   67 - Vigne à raisin sec - كروم التجفيف
                 </option>
-                <option class="fontbneder22" value="68">
+                <option BoldText value="68">
                   68 - Grenadier - أشجار الرمان
                 </option>
-                <option class="fontbneder22" value="69">
+                <option BoldText value="69">
                   69 - Arganier - أشجار األرقان
                 </option>
-                <option class="fontbneder22" value="70">
+                <option BoldText value="70">
                   70 - Autres arbres - أشجار أخرى
                 </option>
-                <option disabled style="font-weight: 700;">
-                  Divers culture - محاصيل مختلفة
+                <option BoldText disabled style="font-weight: 700;">
+                  Divers - محاصيل مختلفة
                 </option>
-                <option class="fontbneder22" value="71">
+                <option BoldText value="71">
                   71 - Herbes - الأعشاب 
                 </option>
-                <option class="fontbneder22" value="72">
+                <option BoldText value="72">
                   72 - Plantes aromatiques et médicinales - نباتات العطرية و الطبية
                 </option>
-                <option class="fontbneder22" value="73">
+                <option BoldText value="73">
                   73 - Pépinières fruitières - مشاتل الفاكهة
                 </option>
-                <option class="fontbneder22" value="74">
+                <option BoldText value="74">
                   74 - Pépinières maraichères - مشاتل الخضار
                 </option>
-                <option class="fontbneder22" value="75">
+                <option BoldText value="75">
                   75 - Pépinières forestières - مشاتل الغابات
                 </option>
-                <option class="fontbneder22" value="76">
+                <option BoldText value="76">
                   76 - Autres Pépinières - مشاتل أخرى
                 </option>
-                <option class="fontbneder22" value="77">
+                <option BoldText value="77">
                   77 - Autres Cultures - محاصيل أخرى
                 </option>
               </select>
             </div>
           </div>
-          <div class="col">
-            <div class="row">
+              <div class="col">
+               <!-- need to cahnge -->
+               <div class="input-group input-group-sm">
                
-              <div class="col">
-               <div class="input-group input-group-sm"  >
-                <input  id="superficie_hec" name="superficie_hec"  maxlength="4" num class="form-control"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control"  value="">
+
               </div>
               </div>
               <div class="col">
-              <div class="input-group input-group-sm" style="padding-right: 20px;">
-                <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
+              <div class="input-group input-group-sm">
+                <input double id="superficie_are" name="superficie_are"  class="form-control"  value="">
               </div>
               </div>
-              <div class="col" >
-              <div class="input-group input-group-sm" >
-                <input id="en_intercalaire" name="en_intercalaire"  maxlength="2" num class="form-control"  value="">
+              <div class="col">
+              <div class="input-group input-group-sm">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control"  value="">
               </div>
               </div>
-            </div>
-          </div>
+           
+          
           <div class="col-1">
             <div class="d-grid gap-2">
-            <button style="width: 50px;top: 107px;position: absolute;height: 34px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
+              <button style="width: 328px;position: absolute;left: 220px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
             </div>
           </div>
         </div>
       </div>
       <script>
-
 
 
 
@@ -2590,59 +2589,64 @@ $(document).ready(function(){
 
 
 
+
+           
 document.getElementById('addForm2').addEventListener('click', function() {
-const formContainer = document.getElementById('formContainer2');
-const formRow = formContainer.firstElementChild.cloneNode(true);
+    const formContainer = document.getElementById('formContainer2');
+    const formRow = formContainer.firstElementChild.cloneNode(true);
 
-// Generate unique IDs and names for the cloned form elements
-formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
-var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
-var newIndex = formContainer.children.length; // New index based on the number of existing rows
-element.id = baseId + '_' + newIndex;
-element.name = baseId + '_' + newIndex;
-element.removeAttribute('disabled'); // Remove "disabled" attribute if present
+    // Generate unique IDs and names for the cloned form elements
+    formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
+        var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
+        var newIndex = formContainer.children.length; // New index based on the number of existing rows
+        element.id = baseId + '_' + newIndex;
+        element.name = baseId + '_' + newIndex;
+        element.removeAttribute('disabled'); // Remove "disabled" attribute if present
 
-if (element.tagName === 'SELECT') {
-element.selectedIndex = 0; // Reset select element to default value
-// Add an event listener to enforce selection
-element.addEventListener('blur', function() {
-if (this.value === "-" || this.value === "") {
-Swal.fire({
-title: 'Attention !',
-text: 'Veuillez faire une sélection avant de continuer.',
-icon: 'warning',
-confirmButtonText: 'OK',
-confirmButtonColor: '#3085d6'
-}).then((result) => {
-if (result.isConfirmed) {
-this.focus(); // Refocus on the dropdown if user closes the alert
-}
+        if (element.tagName === 'SELECT') {
+            element.selectedIndex = 0; // Reset select element to default value
+            // Add an event listener to enforce selection
+            element.addEventListener('blur', function() {
+                if (this.value === "-" || this.value === "") {
+                    Swal.fire({
+                        title: 'Attention !',
+                        text: 'Veuillez faire une sélection avant de continuer.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.focus(); // Refocus on the dropdown if user closes the alert
+                        }
+                    });
+                }
+            });
+        } else if (element.type === 'text') {
+            element.value = ''; // Clear input text fields
+        }
+    });
+
+    // Remove the add button from the cloned row and add a remove button
+    const removeButton = document.createElement('button');
+    removeButton.textContent = '-';
+    removeButton.type = 'button';
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+    removeButton.addEventListener('click', function() {
+        formRow.remove();
+    });
+    formRow.querySelector('.d-grid').innerHTML = '';
+    formRow.querySelector('.d-grid').appendChild(removeButton);
+
+    formContainer.appendChild(formRow);
+
+    // Focus on the 'code_culture' select element in the newly added row
+    formRow.querySelector('.code_culture_s').focus();
+    restrictInputToDoubles();
+
+    // Optionally call any other functions that need to reinitialize settings or bindings
 });
-}
-});
-} else if (element.type === 'text') {
-element.value = ''; // Clear input text fields
-}
-});
 
-// Remove the add button from the cloned row and add a remove button
-const removeButton = document.createElement('button');
-removeButton.textContent = '-';
-removeButton.type = 'button';
-removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-removeButton.addEventListener('click', function() {
-formRow.remove();
-});
-formRow.querySelector('.d-grid').innerHTML = '';
-formRow.querySelector('.d-grid').appendChild(removeButton);
 
-formContainer.appendChild(formRow);
-
-// Focus on the 'code_culture' select element in the newly added row
-formRow.querySelector('.code_culture_s').focus();
-
-// Optionally call any other functions that need to reinitialize settings or bindings
-});
                   </script> <!-- TODO -->
     </div>
     
