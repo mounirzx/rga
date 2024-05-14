@@ -24,9 +24,121 @@ $(document).ready(function () {
     },
   });
 
+  /*********************************************************** */
+
+  function updateSAU() {
+    var totalHectares = 0;
+
+    // Combine hectare inputs
+    $('input[id$="_1"], input[id$="_3"]').each(function() {
+        totalHectares += parseFloat($(this).val()) || 0;
+    });
+
+    // Combine are inputs, converting to hectares
+    $('input[id$="_2"], input[id$="_4"]').each(function() {
+        totalHectares += (parseFloat($(this).val()) || 0) / 100;
+    });
+
+ 
+}
+
+// Trigger update on input changes
+$('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
+
+
+
+
+// Attach input event listener to all related hectare and are inputs
+$('.ares_to_hectares').on('input', updateSAU);
+
+// Event listener for changes to the SAU input field to alert the value
+$('#superficie_agricole_utile_sau_1').on('change', function() {
+    var currentValue = $(this).val();
+    console.log('Current SAU value: ' + currentValue);
+});
+
+// Dropdown change events for handling specific conditions
+function updateFields() {
+    var message=""
+    var totalHectares = 0;
+    var totalAres = 0;
+    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+
+    $('#formContainer2 .row').each(function() {
+        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        var cultureCode = parseInt($(this).find('.code_culture_s').val());
+        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+
+        totalHectares += hectares;
+        totalAres += ares;
+
+        // Convert total ares to hectares for calculation
+        totalHectares += totalAres / 100;
+
+        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+           // intercalaireField.val('').prop('disabled', false);
+        } else {
+           // intercalaireField.prop('disabled', false);
+        }
+
+        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+        if (intercalaireField.val()) {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+           
+          
+            
+        } else {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+        }
+    });
+console.log(totalHectares+'  '+SAU)
+    if (totalHectares > 2.99 * SAU) {
+       
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite dépassée',
+            text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
+        });
+
+        message = "red";
+    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Limite dépassée',
+        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+        // });
+        console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+        message="orange"
+    }else if(totalHectares  == (SAU)){
+        message="green"
+console.log('good')
+
+    }
+
+    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+
+    return message
+}
+
+// Bind the update function to input events on all related hectare and are inputs
+$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+
+// Initialize the fields correctly on page load
+//updateFields();
+
+
+  
+  /********************************************************** */
+
   $("#submitDate").click(function (e) {
     e.preventDefault();
 
+var message = updateFields()
+    console.log(message)
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
@@ -190,6 +302,7 @@ console.log(formDataArraySuperficie)
           formDataArrayCodeCulture: formDataArrayCodeCulture,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
           formDataArraySuperficie: formDataArraySuperficie,
+          message:message
         }),
         dataType: "json",
         success: function (response) {
@@ -199,6 +312,9 @@ console.log(formDataArraySuperficie)
               title: "Succès!",
               text: "Enregistrement effectué avec succès!"
             });
+
+
+          
           } else {
             Swal.fire({
               icon: "error",
@@ -245,6 +361,9 @@ console.log(formDataArraySuperficie)
     
   });
 
+
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   function qstList(etat) {
     $.ajax({
       url: url.qstList,
@@ -289,12 +408,13 @@ console.log(formDataArraySuperficie)
     data[i].commune_name_ascii +
     "</td><td></td><td>" +
     data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td> <td><i style='font-size:28px'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
+    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+data[i].message_coherence_stat_jur+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
 
         }
         $("#qst_list").empty();
         $("#qst_list").append(qst_list);
         $("#listTable").DataTable();
+        $('[data-bs-toggle="tooltip"]').tooltip();
       },
     });
   }

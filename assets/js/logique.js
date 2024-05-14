@@ -755,100 +755,109 @@ $('#exploit_est_un_bloc').on('change', function() {
 
 
 
-function updateSAU() {
-    var totalHectares = 0;
+// function updateSAU() {
+//     var totalHectares = 0;
 
-    // Combine hectare inputs
-    $('input[id$="_1"], input[id$="_3"]').each(function() {
-        totalHectares += parseFloat($(this).val()) || 0;
-    });
+//     // Combine hectare inputs
+//     $('input[id$="_1"], input[id$="_3"]').each(function() {
+//         totalHectares += parseFloat($(this).val()) || 0;
+//     });
 
-    // Combine are inputs, converting to hectares
-    $('input[id$="_2"], input[id$="_4"]').each(function() {
-        totalHectares += (parseFloat($(this).val()) || 0) / 100;
-    });
+//     // Combine are inputs, converting to hectares
+//     $('input[id$="_2"], input[id$="_4"]').each(function() {
+//         totalHectares += (parseFloat($(this).val()) || 0) / 100;
+//     });
 
  
-}
+// }
 
-// Trigger update on input changes
-$('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
-
-
+// // Trigger update on input changes
+// $('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
 
 
-// Attach input event listener to all related hectare and are inputs
-$('.ares_to_hectares').on('input', updateSAU);
 
-// Event listener for changes to the SAU input field to alert the value
-$('#superficie_agricole_utile_sau_1').on('change', function() {
-    var currentValue = $(this).val();
-    console.log('Current SAU value: ' + currentValue);
-});
 
-// Dropdown change events for handling specific conditions
-function updateFields() {
-    var totalHectares = 0;
-    var totalAres = 0;
-    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+// // Attach input event listener to all related hectare and are inputs
+// $('.ares_to_hectares').on('input', updateSAU);
 
-    $('#formContainer2 .row').each(function() {
-        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        var cultureCode = parseInt($(this).find('.code_culture_s').val());
-        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+// // Event listener for changes to the SAU input field to alert the value
+// $('#superficie_agricole_utile_sau_1').on('change', function() {
+//     var currentValue = $(this).val();
+//     console.log('Current SAU value: ' + currentValue);
+// });
 
-        totalHectares += hectares;
-        totalAres += ares;
+// // Dropdown change events for handling specific conditions
+// function updateFields() {
+//     var message=""
+//     var totalHectares = 0;
+//     var totalAres = 0;
+//     var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-        // Convert total ares to hectares for calculation
-        totalHectares += totalAres / 100;
+//     $('#formContainer2 .row').each(function() {
+//         var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+//         var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+//         var cultureCode = parseInt($(this).find('.code_culture_s').val());
+//         var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-           // intercalaireField.val('').prop('disabled', false);
-        } else {
-           // intercalaireField.prop('disabled', false);
-        }
+//         totalHectares += hectares;
+//         totalAres += ares;
 
-        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-        if (intercalaireField.val()) {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+//         // Convert total ares to hectares for calculation
+//         totalHectares += totalAres / 100;
+
+//         // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+//         if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+//            // intercalaireField.val('').prop('disabled', false);
+//         } else {
+//            // intercalaireField.prop('disabled', false);
+//         }
+
+//         // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+//         if (intercalaireField.val()) {
+//             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+//            // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
            
           
             
-        } else {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-        }
-    });
-
-    if (totalHectares > 2.99 * SAU) {
+//         } else {
+//             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+//             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+//         }
+//     });
+// console.log(totalHectares+'  '+SAU)
+//     if (totalHectares > 2.99 * SAU) {
        
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
-        });
-    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-        });
-    }else if(totalHectares  == SAU){
-console.log('good')
-    }
+//         Swal.fire({
+//             icon: 'error',
+//             title: 'Limite dépassée',
+//             text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
+//         });
 
-    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
-}
+//         message = "red";
+//     }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+//         // Swal.fire({
+//         //     icon: 'error',
+//         //     title: 'Limite dépassée',
+//         //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+//         // });
+//         console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+//         message="orange"
+//     }else if(totalHectares  == (SAU)){
+//         message="green"
+// console.log('good')
 
-// Bind the update function to input events on all related hectare and are inputs
-$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+//     }
 
-// Initialize the fields correctly on page load
-updateFields();
+//     console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+
+//     return message
+// }
+
+// // Bind the update function to input events on all related hectare and are inputs
+// $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+
+// // Initialize the fields correctly on page load
+// //updateFields();
 
 
   
@@ -1043,7 +1052,14 @@ var selectedValues = []; // Array to hold unique combinations of selected values
 
     /**************** */
     //28==>119
+    $('#nom_exploitant').on('input', function() {
+        var inputText = $(this).val();
+        var upperCaseText = inputText.toUpperCase();
+        $(this).val(upperCaseText);
+    });
 
+
+    
 $('.main_oeuvre').on('input', function(){
 
     var sexe_exploitant = $('#sexe_exploitant').val(); 
@@ -1099,6 +1115,14 @@ $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 //   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
 //   var mo_exploitant_individuel_2 =   $('[name="mo_exploitant_individuel_2"]').val(1);
 // })
+
+
+
+
+
+
+
+
 
 
 $('#fa_credit_bancaire').change(function(){
