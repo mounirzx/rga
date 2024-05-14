@@ -49,10 +49,10 @@ $(document).ready(function() {
           if (selectedValue === "1") {
             $('#ui_vaccins').prop('disabled', true); //
               $('#ui_medicaments_veterinaires').prop('disabled', true); //
-              //$('#type_activite_exploitation').prop('disabled', true); //
+              $('#type_activite_exploitation').prop('disabled', true); //
           }else if(selectedValue === "2") {
-             // $('#chapt_animals').show(); // [VI]
-              //$('#type_activite_exploitation').prop('disabled', false); // [36]
+             $('#chapt_animals').show(); // [VI]
+              $('#type_activite_exploitation').prop('disabled', false); // [36]
               $('#ui_vaccins').prop('disabled', false); //
               $('#ui_medicaments_veterinaires').prop('disabled', false); //
             $('#ui_semences_selectionnees').prop('disabled', true);
@@ -587,11 +587,11 @@ $('#prenom_exploitant,#adress_exploitant, #nom_exploitation ').on('input', funct
 
  // 16 Mapping from first dropdown value to acceptable values for the second dropdown
  var dropdownMapping = {
-    '1': ['1'],       // Values for 16 (1) -> 17 (1)
-    '2': ['2', '3', '4', '5', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
-    '3': ['2', '3', '4', '5', '9'],  // Repeated as specified
-    '4': ['2', '3', '4', '5', '9'],  // Repeated as specified
-    '5': ['6', '7', '8']             // Values for 16 (5) -> 17 (6,7,8)
+    '1': ['1','2','3', '4'],       // Values for 16 (1) -> 17 (1)
+    '2': ['1','2', '3', '4', '5', '9'],  // Values for 16 (2,3,4) -> 17 (2,3,4,5,9)
+    '3': ['1','2', '3', '4', '5', '9'],  // Repeated as specified
+    '4': ['1','2', '3', '4', '5', '9'],  // Repeated as specified
+    '5': ['1','6', '7', '8']             // Values for 16 (5) -> 17 (6,7,8)
 };
 
 $('#niveau_instruction').on('change', function() {

@@ -229,7 +229,28 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 
 
+/*********************************************************************** */
 
+$message = $form->message;
+$coherence_stat_jur="";
+$message_coherence_stat_jur="";
+if($message=="green"){
+    $coherence_stat_jur = "text-success";
+}if($message=="orange"){
+    $coherence_stat_jur = "text-warning";
+    $message_coherence_stat_jur="La superficie totale n est pas egale la superficie agricole utile.";
+}if($message=="red"){
+    $coherence_stat_jur = "text-danger";
+    $message_coherence_stat_jur="La superficie totale dépasse 2,99 fois la superficie agricole utile";
+}
+
+$req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES (?, ?, ?, ?,?)');
+$req4->execute(array($lastInsertId,$coherence_stat_jur,$message_coherence_stat_jur,"",""));
+
+
+
+
+/************************************************************************ */
 
 
 
