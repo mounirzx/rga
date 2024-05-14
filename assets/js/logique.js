@@ -1,6 +1,6 @@
 $(document).ready(function() {
      $('#type_activite_exploitation').prop('disabled', true); // [36]
-      $('#reseau_telephonique').prop('disabled', true); // [39]
+    //   $('#reseau_telephonique').prop('disabled', true); // [39]
      $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
 
      
@@ -50,8 +50,10 @@ $(document).ready(function() {
             $('#ui_vaccins').prop('disabled', true); //
               $('#ui_medicaments_veterinaires').prop('disabled', true); //
               $('#type_activite_exploitation').prop('disabled', true); //
+              $('input[name^="chapt_"]').prop('disabled', true);
           }else if(selectedValue === "2") {
              $('#chapt_animals').show(); // [VI]
+             $('input[name^="chapt_"]').prop('disabled', false);
               $('#type_activite_exploitation').prop('disabled', false); // [36]
               $('#ui_vaccins').prop('disabled', false); //
               $('#ui_medicaments_veterinaires').prop('disabled', false); //
@@ -66,6 +68,8 @@ $(document).ready(function() {
             $('#ui_fumier').prop('disabled', true);
             $('#ui_produits_phytosanitaires').prop('disabled', true);
           }else if(selectedValue === "3") {
+            $('input[name^="chapt_"]').prop('disabled', false);
+            $('#type_activite_exploitation').prop('disabled', false); // [36]
             $('#ui_vaccins').prop('disabled', false); //
             $('#ui_medicaments_veterinaires').prop('disabled', false); //
             $('#ui_semences_selectionnees').prop('disabled', false);
@@ -79,6 +83,7 @@ $(document).ready(function() {
             $('#ui_fumier').prop('disabled', false);
             $('#ui_produits_phytosanitaires').prop('disabled', false);
         }else{
+            //$('#type_activite_exploitation').prop('disabled', false); // [36]
             $('#ui_vaccins').prop('disabled', false); //
             $('#ui_medicaments_veterinaires').prop('disabled', false); //
             $('#ui_semences_selectionnees').prop('disabled', false);
@@ -98,6 +103,7 @@ $(document).ready(function() {
           var selectedValue = $(this).val();
           if (selectedValue === "2") {
               $('#sans_terre').hide(); // [IV]
+              
               $('.36_si_sont_terres').prop('hidden', true); // [XII]
           } else if (selectedValue === "1") {
               $('#sans_terre').show(); // [IV]
@@ -129,6 +135,7 @@ $(document).ready(function() {
             var selectedValue = $(this).val();
             if (selectedValue === "2") {
                   $('#reseau_telephonique_si_oui').prop('disabled', true); // [40]
+                  $('#reseau_telephonique_si_oui').val('')
             } else if (selectedValue === "1") {
                 $('#reseau_telephonique').prop('disabled', false); // [39]
                 $('#reseau_telephonique_si_oui').prop('disabled', false); // [40]
@@ -141,6 +148,7 @@ $(document).ready(function() {
               $('#reseau_internet_si_oui').prop('disabled', false); // [42]
           } else if (selectedValue === "2") {
               $('#reseau_internet_si_oui').prop('disabled', true); // [42]
+              $('#reseau_internet_si_oui').val('')
           }
       });
 
