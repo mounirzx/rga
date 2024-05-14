@@ -103,6 +103,8 @@ include('includes/header.php');
                         <th scope="col">Commune</th>
                         <th scope="col">Date</th>
                         <th scope="col">Recenseur</th>
+                        <th scope="col">Coherence Status Juridique</th>
+                        <th scope="col">Coherence  Utilisation du sol</th>
                     </tr>
                 </thead>
                 <tbody id="qst_list">
