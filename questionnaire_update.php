@@ -4019,9 +4019,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4031,20 +4031,20 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
+        <div style="margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder" style="" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
     </div><br>
     <div class="form-check">
         <input class="form-check-input" id="source" name="eau_source" type="checkbox">
-        <label class="form-check-label" for="Source">منبع<br> Source</label>
+        <label class="form-check-label" for="Source">منبع<br> Sources</label>
         <!-- Input element to insert an integer value -->
-        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -5817,7 +5817,7 @@ document.getElementById('submitDate').click();
        
 
         // For checkboxes, if the value is '1', check the checkbox
-       if (response[key] == 1 || response[key] =="on" ) {
+       if (response[key] == 1 ) {
             $('[name="' + key + '"]').prop('checked', true);
         } else {
             $('[name="' + key + '"]').prop('checked', false);
