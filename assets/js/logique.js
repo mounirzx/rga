@@ -570,10 +570,15 @@ function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
-    //*********************************************Farouk Touil start ******************************************************** */
+ //*********************************************Farouk Touil start ******************************************************** */
   // Function to capitalize the first letter of the input
+  $('#nom_exploitant').on('input', function() {
+    var inputText = $(this).val();
+    var capitalizedText = inputText.toUpperCase() ;
+    $(this).val(capitalizedText);
+});
 
-$('#nom_exploitant,#prenom_exploitant,#adress_exploitant, #nom_exploitation ').on('input', function() {
+$('#prenom_exploitant,#adress_exploitant, #nom_exploitation ').on('input', function() {
     var inputText = $(this).val();
     var capitalizedText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
     $(this).val(capitalizedText);
@@ -755,113 +760,93 @@ $('#exploit_est_un_bloc').on('change', function() {
 
 
 
-// function updateSAU() {
-//     var totalHectares = 0;
+function updateSAU() {
+    var totalHectares = 0;
 
-//     // Combine hectare inputs
-//     $('input[id$="_1"], input[id$="_3"]').each(function() {
-//         totalHectares += parseFloat($(this).val()) || 0;
-//     });
+    // Combine hectare inputs
+    $('input[id$="_1"], input[id$="_3"]').each(function() {
+        totalHectares += parseFloat($(this).val()) || 0;
+    });
 
-//     // Combine are inputs, converting to hectares
-//     $('input[id$="_2"], input[id$="_4"]').each(function() {
-//         totalHectares += (parseFloat($(this).val()) || 0) / 100;
-//     });
+    // Combine are inputs, converting to hectares
+    $('input[id$="_2"], input[id$="_4"]').each(function() {
+        totalHectares += (parseFloat($(this).val()) || 0) / 100;
+    });
 
  
-// }
+}
 
-// // Trigger update on input changes
-// $('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
-
-
+// Trigger update on input changes
+$('input[id*="_1"], input[id*="_2"], input[id*="_3"], input[id*="_4"]').on('input', updateSAU);
 
 
-// // Attach input event listener to all related hectare and are inputs
-// $('.ares_to_hectares').on('input', updateSAU);
 
-// // Event listener for changes to the SAU input field to alert the value
-// $('#superficie_agricole_utile_sau_1').on('change', function() {
-//     var currentValue = $(this).val();
-//     console.log('Current SAU value: ' + currentValue);
-// });
 
-// // Dropdown change events for handling specific conditions
-// function updateFields() {
-//     var message=""
-//     var totalHectares = 0;
-//     var totalAres = 0;
-//     var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+// Attach input event listener to all related hectare and are inputs
+$('.ares_to_hectares').on('input', updateSAU);
 
-//     $('#formContainer2 .row').each(function() {
-//         var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-//         var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-//         var cultureCode = parseInt($(this).find('.code_culture_s').val());
-//         var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+// Event listener for changes to the SAU input field to alert the value
+$('#superficie_agricole_utile_sau_1').on('change', function() {
+    var currentValue = $(this).val();
+    console.log('Current SAU value: ' + currentValue);
+});
 
-//         totalHectares += hectares;
-//         totalAres += ares;
+// Dropdown change events for handling specific conditions
 
-//         // Convert total ares to hectares for calculation
-//         totalHectares += totalAres / 100;
+    // function updateFields() {
+    //     var totalHectares = 0;
+    //     var totalAres = 0;
+    //     var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-//         // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-//         if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-//            // intercalaireField.val('').prop('disabled', false);
-//         } else {
-//            // intercalaireField.prop('disabled', false);
-//         }
+    //     $('#formContainer2 .row').each(function() {
+    //         var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+    //         var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+    //         var cultureCode = parseInt($(this).find('.code_culture_s').val());
+    //         var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-//         // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-//         if (intercalaireField.val()) {
-//             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-//            // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+    //         totalHectares += hectares;
+    //         totalAres += ares;
+
+    //         // Convert total ares to hectares for calculation
+    //         totalHectares += totalAres / 100;
+
+    //         // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+    //         if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+    //             intercalaireField.val('').prop('disabled', true);
+    //         } else {
+    //             intercalaireField.prop('disabled', false);
+    //         }
+
+    //         // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+    //         if (intercalaireField.val()) {
+    //             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+    //             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+               
+              
+                
+    //         } else {
+    //             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+    //             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+    //         }
+    //     });
+
+    //     if (totalHectares > 2.99 * SAU) {
            
-          
-            
-//         } else {
-//             $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-//             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-//         }
-//     });
-// console.log(totalHectares+'  '+SAU)
-//     if (totalHectares > 2.99 * SAU) {
-       
-//         Swal.fire({
-//             icon: 'error',
-//             title: 'Limite dépassée',
-//             text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
-//         });
+    //         Swal.fire({
+    //             icon: 'error',
+    //             title: 'Limite dépassée',
+    //             text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
+    //         });
+    //     }
 
-//         message = "red";
-//     }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-//         // Swal.fire({
-//         //     icon: 'error',
-//         //     title: 'Limite dépassée',
-//         //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-//         // });
-//         console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
-//         message="orange"
-//     }else if(totalHectares  == (SAU)){
-//         message="green"
-// console.log('good')
+    //     console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+    // }
 
-//     }
+    // // Bind the update function to input events on all related hectare and are inputs
+    // $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
 
-//     console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
-
-//     return message
-// }
-
-// // Bind the update function to input events on all related hectare and are inputs
-// $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
-
-// // Initialize the fields correctly on page load
-// //updateFields();
-
-
-  
-
+    // // Initialize the fields correctly on page load
+    // updateFields();
 
 /*********************************************************************************************************** */
 /*********************************************************************************************************** */
@@ -997,106 +982,97 @@ var selectedValues = []; // Array to hold unique combinations of selected values
 
 
     
-
-    //**********************************************Farouk Touil end  ******************************************************* */
-
+//**********************************************Farouk Touil end  ******************************************************* */
 
 
-    /***************************************************************** wissem start*********************************************************************** */
-    $('#nin_exploitant').blur(function(){
-        console.log('gg')
-        var inputLength = $(this).val().length;
-        if (inputLength < 18) {
-            // If length is less than 18, display an error message or perform any other action.
-            $('#error_message').text('le nin doit etre 18 characters.');
-            $('#nin_exploitant').css('border','2px solid red')
-        } else {
-            // If length is 18 or more, clear the error message.
-            $('#error_message').text('');
-            $('#nin_exploitant').css('border','2px solid green')
-        }
-    });
+ /***************************************************************** wissem start*********************************************************************** */
+ $('#nin_exploitant').blur(function(){
+    console.log('gg')
+    var inputLength = $(this).val().length;
+    if (inputLength < 18) {
+        // If length is less than 18, display an error message or perform any other action.
+        $('#error_message').text('le nin doit etre 18 characters.');
+        $('#nin_exploitant').css('border','2px solid red')
+    } else {
+        // If length is 18 or more, clear the error message.
+        $('#error_message').text('');
+        $('#nin_exploitant').css('border','2px solid green')
+    }
+});
 
 
-    $('#nom_exploitation').on('input', function(){
-        var inputVal = $(this).val();
-        $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
-    });
+$('#nom_exploitation').on('input', function(){
+    var inputVal = $(this).val();
+    $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
+});
 
-    /*********************************** */
+/*********************************** */
 
-    // $('#reference_cadastrale').on('input', function() {
-    //     var userInput = $(this).val().trim();
-    //     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
+// $('#reference_cadastrale').on('input', function() {
+//     var userInput = $(this).val().trim();
+//     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
 
-    //     if (/^\d{3}$/.test(userInput)) {
-    //         // If user has entered 3 numbers, automatically add "/"
-    //         $(this).val(userInput + '/');
-    //     }
+//     if (/^\d{3}$/.test(userInput)) {
+//         // If user has entered 3 numbers, automatically add "/"
+//         $(this).val(userInput + '/');
+//     }
 
-    //     if (regex.test(userInput)) {
-    //         // Valid input format
-    //         $(this).css('border-color', 'green');
-    //     } else {
-    //         // Invalid input format
-    //         $(this).css('border-color', 'red');
-    //     }
-    // });
+//     if (regex.test(userInput)) {
+//         // Valid input format
+//         $(this).css('border-color', 'green');
+//     } else {
+//         // Invalid input format
+//         $(this).css('border-color', 'red');
+//     }
+// });
 
 
-    $('#eau_exploitation_type_irrigation').change(function(){
-        $('.pm_hydraulique').prop('checked', false);
-    });
+$('#eau_exploitation_type_irrigation').change(function(){
+    $('.pm_hydraulique').prop('checked', false);
+});
 
 
 
-    /**************** */
-    //28==>119
-    $('#nom_exploitant').on('input', function() {
-        var inputText = $(this).val();
-        var upperCaseText = inputText.toUpperCase();
-        $(this).val(upperCaseText);
-    });
+/**************** */
+//28==>119
 
-
-    
 $('.main_oeuvre').on('input', function(){
 
-    var sexe_exploitant = $('#sexe_exploitant').val(); 
-    var exploitant = $('#exploitant').val(); //
+var sexe_exploitant = $('#sexe_exploitant').val(); 
+var exploitant = $('#exploitant').val(); //
 
 
-    if (exploitant == 1) {
-        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
-        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
-    }else {
-        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
-        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
-    }
+if (exploitant == 1) {
+    $('[name="co_exploitants_y_compris_exploitant_principa_l"]').attr('readonly', 'readonly');
+    $('[name="co_exploitants_y_compris_exploitant_principa_2"]').attr('readonly', 'readonly');
+}else {
+    $('[name="co_exploitants_y_compris_exploitant_principa_l"]').removeAttr('readonly');
+    $('[name="co_exploitants_y_compris_exploitant_principa_2"]').removeAttr('readonly');
+}
+
+
+if (sexe_exploitant !== null && exploitant !== null) {
+    console.log('not null ')
     
 
-    if (sexe_exploitant !== null && exploitant !== null) {
-        console.log('not null ')
-        
+    if (sexe_exploitant == '1' && exploitant== '1') {
+       
+        $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
 
-        if (sexe_exploitant == '1' && exploitant== '1') {
-           
-            $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
-
-        } else if(sexe_exploitant == '2' && exploitant== '1')
-            {
-            $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
-           
-        }
+    } else if(sexe_exploitant == '2' && exploitant== '1')
+        {
+        $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
+       
     }
+}
 });
 
 
 /********************* */
 $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 
-    $('#fa_si_oui_quelle_compagnie').val('')
-    $('.type_assurance').prop('checked', false);
+$('#fa_si_oui_quelle_compagnie').val('')
+$('.type_assurance').prop('checked', false);
 })
 
 
@@ -1117,26 +1093,18 @@ $('#fa_avez_vous_contracte_une_assurance_agricole').change(function(){
 // })
 
 
-
-
-
-
-
-
-
-
 $('#fa_credit_bancaire').change(function(){
-    if(!$(this).is(":checked")) {
-       $('.type_credit_bancaire').prop('checked', false);
-    }
+if(!$(this).is(":checked")) {
+   $('.type_credit_bancaire').prop('checked', false);
+}
 });
 $('#fa_soutien_public').change(function(){
-    if(!$(this).is(":checked")) {
-       $('.soutien_public_ckeckbox').prop('checked', false);
-    }
+if(!$(this).is(":checked")) {
+   $('.soutien_public_ckeckbox').prop('checked', false);
+}
 });
 
-    /****************************************************** wissem end************* ************************************** */
+/****************************************************** wissem end************* ************************************** */
 
 
 });
