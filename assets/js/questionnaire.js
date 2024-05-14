@@ -134,6 +134,8 @@ $(document).ready(function () {
     $("input[type='checkbox']").each(function() {
       formDataObj[this.name] = this.checked ? "1" : "0";
     });
+
+    
     
     // Add date of passage and birth date to formDataObj
     var day_of_passage = $("#day_of_passage").val();

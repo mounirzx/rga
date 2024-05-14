@@ -6000,7 +6000,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface form-control " id="superficie_agricole_totale_sat_1" name="superficie_agricole_totale_sat_1" readonly maxlength="5" num="" value="' + (item.superficie_agricole_totale_sat_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface form-control " id="superficie_agricole_totale_sat_2" name="superficie_agricole_totale_sat_2" readonly maxlength="2" num="" value="' + (item.superficie_agricole_totale_sat_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface form-control " id="superficie_agricole_totale_sat_2" name="superficie_agricole_totale_sat_2" readonly maxlength="2" num="" value="' + (item.superficie_agricole_totale_sat_2 || '')  + '" style="max-width: 60px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
@@ -6035,7 +6035,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control surface_total_error"  id="surface_totale_st_1" name="surface_totale_st_1" maxlength="5" num="" value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are surface_total_error_are" id="surface_totale_st_2" name="surface_totale_st_2" maxlength="2" num="" value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are surface_total_error_are" id="surface_totale_st_2" name="surface_totale_st_2" maxlength="2" num="" value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 60px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
@@ -6147,7 +6147,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 
     // Send the data to the PHP file using AJAX
     $.ajax({
-        url: 'delete_row2.php',
+        url: 'assets/php/delete_row2.php',
         type: 'POST',
         data: {code_materiel: code_materiel},
         success: function(response) {
@@ -6232,7 +6232,7 @@ $('#delete4').on('click', function() {
      
         console.log(origine_des_terres);
     $.ajax({
-        url: 'delete_row4.php',
+        url: 'assets/php/delete_row4.php',
         type: 'POST',
         data: {
             // cle_code_culture: cle_code_culture, 75E92EyTOmst
@@ -6275,7 +6275,7 @@ $('#delete2').on('click', function() {
      
         console.log(superficie_hec);
     $.ajax({
-        url: 'delete_row.php',
+        url: 'assets/php/delete_row.php',
         type: 'POST',
         data: {
             // cle_code_culture: cle_code_culture,

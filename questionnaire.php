@@ -513,7 +513,7 @@ if ($_SESSION['role'] == "recenseur") {
 <span class="input-group-text" id="basic-addon3">الجنس
 <br />
 Sexe</span>
-<select class="form-select bneder" id="sexe_exploitant"  name="sexe_exploitant"  >
+<select class="form-select main_oeuvre bneder" id="sexe_exploitant"  name="sexe_exploitant"  >
    <option value="-" disabled selected> 
    </option>
    <option  value="1"> Masculin - ذكر
@@ -747,7 +747,7 @@ Sexe</span>
     </div><br>
     <div class="input-group input-group-sm">
       <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">هل أنت الفلاح - المستثمر<br>
-      Etes-vous l'exploitant ?</span> <select class="form-select fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
+      Etes-vous l'exploitant ?</span> <select class="form-select main_oeuvre fontbneder2 col-6 bneder" id="exploitant" name="exploitant" style="width: 225px;">
         <option value="-" disabled selected>
          
         </option>
@@ -1274,16 +1274,16 @@ $(document).ready(function(){
 
         // Check if this combination already exists in the array
         if($.inArray(cc, selectedValues) !== -1){
-            console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            $('#origine_des_terres_' + idPart).addClass('error');
-            $('#status_juridique_' + idPart).addClass('error');
-            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
+            // console.log("This combination of values has already been selected.");
+            // Swal.fire({
+            //    title: 'Attention!',
+            //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
+            // $('#origine_des_terres_' + idPart).addClass('error');
+            // $('#status_juridique_' + idPart).addClass('error');
+            // $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
         } else {
             // If the combination is unique, add it to the array and ensure no error class is present
             selectedValues.push(cc);
@@ -1752,7 +1752,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control" id="superficie_agricole_utile_sau_1" name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
                      <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
@@ -2197,7 +2197,7 @@ acte de concession ?
    </div>
    <br>
       <div id="formContainer2">
-        <div class="row code_culture_s" style="margin-bottom: 10px;">
+        <div class="row" style="margin-bottom: 10px;">
           <div class="col-5" style="margin-right:20px;">
             <div class="input-group input-group-sm">
               <select inptSZ class="form-select code_culture_s fontbneder11 code_culture_check" id="code_culture" name="code_culture">
@@ -2458,26 +2458,26 @@ acte de concession ?
               </select>
             </div>
           </div>
-          <div class="col">
-            <div class="row">
-               
               <div class="col">
-               <div class="input-group input-group-sm"  >
-                <input  id="superficie_hec" name="superficie_hec"  maxlength="4" num class="form-control"  value="">
+               <!-- need to cahnge -->
+               <div class="input-group input-group-sm">
+               
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control"  value="">
+
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm" style="padding-right: 20px;">
-                <input id="superficie_are" name="superficie_are"  maxlength="3" num class="form-control"  value="">
+                <input id="superficie_are" name="superficie_are"   class="form-control"  value="">
               </div>
               </div>
               <div class="col" >
               <div class="input-group input-group-sm" >
-                <input id="en_intercalaire" name="en_intercalaire"  maxlength="2" num class="form-control"  value="">
+                <input id="en_intercalaire" name="en_intercalaire"  class="form-control"  value="">
               </div>
               </div>
-            </div>
-          </div>
+           
+          
           <div class="col-1">
             <div class="d-grid gap-2">
             <button style="width: 50px;top: 107px;position: absolute;height: 34px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm2">+</button>
@@ -2577,7 +2577,6 @@ $(document).ready(function(){
       //   }
 //     });
 // });
-
 
 
 
@@ -5779,9 +5778,9 @@ Petite et Moyenne Hydraulique
                         </div>
                         <div class="col">
                            <div class="form-check">
-                            <input class="form-check-input bneder" id="ee_cooperatives_specialisees" name="ee_cooperatives_specialisees" type="checkbox">
+                            <input class="form-check-input bneder" id="flexCheckDefault57" name="ee_cooperatives_specialisees" type="checkbox">
 
-                              <label class="form-check-label" for="ee_cooperatives_specialisees">
+                              <label class="form-check-label" for="flexCheckDefault57">
                               التعاونيات المتخصصة - Coopératives spécialisées
                               </label>
                            </div>
@@ -6349,16 +6348,19 @@ nom_exploitation.addEventListener("blur", (e) => {
 
 
               </script>   
-             
-             
-</div>   
+
 <script>
-window.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('.form-check-input').forEach(checkbox => {
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all checkboxes
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    // Set each checkbox to unchecked
+    checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
     });
 });
 </script>
-
+             
+             
+</div>    
    </body>
 </html>

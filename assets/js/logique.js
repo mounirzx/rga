@@ -807,7 +807,7 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 
             // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
             if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-                intercalaireField.val('').prop('disabled', true);
+                intercalaireField.val('').prop('disabled', false);
             } else {
                 intercalaireField.prop('disabled', false);
             }
@@ -856,7 +856,7 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
   function checkAndDisableIntercalaire($row) {
     var cropCode = parseInt($row.find('.code_culture_s').val());
     var isArboriculture = (cropCode >= 44 && cropCode <= 70);
-    //$row.find('[id^="en_intercalaire"]').prop('disabled', !isArboriculture);
+    $row.find('[id^="en_intercalaire"]').prop('disabled', !isArboriculture);
 }
 
 // When the crop culture select changes, check and potentially disable the intercalaire field
