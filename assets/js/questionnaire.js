@@ -554,7 +554,7 @@ var sum_superfecie_sj=0
   var upper_bound = sum_superfecie_sj + range_5_percent;
   var lower_bound = sum_superfecie_sj - range_5_percent;
   // Check if SAT is within the range
-  if (sat >= lower_bound && sat <= upper_bound) {
+  if (superficie_agricole_totale_sat_1 >= lower_bound && superficie_agricole_totale_sat_1 <= upper_bound) {
     console.log("SAT is within the range (+5% and -5% of SUMSJ)");
   } else {
     console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
@@ -570,7 +570,7 @@ var sum_superfecie_sj=0
         var sum_superficie_are= 0
     
             $(".statut_juridique_s").each(function () {
-              var superficie_are = $(this).find("[name^='superficie_are']").val();
+              var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
               superficie_are=parseFloat(superficie_are)
                 if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
                   sum_superficie_are += superficie_are;
@@ -579,20 +579,20 @@ var sum_superfecie_sj=0
 
             //console.log(sum_superficie_are)
              /***********************************************/
-             var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
-             var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
-             var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
-             var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
-             var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
-             var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
-             var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
+            //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
+            //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
+            //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
+            //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
+            //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
+            //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
+            //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
     /********************************************** */   
           
     var sup_total_are =  $('#surface_totale_st_2').val()
-    //console.log(sup_total_are)
-
+    console.log(sup_total_are)
+    console.log(sum_superficie_are)
     //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
-    if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
+    // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
       if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
       //  console.log('ok')
         $('.surface_total_error_are').css('border','3px solid red')
@@ -600,7 +600,7 @@ var sum_superfecie_sj=0
         $('.surface_total_error_are').css('border','')
        }
     
-      }
+      // }
         })
     /****************************************************************************************************************** */
     var elements = document.getElementsByClassName("surface");
