@@ -3,7 +3,8 @@ $(document).ready(function () {
     url: url.GetData,
     dataType: "json",
     success: function (response) {
-    //  console.log(response);
+    //  console.log("response");
+     // console.log(response);
       if (response.reponse !== "false") {
         $("#nom_recensseur").val(response.nom_recensseur || "N/A");
         $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
@@ -13,14 +14,14 @@ $(document).ready(function () {
         $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
         $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
         $("#commune_code").val(response.r_commune || "N/A");
-        // $("#nom_zone_district").val(response.nom_zone_district || "N/A");
-        // $("#num_zone_district").val(response.num_zone_district || "N/A");
+        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        $("#num_zone_district").val(response.num_zone_district || "N/A");
       } else {
-        console.error("Error: " + response.message);
+       // console.error("Error: " + response.message);
       }
     },
     error: function (xhr, status, error) {
-      console.error("AJAX Error:", status, error);
+     // console.error("AJAX Error:", status, error);
     },
   });
 
@@ -54,7 +55,7 @@ $('.ares_to_hectares').on('input', updateSAU);
 // Event listener for changes to the SAU input field to alert the value
 $('#superficie_agricole_utile_sau_1').on('change', function() {
     var currentValue = $(this).val();
-    console.log('Current SAU value: ' + currentValue);
+   // console.log('Current SAU value: ' + currentValue);
 });
 
 // Dropdown change events for handling specific conditions
@@ -95,7 +96,7 @@ function updateFields() {
             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
         }
     });
-console.log(totalHectares+'  '+SAU)
+//console.log(totalHectares+'  '+SAU)
     if (totalHectares > 2.99 * SAU) {
        
         Swal.fire({
@@ -111,15 +112,15 @@ console.log(totalHectares+'  '+SAU)
         //     title: 'Limite dépassée',
         //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
         // });
-        console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+      //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
         message="orange"
     }else if(totalHectares  == (SAU)){
         message="green"
-console.log('good')
+//console.log('good')
 
     }
 
-    console.log('Total hectares for all agriculture types: ' + totalHectares);
+  //  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
 
     return message
 }
@@ -138,7 +139,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
     e.preventDefault();
 
 var message = updateFields()
-    console.log(message)
+    //console.log(message)
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
@@ -174,7 +175,7 @@ var message = updateFields()
       // Check if formDataObjStatus contains valid data before adding it to the array
       if (isValidObject(formDataObjStatus)) {
           formDataArrayStatut.push(formDataObjStatus);
-          console.log("the array:", formDataArrayStatut);
+         // console.log("the array:", formDataArrayStatut);
       } else {
         
       }
@@ -202,7 +203,7 @@ var message = updateFields()
      
       if (isValidObject(formDataCodeCulture)) {
         formDataArrayCodeCulture.push(formDataCodeCulture);
-        console.log("the array:", formDataArrayCodeCulture);
+       // console.log("the array:", formDataArrayCodeCulture);
     } else {
       
     }
@@ -232,10 +233,10 @@ var message = updateFields()
         if (isValidObject(formDataCodeMateriel)) {
             // Push the formDataObj to the formDataArray if it is valid
             formDataArrayCodeMateriel.push(formDataCodeMateriel);
-            console.log("Data for code_materiel collected:", formDataCodeMateriel);
-            console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
+           // console.log("Data for code_materiel collected:", formDataCodeMateriel);
+           // console.log("Data for code_materiel collected:", formDataArrayCodeMateriel);
         } else {
-            console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
+           // console.log("Invalid data detected in code_materiel:", formDataCodeMateriel);
         }
     });
 
@@ -246,6 +247,7 @@ var message = updateFields()
 //  $("input[type='checkbox']").each(function() {
 //   formDataObj[this.name] = this.checked ? "1" : "0";
 // });
+
 
 $("input[type='checkbox']").each(function() {
   formDataObj[this.name] = this.checked ? "1" : "0";
@@ -283,7 +285,7 @@ $("input[type='checkbox']").each(function() {
     });
    
 
-console.log(formDataArraySuperficie)
+//console.log(formDataArraySuperficie)
 
 
     // Add values of all input fields with class "bneder" to formDataObj
@@ -293,7 +295,7 @@ console.log(formDataArraySuperficie)
 
 
    
-    console.log("formDataObj");
+    console.log("formDataObj of me");
     console.log(formDataObj);
     $(function () {
       $.ajax({
@@ -531,7 +533,7 @@ var sup_total =  $('#surface_totale_st_1').val()
 /********************************************************************************************************************* */
 
 $(document).on('input', '.controle_sumSj_sat_hectare', function () {
-  console.log('controle')
+  //console.log('controle')
 var sum_superfecie_sj=0
   $(".statut_juridique_s").each(function () {
     var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
@@ -545,9 +547,9 @@ var sum_superfecie_sj=0
       var range_5_percent = 0.05 * sum_superfecie_sj
 
      if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
-      console.log("green")
+      //console.log("green")
      }else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
-      console.log("red")
+      //console.log("red")
      }
 
       // Calculate the upper and lower bounds of the range
@@ -555,9 +557,9 @@ var sum_superfecie_sj=0
   var lower_bound = sum_superfecie_sj - range_5_percent;
   // Check if SAT is within the range
   if (superficie_agricole_totale_sat_1 >= lower_bound && superficie_agricole_totale_sat_1 <= upper_bound) {
-    console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+    //console.log("SAT is within the range (+5% and -5% of SUMSJ)");
   } else {
-    console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+   // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
   }
 })
 
@@ -589,8 +591,8 @@ var sum_superfecie_sj=0
     /********************************************** */   
           
     var sup_total_are =  $('#surface_totale_st_2').val()
-    console.log(sup_total_are)
-    console.log(sum_superficie_are)
+    //console.log(sup_total_are)
+   // console.log(sum_superficie_are)
     //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
     // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
       if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
@@ -639,7 +641,7 @@ var sum_superfecie_sj=0
    
           var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
           var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-          console.log(surfaces_improductives_1)
+        //  console.log(surfaces_improductives_1)
           var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
           document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
    
@@ -661,7 +663,7 @@ var sum_superfecie_sj=0
 
 
 if(superficie_agricole_utile_sau_2>=100){
-  console.log(superficie_agricole_utile_sau_1)
+ // console.log(superficie_agricole_utile_sau_1)
 var divisor = 100;
 // Calculate the quotient (result of integer division)
 var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
@@ -677,7 +679,7 @@ $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile
 }
 
 if(superficie_agricole_utile_sau_4>=100){
-console.log(superficie_agricole_utile_sau_4)
+//console.log(superficie_agricole_utile_sau_4)
   var divisor = 100;
   var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
   var superficie_agricole_utile_sau_4 = divider % divisor;
@@ -698,7 +700,7 @@ if(superficie_agricole_totale_sat_2>=100){
   var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
   var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
 
-  console.log(divider)
+  //console.log(divider)
   var superficie_agricole_totale_sat_2 = divider % divisor;
   var quotient = Math.floor(divider / divisor);
   
