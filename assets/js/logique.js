@@ -990,14 +990,18 @@ var selectedValues = []; // Array to hold unique combinations of selected values
     //     $('#formContainer3').append(newRow);
     // });
 
-
- 
-
 /*******************************************inrercalaire algo********************* */
 // Attach event listener to inputs for total calculation
 $('#formContainer2').on('input', '.class_intercalaire, .superficie_hec, .superficie_are', function() {
     calculateTotals();
 });
+
+function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    $('#error_messages').append($message);
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
 
 function calculateTotals() {
     let totalInterca = 0;
@@ -1022,15 +1026,9 @@ function calculateTotals() {
 
     // Check conditions and alert if necessary
     if (totalInterca > totalHec || totalInterca > totalAre) {
-        // Swal.fire({
-        //     title: 'Erreur',
-        //     text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
-        //     icon: 'error',
-        //     confirmButtonText: 'OK'
-        // }).then(() => {
-            // Apply red border and focus on the first input
-            $intercalaireInputs.addClass('input-error').first().focus();
-        // });
+        displayMessage('La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.', 'error');
+        // Apply red border and focus on the first input
+        $intercalaireInputs.addClass('input-error').first().focus();
     } else {
         // Remove red border if no error
         $intercalaireInputs.removeClass('input-error');
@@ -1042,85 +1040,74 @@ $('#formContainer2').on('change', '.class_intercalaire', function() {
     var $row = $(this).closest('.row');
     logiqueIntercalaire($row);
 });
-});
 
 var classIntercalaireArray = [];
 
 function logiqueIntercalaire($row) {
-// Get the value, parse it as an integer, and add it to the array
-var class_intercalaire_addition = parseInt($row.find('.class_intercalaire').val());
-if (!isNaN(class_intercalaire_addition)) {
-    classIntercalaireArray.push(class_intercalaire_addition);
+    // Get the value, parse it as an integer, and add it to the array
+    var class_intercalaire_addition = parseInt($row.find('.class_intercalaire').val());
+    if (!isNaN(class_intercalaire_addition)) {
+        classIntercalaireArray.push(class_intercalaire_addition);
 
-    // Calculate the total sum of the array
-    var total = classIntercalaireArray.reduce(function(acc, val) {
-        return acc + val;
-    }, 0);
+        // Calculate the total sum of the array
+        var total = classIntercalaireArray.reduce(function(acc, val) {
+            return acc + val;
+        }, 0);
 
-    // SweetAlert to notify the total sum
-    Swal.fire({
-        title: 'Total Intercalaire',
-        text: `Total: ${total}`,
-        icon: 'info',
-        confirmButtonText: 'OK'
-    });
+      //  displayMessage(`Total: ${total}`, 'info');
 
-    // Check if there is any value in intercalaire
-    if (total > 0) {
-        filterArboricultureOptions($row);
+        // Check if there is any value in intercalaire
+        if (total > 0) {
+            filterArboricultureOptions($row);
+        }
     }
-}
 }
 
 function filterArboricultureOptions($row) {
-// Get the select element
-var $select = $row.find('.code_culture_s');
+    // Get the select element
+    var $select = $row.find('.code_culture_s');
 
-// Store all options to restore later if needed
-if (!$select.data('allOptions')) {
-    $select.data('allOptions', $select.html());
-}
+    // Store all options to restore later if needed
+    if (!$select.data('allOptions')) {
+        $select.data('allOptions', $select.html());
+    }
 
-// Filter options to show only Arboriculture (values 44 to 70)
-var allOptions = $select.data('allOptions');
-var $options = $(allOptions).filter(function() {
-    var value = parseInt($(this).val());
-    return value >= 44 && value <= 70;
-});
+    // Filter options to show only Arboriculture (values 44 to 70)
+    var allOptions = $select.data('allOptions');
+    var $options = $(allOptions).filter(function() {
+        var value = parseInt($(this).val());
+        return value >= 44 && value <= 70;
+    });
 
-// Update the select with filtered options and refocus
-$select.html($options).focus();
+    // Update the select with filtered options and refocus
+    $select.html($options).focus();
 
-// SweetAlert to notify the user to select an arboriculture option
-Swal.fire({
-    title: 'Attention !',
-    text: 'Veuillez sélectionner une culture arboricole.',
-    icon: 'warning',
-    confirmButtonText: 'OK'
-});
+    displayMessage('Veuillez sélectionner une culture arboricole.', 'warning');
 }
 
 // When the intercalaire field changes, check and potentially filter the options in the select field
 $('#formContainer2').on('change', '.class_intercalaire', function() {
-var $row = $(this).closest('.row');
-logiqueIntercalaire($row);
+    var $row = $(this).closest('.row');
+    logiqueIntercalaire($row);
 });
 
 // When the crop culture select changes, reset options if no intercalaire value exists
 $('#formContainer2').on('change', '.code_culture_s', function() {
-var $row = $(this).closest('.row');
-var totalIntercalaire = classIntercalaireArray.reduce(function(acc, val) {
-    return acc + val;
-}, 0);
+    var $row = $(this).closest('.row');
+    var totalIntercalaire = classIntercalaireArray.reduce(function(acc, val) {
+        return acc + val;
+    }, 0);
 
-// If no intercalaire value exists, reset options to all available options
-if (totalIntercalaire === 0) {
-    var $select = $row.find('.code_culture_s');
-    if ($select.data('allOptions')) {
-        $select.html($select.data('allOptions'));
+    // If no intercalaire value exists, reset options to all available options
+    if (totalIntercalaire === 0) {
+        var $select = $row.find('.code_culture_s');
+        if ($select.data('allOptions')) {
+            $select.html($select.data('allOptions'));
+        }
     }
-}
+});
 /***************************************intercalaire algo******************************** */
+
 
 
 

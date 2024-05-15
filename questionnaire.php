@@ -2180,7 +2180,7 @@ acte de concession ?
 </div>
     <div class="card-body">
       <div class="row"  style="text-align: center;">
-      <div class="col-4"></div>
+      <div class="col-4"><div id="error_messages"></div></div>
          <div class="col">
             <u>
             (هكتار) المساحة Superficie (Ha)
@@ -2507,58 +2507,6 @@ acte de concession ?
       </div>
       <script>
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Attach event listeners to inputs and calculate totals
-    const container = document.getElementById('formContainer2');
-    container.addEventListener('input', function(event) {
-        if (event.target.matches('.class_intercalaire, .superficie_hec, .superficie_are')) {
-            calculateTotals();
-        }
-    });
-
-    function calculateTotals() {
-        let totalInterca = 0;
-        let totalHec = 0;
-        let totalAre = 0;
-
-        // Collect all intercalaire, hectare, and are inputs
-        const intercaInputs = document.querySelectorAll('.class_intercalaire');
-        const hecInputs = document.querySelectorAll('.superficie_hec');
-        const areInputs = document.querySelectorAll('.superficie_are');
-
-        // Sum up all intercalaire values
-        intercaInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
-            totalInterca += value;
-        });
-
-        // Sum up all hectare values
-        hecInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
-            totalHec += value;
-        });
-
-        // Sum up all are values
-        areInputs.forEach(input => {
-            const value = parseFloat(input.value) || 0;
-            totalAre += value;
-        });
-
-        // Check conditions and alert if necessary
-        if (totalInterca > totalHec || totalInterca > totalAre) {
-            Swal.fire({
-                title: 'Erreur',
-                text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
-    }
-});
-
-// Example of setting input classes
-// Assuming .superficie_hec and .superficie_are class names are correct as per the given context
-// Please verify the exact class names in your HTML and adjust the querySelectorAll parameters if needed.
 
 
 $(document).ready(function(){
@@ -2694,17 +2642,9 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
 
                 if (this.value === "-" || this.value === "") {
-                    Swal.fire({
-                        title: 'Attention !',
-                        text: 'Veuillez faire une sélection avant de continuer.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#3085d6'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
+                  if (result.isConfirmed) {
                             this.focus(); // Refocus on the dropdown if user closes the alert
                         }
-                    });
                 }
             });
         } else if (element.type === 'text') {
