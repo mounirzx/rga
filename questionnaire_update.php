@@ -5373,7 +5373,7 @@ Petite et Moyenne Hydraulique
                               </label>
                            </div>
                         </div>
-                        <div class="col">
+                        <!-- <div class="col">
                            <div class="form-check">
                             <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
@@ -5381,7 +5381,29 @@ Petite et Moyenne Hydraulique
                               البيع المباشر - Vente directe
                               </label>
                            </div>
+                        </div> -->
+                     </div>
+                     <div class="row">
+                        <div class="col">
+                           <div class="form-check">
+                            <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
+
+                              <label class="form-check-label" for="flexCheckDefault511">
+                              بيع المباشر - Vente directe
+                              </label>
+                           </div>
                         </div>
+                        <div class="col">
+                           <div class="form-check">
+                            <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
+
+                              <label class="form-check-label" for="ee_consommationauto">
+                            استهالك ذاتي - consommation-Auto 
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col">
+                     </div>
                      </div>
                   </div>
                </div>
