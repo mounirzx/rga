@@ -2497,18 +2497,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
               </div>
               </div>
            
@@ -2522,6 +2522,58 @@ acte de concession ?
       </div>
       <script>
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listeners to inputs and calculate totals
+    const container = document.getElementById('formContainer2');
+    container.addEventListener('input', function(event) {
+        if (event.target.matches('.class_intercalaire, .superficie_hec, .superficie_are')) {
+            calculateTotals();
+        }
+    });
+
+    function calculateTotals() {
+        let totalInterca = 0;
+        let totalHec = 0;
+        let totalAre = 0;
+
+        // Collect all intercalaire, hectare, and are inputs
+        const intercaInputs = document.querySelectorAll('.class_intercalaire');
+        const hecInputs = document.querySelectorAll('.superficie_hec');
+        const areInputs = document.querySelectorAll('.superficie_are');
+
+        // Sum up all intercalaire values
+        intercaInputs.forEach(input => {
+            const value = parseFloat(input.value) || 0;
+            totalInterca += value;
+        });
+
+        // Sum up all hectare values
+        hecInputs.forEach(input => {
+            const value = parseFloat(input.value) || 0;
+            totalHec += value;
+        });
+
+        // Sum up all are values
+        areInputs.forEach(input => {
+            const value = parseFloat(input.value) || 0;
+            totalAre += value;
+        });
+
+        // Check conditions and alert if necessary
+        if (totalInterca > totalHec || totalInterca > totalAre) {
+            Swal.fire({
+                title: 'Erreur',
+                text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+});
+
+// Example of setting input classes
+// Assuming .superficie_hec and .superficie_are class names are correct as per the given context
+// Please verify the exact class names in your HTML and adjust the querySelectorAll parameters if needed.
 
 
 $(document).ready(function(){
@@ -2642,6 +2694,20 @@ document.getElementById('addForm2').addEventListener('click', function() {
             element.selectedIndex = 0; // Reset select element to default value
             // Add an event listener to enforce selection
             element.addEventListener('blur', function() {
+
+
+               $('#en_intercalaire').on('change', function() {
+
+                     alert('test')
+
+
+               });
+
+
+
+
+
+
                 if (this.value === "-" || this.value === "") {
                     Swal.fire({
                         title: 'Attention !',
