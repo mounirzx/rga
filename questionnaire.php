@@ -5956,11 +5956,6 @@ Petite et Moyenne Hydraulique
                            </div>
                         </div>
                         <div class="col">
-                        <div class="form-check">
-              <input class="form-check-input" id="unpa" name="unpa" type="checkbox" > 
-              <label class="form-check-label" for="unpa">الإتحاد الوطني للفلاحين الجزائريين<br>
-              L’Union Nationale des Paysans Algériens (UNPA)</label>
-            </div>
                            <div class="form-check">
                             <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
 
