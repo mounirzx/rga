@@ -21,12 +21,45 @@ include('includes/header.php');
      <br><br><br>
  <div class="quest">
      <div class="card">
-    
-    <img src="static/header.png">
+   
+ 
 
          <div class="card-body">
  
- 
+         <div class="row" style="color: #495057;">
+    <div class="col">
+        <div style="font-weight: bold; font-size: 11px !important; text-align: center;">
+            <b>REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</b><br />
+            MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL<br />
+            DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE<br />
+        </div>
+    </div>
+    <div class="col">
+        <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
+        <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
+            <b>
+                <br />
+                الاحصاء العام للفلاحة
+            </b>
+            <br />
+            Recensement Générale de l'Agriculture<br />
+            <br />
+        </div>
+    </div>
+    <div class="col">
+        <div style="font-weight: bold; font-size: 16px !important; text-align: center;">
+            <b>
+                الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية<br />
+                <br />
+                وزارة الفلاحة و التنمية الريفية<br />
+                <br />
+                مديرية الاحصائيات و الرقمنة و الاستشراف
+            </b>
+            <br />
+        </div>
+    </div>
+</div>
+
          <form id="info_form" method="post">
     
 
