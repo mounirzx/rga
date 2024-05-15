@@ -395,7 +395,12 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
           //   data[i].id_questionnaire.toString(),
           //   "your_secret_key"
           // ).toString();
+// console.log(data[i].message_coherence_stat_jur)
 
+var message="Superficie tot egale SAU";
+if(data[i].message_coherence_stat_jur!=""){
+  message=data[i].message_coherence_stat_jur
+}
           qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
@@ -412,7 +417,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
     data[i].commune_name_ascii +
     "</td><td></td><td>" +
     data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+data[i].message_coherence_stat_jur+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
+    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
 
         }
         $("#qst_list").empty();
@@ -493,7 +498,7 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
 
         $(".statut_juridique_s").each(function () {
           var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
-          console.log(superficie_hectare)
+        
           superficie_hectare=parseFloat(superficie_hectare)
          
             if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
@@ -512,8 +517,6 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
 /********************************************** */   
          var sup_total     = null
 var sup_total =  $('#surface_totale_st_1').val()
-console.log(sum_superficie_hectare)
-console.log(sup_total)
 // if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
   if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
     //console.log('ok')
@@ -525,7 +528,38 @@ console.log(sup_total)
   //}
     })
 
+/********************************************************************************************************************* */
 
+$(document).on('input', '.controle_sumSj_sat_hectare', function () {
+  console.log('controle')
+var sum_superfecie_sj=0
+  $(".statut_juridique_s").each(function () {
+    var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+    superfecie_sj=parseFloat(superfecie_sj)
+      if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+        sum_superfecie_sj += superfecie_sj;
+      }
+  });
+     // console.log(sum_superfecie_sj)
+     var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
+      var range_5_percent = 0.05 * sum_superfecie_sj
+
+     if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+      console.log("green")
+     }else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
+      console.log("red")
+     }
+
+      // Calculate the upper and lower bounds of the range
+  var upper_bound = sum_superfecie_sj + range_5_percent;
+  var lower_bound = sum_superfecie_sj - range_5_percent;
+  // Check if SAT is within the range
+  if (sat >= lower_bound && sat <= upper_bound) {
+    console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+  } else {
+    console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+  }
+})
 
     /***************************************************************************************************************** */
 

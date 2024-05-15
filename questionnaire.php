@@ -1295,7 +1295,7 @@ $(document).ready(function(){
 
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
@@ -1585,26 +1585,26 @@ acte de concession ?
                <div class="input-group input-group-sm">
                 
                
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder controle_sumSj_sat_hectare" id="cultures_herbacees_1" name="cultures_herbacees_1"  maxlength="5" num   value="">
              
                  
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder controle_sumSj_sat_hectare" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
             <td style="padding-left:10px">
                <div class="input-group input-group-sm">
                
-                     <input id="in16" class="surface  form-control bneder" name="cultures_herbacees_3" id="cultures_herbacees_3"  maxlength="5" num   value="">
+                     <input id="in16" class="surface  form-control bneder controle_sumSj_sat_hectare" name="cultures_herbacees_3" id="cultures_herbacees_3"  maxlength="5" num   value="">
                      
                   
              
                      
                      
-                     <input  class="surface  form-control bneder" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface  form-control bneder controle_sumSj_sat_hectare" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1623,13 +1623,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface surface_total bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_1"  maxlength="5" num   value="">
                   
                   
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface_are bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1640,13 +1640,13 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_3" id="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_3" id="terres_au_repos_jacheres_3"  maxlength="5" num   value="">
                      
                   
                 
                       
                      
-                     <input  class="surface bneder form-control" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1665,14 +1665,14 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="plantations_arboriculture_1" id="plantations_arboriculture_1"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total controle_sumSj_sat_hectare" name="plantations_arboriculture_1" id="plantations_arboriculture_1"   maxlength="5" num   value="">
                  
 
                   
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1683,13 +1683,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_3" id="plantations_arboriculture_3"   maxlength="5" num   value="">
+                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="plantations_arboriculture_3" id="plantations_arboriculture_3"   maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input  class="surface bneder form-control" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1709,13 +1709,13 @@ acte de concession ?
                      
                
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="prairies_naturelles_1" id="prairies_naturelles_1" maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total controle_sumSj_sat_hectare" name="prairies_naturelles_1" id="prairies_naturelles_1" maxlength="5" num   value="">
                      
                   
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1726,13 +1726,13 @@ acte de concession ?
                      
                      
                      
-                     <input class="surface bneder form-control" name="prairies_naturelles_3" id="prairies_naturelles_3"  maxlength="5" num   value="">
+                     <input class="surface bneder form-control controle_sumSj_sat_hectare" name="prairies_naturelles_3" id="prairies_naturelles_3"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="surface bneder form-control" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
                      
                  
                </div>
@@ -1751,8 +1751,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
-                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1760,12 +1760,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
                      
                   
             
-                     
-                     <input  bleuBG class="surface bneder form-control" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                      
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
                  
                </div>
             </td>
@@ -1786,13 +1786,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total" name="pacages_et_parcours_1"  maxlength="5" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface surface_total controle_sumSj_sat_hectare" name="pacages_et_parcours_1"  maxlength="5" num   value="">
                      
                   
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface_are" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="pacages_et_parcours_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1815,13 +1815,13 @@ acte de concession ?
                      
                      
                      
-                     <input  class="form-control bneder surface coherence_surface_total-surface surface_total" name="surfaces_improductives_1"  maxlength="5" num   value="">
+                     <input  class="form-control bneder surface coherence_surface_total-surface surface_total controle_sumSj_sat_hectare" name="surfaces_improductives_1"  maxlength="5" num   value="">
                      
                   
             
                      
                      
-                     <input  class="form-control bneder surface coherence_surface_total-surface_are" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control bneder surface coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1840,7 +1840,7 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input  bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input  bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
                      
                   
                  
