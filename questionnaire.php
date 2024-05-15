@@ -2683,7 +2683,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
                $('#en_intercalaire').on('change', function() {
 
-                     alert('test')
+                     // alert('test')
 
 
                });
