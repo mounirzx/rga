@@ -1022,15 +1022,18 @@ function calculateTotals() {
 
     // Check conditions and alert if necessary
     if (totalInterca > totalHec || totalInterca > totalAre) {
-        Swal.fire({
-            title: 'Erreur',
-            text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            // Empty all intercalaire inputs and focus on the first one
-            $intercalaireInputs.val('').first().focus();
-        });
+        // Swal.fire({
+        //     title: 'Erreur',
+        //     text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
+        //     icon: 'error',
+        //     confirmButtonText: 'OK'
+        // }).then(() => {
+            // Apply red border and focus on the first input
+            $intercalaireInputs.addClass('input-error').first().focus();
+        // });
+    } else {
+        // Remove red border if no error
+        $intercalaireInputs.removeClass('input-error');
     }
 }
 

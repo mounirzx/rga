@@ -206,3 +206,6 @@ input[bleuBG]:focus-within {
     text-decoration: underline !important;
     color: blue !important; /* Change color as needed */
 }
+.input-error, .input-error:focus-within  {
+    border: 2px solid red !important;
+}
