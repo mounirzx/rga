@@ -300,7 +300,7 @@ function toggleElements($elements, disabled) {
     $(inputId1 + ', ' + inputId2).on('input', function() {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
-        console.log('val1: '+inputValue2+" val2: "+inputValue2)
+       // console.log('val1: '+inputValue2+" val2: "+inputValue2)
         if (inputValue1 >= inputValue2) {
             Swal.fire({
                 icon: 'error',
@@ -1022,15 +1022,18 @@ function calculateTotals() {
 
     // Check conditions and alert if necessary
     if (totalInterca > totalHec || totalInterca > totalAre) {
-        Swal.fire({
-            title: 'Erreur',
-            text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            // Empty all intercalaire inputs and focus on the first one
-            $intercalaireInputs.val('').first().focus();
-        });
+        // Swal.fire({
+        //     title: 'Erreur',
+        //     text: 'La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.',
+        //     icon: 'error',
+        //     confirmButtonText: 'OK'
+        // }).then(() => {
+            // Apply red border and focus on the first input
+            $intercalaireInputs.addClass('input-error').first().focus();
+        // });
+    } else {
+        // Remove red border if no error
+        $intercalaireInputs.removeClass('input-error');
     }
 }
 
@@ -1158,7 +1161,7 @@ if (totalIntercalaire === 0) {
 
  /***************************************************************** wissem start*********************************************************************** */
  $('#nin_exploitant').blur(function(){
-    console.log('gg')
+    //console.log('gg')
     var inputLength = $(this).val().length;
     if (inputLength < 18) {
         // If length is less than 18, display an error message or perform any other action.
@@ -1223,7 +1226,7 @@ if (exploitant == 1) {
 
 
 if (sexe_exploitant !== null && exploitant !== null) {
-    console.log('not null ')
+    //console.log('not null ')
     
 
     if (sexe_exploitant == '1' && exploitant== '1') {
