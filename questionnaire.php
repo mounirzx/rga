@@ -376,7 +376,7 @@ if ($_SESSION['role'] == "recenseur") {
                       <br>
                       Le nom de la zone, lieu-dit (district)
                     </span>
-                    <input class="form-control"   id="nom_zone_district" />
+                    <input class="form-control bneder"   name="nom_zone_district" id="nom_zone_district" />
 
                  </div>
                  
@@ -400,7 +400,7 @@ if ($_SESSION['role'] == "recenseur") {
 
                     </span>
                   
-                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
+                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control bneder" name="num_zone_district" id="num_zone_district"  />
                     
                  </div>
             </div>
