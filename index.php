@@ -63,7 +63,7 @@
   >
 
   <div  style="
-      background-image: url(./static/forest3.jpg);
+      background-image: url(./static/forest4.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -87,7 +87,7 @@
             class="row"
             style="
               border: 2px solid white;
-              background-color:#fff;
+              background-color: rgba(255, 255, 255, 0.8); 
               margin: auto;
               height: 600px;
               width: 930px;
