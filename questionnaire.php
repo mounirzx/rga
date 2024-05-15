@@ -777,8 +777,11 @@ l'exploitant est principal
         <option value="2">
           2 - مسير - Gérant
         </option>
-        <option value="2">
-          2 - مستأجر - Locataire
+        <option value="3">
+          3 - مستأجر - Locataire
+        </option>
+        <option value="4">
+          4 - مستثمر زراعي - Concessionnaire
         </option>
       </select>
     </div>
