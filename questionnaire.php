@@ -1044,23 +1044,19 @@ géographique WGS 1984)
   <div class="col">
     <div class="input-group input-group-sm">
     <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
+    <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
 <br>
 L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
       
          
-        <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+        <select class="form-select form-select fontbneder2 bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected disabled value="-">
             
           </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+          <option value="1">1 - Oui - نعم</option>
+      <option value="2">2 - Non - لا</option>
         </select>
    
     
@@ -1068,19 +1064,15 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text fontbneder11" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
-</span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+</span><select class="form-select fontbneder2 bneder" id="reseau_telephonique" name="reseau_telephonique">
+<option selected disabled value="-">
+            
+            </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
         </select>
       </div>
 <br>
@@ -1091,8 +1083,8 @@ un réseau téléphonique ?
 <span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
 Si oui, 
 </span> <select class="form-select bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
-          <option selected>
-            -
+          <option selected disabled value="-">
+            
           </option>
           <option value="1">
             1 - Fixe  هاتف ثابت 
@@ -1113,38 +1105,31 @@ Si oui,
 اإلنترنت؟ <br>
 L'éxploiation est-elle connectée
 au réseau internet ?
-</span> <select class="form-select bneder" id="reseau_internet" name="reseau_internet">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
+</span> <select class="form-select fontbneder2 bneder" id="reseau_internet" name="reseau_internet">
+<option selected disabled value="-">
+ </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
+        </select>
     </select>
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p  class="input-group-text fontbneder11" id="basic-addon3" >
+   <p  class="input-group-text fontbneder2" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
     لأغراض متعلقة بالفالحة؟
     <br>
     Si oui, utilisez-vous le réseau
-    internet pour des besoins
+    internet <br> pour des besoins
     agricoles ?
 </p> 
-<select style="height:33px !important;" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
+<select style="height:55px !important;" class="form-select fontbneder2 bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<option selected disabled value="-">
+            
+            </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
+        </select>
     </select>
   </div>
       </div>
@@ -1331,7 +1316,7 @@ $(document).ready(function(){
 
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
@@ -1425,14 +1410,14 @@ $(document).ready(function(){
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
    <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
-      <option selected="">-</option>
+      <option selected disabled value="-"></option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
@@ -1787,8 +1772,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly=""   num maxlength="5" value="">
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly=""  num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1796,12 +1781,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_3" readonly=""   num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_3" readonly="" disabled  num maxlength="5" value="">
                      
                   
             
                       
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly=""  num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly="" disabled num maxlength="2" value="">
                  
                </div>
             </td>
@@ -1876,12 +1861,12 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                      
-                     <input  bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly=""  num maxlength="5" value="">
+                     <input  bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly="" disabled num maxlength="5" value="">
                      
                   
                  
                      
-                     <input   bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly=""  num maxlength="2" value="">
+                     <input   bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2" value="">
                      
                </div>
             </td>
@@ -1925,13 +1910,13 @@ acte de concession ?
             
                
 
-                  <input   bleuBG class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1"     num maxlength="5"  >
+                  <input  disabled bleuBG class="surface bneder form-control surface_total_error " name="surface_totale_st_1"  id="surface_totale_st_1" tabindex="-1"  readonly   num maxlength="5"  >
                      
 
                   
                 
                      
-                  <input  bleuBG class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" name="surface_totale_st_2"  id="surface_totale_st_2"    num maxlength="2" >
+                  <input  disabled bleuBG class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   num maxlength="2" >
                      
 
                
@@ -1959,10 +1944,10 @@ acte de concession ?
                            هل المستثمرة مكونة من قطعة واحدة؟ <br>
                            L'exploitation est elle d'un seul bloc ?
                            </span>
-                           <select class="form-select  fontbneder11 bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
+                           <select class="form-select  fontbneder2 bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
                               <option selected="" disabled value="-">  </option>
-                              <option  class="fontbneder11" value="1">1- Non-لا</option>
-                              <option class="fontbneder11" TextBold value="2">2- Oui-نعم</option>
+                              <option  class="fontbneder2" value="1">1- Non - لا</option>
+                              <option class="fontbneder2"  value="2">2- Oui - نعم</option>
                            </select>
                         </div>
                      </div>
@@ -2000,15 +1985,15 @@ acte de concession ?
                   <div class="input-group input-group-sm">
                         <div class="qst-num zxcount"></div>
 
-                     <span class="input-group-text" id="basic-addon3">
+                     <span class="input-group-text fontbneder2" id="basic-addon3">
                      هل هناك سكان غير شرعيين في المستثمرة؟
                      <br>
                      Existe t’il des indus occupants sur votre exploitation ?
                      </span>
-                     <select class="form-select fontbneder11 bneder" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
+                     <select class="form-select fontbneder2 bneder" id="exploit_indus_sur_exploitation" name="exploit_indus_sur_exploitation">
                         <option selected="" disabled value="-">  </option>
-                        <option class="fontbneder11" value="1">1- Oui-نعم</option>
-                        <option class="fontbneder11" value="2">2- Non-لا</option>
+                        <option  value="1">1- Oui - نعم</option>
+                        <option  value="2">2- Non - لا</option>
                      </select>
                   </div>
                   </div>
@@ -2785,7 +2770,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize class="input-group-text" id="basic-addon3">
                                     أشجار الزيتون <br> Oliviers
                                     </span>
-                                       <input class="form-control bneder" maxlength="4" num="" id="oliviers" name="oliviers" style="max-width: 88px;">                   
+                                       <input class="form-control bneder" maxlength="6" num="" id="oliviers" name="oliviers" style="max-width: 88px;">                   
                                </div>
                                 <!-- Removed the similar input fields -->
                                 <!-- Continue with the other tree types -->
@@ -2796,7 +2781,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     أشجار التين <br> Figuiers
                                     </span>
                                     
-                                       <input  class="form-control bneder" maxlength="4" num="" id="figuiers" name="figuiers" style="max-width: 88px;">                   
+                                       <input  class="form-control bneder" maxlength="6" num="" id="figuiers" name="figuiers" style="max-width: 88px;">                   
                                </div>
                                 <!-- End of input group -->
                                 <!-- Start of input group -->
@@ -2806,7 +2791,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize class="input-group-text" id="basic-addon3">
                                     أشجار الرمان <br> Grenadiers
                                     </span>
-                                       <input class="form-control bneder" maxlength="4" num="" id="grenadiers" name="grenadiers" style="max-width: 88px;">                   
+                                       <input class="form-control bneder" maxlength="6" num="" id="grenadiers" name="grenadiers" style="max-width: 88px;">                   
                                </div>
 
 
@@ -2817,7 +2802,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize class="input-group-text" id="basic-addon3">
                                     أشجار اللوز <br> Amandiers
                                     </span>
-                                       <input class="form-control bneder" maxlength="4" num="" id="amandiers" name="amandiers" style="max-width: 88px;">                   
+                                       <input class="form-control bneder" maxlength="6" num="" id="amandiers" name="amandiers" style="max-width: 88px;">                   
                                </div>
                                 <!-- End of input group -->
                                 <!-- Start of input group -->
@@ -2827,7 +2812,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize class="input-group-text" id="basic-addon3">
                                     أشجار العنب <br> Vigne
                                     </span>
-                                       <input class="form-control bneder" maxlength="4" num="" id="vigne" name="vigne" style="max-width: 88px;">                   
+                                       <input class="form-control bneder" maxlength="6" num="" id="vigne" name="vigne" style="max-width: 88px;">                   
                                </div>
                               
                                 <!-- End of input group -->
@@ -2840,14 +2825,14 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                <span arbresEparsSpanSize2 class="input-group-text fontbneder2" id="basic-addon3">
                                   أشجار النخيل <br> Palmiers dattiers
                                </span>
-                               <input class="form-control bneder" maxlength="4" num="" id="palmiers_dattiers" name="palmiers_dattiers" style="max-width: 88px;">                   
+                               <input class="form-control bneder" maxlength="6" num="" id="palmiers_dattiers" name="palmiers_dattiers" style="max-width: 88px;">                   
                             </div>
                             <br>
                             <div class="input-group input-group-sm">
                                       <span  arbresEparsSpanSize2 class="input-group-text fontbneder11" style="max-width: 115px;" id="basic-addon3">
                                       أشجار ذات النوات و البذرة<br> Noyaux-Pépins
                                       </span>
-                                         <input class="form-control bneder" style="min-width: 50px; max-width: 88px;" maxlength="4" num="" id="noyaux_pepins" name="noyaux_pepins">                   
+                                         <input class="form-control bneder" style="min-width: 50px; max-width: 88px;" maxlength="6" num="" id="noyaux_pepins" name="noyaux_pepins">                   
                                  </div>   
                               
                              
@@ -2857,7 +2842,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                <span arbresEparsSpanSize2 class="input-group-text" id="basic-addon3">
                                   أشجار السفرجل<br> Cognassiers
                                  </span>
-                                 <input class="form-control bneder" maxlength="4" num="" id="cognassiers" name="cognassiers" style="max-width: 88px;">                   
+                                 <input class="form-control bneder" maxlength="6" num="" id="cognassiers" name="cognassiers" style="max-width: 88px;">                   
                               </div>
 
 
@@ -2866,7 +2851,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize2 class="input-group-text" id="basic-addon3">
                                         أشجار الخروب <br> Caroubier
                                     </span>
-                                       <input class="form-control bneder" maxlength="4" num="" id="caroubier" name="caroubier" style="max-width: 88px;">                   
+                                       <input class="form-control bneder" maxlength="6" num="" id="caroubier" name="caroubier" style="max-width: 88px;">                   
                                </div>
 
 
@@ -2877,7 +2862,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                                     <span arbresEparsSpanSize2 class="input-group-text" id="basic-addon3">
                                     أشجارأخرى<br> Autres
                                     </span>
-                                    <input class="form-control bneder" maxlength="4" num="" id="autre_arbres_isoles" name="autre_arbres_isoles" style="max-width: 88px;">   
+                                    <input class="form-control bneder" maxlength="6" num="" id="autre_arbres_isoles" name="autre_arbres_isoles" style="max-width: 88px;">   
                                </div>
 
                                     <!-- New en new   -->
@@ -2941,15 +2926,18 @@ document.getElementById('addForm2').addEventListener('click', function() {
   <br>
   <div class="input-group input-group-sm">
     <div  class="qst-num zxcount"></div>
-    <span class="input-group-text fontbneder11" style="text-align: center;" id="basic-addon3">إذا نعم, هل هل تمارس تربية المائيات المدمجة مع الفلاحة؟<br>
-    Pratiquez-vous l'aquaculture intégrée à l'agriculture ?</span><br>
-    <select class="form-select fontbneder11 bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" style="max-width: 108px;">
+    <span class="input-group-text fontbneder2" style="text-align: center; height:60px" id="basic-addon3">
+     هل هل تمارس تربية
+     <br>
+     المائيات المدمجة مع الفلاحة؟<br>
+    Pratiquez-vous l'aquaculture <br> intégrée à l'agriculture ?</span><br>
+    <select class="form-select fontbneder2 bneder" id="pratiquez_vous_laquaculture_integree_a_lagriculture" name="pratiquez_vous_laquaculture_integree_a_lagriculture" >
       <option disabled="" value="-" selected="">
       </option>
-      <option class="fontbneder11" value="1">
+      <option class="" value="1">
         1 - Oui - نعم
       </option>
-      <option class="fontbneder11" value="2">
+      <option class="" value="2">
         2 - Non - لا
       </option>
     </select>
@@ -2996,10 +2984,10 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      هل تمارس الزراعة التعاقدية؟<br>
                      Pratiquez-vous une agriculture contractuelle ?
                      </span>
-                     <select class="form-select fontbneder22 bneder" style="max-width:170px;"id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
+                     <select class="form-select fontbneder2 bneder" style="max-width:170px;"id="pratiquez_vous_une_agriculture_conventionnee" name="pratiquez_vous_une_agriculture_conventionnee">
                         <option disabled value="-" selected="">  </option>
-                        <option class="fontbneder22"value="1">1 - Oui - نعم</option>
-                        <option class="fontbneder22"value="2">2 - Non - لا</option>
+                        <option value="1">1 - Oui - نعم</option>
+                        <option value="2">2 - Non - لا</option>
                      </select>
                   </div>
                   <br>
@@ -3154,7 +3142,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             الأبقار
                             <br> Bovins
                             </span>
-                               <input class="form-control bneder" id="chapt_bovins" maxlength="4" num name="chapt_bovins">
+                               <input class="form-control bneder" id="chapt_bovins" maxlength="5" num name="chapt_bovins">
                          </div>
 
                          <br>
@@ -3165,7 +3153,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
         <br> 
         Dont vaches laitières BLM
     </span>
-    <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="4" name="chapt_dont_vaches_laitieres_blm">
+    <input class="form-control bneder" id="chapt_dont_vaches_laitieres_blm" num maxlength="5" name="chapt_dont_vaches_laitieres_blm">
 </div>
 
                   <br>
@@ -3175,7 +3163,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             منها الأبقار الحلوب المحسنة
                             <br> Dont vaches laitières BLA
                             </span>
-                               <input  class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="4" name="chapt_dont_vaches_laitieres_bla" >
+                               <input  class="form-control bneder" id="chapt_dont_vaches_laitieres_bla" num maxlength="5" name="chapt_dont_vaches_laitieres_bla" >
                        
                                </div> 
                                <br>
@@ -3185,7 +3173,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             منها الأبقار الحلوب المحلية
                             <br> Dont vaches laitières BLL
                             </span>
-                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="4" name="chapt_dont_vaches_laitieres_bll" >
+                               <input class="form-control bneder" id="chapt_dont_vaches_laitieres_bll" num maxlength="5" name="chapt_dont_vaches_laitieres_bll" >
                        
                                </div>
                    </div>
@@ -3199,7 +3187,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3" style="width: 81px;">
                             الأغنام<br>Ovins
                             </span>
-                               <input class="form-control bneder"  num maxlength="4" id="chapt_ovins" name="chapt_ovins" >
+                               <input class="form-control bneder"  num maxlength="5" id="chapt_ovins" name="chapt_ovins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3208,7 +3196,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             منها النعاج
                             <br>Dont brebis
                             </span>
-                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_brebis" name="chapt_dont_brebis" >
+                               <input class="form-control bneder" num maxlength="5" id="chapt_dont_brebis" name="chapt_dont_brebis" >
                          </div>
                       <!-- </div> -->
                    <!-- </div> -->
@@ -3227,7 +3215,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             الماعز
                             <br> Caprins
                             </span>
-                               <input class="form-control bneder" num maxlength="4" id="chapt_caprins" name="chapt_caprins" >
+                               <input class="form-control bneder" num maxlength="5" id="chapt_caprins" name="chapt_caprins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3236,7 +3224,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             منها العنزات
                             <br> Dont chèvres
                             </span>
-                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_chevres" name="chapt_dont_chevres" >
+                               <input class="form-control bneder" num maxlength="5" id="chapt_dont_chevres" name="chapt_dont_chevres" >
                          </div>
                          <!-- </div>
                    </div> -->
@@ -3252,7 +3240,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             الإبل
                             <br> Camelins
                             </span>
-                               <input class="form-control bneder" num maxlength="4" id="chapt_camelins" name="chapt_camelins" >
+                               <input class="form-control bneder" num maxlength="5" id="chapt_camelins" name="chapt_camelins" >
                          </div>
                          <br>
                          <div class="input-group input-group-sm">
@@ -3261,7 +3249,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                             منها النق
                             <br> Dont chamelles
                             </span>
-                               <input class="form-control bneder" num maxlength="4" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
+                               <input class="form-control bneder" num maxlength="5" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
                          </div>
                       <!-- </div>
                    </div> -->
@@ -3277,7 +3265,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
 الخيل
 <br>Equins
 </span>
-<input class="form-control bneder" num maxlength="4"id="chapt_equins" name="chapt_equins" >
+<input class="form-control bneder" num maxlength="5"id="chapt_equins" name="chapt_equins" >
 </div>
 <br>
 <div class="input-group input-group-sm">
@@ -3287,7 +3275,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
 <br>Dont juments
 <br>
 </span>
-<input class="form-control bneder" num maxlength="4" id="chapt_dont_juments" name="chapt_dont_juments" >
+<input class="form-control bneder" num maxlength="5" id="chapt_dont_juments" name="chapt_dont_juments" >
 </div>
 <!-- </div>
 </div> -->
@@ -3310,7 +3298,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">الأرانب<br>Cuniculture</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_cuniculture" name="chapt_cuniculture">
+                        <input class="form-control bneder" num maxlength="5" id="chapt_cuniculture" name="chapt_cuniculture">
                 </div>
                 <!-- </div>
                </div> -->
@@ -3323,7 +3311,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">البغال<br>Mulets</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_mulets" name="chapt_mulets" style="max-width: 88px;">
+                        <input class="form-control bneder" num maxlength="5" id="chapt_mulets" name="chapt_mulets" style="max-width: 88px;">
                 </div>
             <!-- </div>
         </div> -->
@@ -3336,7 +3324,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                 <div  class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
                     <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">الحمير<br>Anes</span>
-                        <input class="form-control bneder" num maxlength="4" id="chapt_anes" name="chapt_anes" style="max-width: 88px;">
+                        <input class="form-control bneder" num maxlength="5" id="chapt_anes" name="chapt_anes" style="max-width: 88px;">
                 </div>
             <!-- </div>
         </div> -->
@@ -3555,8 +3543,8 @@ document.getElementById('addForm2').addEventListener('click', function() {
                            </span>
                            <select   class="form-select fontbneder2 bneder" id="chapt_Pratiquez_transhumance" name="chapt_Pratiquez_transhumance">
                               <option selected="" disabled value="-">  </option>
-                              <option value="1">1- Oui-نعم</option>
-                              <option value="2">2- Non-لا</option>
+                              <option value="1">1- Oui - نعم</option>
+                              <option value="2">2- Non - لا</option>
                            </select>
                         </div>
 
@@ -3619,7 +3607,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                    <br>
                    Les bâtiments d'exploitation agricole sont exploités? 
                </span>
-               <select class="form-select fontbneder2 bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
+               <select class="form-select  bneder" id="bat_exploitation_agricole_sont_exploites" name="bat_exploitation_agricole_sont_exploites">
                    <option value="-" disabled selected="selected">  </option>
                    <option value="1">1 - En individuel - فردية</option>
                    <option value="2">2 - En collectif - جماعية</option>
@@ -3656,7 +3644,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <p style="padding-left:28px;margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
       <td>
       <div class="input-group input-group-sm">
-         <input id="in82" name="batiments_dhabitation_nombre"  maxlength="2" num class="form-control bneder"  value="">
+         <input id="in82" name="batiments_dhabitation_nombre"  maxlength="3" num class="form-control bneder"  value="">
       </div>
       </td>
       
@@ -3698,7 +3686,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in102" name="bergerie_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in102" name="bergerie_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3715,7 +3703,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in104" name="etable_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in104" name="etable_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3732,7 +3720,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in106" name="ecurie_de_chevaux_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3749,7 +3737,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in108" name="poulailler_batis_en_dur_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in108" name="poulailler_batis_en_dur_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3766,7 +3754,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in110" name="poulailler_sous_serre_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in110" name="poulailler_sous_serre_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3783,7 +3771,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in110" name="serres_tunnels_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3800,7 +3788,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
-              <input id="in110" name="serres_multichapelles_nombre" maxlength="2" num="" class="form-control bneder" value="">
+              <input id="in110" name="serres_multichapelles_nombre" maxlength="3" num="" class="form-control bneder" value="">
             </div>
           </td>
           <td style="padding-right: 48px;">
@@ -3846,7 +3834,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
-         <input id="in82" name="batiment_de_stockage_nombre"  maxlength="2" num class="form-control bneder"  value=""></td>
+         <input id="in82" name="batiment_de_stockage_nombre"  maxlength="3" num class="form-control bneder"  value=""></td>
          </div>
       
          <td>
@@ -3868,7 +3856,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <div class="input-group input-group-sm">
                       
                          
-                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in84" name="batiment_dentreposage_des_produits_agricoles_nombre" maxlength="3" num class="form-control bneder"  value="">
                   </div>
                        
                      </td>
@@ -3889,7 +3877,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                        
                      <div class="input-group input-group-sm">
                           
-                           <input id="in86" name="autres_batiment_stockage_nombre"  maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in86" name="autres_batiment_stockage_nombre"  maxlength="3" num class="form-control bneder"  value="">
                   </div>
                      </td>
                      <td>
@@ -3909,7 +3897,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                        
                      <div class="input-group input-group-sm">
                            
-                           <input id="in88" name="caves_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in88" name="caves_nombre" maxlength="3" num class="form-control bneder"  value="">
                            </div>
                      
                      </td>
@@ -3929,7 +3917,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                    
-                           <input id="in90" name="unite_de_conditionnement_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in90" name="unite_de_conditionnement_nombre" maxlength="3" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
@@ -3948,7 +3936,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                       
-                           <input id="in92" name="unite_de_transformation_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in92" name="unite_de_transformation_nombre" maxlength="3" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
@@ -3969,7 +3957,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                       
-                           <input id="in94" name="centre_de_collecte_de_lait_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in94" name="centre_de_collecte_de_lait_nombre" maxlength="3" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
@@ -3989,7 +3977,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                      
-                           <input id="in222" name="autre_batiments_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in222" name="autre_batiments_nombre" maxlength="3" num class="form-control bneder"  value="">
                         </div>
                      </td>
                      <td>
@@ -4068,7 +4056,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
 
-                           <input id="in112" name="chambre_froide_nombre" maxlength="2" num class="form-control bneder"  value="">
+                           <input id="in112" name="chambre_froide_nombre" maxlength="3" num class="form-control bneder"  value="">
                            </div>
 
                      </td>
@@ -4520,7 +4508,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="2" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -4532,7 +4520,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="2" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
+              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4544,7 +4532,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="2" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
+              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4614,18 +4602,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4633,17 +4621,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       
     </div>
@@ -4651,18 +4639,18 @@ Petite et Moyenne Hydraulique
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="3" num class="form-control bneder"  value="">
+        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="3" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
     </div>
   </div>
@@ -4799,7 +4787,10 @@ Petite et Moyenne Hydraulique
                   </div>
                </div>
             </div>
-            <br><br><div class="row" style="text-align: center;">
+            <br><br>
+            <div class="card">
+               <div class="card-header">
+               <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
                         <b>
@@ -4808,7 +4799,10 @@ Petite et Moyenne Hydraulique
                         Nombre de salariés de l'exploitation
          </b>
                      </div>
-                  </div><br><div class="row" style="text-align: center;">
+                  </div>
+               </div>
+               <div class="card-body">
+<br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col fontbneder11" style="padding-left: 30px;">
                         ذكور - Masculin - إناث - Féminin
@@ -4914,6 +4908,11 @@ Petite et Moyenne Hydraulique
                   </tr>
                </tbody>
             </table>  
+               </div>
+            </div>
+            <br>
+            <div class="card">
+               <div class="card-header">
             <div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col">
@@ -4924,7 +4923,10 @@ Petite et Moyenne Hydraulique
                         Qualité de la main d'œuvre de l'exploitation
          </b>
                      </div>
-                  </div><br><div class="row" style="text-align: center;">
+                  </div>
+                  </div>
+                  <div class="card-body">
+                     <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col fontbneder11" style="padding-left: 30px;">
                         ذكور - Masculin - إناث - Féminin
@@ -4932,7 +4934,7 @@ Petite et Moyenne Hydraulique
                      <div class="col fontbneder11" style="padding-right: 34px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                  </div><br><table class="table table-sm">
+                  </div><table class="table table-sm">
                <tbody>
                   <!-- Labels for Superficie -->
                   <!-- Cultures herbacées -->
@@ -5002,7 +5004,12 @@ Petite et Moyenne Hydraulique
                   
                </tbody>
             </table>
-            <div class="row" style="text-align: center;">
+                  </div>
+                  </div>
+                  <br>
+<div class="card">
+   <div class="card-header">
+       <div class="row" style="text-align: center;">
                     
                      <div class="col">
                         <b>
@@ -5010,7 +5017,10 @@ Petite et Moyenne Hydraulique
                         -
                         Nombre de(s) membres de(s) ménage(s) actif(s) dans l'exploitation                        </b>
                      </div>
-                  </div><br><div class="row" style="text-align: center;">
+                  </div>
+   </div>
+   <div class="card-body">
+<br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
                      <div class="col fontbneder11" style="padding-left: 30px;">
                        ذكور - Masculin - إناث - Féminin
@@ -5018,7 +5028,7 @@ Petite et Moyenne Hydraulique
                      <div class="col fontbneder11" style="padding-right: 34px;">
                         ذكور - Masculin - (إناث - Féminin)
                      </div>
-                  </div><br><table class="table table-sm">
+                  </div><table class="table table-sm">
                <tbody>
                   <!-- Labels for Superficie -->
                   <!-- Cultures herbacées -->
@@ -5115,6 +5125,10 @@ Petite et Moyenne Hydraulique
                   
                </tbody>
             </table>
+
+   </div>
+</div>
+           
           
             <br>
             <br>
