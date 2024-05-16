@@ -125,6 +125,53 @@ function updateFields() {
     return message
 }
 
+
+/********************************************************************************************************************* */
+function controleSatSumsjtest () {
+  var message="";
+  var sum_superfecie_sj=0
+    $(".statut_juridique_s").each(function () {
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      superfecie_sj=parseFloat(superfecie_sj)
+        if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+          sum_superfecie_sj += superfecie_sj;
+        }
+    });
+       // console.log(sum_superfecie_sj)
+       var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
+        var range_5_percent = 0.05 * sum_superfecie_sj
+  
+      //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
+      //   console.log("red")
+      //  }
+  
+        // Calculate the upper and lower bounds of the range
+        console.log("range_5_percent")
+        console.log(range_5_percent)
+    var upper_bound = sum_superfecie_sj + range_5_percent;
+    var lower_bound = sum_superfecie_sj - range_5_percent;
+    console.log(upper_bound)
+    console.log(lower_bound)
+    // Check if SAT is within the range
+    if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+      console.log("green")
+     }
+    else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
+      console.log('orange')
+      console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+      message="orange"
+    } else {
+      console.log('red')
+      console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+      message="red"
+    }
+  
+    return message
+}
+$(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
+
+    /***************************************************************************************************************** */
+
 // Bind the update function to input events on all related hectare and are inputs
 $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
 
@@ -139,7 +186,8 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
     e.preventDefault();
 
 var message = updateFields()
-    //console.log(message)
+var controleSatSumsjtest2 = controleSatSumsjtest()
+    console.log(controleSatSumsjtest2)
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
@@ -308,7 +356,8 @@ $("input[type='checkbox']").each(function() {
           formDataArrayCodeCulture: formDataArrayCodeCulture,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
           formDataArraySuperficie: formDataArraySuperficie,
-          message:message
+          message:message,
+          controleSatSumsjtest2:controleSatSumsjtest2
         }),
         dataType: "json",
         success: function (response) {
@@ -403,6 +452,13 @@ var message="Superficie tot egale SAU";
 if(data[i].message_coherence_stat_jur!=""){
   message=data[i].message_coherence_stat_jur
 }
+
+var message_util_sol="SAT egal SUM sup util du sol"
+if(data[i].message_coherence_util_sol!=""){
+  message_util_sol=data[i].message_coherence_util_sol
+}
+
+
           qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
@@ -419,7 +475,7 @@ if(data[i].message_coherence_stat_jur!=""){
     data[i].commune_name_ascii +
     "</td><td></td><td>" +
     data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
+    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message_util_sol+"' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
 
         }
         $("#qst_list").empty();
