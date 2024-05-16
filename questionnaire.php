@@ -965,7 +965,7 @@ géographique WGS 1984)
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+          Activité de l'exploitation</span> <select class="form-select fontbneder2 bneder" id="activite_exploitation" name="activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -982,7 +982,7 @@ géographique WGS 1984)
         </div><br>
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
-          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+          Si activité est l'élevage</span> <select class="form-select fontbneder2 bneder" id="type_activite_exploitation" name="type_activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
