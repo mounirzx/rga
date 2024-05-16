@@ -5536,9 +5536,7 @@ Petite et Moyenne Hydraulique
 if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
     $approveBtnText = "Valider";
     $rejectBtnText = "Rejeter";
-
-
-    ?>
+?>
     <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
         <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" ><?= $approveBtnText ?></button>

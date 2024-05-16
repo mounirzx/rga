@@ -435,7 +435,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
           var etat = data[i].etat;
           var classes;
           if (etat == "Approuvés") {
-            classes = "#d1e7dd;";
+            classes = "#55a90b42;";
           } else if (etat == "Rejetés") {
             classes = "#f8d7da;";
           } else if (etat == "En attente") {

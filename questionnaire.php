@@ -36,7 +36,7 @@ include('includes/header.php');
     </div>
     <div class="col">
         <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
-        <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
+        <!-- <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
             <b>
                 <br />
                 الاحصاء العام للفلاحة
@@ -44,7 +44,7 @@ include('includes/header.php');
             <br />
             Recensement Générale de l'Agriculture<br />
             <br />
-        </div>
+        </div> -->
     </div>
     <div class="col">
         <div style="font-weight: bold; font-size: 16px !important; text-align: center;">
