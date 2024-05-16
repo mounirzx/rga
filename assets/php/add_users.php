@@ -61,6 +61,7 @@ if($role=="superviseur_national"){
     $password = $_POST['password'];
     $nonhashedPass = $_POST["password"];
     $password=sha1($password);
+    $link='rga.madr.gov.dz';
 
 try {
     //connexion a la base de données
@@ -102,7 +103,7 @@ try {
     // Initialize cURL session
     $ch = curl_init($url);
 
-    $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email];
+    $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email,'link'=>$link];
     // Set the POST data
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);

@@ -168,12 +168,21 @@ body label {
 #niveau_instruction{
     width: 12px;
 }
-[bleuBG]:focus-within{
-    background-color: #0095ff26;
+
+/* Apply default styles */
+input[bleuBG] {
+    background-color: #0095ff26 !important;
+    border: 1px solid #ccc;
 }
-[bleuBG]{
-    background-color: #0095ff26;
+
+/* Apply styles when input is focused */
+input[bleuBG]:focus,
+input[bleuBG]:focus-within {
+    background-color: #0095ff26 !important;
+    border: 1px solid #ccc;
 }
+
+
 [inptSZ]{
     height:32px !important;
 }
@@ -196,4 +205,7 @@ body label {
     /* font-weight: bold !important; */
     text-decoration: underline !important;
     color: blue !important; /* Change color as needed */
+}
+.input-error, .input-error:focus-within  {
+    border: 2px solid red !important;
 }

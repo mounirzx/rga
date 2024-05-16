@@ -300,7 +300,7 @@ function toggleElements($elements, disabled) {
     $(inputId1 + ', ' + inputId2).on('input', function() {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
-        console.log('val1: '+inputValue2+" val2: "+inputValue2)
+       // console.log('val1: '+inputValue2+" val2: "+inputValue2)
         if (inputValue1 >= inputValue2) {
             Swal.fire({
                 icon: 'error',
@@ -990,16 +990,165 @@ var selectedValues = []; // Array to hold unique combinations of selected values
     //     $('#formContainer3').append(newRow);
     // });
 
+/*******************************************inrercalaire algo********************* */
+// Attach event listener to inputs for total calculation
+$('#formContainer2').on('input', '.class_intercalaire, .superficie_hec, .superficie_are', function() {
+    calculateTotals();
+});
+
+function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    $('#error_messages').append($message);
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
+function calculateTotals() {
+    let totalInterca = 0;
+    let totalHec = 0;
+    let totalAre = 0;
+    let $intercalaireInputs = $('.class_intercalaire');
+
+    // Sum all intercalaire values
+    $intercalaireInputs.each(function() {
+        totalInterca += parseFloat($(this).val()) || 0;
+    });
+
+    // Sum all hectare values
+    $('.superficie_hec').each(function() {
+        totalHec += parseFloat($(this).val()) || 0;
+    });
+
+    // Sum all are values
+    $('.superficie_are').each(function() {
+        totalAre += parseFloat($(this).val()) || 0;
+    });
+
+    // Check conditions and alert if necessary
+    if (totalInterca > totalHec || totalInterca > totalAre) {
+        displayMessage('La somme des valeurs intercalaire ne doit pas dépasser celle des hectares ou des ares.', 'error');
+        // Apply red border and focus on the first input
+        $intercalaireInputs.addClass('input-error').first().focus();
+    } else {
+        // Remove red border if no error
+        $intercalaireInputs.removeClass('input-error');
+    }
+}
+
+// Integrate with the existing logiqueIntercalaire function
+$('#formContainer2').on('change', '.class_intercalaire', function() {
+    var $row = $(this).closest('.row');
+    logiqueIntercalaire($row);
+});
+
+var classIntercalaireArray = [];
+
+function logiqueIntercalaire($row) {
+    // Get the value, parse it as an integer, and add it to the array
+    var class_intercalaire_addition = parseInt($row.find('.class_intercalaire').val());
+    if (!isNaN(class_intercalaire_addition)) {
+        classIntercalaireArray.push(class_intercalaire_addition);
+
+        // Calculate the total sum of the array
+        var total = classIntercalaireArray.reduce(function(acc, val) {
+            return acc + val;
+        }, 0);
+
+      //  displayMessage(`Total: ${total}`, 'info');
+
+        // Check if there is any value in intercalaire
+        if (total > 0) {
+            filterArboricultureOptions($row);
+        }
+    }
+}
+
+function filterArboricultureOptions($row) {
+    // Get the select element
+    var $select = $row.find('.code_culture_s');
+
+    // Store all options to restore later if needed
+    if (!$select.data('allOptions')) {
+        $select.data('allOptions', $select.html());
+    }
+
+    // Filter options to show only Arboriculture (values 44 to 70)
+    var allOptions = $select.data('allOptions');
+    var $options = $(allOptions).filter(function() {
+        var value = parseInt($(this).val());
+        return value >= 44 && value <= 70;
+    });
+
+    // Update the select with filtered options and refocus
+    $select.html($options).focus();
+
+    displayMessage('Veuillez sélectionner une culture arboricole.', 'warning');
+}
+
+// When the intercalaire field changes, check and potentially filter the options in the select field
+$('#formContainer2').on('change', '.class_intercalaire', function() {
+    var $row = $(this).closest('.row');
+    logiqueIntercalaire($row);
+});
+
+// When the crop culture select changes, reset options if no intercalaire value exists
+$('#formContainer2').on('change', '.code_culture_s', function() {
+    var $row = $(this).closest('.row');
+    var totalIntercalaire = classIntercalaireArray.reduce(function(acc, val) {
+        return acc + val;
+    }, 0);
+
+    // If no intercalaire value exists, reset options to all available options
+    if (totalIntercalaire === 0) {
+        var $select = $row.find('.code_culture_s');
+        if ($select.data('allOptions')) {
+            $select.html($select.data('allOptions'));
+        }
+    }
+});
+/***************************************intercalaire algo******************************** */
 
 
 
+
+
+
+
+
+    
+    
+    // When the crop culture select changes, reset options if no intercalaire value exists
+    $('#formContainer2').on('change', '.code_culture_s', function() {
+        var $row = $(this).closest('.row');
+        var totalIntercalaire = classIntercalaireArray.reduce(function(acc, val) {
+            return acc + val;
+        }, 0);
+    
+        // If no intercalaire value exists, reset options to all available options
+        if (totalIntercalaire === 0) {
+            var $select = $row.find('.code_culture_s');
+            if ($select.data('allOptions')) {
+                $select.html($select.data('allOptions'));
+            }
+        }
+    });
+
+    
+
+
+
+
+
+
+
+    
     
 //**********************************************Farouk Touil end  ******************************************************* */
 
 
  /***************************************************************** wissem start*********************************************************************** */
  $('#nin_exploitant').blur(function(){
-    console.log('gg')
+    //console.log('gg')
     var inputLength = $(this).val().length;
     if (inputLength < 18) {
         // If length is less than 18, display an error message or perform any other action.
@@ -1064,7 +1213,7 @@ if (exploitant == 1) {
 
 
 if (sexe_exploitant !== null && exploitant !== null) {
-    console.log('not null ')
+    //console.log('not null ')
     
 
     if (sexe_exploitant == '1' && exploitant== '1') {
