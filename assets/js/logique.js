@@ -155,7 +155,7 @@ $(document).ready(function() {
             //i have created an id on remove row red color button called statut_juridique_check
             // [44] [45] [6]
            // $('#si_exploi_eai_eac').prop('disabled', true); 
-            $('#reference_cadastrale').prop('disabled', true); 
+            $('.reference_cadastrale').prop('disabled', true); 
             $('#si_exploi_eac').prop('disabled', true); 
             $('#exploi_superficie_hec').prop('disabled', true); 
             $('#exploi_superficie_are').prop('disabled', true); 
@@ -165,7 +165,7 @@ $(document).ready(function() {
      
              // [44] [45] [6]
           //  $('#si_exploi_eai_eac').prop('disabled', false); 
-          $('#reference_cadastrale').prop('disabled', true); 
+          $('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true); 
           $('#exploi_superficie_hec').prop('disabled', true); 
           $('#exploi_superficie_are').prop('disabled', true);
@@ -183,7 +183,7 @@ formContainer.addEventListener('click', function(event) {
         // Your event handling code here
        // [44] [45] [6]
       // $('#si_exploi_eai_eac').prop('disabled', true); 
-       $('#reference_cadastrale').prop('disabled', true); 
+       $('.reference_cadastrale').prop('disabled', true); 
        $('#si_exploi_eac').prop('disabled', true); 
        $('#exploi_superficie_hec').prop('disabled', true); 
        $('#exploi_superficie_are').prop('disabled', true); 
@@ -727,13 +727,13 @@ $(document).on('change', '[id^="status_juridique"]', function() {
 
     // Define the specific conditions under which the alert should be displayed
     if (origineValue === '6' && statusValue === '2') {
-        $('#reference_cadastrale').prop('disabled', false); 
+        $('.reference_cadastrale').prop('disabled', false); 
           $('#si_exploi_eac').prop('disabled', false); 
           $('#exploi_superficie_hec').prop('disabled', false); 
           $('#exploi_superficie_are').prop('disabled', false);
     }else{
 
-        $('#reference_cadastrale').prop('disabled', true); 
+        $('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true); 
           $('#exploi_superficie_hec').prop('disabled', true); 
           $('#exploi_superficie_are').prop('disabled', true);
@@ -1186,7 +1186,7 @@ $('#nom_exploitation').on('input', function(){
 
 /*********************************** */
 
-// $('#reference_cadastrale').on('input', function() {
+// $('.reference_cadastrale').on('input', function() {
 //     var userInput = $(this).val().trim();
 //     var regex = /^\d{3}\/\d{5}$/; // Regular expression for the desired format
 

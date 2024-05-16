@@ -1358,8 +1358,8 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
-                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
+                 <input num maxlength="3" class="form-control reference_cadastrale bneder"    id="reference_cadastrale" name="reference_cadastrale_section" value="">
+                 <input num maxlength="3" class="form-control reference_cadastrale bneder"    id="reference_cadastrale" name="reference_cadastrale_ilot" value="">
 
 
 
@@ -2115,7 +2115,7 @@ acte de concession ?
       <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
-     <div class="col-6" style="padding-right:75px;">
+     <div class="col-6">
         رقم الزراعة
         <br>
         Code culture 
@@ -2123,19 +2123,19 @@ acte de concession ?
   
  
 
-     <div class="col-1" >
+     <div class="col" style="padding-left: 23px;">
 
        جافة  <br> En sec
      </div>
-     <div class="col-2" >
+     <div class="col" >
 
        مروية <br> En irriguée
      </div>
-     <div class="col" >
+     <div class="col" style="padding-right: 46px;">
        مقحمة<br>
        En intercalaire
      </div>
-     <div class="col-1"></div>
+     
    </div>
    
    </div>
@@ -3391,7 +3391,7 @@ $(document).ready(function(){
                            <div class="col">
                            <span>   العدد - Nombre
                            </span>
-                           <span style="margin-left: 48px;">
+                           <span style="margin-left: 78px;">
                                                          المساحة(م²)-Surface(m²)</span>
                            </div>
   <div class="col-2"></div>
@@ -3433,7 +3433,7 @@ $(document).ready(function(){
       <div class="col"style="padding-left: 5px;">
       <span>   العدد - Nombre
     </span>
-     <span style="margin-left: 48px;">
+     <span style="margin-left: 70px;">
         المساحة(م²)-Surface(m²)</span>
       </div>
       <div class="col-2"></div>
@@ -3578,7 +3578,9 @@ $(document).ready(function(){
                      </div>
 
                      <div class="col"  >
-                        المساحة (م²) - Surface (m²)
+                     <span style="margin-left: 35px;">
+                        المساحة(م²)-Surface(m²)     
+                        </span>
                      </div>
                      <div class="col-2"></div>
 
@@ -3801,7 +3803,7 @@ $(document).ready(function(){
                      <div class="col">
                      <span >    العدد - Nombre
                         </span>
-                           <span style="margin-left: 42px;">
+                           <span style="margin-left: 74px;">
                      السعة (م²) - Capacité (m3) </span>
                      </div>
                      <div class="col-2"></div>
@@ -3932,7 +3934,7 @@ $(document).ready(function(){
        <!-- <div class="col"></div> -->
        <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
        Code matériel</span></div>
-       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-2" style="padding: 7px 0px 0px 18px;"> <sapn>Nombre - العدد</sapn></div>
        <div class="col-7"></div>
       
  
@@ -4282,12 +4284,12 @@ Petite et Moyenne Hydraulique
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:28px; font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:37px; font-size: 10px !important;" class="col-4">
   
       المساحة (هكتار) <br>
       
@@ -4296,7 +4298,7 @@ Petite et Moyenne Hydraulique
       </div>
     
 
-      <div style=" font-size: 10px !important;" class="col">
+      <div style="padding-left:45px; font-size: 10px !important;" class="col">
       
       
       المساحة (هكتار) <br>
@@ -4304,9 +4306,9 @@ Petite et Moyenne Hydraulique
       
       Superficie(ha)
       </div>
-    </div><br>
+    </div>
     <div class="col">
-      <br>
+ 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
@@ -4324,7 +4326,7 @@ Petite et Moyenne Hydraulique
       </div><br>
     </div>
     <div class="col">
-      <br>
+     
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
@@ -4343,7 +4345,7 @@ Petite et Moyenne Hydraulique
       
     </div>
     <div class="col">
-      <br>
+     
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
@@ -4511,10 +4513,10 @@ Petite et Moyenne Hydraulique
                <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     <div class="col fontbneder11" style="padding-right: 21px;">
                      ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
@@ -4635,11 +4637,11 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
                      <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - إناث - Féminin
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4729,11 +4731,11 @@ Petite et Moyenne Hydraulique
    <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
-                       ذكور - Masculin - إناث - Féminin
+                     <div class="col fontbneder11" style="padding-left: 50px;">
+                        ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
