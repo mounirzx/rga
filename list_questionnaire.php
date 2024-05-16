@@ -5,10 +5,17 @@ include('includes/header.php');
     <br>
     <br>
     <br>
+    <style>
+
+/* tr {
+    border: 1px solid #d1cece;
+    background: #d1e7dd;
+} */
+    </style>
 
     <div class="card">
         <div style="text-align: center;" class="card-header">
-            <h5> Etats </h5>
+            <h5> Etat </h5>
         </div>
         <div class="card-body">
             
