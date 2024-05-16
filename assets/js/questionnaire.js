@@ -452,6 +452,13 @@ var message="Superficie tot egale SAU";
 if(data[i].message_coherence_stat_jur!=""){
   message=data[i].message_coherence_stat_jur
 }
+
+var message_util_sol="SAT egal SUM sup util du sol"
+if(data[i].message_coherence_util_sol!=""){
+  message_util_sol=data[i].message_coherence_util_sol
+}
+
+
           qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
@@ -468,7 +475,7 @@ if(data[i].message_coherence_stat_jur!=""){
     data[i].commune_name_ascii +
     "</td><td></td><td>" +
     data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
+    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message_util_sol+"' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
 
         }
         $("#qst_list").empty();
