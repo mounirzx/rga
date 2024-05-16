@@ -894,5 +894,4 @@ $('#status_juridique_'+idPart).append(filtered[id])
 
 
 
-
 });

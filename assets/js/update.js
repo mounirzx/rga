@@ -301,4 +301,56 @@ $("input[type='checkbox']").each(function() {
       qstList(etat);
     });
   });
+
+
+
+
+
+
+
+
+
+  /***************************************************************************** */
+
+$('#rejeter').click(function(e){
+  e.preventDefault()
+    var id_questionnaire = $('#id_questionnaire').val();
+  console.log('okkk')
+    $.ajax({
+      url:'assets/php/change_state.php',
+      method:'post',
+      async:false,
+      data:{id_questionnaire:id_questionnaire , action : "rejeter"},
+      success:function(response){
+        console.log(response)
+        Swal.fire({
+          title: "Questionnaire rejeté",
+          
+          icon: "success"
+        });
+      }
+    })
+  })
+  $('#approuver').click(function(e){
+    e.preventDefault()
+    var id_questionnaire = $('#id_questionnaire').val();
+  
+    $.ajax({
+      url:'assets/php/change_state.php',
+      method:'post',
+      async:false,
+      data:{id_questionnaire:id_questionnaire , action : "approuver"},
+      success:function(response){
+        console.log(response)
+        Swal.fire({
+          title: "Questionnaire approuvé",
+          
+          icon: "success"
+        });
+      }
+    })
+  })
+  
+  /************************************************************************* */
+  
 });
