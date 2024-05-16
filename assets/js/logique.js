@@ -996,10 +996,27 @@ $('#formContainer2').on('input', '.class_intercalaire, .superficie_hec, .superfi
     calculateTotals();
 });
 
+
 function displayMessage(message, type) {
     let messageClass = type === 'error' ? 'error-message' : 'info-message';
     let $message = $('<div>').addClass(messageClass).text(message);
-    $('#error_messages').append($message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_messages').empty($message); // Append message to container
+    $('#error_messages').append($message); // Append message to container
     setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
 }
 

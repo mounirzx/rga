@@ -14,8 +14,8 @@ $(document).ready(function () {
         $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
         $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
         $("#commune_code").val(response.r_commune || "N/A");
-        $("#nom_zone_district").val(response.nom_zone_district || "N/A");
-        $("#num_zone_district").val(response.num_zone_district || "N/A");
+        // $("#nom_zone_district").val(response.nom_zone_district || "N/A");
+        // $("#num_zone_district").val(response.num_zone_district || "N/A");
       } else {
        // console.error("Error: " + response.message);
       }
