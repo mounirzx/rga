@@ -1488,24 +1488,21 @@ select5.addEventListener('input', function () {
 });
 
 function updateSelect6() {
-
     var div_to_effect5 = document.getElementById('card1');
     var child_inputs1 = div_to_effect5.getElementsByTagName('input');
 
-    if(select5.value != '1'){
-      //console.log(child_inputs1)
+    if (select5.value !== '1') {
         for (var i = 0; i < child_inputs1.length; i++) {
             child_inputs1[i].disabled = true;
-           child_inputs[i].checked = false;
+            child_inputs1[i].checked = false; 
         }
-    }else{
+    } else {
         for (var i = 0; i < child_inputs1.length; i++) {
             child_inputs1[i].disabled = false;
         }
     }
-   
-
 }
+
     
 });
 

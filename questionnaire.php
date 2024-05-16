@@ -685,7 +685,7 @@ Sexe</span>
          <div class="col-7">
          <div class="input-group input-group-sm">
          <div class="qst-num zxcount"></div>
-            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
+            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمن
           
                Type d'assurance, si assuré</span>
 
@@ -1117,7 +1117,7 @@ au réseau internet ?
    <div class="qst-num zxcount"></div>
    <p  class="input-group-text fontbneder2" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
-    لأغراض متعلقة بالفالحة؟
+    لأغراض متعلقة بالفلاحة؟
     <br>
     Si oui, utilisez-vous le réseau
     internet <br> pour des besoins
@@ -1397,7 +1397,7 @@ acte de concession ?
     <div class="row" style="text-align:center;">
         <div class="col-2"></div>
         <div class="col-3">
-            عدد األعضاء<br>
+            عدد الأعضاء<br>
             Nombre des exploitants
         </div>
         <div class="col">
@@ -2148,7 +2148,7 @@ acte de concession ?
         <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
+              <select InptSZ class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -3285,7 +3285,7 @@ $(document).ready(function(){
             </div>
             <div class="col">
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
             </div>
           </div>
@@ -3499,7 +3499,7 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى صلب)</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3533,7 +3533,7 @@ $(document).ready(function(){
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بلاستيكية</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3599,7 +3599,7 @@ $(document).ready(function(){
                   <tr>
       <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفالحية</p>
+      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفلاحية</p>
       <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
@@ -3617,7 +3617,7 @@ $(document).ready(function(){
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفلاحي</p>
                      <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
@@ -3857,7 +3857,7 @@ $(document).ready(function(){
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
-                  ما هي طريقة إستغالل العتاد الفالحي ؟
+                  ما هي طريقة إستغالل العتاد الفلاحي ؟
                       <br>
                       Le mode d'exploitation du matériel agricole ? 
                   </span>
@@ -3883,7 +3883,7 @@ $(document).ready(function(){
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
 <b>
-العتاد الفالحي 
+العتاد الفلاحي 
 -
  matériel agricole 
 </b>
@@ -3897,7 +3897,7 @@ $(document).ready(function(){
        <div class="row" style="text-align: center;">
             <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
             <div class="col-4" style="text-align: center;" >
-         نوع وعدد العتاد الفالحي ؟
+         نوع وعدد العتاد الفلاحي ؟
  <br>
  Type et nombre du matériel agricole ? 
  <br>
@@ -3938,7 +3938,7 @@ $(document).ready(function(){
        <!-- <div class="col"></div> -->
        <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
        Code matériel</span></div>
-       <div class="col-2" style="padding: 7px 0px 0px 18px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
        <div class="col-7"></div>
       
  
@@ -4631,7 +4631,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        العاملة اليد نوعية 
+                        نوعية العاملة اليد  
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>
@@ -5497,7 +5497,9 @@ Petite et Moyenne Hydraulique
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
-                      Prestataire de servicessitués dans la commune ?                  </span>
+                      Prestataire de services situés dans la commune ?
+     
+                                  </span>
                <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
                   <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
@@ -5523,7 +5525,7 @@ Petite et Moyenne Hydraulique
                <div class="card">
                <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                   <div class="card-header" style="text-align: center;">
-                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité (multichoice)
+                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité 
                   </div>
                   <div class="card-body">
                      <div class="row">
@@ -5652,7 +5654,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
-                              بيع المباشر - Vente directe
+                              بيع مباشر - Vente directe
                               </label>
                            </div>
                         </div>
@@ -5661,7 +5663,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
 
                               <label class="form-check-label" for="ee_consommationauto">
-                            استهالك ذاتي - consommation-Auto 
+                            استهالك ذاتي - Auto-consommation
                               </label>
                            </div>
                         </div>
