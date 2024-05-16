@@ -1349,22 +1349,26 @@ acte de concession ?
 
    </div>
    <div class="col-4">
-   <div class="input-group input-group-sm">
- <div  hidden class="qst-num zxcount"></div>
- <div   class="qst-num">46</div>
-
-
-               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
-               le Référence cadastrale <br> مرجع مسح الأراضي
-               </span>
-               
-                 <input num maxlength="3" class="form-control reference_cadastrale bneder"    id="reference_cadastrale" name="reference_cadastrale_section" value="">
-                 <input num maxlength="3" class="form-control reference_cadastrale bneder"    id="reference_cadastrale" name="reference_cadastrale_ilot" value="">
-
-
-
-
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale 
    </div>
+   <div class="card-body" style="padding: 5px;">
+    <span class="fontbneder11" style="padding-left: 50px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
+</div>
+
+
+</div>
+
+
 </div>
 </div>
 
