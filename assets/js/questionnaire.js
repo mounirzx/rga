@@ -146,23 +146,23 @@ function controleSatSumsjtest () {
       //  }
   
         // Calculate the upper and lower bounds of the range
-        console.log("range_5_percent")
-        console.log(range_5_percent)
+      //  console.log("range_5_percent")
+      //  console.log(range_5_percent)
     var upper_bound = sum_superfecie_sj + range_5_percent;
     var lower_bound = sum_superfecie_sj - range_5_percent;
-    console.log(upper_bound)
-    console.log(lower_bound)
+   // console.log(upper_bound)
+   // console.log(lower_bound)
     // Check if SAT is within the range
     if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
-      console.log("green")
+     // console.log("green")
      }
     else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
-      console.log('orange')
-      console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+    //  console.log('orange')
+    //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
       message="orange"
     } else {
-      console.log('red')
-      console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+      //console.log('red')
+     // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
       message="red"
     }
   
@@ -187,7 +187,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
 
 var message = updateFields()
 var controleSatSumsjtest2 = controleSatSumsjtest()
-    console.log(controleSatSumsjtest2)
+   // console.log(controleSatSumsjtest2)
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
@@ -251,7 +251,7 @@ var controleSatSumsjtest2 = controleSatSumsjtest()
      
       if (isValidObject(formDataCodeCulture)) {
         formDataArrayCodeCulture.push(formDataCodeCulture);
-       // console.log("the array:", formDataArrayCodeCulture);
+        console.log("the array:", formDataArrayCodeCulture);
     } else {
       
     }
@@ -343,8 +343,8 @@ $("input[type='checkbox']").each(function() {
 
 
    
-    console.log("formDataObj of me");
-    console.log(formDataObj);
+    //console.log("formDataObj of me");
+   // console.log(formDataObj);
     $(function () {
       $.ajax({
         url: url.InsertQst,

@@ -2141,10 +2141,10 @@ acte de concession ?
    </div>
    <br>
    <div id="formContainer2">
-        <div class="row " style="margin-bottom: 10px;">
+        <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
+              <select InputHeight class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -2406,18 +2406,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire code_culture_s"  value="">
               </div>
               </div>
            
