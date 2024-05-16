@@ -37,12 +37,12 @@ include('includes/header.php');
     <div class="col">
         <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
         <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
-            <b>
-                <br />
-                الاحصاء العام للفلاحة
-            </b>
-            <br />
-            Recensement Générale de l'Agriculture<br />
+          
+            
+           
+          
+       
+        <br />
             <br />
         </div>
     </div>
@@ -236,7 +236,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار مخصص للمراقب   - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
@@ -798,7 +798,7 @@ l'exploitant est principal
 </span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفلاح - المستثمر <br>
       Type d'exploitant</span> 
       <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -1355,7 +1355,8 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
 
 
 
