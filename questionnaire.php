@@ -37,12 +37,12 @@ include('includes/header.php');
     <div class="col">
         <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
         <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
-            <b>
-                <br />
-                الاحصاء العام للفلاحة
-            </b>
-            <br />
-            Recensement Générale de l'Agriculture<br />
+          
+            
+           
+          
+       
+        <br />
             <br />
         </div>
     </div>
@@ -236,7 +236,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار مخصص للمراقب   - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
@@ -456,7 +456,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="col">
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">
+                    <span style="height:32px" class="input-group-text" id="basic-addon3">
                       تاريخ الميلاد <br> Date de naissance</span>
                     <select class="form-select " id="jour_de_naissance"  >
                        <option value="02"></option>
@@ -798,7 +798,7 @@ l'exploitant est principal
 </span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفلاح - المستثمر <br>
       Type d'exploitant</span> 
       <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -1141,15 +1141,7 @@ au réseau internet ?
 
 </div>
 <script>
-    var select1 = document.getElementsByName('reseau_internet')[0];
-    var select2 = document.getElementsByName('reseau_internet_si_oui')[0];
 
-    select1.addEventListener('input', updateSelect2);
-
-    function updateSelect2() {
-        var selectedValue = select1.value;
-        select2.disabled = (selectedValue != '1');
-    }
 </script>
 <br/>
 
@@ -1161,23 +1153,26 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
-                  <div class="row"style="text-align: center;">
-   <div style="padding-top: 7px;" class="col-4">
+                  <div style="margin-top: 60px;height: 34px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
+                  <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
+   <div  class="col">
+   </div>
+
+   <div style="padding: 7px 110px 0px 0px;" class="col-4">
 
    الرمز - Code
    </div>
-   <div style="padding-top: 7px;" class="col-3">
+   <div style="padding: 7px 0px 0px 0px;" class="col-3">
   
    الرمز - Code
 </div>
 
 
 
-   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   <div class="col-4" style="padding-left: 71px;padding-top: 7px;">Hectare - هكتار 
    &nbsp;&nbsp;&nbsp;
  Are - آر </div>
-   <div class="col"></div>
+ 
 
 
  
@@ -1192,8 +1187,8 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
+                     <div class="col-5" style="padding-left: 70px;"><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3"style="padding-left: 40px;" ><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
                   <br>
@@ -1211,17 +1206,17 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                            <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                                <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                                <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                                <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-                                <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                                <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-                                <option BoldText value="8">8 - Wakf public وقف عام</option>
-                                <option BoldText value="9">9 - Inconnue مجهول</option>
+                                <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option class="fontbneder2" value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                                <option class="fontbneder2" value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                                <option class="fontbneder2" value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                                <option class="fontbneder2" value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option class="fontbneder2" value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                                <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
+                                <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
+                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
@@ -1233,7 +1228,7 @@ au réseau internet ?
 
                         <div class="input-group input-group-sm">
 
-                                <select InptSZ class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1272,48 +1267,10 @@ au réseau internet ?
 }
 </style>
 <script>
-$(document).ready(function(){
-    var selectedValues = []; // Array to hold the counts of each combined value selected
 
-    $(document).on('change', '.statut_juridique_check', function() {
-        var fullId = $(this).attr('id');
-        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
-
-        var val1 = $('#origine_des_terres_' + idPart).val() || "";
-        var val2 = $('#status_juridique_' + idPart).val() || "";
-        var cc = val1 + val2; // Combine the values to form a unique identifier
-
-        // Clear any previous error indication before any new validation
-        $('#origine_des_terres_' + idPart).removeClass('error');
-        $('#status_juridique_' + idPart).removeClass('error');
-
-        if(val1 === "" || val2 === "") {
-           // console.log("Both selections are required.");
-            return; // Exit the function if one of the dropdowns is not selected
-        }
-
-        // Check if this combination already exists in the array
-        if($.inArray(cc, selectedValues) !== -1){
-          //  console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            $('#origine_des_terres_' + idPart).addClass('error');
-            $('#status_juridique_' + idPart).addClass('error');
-            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-        } else {
-            // If the combination is unique, add it to the array and ensure no error class is present
-            selectedValues.push(cc);
-        }
-    });
-});
 </script>
 
-
-
+ 
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
@@ -1360,40 +1317,6 @@ $(document).ready(function(){
 
 
                   <script>
-                  document.getElementById('addForm').addEventListener('click', function () {
-    const formContainer = document.getElementById('formContainer');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
-
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-        element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-        element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-
-        // Remove the "disabled" attribute if present
-        element.removeAttribute('disabled');
-    });
-
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
-    removeButton.addEventListener('click', function () {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
-
-    formContainer.appendChild(formRow);
-
-    // Enable the cloned input elements inside the replicated HTML code
-    formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-        inputElement.removeAttribute('disabled');
-    });
-
- 
-});
 
                  </script>
                  
@@ -1435,7 +1358,8 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
 
 
 
@@ -2188,7 +2112,7 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
      <div class="col-6" style="padding-right:75px;">
@@ -2610,68 +2534,6 @@ $(document).ready(function(){
 
 
 
-           
-document.getElementById('addForm2').addEventListener('click', function() {
-    const formContainer = document.getElementById('formContainer2');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
-
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
-        var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
-        var newIndex = formContainer.children.length; // New index based on the number of existing rows
-        element.id = baseId + '_' + newIndex;
-        element.name = baseId + '_' + newIndex;
-        element.removeAttribute('disabled'); // Remove "disabled" attribute if present
-
-        if (element.tagName === 'SELECT') {
-            element.selectedIndex = 0; // Reset select element to default value
-            // Add an event listener to enforce selection
-            element.addEventListener('blur', function() {
-
-
-               $('#en_intercalaire').on('change', function() {
-
-                     // alert('test')
-
-
-               });
-
-
-
-
-
-
-                if (this.value === "-" || this.value === "") {
-                  if (result.isConfirmed) {
-                            this.focus(); // Refocus on the dropdown if user closes the alert
-                        }
-                }
-            });
-        } else if (element.type === 'text') {
-            element.value = ''; // Clear input text fields
-        }
-    });
-
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-    removeButton.addEventListener('click', function() {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
-
-    formContainer.appendChild(formRow);
-
-    // Focus on the 'code_culture' select element in the newly added row
-    formRow.querySelector('.code_culture_s').focus();
-    restrictInputToDoubles();
-
-    // Optionally call any other functions that need to reinitialize settings or bindings
-});
-
 
                   </script> <!-- TODO -->
     </div>
@@ -2846,22 +2708,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
     </div>
   
   <script>
-                     var select7 = document.getElementsByName('pratiquez_vous_lagriculture_biologique')[0];
-                     var select27 = document.getElementsByName('si_oui_avez_vous_un_certificat')[0];
                   
-                     select7.addEventListener('input', function () {
-                        updateSelect7();
-                     });
-                  
-                     function updateSelect7() {
-                        var selectedValue = select7.value;
-                       // console.log(selectedValue)
-                        select27.disabled = (selectedValue != '1');
-                        if(selectedValue!="1"){
-                           select27.value=''
-                        }
-                       
-                     }
   </script>
   <br>
   <div class="input-group input-group-sm">
@@ -3007,31 +2854,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
 
                   <script>
-                     var select5 = document.getElementsByName('pratiquez_vous_une_agriculture_conventionnee')[0];
-                  
-                     select5.addEventListener('input', function () {
-                         updateSelect6();
-                     });
-                  
-                     function updateSelect6() {
-
-                         var div_to_effect5 = document.getElementById('card1');
-                         var child_inputs1 = div_to_effect5.getElementsByTagName('input');
-
-                         if(select5.value != '1'){
-                           //console.log(child_inputs1)
-                             for (var i = 0; i < child_inputs1.length; i++) {
-                                 child_inputs1[i].disabled = true;
-                                child_inputs[i].checked = false;
-                             }
-                         }else{
-                             for (var i = 0; i < child_inputs1.length; i++) {
-                                 child_inputs1[i].disabled = false;
-                             }
-                         }
-                        
-
-                     }
+               
                   </script>
 
                </div>
@@ -4053,52 +3876,46 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <br>
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
+<b>
 العتاد الفالحي 
-<br>
+-
  matériel agricole 
-
+</b>
 
                      </div>
     <div class="card-body" style="padding-top: 0px;">
-       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
-       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <!-- <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;"> -->
        <div class="row">
-          
-          </div>
-          <div class="row" style="text-align: center;">
+         <div class="col"><br></div>
+       </div> 
+       <div class="row" style="text-align: center;">
             <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
             <div class="col-4" style="text-align: center;" >
          نوع وعدد العتاد الفالحي ؟
-<br>
-Type et nombre du matériel agricole ? 
-<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-Code matériel</span>
-
-
-
-
-<sapn>Nombre - العدد</sapn>
+ <br>
+ Type et nombre du matériel agricole ? 
+ <br>
          </div>
         
         
         <div class="col">
- <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
+ <div style="margin:-13px 7px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
                         <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
-
+ 
                         <div class=" fontbneder11" style="text-align: center;">Mode de mobilisation du matériel agricole ?
                         </div>
                      </div>
                   </div>
-                  <div class="col">
- <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
-                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
+                  <div class="col" style="padding-right: 48px;">
+ <div style=" margin: -13px 30px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
+                        <div class="fontbneder22" style="text-align: center;padding:0px!important;">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
@@ -4106,17 +3923,29 @@ Code matériel</span>
                         </div>
                      </div>
                   </div> 
-
-
+ 
+ 
       </div>
-      </div>
-      </div>
+      <br>
+       <div style="margin-top:-1px;height: 40px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <div class="row" style="text-align: center;background-color: #d4e7fe;">
+       <!-- <div class="col"></div> -->
+       <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
+       Code matériel</span></div>
+       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-7"></div>
+      
+ 
+ 
+ 
+ 
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+       </div>
+      </div>
+      
+
+      
+
       <script>
 
 </script>
@@ -4244,16 +4073,16 @@ Code matériel</span>
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+        <select inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
           <option selected="selected" vlaue="-">
           </option>
-          <option class="fontbneder22" value="1">
+          <option class="fontbneder2" value="1">
             1- en proprièté - ملكية
           </option>
-          <option class="fontbneder22" value="2">
+          <option class="fontbneder2" value="2">
             2- en location - إجار
           </option>
-          <option class="fontbneder22" value="3">
+          <option class="fontbneder2" value="3">
             3- en prêt - إستلاف
           </option>
         </select>
@@ -4261,16 +4090,16 @@ Code matériel</span>
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select style="margin-left:11px" inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
           <option selected="selected" vlaue="-">
           </option>
-          <option class="fontbneder22" value="1">
+          <option class="fontbneder2" value="1">
             1- en individuel - فردية
           </option>
-          <option class="fontbneder22" value="2">
+          <option class="fontbneder2" value="2">
             2- en collectif - جماعية
           </option>
-          <option class="fontbneder22" value="3">
+          <option class="fontbneder2" value="3">
             3- Mixte - مختلطة
           </option>
         </select>
@@ -4279,7 +4108,7 @@ Code matériel</span>
     </div>
     <div class="col-1">
       <div class="d-grid gap-2">
-        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+        <button style="width: 50px;top: 110px;position: absolute;height: 35px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
       </div>
     </div>
   </div>
@@ -4288,67 +4117,6 @@ Code matériel</span>
 
 
 
-
-$(document).ready(function(){
-   var combinations = {}; // Object to hold combinations to ensure uniqueness
-
-// Function to generate a unique combination based on row inputs
-function generateCombination(row) {
-    return row.find('[id^="code_materiel"]').val() + '-' +
-           row.find('[id^="code_materiel_nombre"]').val() + '-' +
-           row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
-           row.find('[id^="ee_mode_exploitation_materiel"]').val();
-}
-
-// Function to check and manage unique combinations
-function manageCombinations(row) {
-    var key = generateCombination(row);
-    if (combinations[key]) {
-        Swal.fire({
-            title: 'Attention!',
-            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
-            icon: 'warning',
-            confirmButtonText: 'OK'
-        });
-        // Reset the row's selects to the default option
-        row.find('select').val(function() {
-            return $(this).children('option:first').val();
-        });
-    } else {
-        // Add or update the combination in the map
-        Object.values(combinations).forEach((val, idx) => {
-            if (val.row.is(row)) {
-                delete combinations[idx];
-            }
-        });
-        combinations[key] = { row: row };
-    }
-}
-
-// Handle changes in any of the dropdowns
-$('#formContainer3').on('change', 'select', function() {
-    manageCombinations($(this).closest('.row'));
-});
-
-// Handle the addition of new rows
-$('#addForm3').click(function() {
-    var formContainer = $('#formContainer3');
-    var formRow = formContainer.children('.row').first().clone();
-    formRow.find('input').val('');
-    formRow.find('select').each(function() {
-        $(this).val($(this).find('option:first').val());
-    });
-
-    // Append a remove button to the new row
-    var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
-        delete combinations[generateCombination($(this).closest('.row'))];
-        $(this).closest('.row').remove();
-    });
-
-    formRow.find('.d-grid').empty().append(removeButton);
-    formContainer.append(formRow);
-});
-});
 
 
 
@@ -4387,11 +4155,10 @@ $('#addForm3').click(function() {
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder2 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
-
+                  <option class="fontbneder2" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder2" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
               </select>
 
 
@@ -5437,22 +5204,7 @@ Petite et Moyenne Hydraulique
                         //     updateSelect8();
                        // });
                      
-                        function updateSelect8() {
-
-                            var div_to_effect6 = document.getElementById('card3');
-                            var child_inputs2 = div_to_effect6.getElementsByTagName('input');
-
-                            if(!check1.checked){
-                                for (var i = 0; i < child_inputs2.length; i++) {
-                                    child_inputs2[i].disabled = true;
-                                }
-                            }else{
-                                for (var i = 0; i < child_inputs2.length; i++) {
-                                    child_inputs2[i].disabled = false;
-                                }
-                            }
-                           
-                        }
+             
                      </script>
 
                      <br>
@@ -5615,7 +5367,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5632,7 +5384,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
@@ -5737,10 +5489,10 @@ Petite et Moyenne Hydraulique
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
                       Prestataire de servicessitués dans la commune ?                  </span>
-               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+               <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
-                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
-                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
+                  <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder2" value="2">2 - Non - لا</option>
               </select>
                   
             
