@@ -2108,7 +2108,7 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
      <div class="col-6" style="padding-right:75px;">
