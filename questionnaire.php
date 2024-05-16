@@ -1153,7 +1153,7 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 60px;height: 34px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
+                  <div style="margin-top: 60px;height: 36px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
                   <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
    <div  class="col">
    </div>
@@ -4869,9 +4869,7 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p class="fontbneder11" style="margin-left: -4px;">
-                     ذكور - Masculin - إناث - Féminin
-         </p>
+             
                      </div>
                      <div class="col" style="text-align: center;">
                      <div class="qst-num ">129</div>
@@ -4884,13 +4882,18 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <span  class="fontbneder11" style="margin-left: 3px;">
-
-                     ذكور - Masculin - إناث - Féminin
-
-                     </span>
+                    
                      </div>
                      <div class="col-1">  </div>
+                  </div>
+                  <div class="row" style="text-align: center;">
+                     <div class="col-2"></div>
+                     <div class="col fontbneder11" style="padding-left: 75px;">
+                        ذكور - Masculin - إناث - Féminin
+                     </div>
+                     <div class="col fontbneder11" style="padding-right: 71px;">
+                     ذكور - Masculin - إناث - Féminin
+                     </div>
                   </div>
                   <table  class="table table-sm">
                <tbody>
