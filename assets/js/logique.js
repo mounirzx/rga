@@ -726,7 +726,7 @@ $(document).on('change', '[id^="status_juridique"]', function() {
     var statusValue = $(this).val();
 
     // Define the specific conditions under which the alert should be displayed
-    if (origineValue === '6' && statusValue === '2') {
+    if (origineValue === '6' &&  (statusValue === '2'|| statusValue === '3' )) {
         $('.reference_cadastrale').prop('disabled', false); 
           $('#si_exploi_eac').prop('disabled', false); 
           $('#exploi_superficie_hec').prop('disabled', false); 

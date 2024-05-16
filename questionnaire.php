@@ -36,15 +36,15 @@ include('includes/header.php');
     </div>
     <div class="col">
         <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
-        <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
-          
-            
-           
-          
-       
-        <br />
+        <!-- <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
+            <b>
+                <br />
+                الاحصاء العام للفلاحة
+            </b>
             <br />
-        </div>
+            Recensement Générale de l'Agriculture<br />
+            <br />
+        </div> -->
     </div>
     <div class="col">
         <div style="font-weight: bold; font-size: 16px !important; text-align: center;">
@@ -965,7 +965,7 @@ géographique WGS 1984)
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+          Activité de l'exploitation</span> <select class="form-select fontbneder2 bneder" id="activite_exploitation" name="activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -982,7 +982,7 @@ géographique WGS 1984)
         </div><br>
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
-          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+          Si activité est l'élevage</span> <select class="form-select fontbneder2 bneder" id="type_activite_exploitation" name="type_activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -2141,10 +2141,10 @@ acte de concession ?
    </div>
    <br>
    <div id="formContainer2">
-        <div class="row " style="margin-bottom: 10px;">
+        <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
+              <select InputHeight class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -2406,18 +2406,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire code_culture_s"  value="">
               </div>
               </div>
            
