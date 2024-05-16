@@ -4053,52 +4053,46 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <br>
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
+<b>
 العتاد الفالحي 
-<br>
+-
  matériel agricole 
-
+</b>
 
                      </div>
     <div class="card-body" style="padding-top: 0px;">
-       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
-       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <!-- <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;"> -->
        <div class="row">
-          
-          </div>
-          <div class="row" style="text-align: center;">
+         <div class="col"><br></div>
+       </div> 
+       <div class="row" style="text-align: center;">
             <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
             <div class="col-4" style="text-align: center;" >
          نوع وعدد العتاد الفالحي ؟
-<br>
-Type et nombre du matériel agricole ? 
-<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-Code matériel</span>
-
-
-
-
-<sapn>Nombre - العدد</sapn>
+ <br>
+ Type et nombre du matériel agricole ? 
+ <br>
          </div>
         
         
         <div class="col">
- <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
+ <div style="margin:-13px 7px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
                         <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
-
+ 
                         <div class=" fontbneder11" style="text-align: center;">Mode de mobilisation du matériel agricole ?
                         </div>
                      </div>
                   </div>
-                  <div class="col">
- <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
-                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
+                  <div class="col" style="padding-right: 48px;">
+ <div style=" margin: -13px 30px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
+                        <div class="fontbneder22" style="text-align: center;padding:0px!important;">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
@@ -4106,17 +4100,29 @@ Code matériel</span>
                         </div>
                      </div>
                   </div> 
-
-
+ 
+ 
       </div>
-      </div>
-      </div>
+      <br>
+       <div style="margin-top:-1px;height: 40px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <div class="row" style="text-align: center;background-color: #d4e7fe;">
+       <!-- <div class="col"></div> -->
+       <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
+       Code matériel</span></div>
+       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-7"></div>
+      
+ 
+ 
+ 
+ 
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+       </div>
+      </div>
+      
+
+      
+
       <script>
 
 </script>
@@ -4247,13 +4253,13 @@ Code matériel</span>
         <select inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
           <option selected="selected" vlaue="-">
           </option>
-          <option class="fontbneder22" value="1">
+          <option class="fontbneder2" value="1">
             1- en proprièté - ملكية
           </option>
-          <option class="fontbneder22" value="2">
+          <option class="fontbneder2" value="2">
             2- en location - إجار
           </option>
-          <option class="fontbneder22" value="3">
+          <option class="fontbneder2" value="3">
             3- en prêt - إستلاف
           </option>
         </select>
@@ -4261,16 +4267,16 @@ Code matériel</span>
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select style="margin-left:11px" inptsz="" class="form-select fontbneder11 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
           <option selected="selected" vlaue="-">
           </option>
-          <option class="fontbneder22" value="1">
+          <option class="fontbneder2" value="1">
             1- en individuel - فردية
           </option>
-          <option class="fontbneder22" value="2">
+          <option class="fontbneder2" value="2">
             2- en collectif - جماعية
           </option>
-          <option class="fontbneder22" value="3">
+          <option class="fontbneder2" value="3">
             3- Mixte - مختلطة
           </option>
         </select>
@@ -4279,7 +4285,7 @@ Code matériel</span>
     </div>
     <div class="col-1">
       <div class="d-grid gap-2">
-        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+        <button style="width: 50px;top: 110px;position: absolute;height: 35px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
       </div>
     </div>
   </div>
@@ -4387,11 +4393,10 @@ $('#addForm3').click(function() {
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder2 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
-
+                  <option class="fontbneder2" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder2" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
               </select>
 
 
@@ -5615,7 +5620,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5632,7 +5637,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
@@ -5737,10 +5742,10 @@ Petite et Moyenne Hydraulique
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
                       Prestataire de servicessitués dans la commune ?                  </span>
-               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+               <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
-                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
-                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
+                  <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder2" value="2">2 - Non - لا</option>
               </select>
                   
             
