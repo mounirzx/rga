@@ -5,3 +5,4 @@ questionnaire.php.backup
 
 /DB/backup.sql
 logs/sus_ips.log
+assets/php/logfile.log

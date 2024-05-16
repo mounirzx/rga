@@ -180,7 +180,7 @@ var formDataArraySuperficie = [];
 $(".surface").each(function() {
     formDataArraySuperficie.push({ name: this.name, value: $(this).val() });
 });
-console.log(formDataArraySuperficie)
+//console.log(formDataArraySuperficie)
 
 
 
