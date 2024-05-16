@@ -37,12 +37,12 @@ include('includes/header.php');
     <div class="col">
         <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
         <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
-            <b>
-                <br />
-                الاحصاء العام للفلاحة
-            </b>
-            <br />
-            Recensement Générale de l'Agriculture<br />
+          
+            
+           
+          
+       
+        <br />
             <br />
         </div>
     </div>
@@ -236,7 +236,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار مخصص للمراقب   - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
@@ -456,7 +456,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="col">
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">
+                    <span style="height:32px" class="input-group-text" id="basic-addon3">
                       تاريخ الميلاد <br> Date de naissance</span>
                     <select class="form-select " id="jour_de_naissance"  >
                        <option value="02"></option>
@@ -798,7 +798,7 @@ l'exploitant est principal
 </span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفلاح - المستثمر <br>
       Type d'exploitant</span> 
       <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -1155,21 +1155,24 @@ au réseau internet ?
 
                   <div style="margin-top: 60px;height: 34px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
                   <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
-   <div style="padding-top: 7px;" class="col-4">
+   <div  class="col">
+   </div>
+
+   <div style="padding: 7px 110px 0px 0px;" class="col-4">
 
    الرمز - Code
    </div>
-   <div style="padding-top: 7px;" class="col-3">
+   <div style="padding: 7px 0px 0px 0px;" class="col-3">
   
    الرمز - Code
 </div>
 
 
 
-   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   <div class="col-4" style="padding-left: 71px;padding-top: 7px;">Hectare - هكتار 
    &nbsp;&nbsp;&nbsp;
  Are - آر </div>
-   <div class="col"></div>
+ 
 
 
  
@@ -1184,8 +1187,8 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
+                     <div class="col-5" style="padding-left: 70px;"><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3"style="padding-left: 40px;" ><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
                   <br>
@@ -1203,17 +1206,17 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                            <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                                <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                                <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                                <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                                <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                                <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-                                <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                                <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-                                <option BoldText value="8">8 - Wakf public وقف عام</option>
-                                <option BoldText value="9">9 - Inconnue مجهول</option>
+                                <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option class="fontbneder2" value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                                <option class="fontbneder2" value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                                <option class="fontbneder2" value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                                <option class="fontbneder2" value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option class="fontbneder2" value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                                <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
+                                <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
+                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
@@ -1225,7 +1228,7 @@ au réseau internet ?
 
                         <div class="input-group input-group-sm">
 
-                                <select InptSZ class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <!-- <option  selected="" disabled>-</option>
                                 <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                 <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1355,7 +1358,8 @@ acte de concession ?
                le Référence cadastrale <br> مرجع مسح الأراضي
                </span>
                
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
+                 <input class="form-control bneder"    id="reference_cadastrale_" name="reference_cadastrale" value="">
 
 
 
