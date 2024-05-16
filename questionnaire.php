@@ -1161,8 +1161,8 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
-                  <div class="row"style="text-align: center;">
+                  <div style="margin-top: 60px;height: 34px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
+                  <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
    <div style="padding-top: 7px;" class="col-4">
 
    الرمز - Code
