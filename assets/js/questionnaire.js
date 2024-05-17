@@ -27,6 +27,29 @@ $(document).ready(function () {
 
   /*********************************************************** */
 
+  function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_messages').empty($message); // Append message to container
+    $('#error_messages').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
   function updateSAU() {
     var totalHectares = 0;
 
@@ -59,6 +82,11 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 });
 
 // Dropdown change events for handling specific conditions
+
+
+
+
+
 function updateFields() {
     var message=""
     var totalHectares = 0;
@@ -96,16 +124,11 @@ function updateFields() {
             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
         }
     });
-//console.log(totalHectares+'  '+SAU)
+console.log(totalHectares+'  '+SAU)
     if (totalHectares > 2.99 * SAU) {
        
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
-        });
+      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
 
-        message = "red";
     }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
         // Swal.fire({
         //     icon: 'error',
@@ -113,7 +136,7 @@ function updateFields() {
         //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
         // });
       //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
-        message="orange"
+      displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
     }else if(totalHectares  == (SAU)){
         message="green"
 //console.log('good')
