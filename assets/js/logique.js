@@ -320,9 +320,94 @@ handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', '
 //   83 <= 84
 handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
 // 91 dont pleins <= Ruches Modernes
-handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
+//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
 // 92 dont pleins <= Ruches Traditionnelles
-handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
+//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
+
+
+
+// Function to calculate total number of Vaches
+function calculateTotalVaches() {
+    var total = 0;
+    // Loop through each input field for vaches laitieres
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+// Event listener for input changes
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('input', function() {
+    var chapt_bovins = parseInt($('#chapt_bovins').val()) || 0; // Get the maximum number of bovins
+    var totalVaches = calculateTotalVaches(); // Calculate the total number of vaches laitieres
+
+    // Check if the total number of vaches laitieres exceeds or is less than the number of bovins
+    if (totalVaches > chapt_bovins) {
+        displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
+        setBorders('red');
+    } else if (totalVaches < chapt_bovins) {
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'error');
+        setBorders('red');
+    } else {
+        setBorders('green');
+    }
+});
+
+// Event listener for input focus out (when user leaves the input)
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('focusout', function() {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '' );
+
+});
+
+// Function to set border colors
+function setBorders(color) {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '2px solid ' + color);
+}
+
+
+// Function to handle input comparison and apply border color
+function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorMessage) {
+    $(selector).on('input', function() {
+        var value = parseInt($(this).val()) || 0;
+        var comparisonValue = parseInt($(comparisonSelector).val()) || 0;
+
+        if (value > comparisonValue) {
+            displayMessage_elvage(errorMessage, 'error');
+            $(this).css('border', '2px solid red');
+        } else {
+            $(this).css('border', '2px solid green'); // Reset border color if valid
+        }
+    });
+}
+
+handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  117 <= 64
 function calculateTotalSupIrrigation() {
     var totalAres = 0;
@@ -1043,6 +1128,29 @@ function displayMessage(message, type) {
     setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
 }
 function displayMessage_elvage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
+function displayMessage_elvage_bovins(message, type) {
     let messageClass = type === 'error' ? 'error-message' : 'info-message';
     let $message = $('<div>').addClass(messageClass).text(message);
     
