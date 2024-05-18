@@ -307,12 +307,13 @@ $("input[type='checkbox']").each(function() {
 
 
 
-
+  
+  
 
 
   /***************************************************************************** */
 
-$('#rejeter').click(function(e){
+$('#rejected').click(function(e){
   e.preventDefault()
     var id_questionnaire = $('#id_questionnaire').val();
   console.log('okkk')
@@ -331,7 +332,7 @@ $('#rejeter').click(function(e){
       }
     })
   })
-  $('#approuver').click(function(e){
+  $('#submitDate').click(function(e){
     e.preventDefault()
     var id_questionnaire = $('#id_questionnaire').val();
   

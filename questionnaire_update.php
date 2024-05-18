@@ -5651,10 +5651,10 @@ if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSI
 ?>
     <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
-        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" ><?= $approveBtnText ?></button>
+        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="submitDate" ><?= $approveBtnText ?></button>
     </div>
     <div class="col">
-        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejeter" href="#"><?= $rejectBtnText ?></button>
+        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejected" href="#"><?= $rejectBtnText ?></button>
     </div>
 </div>
 <?php
