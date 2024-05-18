@@ -155,7 +155,7 @@ $(document).ready(function() {
             //i have created an id on remove row red color button called statut_juridique_check
             // [44] [45] [6]
            // $('#si_exploi_eai_eac').prop('disabled', true); 
-            $('.reference_cadastrale').prop('disabled', true); 
+            // $('.reference_cadastrale').prop('disabled', true); 
             $('#si_exploi_eac').prop('disabled', true); 
             $('#exploi_superficie_hec').prop('disabled', true); 
             $('#exploi_superficie_are').prop('disabled', true); 
@@ -165,7 +165,7 @@ $(document).ready(function() {
      
              // [44] [45] [6]
           //  $('#si_exploi_eai_eac').prop('disabled', false); 
-          $('.reference_cadastrale').prop('disabled', true); 
+        //   $('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true); 
           $('#exploi_superficie_hec').prop('disabled', true); 
           $('#exploi_superficie_are').prop('disabled', true);
@@ -183,7 +183,7 @@ formContainer.addEventListener('click', function(event) {
         // Your event handling code here
        // [44] [45] [6]
       // $('#si_exploi_eai_eac').prop('disabled', true); 
-       $('.reference_cadastrale').prop('disabled', true); 
+    //    $('.reference_cadastrale').prop('disabled', true); 
        $('#si_exploi_eac').prop('disabled', true); 
        $('#exploi_superficie_hec').prop('disabled', true); 
        $('#exploi_superficie_are').prop('disabled', true); 
@@ -332,8 +332,8 @@ function calculateTotalSupIrrigation() {
         totalAres += ares;
     });
     return totalAres;
-
 }
+
 function calculateTotalModeIrrigation() {
     var total = 0;
     // Loop through each input field with class 'Mode_irrigation'
@@ -346,25 +346,52 @@ function calculateTotalModeIrrigation() {
 function compareIrrigationTotals() {
     var totalAres = calculateTotalSupIrrigation();
     var totalModeIrrigation = calculateTotalModeIrrigation();
-    // console.log("totalAres: "+totalAres);
-    // console.log("totalModeIrrigation: "+totalModeIrrigation);
-    if (totalAres <=  totalModeIrrigation) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent) * 0.05;
+    console.log("threshold: " + threshold);
+
+    var difference = Math.abs(totalAres5Percent - totalModeIrrigation5Percent);
+    console.log("difference: " + difference);
+
+    if (difference > threshold) {
+        var $message = $('<div>').addClass('error-message').text("Erreur: La somme des surfaces de culture irriguées est différente de la somme des equipments d'érigéron");
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+            
         });
+        $('#error_messages_irri').empty().append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
     }
 }
-$(document).on('input', '[id^="superficie_are_"]', function() {
 
-
-    compareIrrigationTotals();
+$('.Mode_irrigation').focusout(function() {
+    if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+      $("#eau_aspersion_classique").css('border', '');
+        $("#eau_goutte_a_goutte").css('border', '');
+        $("#eau_epandage_de_crues").css('border', '');
+        $("#eau_gravitaire").css('border', '');
+        $("#eau_pivots").css('border', '');
+        $("#eau_enrouleur").css('border', '');
+        $("#eau_foggara_hec").css('border', '');
+        $("#eau_pluie_artificielle").css('border', '');
+        $("#eau_autre_hec").css('border', '');
+    }
 });
-$(document).on('input', '.Mode_irrigation', function() {
 
-    compareIrrigationTotals();
-});
+
+
+
+$(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
+$(document).on('input', '.Mode_irrigation', compareIrrigationTotals);
 
 // end  117 <= 64
 //124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
@@ -727,13 +754,13 @@ $(document).on('change', '[id^="status_juridique"]', function() {
 
     // Define the specific conditions under which the alert should be displayed
     if (origineValue === '6' &&  (statusValue === '2'|| statusValue === '3' )) {
-        $('.reference_cadastrale').prop('disabled', false); 
+        // $('.reference_cadastrale').prop('disabled', false); 
           $('#si_exploi_eac').prop('disabled', false); 
           $('#exploi_superficie_hec').prop('disabled', false); 
           $('#exploi_superficie_are').prop('disabled', false);
     }else{
 
-        $('.reference_cadastrale').prop('disabled', true); 
+        // $('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true); 
           $('#exploi_superficie_hec').prop('disabled', true); 
           $('#exploi_superficie_are').prop('disabled', true);
@@ -886,10 +913,11 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
 $('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
     var $row = $(this).closest('.row');
     var hectares = $row.find('[id^="superficie_hec_"]').val();
+    var irrigue = $row.find('[id^="superficie_are_"]').val();
 
 
 
-if(hectares){
+if(irrigue){
     $('#eau_bassin_d_accumulation').prop('disabled', false);
     $('#eau_bassin_geomembrane').prop('disabled', false);
     $('#eau_reservoir').prop('disabled', false);

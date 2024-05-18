@@ -4342,6 +4342,7 @@ Petite et Moyenne Hydraulique
                      <div class="card-header" style="text-align: center;">طريقة الري - Mode d'irrigation</div>
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                      <div class="card-body">
+                        
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
