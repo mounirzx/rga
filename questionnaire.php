@@ -813,9 +813,9 @@ l'exploitant est principal
         <option value="3">
           3 - مستأجر - Locataire
         </option>
-        <option value="4">
+        <!-- <option value="4">
           4 - مستثمر زراعي - Concessionnaire
-        </option>
+        </option> -->
       </select>
     </div>
   </div>
