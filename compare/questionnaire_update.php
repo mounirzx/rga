@@ -1342,14 +1342,14 @@ au réseau internet ?
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
    <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
-      <option selected="">-</option>
+      <option selected disabled value="-"></option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
@@ -1358,21 +1358,26 @@ acte de concession ?
 
    </div>
    <div class="col-4">
-   <div class="input-group input-group-sm">
- <div  hidden class="qst-num zxcount"></div>
- <div   class="qst-num">46</div>
-
-
-               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
-               le Référence cadastrale <br> مرجع مسح الأراضي
-               </span>
-               
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
-
-
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale 
+   </div>
+   <div class="card-body" style="padding: 5px;">
+    <span class="fontbneder11" style="padding-left: 50px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
+</div>
 
 
    </div>
+
+
 </div>
 </div>
 
@@ -1401,7 +1406,7 @@ acte de concession ?
     <div class="row" style="text-align:center;">
         <div class="col-2"></div>
         <div class="col-3">
-            عدد األعضاء<br>
+            عدد الأعضاء<br>
             Nombre des exploitants
         </div>
         <div class="col">
@@ -1465,6 +1470,8 @@ acte de concession ?
 <div id='sans_terre'>
 
 
+
+            <div style="border-top: 3px solid red;"></div>
 <br>
             <h6 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h6>
             <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px;"></div>
@@ -1515,6 +1522,7 @@ acte de concession ?
            
                Are - آر
             </div>
+          
           
 </div>
 
@@ -1777,7 +1785,6 @@ acte de concession ?
 
 
 
-
          
             <div style="border-top: 3px solid red;"></div><br>
 <h6 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h6>
@@ -1798,10 +1805,10 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
-     <div class="col-6" style="padding-right:75px;">
+     <div class="col-6">
         رقم الزراعة
         <br>
         Code culture 
@@ -1809,30 +1816,28 @@ acte de concession ?
   
  
 
-     <div class="col-1" >
+     <div class="col" style="padding-left: 23px;">
 
        جافة  <br> En sec
      </div>
-     <div class="col-2" >
+     <div class="col" >
 
        مروية <br> En irriguée
      </div>
-     <div class="col" >
+     <div class="col" style="padding-right: 46px;">
        مقحمة<br>
        En intercalaire
      </div>
-     <div class="col-1"></div>
+     
    </div>
    
    </div>
    <br>
-
-
    <div id="formContainer2">
-        <div class="row " style="margin-bottom: 10px;">
+        <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
+              <select InptSZ class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -2094,18 +2099,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire code_culture_s"  value="">
               </div>
               </div>
            
@@ -2117,8 +2122,6 @@ acte de concession ?
           </div>
         </div>
       </div>
-
-      
       <script>
 
 
@@ -2292,6 +2295,10 @@ document.getElementById('addForm2').addEventListener('click', function() {
     
 </div>
 <br>
+
+
+               
+ <!-- TODO  -->
 
 
            
@@ -2657,6 +2664,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             </div>
 
             <div style="border-top: 3px solid red;"></div>
+
 
         
 
@@ -3067,7 +3075,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             </div>
             <div class="col">
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
             </div>
           </div>
@@ -3150,7 +3158,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                            <div class="col">
                            <span>   العدد - Nombre
                            </span>
-                           <span style="margin-left: 48px;">
+                           <span style="margin-left: 78px;">
                                                          المساحة(م²)-Surface(m²)</span>
                            </div>
   <div class="col-2"></div>
@@ -3192,7 +3200,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <div class="col"style="padding-left: 5px;">
       <span>   العدد - Nombre
     </span>
-     <span style="margin-left: 48px;">
+     <span style="margin-left: 70px;">
         المساحة(م²)-Surface(m²)</span>
       </div>
       <div class="col-2"></div>
@@ -3254,7 +3262,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى صلب)</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3288,7 +3296,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بلاستيكية</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3337,7 +3345,9 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      </div>
 
                      <div class="col"  >
-                        المساحة (م²) - Surface (m²)
+                     <span style="margin-left: 35px;">
+                        المساحة(م²)-Surface(m²)     
+                        </span>
                      </div>
                      <div class="col-2"></div>
 
@@ -3352,7 +3362,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <tr>
       <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفالحية</p>
+      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفلاحية</p>
       <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
@@ -3370,7 +3380,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفلاحي</p>
                      <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
@@ -3560,7 +3570,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <div class="col">
                      <span >    العدد - Nombre
                         </span>
-                           <span style="margin-left: 42px;">
+                           <span style="margin-left: 74px;">
                      السعة (م²) - Capacité (m3) </span>
                      </div>
                      <div class="col-2"></div>
@@ -3602,8 +3612,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
            
 
             <div style="border-top: 3px solid red;"></div>
-            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
-            <br>
+                        <br>
             <h6>VIII- Matériel agricole العتاد الفلاحي</h6>
             <br>
             <div style="border-top: 1px solid red; width:150px; margin:-20px 0px 0px 50px; "></div>
@@ -3611,7 +3620,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
-                  ما هي طريقة إستغالل العتاد الفالحي ؟
+                  ما هي طريقة إستغالل العتاد الفلاحي ؟
                       <br>
                       Le mode d'exploitation du matériel agricole ? 
                   </span>
@@ -3636,38 +3645,32 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <br>
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
-العتاد الفالحي 
-<br>
+<b>
+العتاد الفلاحي 
+-
  matériel agricole 
-
+</b>
 
                      </div>
     <div class="card-body" style="padding-top: 0px;">
-       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
-       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <!-- <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;"> -->
        <div class="row">
-          
+         <div class="col"><br></div>
           </div>
           <div class="row" style="text-align: center;">
             <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
             <div class="col-4" style="text-align: center;" >
-         نوع وعدد العتاد الفالحي ؟
+         نوع وعدد العتاد الفلاحي ؟
 <br>
 Type et nombre du matériel agricole ? 
-<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-Code matériel</span>
-
-
-
-
-<sapn>Nombre - العدد</sapn>
+ <br>
          </div>
         
         
         <div class="col">
- <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
+ <div style="margin:-13px 7px -2px -126px;" class="qst-num zxcount"></div>
 
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
                         <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
@@ -3677,11 +3680,11 @@ Code matériel</span>
                         </div>
                      </div>
                   </div>
-                  <div class="col">
- <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
+                  <div class="col" style="padding-right: 48px;">
+ <div style=" margin: -13px 30px -2px -126px;" class="qst-num zxcount"></div>
 
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
-                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
+                        <div class="fontbneder22" style="text-align: center;padding:0px!important;">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
@@ -3692,14 +3695,26 @@ Code matériel</span>
 
 
       </div>
+      <br>
+       <div style="margin-top:-1px;height: 40px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <div class="row" style="text-align: center;background-color: #d4e7fe;">
+       <!-- <div class="col"></div> -->
+       <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
+       Code matériel</span></div>
+       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-7"></div>
+      
+ 
+ 
+ 
+ 
+
       </div>
       </div>
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+
+      
+
       <script>
 
 </script>
