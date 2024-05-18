@@ -6,8 +6,7 @@ $(document).ready(function() {
      
 
 
-
-
+     checkirrigue() ;
      $('#eau_bassin_d_accumulation').prop('disabled', true);
      $('#eau_bassin_geomembrane').prop('disabled', true);
      $('#eau_reservoir').prop('disabled', true);
@@ -1020,14 +1019,9 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
     checkAndDisableIntercalaire($row);
 });
 
-// Check when other fields are updated
-$('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
-    var $row = $(this).closest('.row');
-    var hectares = $row.find('[id^="superficie_hec_"]').val();
-    var irrigue = $row.find('[id^="superficie_are_"]').val();
 
 
-
+function checkirrigue(){
 if(irrigue){
     $('#eau_bassin_d_accumulation').prop('disabled', false);
     $('#eau_bassin_geomembrane').prop('disabled', false);
@@ -1048,7 +1042,16 @@ if(irrigue){
     $('#eau_autres_1').prop('disabled', true);
 }
 
-    
+}
+checkirrigue() ;
+
+// Check when other fields are updated
+$('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
+    var $row = $(this).closest('.row');
+    var hectares = $row.find('[id^="superficie_hec_"]').val();
+    var irrigue = $row.find('[id^="superficie_are_"]').val();
+
+    checkirrigue() ;
 
 
     var ares = $row.find('[id^="superficie_are_"]').val();
