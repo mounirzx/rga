@@ -8,14 +8,14 @@ $(document).ready(function() {
 
 
 
-    //  $('#eau_bassin_d_accumulation').prop('disabled', true);
-    //  $('#eau_bassin_geomembrane').prop('disabled', true);
-    //  $('#eau_reservoir').prop('disabled', true);
-    //  $('#eau_citrene_souple').prop('disabled', true);
-    //  $('#eau_mare_deau').prop('disabled', true);
-    //  $('#eau_ced').prop('disabled', true);
-    //  $('#eau_digue').prop('disabled', true);
-    //  $('#eau_autres_1').prop('disabled', true);
+     $('#eau_bassin_d_accumulation').prop('disabled', true);
+     $('#eau_bassin_geomembrane').prop('disabled', true);
+     $('#eau_reservoir').prop('disabled', true);
+     $('#eau_citrene_souple').prop('disabled', true);
+     $('#eau_mare_deau').prop('disabled', true);
+     $('#eau_ced').prop('disabled', true);
+     $('#eau_digue').prop('disabled', true);
+     $('#eau_autres_1').prop('disabled', true);
 
 
 
@@ -202,18 +202,18 @@ formContainer.addEventListener('click', function(event) {
 // total_source
 $('#forage, #puits, #source').change(function() {
     
-      var isChecked = $(this).prop('checked');
-      var inputElement = $(this).closest('.form-check').find('.bneder-input');
-      
-      if (isChecked) {
-          inputElement.show();
-      } else {
-          inputElement.hide();
-          $('#total_forage').val('')
-          $('#total_puits').val('')
-          $('#total_source').val('')
-      }
-  });
+    var isChecked = $(this).prop('checked');
+    var inputElement = $(this).closest('.form-check').find('.bneder-input');
+    
+    if (isChecked) {
+        inputElement.show();
+    } else {
+        inputElement.hide();
+        $('#total_forage').val('')
+        $('#total_puits').val('')
+        $('#total_source').val('')
+    }
+});
 
   function calculateTotalFamilyMembers() {
       var total = 0;
@@ -285,7 +285,7 @@ function toggleElements($elements, disabled) {
   toggleByCheckbox($('#fa_soutien_public'), $('#fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), true);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la case à cocher "Ressources propres"
-  //toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), false);
+  toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), false);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la sélection de l'assurance agricole
   $('#fa_avez_vous_contracte_une_assurance_agricole').change(function() {
@@ -420,8 +420,8 @@ function calculateTotalSupIrrigation() {
         totalAres += ares;
     });
     return totalAres;
-
 }
+
 function calculateTotalModeIrrigation() {
     var total = 0;
     // Loop through each input field with class 'Mode_irrigation'
@@ -434,25 +434,52 @@ function calculateTotalModeIrrigation() {
 function compareIrrigationTotals() {
     var totalAres = calculateTotalSupIrrigation();
     var totalModeIrrigation = calculateTotalModeIrrigation();
-    // console.log("totalAres: "+totalAres);
-    // console.log("totalModeIrrigation: "+totalModeIrrigation);
-    if (totalAres <=  totalModeIrrigation) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent) * 0.05;
+    console.log("threshold: " + threshold);
+
+    var difference = Math.abs(totalAres5Percent - totalModeIrrigation5Percent);
+    console.log("difference: " + difference);
+
+    if (difference > threshold) {
+        var $message = $('<div>').addClass('error-message').text("Erreur: La somme des surfaces de culture irriguées est différente de la somme des equipments d'érigéron");
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+            
         });
+        $('#error_messages_irri').empty().append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
     }
 }
-$(document).on('input', '[id^="superficie_are_"]', function() {
 
-
-    compareIrrigationTotals();
+$('.Mode_irrigation').focusout(function() {
+    if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+      $("#eau_aspersion_classique").css('border', '');
+        $("#eau_goutte_a_goutte").css('border', '');
+        $("#eau_epandage_de_crues").css('border', '');
+        $("#eau_gravitaire").css('border', '');
+        $("#eau_pivots").css('border', '');
+        $("#eau_enrouleur").css('border', '');
+        $("#eau_foggara_hec").css('border', '');
+        $("#eau_pluie_artificielle").css('border', '');
+        $("#eau_autre_hec").css('border', '');
+    }
 });
-$(document).on('input', '.Mode_irrigation', function() {
 
-    compareIrrigationTotals();
-});
+
+
+
+$(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
+$(document).on('input', '.Mode_irrigation', compareIrrigationTotals);
 
 // end  117 <= 64
 //124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
@@ -997,27 +1024,28 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
 $('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
     var $row = $(this).closest('.row');
     var hectares = $row.find('[id^="superficie_hec_"]').val();
+    var irrigue = $row.find('[id^="superficie_are_"]').val();
 
 
 
-if(hectares){
-    // $('#eau_bassin_d_accumulation').prop('disabled', false);
-    // $('#eau_bassin_geomembrane').prop('disabled', false);
-    // $('#eau_reservoir').prop('disabled', false);
-    // $('#eau_citrene_souple').prop('disabled', false);
-    // $('#eau_mare_deau').prop('disabled', false);
-    // $('#eau_ced').prop('disabled', false);
-    // $('#eau_digue').prop('disabled', false);
-    // $('#eau_autres_1').prop('disabled', false);
+if(irrigue){
+    $('#eau_bassin_d_accumulation').prop('disabled', false);
+    $('#eau_bassin_geomembrane').prop('disabled', false);
+    $('#eau_reservoir').prop('disabled', false);
+    $('#eau_citrene_souple').prop('disabled', false);
+    $('#eau_mare_deau').prop('disabled', false);
+    $('#eau_ced').prop('disabled', false);
+    $('#eau_digue').prop('disabled', false);
+    $('#eau_autres_1').prop('disabled', false);
 }else{
-    // $('#eau_bassin_d_accumulation').prop('disabled', true);
-    // $('#eau_bassin_geomembrane').prop('disabled', true);
-    // $('#eau_reservoir').prop('disabled', true);
-    // $('#eau_citrene_souple').prop('disabled', true);
-    // $('#eau_mare_deau').prop('disabled', true);
-    // $('#eau_ced').prop('disabled', true);
-    // $('#eau_digue').prop('disabled', true);
-    // $('#eau_autres_1').prop('disabled', true);
+    $('#eau_bassin_d_accumulation').prop('disabled', true);
+    $('#eau_bassin_geomembrane').prop('disabled', true);
+    $('#eau_reservoir').prop('disabled', true);
+    $('#eau_citrene_souple').prop('disabled', true);
+    $('#eau_mare_deau').prop('disabled', true);
+    $('#eau_ced').prop('disabled', true);
+    $('#eau_digue').prop('disabled', true);
+    $('#eau_autres_1').prop('disabled', true);
 }
 
     
