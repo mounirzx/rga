@@ -634,7 +634,7 @@ Sexe</span>
 
             <div class="row">
                <div class="col">
-               <div id="error_message" style="color: red;"></div>
+            
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
           
@@ -1208,7 +1208,7 @@ au réseau internet ?
 
                             <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                                <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                               <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option class="fontbneder2" value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
                                 <option class="fontbneder2" value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
                                 <option class="fontbneder2" value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
@@ -1216,7 +1216,7 @@ au réseau internet ?
                                 <option class="fontbneder2" value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
                                 <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
-                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option>
+                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option> 
                             </select>
 
                             </div>
@@ -2896,7 +2896,7 @@ $(document).ready(function(){
             <br>
             <br>
 
-
+            <div id="error_message_elvage" style="color: red;"></div>
 
             <div class="card" style="font-size: 12px;">
                 <div class="card-body" >
