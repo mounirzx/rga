@@ -26,40 +26,9 @@ include('includes/header.php');
 
          <div class="card-body">
  
-         <div class="row" style="color: #495057;">
-    <div class="col">
-        <div style="font-weight: bold; font-size: 11px !important; text-align: center;">
-            <b>REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</b><br />
-            MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL<br />
-            DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE<br />
-        </div>
-    </div>
-    <div class="col">
-        <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
-        <!-- <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
-            <b>
-                <br />
-                الاحصاء العام للفلاحة
-            </b>
-            <br />
-            Recensement Générale de l'Agriculture<br />
-            <br />
-        </div> -->
-    </div>
-    <div class="col">
-        <div style="font-weight: bold; font-size: 16px !important; text-align: center;">
-            <b>
-                الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية<br />
-                <br />
-                وزارة الفلاحة و التنمية الريفية<br />
-                <br />
-                مديرية الاحصائيات و الرقمنة و الاستشراف
-            </b>
-            <br />
-        </div>
-    </div>
-</div>
-
+         <?php
+include('includes/head.php');
+?>
          <form id="info_form" method="post">
     
 
@@ -1528,7 +1497,7 @@ acte de concession ?
          <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
-    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
+    <p  style="margin: 0px 0px 0px 25px;"> Cultures herbacées</p>
 </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -4281,10 +4250,12 @@ Petite et Moyenne Hydraulique
             <br>
             <div class="row">
                <div class="col">
+                
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;">طريقة الري - Mode d'irrigation</div>
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                      <div class="card-body">
+
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
@@ -4315,18 +4286,18 @@ Petite et Moyenne Hydraulique
  
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4334,17 +4305,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       
     </div>
@@ -4352,22 +4323,25 @@ Petite et Moyenne Hydraulique
      
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
+        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
     </div>
   </div>
+  <div id="error_messages_irri"></div>
+                  <br>
 </div>
+
                   </div>
                </div>
                </div>

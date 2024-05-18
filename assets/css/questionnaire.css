@@ -209,3 +209,63 @@ input[bleuBG]:focus-within {
 .input-error, .input-error:focus-within  {
     border: 2px solid red !important;
 }
+.headertitlefr1 {
+    font-weight: bold !important;
+    margin: 0;
+    font-size: 9px!important;
+}
+.headertitlefr2 {
+    font-weight: 600; /* Medium weight */
+    font-size: 9px!important;
+    margin: 10px 0px 0px 0px;
+
+
+}
+.headertitlefr3 {
+    font-weight: normal; /* No bold */
+    margin: 0;
+    font-size: 9px!important;
+    margin:6px 0px 0px 0px;
+
+}
+.headertitlefr4{
+    font-weight: bold; /* No bold */
+    margin: 0;
+    font-size: 9px!important;
+    margin:6px 0px 0px 0px;
+
+}
+
+.headertitlear1 {
+    font-weight: bold !important;
+    margin: 0;
+    font-size: 14px!important;
+    
+}
+.headertitlear2 {
+    font-weight: 600; /* Medium weight */
+    font-size: 13px!important;
+    margin: 10px 0px 0px 0px;
+
+}
+.headertitlear3 {
+    font-weight: normal; /* No bold */
+    margin: 0;
+    font-size: 11px!important;
+    margin: 13px 0px 0px 0px;
+}
+.headertitlear4{
+    font-weight: bold; /* No bold */
+    margin: 0;
+    font-size: 12px!important;
+    margin: 1px 0px 0px 0px;
+
+}
+[demotionLogo]{
+    max-width: 41%;
+/* min-width: 50%; */
+margin: 5px;
+bottom: 137px;
+left: 222px;
+position: relative;
+}
