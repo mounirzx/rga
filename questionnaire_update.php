@@ -1467,7 +1467,6 @@ acte de concession ?
 
 
 
-<div id='sans_terre'>
 
 
 
@@ -1536,11 +1535,14 @@ acte de concession ?
 
 
 
-<table class="table table-sm">
-     <div id="superficieExploitation"></div>
-</div>
-</div>
-</div>
+
+     <div id="superficieExploitation">
+
+
+     </div>
+     </div>
+     </div>
+     </div>
 
 
 
@@ -2661,8 +2663,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             <br>
 
 
-            </div>
-
+         
             <div style="border-top: 3px solid red;"></div>
 
 
@@ -3719,13 +3720,169 @@ Type et nombre du matériel agricole ?
 
 </script>
 <div id="formContainer3">
-
+  <div class="row code_materiel_s" style="margin-bottom: 10px;">
+    <div class="col-3">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
+        Code matériel</span> <select  class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+          <option selected disabled>
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            اآلالت - Engins
+          </option>
+          <option value="1">
+            1 - جرار ذو عجلات &lt;=45 حص - Tracteur à roue &lt;=45 CV
+          </option>
+          <option value="2">
+            2 - جرار ذو عجلات65-45 حص - Tracteur à roue 45 CV- 65CV
+          </option>
+          <option value="3">
+            3 - جرار ذو عجلات &gt;65 حص - Tracteur à roue &gt;65 CV
+          </option>
+          <option value="4">
+            4 - جرار ذو سلاسل&lt;=80حص - Tracteur à chenilles &lt;=80 CV
+          </option>
+          <option value="5">
+            5 - جرار ذو سلاسل&gt;80حص - Tracteur à chenilles &gt; 80 CV
+          </option>
+          <option value="6">
+            6 - جرار صغير - Motoculteur
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            المعدات الزراعية - Matériel aratoire
+          </option>
+          <option value="7">
+            7 - محراث - Charrue
+          </option>
+          <option value="8">
+            8 - مغطي المزروعات - Cover croop
+          </option>
+          <option value="9">
+            9 - مسلفة - Herse
+          </option>
+          <option value="10">
+            10 - آلة زرع - Cultivateur
+          </option>
+          <option value="11">
+            11 - آلة بذر - Semoir
+          </option>
+          <option value="12">
+            12 - آلة غرس البطاطا - Planteuse pomme de terre
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات المعالجة والتسميد الزراعي - Matériel de traitement et de fertilisation aratoire
+          </option>
+          <option value="13">
+            13 - ناثر الأسمدة - Epandeur d’engrais
+          </option>
+          <option value="14">
+            14 - آلة الرش والرذاذ - Pulvérisateur, atomiseurs
+          </option>
+          <option value="15">
+            15 - آلة السحق المقطورة - Poudreuses tractées
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات الحصاد - Matériel de récolte
+          </option>
+          <option value="16">
+            16 - آلة حصاد و درس 6م - Moissonneuse-batteuse 6m
+          </option>
+          <option value="17">
+            17 - آلة حصاد و درس 3م - Moissonneuse-batteuse 3m
+          </option>
+          <option value="18">
+            18 - آلة الحش - Faucheuse
+          </option>
+          <option value="19">
+            19 - آلة الجمع والربط - Ramasseuse-presse
+          </option>
+          <option value="20">
+            20 - آلة قلع البطاطا - Arracheuse pomme de terre
+          </option>
+          <option value="21">
+            21 - الة حصد الاعلاف - Ensileuse
+          </option>
+          <option value="22">
+            22 - الة التغليف - Emrubaneuse
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات النقل - Matériel roulant
+          </option>
+          <option value="23">
+            23 - مركبة خفيفة - Véhicules légers
+          </option>
+          <option value="24">
+            24 - مركبة ثقيلة - Véhicules lourds
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات أخرى - Divers matériel
+          </option>
+          <option value="25">
+            25 - مقطورة - Remorque
+          </option>
+          <option value="26">
+            26 - صهريج - Citerne
+          </option>
+          <option value="27">
+            27 - مضخة ميكانيكية - Motopompe
+          </option>
+          <option value="28">
+            28 - مضخة كهربائية - Electropompe
+          </option>
+          <option value="29">
+            29 - عتاد آخر - Autre matériel
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+        Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" maxlength="3" num="" class="form-control code_materiel_s" value="">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en proprièté - ملكية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en location - إجار
+          </option>
+          <option class="fontbneder2" value="3">
+            3- en prêt - إستلاف
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en individuel - فردية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en collectif - جماعية
+          </option>
+          <option class="fontbneder2" value="3">
+            3- Mixte - مختلطة
+          </option>
+        </select>
+      </div>
+      <div class="col-2"></div>
+    </div>
     <div class="col-1">
       <div class="d-grid gap-2">
-        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+        <button style="width: 50px;top: 110px;position: absolute;height: 35px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
       </div>
     </div>
   </div>
+</div>
 </div>
       <script>
 
@@ -3775,6 +3932,7 @@ $('#formContainer3').on('change', 'select', function() {
 
 // Handle the addition of new rows
 $('#addForm3').click(function() {
+ 
     var formContainer = $('#formContainer3');
     var formRow = formContainer.children('.row').first().clone();
     formRow.find('input').val('');
@@ -3818,6 +3976,7 @@ $('#addForm3').click(function() {
 
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
+            <br>
             <h6 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h6>
             <div style="border-top: 1px solid red; width:170px; margin:-20px 0px 0px 40px; "></div>
             <br>
@@ -3829,11 +3988,10 @@ $('#addForm3').click(function() {
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder2 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
-
+                  <option class="fontbneder2" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder2" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
               </select>
 
 
@@ -3888,9 +4046,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <div style="margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" >
+        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -3900,9 +4058,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input pm_hydraulique" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <div   style="margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique"  >
+              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -3912,9 +4070,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <div   style=" margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style=" display:none; margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder"  >
+              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder" style="display:none;" >
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -3957,12 +4115,12 @@ Petite et Moyenne Hydraulique
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:28px; font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:37px; font-size: 10px !important;" class="col-4">
   
       المساحة (هكتار) <br>
       
@@ -3971,7 +4129,7 @@ Petite et Moyenne Hydraulique
       </div>
     
 
-      <div style=" font-size: 10px !important;" class="col">
+      <div style="padding-left:45px; font-size: 10px !important;" class="col">
       
       
       المساحة (هكتار) <br>
@@ -3979,9 +4137,9 @@ Petite et Moyenne Hydraulique
       
       Superficie(ha)
       </div>
-    </div><br>
+    </div>
     <div class="col">
-      <br>
+ 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
@@ -3999,7 +4157,7 @@ Petite et Moyenne Hydraulique
       </div><br>
     </div>
     <div class="col">
-      <br>
+     
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
@@ -4018,7 +4176,7 @@ Petite et Moyenne Hydraulique
       
     </div>
     <div class="col">
-      <br>
+     
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
         Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
@@ -4186,10 +4344,10 @@ Petite et Moyenne Hydraulique
                <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     <div class="col fontbneder11" style="padding-right: 21px;">
                      ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
@@ -4300,7 +4458,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        العاملة اليد نوعية 
+                        نوعية اليدالعاملة   
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>
@@ -4310,10 +4468,10 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
                      <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     <div class="col fontbneder11" style="padding-right: 21px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
@@ -4404,11 +4562,11 @@ Petite et Moyenne Hydraulique
    <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                        ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4542,9 +4700,7 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p class="fontbneder11" style="margin-left: -4px;">
-                     ذكور - Masculin - إناث - Féminin
-         </p>
+             
                      </div>
                      <div class="col" style="text-align: center;">
                      <div class="qst-num ">129</div>
@@ -4557,13 +4713,18 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <span  class="fontbneder11" style="margin-left: 3px;">
 
-                     ذكور - Masculin - إناث - Féminin
-
-                     </span>
                      </div>
                      <div class="col-1">  </div>
+                  </div>
+                  <div class="row" style="text-align: center;">
+                     <div class="col-2"></div>
+                     <div class="col fontbneder11" style="padding-left: 75px;">
+                        ذكور - Masculin - إناث - Féminin
+                     </div>
+                     <div class="col fontbneder11" style="padding-right: 71px;">
+                     ذكور - Masculin - إناث - Féminin
+                     </div>
                   </div>
                   <table  class="table table-sm">
                <tbody>
@@ -5057,7 +5218,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5074,7 +5235,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
@@ -5178,11 +5339,13 @@ Petite et Moyenne Hydraulique
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
-                      Prestataire de servicessitués dans la commune ?                  </span>
-               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+                      Prestataire de services situés dans la commune ?
+     
+                                  </span>
+               <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
-                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
-                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
+                  <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder2" value="2">2 - Non - لا</option>
               </select>
                   
             
@@ -5204,7 +5367,7 @@ Petite et Moyenne Hydraulique
                <div class="card">
                <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                   <div class="card-header" style="text-align: center;">
-                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité (multichoice)
+                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité 
                   </div>
                   <div class="card-body">
                      <div class="row">
@@ -5333,7 +5496,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
-                              بيع المباشر - Vente directe
+                              بيع مباشر - Vente directe
                               </label>
                            </div>
                         </div>
@@ -5342,7 +5505,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
 
                               <label class="form-check-label" for="ee_consommationauto">
-                            استهالك ذاتي - consommation-Auto 
+                            استهالك ذاتي - Auto-consommation
                               </label>
                            </div>
                         </div>
@@ -5463,6 +5626,13 @@ Petite et Moyenne Hydraulique
                <br>
                <br>
 <!-- Mounir's part end  -->
+
+
+
+
+
+
+
 
 
 
@@ -6016,11 +6186,13 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
         tableHTML += '</tr>';
+       
 
 
 });
 
 tableHTML += '</tbody></table>';
+
 $('#superficieExploitation').append(tableHTML);
 
 
