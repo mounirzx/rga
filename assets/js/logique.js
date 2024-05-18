@@ -8,14 +8,14 @@ $(document).ready(function() {
 
 
 
-     $('#eau_bassin_d_accumulation').prop('disabled', true);
-     $('#eau_bassin_geomembrane').prop('disabled', true);
-     $('#eau_reservoir').prop('disabled', true);
-     $('#eau_citrene_souple').prop('disabled', true);
-     $('#eau_mare_deau').prop('disabled', true);
-     $('#eau_ced').prop('disabled', true);
-     $('#eau_digue').prop('disabled', true);
-     $('#eau_autres_1').prop('disabled', true);
+    //  $('#eau_bassin_d_accumulation').prop('disabled', true);
+    //  $('#eau_bassin_geomembrane').prop('disabled', true);
+    //  $('#eau_reservoir').prop('disabled', true);
+    //  $('#eau_citrene_souple').prop('disabled', true);
+    //  $('#eau_mare_deau').prop('disabled', true);
+    //  $('#eau_ced').prop('disabled', true);
+    //  $('#eau_digue').prop('disabled', true);
+    //  $('#eau_autres_1').prop('disabled', true);
 
 
 
@@ -209,6 +209,9 @@ $('#forage, #puits, #source').change(function() {
           inputElement.show();
       } else {
           inputElement.hide();
+          $('#total_forage').val('')
+          $('#total_puits').val('')
+          $('#total_source').val('')
       }
   });
 
@@ -282,7 +285,7 @@ function toggleElements($elements, disabled) {
   toggleByCheckbox($('#fa_soutien_public'), $('#fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), true);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la case à cocher "Ressources propres"
-  toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), false);
+  //toggleByCheckbox($('#fa_propres_ressources'), $('#fa_ettahadi, #fa_classique, #fa_leasing, #fa_rfig, #fa_financiere, #fa_materiel, #fa_culture, #fa_intrants'), false);
   
   // Activer ou désactiver les éléments spécifiques en fonction de la sélection de l'assurance agricole
   $('#fa_avez_vous_contracte_une_assurance_agricole').change(function() {
@@ -998,23 +1001,23 @@ $('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superfic
 
 
 if(hectares){
-    $('#eau_bassin_d_accumulation').prop('disabled', false);
-    $('#eau_bassin_geomembrane').prop('disabled', false);
-    $('#eau_reservoir').prop('disabled', false);
-    $('#eau_citrene_souple').prop('disabled', false);
-    $('#eau_mare_deau').prop('disabled', false);
-    $('#eau_ced').prop('disabled', false);
-    $('#eau_digue').prop('disabled', false);
-    $('#eau_autres_1').prop('disabled', false);
+    // $('#eau_bassin_d_accumulation').prop('disabled', false);
+    // $('#eau_bassin_geomembrane').prop('disabled', false);
+    // $('#eau_reservoir').prop('disabled', false);
+    // $('#eau_citrene_souple').prop('disabled', false);
+    // $('#eau_mare_deau').prop('disabled', false);
+    // $('#eau_ced').prop('disabled', false);
+    // $('#eau_digue').prop('disabled', false);
+    // $('#eau_autres_1').prop('disabled', false);
 }else{
-    $('#eau_bassin_d_accumulation').prop('disabled', true);
-    $('#eau_bassin_geomembrane').prop('disabled', true);
-    $('#eau_reservoir').prop('disabled', true);
-    $('#eau_citrene_souple').prop('disabled', true);
-    $('#eau_mare_deau').prop('disabled', true);
-    $('#eau_ced').prop('disabled', true);
-    $('#eau_digue').prop('disabled', true);
-    $('#eau_autres_1').prop('disabled', true);
+    // $('#eau_bassin_d_accumulation').prop('disabled', true);
+    // $('#eau_bassin_geomembrane').prop('disabled', true);
+    // $('#eau_reservoir').prop('disabled', true);
+    // $('#eau_citrene_souple').prop('disabled', true);
+    // $('#eau_mare_deau').prop('disabled', true);
+    // $('#eau_ced').prop('disabled', true);
+    // $('#eau_digue').prop('disabled', true);
+    // $('#eau_autres_1').prop('disabled', true);
 }
 
     
