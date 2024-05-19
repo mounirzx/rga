@@ -1304,6 +1304,7 @@ au réseau internet ?
 
    <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
+   
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
@@ -1314,48 +1315,9 @@ acte de concession ?
       <option value="2">2 - Non - لا</option>
    </select>
 </div>
-
-
-   </div>
-   <div class="col-4">
-   <div class="card">
-   <div class="card-header" style="text-align:center;">
-      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
-      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
-      مرجع مسح الأراضي
-      <br>
-      le Référence cadastrale 
-   </div>
-   <div class="card-body" style="padding: 5px;">
-    <span class="fontbneder11" style="padding-left: 50px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
-    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
-        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
-        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
-    </div>
-</div>
-
-
-</div>
-
-
-</div>
-</div>
-
-
-
-
 <br>
  
-
-
-
-
-
- <br>
-
-
-
- <div class="card" style="font-size: 12px;">
+<div class="card" style="font-size: 12px;">
     <div class="card-header" style="text-align: center;">
       <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
       <div class="qst-num" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">45</div>
@@ -1394,7 +1356,7 @@ acte de concession ?
         </div>
         <div class="col-4">
             
-                    <div class="input-group input-group-sm" style="padding-left:10px;">
+                    <div class="input-group input-group-sm" >
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
                         <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
@@ -1407,6 +1369,47 @@ acte de concession ?
     <br>
 </div>
  
+
+   </div>
+   <div class="col-4" style="padding-top:49px">
+ 
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale 
+   </div>
+   <div class="card-body">
+    <span class="fontbneder11" style="padding-left: 39px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+
+<br>
+ 
+
+
+
+
+
+ <br>
+
+
+
 
 
 <br/>
