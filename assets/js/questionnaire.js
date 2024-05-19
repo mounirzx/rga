@@ -154,6 +154,7 @@ function controleSatSumsjtest () {
    // console.log(lower_bound)
     // Check if SAT is within the range
     if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+      message="green"
      // console.log("green")
      }
     else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
