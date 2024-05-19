@@ -1252,7 +1252,7 @@ au réseau internet ?
 
  
                         <div class="col-3">
-                            <div style="max-width: 127px;" class="input-group input-group-sm">
+                            <div  class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
@@ -6351,7 +6351,7 @@ data.status_juridique.forEach(function(item) {
     status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
+        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
         '<option value="-">-</option>' +
         '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
         '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
@@ -6367,7 +6367,7 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="status_juridique" name="status_juridique">' +
+        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="status_juridique" name="status_juridique">' +
         '<option disabled value="-"></option>' +
         '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
         '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
@@ -6396,13 +6396,15 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
-        '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+        '<input id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are"  style="max-width: 45px;"  maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
        
         '</div>' +
         '</div>' +
         '<div class="col">' +
-        '<button style="width: 28px; position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm" type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
+        '<div class="d-grid gap-2">'+
+        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46"type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
+        '</div>' +
         '</div>' +
         '</div>';
 });
