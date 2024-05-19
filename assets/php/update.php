@@ -91,9 +91,9 @@ $form = json_decode(file_get_contents("php://input"), true);
         @$id_questionnaire = $cleResult['id_questionnaire'];
 
         if ($id_status_juridique > 0) {
-            // $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
-            // $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-            // $deleteStmt->execute();
+            $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
+            $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+            $deleteStmt->execute();
             // Insert new record if the questionnaire does not exist
             foreach ($formDataArrayStatut as $formData) {
                 if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {

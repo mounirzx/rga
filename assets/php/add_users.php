@@ -110,7 +110,6 @@ try {
 
     // Execute the request
     $response = curl_exec($ch);
-
     // Close cURL session
     curl_close($ch);
 
