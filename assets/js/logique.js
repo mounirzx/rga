@@ -359,7 +359,7 @@ function compareIrrigationTotals() {
     console.log("difference: " + difference);
 
     if (difference > threshold) {
-        var $message = $('<div>').addClass('error-message').text("Erreur: La somme des surfaces de culture irriguées est différente de la somme des equipments d'érigéron");
+        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des équipements d'irrigation.");
         $message.css({
             'font-weight': 'bold',
             'color': 'red',
@@ -388,10 +388,13 @@ $('.Mode_irrigation').focusout(function() {
 });
 
 
+$('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').on('input', function() {
+    compareIrrigationTotals();
+});
 
 
-$(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
-$(document).on('input', '.Mode_irrigation', compareIrrigationTotals);
+// $(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
+// $(document).on('input', '.Mode_irrigation', compareIrrigationTotals);
 
 // end  117 <= 64
 //124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
