@@ -4046,7 +4046,7 @@ Petite et Moyenne Hydraulique
         <!-- Input element to insert an integer value -->
         <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
+        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder"  >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
