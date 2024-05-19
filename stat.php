@@ -56,7 +56,7 @@ table.dataTable th, table.dataTable td{
 
 <?php
 
-if($_SESSION['role']=="superviseur_national"){
+if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
 
     ?> 
    <div class="card">
@@ -207,7 +207,7 @@ if($_SESSION['role']=="superviseur_national"){
         </div>
     </div>
 
-
+<input type="hidden" id="role" value="<?php  echo $_SESSION['role'] ?>"/>
         <hr>
         <div class="container">
             <div class="card">
@@ -298,7 +298,7 @@ if($_SESSION['role']=="superviseur_national"){
 
 
                 <?php
- }else{
+ }elseif($_SESSION['role']=="controleur"){
 
 
                 ?>

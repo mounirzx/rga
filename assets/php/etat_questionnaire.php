@@ -64,7 +64,7 @@ try {
 
         echo json_encode($output);
     } 
-    else if($role=='superviseur_national'){
+    else if($role=='superviseur_national'  || $role=='admin_central'){
 
         $req = $bdd->prepare('SELECT etat,   COUNT(DISTINCT id_questionnaire) AS total
         FROM questionnaire

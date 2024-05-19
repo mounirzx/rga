@@ -444,7 +444,7 @@ function compareIrrigationTotals() {
     console.log("difference: " + difference);
 
     if (difference > threshold) {
-        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des équipements d'irrigation.");
+        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des surfaces équipées d'irrigation.");
         $message.css({
             'font-weight': 'bold',
             'color': 'red',
@@ -1787,6 +1787,39 @@ $(document).ready(function(){
     }
    
 }
+
+
+
+
+
+
+
+
+$('#longitude_x_prefix').on('keypress', function() {
+    var inputValue = $(this).val();
+    // Regular expression to match numbers with optional decimal point
+    var regex = /^\d*\.?\d*$/;
+    if(!regex.test(inputValue)) {
+        $(this).val(inputValue.slice(0, -1)); // Remove last character if it's not valid
+    }
+});
+
+
+
+/******************************************************************************************** */
+
+//35
+$('#activite_exploitation').change(function(){
+
+    var activite_exploitation = $(this).val()
+    if(activite_exploitation=="3"){
+        $('#type_activite_exploitation').html('<option value="1">1 - لديه أرض - Avec terre</option>')
+    }else{
+        $('#type_activite_exploitation').html('  <option value="-" disabled selected><option value="1">1 - لديه أرض - Avec terre</option> <option value="2">2 - بدون أرض - Sans terre</option>')
+    }
+})
+
+
  });
  
  
