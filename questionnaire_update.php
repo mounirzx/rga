@@ -25,14 +25,6 @@ if (isset($_GET['id'])) {
      <br><br><br>
  <div class="quest">
      <div class="card">
-<<<<<<< Updated upstream
-    
-    <img src="static/header.png">
-
-         <div class="card-body">
- 
- 
-=======
    
  
 
@@ -41,7 +33,6 @@ if (isset($_GET['id'])) {
          <?php
 include('includes/head.php');
 ?>
->>>>>>> Stashed changes
          <form id="info_form" method="post">
     
 
@@ -218,7 +209,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار مخصص للمراقب   - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
@@ -358,7 +349,7 @@ if ($_SESSION['role'] == "recenseur") {
                       <br>
                       Le nom de la zone, lieu-dit (district)
                     </span>
-                    <input class="form-control"   id="nom_zone_district" />
+                    <input class="form-control bneder"   name="nom_zone_district" id="nom_zone_district" />
 
                  </div>
                  
@@ -382,7 +373,7 @@ if ($_SESSION['role'] == "recenseur") {
 
                     </span>
                   
-                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
+                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control bneder" name="num_zone_district" id="num_zone_district"  />
                     
                  </div>
             </div>
@@ -438,7 +429,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="col">
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">
+                    <span style="height:32px" class="input-group-text" id="basic-addon3">
                       تاريخ الميلاد <br> Date de naissance</span>
                     <select class="form-select " id="jour_de_naissance"  >
                        <option value="02"></option>
@@ -667,7 +658,7 @@ Sexe</span>
          <div class="col-7">
          <div class="input-group input-group-sm">
          <div class="qst-num zxcount"></div>
-            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
+            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمن
           
                Type d'assurance, si assuré</span>
 
@@ -780,7 +771,7 @@ l'exploitant est principal
 </span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفلاح - المستثمر <br>
       Type d'exploitant</span> 
       <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -792,15 +783,12 @@ l'exploitant est principal
         <option value="2">
           2 - مسير - Gérant
         </option>
-        <option value="2">
-          2 - مستأجر - Locataire
+        <option value="3">
+          3 - مستأجر - Locataire
         </option>
-<<<<<<< Updated upstream
-=======
         <!-- <option value="4">
           4 - مستثمر زراعي - Concessionnaire
         </option> -->
->>>>>>> Stashed changes
       </select>
     </div>
   </div>
@@ -950,7 +938,7 @@ géographique WGS 1984)
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+          Activité de l'exploitation</span> <select class="form-select fontbneder2 bneder" id="activite_exploitation" name="activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -967,7 +955,7 @@ géographique WGS 1984)
         </div><br>
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
-          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+          Si activité est l'élevage</span> <select class="form-select fontbneder2 bneder" id="type_activite_exploitation" name="type_activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -1024,29 +1012,24 @@ géographique WGS 1984)
         </div>
       </div>
     </div><br>
-    
     <br>
   </div>
   <div class="col">
     <div class="input-group input-group-sm">
     <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
+    <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
 <br>
 L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
       
          
-        <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+        <select class="form-select form-select fontbneder2 bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected disabled value="-">
             
           </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+          <option value="1">1 - Oui - نعم</option>
+      <option value="2">2 - Non - لا</option>
         </select>
    
     
@@ -1054,28 +1037,15 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text fontbneder11" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
-<<<<<<< Updated upstream
-</span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
-=======
 </span><select class="form-select fontbneder2 bneder" id="reseau_telephonique" name="reseau_telephonique">
 <option selected disabled value="-">
             
             </option>
             <option value="1">1 - Oui - نعم</option>
         <option value="2">2 - Non - لا</option>
->>>>>>> Stashed changes
         </select>
       </div>
 <br>
@@ -1086,8 +1056,8 @@ un réseau téléphonique ?
 <span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
 Si oui, 
 </span> <select class="form-select bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
-          <option selected>
-            -
+          <option selected disabled value="-">
+            
           </option>
           <option value="1">
             1 - Fixe  هاتف ثابت 
@@ -1108,49 +1078,24 @@ Si oui,
 اإلنترنت؟ <br>
 L'éxploiation est-elle connectée
 au réseau internet ?
-<<<<<<< Updated upstream
-</span> <select class="form-select bneder" id="reseau_internet" name="reseau_internet">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
-=======
 </span> <select class="form-select fontbneder2 bneder" id="reseau_internet" name="reseau_internet">
 <option selected disabled value="-">
  </option>
             <option value="1">1 - Oui - نعم</option>
         <option value="2">2 - Non - لا</option>
         </select>
->>>>>>> Stashed changes
     </select>
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p  class="input-group-text fontbneder11" id="basic-addon3" >
+   <p  class="input-group-text fontbneder2" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
-    لأغراض متعلقة بالفالحة؟
+    لأغراض متعلقة بالفلاحة؟
     <br>
     Si oui, utilisez-vous le réseau
-    internet pour des besoins
+    internet <br> pour des besoins
     agricoles ?
 </p> 
-<<<<<<< Updated upstream
-<select style="height:33px !important;" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
-=======
 <select style="height:55px !important;" class="form-select fontbneder2 bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
 <option selected disabled value="-">
             
@@ -1158,7 +1103,6 @@ au réseau internet ?
             <option value="1">1 - Oui - نعم</option>
         <option value="2">2 - Non - لا</option>
         </select>
->>>>>>> Stashed changes
     </select>
   </div>
       </div>
@@ -1190,23 +1134,26 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
-                  <div class="row"style="text-align: center;">
-   <div style="padding-top: 7px;" class="col-4">
+                  <div style="margin-top: 60px;height: 36px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
+                  <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
+   <div  class="col">
+   </div>
+
+   <div style="padding: 7px 110px 0px 0px;" class="col-4">
 
    الرمز - Code
    </div>
-   <div style="padding-top: 7px;" class="col-3">
+   <div style="padding: 7px 0px 0px 0px;" class="col-3">
   
    الرمز - Code
 </div>
 
 
 
-   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   <div class="col-4" style="padding-left: 71px;padding-top: 7px;">Hectare - هكتار 
    &nbsp;&nbsp;&nbsp;
  Are - آر </div>
-   <div class="col"></div>
+ 
 
 
  
@@ -1221,8 +1168,8 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
+                     <div class="col-5" style="padding-left: 70px;"><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3"style="padding-left: 40px;" ><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
                   <br>
@@ -1240,19 +1187,6 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-<<<<<<< Updated upstream
-                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
-                              <option selected="" disabled value="-"></option>
-                              <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                              <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                              <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                              <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                              <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-                              <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                              <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-                              <option BoldText value="8">8 - Wakf public وقف عام</option>
-                              <option BoldText value="9">9 - Inconnue مجهول</option>
-=======
                             <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
                                <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
@@ -1264,7 +1198,6 @@ au réseau internet ?
                                 <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
                                 <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
                                 <option class="fontbneder2" value="9">9 - Inconnue مجهول</option> 
->>>>>>> Stashed changes
                             </select>
                             </div>
                         </div>
@@ -1275,7 +1208,7 @@ au réseau internet ?
 
                         <div class="input-group input-group-sm">
 
-                                <select InptSZ class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <option  selected="" disabled>-</option>
                                     <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                     <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1314,55 +1247,13 @@ au réseau internet ?
 }
 </style>
 <script>
-$(document).ready(function(){
-    var selectedValues = []; // Array to hold the counts of each combined value selected
 
-    $(document).on('change', '.statut_juridique_check', function() {
-        var fullId = $(this).attr('id');
-        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
-
-        var val1 = $('#origine_des_terres_' + idPart).val() || "";
-        var val2 = $('#status_juridique_' + idPart).val() || "";
-        var cc = val1 + val2; // Combine the values to form a unique identifier
-
-        // Clear any previous error indication before any new validation
-        $('#origine_des_terres_' + idPart).removeClass('error');
-        $('#status_juridique_' + idPart).removeClass('error');
-
-        if(val1 === "" || val2 === "") {
-            console.log("Both selections are required.");
-            return; // Exit the function if one of the dropdowns is not selected
-        }
-
-        // Check if this combination already exists in the array
-        if($.inArray(cc, selectedValues) !== -1){
-            console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            $('#origine_des_terres_' + idPart).addClass('error');
-            $('#status_juridique_' + idPart).addClass('error');
-            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-        } else {
-            // If the combination is unique, add it to the array and ensure no error class is present
-            selectedValues.push(cc);
-        }
-    });
-});
 </script>
 
-<<<<<<< Updated upstream
-
-
-=======
  
->>>>>>> Stashed changes
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
@@ -1406,43 +1297,6 @@ $(document).ready(function(){
 
 
                   <script>
-<<<<<<< Updated upstream
-                  document.getElementById('addForm').addEventListener('click', function () {
-    const formContainer = document.getElementById('formContainer');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
-
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-        element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-        element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
-
-        // Remove the "disabled" attribute if present
-        element.removeAttribute('disabled');
-    });
-
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
-    removeButton.addEventListener('click', function () {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
-
-    formContainer.appendChild(formRow);
-
-    // Enable the cloned input elements inside the replicated HTML code
-    formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-        inputElement.removeAttribute('disabled');
-    });
-
- 
-});
-=======
->>>>>>> Stashed changes
 
                  </script>
                  
@@ -1459,14 +1313,14 @@ $(document).ready(function(){
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
    <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
-      <option selected="">-</option>
+      <option selected disabled value="-"></option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
@@ -1475,27 +1329,26 @@ acte de concession ?
 
    </div>
    <div class="col-4">
-   <div class="input-group input-group-sm">
- <div  hidden class="qst-num zxcount"></div>
- <div   class="qst-num">46</div>
-
-
-               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
-               le Référence cadastrale <br> مرجع مسح الأراضي
-               </span>
-               
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
-
-
-
-
-<<<<<<< Updated upstream
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale 
    </div>
-=======
+   <div class="card-body" style="padding: 5px;">
+    <span class="fontbneder11" style="padding-left: 50px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
 </div>
 
 
->>>>>>> Stashed changes
+</div>
+
+
 </div>
 </div>
 
@@ -1524,7 +1377,7 @@ acte de concession ?
     <div class="row" style="text-align:center;">
         <div class="col-2"></div>
         <div class="col-3">
-            عدد األعضاء<br>
+            عدد الأعضاء<br>
             Nombre des exploitants
         </div>
         <div class="col">
@@ -1585,9 +1438,10 @@ acte de concession ?
 
 
 
-<div id='sans_terre'>
 
 
+
+            <div style="border-top: 3px solid red;"></div>
 <br>
             <h6 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h6>
             <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px;"></div>
@@ -1639,6 +1493,7 @@ acte de concession ?
                Are - آر
             </div>
           
+          
 </div>
 
 
@@ -1651,11 +1506,14 @@ acte de concession ?
 
 
 
-<table class="table table-sm">
-     <div id="superficieExploitation"></div>
-</div>
-</div>
-</div>
+
+     <div id="superficieExploitation">
+
+
+     </div>
+     </div>
+     </div>
+     </div>
 
 
 
@@ -1900,7 +1758,6 @@ acte de concession ?
 
 
 
-
          
             <div style="border-top: 3px solid red;"></div><br>
 <h6 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h6>
@@ -1921,10 +1778,10 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
-     <div class="col-6" style="padding-right:75px;">
+     <div class="col-6">
         رقم الزراعة
         <br>
         Code culture 
@@ -1932,30 +1789,28 @@ acte de concession ?
   
  
 
-     <div class="col-1" >
+     <div class="col" style="padding-left: 23px;">
 
        جافة  <br> En sec
      </div>
-     <div class="col-2" >
+     <div class="col" >
 
        مروية <br> En irriguée
      </div>
-     <div class="col" >
+     <div class="col" style="padding-right: 46px;">
        مقحمة<br>
        En intercalaire
      </div>
-     <div class="col-1"></div>
+     
    </div>
    
    </div>
    <br>
-
-
    <div id="formContainer2">
-        <div class="row " style="margin-bottom: 10px;">
+        <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
+              <select InptSZ class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -2217,18 +2072,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire code_culture_s"  value="">
               </div>
               </div>
            
@@ -2240,8 +2095,6 @@ acte de concession ?
           </div>
         </div>
       </div>
-
-      
       <script>
 
 
@@ -2417,11 +2270,8 @@ document.getElementById('addForm2').addEventListener('click', function() {
 <br>
 
 
-<<<<<<< Updated upstream
-=======
                
  <!-- TODO  -->
->>>>>>> Stashed changes
            
 
 
@@ -2784,15 +2634,10 @@ document.getElementById('addForm2').addEventListener('click', function() {
             <br>
 
 
-<<<<<<< Updated upstream
-            </div>
-=======
          
 
             <div style="border-top: 3px solid red;"></div>
->>>>>>> Stashed changes
 
-            <div style="border-top: 3px solid red;"></div>
 
 
 
@@ -3203,7 +3048,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             </div>
             <div class="col">
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
             </div>
           </div>
@@ -3313,7 +3158,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                            <div class="col">
                            <span>   العدد - Nombre
                            </span>
-                           <span style="margin-left: 48px;">
+                           <span style="margin-left: 78px;">
                                                          المساحة(م²)-Surface(m²)</span>
                            </div>
   <div class="col-2"></div>
@@ -3355,7 +3200,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <div class="col"style="padding-left: 5px;">
       <span>   العدد - Nombre
     </span>
-     <span style="margin-left: 48px;">
+     <span style="margin-left: 70px;">
         المساحة(م²)-Surface(m²)</span>
       </div>
       <div class="col-2"></div>
@@ -3417,7 +3262,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى صلب)</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3447,26 +3292,6 @@ document.getElementById('addForm2').addEventListener('click', function() {
               <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
           </td>
-<<<<<<< Updated upstream
-        </tr><!-- ////new -->
-        <tr>
-          <td style="width:255px;">
-            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
-          </td>
-          <td style="padding-left: 61px;">
-            <div class="input-group input-group-sm">
-              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
-            </div>
-          </td>
-          <td style="padding-right: 48px;">
-            <div class="input-group input-group-sm">
-              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
-            </div>
-          </td>
-=======
->>>>>>> Stashed changes
         </tr>
       </tbody>
     </table>
@@ -3486,7 +3311,9 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      </div>
 
                      <div class="col"  >
-                        المساحة (م²) - Surface (m²)
+                     <span style="margin-left: 35px;">
+                        المساحة(م²)-Surface(m²)     
+                        </span>
                      </div>
                      <div class="col-2"></div>
 
@@ -3535,7 +3362,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <tr>
       <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفالحية</p>
+      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفلاحية</p>
       <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
@@ -3553,7 +3380,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفلاحي</p>
                      <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
@@ -3743,7 +3570,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <div class="col">
                      <span >    العدد - Nombre
                         </span>
-                           <span style="margin-left: 42px;">
+                           <span style="margin-left: 74px;">
                      السعة (م²) - Capacité (m3) </span>
                      </div>
                      <div class="col-2"></div>
@@ -3785,10 +3612,6 @@ document.getElementById('addForm2').addEventListener('click', function() {
            
 
             <div style="border-top: 3px solid red;"></div>
-<<<<<<< Updated upstream
-            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
-=======
->>>>>>> Stashed changes
             <br>
             <h6>VIII- Matériel agricole العتاد الفلاحي</h6>
             <br>
@@ -3797,7 +3620,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
-                  ما هي طريقة إستغالل العتاد الفالحي ؟
+                  ما هي طريقة إستغالل العتاد الفلاحي ؟
                       <br>
                       Le mode d'exploitation du matériel agricole ? 
                   </span>
@@ -3822,33 +3645,16 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <br>
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
-العتاد الفالحي 
-<br>
+<b>
+العتاد الفلاحي 
+-
  matériel agricole 
-
+</b>
 
                      </div>
     <div class="card-body" style="padding-top: 0px;">
-       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
-       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <!-- <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;"> -->
        <div class="row">
-<<<<<<< Updated upstream
-          
-          </div>
-          <div class="row" style="text-align: center;">
-            <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
-            <div class="col-4" style="text-align: center;" >
-         نوع وعدد العتاد الفالحي ؟
-<br>
-Type et nombre du matériel agricole ? 
-<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-Code matériel</span>
-
-
-
-
-<sapn>Nombre - العدد</sapn>
-=======
          <div class="col"><br></div>
        </div> 
        <div class="row" style="text-align: center;">
@@ -3858,20 +3664,13 @@ Code matériel</span>
  <br>
  Type et nombre du matériel agricole ? 
  <br>
->>>>>>> Stashed changes
          </div>
         
         
         <div class="col">
-<<<<<<< Updated upstream
- <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
-=======
  <div style="margin:-13px 7px -2px -126px;" class="qst-num zxcount"></div>
  
          <div  style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
->>>>>>> Stashed changes
                         <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
@@ -3881,19 +3680,11 @@ Code matériel</span>
                         </div>
                      </div>
                   </div>
-<<<<<<< Updated upstream
-                  <div class="col">
- <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
-                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
-=======
                   <div class="col" style="padding-right: 48px;">
  <div style=" margin: -13px 30px -2px -126px;" class="qst-num zxcount"></div>
  
          <div  style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
                         <div class="fontbneder22" style="text-align: center;padding:0px!important;">  طربقة إستغلال العتاد الفلاحي ؟
->>>>>>> Stashed changes
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
@@ -3904,16 +3695,7 @@ Code matériel</span>
  
  
       </div>
-      </div>
-      </div>
-
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-<<<<<<< Updated upstream
-=======
        <div style="margin-top:-1px;height: 40px;width: 696px;background-color: white;position: absolute;z-index: 99;">
        <div class="row" style="text-align: center;background-color: #d4e7fe;">
        <!-- <div class="col"></div> -->
@@ -3933,15 +3715,169 @@ Code matériel</span>
 
       
 
->>>>>>> Stashed changes
       <script>
 
 </script>
 <div id="formContainer3">
-
+  <div class="row code_materiel_s" style="margin-bottom: 10px;">
+    <div class="col-3">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
+        Code matériel</span> <select  class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+          <option selected disabled>
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            اآلالت - Engins
+          </option>
+          <option value="1">
+            1 - جرار ذو عجلات &lt;=45 حص - Tracteur à roue &lt;=45 CV
+          </option>
+          <option value="2">
+            2 - جرار ذو عجلات65-45 حص - Tracteur à roue 45 CV- 65CV
+          </option>
+          <option value="3">
+            3 - جرار ذو عجلات &gt;65 حص - Tracteur à roue &gt;65 CV
+          </option>
+          <option value="4">
+            4 - جرار ذو سلاسل&lt;=80حص - Tracteur à chenilles &lt;=80 CV
+          </option>
+          <option value="5">
+            5 - جرار ذو سلاسل&gt;80حص - Tracteur à chenilles &gt; 80 CV
+          </option>
+          <option value="6">
+            6 - جرار صغير - Motoculteur
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            المعدات الزراعية - Matériel aratoire
+          </option>
+          <option value="7">
+            7 - محراث - Charrue
+          </option>
+          <option value="8">
+            8 - مغطي المزروعات - Cover croop
+          </option>
+          <option value="9">
+            9 - مسلفة - Herse
+          </option>
+          <option value="10">
+            10 - آلة زرع - Cultivateur
+          </option>
+          <option value="11">
+            11 - آلة بذر - Semoir
+          </option>
+          <option value="12">
+            12 - آلة غرس البطاطا - Planteuse pomme de terre
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات المعالجة والتسميد الزراعي - Matériel de traitement et de fertilisation aratoire
+          </option>
+          <option value="13">
+            13 - ناثر الأسمدة - Epandeur d’engrais
+          </option>
+          <option value="14">
+            14 - آلة الرش والرذاذ - Pulvérisateur, atomiseurs
+          </option>
+          <option value="15">
+            15 - آلة السحق المقطورة - Poudreuses tractées
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات الحصاد - Matériel de récolte
+          </option>
+          <option value="16">
+            16 - آلة حصاد و درس 6م - Moissonneuse-batteuse 6m
+          </option>
+          <option value="17">
+            17 - آلة حصاد و درس 3م - Moissonneuse-batteuse 3m
+          </option>
+          <option value="18">
+            18 - آلة الحش - Faucheuse
+          </option>
+          <option value="19">
+            19 - آلة الجمع والربط - Ramasseuse-presse
+          </option>
+          <option value="20">
+            20 - آلة قلع البطاطا - Arracheuse pomme de terre
+          </option>
+          <option value="21">
+            21 - الة حصد الاعلاف - Ensileuse
+          </option>
+          <option value="22">
+            22 - الة التغليف - Emrubaneuse
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات النقل - Matériel roulant
+          </option>
+          <option value="23">
+            23 - مركبة خفيفة - Véhicules légers
+          </option>
+          <option value="24">
+            24 - مركبة ثقيلة - Véhicules lourds
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات أخرى - Divers matériel
+          </option>
+          <option value="25">
+            25 - مقطورة - Remorque
+          </option>
+          <option value="26">
+            26 - صهريج - Citerne
+          </option>
+          <option value="27">
+            27 - مضخة ميكانيكية - Motopompe
+          </option>
+          <option value="28">
+            28 - مضخة كهربائية - Electropompe
+          </option>
+          <option value="29">
+            29 - عتاد آخر - Autre matériel
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+        Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" maxlength="3" num="" class="form-control code_materiel_s" value="">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en proprièté - ملكية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en location - إجار
+          </option>
+          <option class="fontbneder2" value="3">
+            3- en prêt - إستلاف
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en individuel - فردية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en collectif - جماعية
+          </option>
+          <option class="fontbneder2" value="3">
+            3- Mixte - مختلطة
+          </option>
+        </select>
+      </div>
+      <div class="col-2"></div>
+    </div>
     <div class="col-1">
       <div class="d-grid gap-2">
-        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+        <button style="width: 50px;top: 110px;position: absolute;height: 35px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
       </div>
     </div>
   </div>
@@ -3994,6 +3930,7 @@ $('#formContainer3').on('change', 'select', function() {
 
 // Handle the addition of new rows
 $('#addForm3').click(function() {
+ 
     var formContainer = $('#formContainer3');
     var formRow = formContainer.children('.row').first().clone();
     formRow.find('input').val('');
@@ -4037,6 +3974,7 @@ $('#addForm3').click(function() {
 
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
+            <br>
             <h6 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h6>
             <div style="border-top: 1px solid red; width:170px; margin:-20px 0px 0px 40px; "></div>
             <br>
@@ -4048,11 +3986,10 @@ $('#addForm3').click(function() {
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder2 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
-
+                  <option class="fontbneder2" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder2" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
               </select>
 
 
@@ -4107,13 +4044,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <div style="margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-<<<<<<< Updated upstream
-        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" >
-=======
         <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" style="display:none;" >
->>>>>>> Stashed changes
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -4123,9 +4056,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input pm_hydraulique" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <div   style="margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique"  >
+              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique">
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4135,9 +4068,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <div   style=" margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder"  >
+              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder">
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -4182,12 +4115,12 @@ Petite et Moyenne Hydraulique
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:28px; font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:37px; font-size: 10px !important;" class="col-4">
   
       المساحة (هكتار) <br>
       
@@ -4196,7 +4129,7 @@ Petite et Moyenne Hydraulique
       </div>
     
 
-      <div style=" font-size: 10px !important;" class="col">
+      <div style="padding-left:45px; font-size: 10px !important;" class="col">
       
       
       المساحة (هكتار) <br>
@@ -4204,9 +4137,9 @@ Petite et Moyenne Hydraulique
       
       Superficie(ha)
       </div>
-    </div><br>
+    </div>
     <div class="col">
-      <br>
+ 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
         Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
@@ -4224,7 +4157,7 @@ Petite et Moyenne Hydraulique
       </div><br>
     </div>
     <div class="col">
-      <br>
+     
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
@@ -4243,7 +4176,7 @@ Petite et Moyenne Hydraulique
       
     </div>
     <div class="col">
-      <br>
+     
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
         Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
@@ -4414,10 +4347,10 @@ Petite et Moyenne Hydraulique
                <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     <div class="col fontbneder11" style="padding-right: 21px;">
                      ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
@@ -4528,7 +4461,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        العاملة اليد نوعية 
+                        نوعية اليدالعاملة   
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>
@@ -4538,16 +4471,11 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
                      <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-<<<<<<< Updated upstream
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - إناث - Féminin
-=======
                      <div class="col fontbneder11" style="padding-right: 21px;">
                      ذكور - Masculin - إناث - Féminin
->>>>>>> Stashed changes
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4637,16 +4565,11 @@ Petite et Moyenne Hydraulique
    <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-<<<<<<< Updated upstream
-                     <div class="col fontbneder11" style="padding-left: 30px;">
-                       ذكور - Masculin - إناث - Féminin
-=======
                      <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
->>>>>>> Stashed changes
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4780,9 +4703,7 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p class="fontbneder11" style="margin-left: -4px;">
-                     ذكور - Masculin - إناث - Féminin
-         </p>
+             
                      </div>
                      <div class="col" style="text-align: center;">
                      <div class="qst-num ">129</div>
@@ -4795,17 +4716,18 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-<<<<<<< Updated upstream
-                     <span  class="fontbneder11" style="margin-left: 3px;">
-
-                     ذكور - Masculin - إناث - Féminin
-
-                     </span>
-=======
                     
->>>>>>> Stashed changes
                      </div>
                      <div class="col-1">  </div>
+                  </div>
+                  <div class="row" style="text-align: center;">
+                     <div class="col-2"></div>
+                     <div class="col fontbneder11" style="padding-left: 75px;">
+                        ذكور - Masculin - إناث - Féminin
+                     </div>
+                     <div class="col fontbneder11" style="padding-right: 71px;">
+                     ذكور - Masculin - إناث - Féminin
+                     </div>
                   </div>
                   <table  class="table table-sm">
                <tbody>
@@ -5299,7 +5221,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5316,7 +5238,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
@@ -5420,11 +5342,13 @@ Petite et Moyenne Hydraulique
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
-                      Prestataire de servicessitués dans la commune ?                  </span>
-               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+                      Prestataire de services situés dans la commune ?
+     
+                                  </span>
+               <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
-                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
-                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
+                  <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder2" value="2">2 - Non - لا</option>
               </select>
                   
             
@@ -5446,7 +5370,7 @@ Petite et Moyenne Hydraulique
                <div class="card">
                <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                   <div class="card-header" style="text-align: center;">
-                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité (multichoice)
+                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité 
                   </div>
                   <div class="card-body">
                      <div class="row">
@@ -5575,7 +5499,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
-                              بيع المباشر - Vente directe
+                              بيع مباشر - Vente directe
                               </label>
                            </div>
                         </div>
@@ -5584,7 +5508,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
 
                               <label class="form-check-label" for="ee_consommationauto">
-                            استهالك ذاتي - consommation-Auto 
+                            استهالك ذاتي - Auto-consommation
                               </label>
                            </div>
                         </div>
@@ -5712,6 +5636,13 @@ Petite et Moyenne Hydraulique
 
 
 
+
+
+
+
+
+
+
 <?php
 // Determine button text based on user's role
 if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
@@ -5720,10 +5651,10 @@ if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSI
 ?>
     <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
-        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" ><?= $approveBtnText ?></button>
+        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="submitDate" ><?= $approveBtnText ?></button>
     </div>
     <div class="col">
-        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejeter" href="#"><?= $rejectBtnText ?></button>
+        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejected" href="#"><?= $rejectBtnText ?></button>
     </div>
 </div>
 <?php
@@ -6258,11 +6189,13 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
         tableHTML += '</tr>';
+       
 
 
 });
 
 tableHTML += '</tbody></table>';
+
 $('#superficieExploitation').append(tableHTML);
 
 
@@ -6411,17 +6344,166 @@ data.status_juridique.forEach(function(item) {
         '<div class="col">' +
         '<div class="input-group input-group-sm">' +
         '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s" style="max-width: 88px;margin-left:20px" value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  style="max-width: 44px;" value="' + (item.superfecie_sj_are || '') + '">' +
-        '<div class="col">' +
-        '</div>' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  style="max-width: 44px;" value="' + (item.superfecie_sj_are || '') + '">' +'<button style="width: 28px; position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm" type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
         '</div>' +
         '</div>' +
         '</div>';
 });
 
 
+
+
+$('#exploitant').on('change', function() {
+      var exploitantValue = $(this).val();
+     
+      // Determine which list to use based on the 'exploitant' value
+     // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
+      if(exploitantValue === "1"){
+
+      
+
+        listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
+        
+      }else{
+        $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+      }
+     
+  
+  });
+
+
+
+
+
+
+    /*************************************************** */
+    //origine des terres
+
+    var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+    '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="15" BoldText>15 - Donation هبة</option>' +
+    '<option value="16" BoldText>16 - Testament وصية</option>' +
+    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+    '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
+    '<option value="20" BoldText>20 - Location إجار</option>' +
+    '<option value="21" BoldText>21 - Autre  آخرى </option>' +
+    '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
+
+var listOrigineTerre = {
+    "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+    "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+    "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+};
+
+
+
+
+
+    function filterByKey(prefix) {
+      var filteredObj = {};
+      Object.keys(listOrigineTerre).forEach(function(key) {
+          if (key.startsWith(prefix)) {
+              filteredObj[key] = listOrigineTerre[key];
+          }
+      });
+      return filteredObj;
+  }
+
+
+    $(document).on('change', '[id^="origine_des_terres_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+    var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+   // console.log(idPart); // Log the extracted part to the console
+  
+   var selectedValue = $(this).val();
+   if (selectedValue !== '6') {  // Check if the selected value is not '6'
+       $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+       $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+   } else {
+       $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+   }
+   
+
+      var id = $(this).val()
+    //  console.log(fullId)
+      var filtered = filterByKey(id);
+      
+//console.log(filtered[id]);
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
+    })
+
+
+
+
+    $(document).on('change', '[id^="status_juridique_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+      var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+     // console.log(idPart); // Log the extracted part to the console
+    
+     var selectedValue = $(this).val();
+
+     if (selectedValue !== '2'  && selectedValue !== '3') {
+      $('#si_exploi_eai_eac').prop('disabled', true);
+      $('#si_exploi_eai_eac').val('');
+
+    } else {
+      $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+  }
+
+    })
+
+
+
+
 $('#formContainer').append(status_juridique_inputs);
 
+$('#delete4').on('click', function() {
+// alert("formContainer4")
+       // Get the code_materiel value from data attribute
+       var origine_des_terres = $(this).data('code-origine_des_terres');
+     
+     
+        console.log(origine_des_terres);
+    $.ajax({
+        url: 'assets/php/delete_row4.php',
+        type: 'POST',
+        data: {
+            // cle_code_culture: cle_code_culture, 75E92EyTOmst
+            // id_questionnaire: id_questionnaire,
+            // code_culture: code_culture,
+            origine_des_terres: origine_des_terres
+        },
+        success: function(response) {
+         Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
 
 
 
