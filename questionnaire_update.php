@@ -1252,7 +1252,7 @@ au réseau internet ?
 
  
                         <div class="col-3">
-                            <div style="margin-left:20px" class="input-group input-group-sm">
+                            <div style="max-width: 127px;" class="input-group input-group-sm">
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
@@ -1268,7 +1268,7 @@ au réseau internet ?
                    
 
                             <div class="d-grid gap-2">
-                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addFormU">+</button>
+                                        <button style="width: 28px;top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addFormU">+</button>
 
 
                             </div>
@@ -1316,13 +1316,15 @@ au réseau internet ?
     
         // Remove the add button from the cloned row and add a remove button
         const removeButton = document.createElement('button');
-        removeButton.textContent = '-';
-        removeButton.type = 'button';
-    
-        removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
-        removeButton.addEventListener('click', function () {
+         removeButton.textContent = '-';
+         removeButton.type = 'button';
+
+         removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46');
+         removeButton.style.width = '28px'; // Add this line to set the font size
+
+         removeButton.addEventListener('click', function () {
             formRow.remove();
-        });
+         });
         formRow.querySelector('.d-grid').innerHTML = '';
         formRow.querySelector('.d-grid').appendChild(removeButton);
     
