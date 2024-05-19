@@ -1320,7 +1320,6 @@ au réseau internet ?
          removeButton.type = 'button';
 
          removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46');
-         removeButton.style.width = '28px'; // Add this line to set the font size
 
          removeButton.addEventListener('click', function () {
             formRow.remove();
