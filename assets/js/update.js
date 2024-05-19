@@ -4,6 +4,66 @@ $(document).ready(function () {
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
+
+
+
+  $('#forage').change(function() {
+   
+    
+      var isChecked = $(this).prop('checked');
+      var inputElement = $(this).closest('.form-check').find('.bneder-input');
+      
+      if (isChecked) {
+          inputElement.show();
+          $("#eau_total_forage").show('')
+      } else {
+          inputElement.hide();
+          
+         
+          $("#eau_total_forage").val('')
+          
+          
+      }
+  });
+
+  $('#puits').change(function() {
+   
+    
+    var isChecked = $(this).prop('checked');
+    var inputElement = $(this).closest('.form-check').find('.bneder-input');
+    
+    if (isChecked) {
+        inputElement.show();
+        $("#eau_total_puits").show('')
+    } else {
+        inputElement.hide();
+        
+      
+        $("#eau_total_puits").val('')
+     
+        
+    }
+});
+
+$('#source').change(function() {
+   
+    
+  var isChecked = $(this).prop('checked');
+  var inputElement = $(this).closest('.form-check').find('.bneder-input');
+  
+  if (isChecked) {
+      inputElement.show();
+      $("#eau_total_source").show('')
+  } else {
+      inputElement.hide();
+      
+      $("#eau_total_source").val('')
+     
+      
+      
+  }
+});
+
   $.ajax({
     url: url.GetData,
     dataType: "json",
