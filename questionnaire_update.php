@@ -1268,7 +1268,7 @@ au réseau internet ?
                    
 
                             <div class="d-grid gap-2">
-                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
+                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addFormU">+</button>
 
 
                             </div>
@@ -1297,6 +1297,44 @@ au réseau internet ?
 
 
                   <script>
+ document.getElementById('addFormU').addEventListener('click', function () {
+   $("#superfecie_sj").val("");
+   $("#superfecie_sj_are").val("");
+   $("#status_juridique").val("");
+   $("#origine_des_terres").val("");
+        const formContainer = document.getElementById('formContainer');
+        const formRow = formContainer.firstElementChild.cloneNode(true);
+    
+        // Generate unique IDs and names for the cloned form elements
+        formRow.querySelectorAll('[id], [name]').forEach(function (element) {
+            element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
+            element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
+    
+            // Remove the "disabled" attribute if present
+            element.removeAttribute('disabled');
+        });
+    
+        // Remove the add button from the cloned row and add a remove button
+        const removeButton = document.createElement('button');
+        removeButton.textContent = '-';
+        removeButton.type = 'button';
+    
+        removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
+        removeButton.addEventListener('click', function () {
+            formRow.remove();
+        });
+        formRow.querySelector('.d-grid').innerHTML = '';
+        formRow.querySelector('.d-grid').appendChild(removeButton);
+    
+        formContainer.appendChild(formRow);
+    
+        // Enable the cloned input elements inside the replicated HTML code
+        formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
+            inputElement.removeAttribute('disabled');
+        });
+    
+     
+    });
 
                  </script>
                  
@@ -6309,7 +6347,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 // Append each status_juridique input
 data.status_juridique.forEach(function(item) {
     status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
-        '<div class="col">' +
+        '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
         '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
         '<option value="-">-</option>' +
@@ -6325,7 +6363,7 @@ data.status_juridique.forEach(function(item) {
         '</select>' +
         '</div>' +
         '</div>' +
-        '<div class="col">' +
+        '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
         '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="status_juridique" name="status_juridique">' +
         '<option disabled value="-"></option>' +
@@ -6354,11 +6392,15 @@ data.status_juridique.forEach(function(item) {
         '</select>' +
         '</div>' +
         '</div>' +
-        '<div class="col">' +
+        '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
-        '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s" style="max-width: 88px;margin-left:20px" value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  style="max-width: 44px;" value="' + (item.superfecie_sj_are || '') + '">' +'<button style="width: 28px; position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm" type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
+        '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+       
         '</div>' +
+        '</div>' +
+        '<div class="col">' +
+        '<button style="width: 28px; position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm" type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
         '</div>' +
         '</div>';
 });
@@ -6559,9 +6601,9 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
    
-<script src="./assets/js/logique.js"></script>
-<script src="./assets/js/questionnaire-mask.js"></script>
-      <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/questionnaire-mask.js"></script>
+    <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/logique.js"></script>
 </body>
 
 </html>

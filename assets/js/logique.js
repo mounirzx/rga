@@ -200,7 +200,9 @@ formContainer.addEventListener('click', function(event) {
 // total_forage
 // total_puits
 // total_source
+//eau_total_source
 $('#forage, #puits, #source').change(function() {
+    alert('ddd')
     
       var isChecked = $(this).prop('checked');
       var inputElement = $(this).closest('.form-check').find('.bneder-input');
