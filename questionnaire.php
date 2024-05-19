@@ -4605,7 +4605,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        نوعية العاملة اليد  
+                        نوعية اليدالعاملة   
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>
