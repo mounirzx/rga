@@ -369,74 +369,105 @@ $("input[type='checkbox']").each(function() {
    
     //console.log("formDataObj of me");
    // console.log(formDataObj);
-    $(function () {
-      $.ajax({
-        url: url.InsertQst,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-          form: formDataObj,
-          formDataArrayStatut: formDataArrayStatut,
-          formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-          formDataArraySuperficie: formDataArraySuperficie,
-          message:message,
-          controleSatSumsjtest2:controleSatSumsjtest2
-        }),
-        dataType: "json",
-        success: function (response) {
-          if (response.response) {
-            Swal.fire({
-              icon: "success",
-              title: "Succès!",
-              text: "Enregistrement effectué avec succès!"
-            });
-
-
-          
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Erreur!",
-              text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
-            });
-          }
-        },
-        error: function (xhr, status, error) {
-          // Check if there is a response text and if it contains valid JSON
-          if (xhr.responseText) {
-            try {
-              var resp = JSON.parse(xhr.responseText);
-              if (resp && resp.error) {
-                Swal.fire({
-                  icon: "error",
-                  title: "Erreur de traitement",
-                  text: "Erreur lors de l'enregistrement: " + resp.error
-                });
-              } else {
-                Swal.fire({
-                  icon: "error",
-                  title: "Erreur de Réseau",
-                  text: "Réponse inattendue du serveur: " + xhr.responseText
-                });
-              }
-            } catch (e) {
+   $(function () {
+    $.ajax({
+      url: url.InsertQst,
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        form: formDataObj,
+        formDataArrayStatut: formDataArrayStatut,
+        formDataArrayCodeCulture: formDataArrayCodeCulture,
+        formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+        formDataArraySuperficie: formDataArraySuperficie,
+        message: message,
+        controleSatSumsjtest2: controleSatSumsjtest2
+      }),
+      dataType: "json",
+      success: function (response) {
+        if (response.response) {
+          Swal.fire({
+            icon: "success",
+            title: "Succès!",
+            html: formatPayload({
+              form: formDataObj,
+              formDataArrayStatut: formDataArrayStatut,
+              formDataArrayCodeCulture: formDataArrayCodeCulture,
+              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+              formDataArraySuperficie: formDataArraySuperficie,
+              message: message,
+              controleSatSumsjtest2: controleSatSumsjtest2
+            })
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Erreur!",
+            text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        if (xhr.responseText) {
+          try {
+            var resp = JSON.parse(xhr.responseText);
+            if (resp && resp.error) {
               Swal.fire({
                 icon: "error",
-                title: "Erreur de format",
-                text: "Réponse non JSON du serveur: " + xhr.responseText
+                title: "Erreur de traitement",
+                text: "Erreur lors de l'enregistrement: " + resp.error
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Erreur de Réseau",
+                text: "Réponse inattendue du serveur: " + xhr.responseText
               });
             }
-          } else {
+          } catch (e) {
             Swal.fire({
               icon: "error",
-              title: "Échec de la requête",
-              text: "Un problème est survenu lors de la requête: " + error
+              title: "Erreur de format",
+              text: "Réponse non JSON du serveur: " + xhr.responseText
             });
           }
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Échec de la requête",
+            text: "Un problème est survenu lors de la requête: " + error
+          });
         }
-      });
+      }
     });
+  });
+  
+  function formatPayload(payload) {
+    let html = '';
+    for (let key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        let value = payload[key];
+        if (typeof value === 'object') {
+          value = JSON.stringify(value);
+        }
+        html += `<span style="color: black;"><strong>${key}:</strong></span> `;
+        html += `<span style="color: ${value === 'green' ? 'green' : 'black'};">${value}</span>`;
+        html += ', ';
+      }
+    }
+    // Remove the last comma and space
+    html = html.slice(0, -2);
+    return html;
+  }
+  
+  
+  function formatValue(value) {
+    if (typeof value === 'object') {
+      return `<pre style="display: inline; color: green; white-space: pre-wrap; margin: 0; font-family: Arial, sans-serif;">${JSON.stringify(value, null, 2)}</pre>`;
+    }
+    return `<span style="color: green;">${value}</span>`;
+  }
+  
     
   });
 
