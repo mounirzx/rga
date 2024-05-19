@@ -70,8 +70,7 @@
       width: 100%;
     height: 100%;
     ">
-    <div class="limiter" style="      background: #117042a3;
-    height: 100%;">
+    <div class="limiter">
       <div
         class="container-login1005 text-center"
         style="
@@ -87,7 +86,7 @@
             class="row"
             style="
               border: 2px solid white;
-              background-color: rgba(255, 255, 255, 0.8); 
+              background-color: rgba(255, 255, 255, 0.92); 
               margin: auto;
               height: 600px;
               width: 930px;

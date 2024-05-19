@@ -59,21 +59,30 @@ table.dataTable th, table.dataTable td{
 if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
 
     ?> 
-   <div class="card">
 
+<br>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
 
-<div class="card-bod">
-<div class="input-group input-group-sm">
-        <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Wilaya</span>
-        <select id="wilaya"  class="form-control">
-
-        <option></option>
-        </select>
+            <div class="card">
+         
+         
+         <div class="card-bod">
+         <div class="input-group input-group-sm">
+                 <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Séléctionner la Wilaya:</span>
+                 <select id="wilaya"  class="form-control">
+         
+                 <option></option>
+                 </select>
+             </div>
+         
+         </div>
+         </div>
+        </div>
+        <div class="col"></div>
     </div>
-
-</div>
-</div>
-
+<br>
 <?php
 }
 
