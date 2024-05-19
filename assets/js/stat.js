@@ -324,4 +324,16 @@ $('#wilaya').change(function(){
 })
     /***************************************************************************** */
 
+
+    // function get_wilaya_list(){
+    //     $.ajax({
+    //         url:'assets/php/list_wilaya.php',
+    //         method:'post',
+    //         async:false,
+    //         success:function(response){
+    //             console.log(response)
+    //         }
+    //     })
+    // }
+    // get_wilaya_list()
 })
