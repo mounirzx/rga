@@ -126,7 +126,7 @@ var list_commune
                                 async:false,
                                 data:{commune:commune},
                                 success:function(response){
-                                  
+                                  console.log(response)
                                     var data = JSON.parse(response)
                                   
 
