@@ -386,18 +386,24 @@ $("input[type='checkbox']").each(function() {
       dataType: "json",
       success: function (response) {
         if (response.response) {
+          // Format the payload
+          let formattedPayload = formatPayload({
+            form: formDataObj,
+            formDataArrayStatut: formDataArrayStatut,
+            formDataArrayCodeCulture: formDataArrayCodeCulture,
+            formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+            formDataArraySuperficie: formDataArraySuperficie,
+            message: message,
+            controleSatSumsjtest2: controleSatSumsjtest2
+          });
+  
+          // Save the formatted payload to a text file
+          saveTextToFile(formattedPayload, 'payload.txt');
+  
           Swal.fire({
             icon: "success",
             title: "Succès!",
-            html: formatPayload({
-              form: formDataObj,
-              formDataArrayStatut: formDataArrayStatut,
-              formDataArrayCodeCulture: formDataArrayCodeCulture,
-              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-              formDataArraySuperficie: formDataArraySuperficie,
-              message: message,
-              controleSatSumsjtest2: controleSatSumsjtest2
-            })
+            text: "Les données ont été enregistrées avec succès dans un fichier texte."
           });
         } else {
           Swal.fire({
@@ -443,31 +449,31 @@ $("input[type='checkbox']").each(function() {
   });
   
   function formatPayload(payload) {
-    let html = '';
+    let text = '';
     for (let key in payload) {
       if (payload.hasOwnProperty(key)) {
         let value = payload[key];
         if (typeof value === 'object') {
-          value = JSON.stringify(value);
+          value = JSON.stringify(value, null, 2);  // Pretty print JSON with indentation
         }
-        html += `<span style="color: black;"><strong>${key}:</strong></span> `;
-        html += `<span style="color: ${value === 'green' ? 'green' : 'black'};">${value}</span>`;
-        html += ', ';
+        text += `${key}: ${value}\n`;
       }
     }
-    // Remove the last comma and space
-    html = html.slice(0, -2);
-    return html;
+    return text;
+  }
+  
+  function saveTextToFile(text, filename) {
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
   
   
-  function formatValue(value) {
-    if (typeof value === 'object') {
-      return `<pre style="display: inline; color: green; white-space: pre-wrap; margin: 0; font-family: Arial, sans-serif;">${JSON.stringify(value, null, 2)}</pre>`;
-    }
-    return `<span style="color: green;">${value}</span>`;
-  }
-  
+
     
   });
 
