@@ -444,6 +444,7 @@ function calculateTotalModeIrrigation() {
     });
     return total;
 }
+
 function compareIrrigationTotals() {
     var totalAres = calculateTotalSupIrrigation();
     var totalModeIrrigation = calculateTotalModeIrrigation();
@@ -453,26 +454,38 @@ function compareIrrigationTotals() {
     var totalAres5Percent = totalAres * 0.05;
     var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
 
-    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent) * 0.05;
-    console.log("threshold: " + threshold);
-
-    var difference = Math.abs(totalAres5Percent - totalModeIrrigation5Percent);
+    var difference = totalAres - totalModeIrrigation;
     console.log("difference: " + difference);
 
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent);
+    console.log("threshold: " + threshold);
+
+    $('#error_messages_irri').empty(); // Clear any existing error messages
     if (difference > threshold) {
-        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des surfaces équipées d'irrigation.");
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est supérieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
         $message.css({
             'font-weight': 'bold',
             'color': 'red',
-            
         });
-        $('#error_messages_irri').empty().append($message);
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else if (difference < -threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est inférieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
         setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
         $('.Mode_irrigation').css('border', '2px solid red');
     } else {
         $('.Mode_irrigation').css('border', '2px solid green');
     }
 }
+
 
 $('.Mode_irrigation').focusout(function() {
     if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
