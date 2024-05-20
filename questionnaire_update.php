@@ -6707,7 +6707,9 @@ data.status_juridique.forEach(function(item) {
 
 
 
+var totalSuperficieAre = 0;
 
+// Iterate over each element with the class "code_culture_s"
 $('.code_culture_s').each(function(index) {
   // Find the input elements within the current row
   var superficie_are = $(this).find('[id^="superficie_are"]').val();
@@ -6717,15 +6719,25 @@ $('.code_culture_s').each(function(index) {
   // Log or use the retrieved values
   console.log('Values for row ' + (index + 1) + ':');
   console.log('Superficie_are:', superficie_are);
- // alert(superficie_hec+superficie_are);
   console.log('En_intercalaire:', en_intercalaire);
+  
+  // Only add non-empty values to the total
+  if (superficie_are) {
+    totalSuperficieAre += parseFloat(superficie_are) || 0;
+  }
 });
+
+// Alert the total superficie_are
+alert(totalSuperficieAre);
+
+
+
 // Function to calculate total irrigated area (Sup)
 function calculateTotalSupIrrigation() {
     var totalAres = 0;
     // Loop through each input field for adults and children
     $('#formContainer2 .row').each(function() {
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        var ares = parseFloat(superficieHecArray) || 0;
         totalAres += ares;
       // alert(totalAres)
     });
