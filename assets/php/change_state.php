@@ -49,9 +49,6 @@ $questionnaire = $req2->fetch(PDO::FETCH_ASSOC);
 
 $id_recenseur = $questionnaire['user'];
 // select nombre de recenseur:
-// print_r($id_recenseur);
-
-
 $req3 = $bdd->prepare('select * from recenseur left join users on recenseur.id_user =  users.id_user where recenseur.id_user=? ');
 $req3->execute(array($id_recenseur));
 $recenseur = $req3->fetch(PDO::FETCH_ASSOC);
@@ -86,10 +83,15 @@ $count_quest = $req5->rowCount();
 /**/$count_quest = str_pad($count_quest, 3, '0', STR_PAD_LEFT);/**/
 /*****************************************************************/
 $code_validation = 
- echo 'true';
+
     
-    
-    
+
+
+
+    //inserer le code de validation 
+    $req = $bdd->prepare('UPDATE `questionnaire` SET  code_validation = ?  where id_questionnaire=?');
+    $req->execute(array($code_validation));
+    echo 'true';
     
     } catch (Exception $e) {
         $msg = $e->getMessage();

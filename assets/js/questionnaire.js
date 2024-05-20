@@ -788,8 +788,13 @@ console.log("**********************************")
  console.log(quotient)
  console.log("**********************************")
  var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
- var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val()
 
+
+//  var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val()
+
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+ var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
  document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
 }
 
