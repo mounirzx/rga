@@ -322,12 +322,13 @@ handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', '
 //   83 <= 84
 handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
 // 91 dont pleins <= Ruches Modernes
-//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
+// Début code a transmetre
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', '');
 // 92 dont pleins <= Ruches Traditionnelles
-//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
-
-
-
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', '');
+// 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles'
+// 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes'
+// fin code a transmetre
 // Function to calculate total number of Vaches
 function calculateTotalVaches() {
     var total = 0;
@@ -348,12 +349,19 @@ $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_do
     if (totalVaches > chapt_bovins) {
         displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
         setBorders('red');
+        // Début code a transmetre
+
     } else if (totalVaches < chapt_bovins) {
-        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'error');
-        setBorders('red');
-    } else {
+        
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'warning');
+        setBorders('orange');
+    } else if(totalVaches == chapt_bovins) {
+        displayMessage_elvage_bovins('', '');
+        
         setBorders('green');
     }
+    // fin code a transmetre
+
 });
 
 // Event listener for input focus out (when user leaves the input)
@@ -377,13 +385,19 @@ function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorM
         if (value > comparisonValue) {
             displayMessage_elvage(errorMessage, 'error');
             $(this).css('border', '2px solid red');
-        } else {
+        } else if(value > comparisonValue){
+            displayMessage_elvage(errorMessage, 'warning');
+            $(this).css('border', '2px solid orange');
+        }
+        else {
             $(this).css('border', '2px solid green'); // Reset border color if valid
         }
+        // fin code a transmetre
+
     });
 }
 
-handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
+// handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
 
 
 
