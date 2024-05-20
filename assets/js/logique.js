@@ -202,7 +202,7 @@ formContainer.addEventListener('click', function(event) {
 // total_source
 //eau_total_source
 $('#forage, #puits, #source').change(function() {
-    alert('ddd')
+   
     
       var isChecked = $(this).prop('checked');
       var inputElement = $(this).closest('.form-check').find('.bneder-input');
@@ -1262,7 +1262,7 @@ function logiqueIntercalaire($row) {
 
         // Check if there is any value in intercalaire
         if (total > 0) {
-            filterArboricultureOptions($row);
+           // filterArboricultureOptions($row);
         }
     }
 }

@@ -1222,7 +1222,7 @@ au réseau internet ?
                         <div class="input-group input-group-sm">
 
                                 <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
-                                <option  selected="" disabled>-</option>
+                                <!-- <option  selected="" disabled>-</option>
                                     <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                     <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                     <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
@@ -1247,7 +1247,7 @@ au réseau internet ?
                                        <option value="19">19 - Certificat de possession شهادة حيازة</option>
                                        <option value="20">20 - Location إجار</option>
                                        <option value="21">21 - Autre  آخرى </option>
-                                       <option value="22">22 - Inconnu غير معروف</option>
+                                       <option value="22">22 - Inconnu غير معروف</option> -->
                                 </select>
                                
                          </div>
@@ -6248,7 +6248,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
-        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
         tableHTML += '<input bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2"  value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
@@ -6558,15 +6558,15 @@ data.status_juridique.forEach(function(item) {
         '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
         '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
         '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
-        ' <option value="14"'+(item.status_juridique === "14" ? 'selected' : '')+'14 - Succession إرث</option>' +
-         ' <option value="15"'+(item.status_juridique === "15" ? 'selected' : '')+'15 - Donation هبة</option>' +
-         ' <option value="16"'+(item.status_juridique === "16" ? 'selected' : '')+'16 - Testament وصية</option>' +
-         ' <option value="17"'+(item.status_juridique === "17" ? 'selected' : '')+'17 - Droit préemption حق الشفاعة</option>' +
-         ' <option value="18"'+(item.status_juridique === "18" ? 'selected' : '')+'18 - Préscription acquisitive ملكية مكتسبة</option>' +
-         ' <option value="19"'+(item.status_juridique === "19" ? 'selected' : '')+'19 - Certificat de possession شهادة حيازة</option>' +
-         ' <option value="20"'+(item.status_juridique === "20" ? 'selected' : '')+'20 - Location إجار</option>' +
-         ' <option value="21"'+(item.status_juridique === "21" ? 'selected' : '')+'21 - Autre  آخرى </option>' +
-         ' <option value="22"'+(item.status_juridique === "22" ? 'selected' : '')+'22 - Inconnu غير معروف</option>' + 
+        ' <option value="14" '+(item.status_juridique === "14" ? 'selected' : '') + '>14 - Succession إرث</option>' +
+        ' <option value="15" '+(item.status_juridique === "15" ? 'selected' : '') + '>15 - Donation هبة</option>' +
+        ' <option value="16" '+(item.status_juridique === "16" ? 'selected' : '') + '>16 - Testament وصية</option>' +
+        ' <option value="17" '+(item.status_juridique === "17" ? 'selected' : '') + '>17 - Droit préemption حق الشفاعة</option>' +
+        ' <option value="18" '+(item.status_juridique === "18" ? 'selected' : '') + '>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+        ' <option value="19" '+(item.status_juridique === "19" ? 'selected' : '') + '>19 - Certificat de possession شهادة حيازة</option>' +
+        ' <option value="20" '+(item.status_juridique === "20" ? 'selected' : '') +'>20 - Location إجار</option>' +
+        ' <option value="21" '+(item.status_juridique === "21" ? 'selected' : '') +'>21 - Autre  آخرى </option>' +
+        ' <option value="22" '+(item.status_juridique === "22" ? 'selected' : '') +'>22 - Inconnu غير معروف</option>' + 
         '</select>' +
         '</div>' +
         '</div>' +
@@ -6906,7 +6906,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
 var elements = document.getElementsByClassName("surface");
 //   for (var i = 0; i < elements.length; i++) {
   
-   $(document).on("input", ".surface", function() {
+  window.onload = function() {
 console.log("okkkkkkkk")
 var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
