@@ -117,7 +117,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 </head>
 
 
-<nav class="navbar navbar-expand-lg"  style="background-color: #ffffff;border-radius: 5px; border-bottom-left-radius: 50px; height: 75px;">
+<nav class="navbar navbar-expand-lg"  style="background-color: #ffffff;border-radius: 5px; border-bottom-left-radius: 50px; height: 75px; text-align: center">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,7 +139,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <li style="border-right: 2px solid #0e6212;" class="nav-item">
                 <a class="nav-link active" aria-current="page" id="superviseurpage" href="Questionnaire">
                     <img src="static/icons/form.svg" alt="Plus Icon" style="width: 20px; height: 20px; margin-right: 5px;">
-                    Ajouter Questionnaire - إظافة إستبيان
+                    Ajouter Questionnaire  <br/>  إظافة إستبيان
                 </a>
             </li>
            <?php
@@ -159,7 +159,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="ListeQuestionnaires">
                     <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">
-                    Liste de Questionnaires - قائمة الإستبيانات
+                    Liste de Questionnaires  <br/>  قائمة الإستبيانات
                 </a>
             </li>
 
@@ -171,10 +171,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
                <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">Liste des utilisateurs</a>
+               <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">Liste des utilisateurs  <br/>    قائمة المستخدمين</a>
             </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs nationaux</a>
+               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs nationaux  <br/>  المشرفين الوطنيين</a>
             </li>
             <?php
            }
@@ -184,7 +184,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="Superviseurs">Superviseurs</a>
+               <a class="nav-link active" aria-current="page" href="Superviseurs">Superviseurs wilayas <br/>  المشرفين الولائيين</a>
             </li>
             <?php
            }
@@ -193,7 +193,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="admin_central.php">Administrateurs centraux</a>
+               <a class="nav-link active" aria-current="page" href="admin_central.php">Responsables centraux  <br/>  المسؤولين المركزيين </a>
             </li>
             <?php
            }
