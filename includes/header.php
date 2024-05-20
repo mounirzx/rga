@@ -174,7 +174,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">Liste des utilisateurs</a>
             </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs national</a>
+               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs nationaux</a>
             </li>
             <?php
            }
@@ -193,7 +193,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="admin_central.php">Administrateurs central</a>
+               <a class="nav-link active" aria-current="page" href="admin_central.php">Administrateurs centraux</a>
             </li>
             <?php
            }
