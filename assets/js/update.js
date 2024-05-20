@@ -266,27 +266,16 @@ $("input[type='checkbox']").each(function() {
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArraySuperficie: formDataArraySuperficie
+          formDataArraySuperficie:formDataArraySuperficie
         }),
         dataType: "json",
         success: function (response) {
+          // No need to parse response as 'dataType: "json"' does that automatically
           if (response.response === "success") {
-            // Format the payload
-            let formattedPayload = formatPayload({
-              form: formDataObj,
-              formDataArrayStatut: formDataArrayStatut,
-              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-              formDataArrayCodeCulture: formDataArrayCodeCulture,
-              formDataArraySuperficie: formDataArraySuperficie
-            });
-    
-            // Save the formatted payload to a text file
-            saveTextToFile(formattedPayload, 'payload_update.txt');
-    
             Swal.fire({
               icon: "success",
               title: "Succès!",
-              text: "Enregistrement effectué avec succès! Les données ont été enregistrées dans un fichier texte."
+              text: "Enregistrement effectué avec succès!",
             });
           } else {
             Swal.fire({
@@ -300,36 +289,12 @@ $("input[type='checkbox']").each(function() {
           Swal.fire({
             icon: "error",
             title: "Échec de la requête",
-            text: "Un problème est survenu lors de la requête: " + xhr.statusText,
+            text:
+              "Un problème est survenu lors de la requête: " + xhr.statusText,
           });
         },
       });
     });
-    
-    function formatPayload(payload) {
-      let text = '';
-      for (let key in payload) {
-        if (payload.hasOwnProperty(key)) {
-          let value = payload[key];
-          if (typeof value === 'object') {
-            value = JSON.stringify(value, null, 2);  // Pretty print JSON with indentation
-          }
-          text += `${key}: ${value}\n`;
-        }
-      }
-      return text;
-    }
-    
-    function saveTextToFile(text, filename) {
-      const blob = new Blob([text], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-    
 
     function qstList(etat) {
       $.ajax({

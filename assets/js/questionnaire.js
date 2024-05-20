@@ -380,31 +380,20 @@ $("input[type='checkbox']").each(function() {
         formDataArrayCodeCulture: formDataArrayCodeCulture,
         formDataArrayCodeMateriel: formDataArrayCodeMateriel,
         formDataArraySuperficie: formDataArraySuperficie,
-        message: message,
-        controleSatSumsjtest2: controleSatSumsjtest2
+        message:message,
+        controleSatSumsjtest2:controleSatSumsjtest2
       }),
       dataType: "json",
       success: function (response) {
         if (response.response) {
-          // Format the payload
-          let formattedPayload = formatPayload({
-            form: formDataObj,
-            formDataArrayStatut: formDataArrayStatut,
-            formDataArrayCodeCulture: formDataArrayCodeCulture,
-            formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-            formDataArraySuperficie: formDataArraySuperficie,
-            message: message,
-            controleSatSumsjtest2: controleSatSumsjtest2
-          });
-  
-          // Save the formatted payload to a text file
-          saveTextToFile(formattedPayload, 'payload.txt');
-  
           Swal.fire({
             icon: "success",
             title: "Succès!",
-            text: "Les données ont été enregistrées avec succès dans un fichier texte."
+            text: "Enregistrement effectué avec succès!"
           });
+
+
+        
         } else {
           Swal.fire({
             icon: "error",
@@ -414,6 +403,7 @@ $("input[type='checkbox']").each(function() {
         }
       },
       error: function (xhr, status, error) {
+        // Check if there is a response text and if it contains valid JSON
         if (xhr.responseText) {
           try {
             var resp = JSON.parse(xhr.responseText);
@@ -448,33 +438,6 @@ $("input[type='checkbox']").each(function() {
     });
   });
   
-  function formatPayload(payload) {
-    let text = '';
-    for (let key in payload) {
-      if (payload.hasOwnProperty(key)) {
-        let value = payload[key];
-        if (typeof value === 'object') {
-          value = JSON.stringify(value, null, 2);  // Pretty print JSON with indentation
-        }
-        text += `${key}: ${value}\n`;
-      }
-    }
-    return text;
-  }
-  
-  function saveTextToFile(text, filename) {
-    const blob = new Blob([text], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-  
-  
-
-    
   });
 
 
