@@ -58,7 +58,7 @@ include('includes/head.php');
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
                     <select class="form-select" id="day_of_passage" >
-                       <option value="-"></option>
+                       <option default value=""></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
                        <option  value="3">3</option>
@@ -114,14 +114,14 @@ include('includes/head.php');
                        </option>
                     </select>
                     <select class="form-select"  id="month_of_passage" >
-                       <option value="-"></option>
+                       <option  default value=""></option>
                         <option  value="5">Mai</option>
                         <option  value="6">Juin</option>
                         <option  value="7">Juillet</option>
                     </select>
                     <select class="form-control" id="year_of_passage" >
                        
-                       <option selected value="2024">2024
+                       <option default value="2024">2024
                        </option>
                        
                     </select>
@@ -235,7 +235,7 @@ if ($_SESSION['role'] == "recenseur") {
       Date de contrôle
       </span>
       <select  <?= $disabled ?> class="form-select" id="inputGroupSelect01">
-         <option value="-"></option>
+         <option  default value=""></option>
          <option  value="1">1</option>
          <option  value="2">2</option>
          <option  value="3">3</option>
@@ -291,7 +291,7 @@ if ($_SESSION['role'] == "recenseur") {
          </option>
       </select>
       <select  <?= $disabled ?>  class="form-select" id="inputGroupSelect01" >
-         <option value="-"></option>
+         <option  default value=""></option>
          <option  value="5">Mai</option>
          <option  value="6">Juin</option>
          <option  value="7">Juillet</option>

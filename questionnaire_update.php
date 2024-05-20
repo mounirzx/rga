@@ -66,7 +66,7 @@ include('includes/head.php');
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
                     <select class="form-select" id="day_of_passage" >
-                       <option value="-"></option>
+                       <option default value=""></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
                        <option  value="3">3</option>
@@ -122,7 +122,7 @@ include('includes/head.php');
                        </option>
                     </select>
                     <select class="form-select"  id="month_of_passage" >
-                       <option value="-"></option>
+                       <option default value=""></option>
                         <option  value="5">Mai</option>
                         <option  value="6">Juin</option>
                         <option  value="7">Juillet</option>
@@ -243,7 +243,7 @@ if ($_SESSION['role'] == "recenseur") {
       Date de contrôle
       </span>
       <select  <?= $disabled ?> class="form-select" id="inputGroupSelect01">
-         <option value="-"></option>
+         <option default value=""></option>
          <option  value="1">1</option>
          <option  value="2">2</option>
          <option  value="3">3</option>
@@ -299,13 +299,13 @@ if ($_SESSION['role'] == "recenseur") {
          </option>
       </select>
       <select  <?= $disabled ?>  class="form-select" id="inputGroupSelect01" >
-         <option value="-"></option>
+         <option default value=""></option>
          <option  value="5">Mai</option>
          <option  value="6">Juin</option>
          <option  value="7">Juillet</option>
       </select>
       <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
-         <option  value="2024">2024
+         <option default value="2024">2024
          </option>
       </select>
    </div>
@@ -6023,8 +6023,8 @@ document.getElementById('submitDate').click();
             $('[name="' + key + '"]').prop('checked', false);
         }
 
-         // Special handling for the date of birth
-         if (key === 'annee_naissance_exploitant' && response[key]) {
+       // Special handling for the date of birth
+       if (key === 'annee_naissance_exploitant' && response[key]) {
             var dateParts = response[key].split('-'); // Split the date into [dd, mm, yyyy]
             if (dateParts.length === 3) {
                 $('#jour_de_naissance').val(parseInt(dateParts[0])); // Set the day
@@ -6032,6 +6032,15 @@ document.getElementById('submitDate').click();
                 $('#annee_de_naissance').val(dateParts[2]); // Set the year
             }
  }
+    // Special handling for the date of passage
+                if (key === 'date_passage' && response[key]) {
+                    var dateParts = response[key].split('-'); // Split the date into [dd, mm, yyyy]
+                    if (dateParts.length === 3) {
+                        $('#day_of_passage').val(parseInt(dateParts[0])); // Set the day
+                        $('#month_of_passage').val(parseInt(dateParts[1])); // Set the month
+                        $('#year_of_passage').val(parseInt(dateParts[2])); // Set the year
+                    }
+                }
 
 
 
