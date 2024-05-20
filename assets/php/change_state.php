@@ -34,7 +34,8 @@ if($action == "approuver")
         $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     
     
-            $req = $bdd->prepare('UPDATE `questionnaire` SET etat=? where id_questionnaire = ? ');
+            $req = $bdd->prepare('UPDATE `questionnaire` SET etat=? , date_validation= NOW() where id_questionnaire = ? ');
+
             $req->execute(array('Approuvés', $id_questionnaire));
             echo 'true';
     

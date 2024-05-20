@@ -1588,6 +1588,54 @@ $(document).ready(function(){
     }
    
 }
+
+
+
+// $('#longitude_x_prefix').on('keypress', function() {
+//     var inputValue = $(this).val();
+//     // Regular expression to match numbers with optional decimal point
+//     var regex = /^\d*\.?\d*$/;
+//     if(!regex.test(inputValue)) {
+//         $(this).val(inputValue.slice(0, -1)); // Remove last character if it's not valid
+//     }
+// });
+
+
+
+$('#lon_exploitation').keypress(function(event) {
+    if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+            $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+}).on('paste', function(event) {
+    event.preventDefault();
+});
+
+
+
+
+$('#lat_exploitation').keypress(function(event) {
+    if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+            $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+}).on('paste', function(event) {
+    event.preventDefault();
+});
+
+
+/******************************************************************************************** */
+
+//35
+$('#activite_exploitation').change(function(){
+
+    var activite_exploitation = $(this).val()
+    if(activite_exploitation=="3"){
+        $('#type_activite_exploitation').html('<option value="1">1 - لديه أرض - Avec terre</option>')
+    }else{
+        $('#type_activite_exploitation').html('  <option value="-" disabled selected><option value="1">1 - لديه أرض - Avec terre</option> <option value="2">2 - بدون أرض - Sans terre</option>')
+    }
+})
  });
  
  
