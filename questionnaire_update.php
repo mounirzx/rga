@@ -1604,7 +1604,7 @@ acte de concession ?
                            </span>
                            
                            
-                              <input disabled num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
+                              <input  num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -1652,7 +1652,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input disabled num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
+                        <input  num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -1663,20 +1663,20 @@ acte de concession ?
 
 
             <script>
-                        var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+                        // var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
 
-                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
-                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                        // var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        // var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
                      
-                        select_exploit_indus_sur_exploitation.addEventListener('input', function () {
-                            updateselect_exploit_indus_sur_exploitation();
-                        });
+                        // select_exploit_indus_sur_exploitation.addEventListener('input', function () {
+                        //     updateselect_exploit_indus_sur_exploitation();
+                        // });
                      
-                        function updateselect_exploit_indus_sur_exploitation() {
-                            var selectedValue = select_exploit_indus_sur_exploitation.value;
+                        // function updateselect_exploit_indus_sur_exploitation() {
+                        //     var selectedValue = select_exploit_indus_sur_exploitation.value;
                             
-                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
-                        }
+                            // exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        //}
                      </script>
 
 
@@ -5771,6 +5771,12 @@ document.getElementById('submitDate').click();
            }
        });
    };
+
+
+
+
+
+
 </script>
 
 
@@ -6588,6 +6594,134 @@ data.status_juridique.forEach(function(item) {
 
 
 
+
+$('.code_culture_s').each(function(index) {
+  // Find the input elements within the current row
+  var superficie_are = $(this).find('[id^="superficie_are"]').val();
+  var superficie_hec = $(this).find('[id^="superficie_hec"]').val();
+  var en_intercalaire = $(this).find('[id^="en_intercalaire"]').val();
+  
+  // Log or use the retrieved values
+  console.log('Values for row ' + (index + 1) + ':');
+  console.log('Superficie_are:', superficie_are);
+ // alert(superficie_hec+superficie_are);
+  console.log('En_intercalaire:', en_intercalaire);
+});
+// Function to calculate total irrigated area (Sup)
+function calculateTotalSupIrrigation() {
+    var totalAres = 0;
+    // Loop through each input field for adults and children
+    $('#formContainer2 .row').each(function() {
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        totalAres += ares;
+      // alert(totalAres)
+    });
+    return totalAres;
+}
+
+// Function to calculate total mode of irrigation
+function calculateTotalModeIrrigation() {
+    var total = 0;
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+       
+    });
+    return total;
+}
+
+// Function to compare totals and display error messages
+function compareIrrigationTotals() {
+    var totalAres = calculateTotalSupIrrigation();
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var difference = totalAres - totalModeIrrigation;
+    console.log("difference: " + difference);
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent);
+    console.log("threshold: " + threshold);
+
+    $('#error_messages_irri').empty(); // Clear any existing error messages
+    if (difference > threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est supérieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else if (difference < -threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est inférieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
+    }
+}
+
+// Initialize on page load
+
+    compareIrrigationTotals(); // Perform the comparison on page load
+
+    // Attach focusout event listeners to the Mode_irrigation inputs
+    $('.Mode_irrigation').focusout(function() {
+        compareIrrigationTotals(); // Recalculate and compare on input change
+        if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+            $("#eau_aspersion_classique").css('border', '');
+            $("#eau_goutte_a_goutte").css('border', '');
+            $("#eau_epandage_de_crues").css('border', '');
+            $("#eau_gravitaire").css('border', '');
+            $("#eau_pivots").css('border', '');
+            $("#eau_enrouleur").css('border', '');
+            $("#eau_foggara_hec").css('border', '');
+            $("#eau_pluie_artificielle").css('border', '');
+            $("#eau_autre_hec").css('border', '');
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $('#exploitant').on('change', function() {
       var exploitantValue = $(this).val();
      
@@ -6758,6 +6892,38 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
          }
       })
 }
+
+
+
+
+
+
+ // Calculate total superficie_are
+ var total_superficie_are = 0;
+    $('.superficie_are').each(function() {
+        var value = parseFloat($(this).val());
+        if (!isNaN(value)) {
+            total_superficie_are += value;
+        }
+    });
+
+    console.log('Total superficie_are:', total_superficie_are);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Submit form event handler
     $('#questionnaireForm').submit(function (event) {
