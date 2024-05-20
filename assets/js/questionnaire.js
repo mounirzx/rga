@@ -102,7 +102,7 @@ function updateFields() {
         Swal.fire({
             icon: 'error',
             title: 'Limite dépassée',
-            text: 'La superficie totale dépasse 2,99 fois la superficie agricole utile',
+            text: 'Le total utilisation du sol dépasse 2,99 fois la SAU déclarée (question 51)',
         });
 
         message = "red";
