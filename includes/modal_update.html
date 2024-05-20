@@ -1,0 +1,100 @@
+
+  <style>
+    .fixed-bottom-left {
+      position: fixed;
+      bottom: 10%;
+      left: 5%;
+      max-width: 100px;
+    }
+  </style>
+
+  <!-- Button to check the payload -->
+  <button type="button" class="btn btn-warning fixed-bottom-left" id="checkDBBtn">
+   <b>
+    Check DB Data
+   </b> 
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Payload Preview</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalContent">Loading...</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      // Event listener for the check payload button
+      $('#checkDBBtn').click(function () {
+        fetchQuestionnaireData();
+      });
+
+      // Function to fetch questionnaire data by ID
+      function fetchQuestionnaireData() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var id = urlParams.get('id');
+        if (!id) {
+          console.error('No ID found in URL');
+          return;
+        }
+
+        $.ajax({
+          url: './assets/php/questionnaire_by_id.php',
+          method: 'GET',
+          data: { id: id },
+          dataType: 'json',
+          success: function (response) {
+            var modalContent = formatPayload(response);
+            $('#modalContent').html(modalContent);
+            $('#staticBackdrop').modal('show');
+          },
+          error: function (xhr, status, error) {
+            console.error('Error fetching questionnaire data:', error);
+          }
+        });
+      }
+
+      // Function to format payload data
+// Function to format payload data
+function formatPayload(payload) {
+  var formatted = '<ul>';
+  for (var key in payload) {
+    if (payload.hasOwnProperty(key)) {
+      var value = payload[key];
+      formatted += '<li><b style="color: black;">' + key + ':</b> ';
+      if (Array.isArray(value)) {
+        formatted += '<ul>';
+        value.forEach(function (item) {
+          formatted += '<li>';
+          for (var prop in item) {
+            if (item.hasOwnProperty(prop)) {
+              formatted += '<b style="color: black;">' + prop + ':</b> <strong style="color: green;">' + item[prop] + '</strong>, ';
+            }
+          }
+          formatted = formatted.slice(0, -2); // Remove the last comma and space
+          formatted += '</li>';
+        });
+        formatted += '</ul>';
+      } else {
+        formatted += '<strong style="color: green;">' + value + '</strong>';
+      }
+      formatted += '</li>';
+    }
+  }
+  formatted += '</ul>';
+  return formatted;
+}
+    });
+  </script>
