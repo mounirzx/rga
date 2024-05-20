@@ -700,15 +700,15 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
   var surface_totale_st_2 =  $('#surface_totale_st_2').val()
   
   superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
-  
+  //alert(superficie_total)
   
   // if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
-    if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!=superficie_total)){
-      console.log("supStatutJur <= superficie_total")
+    if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!==superficie_total)){
+      console.log("supStatutJur <= superficie_total red")
       //console.log('ok')
       $('.surface_total_error').css('border','3px solid red')
-     }else{
-      console.log('supStatutJur>=superficie_total')
+    }else{
+      console.log('supStatutJur>=superficie_total green ')
       $('.surface_total_error').css('border','3px solid green')
       //$('.surface_total_error').css('border','')
      }
@@ -795,7 +795,7 @@ var sum_superfecie_sj=0
 
         var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
         var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-        var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+        var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4 + superficie_agricole_utile_sau_2
         document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
