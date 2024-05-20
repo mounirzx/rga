@@ -20,7 +20,7 @@ RewriteRule ^Logout$ assets/php/logout.php [NC,L]
 # Redirect to questionnaire_update.php with the hashed id
 
 RewriteCond %{QUERY_STRING} id=([^&]+)
-RewriteRule ^QuestionnairePreview$ /rga/questionnaire_update.php?id=%1 [NC,L]
+RewriteRule ^QuestionnairePreview$ ./questionnaire_update.php?id=%1 [NC,L]
 
 
 # Rewrite other URLs to add .php extension

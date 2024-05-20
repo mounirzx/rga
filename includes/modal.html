@@ -1,0 +1,165 @@
+  
+  <style>
+.fixed-bottom-right {
+  position: fixed;
+  bottom: 10%; /* Ajustez la distance depuis le bas selon vos besoins */
+  left: 85%; /* Ajustez la distance depuis la gauche selon vos besoins */
+  max-width: 100px; /* Définissez une largeur maximale si nécessaire */
+}
+
+  </style>
+  <!-- Button to check the payload -->
+  <button type="button" class="btn btn-success fixed-bottom-right" id="checkPayloadBtn">
+    <b>
+        Check Payload
+    </b>
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Payload Preview</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalContent">...</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function isValidObject(obj) {
+      for (let key in obj) {
+        if (obj[key] === 'undefined' || obj[key] === undefined || obj[key] === 'null') {
+          return false; // If any property is undefined, null, or an empty string, return false
+        }
+      }
+      return true; // If all properties are valid, return true
+    }
+
+    // Assuming these functions are defined elsewhere
+    function updateFields() {
+      return "Updated message";
+    }
+
+    function controleSatSumsjtest() {
+      return { test: "value" };
+    }
+
+    document.getElementById('checkPayloadBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      var message = updateFields();
+      var controleSatSumsjtest2 = controleSatSumsjtest();
+
+      var formDataArrayStatut = [];
+      $(".statut_juridique_s").each(function () {
+        var formDataObjStatus = {};
+        formDataObjStatus["origine_des_terres"] = $(this).find("[name^='origine_des_terres']").val();
+        formDataObjStatus["status_juridique"] = $(this).find("[name^='status_juridique']").val();
+        formDataObjStatus["superfecie_sj"] = $(this).find("[name^='superfecie_sj']").val();
+        formDataObjStatus["superfecie_sj_are"] = $(this).find("[name^='superfecie_sj_are']").val();
+
+        if (isValidObject(formDataObjStatus)) {
+          formDataArrayStatut.push(formDataObjStatus);
+        }
+      });
+
+      var formDataArrayCodeCulture = [];
+      $(".code_culture_s").each(function () {
+        var formDataCodeCulture = {};
+        formDataCodeCulture["code_culture"] = $(this).find("[name^='code_culture']").val();
+        formDataCodeCulture["superficie_hec"] = $(this).find("[name^='superficie_hec']").val();
+        formDataCodeCulture["superficie_are"] = $(this).find("[name^='superficie_are']").val();
+        formDataCodeCulture["en_intercalaire"] = $(this).find("[name^='en_intercalaire']").val();
+
+        if (isValidObject(formDataCodeCulture)) {
+          formDataArrayCodeCulture.push(formDataCodeCulture);
+        }
+      });
+
+      var formDataArrayCodeMateriel = [];
+      $(".code_materiel_s").each(function () {
+        var formDataCodeMateriel = {};
+        formDataCodeMateriel["code_materiel"] = $(this).find("[name^='code_materiel']").val();
+        formDataCodeMateriel["code_materiel_nombre"] = $(this).find("[name^='code_materiel_nombre']").val();
+        formDataCodeMateriel["ee_mode_mobilisation_materiel"] = $(this).find("[name^='ee_mode_mobilisation_materiel']").val();
+        formDataCodeMateriel["ee_mode_exploitation_materiel"] = $(this).find("[name^='ee_mode_exploitation_materiel']").val();
+
+        if (isValidObject(formDataCodeMateriel)) {
+          formDataArrayCodeMateriel.push(formDataCodeMateriel);
+        }
+      });
+
+      var formDataObj = {};
+      $("input[type='checkbox']").each(function () {
+        formDataObj[this.name] = this.checked ? "1" : "0";
+      });
+
+      var day_of_passage = $("#day_of_passage").val();
+      var month_of_passage = $("#month_of_passage").val();
+      var year_of_passage = $("#year_of_passage").val();
+      var formattedDatePassage = day_of_passage.padStart(2, "0") + "-" + month_of_passage.padStart(2, "0") + "-" + year_of_passage;
+      formDataObj["date_passage"] = formattedDatePassage;
+
+      var jour_de_naissance = $("#jour_de_naissance").val();
+      var mois_de_naissance = $("#mois_de_naissance").val();
+      var annee_de_naissance = $("#annee_de_naissance").val();
+      var formattedDateNaissance = jour_de_naissance.padStart(2, "0") + "-" + mois_de_naissance.padStart(2, "0") + "-" + annee_de_naissance;
+      formDataObj["annee_naissance_exploitant"] = formattedDateNaissance;
+
+      var formDataArraySuperficie = {};
+      $(".surface").each(function () {
+        formDataArraySuperficie[this.name] = $(this).val();
+      });
+
+      $(".bneder").each(function () {
+        formDataObj[this.name] = $(this).val();
+      });
+
+      function checkPayload() {
+          // Remove the first element from each array
+  const trimmedFormDataArrayStatut = formDataArrayStatut.slice(1);
+  const trimmedFormDataArrayCodeCulture = formDataArrayCodeCulture.slice(1);
+  const trimmedFormDataArrayCodeMateriel = formDataArrayCodeMateriel.slice(1);
+    const payload = {
+      Questionnaire: formDataObj,
+      Utilisation_du_sol: JSON.stringify(trimmedFormDataArrayStatut, null, 2),
+      Statut_juridique: JSON.stringify(trimmedFormDataArrayCodeCulture, null, 2),
+    Utilisation_des_sol: JSON.stringify(trimmedFormDataArrayCodeMateriel, null, 2),
+      Superficie_exploatation: formDataArraySuperficie,
+    };
+
+    const modalContent = document.getElementById('modalContent');
+    modalContent.innerHTML = formatPayload(payload);
+
+    const staticBackdrop = new bootstrap.Modal(document.getElementById('staticBackdrop'), {});
+    staticBackdrop.show();
+  }
+
+  function formatPayload(payload) {
+    let formatted = '<ul>';
+    for (let key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        let value = payload[key];
+        if (typeof value === 'object' && !Array.isArray(value)) {
+          value = formatPayload(value);  // Recursive call for nested objects
+        } else if (Array.isArray(value)) {
+          value = `<ul>${value.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        }
+        formatted += `<li><b style="color: black;">${key}:</b> <strong style="color: green;">${value}</strong></li>`;
+      }
+    }
+    formatted += '</ul>';
+    return formatted;
+  }
+
+      checkPayload();
+    });
+  </script>
