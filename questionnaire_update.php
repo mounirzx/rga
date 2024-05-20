@@ -5,6 +5,14 @@ if (isset($_GET['id'])) {
 
 } 
 ?>
+<!-- payload check button -->
+<?php
+  if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "admin_central" ){
+   include('includes/modal.html');
+  }
+
+?>
+<!-- payload check button end -->
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
    <style>
