@@ -5,14 +5,19 @@ if (isset($_GET['id'])) {
 
 } 
 ?>
+
+<!-- DB data questionnaire_by_id.php check button -->
 <!-- payload check button -->
 <?php
   if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "admin_central" ){
+   include('includes/modal_update.html');
    include('includes/modal.html');
   }
-
 ?>
 <!-- payload check button end -->
+<!-- DB data check button end -->
+
+
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
    <style>
