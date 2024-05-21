@@ -5717,7 +5717,7 @@ if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSI
 </div>
 <?php
 } elseif ($_SESSION['role'] == "recenseur") {
-    $approveBtnText = "Ajouter";
+    $approveBtnText = "Modifier";
     $rejectBtnText = "Annuler";
 
 ?>
