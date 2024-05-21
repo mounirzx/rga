@@ -66,7 +66,7 @@ include('includes/head.php');
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
                     <select class="form-select" id="day_of_passage" >
-                       <option value="-"></option>
+                       <option default value=""></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
                        <option  value="3">3</option>
@@ -122,7 +122,7 @@ include('includes/head.php');
                        </option>
                     </select>
                     <select class="form-select"  id="month_of_passage" >
-                       <option value="-"></option>
+                       <option default value=""></option>
                         <option  value="5">Mai</option>
                         <option  value="6">Juin</option>
                         <option  value="7">Juillet</option>
@@ -243,7 +243,7 @@ if ($_SESSION['role'] == "recenseur") {
       Date de contrôle
       </span>
       <select  <?= $disabled ?> class="form-select" id="inputGroupSelect01">
-         <option value="-"></option>
+         <option default value=""></option>
          <option  value="1">1</option>
          <option  value="2">2</option>
          <option  value="3">3</option>
@@ -299,13 +299,13 @@ if ($_SESSION['role'] == "recenseur") {
          </option>
       </select>
       <select  <?= $disabled ?>  class="form-select" id="inputGroupSelect01" >
-         <option value="-"></option>
+         <option default value=""></option>
          <option  value="5">Mai</option>
          <option  value="6">Juin</option>
          <option  value="7">Juillet</option>
       </select>
       <select  <?= $disabled ?>  class="form-control"  id="inputGroupSelect01">
-         <option  value="2024">2024
+         <option default value="2024">2024
          </option>
       </select>
    </div>
@@ -1222,7 +1222,7 @@ au réseau internet ?
                         <div class="input-group input-group-sm">
 
                                 <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
-                                <!-- <option  selected="" disabled>-</option>
+                                <option  selected="" disabled>-</option>
                                     <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                     <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                     <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
@@ -1247,7 +1247,7 @@ au réseau internet ?
                                        <option value="19">19 - Certificat de possession شهادة حيازة</option>
                                        <option value="20">20 - Location إجار</option>
                                        <option value="21">21 - Autre  آخرى </option>
-                                       <option value="22">22 - Inconnu غير معروف</option> -->
+                                       <option value="22">22 - Inconnu غير معروف</option>
                                 </select>
                                
                          </div>
@@ -1604,7 +1604,7 @@ acte de concession ?
                            </span>
                            
                            
-                              <input  num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
+                              <input disabled num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -1652,7 +1652,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input  num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
+                        <input disabled num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -1663,20 +1663,20 @@ acte de concession ?
 
 
             <script>
-                        // var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+                        var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
 
-                        // var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
-                        // var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
                      
-                        // select_exploit_indus_sur_exploitation.addEventListener('input', function () {
-                        //     updateselect_exploit_indus_sur_exploitation();
-                        // });
+                        select_exploit_indus_sur_exploitation.addEventListener('input', function () {
+                            updateselect_exploit_indus_sur_exploitation();
+                        });
                      
-                        // function updateselect_exploit_indus_sur_exploitation() {
-                        //     var selectedValue = select_exploit_indus_sur_exploitation.value;
+                        function updateselect_exploit_indus_sur_exploitation() {
+                            var selectedValue = select_exploit_indus_sur_exploitation.value;
                             
-                            // exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
-                        //}
+                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        }
                      </script>
 
 
@@ -4164,7 +4164,7 @@ Petite et Moyenne Hydraulique
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                      <div class="card-body">
 
-  <div class="row">
+                     <div class="row">
     <div class="row">
       <div class="col-2"></div>
       <div style="padding-left:28px; font-size: 10px !important;" class="col-4">
@@ -5777,12 +5777,6 @@ document.getElementById('submitDate').click();
            }
        });
    };
-
-
-
-
-
-
 </script>
 
 
@@ -6035,8 +6029,8 @@ document.getElementById('submitDate').click();
             $('[name="' + key + '"]').prop('checked', false);
         }
 
-         // Special handling for the date of birth
-         if (key === 'annee_naissance_exploitant' && response[key]) {
+       // Special handling for the date of birth
+       if (key === 'annee_naissance_exploitant' && response[key]) {
             var dateParts = response[key].split('-'); // Split the date into [dd, mm, yyyy]
             if (dateParts.length === 3) {
                 $('#jour_de_naissance').val(parseInt(dateParts[0])); // Set the day
@@ -6044,6 +6038,15 @@ document.getElementById('submitDate').click();
                 $('#annee_de_naissance').val(dateParts[2]); // Set the year
             }
  }
+    // Special handling for the date of passage
+                if (key === 'date_passage' && response[key]) {
+                    var dateParts = response[key].split('-'); // Split the date into [dd, mm, yyyy]
+                    if (dateParts.length === 3) {
+                        $('#day_of_passage').val(parseInt(dateParts[0])); // Set the day
+                        $('#month_of_passage').val(parseInt(dateParts[1])); // Set the month
+                        $('#year_of_passage').val(parseInt(dateParts[2])); // Set the year
+                    }
+                }
 
 
 
@@ -6260,7 +6263,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
-        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
         tableHTML += '<input bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2"  value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
@@ -6683,15 +6686,15 @@ data.status_juridique.forEach(function(item) {
         '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
         '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
         '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
-        ' <option value="14" '+(item.status_juridique === "14" ? 'selected' : '') + '>14 - Succession إرث</option>' +
-        ' <option value="15" '+(item.status_juridique === "15" ? 'selected' : '') + '>15 - Donation هبة</option>' +
-        ' <option value="16" '+(item.status_juridique === "16" ? 'selected' : '') + '>16 - Testament وصية</option>' +
-        ' <option value="17" '+(item.status_juridique === "17" ? 'selected' : '') + '>17 - Droit préemption حق الشفاعة</option>' +
-        ' <option value="18" '+(item.status_juridique === "18" ? 'selected' : '') + '>18 - Préscription acquisitive ملكية مكتسبة</option>' +
-        ' <option value="19" '+(item.status_juridique === "19" ? 'selected' : '') + '>19 - Certificat de possession شهادة حيازة</option>' +
-        ' <option value="20" '+(item.status_juridique === "20" ? 'selected' : '') +'>20 - Location إجار</option>' +
-        ' <option value="21" '+(item.status_juridique === "21" ? 'selected' : '') +'>21 - Autre  آخرى </option>' +
-        ' <option value="22" '+(item.status_juridique === "22" ? 'selected' : '') +'>22 - Inconnu غير معروف</option>' + 
+        ' <option value="14"'+(item.status_juridique === "14" ? 'selected' : '')+'14 - Succession إرث</option>' +
+         ' <option value="15"'+(item.status_juridique === "15" ? 'selected' : '')+'15 - Donation هبة</option>' +
+         ' <option value="16"'+(item.status_juridique === "16" ? 'selected' : '')+'16 - Testament وصية</option>' +
+         ' <option value="17"'+(item.status_juridique === "17" ? 'selected' : '')+'17 - Droit préemption حق الشفاعة</option>' +
+         ' <option value="18"'+(item.status_juridique === "18" ? 'selected' : '')+'18 - Préscription acquisitive ملكية مكتسبة</option>' +
+         ' <option value="19"'+(item.status_juridique === "19" ? 'selected' : '')+'19 - Certificat de possession شهادة حيازة</option>' +
+         ' <option value="20"'+(item.status_juridique === "20" ? 'selected' : '')+'20 - Location إجار</option>' +
+         ' <option value="21"'+(item.status_juridique === "21" ? 'selected' : '')+'21 - Autre  آخرى </option>' +
+         ' <option value="22"'+(item.status_juridique === "22" ? 'selected' : '')+'22 - Inconnu غير معروف</option>' + 
         '</select>' +
         '</div>' +
         '</div>' +
@@ -6709,146 +6712,6 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '</div>';
 });
-
-
-
-
-var totalSuperficieAre = 0;
-
-// Iterate over each element with the class "code_culture_s"
-$('.code_culture_s').each(function(index) {
-  // Find the input elements within the current row
-  var superficie_are = $(this).find('[id^="superficie_are"]').val();
-  var superficie_hec = $(this).find('[id^="superficie_hec"]').val();
-  var en_intercalaire = $(this).find('[id^="en_intercalaire"]').val();
-  
-  // Log or use the retrieved values
-  console.log('Values for row ' + (index + 1) + ':');
-  console.log('Superficie_are:', superficie_are);
-  console.log('En_intercalaire:', en_intercalaire);
-  
-  // Only add non-empty values to the total
-  if (superficie_are) {
-    totalSuperficieAre += parseFloat(superficie_are) || 0;
-  }
-});
-
-// Alert the total superficie_are
-alert(totalSuperficieAre);
-
-
-
-// Function to calculate total irrigated area (Sup)
-function calculateTotalSupIrrigation() {
-    var totalAres = 0;
-    // Loop through each input field for adults and children
-    $('#formContainer2 .row').each(function() {
-        var ares = parseFloat(superficieHecArray) || 0;
-        totalAres += ares;
-      // alert(totalAres)
-    });
-    return totalAres;
-}
-
-// Function to calculate total mode of irrigation
-function calculateTotalModeIrrigation() {
-    var total = 0;
-    // Loop through each input field with class 'Mode_irrigation'
-    $('.Mode_irrigation').each(function() {
-        // Parse the value as an integer and add it to the total
-        total += parseInt($(this).val()) || 0;
-       
-    });
-    return total;
-}
-
-// Function to compare totals and display error messages
-function compareIrrigationTotals() {
-    var totalAres = calculateTotalSupIrrigation();
-    var totalModeIrrigation = calculateTotalModeIrrigation();
-    console.log("totalAres: " + totalAres);
-    console.log("totalModeIrrigation: " + totalModeIrrigation);
-
-    var totalAres5Percent = totalAres * 0.05;
-    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
-
-    var difference = totalAres - totalModeIrrigation;
-    console.log("difference: " + difference);
-
-    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent);
-    console.log("threshold: " + threshold);
-
-    $('#error_messages_irri').empty(); // Clear any existing error messages
-    if (difference > threshold) {
-        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est supérieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
-        var $message = $('<div>').addClass('error-message').text(errorMessage);
-        $message.css({
-            'font-weight': 'bold',
-            'color': 'red',
-        });
-        $('#error_messages_irri').append($message);
-        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
-        $('.Mode_irrigation').css('border', '2px solid red');
-    } else if (difference < -threshold) {
-        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est inférieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
-        var $message = $('<div>').addClass('error-message').text(errorMessage);
-        $message.css({
-            'font-weight': 'bold',
-            'color': 'red',
-        });
-        $('#error_messages_irri').append($message);
-        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
-        $('.Mode_irrigation').css('border', '2px solid red');
-    } else {
-        $('.Mode_irrigation').css('border', '2px solid green');
-    }
-}
-
-// Initialize on page load
-
-    compareIrrigationTotals(); // Perform the comparison on page load
-
-    // Attach focusout event listeners to the Mode_irrigation inputs
-    $('.Mode_irrigation').focusout(function() {
-        compareIrrigationTotals(); // Recalculate and compare on input change
-        if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
-            $("#eau_aspersion_classique").css('border', '');
-            $("#eau_goutte_a_goutte").css('border', '');
-            $("#eau_epandage_de_crues").css('border', '');
-            $("#eau_gravitaire").css('border', '');
-            $("#eau_pivots").css('border', '');
-            $("#eau_enrouleur").css('border', '');
-            $("#eau_foggara_hec").css('border', '');
-            $("#eau_pluie_artificielle").css('border', '');
-            $("#eau_autre_hec").css('border', '');
-        }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -6910,6 +6773,40 @@ var listOrigineTerre = {
     "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
     "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7011,11 +6908,153 @@ $('#delete4').on('click', function() {
     /****************************************utilisation_du_sol********************************************* */
 
     var utilisation_du_sol_inputs = "";
+    var totalirriguer = 0; // Declare total in the global scope
 
 // Append each status_juridique input
 data.utilisation_du_sol.forEach(function(item) {
 utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-6" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div><div class="col-1"><button style="width:41px"type="button" class="btn btn-danger btn-sm">-</button></div></div>'
+
+totalirriguer += parseInt(item.superficie_are);
+
+
 });
+
+
+
+
+
+
+
+
+//Controle sup irrigué 64 117
+//  117 <= 64
+// function calculateTotalSupIrrigation() {
+//     var totalAres = 0;
+//     // Loop through each input field for adults and children
+//     $('#formContainer2 .row').each(function() {
+//         var ares = total;
+//         totalAres += ares;
+      
+//     });
+//     return totalAres;
+// }
+
+function calculateTotalModeIrrigation() {
+    var total = 0;
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+function compareIrrigationTotals() {
+    var totalAres =totalirriguer;
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var difference = totalAres - totalModeIrrigation;
+    console.log("difference: " + difference);
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent);
+    console.log("threshold: " + threshold);
+
+    $('#error_messages_irri').empty(); // Clear any existing error messages
+    if (difference > threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est supérieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else if (difference < -threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est inférieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
+    }
+}
+
+
+$('.Mode_irrigation').focusout(function() {
+    if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+      $("#eau_aspersion_classique").css('border', '');
+        $("#eau_goutte_a_goutte").css('border', '');
+        $("#eau_epandage_de_crues").css('border', '');
+        $("#eau_gravitaire").css('border', '');
+        $("#eau_pivots").css('border', '');
+        $("#eau_enrouleur").css('border', '');
+        $("#eau_foggara_hec").css('border', '');
+        $("#eau_pluie_artificielle").css('border', '');
+        $("#eau_autre_hec").css('border', '');
+    }
+});
+
+
+$('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').on('input', function() {
+    compareIrrigationTotals();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $('#formContainer2').append(utilisation_du_sol_inputs);
 
@@ -7024,46 +7063,12 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
       })
 }
 
-
-
-
-
-
- // Calculate total superficie_are
- var total_superficie_are = 0;
-    $('.superficie_are').each(function() {
-        var value = parseFloat($(this).val());
-        if (!isNaN(value)) {
-            total_superficie_are += value;
-        }
-    });
-
-    console.log('Total superficie_are:', total_superficie_are);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Submit form event handler
     $('#questionnaireForm').submit(function (event) {
         event.preventDefault(); // Prevent default form submission
         // You can add your form submission logic here
     });
 });
-
-
 
 
 
@@ -7128,7 +7133,7 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
 var elements = document.getElementsByClassName("surface");
 //   for (var i = 0; i < elements.length; i++) {
   
-  window.onload = function() {
+   $(document).on("input", ".surface", function() {
 console.log("okkkkkkkk")
 var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
