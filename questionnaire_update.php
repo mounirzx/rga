@@ -5697,14 +5697,20 @@ Petite et Moyenne Hydraulique
 
 <?php
 // Determine button text based on user's role
+
+
 if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
     $approveBtnText = "Valider";
     $rejectBtnText = "Rejeter";
 ?>
     <div class="row">
+
+    <!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
         <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="submitDate" ><?= $approveBtnText ?></button>
     </div>
+    
+    <!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
     <div class="col">
         <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejected" href="#"><?= $rejectBtnText ?></button>
     </div>
