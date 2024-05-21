@@ -654,7 +654,7 @@ if(data[i].message_coherence_util_sol!=""){
 // });
 
 
-$(document).on('keyup','.coherence_surface_total-surface',function(){
+$(document).on('keypress','.coherence_surface_total-surface',function(){
   var supStatutJur= 0
     /***********************************************/
       var sum_superficie_hectare= 0
@@ -703,18 +703,18 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
   var surface_totale_st_2 =  $('#surface_totale_st_2').val()
   
   superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
-  //alert(superficie_total)
-  
-  // if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+  console.log("********************")
+  console.log(supStatutJur)
+  console.log(superficie_total)
+  console.log("********************")
 
     if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!==superficie_total)){
-      console.log("supStatutJur <= superficie_total red")
-      //console.log('ok')
+    
       $('.surface_total_error').css('border','3px solid red')
     }else{
-      console.log('supStatutJur>=superficie_total green ')
+  
       $('.surface_total_error').css('border','3px solid green')
-      //$('.surface_total_error').css('border','')
+      
      }
   
     //}

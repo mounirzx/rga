@@ -240,15 +240,8 @@ $req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_s
 $req4->execute(array($lastInsertId,$coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol));
 
 
-
-
 /************************************************************************ */
-
-
-
-
-
-    // your database logic
+// your database logic
     echo json_encode(['response' => true]);
 } catch (Exception $e) {
     http_response_code(500); // Set appropriate response code
