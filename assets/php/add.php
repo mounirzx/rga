@@ -207,7 +207,7 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 
 /*********************************************************************** */
-
+/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 $message = $form->message;
 $controleSatSumsjtest2 = $form->controleSatSumsjtest2;
 // print_r($message);
@@ -220,10 +220,10 @@ if($message=="green"){
     $coherence_util_sol = "text-success";
 }if($message=="orange"){
     $coherence_util_sol = "text-warning";
-    $message_coherence_util_sol="La superficie totale n est pas egale la superficie agricole utile.";
+    $message_coherence_util_sol="La somme des sup occupées est différente de la SAU";
 }if($message=="red"){
     $coherence_util_sol = "text-danger";
-    $message_coherence_util_sol="La superficie totale dépasse 2,99 fois la superficie agricole utile";
+    $message_coherence_util_sol="La somme des sup occupées dépasse 2,99 fois la SAU";
 }
 
 
@@ -231,11 +231,12 @@ if($controleSatSumsjtest2=="green"){
     $coherence_stat_jur="text-success";
 }if($controleSatSumsjtest2=="orange"){
     $coherence_stat_jur="text-warning";
-    $message_coherence_stat_jur="SAT n egale pas la somme des sup status jur";
+    $message_coherence_stat_jur="SAT est déffirente de la somme des sup. à statut";
 }if($controleSatSumsjtest2=="red"){
     $coherence_stat_jur="text-danger";
-    $message_coherence_stat_jur="la somme des sup de status juridique de passe 5%  de la SAT";
+    $message_coherence_stat_jur="La somme des sup. à statut dépasse 5% la SAT";
 }
+/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 $req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES (?, ?, ?, ?,?)');
 $req4->execute(array($lastInsertId,$coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol));
 

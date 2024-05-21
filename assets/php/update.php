@@ -297,6 +297,46 @@ foreach ($formDataArrayCodeCulture as $formData) {
 
 
 
+/*********************************************************************** */
+/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+$id_questionnaire= $data['id_questionnaire'];
+
+$message = $form['message'];
+$controleSatSumsjtest2 = $form['controleSatSumsjtest2'];
+
+$coherence_util_sol="";
+$message_coherence_util_sol="";
+$coherence_stat_jur="";
+$message_coherence_stat_jur="";
+if($message=="green"){
+    $coherence_util_sol = "text-success";
+}if($message=="orange"){
+    $coherence_util_sol = "text-warning";
+    $message_coherence_util_sol="La somme des sup occupées est différente de la SAU";
+}if($message=="red"){
+    $coherence_util_sol = "text-danger";
+    $message_coherence_util_sol="La somme des sup occupées dépasse 2,99 fois la SAU";
+}
+
+
+if($controleSatSumsjtest2=="green"){
+    $coherence_stat_jur="text-success";
+}if($controleSatSumsjtest2=="orange"){
+    $coherence_stat_jur="text-warning";
+    $message_coherence_stat_jur="SAT est déffirente de la somme des sup. à statut";
+}if($controleSatSumsjtest2=="red"){
+    $coherence_stat_jur="text-danger";
+    $message_coherence_stat_jur="La somme des sup. à statut dépasse 5% la SAT";
+}
+/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+$req4=$bdd->prepare('UPDATE `coherence_superficie` SET `coherence_stat_jur`=?,`message_coherence_stat_jur`=?,`coherence_util_sol`=?,`message_coherence_util_sol`=? WHERE id_quest=?');
+$req4->execute(array($coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol,$id_questionnaire));
+
+
+
+
+/************************************************************************ */
+
 
 
 

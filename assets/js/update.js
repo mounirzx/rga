@@ -92,10 +92,158 @@ $(document).ready(function () {
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
+  function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_messages').empty($message); // Append message to container
+    $('#error_messages').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
+  
+
+  function updateFields() {
+    var message=""
+    var totalHectares = 0;
+    var totalAres = 0;
+    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+  
+    $('#formContainer2 .row').each(function() {
+        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        var cultureCode = parseInt($(this).find('.code_culture_s').val());
+        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+  
+        totalHectares += hectares;
+        totalAres += ares;
+  
+        // Convert total ares to hectares for calculation
+        totalHectares += totalAres / 100;
+  
+        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+           // intercalaireField.val('').prop('disabled', false);
+        } else {
+           // intercalaireField.prop('disabled', false);
+        }
+  
+        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+        if (intercalaireField.val()) {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+           
+          
+            
+        } else {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+        }
+    });
+  console.log(totalHectares+'  '+SAU)
+    if (totalHectares > 2.99 * SAU) {
+       
+      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+  
+  
+        message = "red";
+    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Limite dépassée',
+        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+        // });
+        displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
+        console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+        message="orange"
+    }else if(totalHectares  == (SAU)){
+        message="green"
+  console.log('good')
+  
+    }
+  
+    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+  
+    return message
+  }
+
+
+/********************************************************************************************************************* */
+function controleSatSumsjtest () {
+var message="";
+var sum_superfecie_sj=0
+  $(".statut_juridique_s").each(function () {
+    var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+    superfecie_sj=parseFloat(superfecie_sj)
+      if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+        sum_superfecie_sj += superfecie_sj;
+      }
+  });
+     // console.log(sum_superfecie_sj)
+     var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
+      var range_5_percent = 0.05 * sum_superfecie_sj
+
+    //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
+    //   console.log("red")
+    //  }
+
+      // Calculate the upper and lower bounds of the range
+    //  console.log("range_5_percent")
+    //  console.log(range_5_percent)
+  var upper_bound = sum_superfecie_sj + range_5_percent;
+  var lower_bound = sum_superfecie_sj - range_5_percent;
+ // console.log(upper_bound)
+ // console.log(lower_bound)
+  // Check if SAT is within the range
+  if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+    message="green"
+   // console.log("green")
+   message="green"
+   }
+  else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
+  //  console.log('orange')
+  //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+    message="orange"
+  } else {
+    //console.log('red')
+   // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+    message="red"
+  }
+
+  return message
+}
+$(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
+
+  /***************************************************************************************************************** */
+
+// Bind the update function to input events on all related hectare and are inputs
+$('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are_"], .code_culture_s', updateFields);
+
+// Initialize the fields correctly on page load
+//updateFields();
+
+
+
+
 
   $("#submitDate").click(function (e) {
     e.preventDefault();
-
+    var message = updateFields()
+    var controleSatSumsjtest2 = controleSatSumsjtest()
     // Initialize an empty array to store form data for each row
     var formDataArray = [];
 
@@ -266,7 +414,9 @@ $("input[type='checkbox']").each(function() {
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArraySuperficie:formDataArraySuperficie
+          formDataArraySuperficie:formDataArraySuperficie,
+          message:message,
+          controleSatSumsjtest2:controleSatSumsjtest2
         }),
         dataType: "json",
         success: function (response) {
@@ -373,44 +523,89 @@ $("input[type='checkbox']").each(function() {
 
   /***************************************************************************** */
 
-$('#rejected').click(function(e){
-  e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
-  console.log('okkk')
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "rejeter"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire rejeté",
+// $('#rejected').click(function(e){
+//   e.preventDefault()
+//     var id_questionnaire = $('#id_questionnaire').val();
+//   console.log('okkk')
+//     $.ajax({
+//       url:'assets/php/change_state.php',
+//       method:'post',
+//       async:false,
+//       data:{id_questionnaire:id_questionnaire , action : "rejeter"},
+//       success:function(response){
+//         console.log(response)
+//         Swal.fire({
+//           title: "Questionnaire rejeté",
           
-          icon: "success"
-        });
-      }
-    })
-  })
-  $('#submitDate').click(function(e){
+//           icon: "success"
+//         });
+//       }
+//     })
+//   })
+
+
+  $('#rejeter').click(function(e){
     e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
-  
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "approuver"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire approuvé",
-          
-          icon: "success"
-        });
-      }
+      var id_questionnaire = $('#id_questionnaire').val();
+    console.log('okkk')
+      $.ajax({
+        url:'assets/php/change_state.php',
+        method:'post',
+        async:false,
+        data:{id_questionnaire:id_questionnaire , action : "rejeter"},
+        success:function(response){
+          console.log(response)
+          Swal.fire({
+            title: "Questionnaire rejeté",
+            
+            icon: "success"
+          });
+        }
+      })
     })
-  })
+
+    
+  /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+    $('#approuver').click(function(e){
+      e.preventDefault()
+      var id_questionnaire = $('#id_questionnaire').val();
+    
+      $.ajax({
+        url:'assets/php/change_state.php',
+        method:'post',
+        async:false,
+        data:{id_questionnaire:id_questionnaire , action : "approuver"},
+        success:function(response){
+          console.log(response)
+          Swal.fire({
+            title: "Questionnaire approuvé",
+            
+            icon: "success"
+          });
+        }
+      })
+    })
+  /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+
+  // $('#submitDate').click(function(e){
+  //   e.preventDefault()
+  //   var id_questionnaire = $('#id_questionnaire').val();
+  
+  //   $.ajax({
+  //     url:'assets/php/change_state.php',
+  //     method:'post',
+  //     async:false,
+  //     data:{id_questionnaire:id_questionnaire , action : "approuver"},
+  //     success:function(response){
+  //       console.log(response)
+  //       Swal.fire({
+  //         title: "Questionnaire approuvé",
+          
+  //         icon: "success"
+  //       });
+  //     }
+  //   })
+  // })
   
   /************************************************************************* */
 
