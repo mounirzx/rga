@@ -2141,7 +2141,7 @@ acte de concession ?
                   1 - Blé dur - قمح صلب
                 </option>
                 <option BoldText value="2">
-                  2 - Blétendre - قمح لين
+                  2 - Blé tendre - قمح لين
                 </option>
                 <option BoldText value="3">
                   3 - Orge - شعير
@@ -2153,13 +2153,13 @@ acte de concession ?
                   5 - Sorgho - الذرة البيضاء(سرغوم)
                 </option>
                 <option BoldText value="6">
-                  6 - Maïsgrain - حبوب الذرة
+                  6 - Maïs grain - حبوب الذرة
                 </option>
                 <option BoldText value="7">
-                  7 - Autrescéréales - الحبوب الأخرى
+                  7 - Autres céréales - الحبوب الأخرى
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
-                  Légumessecs - البقول الجافة
+                  Légumes secs - البقول الجافة
                 </option>
                 <option BoldText value="8">
                   8 - Lentilles - عدس
@@ -2171,10 +2171,10 @@ acte de concession ?
                   10 - Pois sec - بازلاء مجففة
                 </option>
                 <option BoldText value="11">
-                  11 - Haricotsec - الفاصوليا الجافة
+                  11 - Haricot sec - الفاصوليا الجافة
                 </option>
                 <option BoldText value="12">
-                  12 - Fèvesèche - فول جاف
+                  12 - Fève sèche - فول جاف
                 </option>
                 <option BoldText value="13">
                   13 - Autres-أخرى
@@ -2201,7 +2201,7 @@ acte de concession ?
                   18 - Pomme de terre - البطاطا
                 </option>
                 <option BoldText value="19">
-                  19 - Oignonsecet vert - بصل جاف وأخضر
+                  19 - Oignon sec et vert - بصل جاف وأخضر
                 </option>
                 <option BoldText value="20">
                   20 - Ail - ثوم
@@ -2213,7 +2213,7 @@ acte de concession ?
                   22 - Piment - فلفل حار
                 </option>
                 <option BoldText value="23">
-                  23 - Poivron(frais et séché) - فلفل حلو
+                  23 - Poivron (frais et séché) - فلفل حلو
                 </option>
                 <option BoldText value="24">
                   24 - Carotte - جزر
@@ -2228,7 +2228,7 @@ acte de concession ?
                   27 - Concombre - خيار
                 </option>
                 <option BoldText value="28">
-                  28 - ChouetChou-fleur - الملفوف وكرمب
+                  28 - Chou et Chou-fleur - الملفوف وكرمب
                 </option>
                 <option BoldText value="29">
                   29 - Artichaut - قرنون
@@ -2237,19 +2237,19 @@ acte de concession ?
                   30 - Betterave -الشمندر
                 </option>
                 <option BoldText value="31">
-                  31 - Fèveverte- فول أخضر
+                  31 - Fève verte- فول أخضر
                 </option>
                 <option BoldText value="32">
-                  32 - Haricotvert - فاصوليا خضراء
+                  32 - Haricot vert - فاصوليا خضراء
                 </option>
                 <option BoldText value="33">
-                  33 - Petitpois - البازلاء
+                  33 - Petit pois - البازلاء
                 </option>
                 <option BoldText value="34">
                   34 - Fraises - فراولة
                 </option>
                 <option BoldText value="35">
-                  35 - Salade(laitue) - خس
+                  35 - Salade (laitue) - خس
                 </option>
                 <option BoldText value="36">
                   36 - Melon - بطيخ
@@ -2264,13 +2264,13 @@ acte de concession ?
                   Cultures industrielles - المحاصيل الصناعية
                 </option>
                 <option BoldText value="39">
-                  39 - Tomateindustrielle - الطماطم الصناعية
+                  39 - Tomate industrielle - الطماطم الصناعية
                 </option>
                 <option BoldText value="40">
-                  40 - Betterave àsucre - شمندر سكري
+                  40 - Betterave à sucre - شمندر سكري
                 </option>
                 <option BoldText value="41">
-                  41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
+                  41 - Oléagineux (arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)
                 </option>
                 <option BoldText value="42">
                   42 - Tabac - التبغ

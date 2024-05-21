@@ -1222,7 +1222,7 @@ au réseau internet ?
                         <div class="input-group input-group-sm">
 
                                 <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
-                                <option  selected="" disabled>-</option>
+                                <!-- <option  selected="" disabled>-</option>
                                     <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                     <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
                                     <option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option>
@@ -1247,7 +1247,7 @@ au réseau internet ?
                                        <option value="19">19 - Certificat de possession شهادة حيازة</option>
                                        <option value="20">20 - Location إجار</option>
                                        <option value="21">21 - Autre  آخرى </option>
-                                       <option value="22">22 - Inconnu غير معروف</option>
+                                       <option value="22">22 - Inconnu غير معروف</option> -->
                                 </select>
                                
                          </div>
@@ -1604,7 +1604,7 @@ acte de concession ?
                            </span>
                            
                            
-                              <input disabled num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
+                              <input  num maxlength="2" class="form-control bneder" id="exploit_est_un_bloc_oui" name="exploit_est_un_bloc_oui"  >
                          
                         </div>
                      </div>
@@ -1652,7 +1652,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input disabled num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
+                        <input  num maxlength="2" class="form-control bneder" id="exp_indu_si_oui_nombre_menage" name="exp_indu_si_oui_nombre_menage" >
                    
                   </div>
                   </div>
@@ -1663,20 +1663,20 @@ acte de concession ?
 
 
             <script>
-                        var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
+                        // var select_exploit_indus_sur_exploitation = document.getElementsByName('exploit_indus_sur_exploitation')[0];
 
-                        var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
-                        var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
+                        // var exploit_indus_sur_exploitation = document.getElementById('exploit_indus_sur_exploitation');
+                        // var exp_indu_si_oui_nombre_menage = document.getElementById('exp_indu_si_oui_nombre_menage');
                      
-                        select_exploit_indus_sur_exploitation.addEventListener('input', function () {
-                            updateselect_exploit_indus_sur_exploitation();
-                        });
+                        // select_exploit_indus_sur_exploitation.addEventListener('input', function () {
+                        //     updateselect_exploit_indus_sur_exploitation();
+                        // });
                      
-                        function updateselect_exploit_indus_sur_exploitation() {
-                            var selectedValue = select_exploit_indus_sur_exploitation.value;
+                        // function updateselect_exploit_indus_sur_exploitation() {
+                        //     var selectedValue = select_exploit_indus_sur_exploitation.value;
                             
-                            exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
-                        }
+                            // exp_indu_si_oui_nombre_menage.disabled = (selectedValue != '1');
+                        //}
                      </script>
 
 
@@ -5771,6 +5771,12 @@ document.getElementById('submitDate').click();
            }
        });
    };
+
+
+
+
+
+
 </script>
 
 
@@ -6248,7 +6254,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
-        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
         tableHTML += '<input bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2"  value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
@@ -6372,6 +6378,119 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     inputs += '</div>';
 });
     $('#formContainer3').append(inputs);
+
+
+
+
+
+
+
+
+
+
+
+
+    $(document).on('keyup','.coherence_surface_total-surface',function(){
+
+/***********************************************/
+  var sum_superficie_hectare= 0
+
+      $(".statut_juridique_s").each(function () {
+        var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+      
+        superficie_hectare=parseFloat(superficie_hectare)
+       
+          if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+            sum_superficie_hectare += superficie_hectare;
+          }
+      });
+       /***********************************************/
+
+/********************************************** */   
+       var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+
+if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
+  //console.log('ok')
+  $('.surface_total_error').css('border','3px solid red')
+ }else{
+  $('.surface_total_error').css('border','')
+ }
+
+//}
+  })
+
+/********************************************************************************************************************* */
+
+
+  /***************************************************************************************************************** */
+
+
+  $(document).on('keyup','.coherence_surface_total-surface_are',function(){
+
+    /***********************************************/
+      var sum_superficie_are= 0
+  
+          $(".statut_juridique_s").each(function () {
+            var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+            superficie_are=parseFloat(superficie_are)
+              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                sum_superficie_are += superficie_are;
+              }
+          });
+
+          //console.log(sum_superficie_are)
+           /***********************************************/
+          //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
+          //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
+          //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
+          //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
+          //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
+          //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
+          //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
+  /********************************************** */   
+        
+  var sup_total_are =  $('#surface_totale_st_2').val()
+  //console.log(sup_total_are)
+ // console.log(sum_superficie_are)
+  //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+  // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
+    if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
+    //  console.log('ok')
+      $('.surface_total_error_are').css('border','3px solid red')
+     }else{
+      $('.surface_total_error_are').css('border','')
+     }
+  
+    // }
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /****************************************************************************************************************** */
  var elements = document.getElementsByClassName("surface");
@@ -6558,15 +6677,15 @@ data.status_juridique.forEach(function(item) {
         '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
         '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
         '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
-        ' <option value="14"'+(item.status_juridique === "14" ? 'selected' : '')+'14 - Succession إرث</option>' +
-         ' <option value="15"'+(item.status_juridique === "15" ? 'selected' : '')+'15 - Donation هبة</option>' +
-         ' <option value="16"'+(item.status_juridique === "16" ? 'selected' : '')+'16 - Testament وصية</option>' +
-         ' <option value="17"'+(item.status_juridique === "17" ? 'selected' : '')+'17 - Droit préemption حق الشفاعة</option>' +
-         ' <option value="18"'+(item.status_juridique === "18" ? 'selected' : '')+'18 - Préscription acquisitive ملكية مكتسبة</option>' +
-         ' <option value="19"'+(item.status_juridique === "19" ? 'selected' : '')+'19 - Certificat de possession شهادة حيازة</option>' +
-         ' <option value="20"'+(item.status_juridique === "20" ? 'selected' : '')+'20 - Location إجار</option>' +
-         ' <option value="21"'+(item.status_juridique === "21" ? 'selected' : '')+'21 - Autre  آخرى </option>' +
-         ' <option value="22"'+(item.status_juridique === "22" ? 'selected' : '')+'22 - Inconnu غير معروف</option>' + 
+        ' <option value="14" '+(item.status_juridique === "14" ? 'selected' : '') + '>14 - Succession إرث</option>' +
+        ' <option value="15" '+(item.status_juridique === "15" ? 'selected' : '') + '>15 - Donation هبة</option>' +
+        ' <option value="16" '+(item.status_juridique === "16" ? 'selected' : '') + '>16 - Testament وصية</option>' +
+        ' <option value="17" '+(item.status_juridique === "17" ? 'selected' : '') + '>17 - Droit préemption حق الشفاعة</option>' +
+        ' <option value="18" '+(item.status_juridique === "18" ? 'selected' : '') + '>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+        ' <option value="19" '+(item.status_juridique === "19" ? 'selected' : '') + '>19 - Certificat de possession شهادة حيازة</option>' +
+        ' <option value="20" '+(item.status_juridique === "20" ? 'selected' : '') +'>20 - Location إجار</option>' +
+        ' <option value="21" '+(item.status_juridique === "21" ? 'selected' : '') +'>21 - Autre  آخرى </option>' +
+        ' <option value="22" '+(item.status_juridique === "22" ? 'selected' : '') +'>22 - Inconnu غير معروف</option>' + 
         '</select>' +
         '</div>' +
         '</div>' +
@@ -6584,6 +6703,146 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '</div>';
 });
+
+
+
+
+var totalSuperficieAre = 0;
+
+// Iterate over each element with the class "code_culture_s"
+$('.code_culture_s').each(function(index) {
+  // Find the input elements within the current row
+  var superficie_are = $(this).find('[id^="superficie_are"]').val();
+  var superficie_hec = $(this).find('[id^="superficie_hec"]').val();
+  var en_intercalaire = $(this).find('[id^="en_intercalaire"]').val();
+  
+  // Log or use the retrieved values
+  console.log('Values for row ' + (index + 1) + ':');
+  console.log('Superficie_are:', superficie_are);
+  console.log('En_intercalaire:', en_intercalaire);
+  
+  // Only add non-empty values to the total
+  if (superficie_are) {
+    totalSuperficieAre += parseFloat(superficie_are) || 0;
+  }
+});
+
+// Alert the total superficie_are
+alert(totalSuperficieAre);
+
+
+
+// Function to calculate total irrigated area (Sup)
+function calculateTotalSupIrrigation() {
+    var totalAres = 0;
+    // Loop through each input field for adults and children
+    $('#formContainer2 .row').each(function() {
+        var ares = parseFloat(superficieHecArray) || 0;
+        totalAres += ares;
+      // alert(totalAres)
+    });
+    return totalAres;
+}
+
+// Function to calculate total mode of irrigation
+function calculateTotalModeIrrigation() {
+    var total = 0;
+    // Loop through each input field with class 'Mode_irrigation'
+    $('.Mode_irrigation').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+       
+    });
+    return total;
+}
+
+// Function to compare totals and display error messages
+function compareIrrigationTotals() {
+    var totalAres = calculateTotalSupIrrigation();
+    var totalModeIrrigation = calculateTotalModeIrrigation();
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var difference = totalAres - totalModeIrrigation;
+    console.log("difference: " + difference);
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent);
+    console.log("threshold: " + threshold);
+
+    $('#error_messages_irri').empty(); // Clear any existing error messages
+    if (difference > threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est supérieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else if (difference < -threshold) {
+        var errorMessage = "Erreur : La somme des surfaces de culture irriguées est inférieure de plus de 5% à la somme des surfaces équipées d'irrigation.";
+        var $message = $('<div>').addClass('error-message').text(errorMessage);
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+        });
+        $('#error_messages_irri').append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
+    }
+}
+
+// Initialize on page load
+
+    compareIrrigationTotals(); // Perform the comparison on page load
+
+    // Attach focusout event listeners to the Mode_irrigation inputs
+    $('.Mode_irrigation').focusout(function() {
+        compareIrrigationTotals(); // Recalculate and compare on input change
+        if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+            $("#eau_aspersion_classique").css('border', '');
+            $("#eau_goutte_a_goutte").css('border', '');
+            $("#eau_epandage_de_crues").css('border', '');
+            $("#eau_gravitaire").css('border', '');
+            $("#eau_pivots").css('border', '');
+            $("#eau_enrouleur").css('border', '');
+            $("#eau_foggara_hec").css('border', '');
+            $("#eau_pluie_artificielle").css('border', '');
+            $("#eau_autre_hec").css('border', '');
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6759,6 +7018,38 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
       })
 }
 
+
+
+
+
+
+ // Calculate total superficie_are
+ var total_superficie_are = 0;
+    $('.superficie_are').each(function() {
+        var value = parseFloat($(this).val());
+        if (!isNaN(value)) {
+            total_superficie_are += value;
+        }
+    });
+
+    console.log('Total superficie_are:', total_superficie_are);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Submit form event handler
     $('#questionnaireForm').submit(function (event) {
         event.preventDefault(); // Prevent default form submission
@@ -6828,85 +7119,10 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
 <script>
 
 
-$(document).on('keyup','.coherence_surface_total-surface',function(){
-
-/***********************************************/
-  var sum_superficie_hectare= 0
-
-      $(".statut_juridique_s").each(function () {
-        var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
-      
-        superficie_hectare=parseFloat(superficie_hectare)
-       
-          if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
-            sum_superficie_hectare += superficie_hectare;
-          }
-      });
-       /***********************************************/
-
-/********************************************** */   
-       var sup_total     = null
-var sup_total =  $('#surface_totale_st_1').val()
-
-if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
-  //console.log('ok')
-  $('.surface_total_error').css('border','3px solid red')
- }else{
-  $('.surface_total_error').css('border','')
- }
-
-//}
-  })
-
-/********************************************************************************************************************* */
-
-
-  /***************************************************************************************************************** */
-
-
-  $(document).on('keyup','.coherence_surface_total-surface_are',function(){
-
-    /***********************************************/
-      var sum_superficie_are= 0
-  
-          $(".statut_juridique_s").each(function () {
-            var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
-            superficie_are=parseFloat(superficie_are)
-              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
-                sum_superficie_are += superficie_are;
-              }
-          });
-
-          //console.log(sum_superficie_are)
-           /***********************************************/
-          //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
-          //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
-          //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
-          //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
-          //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
-          //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
-          //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
-  /********************************************** */   
-        
-  var sup_total_are =  $('#surface_totale_st_2').val()
-  //console.log(sup_total_are)
- // console.log(sum_superficie_are)
-  //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
-  // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
-    if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
-    //  console.log('ok')
-      $('.surface_total_error_are').css('border','3px solid red')
-     }else{
-      $('.surface_total_error_are').css('border','')
-     }
-  
-    // }
-      })
-
 var elements = document.getElementsByClassName("surface");
 //   for (var i = 0; i < elements.length; i++) {
   
-   $(document).on("input", ".surface", function() {
+  window.onload = function() {
 console.log("okkkkkkkk")
 var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;

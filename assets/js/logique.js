@@ -8,23 +8,104 @@ $(document).ready(function() {
 
 
 
-     $('#eau_bassin_d_accumulation').prop('disabled', true);
-     $('#eau_bassin_geomembrane').prop('disabled', true);
-     $('#eau_reservoir').prop('disabled', true);
-     $('#eau_citrene_souple').prop('disabled', true);
-     $('#eau_mare_deau').prop('disabled', true);
-     $('#eau_ced').prop('disabled', true);
-     $('#eau_digue').prop('disabled', true);
-     $('#eau_autres_1').prop('disabled', true);
 
 
 
 
 
 
-     
-  
 
+
+
+
+
+
+
+
+
+
+
+
+     $('#exploit_est_un_bloc').on('change', function() {
+    
+        // Retrieve the selected value from the dropdown
+        var selectedValue = $(this).val();
+    
+        // Check if the selected value is '2' (Non)
+        if (selectedValue === '2') {
+              $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
+              $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
+        } else {
+              $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
+        }
+     });
+    
+     $('#exploit_indus_sur_exploitation').on('change', function() {
+        // Retrieve the selected value
+        var selectedValue = $(this).val();
+        
+        // Check the selected value and adjust the input field accordingly
+        if(selectedValue !== '1') {
+            $('#exp_indu_si_oui_nombre_menage').prop('disabled', true); // Disable the input field
+            $('#exp_indu_si_oui_nombre_menage').val(''); // Clear the input field
+        } else {
+            $('#exp_indu_si_oui_nombre_menage').prop('disabled', false); // Enable the input field if the value is '1'
+        }
+    });
+    
+    
+
+
+
+
+// Function to handle 'forage' checkbox toggle
+function toggleForage() {
+    var isForageChecked = $('#forage').prop('checked');
+    var forageInputElement = $('#forage').closest('.form-check').find('.bneder-input');
+    if (isForageChecked) {
+        forageInputElement.show();
+        $("#eau_total_forage").show();
+    } else {
+        forageInputElement.hide();
+        $("#eau_total_forage").val('').hide();
+    }
+}
+
+// Function to handle 'puits' checkbox toggle
+function togglePuits() {
+    var isPuitsChecked = $('#puits').prop('checked');
+    var puitsInputElement = $('#puits').closest('.form-check').find('.bneder-input');
+    if (isPuitsChecked) {
+        puitsInputElement.show();
+        $("#eau_total_puits").show();
+    } else {
+        puitsInputElement.hide();
+        $("#eau_total_puits").val('').hide();
+    }
+}
+
+// Function to handle 'source' checkbox toggle
+function toggleSource() {
+    var isSourceChecked = $('#source').prop('checked');
+    var sourceInputElement = $('#source').closest('.form-check').find('.bneder-input');
+    if (isSourceChecked) {
+        sourceInputElement.show();
+        $("#eau_total_source").show();
+    } else {
+        sourceInputElement.hide();
+        $("#eau_total_source").val('').hide();
+    }
+}
+
+// Initialize toggle functions on page load
+toggleForage();
+togglePuits();
+toggleSource();
+
+// Attach change event listeners to the checkboxes
+$('#forage').change(toggleForage);
+$('#puits').change(togglePuits);
+$('#source').change(toggleSource);
 
      $('#ui_medicaments_veterinaires').prop('disabled', true);
     //  ui_semences_selectionnees
@@ -202,7 +283,7 @@ formContainer.addEventListener('click', function(event) {
 // total_source
 //eau_total_source
 $('#forage, #puits, #source').change(function() {
-    alert('ddd')
+   
     
       var isChecked = $(this).prop('checked');
       var inputElement = $(this).closest('.form-check').find('.bneder-input');
@@ -322,12 +403,13 @@ handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', '
 //   83 <= 84
 handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
 // 91 dont pleins <= Ruches Modernes
-//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
+// Début code a transmetre
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', '');
 // 92 dont pleins <= Ruches Traditionnelles
-//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
-
-
-
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', '');
+// 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles'
+// 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes'
+// fin code a transmetre
 // Function to calculate total number of Vaches
 function calculateTotalVaches() {
     var total = 0;
@@ -348,12 +430,19 @@ $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_do
     if (totalVaches > chapt_bovins) {
         displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
         setBorders('red');
+        // Début code a transmetre
+
     } else if (totalVaches < chapt_bovins) {
-        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'error');
-        setBorders('red');
-    } else {
+        
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'warning');
+        setBorders('orange');
+    } else if(totalVaches == chapt_bovins) {
+        displayMessage_elvage_bovins('', '');
+        
         setBorders('green');
     }
+    // fin code a transmetre
+
 });
 
 // Event listener for input focus out (when user leaves the input)
@@ -377,13 +466,19 @@ function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorM
         if (value > comparisonValue) {
             displayMessage_elvage(errorMessage, 'error');
             $(this).css('border', '2px solid red');
-        } else {
+        } else if(value > comparisonValue){
+            displayMessage_elvage(errorMessage, 'warning');
+            $(this).css('border', '2px solid orange');
+        }
+        else {
             $(this).css('border', '2px solid green'); // Reset border color if valid
         }
+        // fin code a transmetre
+
     });
 }
 
-handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
+// handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
 
 
 
@@ -411,73 +506,9 @@ handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_b
 
 
 //  117 <= 64
-function calculateTotalSupIrrigation() {
-    var totalAres = 0;
-    // Loop through each input field for adults and children
-    $('#formContainer2 .row').each(function() {
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        totalAres += ares;
-    });
-    return totalAres;
-}
-
-function calculateTotalModeIrrigation() {
-    var total = 0;
-    // Loop through each input field with class 'Mode_irrigation'
-    $('.Mode_irrigation').each(function() {
-        // Parse the value as an integer and add it to the total
-        total += parseInt($(this).val()) || 0;
-    });
-    return total;
-}
-function compareIrrigationTotals() {
-    var totalAres = calculateTotalSupIrrigation();
-    var totalModeIrrigation = calculateTotalModeIrrigation();
-    console.log("totalAres: " + totalAres);
-    console.log("totalModeIrrigation: " + totalModeIrrigation);
-
-    var totalAres5Percent = totalAres * 0.05;
-    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
-
-    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent) * 0.05;
-    console.log("threshold: " + threshold);
-
-    var difference = Math.abs(totalAres5Percent - totalModeIrrigation5Percent);
-    console.log("difference: " + difference);
-
-    if (difference > threshold) {
-        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des surfaces équipées d'irrigation.");
-        $message.css({
-            'font-weight': 'bold',
-            'color': 'red',
-            
-        });
-        $('#error_messages_irri').empty().append($message);
-        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
-        $('.Mode_irrigation').css('border', '2px solid red');
-    } else {
-        $('.Mode_irrigation').css('border', '2px solid green');
-    }
-}
-
-$('.Mode_irrigation').focusout(function() {
-    if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
-      $("#eau_aspersion_classique").css('border', '');
-        $("#eau_goutte_a_goutte").css('border', '');
-        $("#eau_epandage_de_crues").css('border', '');
-        $("#eau_gravitaire").css('border', '');
-        $("#eau_pivots").css('border', '');
-        $("#eau_enrouleur").css('border', '');
-        $("#eau_foggara_hec").css('border', '');
-        $("#eau_pluie_artificielle").css('border', '');
-        $("#eau_autre_hec").css('border', '');
-    }
-});
 
 
-$('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').on('input', function() {
-    compareIrrigationTotals();
-});
+
 
 
 // $(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
@@ -882,32 +913,6 @@ $(document).on('change', '[id^="status_juridique"]', function() {
 
 
 
-$('#exploit_est_un_bloc').on('change', function() {
-    // Retrieve the selected value from the dropdown
-    var selectedValue = $(this).val();
-
-    // Check if the selected value is '2' (Non)
-    if (selectedValue === '2') {
-          $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
-          $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
-    } else {
-          $('#exploit_est_un_bloc_oui').prop('disabled', false);  // Enable the input field
-    }
- });
-
- $('#exploit_indus_sur_exploitation').on('change', function() {
-    // Retrieve the selected value
-    var selectedValue = $(this).val();
-    
-    // Check the selected value and adjust the input field accordingly
-    if(selectedValue !== '1') {
-        $('#exp_indu_si_oui_nombre_menage').prop('disabled', true); // Disable the input field
-        $('#exp_indu_si_oui_nombre_menage').val(''); // Clear the input field
-    } else {
-        $('#exp_indu_si_oui_nombre_menage').prop('disabled', false); // Enable the input field if the value is '1'
-    }
-});
-
 
 
 
@@ -1040,14 +1045,14 @@ if(irrigue){
     $('#eau_digue').prop('disabled', false);
     $('#eau_autres_1').prop('disabled', false);
 }else{
-    $('#eau_bassin_d_accumulation').prop('disabled', true);
-    $('#eau_bassin_geomembrane').prop('disabled', true);
-    $('#eau_reservoir').prop('disabled', true);
-    $('#eau_citrene_souple').prop('disabled', true);
-    $('#eau_mare_deau').prop('disabled', true);
-    $('#eau_ced').prop('disabled', true);
-    $('#eau_digue').prop('disabled', true);
-    $('#eau_autres_1').prop('disabled', true);
+    $('#eau_bassin_d_accumulation').prop('disabled', false);
+    $('#eau_bassin_geomembrane').prop('disabled', false);
+    $('#eau_reservoir').prop('disabled', false);
+    $('#eau_citrene_souple').prop('disabled', false);
+    $('#eau_mare_deau').prop('disabled', false);
+    $('#eau_ced').prop('disabled', false);
+    $('#eau_digue').prop('disabled', false);
+    $('#eau_autres_1').prop('disabled', false);
 }
 
     
@@ -1262,7 +1267,7 @@ function logiqueIntercalaire($row) {
 
         // Check if there is any value in intercalaire
         if (total > 0) {
-            filterArboricultureOptions($row);
+           // filterArboricultureOptions($row);
         }
     }
 }
