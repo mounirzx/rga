@@ -706,6 +706,7 @@ $(document).on('keyup','.coherence_surface_total-surface',function(){
   //alert(superficie_total)
   
   // if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+
     if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!==superficie_total)){
       console.log("supStatutJur <= superficie_total red")
       //console.log('ok')
