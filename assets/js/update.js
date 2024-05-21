@@ -523,25 +523,25 @@ $("input[type='checkbox']").each(function() {
 
   /***************************************************************************** */
 
-$('#rejected').click(function(e){
-  e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
-  console.log('okkk')
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "rejeter"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire rejeté",
+// $('#rejected').click(function(e){
+//   e.preventDefault()
+//     var id_questionnaire = $('#id_questionnaire').val();
+//   console.log('okkk')
+//     $.ajax({
+//       url:'assets/php/change_state.php',
+//       method:'post',
+//       async:false,
+//       data:{id_questionnaire:id_questionnaire , action : "rejeter"},
+//       success:function(response){
+//         console.log(response)
+//         Swal.fire({
+//           title: "Questionnaire rejeté",
           
-          icon: "success"
-        });
-      }
-    })
-  })
+//           icon: "success"
+//         });
+//       }
+//     })
+//   })
 
 
   $('#rejeter').click(function(e){
@@ -587,25 +587,25 @@ $('#rejected').click(function(e){
     })
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 
-  $('#submitDate').click(function(e){
-    e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
+  // $('#submitDate').click(function(e){
+  //   e.preventDefault()
+  //   var id_questionnaire = $('#id_questionnaire').val();
   
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "approuver"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire approuvé",
+  //   $.ajax({
+  //     url:'assets/php/change_state.php',
+  //     method:'post',
+  //     async:false,
+  //     data:{id_questionnaire:id_questionnaire , action : "approuver"},
+  //     success:function(response){
+  //       console.log(response)
+  //       Swal.fire({
+  //         title: "Questionnaire approuvé",
           
-          icon: "success"
-        });
-      }
-    })
-  })
+  //         icon: "success"
+  //       });
+  //     }
+  //   })
+  // })
   
   /************************************************************************* */
 
