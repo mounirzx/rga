@@ -5787,17 +5787,27 @@ Petite et Moyenne Hydraulique
 
 
 <?php
-// Determine button text based on user's role
-if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
-    $approveBtnText = "Valider";
-    $rejectBtnText = "Rejeter";
-} elseif ($_SESSION['role'] == "recenseur") {
+// // Determine button text based on user's role
+// if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
+//     $approveBtnText = "Valider";
+//     $rejectBtnText = "Rejeter";
+
+
+// } else
+
+if ($_SESSION['role'] == "recenseur") {
     $approveBtnText = "Ajouter";
     $rejectBtnText = "Annuler";
 }
 ?>
 
-<div class="row">
+
+
+<?php 
+
+if($_SESSION['role'] == "recenseur"){
+  ?>
+  <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
         <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
     </div>
@@ -5805,6 +5815,12 @@ if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSI
         <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962"><?= $rejectBtnText ?></a>
     </div>
 </div>
+  <?php
+
+}
+
+?>
+
 
 <script>
 // Add event listener to detect Ctrl + *
