@@ -4096,7 +4096,7 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm eau_total_source">
              
         <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder"  >
         <span class="input-group-text" id="basic-addon3">العدد<br>
@@ -4108,7 +4108,7 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input pm_hydraulique" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <div style="  margin-left:35px;" class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:35px;" class="input-group bneder-input input-group-sm eau_total_puits">
               
               <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique">
         <span class="input-group-text" id="basic-addon3">العدد<br>
@@ -4120,7 +4120,7 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm eau_total_forage">
 
               <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder">
                       <span class="input-group-text" id="basic-addon3">العدد<br>
