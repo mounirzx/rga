@@ -58,6 +58,29 @@ $(document).ready(function() {
 
 
 
+    function toggleSource() {
+        var isSourceChecked = $('#source').prop('checked');
+        var sourceInputElement = $('#source').closest('.form-check').find('.bneder-input');
+        if (isSourceChecked) {
+            sourceInputElement.show();
+            $("#eau_total_source").show();
+        } else {
+            sourceInputElement.show();
+            $("#eau_total_source").val('').show();
+        }
+    }
+    // Function to handle 'puits' checkbox toggle
+    function togglePuits() {
+        var isPuitsChecked = $('#puits').prop('checked');
+        var puitsInputElement = $('#puits').closest('.form-check').find('.bneder-input');
+        if (isPuitsChecked) {
+            puitsInputElement.show();
+            $("#eau_total_puits").show();
+        } else {
+            puitsInputElement.show();
+            $("#eau_total_puits").val('').show();
+        }
+    }
 // Function to handle 'forage' checkbox toggle
 function toggleForage() {
     var isForageChecked = $('#forage').prop('checked');
@@ -66,36 +89,13 @@ function toggleForage() {
         forageInputElement.show();
         $("#eau_total_forage").show();
     } else {
-        forageInputElement.hide();
-        $("#eau_total_forage").val('').hide();
+        forageInputElement.show();
+        $("#eau_total_forage").val('').show();
     }
 }
 
-// Function to handle 'puits' checkbox toggle
-function togglePuits() {
-    var isPuitsChecked = $('#puits').prop('checked');
-    var puitsInputElement = $('#puits').closest('.form-check').find('.bneder-input');
-    if (isPuitsChecked) {
-        puitsInputElement.show();
-        $("#eau_total_puits").show();
-    } else {
-        puitsInputElement.hide();
-        $("#eau_total_puits").val('').hide();
-    }
-}
 
 // Function to handle 'source' checkbox toggle
-function toggleSource() {
-    var isSourceChecked = $('#source').prop('checked');
-    var sourceInputElement = $('#source').closest('.form-check').find('.bneder-input');
-    if (isSourceChecked) {
-        sourceInputElement.show();
-        $("#eau_total_source").show();
-    } else {
-        sourceInputElement.hide();
-        $("#eau_total_source").val('').hide();
-    }
-}
 
 // Initialize toggle functions on page load
 toggleForage();
@@ -106,6 +106,60 @@ toggleSource();
 $('#forage').change(toggleForage);
 $('#puits').change(togglePuits);
 $('#source').change(toggleSource);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
      $('#ui_medicaments_veterinaires').prop('disabled', true);
     //  ui_semences_selectionnees
@@ -282,18 +336,18 @@ formContainer.addEventListener('click', function(event) {
 // total_puits
 // total_source
 //eau_total_source
-$('#forage, #puits, #source').change(function() {
+// $('#forage, #puits, #source').change(function() {
    
     
-      var isChecked = $(this).prop('checked');
-      var inputElement = $(this).closest('.form-check').find('.bneder-input');
+//       var isChecked = $(this).prop('checked');
+//       var inputElement = $(this).closest('.form-check').find('.bneder-input');
       
-      if (isChecked) {
-          inputElement.show();
-      } else {
-          inputElement.hide();
-      }
-  });
+//       if (isChecked) {
+//           inputElement.show();
+//       } else {
+//           inputElement.hide();
+//       }
+//   });
 
   function calculateTotalFamilyMembers() {
       var total = 0;
