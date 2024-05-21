@@ -6382,6 +6382,119 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 });
     $('#formContainer3').append(inputs);
 
+
+
+
+
+
+
+
+
+
+
+
+    $(document).on('keyup','.coherence_surface_total-surface',function(){
+
+/***********************************************/
+  var sum_superficie_hectare= 0
+
+      $(".statut_juridique_s").each(function () {
+        var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+      
+        superficie_hectare=parseFloat(superficie_hectare)
+       
+          if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+            sum_superficie_hectare += superficie_hectare;
+          }
+      });
+       /***********************************************/
+
+/********************************************** */   
+       var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+
+if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
+  //console.log('ok')
+  $('.surface_total_error').css('border','3px solid red')
+ }else{
+  $('.surface_total_error').css('border','')
+ }
+
+//}
+  })
+
+/********************************************************************************************************************* */
+
+
+  /***************************************************************************************************************** */
+
+
+  $(document).on('keyup','.coherence_surface_total-surface_are',function(){
+
+    /***********************************************/
+      var sum_superficie_are= 0
+  
+          $(".statut_juridique_s").each(function () {
+            var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+            superficie_are=parseFloat(superficie_are)
+              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                sum_superficie_are += superficie_are;
+              }
+          });
+
+          //console.log(sum_superficie_are)
+           /***********************************************/
+          //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
+          //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
+          //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
+          //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
+          //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
+          //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
+          //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
+  /********************************************** */   
+        
+  var sup_total_are =  $('#surface_totale_st_2').val()
+  //console.log(sup_total_are)
+ // console.log(sum_superficie_are)
+  //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+  // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
+    if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
+    //  console.log('ok')
+      $('.surface_total_error_are').css('border','3px solid red')
+     }else{
+      $('.surface_total_error_are').css('border','')
+     }
+  
+    // }
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /****************************************************************************************************************** */
  var elements = document.getElementsByClassName("surface");
     for (var i = 0; i < elements.length; i++) {
@@ -7010,81 +7123,6 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
 </html>
 <script>
 
-
-$(document).on('keyup','.coherence_surface_total-surface',function(){
-
-/***********************************************/
-  var sum_superficie_hectare= 0
-
-      $(".statut_juridique_s").each(function () {
-        var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
-      
-        superficie_hectare=parseFloat(superficie_hectare)
-       
-          if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
-            sum_superficie_hectare += superficie_hectare;
-          }
-      });
-       /***********************************************/
-
-/********************************************** */   
-       var sup_total     = null
-var sup_total =  $('#surface_totale_st_1').val()
-
-if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
-  //console.log('ok')
-  $('.surface_total_error').css('border','3px solid red')
- }else{
-  $('.surface_total_error').css('border','')
- }
-
-//}
-  })
-
-/********************************************************************************************************************* */
-
-
-  /***************************************************************************************************************** */
-
-
-  $(document).on('keyup','.coherence_surface_total-surface_are',function(){
-
-    /***********************************************/
-      var sum_superficie_are= 0
-  
-          $(".statut_juridique_s").each(function () {
-            var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
-            superficie_are=parseFloat(superficie_are)
-              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
-                sum_superficie_are += superficie_are;
-              }
-          });
-
-          //console.log(sum_superficie_are)
-           /***********************************************/
-          //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
-          //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
-          //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
-          //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
-          //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
-          //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
-          //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
-  /********************************************** */   
-        
-  var sup_total_are =  $('#surface_totale_st_2').val()
-  //console.log(sup_total_are)
- // console.log(sum_superficie_are)
-  //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
-  // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
-    if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
-    //  console.log('ok')
-      $('.surface_total_error_are').css('border','3px solid red')
-     }else{
-      $('.surface_total_error_are').css('border','')
-     }
-  
-    // }
-      })
 
 var elements = document.getElementsByClassName("surface");
 //   for (var i = 0; i < elements.length; i++) {
