@@ -413,5 +413,107 @@ $('#rejected').click(function(e){
   })
   
   /************************************************************************* */
+
+  
+  $('#exploitant').on('change', function() {
+    var exploitantValue = $(this).val();
+   
+    // Determine which list to use based on the 'exploitant' value
+   // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
+    if(exploitantValue === "1"){
+
+    
+
+      listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+      
+      
+      
+      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
+      
+    }else{
+      $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+      
+      
+      
+      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+    }
+   
+
+});
+
+
+
+
+
+
+  /*************************************************** */
+  //origine des terres
+
+  var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+  '<option value="14" BoldText>14 - Succession إرث</option>' +
+  '<option value="15" BoldText>15 - Donation هبة</option>' +
+  '<option value="16" BoldText>16 - Testament وصية</option>' +
+  '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+  '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+  '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
+  '<option value="20" BoldText>20 - Location إجار</option>' +
+  '<option value="21" BoldText>21 - Autre  آخرى </option>' +
+  '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
+
+var listOrigineTerre = {
+  "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+  "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+  "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+};
+
+
+
+
+
+  function filterByKey(prefix) {
+    var filteredObj = {};
+    Object.keys(listOrigineTerre).forEach(function(key) {
+        if (key.startsWith(prefix)) {
+            filteredObj[key] = listOrigineTerre[key];
+        }
+    });
+    return filteredObj;
+}
+
+
+  $(document).on('change', '[id^="origine_des_terres_"]', function() {
+  
+    var fullId = $(this).attr('id'); // Get the full ID of the changed input
+  var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+ // console.log(idPart); // Log the extracted part to the console
+
+ var selectedValue = $(this).val();
+ console.log(selectedValue)
+ if (selectedValue !== '6') {  // Check if the selected value is not '6'
+     $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+     $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+ } else {
+     $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+ }
+ 
+
+    var id = $(this).val()
+  //  console.log(fullId)
+    var filtered = filterByKey(id);
+    
+//console.log(filtered[id]);
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
+  })
+
+
+
   
 });

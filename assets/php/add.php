@@ -210,6 +210,8 @@ foreach ($formDataArrayCodeMateriel as $formData) {
 
 $message = $form->message;
 $controleSatSumsjtest2 = $form->controleSatSumsjtest2;
+print_r($message);
+print_r($controleSatSumsjtest2);
 $coherence_util_sol="";
 $message_coherence_util_sol="";
 $coherence_stat_jur="";
