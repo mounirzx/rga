@@ -126,7 +126,7 @@ var list_commune
                                 async:false,
                                 data:{commune:commune},
                                 success:function(response){
-                                  
+                                  console.log(response)
                                     var data = JSON.parse(response)
                                   
 
@@ -182,7 +182,6 @@ if(role=="superviseur_national"){
 
 
 list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td  class='align-middle'>"+button+"</td></tr>"
-
                             total_questionnaire+=parseFloat(count);
                     }
                     $('#list').empty(list)
@@ -325,4 +324,16 @@ $('#wilaya').change(function(){
 })
     /***************************************************************************** */
 
+
+    // function get_wilaya_list(){
+    //     $.ajax({
+    //         url:'assets/php/list_wilaya.php',
+    //         method:'post',
+    //         async:false,
+    //         success:function(response){
+    //             console.log(response)
+    //         }
+    //     })
+    // }
+    // get_wilaya_list()
 })
