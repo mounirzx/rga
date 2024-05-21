@@ -167,66 +167,68 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 
 
 function updateFields() {
-    var message=""
-    var totalHectares = 0;
-    var totalAres = 0;
-    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+  var message=""
+  var totalHectares = 0;
+  var totalAres = 0;
+  var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-    $('#formContainer2 .row').each(function() {
-        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        var cultureCode = parseInt($(this).find('.code_culture_s').val());
-        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+  $('#formContainer2 .row').each(function() {
+      var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+      var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+      var cultureCode = parseInt($(this).find('.code_culture_s').val());
+      var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-        totalHectares += hectares;
-        totalAres += ares;
+      totalHectares += hectares;
+      totalAres += ares;
 
-        // Convert total ares to hectares for calculation
-        totalHectares += totalAres / 100;
+      // Convert total ares to hectares for calculation
+      totalHectares += totalAres / 100;
 
-        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-           // intercalaireField.val('').prop('disabled', false);
-        } else {
-           // intercalaireField.prop('disabled', false);
-        }
+      // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+      if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+         // intercalaireField.val('').prop('disabled', false);
+      } else {
+         // intercalaireField.prop('disabled', false);
+      }
 
-        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-        if (intercalaireField.val()) {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
-           
+      // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+      if (intercalaireField.val()) {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+         // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+         
+        
           
-            
-        } else {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-        }
-    });
+      } else {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+          $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+      }
+  });
 console.log(totalHectares+'  '+SAU)
-    if (totalHectares > 2.99 * SAU) {
-       
-      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+  if (totalHectares > 2.99 * SAU) {
+     
+    displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
 
-    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Limite dépassée',
-        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-        // });
-      //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+
+      message = "red";
+  }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+      // Swal.fire({
+      //     icon: 'error',
+      //     title: 'Limite dépassée',
+      //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+      // });
       displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-    }else if(totalHectares  == (SAU)){
-        message="green"
-//console.log('good')
+      console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+      message="orange"
+  }else if(totalHectares  == (SAU)){
+      message="green"
+console.log('good')
 
-    }
+  }
 
-  //  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
 
-    return message
+  return message
 }
-
 
 /********************************************************************************************************************* */
 function controleSatSumsjtest () {
