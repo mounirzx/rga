@@ -27,6 +27,29 @@ $(document).ready(function () {
 
   /*********************************************************** */
 
+  function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_messages').empty($message); // Append message to container
+    $('#error_messages').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
   function updateSAU() {
     var totalHectares = 0;
 
@@ -59,6 +82,11 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 });
 
 // Dropdown change events for handling specific conditions
+
+
+
+
+
 function updateFields() {
     var message=""
     var totalHectares = 0;
@@ -96,16 +124,11 @@ function updateFields() {
             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
         }
     });
-//console.log(totalHectares+'  '+SAU)
+console.log(totalHectares+'  '+SAU)
     if (totalHectares > 2.99 * SAU) {
        
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: 'Le total utilisation du sol dépasse 2,99 fois la SAU déclarée (question 51)',
-        });
+      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
 
-        message = "red";
     }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
         // Swal.fire({
         //     icon: 'error',
@@ -113,7 +136,7 @@ function updateFields() {
         //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
         // });
       //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
-        message="orange"
+      displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
     }else if(totalHectares  == (SAU)){
         message="green"
 //console.log('good')
@@ -156,6 +179,7 @@ function controleSatSumsjtest () {
     if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
       message="green"
      // console.log("green")
+     message="green"
      }
     else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
     //  console.log('orange')
@@ -346,75 +370,75 @@ $("input[type='checkbox']").each(function() {
    
     //console.log("formDataObj of me");
    // console.log(formDataObj);
-    $(function () {
-      $.ajax({
-        url: url.InsertQst,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-          form: formDataObj,
-          formDataArrayStatut: formDataArrayStatut,
-          formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-          formDataArraySuperficie: formDataArraySuperficie,
-          message:message,
-          controleSatSumsjtest2:controleSatSumsjtest2
-        }),
-        dataType: "json",
-        success: function (response) {
-          if (response.response) {
-            Swal.fire({
-              icon: "success",
-              title: "Succès!",
-              text: "Enregistrement effectué avec succès!"
-            });
+   $(function () {
+    $.ajax({
+      url: url.InsertQst,
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        form: formDataObj,
+        formDataArrayStatut: formDataArrayStatut,
+        formDataArrayCodeCulture: formDataArrayCodeCulture,
+        formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+        formDataArraySuperficie: formDataArraySuperficie,
+        message:message,
+        controleSatSumsjtest2:controleSatSumsjtest2
+      }),
+      dataType: "json",
+      success: function (response) {
+        if (response.response) {
+          Swal.fire({
+            icon: "success",
+            title: "Succès!",
+            text: "Enregistrement effectué avec succès!"
+          });
 
 
-          
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Erreur!",
-              text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
-            });
-          }
-        },
-        error: function (xhr, status, error) {
-          // Check if there is a response text and if it contains valid JSON
-          if (xhr.responseText) {
-            try {
-              var resp = JSON.parse(xhr.responseText);
-              if (resp && resp.error) {
-                Swal.fire({
-                  icon: "error",
-                  title: "Erreur de traitement",
-                  text: "Erreur lors de l'enregistrement: " + resp.error
-                });
-              } else {
-                Swal.fire({
-                  icon: "error",
-                  title: "Erreur de Réseau",
-                  text: "Réponse inattendue du serveur: " + xhr.responseText
-                });
-              }
-            } catch (e) {
+        
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Erreur!",
+            text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        // Check if there is a response text and if it contains valid JSON
+        if (xhr.responseText) {
+          try {
+            var resp = JSON.parse(xhr.responseText);
+            if (resp && resp.error) {
               Swal.fire({
                 icon: "error",
-                title: "Erreur de format",
-                text: "Réponse non JSON du serveur: " + xhr.responseText
+                title: "Erreur de traitement",
+                text: "Erreur lors de l'enregistrement: " + resp.error
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Erreur de Réseau",
+                text: "Réponse inattendue du serveur: " + xhr.responseText
               });
             }
-          } else {
+          } catch (e) {
             Swal.fire({
               icon: "error",
-              title: "Échec de la requête",
-              text: "Un problème est survenu lors de la requête: " + error
+              title: "Erreur de format",
+              text: "Réponse non JSON du serveur: " + xhr.responseText
             });
           }
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Échec de la requête",
+            text: "Un problème est survenu lors de la requête: " + error
+          });
         }
-      });
+      }
     });
-    
+  });
+  
   });
 
 
@@ -765,7 +789,7 @@ var sum_superfecie_sj=0
 
 
 if(superficie_agricole_utile_sau_2>=100){
- // console.log(superficie_agricole_utile_sau_1)
+// console.log(superficie_agricole_utile_sau_1)
 var divisor = 100;
 // Calculate the quotient (result of integer division)
 var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
@@ -832,11 +856,11 @@ if(superficie_agricole_utile_sau_4>=100){
 var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
 if(superficie_agricole_totale_sat_2>=100){
 
-  var divisor = 100;
-  var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-  var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-  var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
-  var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
+var divisor = 100;
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
 
   //console.log(divider)
   var superficie_agricole_totale_sat_2 = divider % divisor;
@@ -876,7 +900,7 @@ document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superfi
 /*********************************************** */
 var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
 if(surface_totale_st_2>=100){
-  var divisor = 100;
+var divisor = 100;
 
 
   var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
@@ -891,9 +915,9 @@ if(surface_totale_st_2>=100){
 
 
 
-   
-        });
-    }
+ 
+      });
+  }
 
 
 
@@ -908,14 +932,13 @@ if(surface_totale_st_2>=100){
      // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
       if(exploitantValue === "1"){
 
+      
 
-        $('#origine_des_terres').html("<option selected='' disabled BoldText>-</option><option BoldText value='6'>6 - Domaine privé de létat ملكية خاصة للدولة</option>")
-
-
+        listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
         
         
         
-        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
         
       }else{
         $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
@@ -945,8 +968,7 @@ if(surface_totale_st_2>=100){
     '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
     '<option value="20" BoldText>20 - Location إجار</option>' +
     '<option value="21" BoldText>21 - Autre  آخرى </option>' +
-    '<option value="22" BoldText>22 - Inconnu غير معروف</option>' +
-    '<option value="23" BoldText>23 - Héritage ورث</option>';
+    '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
 
 var listOrigineTerre = {
     "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
@@ -999,6 +1021,25 @@ $('#status_juridique_'+idPart).empty()
 $('#status_juridique_'+idPart).append(filtered[id])
     })
 
+
+
+
+    $(document).on('change', '[id^="status_juridique_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+      var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+     // console.log(idPart); // Log the extracted part to the console
+    
+     var selectedValue = $(this).val();
+
+     if (selectedValue !== '2'  && selectedValue !== '3') {
+      $('#si_exploi_eai_eac').prop('disabled', true);
+      $('#si_exploi_eai_eac').val('');
+
+    } else {
+      $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+  }
+
+    })
 
 
 

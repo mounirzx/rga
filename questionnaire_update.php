@@ -5,6 +5,19 @@ if (isset($_GET['id'])) {
 
 } 
 ?>
+
+<!-- DB data questionnaire_by_id.php check button -->
+<!-- payload check button -->
+<?php
+  if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "admin_central" ){
+   include('includes/modal_update.html');
+   include('includes/modal.html');
+  }
+?>
+<!-- payload check button end -->
+<!-- DB data check button end -->
+
+
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
    <style>
@@ -25,17 +38,19 @@ if (isset($_GET['id'])) {
      <br><br><br>
  <div class="quest">
      <div class="card">
-    
-    <img src="static/header.png">
+   
+ 
 
          <div class="card-body">
  
- 
+         <?php
+include('includes/head.php');
+?>
          <form id="info_form" method="post">
     
 
                         <br>
-                        <input  name="etat" hidden disabled class="bneder" value="En attente">
+                        <!-- <input  name="etat" hidden disabled class="bneder" value="En attente"> -->
                 <h6 style="margin-bottom: 27px;">I- Information générales - معلومات عامة</h6>
                 <div style="border-top: 1px solid red; width:210px; margin:-20px 0px 0px 40px; "></div>
                 
@@ -207,7 +222,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 
 <div class="card-body" style=" border-radius: 5px; border: 2px solid red; padding: 11px;">
-<div style="text-align:right; color:red;"><p>  إطار للمراقب مخصص  - Cadre réservé au contrôleur</p></div>
+<div style="text-align:right; color:red;"><p>  إطار مخصص للمراقب   - Cadre réservé au contrôleur</p></div>
 
 <div style="margin: 8px 0px 0px 0px;" class="input-group input-group-sm"><br>
 
@@ -347,7 +362,7 @@ if ($_SESSION['role'] == "recenseur") {
                       <br>
                       Le nom de la zone, lieu-dit (district)
                     </span>
-                    <input class="form-control"   id="nom_zone_district" />
+                    <input class="form-control bneder"   name="nom_zone_district" id="nom_zone_district" />
 
                  </div>
                  
@@ -371,7 +386,7 @@ if ($_SESSION['role'] == "recenseur") {
 
                     </span>
                   
-                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control" id="num_zone_district"  />
+                       <input style="max-width:88px;"  num   maxlength="2" num class="form-control bneder" name="num_zone_district" id="num_zone_district"  />
                     
                  </div>
             </div>
@@ -427,7 +442,7 @@ if ($_SESSION['role'] == "recenseur") {
                 <div class="col">
                 <div class="input-group input-group-sm">
                 <div class="qst-num zxcount"></div>
-                    <span class="input-group-text" id="basic-addon3">
+                    <span style="height:32px" class="input-group-text" id="basic-addon3">
                       تاريخ الميلاد <br> Date de naissance</span>
                     <select class="form-select " id="jour_de_naissance"  >
                        <option value="02"></option>
@@ -656,7 +671,7 @@ Sexe</span>
          <div class="col-7">
          <div class="input-group input-group-sm">
          <div class="qst-num zxcount"></div>
-            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمنا
+            <span class="input-group-text" id="basic-addon3">نوع التأمين إذا كان مؤمن
           
                Type d'assurance, si assuré</span>
 
@@ -769,7 +784,7 @@ l'exploitant est principal
 </span> <input num   maxlength="2" class="form-control bneder"  id="nb_co_exploitants" name="nb_co_exploitants">
     </div><br>
     <div class="input-group input-group-sm">
-      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفالح - المستثمر <br>
+      <div class="qst-num zxcount "></div><span class="input-group-text" id="basic-addon3">  صنف الفلاح - المستثمر <br>
       Type d'exploitant</span> 
       <select class="form-select fontbneder2 col-6 bneder" id="nature_exploitant" name="nature_exploitant">
         <option value="-" disabled selected>
@@ -781,9 +796,12 @@ l'exploitant est principal
         <option value="2">
           2 - مسير - Gérant
         </option>
-        <option value="2">
-          2 - مستأجر - Locataire
+        <option value="3">
+          3 - مستأجر - Locataire
         </option>
+        <!-- <option value="4">
+          4 - مستثمر زراعي - Concessionnaire
+        </option> -->
       </select>
     </div>
   </div>
@@ -906,7 +924,7 @@ géographique WGS 1984)
         <!-- <div class="row">
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="vegetale" name="vegetale" type="checkbox" >
+                            <input class="form-check-input" id="vegetale" name="vegetale" type="checkbox" >
 
                            <label class="form-check-label" for="vegetale">
                            نباتية - Végétale
@@ -915,7 +933,7 @@ géographique WGS 1984)
                      </div>
                      <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input bneder" id="elevage" name="elevage" type="checkbox" >
+                            <input class="form-check-input" id="elevage" name="elevage" type="checkbox" >
 
                            <label class="form-check-label" for="elevage">
                            تربية الحيوانات - Elevage
@@ -924,7 +942,7 @@ géographique WGS 1984)
                      </div>
                      <div class="col">
                         <div class="form-check">
-                           <input class="form-check-input bneder" id="mixed" name="mixed" type="checkbox" >
+                           <input class="form-check-input" id="mixed" name="mixed" type="checkbox" >
                            <label class="form-check-label" for="mixed">
                            مختلطة - mixed
                            </label>
@@ -933,7 +951,7 @@ géographique WGS 1984)
                   </div> -->
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">نشاط المستثمرة<br>
-          Activité de l'exploitation</span> <select class="form-select bneder" id="activite_exploitation" name="activite_exploitation">
+          Activité de l'exploitation</span> <select class="form-select fontbneder2 bneder" id="activite_exploitation" name="activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -950,7 +968,7 @@ géographique WGS 1984)
         </div><br>
         <div class="input-group input-group-sm">
           <div class="qst-num zxcount"></div><span class="input-group-text" id="basic-addon3">إذا كان النشاط تربية الحيونات<br>
-          Si activité est l'élevage</span> <select class="form-select bneder" id="type_activite_exploitation" name="type_activite_exploitation">
+          Si activité est l'élevage</span> <select class="form-select fontbneder2 bneder" id="type_activite_exploitation" name="type_activite_exploitation">
             <option value="-" disabled selected>
              
             </option>
@@ -978,58 +996,53 @@ géographique WGS 1984)
         <div class="row">
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input " id="route_national" name="route_national" type="checkbox" > <label class="form-check-label" for="route_national">طريق وطني<br>
+              <input class="form-check-input" id="route_national" name="route_national" type="checkbox" > <label class="form-check-label" for="route_national">طريق وطني<br>
               Route national</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input " id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" > <label class="form-check-label" for="chemin_de_wilaya">طريق ولائي<br>
+              <input class="form-check-input" id="chemin_de_wilaya" name="chemin_de_wilaya" type="checkbox" > <label class="form-check-label" for="chemin_de_wilaya">طريق ولائي<br>
               Chemin de wilaya</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input " id="route_communale" name="route_communale" type="checkbox" > <label class="form-check-label" for="route_communale">طريق بلدي<br>
+              <input class="form-check-input" id="route_communale" name="route_communale" type="checkbox" > <label class="form-check-label" for="route_communale">طريق بلدي<br>
               Route communale</label>
             </div>
           </div>
           <div class="col">
             <div class="form-check">
-              <input class="form-check-input " id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
+              <input class="form-check-input" id="piste" name="piste" type="checkbox" > <label class="form-check-label" for="piste">مسار ريفي<br>
               Piste rurale</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input " id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
+              <input class="form-check-input" id="acces_agricole" name="acces_agricole" type="checkbox" > <label class="form-check-label" for="acces_agricole">مسار فلاحي<br>
               Piste agricole</label>
             </div><br>
             <div class="form-check">
-              <input class="form-check-input " id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
+              <input class="form-check-input" id="acces_rural" name="acces_rural" type="checkbox" > <label class="form-check-label" for="acces_rural">مدخل<br>
               Accès </label>
             </div>
           </div>
         </div>
       </div>
     </div><br>
-    
     <br>
   </div>
   <div class="col">
     <div class="input-group input-group-sm">
     <div class="qst-num zxcount"></div>
-    <span class="input-group-text" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
+    <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الكهرباء؟
 <br>
 L'éxploiation est elle raccordée au
 réseau électrique ?
 </span>
       
          
-        <select class="form-select form-select bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
+        <select class="form-select form-select fontbneder2 bneder" id="reseau_electrique" name="reseau_electrique" style="height: 33px;">
           <option selected disabled value="-">
             
           </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+          <option value="1">1 - Oui - نعم</option>
+      <option value="2">2 - Non - لا</option>
         </select>
    
     
@@ -1037,19 +1050,15 @@ réseau électrique ?
       <br>
       <div class="input-group input-group-sm">
       <div class="qst-num zxcount"></div>
-      <span class="input-group-text fontbneder11" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
+      <span class="input-group-text fontbneder2" id="basic-addon3">هل المستثمرة متصلة بشبكة الهاتف؟<br>
       L'éxploiation est-elle connectée à
 un réseau téléphonique ?
-</span><select class="form-select bneder" id="reseau_telephonique" name="reseau_telephonique">
-          <option selected>
-            -
-          </option>
-          <option value="1">
-            1 - Oui
-          </option>
-          <option value="2">
-            2 - Non
-          </option>
+</span><select class="form-select fontbneder2 bneder" id="reseau_telephonique" name="reseau_telephonique">
+<option selected disabled value="-">
+            
+            </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
         </select>
       </div>
 <br>
@@ -1060,8 +1069,8 @@ un réseau téléphonique ?
 <span class="input-group-text" id="basic-addon3">إذا كان نعم<br>
 Si oui, 
 </span> <select class="form-select bneder" id="reseau_telephonique_si_oui" name="reseau_telephonique_si_oui">
-          <option selected>
-            -
+          <option selected disabled value="-">
+            
           </option>
           <option value="1">
             1 - Fixe  هاتف ثابت 
@@ -1082,38 +1091,31 @@ Si oui,
 اإلنترنت؟ <br>
 L'éxploiation est-elle connectée
 au réseau internet ?
-</span> <select class="form-select bneder" id="reseau_internet" name="reseau_internet">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
+</span> <select class="form-select fontbneder2 bneder" id="reseau_internet" name="reseau_internet">
+<option selected disabled value="-">
+ </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
+        </select>
     </select>
   </div><br>
    <div class="input-group input-group-sm"  >
    <div class="qst-num zxcount"></div>
-   <p  class="input-group-text fontbneder11" id="basic-addon3" >
+   <p  class="input-group-text fontbneder2" id="basic-addon3" >
     إذا نعم، هل تستخدم اإلنترنت
-    لأغراض متعلقة بالفالحة؟
+    لأغراض متعلقة بالفلاحة؟
     <br>
     Si oui, utilisez-vous le réseau
-    internet pour des besoins
+    internet <br> pour des besoins
     agricoles ?
 </p> 
-<select style="height:33px !important;" class="form-select bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
-      <option selected>
-        -
-      </option>
-      <option value="1">
-        1 - Oui
-      </option>
-      <option value="2">
-        2 - Non
-      </option>
+<select style="height:55px !important;" class="form-select fontbneder2 bneder" id="reseau_internet_si_oui" name="reseau_internet_si_oui">
+<option selected disabled value="-">
+            
+            </option>
+            <option value="1">1 - Oui - نعم</option>
+        <option value="2">2 - Non - لا</option>
+        </select>
     </select>
   </div>
       </div>
@@ -1145,23 +1147,26 @@ au réseau internet ?
                </div>
                <div class="card-body">
 
-                  <div style="margin-top: 60px;height: 31px;width: 96%;background-color: #d4e7fe ;position: absolute;z-index: 99;">
-                  <div class="row"style="text-align: center;">
-   <div style="padding-top: 7px;" class="col-4">
+                  <div style="margin-top: 60px;height: 36px;width: 96%;background-color: white ;position: absolute;z-index: 99;">
+                  <div class="row"style="text-align: center; width: 96%;background-color: #d4e7fe ;height: 31px;">
+   <div  class="col">
+   </div>
+
+   <div style="padding: 7px 110px 0px 0px;" class="col-4">
 
    الرمز - Code
    </div>
-   <div style="padding-top: 7px;" class="col-3">
+   <div style="padding: 7px 0px 0px 0px;" class="col-3">
   
    الرمز - Code
 </div>
 
 
 
-   <div class="col-4" style="padding-left: 40px;padding-top: 7px;">Hectare - هكتار 
+   <div class="col-4" style="padding-left: 71px;padding-top: 7px;">Hectare - هكتار 
    &nbsp;&nbsp;&nbsp;
  Are - آر </div>
-   <div class="col"></div>
+ 
 
 
  
@@ -1176,8 +1181,8 @@ au réseau internet ?
                     <!-- <div class="col-1"></div> -->
                     <div class="col-3" style="padding-left:80px;"><br>أصل الأرضي <br> Origine des terres</div>
                     
-                     <div class="col-5" ><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
-                     <div class="col-3" style="padding-right:37px;"><br><br> <u>Superficie - المساحة</u> </div>
+                     <div class="col-5" style="padding-left: 70px;"><br>كيفية الولوج لاستغلال الأراضي <br> Mode d’accès à l'exploitation des terres </div>
+                     <div class="col-3"style="padding-left: 40px;" ><br><br> <u>Superficie - المساحة</u> </div>
                      <div class="col"></div>
                   </div>
                   <br>
@@ -1195,19 +1200,18 @@ au réseau internet ?
                         <div class="col-4">
                         <div class="input-group input-group-sm">
 
-                            <select  inptSZ class="form-select fontbneder1 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
-                              <option selected="" disabled value="-"></option>
-                              <option BoldText value="1">1 - Melk personnel titré ملك شخصي موثق</option>
-                              <option BoldText value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
-                              <option BoldText value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
-                              <option BoldText value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
-                              <option BoldText value="5">5 - Domaine public ملكية عامة للدولة</option>
-                              <option BoldText value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
-                              <option BoldText value="7">7 - Wakf privé وقف خاص</option>
-                              <option BoldText value="8">8 - Wakf public وقف عام</option>
-                              <option BoldText value="9">9 - Inconnue مجهول</option>
+                            <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
+                                <option selected="" disabled value="-"></option>
+                               <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option class="fontbneder2" value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
+                                <option class="fontbneder2" value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
+                                <option class="fontbneder2" value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
+                                <option class="fontbneder2" value="5">5 - Domaine public ملكية عامة للدولة</option>
+                                <option class="fontbneder2" value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
+                                <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
+                                <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
+                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option> 
                             </select>
-
                             </div>
                         </div>
 
@@ -1217,7 +1221,7 @@ au réseau internet ?
 
                         <div class="input-group input-group-sm">
 
-                                <select InptSZ class="fontbneder1 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
+                                <select InptSZ class="fontbneder2 form-select statut_juridique_s statut_juridique_check" id="status_juridique" name="status_juridique" >
                                 <option  selected="" disabled>-</option>
                                     <option value="1">1- APFA «18-83» - ح.م.أ.ف</option>
                                     <option value="2">2- Ex EAC «03-10» - م.ف.ج</option>
@@ -1256,51 +1260,13 @@ au réseau internet ?
 }
 </style>
 <script>
-$(document).ready(function(){
-    var selectedValues = []; // Array to hold the counts of each combined value selected
 
-    $(document).on('change', '.statut_juridique_check', function() {
-        var fullId = $(this).attr('id');
-        var idPart = fullId.match(/[^_]+$/)[0]; // Extract the dynamic part of the ID
-
-        var val1 = $('#origine_des_terres_' + idPart).val() || "";
-        var val2 = $('#status_juridique_' + idPart).val() || "";
-        var cc = val1 + val2; // Combine the values to form a unique identifier
-
-        // Clear any previous error indication before any new validation
-        $('#origine_des_terres_' + idPart).removeClass('error');
-        $('#status_juridique_' + idPart).removeClass('error');
-
-        if(val1 === "" || val2 === "") {
-            console.log("Both selections are required.");
-            return; // Exit the function if one of the dropdowns is not selected
-        }
-
-        // Check if this combination already exists in the array
-        if($.inArray(cc, selectedValues) !== -1){
-            console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            $('#origine_des_terres_' + idPart).addClass('error');
-            $('#status_juridique_' + idPart).addClass('error');
-            $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown
-        } else {
-            // If the combination is unique, add it to the array and ensure no error class is present
-            selectedValues.push(cc);
-        }
-    });
-});
 </script>
 
-
-
+ 
                         <div class="col-3">
-                            <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface  surface_total_error statut_juridique_s"    >
+                            <div  class="input-group input-group-sm">
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
                                     <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
@@ -1315,7 +1281,7 @@ $(document).ready(function(){
                    
 
                             <div class="d-grid gap-2">
-                                        <button style="top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm">+</button>
+                                        <button style="width: 28px;top: 121px; width: 50px;height: 34px;position: absolute;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addFormU">+</button>
 
 
                             </div>
@@ -1344,40 +1310,45 @@ $(document).ready(function(){
 
 
                   <script>
-                  document.getElementById('addForm').addEventListener('click', function () {
-    const formContainer = document.getElementById('formContainer');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
+ document.getElementById('addFormU').addEventListener('click', function () {
+   $("#superfecie_sj").val("");
+   $("#superfecie_sj_are").val("");
+   $("#status_juridique").val("");
+   $("#origine_des_terres").val("");
+        const formContainer = document.getElementById('formContainer');
+        const formRow = formContainer.firstElementChild.cloneNode(true);
+    
+        // Generate unique IDs and names for the cloned form elements
+        formRow.querySelectorAll('[id], [name]').forEach(function (element) {
+            element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
+            element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
+    
+            // Remove the "disabled" attribute if present
+            element.removeAttribute('disabled');
+        });
+    
+        // Remove the add button from the cloned row and add a remove button
+        const removeButton = document.createElement('button');
+         removeButton.textContent = '-';
+         removeButton.type = 'button';
 
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function (element) {
-        element.setAttribute('id', element.getAttribute('id') + '_' + formContainer.children.length);
-        element.setAttribute('name', element.getAttribute('name') + '_' + formContainer.children.length);
+         removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46');
 
-        // Remove the "disabled" attribute if present
-        element.removeAttribute('disabled');
+         removeButton.addEventListener('click', function () {
+            formRow.remove();
+         });
+        formRow.querySelector('.d-grid').innerHTML = '';
+        formRow.querySelector('.d-grid').appendChild(removeButton);
+    
+        formContainer.appendChild(formRow);
+    
+        // Enable the cloned input elements inside the replicated HTML code
+        formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
+            inputElement.removeAttribute('disabled');
+        });
+    
+     
     });
-
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
-    removeButton.addEventListener('click', function () {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
-
-    formContainer.appendChild(formRow);
-
-    // Enable the cloned input elements inside the replicated HTML code
-    formRow.querySelectorAll('.line-edit').forEach(function (inputElement) {
-        inputElement.removeAttribute('disabled');
-    });
-
- 
-});
 
                  </script>
                  
@@ -1389,60 +1360,27 @@ $(document).ready(function(){
 
  <br/>
 
-<div class="row">
+ <div class="row">
    <div class="col-8">
  <div class="input-group input-group-sm">
 <div class="qst-num zxcount"></div>
 
-   <span style="max-width:84%" class="input-group-text fontbneder22" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
+   <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
+   
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
    </span>
    <select class="form-select fontbneder2 bneder" id="si_exploi_eai_eac" name="si_exploi_eai_eac">
-      <option selected="">-</option>
+      <option selected disabled value="-"></option>
       <option value="1">1 - Oui - نعم</option>
       <option value="2">2 - Non - لا</option>
    </select>
 </div>
-
-
-   </div>
-   <div class="col-4">
-   <div class="input-group input-group-sm">
- <div  hidden class="qst-num zxcount"></div>
- <div   class="qst-num">46</div>
-
-
-               <span style="max-width:60%" class="input-group-text" id="basic-addon3">
-               le Référence cadastrale <br> مرجع مسح الأراضي
-               </span>
-               
-                 <input class="form-control bneder"    id="reference_cadastrale" name="reference_cadastrale" value="">
-
-
-
-
-   </div>
-</div>
-</div>
-
-
-
-
 <br>
  
-
-
-
-
-
- <br>
-
-
-
- <div class="card" style="font-size: 12px;">
+<div class="card" style="font-size: 12px;">
     <div class="card-header" style="text-align: center;">
       <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
       <div class="qst-num" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">45</div>
@@ -1453,7 +1391,7 @@ acte de concession ?
     <div class="row" style="text-align:center;">
         <div class="col-2"></div>
         <div class="col-3">
-            عدد األعضاء<br>
+            عدد الأعضاء<br>
             Nombre des exploitants
         </div>
         <div class="col">
@@ -1469,7 +1407,7 @@ acte de concession ?
         <div class="col-2">Hectar - هكتار</div>
         <div class="col">  Are - آر</div>
    
-        
+       
     </div>
     <br>
     <div class="row">
@@ -1480,13 +1418,13 @@ acte de concession ?
             </div>
         </div>
         <div class="col-4">
-            
-                    <div class="input-group input-group-sm" style="padding-left:10px;">
+           
+                    <div class="input-group input-group-sm" >
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
                         <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
-                
-              
+               
+             
             </div>
         </div>
        
@@ -1494,6 +1432,32 @@ acte de concession ?
     <br>
 </div>
  
+
+   </div>
+   <div class="col-4" style="padding-top:49px">
+ 
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale
+   </div>
+   <div class="card-body">
+    <span class="fontbneder11" style="padding-left: 39px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
 
 
 <br/>
@@ -1514,9 +1478,10 @@ acte de concession ?
 
 
 
-<div id='sans_terre'>
 
 
+
+            <div style="border-top: 3px solid red;"></div>
 <br>
             <h6 style="margin-bottom: 27px;" >IV-Superficie de l'exploitation مساحة المستثمرة</h6>
             <div style="border-top: 1px solid red; width:230px; margin:-20px 0px 0px 50px;"></div>
@@ -1568,6 +1533,7 @@ acte de concession ?
                Are - آر
             </div>
           
+          
 </div>
 
 
@@ -1578,13 +1544,28 @@ acte de concession ?
 
 
 
+<div hidden>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+     <div class="qst-num zxcount"></div>
+</div>
 
 
-<table class="table table-sm">
-     <div id="superficieExploitation"></div>
-</div>
-</div>
-</div>
+
+     <div id="superficieExploitation">
+
+
+     </div>
+     </div>
+     </div>
+     </div>
 
 
 
@@ -1829,7 +1810,6 @@ acte de concession ?
 
 
 
-
          
             <div style="border-top: 3px solid red;"></div><br>
 <h6 style="margin-bottom: 27px;">V-Utilisation du sol إستخدام الأراضي</h6>
@@ -1850,10 +1830,10 @@ acte de concession ?
          </div>
       </div>
       <br>
-      <div style="margin-top: 15px;height: 40px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
+      <div style="margin-top: 15px;height: 36px;width: 696px;background-color: #ffffff;position: absolute;z-index: 99;">
       <div class="row" style=" background-color:#0073fb2b; text-align: center;">
      
-     <div class="col-6" style="padding-right:75px;">
+     <div class="col-6">
         رقم الزراعة
         <br>
         Code culture 
@@ -1861,30 +1841,28 @@ acte de concession ?
   
  
 
-     <div class="col-1" >
+     <div class="col" style="padding-left: 23px;">
 
        جافة  <br> En sec
      </div>
-     <div class="col-2" >
+     <div class="col" >
 
        مروية <br> En irriguée
      </div>
-     <div class="col" >
+     <div class="col" style="padding-right: 46px;">
        مقحمة<br>
        En intercalaire
      </div>
-     <div class="col-1"></div>
+     
    </div>
    
    </div>
    <br>
-
-
    <div id="formContainer2">
-        <div class="row " style="margin-bottom: 10px;">
+        <div class="row code_culture_s" style="margin-bottom: 10px;">
           <div class="col-6">
             <div class="input-group input-group-sm">
-              <select InputHeight class="form-select code_culture_s code_culture_check fontbneder2" id="code_culture" name="code_culture">
+              <select InptSZ class="form-select  code_culture_check fontbneder2 code_culture_s" id="code_culture" name="code_culture">
                 <option disabled value="-" selected>
                 </option>
                 <option BoldText disabled style="font-weight: 700;">
@@ -2146,18 +2124,18 @@ acte de concession ?
                <!-- need to cahnge -->
                <div class="input-group input-group-sm">
                
-                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec"  value="">
+                <input double id="superficie_hec" name="superficie_hec"   class="form-control superficie_hec code_culture_s"  value="">
 
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are"  value="">
+                <input double id="superficie_are" name="superficie_are"  class="form-control superficie_are code_culture_s"  value="">
               </div>
               </div>
               <div class="col">
               <div class="input-group input-group-sm">
-                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire"  value="">
+                <input double id="en_intercalaire" name="en_intercalaire"  num class="form-control class_intercalaire code_culture_s"  value="">
               </div>
               </div>
            
@@ -2169,8 +2147,6 @@ acte de concession ?
           </div>
         </div>
       </div>
-
-      
       <script>
 
 
@@ -2346,10 +2322,14 @@ document.getElementById('addForm2').addEventListener('click', function() {
 <br>
 
 
+               
+ <!-- TODO  -->
            
 
 
-<div class="row">
+
+
+ <div class="row">
                <div class="col-6">
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;"> <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">65</div> 
@@ -2706,11 +2686,12 @@ document.getElementById('addForm2').addEventListener('click', function() {
             <br>
 
 
-            </div>
+         
 
             <div style="border-top: 3px solid red;"></div>
 
-        
+
+
 
             <br>
             <div id="chapt_animals">
@@ -2730,7 +2711,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             <br>
             <br>
 
-
+            <div id="error_message_elvage" style="color: red;"></div>
 
             <div class="card" style="font-size: 12px;">
                 <div class="card-body" >
@@ -3119,7 +3100,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
             </div>
             <div class="col">
             <div class="input-group input-group-sm">
-              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont sont pleines</span>
+              <span class="input-group-text" id="chapt_basic-addon3" style="width: 134px;">منها ممتلئة<br>dont pleines</span>
               <input class="form-control bneder" num maxlength="4" id="chapt_dont_sont_pleines" name="chapt_dont_sont_pleines">
             </div>
           </div>
@@ -3159,12 +3140,39 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Mounir's part start  -->
  
 <br/>  
 <br><div style="border-top: 3px solid red;"></div>
             
-<br>
+            <br>
             <h6 style="margin-bottom: 27px;">VII- Batiments d'exploitation مباني الإستغلال</h6>
             <div style="border-top: 1px solid red; width:225px; margin:-20px 0px 0px 40px;"></div>
             <br><br>
@@ -3202,7 +3210,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                            <div class="col">
                            <span>   العدد - Nombre
                            </span>
-                           <span style="margin-left: 48px;">
+                           <span style="margin-left: 78px;">
                                                          المساحة(م²)-Surface(m²)</span>
                            </div>
   <div class="col-2"></div>
@@ -3244,7 +3252,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <div class="col"style="padding-left: 5px;">
       <span>   العدد - Nombre
     </span>
-     <span style="margin-left: 48px;">
+     <span style="margin-left: 70px;">
         المساحة(م²)-Surface(m²)</span>
       </div>
       <div class="col-2"></div>
@@ -3306,7 +3314,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
         <tr>
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى)</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">مدجنة (مبنى صلب)</p>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Poulailler (bâtis en dur)</p>
           </td>
           <td style="padding-left: 61px;">
@@ -3336,41 +3344,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
               <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
           </td>
-        </tr><!-- ////new -->
-        <tr>
-          <td style="width:255px;">
-            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بالستيكية</p>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
-          </td>
-          <td style="padding-left: 61px;">
-            <div class="input-group input-group-sm">
-              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
-            </div>
-          </td>
-          <td style="padding-right: 48px;">
-            <div class="input-group input-group-sm">
-              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
-            </div>
-          </td>
         </tr>
-        <tr>
-          <td style="width:255px;">
-            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
-          </td>
-          <td style="padding-left: 61px;">
-            <div class="input-group input-group-sm">
-              <input id="in110" name="serres_multichapelles_nombre" maxlength="3" num="" class="form-control bneder" value="">
-            </div>
-          </td>
-          <td style="padding-right: 48px;">
-            <div class="input-group input-group-sm">
-              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
-            </div>
-          </td>
-        </tr><!-- ////end new -->
       </tbody>
     </table>
   </div>
@@ -3389,7 +3363,9 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      </div>
 
                      <div class="col"  >
-                        المساحة (م²) - Surface (m²)
+                     <span style="margin-left: 35px;">
+                        المساحة(م²)-Surface(m²)     
+                        </span>
                      </div>
                      <div class="col-2"></div>
 
@@ -3400,11 +3376,45 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <!-- Cultures herbacées -->
                
                   
-
+<!-- ////new -->
+<tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">بيوت بلاستيكية</p>
+            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">Serres Tunnels</p>
+          </td>
+          <td >
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td >
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
+            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
+          </td>
+          <td >
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_multichapelles_nombre" maxlength="3" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td >
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr><!-- ////end new -->
                   <tr>
       <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
-      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفالحية</p>
+      <p style="padding-left:32px; margin: 0px 0px 0px 25px;">مباني تخزين المنتجات الفلاحية</p>
       <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment d'entreposage des produits agricoles</p></td>
       <td>
       <div class="input-group input-group-sm">
@@ -3422,7 +3432,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                   <tr>
                      <td>
                     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفالحي</p>
+                    <p style="padding-left:32px;margin: 0px 0px 0px 25px;">  مباني وضع العتاد الفلاحي</p>
                      <p style="padding-left:32px;margin: 0px 0px 0px 25px;">Bâtiment pour le remisage du matériel agricole </p>
     
                      </td>
@@ -3612,7 +3622,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <div class="col">
                      <span >    العدد - Nombre
                         </span>
-                           <span style="margin-left: 42px;">
+                           <span style="margin-left: 74px;">
                      السعة (م²) - Capacité (m3) </span>
                      </div>
                      <div class="col-2"></div>
@@ -3654,7 +3664,6 @@ document.getElementById('addForm2').addEventListener('click', function() {
            
 
             <div style="border-top: 3px solid red;"></div>
-            <h5>VIII- Matériel agricole العتاد الفلاحي</h5>
             <br>
             <h6>VIII- Matériel agricole العتاد الفلاحي</h6>
             <br>
@@ -3663,7 +3672,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
  <!-- <div style="width:450px;" class="input-group input-group-sm">
  <div class="qst-num zxcount"></div>
                   <span class="input-group-text" id="basic-addon3">
-                  ما هي طريقة إستغالل العتاد الفالحي ؟
+                  ما هي طريقة إستغالل العتاد الفلاحي ؟
                       <br>
                       Le mode d'exploitation du matériel agricole ? 
                   </span>
@@ -3688,52 +3697,46 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <br>
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
-العتاد الفالحي 
-<br>
+<b>
+العتاد الفلاحي 
+-
  matériel agricole 
-
+</b>
 
                      </div>
     <div class="card-body" style="padding-top: 0px;">
-       <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;">
-       <div style="margin-top: 0;height: 44px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <!-- <div style="margin-top: 25px;height: 85px;width: 696px;background-color: #d4e7fe;position: absolute;z-index: 99;"> -->
        <div class="row">
-          
-          </div>
-          <div class="row" style="text-align: center;">
+         <div class="col"><br></div>
+       </div> 
+       <div class="row" style="text-align: center;">
             <div class="col-1"><div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div></div>
             <div class="col-4" style="text-align: center;" >
-         نوع وعدد العتاد الفالحي ؟
-<br>
-Type et nombre du matériel agricole ? 
-<br><span style="text-align:center;padding-right:57px; padding-top:57px;"><br>رمز العتاد &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-Code matériel</span>
-
-
-
-
-<sapn>Nombre - العدد</sapn>
+         نوع وعدد العتاد الفلاحي ؟
+ <br>
+ Type et nombre du matériel agricole ? 
+ <br>
          </div>
         
         
         <div class="col">
- <div style="margin: 15px 7px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
+ <div style="margin:-13px 7px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin: 4px 11px 0px 13px;">
                         <div class=" fontbneder22" style="text-align: center;">  كيفية تسخير العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
-
+ 
                         <div class=" fontbneder11" style="text-align: center;">Mode de mobilisation du matériel agricole ?
                         </div>
                      </div>
                   </div>
-                  <div class="col">
- <div style=" margin: 15px 30px -2px -126px;" class="qst-num zxcount"></div>
-
-         <div class="card" style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
-                        <div class="fontbneder22" style="text-align: center;padding:0px!important!">  طربقة إستغلال العتاد الفلاحي ؟
+                  <div class="col" style="padding-right: 48px;">
+ <div style=" margin: -13px 30px -2px -126px;" class="qst-num zxcount"></div>
+ 
+         <div  style="background-color:#f8f8f8;font-size: 12px;margin:4px 33px 0px 0px;">
+                        <div class="fontbneder22" style="text-align: center;padding:0px!important;">  طربقة إستغلال العتاد الفلاحي ؟
                            
                         </div>
                         <div style="border-top: 1px solid #cccccc; width:142px; margin:2px 0px 0px 6px; "></div>
@@ -3741,25 +3744,192 @@ Code matériel</span>
                         </div>
                      </div>
                   </div> 
-
-
+ 
+ 
       </div>
-      </div>
-      </div>
+      <br>
+       <div style="margin-top:-1px;height: 40px;width: 696px;background-color: white;position: absolute;z-index: 99;">
+       <div class="row" style="text-align: center;background-color: #d4e7fe;">
+       <!-- <div class="col"></div> -->
+       <div class="col-3"> <span style="text-align:center;padding-right:5px; padding-top:57px;">رمز العتاد <br>
+       Code matériel</span></div>
+       <div class="col-2" style="padding-top: 7px;"> <sapn>Nombre - العدد</sapn></div>
+       <div class="col-7"></div>
+      
+ 
+ 
+ 
+ 
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+       </div>
+      </div>
+      
+
+      
+
       <script>
 
 </script>
 <div id="formContainer3">
-
+  <div class="row code_materiel_s" style="margin-bottom: 10px;">
+    <div class="col-3">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">رقم العتاد<br>
+        Code matériel</span> <select  class="form-select code_materiel_s" id="code_materiel" name="code_materiel">
+          <option selected disabled>
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            اآلالت - Engins
+          </option>
+          <option value="1">
+            1 - جرار ذو عجلات &lt;=45 حص - Tracteur à roue &lt;=45 CV
+          </option>
+          <option value="2">
+            2 - جرار ذو عجلات65-45 حص - Tracteur à roue 45 CV- 65CV
+          </option>
+          <option value="3">
+            3 - جرار ذو عجلات &gt;65 حص - Tracteur à roue &gt;65 CV
+          </option>
+          <option value="4">
+            4 - جرار ذو سلاسل&lt;=80حص - Tracteur à chenilles &lt;=80 CV
+          </option>
+          <option value="5">
+            5 - جرار ذو سلاسل&gt;80حص - Tracteur à chenilles &gt; 80 CV
+          </option>
+          <option value="6">
+            6 - جرار صغير - Motoculteur
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            المعدات الزراعية - Matériel aratoire
+          </option>
+          <option value="7">
+            7 - محراث - Charrue
+          </option>
+          <option value="8">
+            8 - مغطي المزروعات - Cover croop
+          </option>
+          <option value="9">
+            9 - مسلفة - Herse
+          </option>
+          <option value="10">
+            10 - آلة زرع - Cultivateur
+          </option>
+          <option value="11">
+            11 - آلة بذر - Semoir
+          </option>
+          <option value="12">
+            12 - آلة غرس البطاطا - Planteuse pomme de terre
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات المعالجة والتسميد الزراعي - Matériel de traitement et de fertilisation aratoire
+          </option>
+          <option value="13">
+            13 - ناثر الأسمدة - Epandeur d’engrais
+          </option>
+          <option value="14">
+            14 - آلة الرش والرذاذ - Pulvérisateur, atomiseurs
+          </option>
+          <option value="15">
+            15 - آلة السحق المقطورة - Poudreuses tractées
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات الحصاد - Matériel de récolte
+          </option>
+          <option value="16">
+            16 - آلة حصاد و درس 6م - Moissonneuse-batteuse 6m
+          </option>
+          <option value="17">
+            17 - آلة حصاد و درس 3م - Moissonneuse-batteuse 3m
+          </option>
+          <option value="18">
+            18 - آلة الحش - Faucheuse
+          </option>
+          <option value="19">
+            19 - آلة الجمع والربط - Ramasseuse-presse
+          </option>
+          <option value="20">
+            20 - آلة قلع البطاطا - Arracheuse pomme de terre
+          </option>
+          <option value="21">
+            21 - الة حصد الاعلاف - Ensileuse
+          </option>
+          <option value="22">
+            22 - الة التغليف - Emrubaneuse
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات النقل - Matériel roulant
+          </option>
+          <option value="23">
+            23 - مركبة خفيفة - Véhicules légers
+          </option>
+          <option value="24">
+            24 - مركبة ثقيلة - Véhicules lourds
+          </option>
+          <option style="font-weight: 700; align-items:center;" disabled>
+            معدات أخرى - Divers matériel
+          </option>
+          <option value="25">
+            25 - مقطورة - Remorque
+          </option>
+          <option value="26">
+            26 - صهريج - Citerne
+          </option>
+          <option value="27">
+            27 - مضخة ميكانيكية - Motopompe
+          </option>
+          <option value="28">
+            28 - مضخة كهربائية - Electropompe
+          </option>
+          <option value="29">
+            29 - عتاد آخر - Autre matériel
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="basic-addon3">العدد<br>
+        Nombre</span> <input id="code_materiel_nombre" name="code_materiel_nombre" maxlength="3" num="" class="form-control code_materiel_s" value="">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en proprièté - ملكية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en location - إجار
+          </option>
+          <option class="fontbneder2" value="3">
+            3- en prêt - إستلاف
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group input-group-sm">
+        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+          <option selected="selected" vlaue="-">
+          </option>
+          <option class="fontbneder2" value="1">
+            1- en individuel - فردية
+          </option>
+          <option class="fontbneder2" value="2">
+            2- en collectif - جماعية
+          </option>
+          <option class="fontbneder2" value="3">
+            3- Mixte - مختلطة
+          </option>
+        </select>
+      </div>
+      <div class="col-2"></div>
+    </div>
     <div class="col-1">
       <div class="d-grid gap-2">
-        <button style="width: 50px;top: 113px;position: absolute;height: 45px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3">+</button>
+        <button style="width: 50px;top: 110px;position: absolute;height: 35px;left: 698px;z-index: 500" class="btn btn-primary btn-sm" type="button" id="addForm3U">+</button>
       </div>
     </div>
   </div>
@@ -3811,7 +3981,8 @@ $('#formContainer3').on('change', 'select', function() {
 });
 
 // Handle the addition of new rows
-$('#addForm3').click(function() {
+$('#addForm3U').click(function() {
+ 
     var formContainer = $('#formContainer3');
     var formRow = formContainer.children('.row').first().clone();
     formRow.find('input').val('');
@@ -3855,6 +4026,7 @@ $('#addForm3').click(function() {
 
   <br><br><br>
             <div style="border-top: 3px solid red;"></div>
+            <br>
             <h6 style="margin-bottom:27px;">IX- Ressources en eau الموارد المائية</h6>
             <div style="border-top: 1px solid red; width:170px; margin:-20px 0px 0px 40px; "></div>
             <br>
@@ -3866,11 +4038,10 @@ $('#addForm3').click(function() {
                       <br>
                       L'exploitation est située dans quel type de périmètre d'irrigation ? 
                   </span>
-               <select class="form-select fontbneder22 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
+               <select class="form-select fontbneder2 bneder" id="eau_exploitation_type_irrigation" name="eau_exploitation_type_irrigation">
                   <option  selected="selected" vlaue="-">  </option>
-                  <option class="fontbneder22" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
-                  <option class="fontbneder22" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
-
+                  <option class="fontbneder2" value="1">1- الكبرى الري محيطات - Grands Périmètres d'Irrigation (GPI)</option>
+                  <option class="fontbneder2" value="2">محيطات الري المتوسطة و الصغرى -2 - Hydraulique Moyenne et Petite (PMH)</option>
               </select>
 
 
@@ -3925,9 +4096,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="source" name="eau_source" type="checkbox">
         <label class="form-check-label" for="Source">منبع<br> Source</label>
         <!-- Input element to insert an integer value -->
-        <div style="margin-left:25px;" class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
              
-        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder" >
+        <input num maxlength="3" name="eau_total_source"  id="eau_total_source" class="form-control bneder-input bneder"  >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
       </div>
@@ -3937,9 +4108,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input pm_hydraulique" id="puits" name="eau_puits" type="checkbox">
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
-        <div   style="margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:35px;" class="input-group bneder-input input-group-sm">
               
-              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique"  >
+              <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique">
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -3949,9 +4120,9 @@ Petite et Moyenne Hydraulique
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
         <!-- Input element to insert an integer value -->
-        <div   style=" margin-left:25px;"  class="input-group bneder-input input-group-sm">
+        <div style="  margin-left:25px;" class="input-group bneder-input input-group-sm">
 
-              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder"  >
+              <input num maxlength="3" id="eau_total_forage" name="eau_total_forage" class="form-control bneder-input bneder">
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
@@ -3987,19 +4158,21 @@ Petite et Moyenne Hydraulique
             <br>
             <div class="row">
                <div class="col">
+                
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;">طريقة الري - Mode d'irrigation</div>
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                      <div class="card-body">
+
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:28px; font-size: 10px !important;" class="col-4">
       
       المساحة (هكتار) <br>
       Superficie(ha)
       </div>
-      <div style=" font-size: 10px !important;" class="col-4">
+      <div style="padding-left:37px; font-size: 10px !important;" class="col-4">
   
       المساحة (هكتار) <br>
       
@@ -4008,7 +4181,7 @@ Petite et Moyenne Hydraulique
       </div>
     
 
-      <div style=" font-size: 10px !important;" class="col">
+      <div style="padding-left:45px; font-size: 10px !important;" class="col">
       
       
       المساحة (هكتار) <br>
@@ -4016,64 +4189,67 @@ Petite et Moyenne Hydraulique
       
       Superficie(ha)
       </div>
-    </div><br>
+    </div>
     <div class="col">
-      <br>
+ 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
-      <br>
+     
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       
     </div>
     <div class="col">
-      <br>
+     
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
+        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
     </div>
   </div>
+  <div id="error_messages_irri"></div>
+                  <br>
 </div>
+
                   </div>
                </div>
                </div>
@@ -4223,10 +4399,10 @@ Petite et Moyenne Hydraulique
                <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
+                     <div class="col fontbneder11" style="padding-right: 21px;">
                      ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
@@ -4337,7 +4513,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        العاملة اليد نوعية 
+                        نوعية اليدالعاملة   
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>
@@ -4347,11 +4523,11 @@ Petite et Moyenne Hydraulique
                   <div class="card-body">
                      <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
+                     <div class="col fontbneder11" style="padding-left: 50px;">
                         ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - إناث - Féminin
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4441,11 +4617,11 @@ Petite et Moyenne Hydraulique
    <div class="card-body">
 <br><div class="row" style="text-align: center;">
                      <div class="col-4"></div>
-                     <div class="col fontbneder11" style="padding-left: 30px;">
-                       ذكور - Masculin - إناث - Féminin
+                     <div class="col fontbneder11" style="padding-left: 50px;">
+                        ذكور - Masculin - إناث - Féminin
                      </div>
-                     <div class="col fontbneder11" style="padding-right: 34px;">
-                        ذكور - Masculin - (إناث - Féminin)
+                     <div class="col fontbneder11" style="padding-right: 21px;">
+                     ذكور - Masculin - إناث - Féminin
                      </div>
                   </div><table class="table table-sm">
                <tbody>
@@ -4579,9 +4755,7 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <p class="fontbneder11" style="margin-left: -4px;">
-                     ذكور - Masculin - إناث - Féminin
-         </p>
+             
                      </div>
                      <div class="col" style="text-align: center;">
                      <div class="qst-num ">129</div>
@@ -4594,13 +4768,18 @@ Petite et Moyenne Hydraulique
                         </div>
                      </div>
                      <br>
-                     <span  class="fontbneder11" style="margin-left: 3px;">
-
-                     ذكور - Masculin - إناث - Féminin
-
-                     </span>
+                    
                      </div>
                      <div class="col-1">  </div>
+                  </div>
+                  <div class="row" style="text-align: center;">
+                     <div class="col-2"></div>
+                     <div class="col fontbneder11" style="padding-left: 75px;">
+                        ذكور - Masculin - إناث - Féminin
+                     </div>
+                     <div class="col fontbneder11" style="padding-right: 71px;">
+                     ذكور - Masculin - إناث - Féminin
+                     </div>
                   </div>
                   <table  class="table table-sm">
                <tbody>
@@ -5094,7 +5273,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Avez vous contracté une assurance agricoles ?
                               </span>
-                              <select class="form-select bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
+                              <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
@@ -5111,7 +5290,7 @@ Petite et Moyenne Hydraulique
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
                                  <option disabled valu="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
@@ -5215,11 +5394,13 @@ Petite et Moyenne Hydraulique
                   <span class="input-group-text" id="basic-addon3">
                       هل مقدمي الخدمات المتعلقة بالفلاحة موجودون في البلدية
                       <br>
-                      Prestataire de servicessitués dans la commune ?                  </span>
-               <select class="form-select fontbneder22 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
+                      Prestataire de services situés dans la commune ?
+     
+                                  </span>
+               <select class="form-select fontbneder2 bneder" id="ee_fournisseurs_de_services_situes_dans_la_commune" name="ee_fournisseurs_de_services_situes_dans_la_commune">
                <option   selected value="-"></option>
-                  <option  class="fontbneder22" value="1">1 - Oui - نعم</option>
-                  <option  class="fontbneder22" value="2">2 - Non - لا</option>
+                  <option  class="fontbneder2" value="1">1 - Oui - نعم</option>
+                  <option  class="fontbneder2" value="2">2 - Non - لا</option>
               </select>
                   
             
@@ -5241,7 +5422,7 @@ Petite et Moyenne Hydraulique
                <div class="card">
                <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                   <div class="card-header" style="text-align: center;">
-                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité (multichoice)
+                     المؤسسات ذات الاهتمام القريبة - Etablissements d’intérêt à proximité 
                   </div>
                   <div class="card-body">
                      <div class="row">
@@ -5370,7 +5551,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input" id="flexCheckDefault511" name="ee_vente_directe" type="checkbox">
 
                               <label class="form-check-label" for="flexCheckDefault511">
-                              بيع المباشر - Vente directe
+                              بيع مباشر - Vente directe
                               </label>
                            </div>
                         </div>
@@ -5379,7 +5560,7 @@ Petite et Moyenne Hydraulique
                             <input class="form-check-input "bneder id="ee_consommationauto" name="ee_consommationauto" type="checkbox">
 
                               <label class="form-check-label" for="ee_consommationauto">
-                            استهالك ذاتي - consommation-Auto 
+                            استهالك ذاتي - Auto-consommation
                               </label>
                            </div>
                         </div>
@@ -5507,6 +5688,13 @@ Petite et Moyenne Hydraulique
 
 
 
+
+
+
+
+
+
+
 <?php
 // Determine button text based on user's role
 if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
@@ -5515,10 +5703,10 @@ if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSI
 ?>
     <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
-        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" ><?= $approveBtnText ?></button>
+        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="submitDate" ><?= $approveBtnText ?></button>
     </div>
     <div class="col">
-        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejeter" href="#"><?= $rejectBtnText ?></button>
+        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejected" href="#"><?= $rejectBtnText ?></button>
     </div>
 </div>
 <?php
@@ -5740,59 +5928,59 @@ document.getElementById('submitDate').click();
 
              
 <script>
-   document.getElementById("info_form").addEventListener("input", function () {
-      //console.log("capturing")
+   // document.getElementById("info_form").addEventListener("input", function () {
+   //    //console.log("capturing")
 
-       var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
-       var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
-       var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
-       var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+   //     var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+   //     var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+   //     var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+   //     var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
        
-       var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-       document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+   //     var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+   //     document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
 
-       var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
-       var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
-       var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
-       var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
-       var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-       document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
-
-
-       var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
-       var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
-       var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
-       var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
-       var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-       document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
-
-       var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
-       var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
-       var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
-       var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
-       var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-       document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+   //     var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+   //     var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+   //     var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+   //     var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+   //     document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
 
 
-       var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
-       var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-       var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-       document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+   //     var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+   //     var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+   //     var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+   //     var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+   //     document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
 
-       var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-       var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-       var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-       document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+   //     var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+   //     var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+   //     var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+   //     var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+   //     document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-       var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-       document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
 
-       var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-       var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-       document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+   //     var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+   //     var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+   //     document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
 
-   });
+   //     var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+   //     var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+   //     var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+   //     document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+   //     var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+   //     document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+
+   //     var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+   //     var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+   //     document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+
+   // });
 </script>       
              
     
@@ -5844,6 +6032,19 @@ document.getElementById('submitDate').click();
                 $('#annee_de_naissance').val(dateParts[2]); // Set the year
             }
  }
+
+
+
+
+
+
+
+
+
+
+
+
+ /****************************************************************************************************** */
 
 
 }); 
@@ -6053,13 +6254,36 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
         tableHTML += '</tr>';
+       
 
 
 });
 
 tableHTML += '</tbody></table>';
+
 $('#superficieExploitation').append(tableHTML);
 
+$(document).on('keyup', '.coherence_surface_total-surface', function() {
+        var sum_superficie_hectare = 0;
+
+        $(".statut_juridique_s").each(function () {
+            var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+            superficie_hectare = parseFloat(superficie_hectare);
+
+            if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+                sum_superficie_hectare += superficie_hectare;
+            }
+        });
+
+        var sup_total = $('#surface_totale_st_1').val();
+        sup_total = parseFloat(sup_total);
+
+        if (!isNaN(sup_total) && sum_superficie_hectare < sup_total) {
+            $('.surface_total_error').css('border', '3px solid red');
+        } else {
+            $('.surface_total_error').css('border', '');
+        }
+    });
 
 
 
@@ -6077,8 +6301,8 @@ data.materiel_agricole.forEach(function(item) {
             inputs += '<div class="row" style="margin-bottom: 10px;">';
             inputs += '<div class="col-3">'; // Adjust column size as needed
 inputs += '<div class="input-group input-group-sm">';
-inputs += '<label for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
-inputs += '<select class="select-ee materiel_agricole form-control" id="code_materiel" name="code_materiel">';
+inputs += '<label InptSZ for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
+inputs += '<select InptSZ class="select-ee materiel_agricole form-select" id="code_materiel" name="code_materiel">';
 inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
     inputs += '<option value="1" ' + (item.code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
     inputs += '<option value="2" ' + (item.code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
@@ -6114,14 +6338,14 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '<div class="col-2">';
    inputs += '<div class="input-group input-group-sm">';
    inputs += '<span class="input-group-text" id="basic-addon3"> العدد<br>Nombre</span>';
-   inputs += '<input id="in114" value="' + item.code_materiel_nombre + '" name="code_materiel_nombre" type="number" max="999" class="form-control" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="">';
+   inputs += '<input id="in114" value="' + item.code_materiel_nombre + '" name="code_materiel_nombre" maxlength="2" num class="form-control" value="">';
    inputs += '</div>';
    inputs += '</div>';
 
    // Additional code for 'Mode of Mobilization' select input
    inputs += '<div class="col">';
    inputs += '<div class="input-group input-group-sm">';
-   inputs += '<select class="form-control code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
+   inputs += '<select class="form-select code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
    inputs += '<option value="1" ' + (item.ee_mode_mobilisation_materiel === "1" ? 'selected' : '') + '>1- en proprièté - ملكية</option>';
    inputs += '<option value="2" ' + (item.ee_mode_mobilisation_materiel === "2" ? 'selected' : '') + '>2- en location - إجار</option>';
@@ -6133,7 +6357,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    // Additional code for 'Mode of Exploitation' select input
    inputs += '<div class="col">';
    inputs += '<div class="input-group input-group-sm">';
-   inputs += '<select class="form-control code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
+   inputs += '<select class="form-select code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
    inputs += '<option value="1" ' + (item.ee_mode_exploitation_materiel === "1" ? 'selected' : '') + '>1- en individuel - فردية</option>';
    inputs += '<option value="2" ' + (item.ee_mode_exploitation_materiel === "2" ? 'selected' : '') + '>2- en collectif - جماعية</option>';
@@ -6143,12 +6367,155 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '</div>';
 
     inputs += '<div class="col-1">';
-    inputs += '<div class="d-grid gap-2"></div>';
+    inputs += '<div class="d-grid gap-2"><button style="width:41px" type="button" class="btn btn-danger btn-sm">-</button></div>';
     inputs += '</div>';
     inputs += '</div>';
 });
     $('#formContainer3').append(inputs);
 
+ /****************************************************************************************************************** */
+ var elements = document.getElementsByClassName("surface");
+    for (var i = 0; i < elements.length; i++) {
+    
+      elements[i].addEventListener("input", function () {
+        var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+        var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
+        var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
+        var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
+        var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
+        document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1);
+ 
+        var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
+        var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
+        var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
+        var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
+        var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2);
+ 
+ 
+        var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
+        var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
+        var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
+        var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
+        var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
+        document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3);
+ 
+        var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
+        var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
+        var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
+        var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
+        var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4);
+ 
+ 
+        var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
+        var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
+      //  console.log(surfaces_improductives_1)
+        var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
+        document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
+ 
+
+
+        var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+        var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+        var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+ 
+        var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+        var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
+        document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
+        
+ 
+        var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+        var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
+        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+
+/******************************** */
+
+
+if(superficie_agricole_utile_sau_2>=100){
+// console.log(superficie_agricole_utile_sau_1)
+var divisor = 100;
+// Calculate the quotient (result of integer division)
+var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+var quotient = Math.floor(divider / divisor);
+// Calculate the remainder
+var superficie_agricole_utile_sau_2 = divider % divisor;
+$('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1)+ quotient);
+
+console.log("**********************************")
+console.log(superficie_agricole_utile_sau_1)
+console.log(superficie_agricole_totale_sat_1)
+console.log(quotient)
+console.log("**********************************")
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+document.getElementsByName("surface_totale_st_1")[0].value = (superficie_agricole_utile_sau_1+surface_totale_st_1 + superficie_agricole_totale_sat_1 + quotient);
+}
+
+if(superficie_agricole_utile_sau_4>=100){
+//console.log(superficie_agricole_utile_sau_4)
+var divisor = 100;
+var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+var superficie_agricole_utile_sau_4 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+$('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
+var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+}
+
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+if(superficie_agricole_totale_sat_2>=100){
+
+var divisor = 100;
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
+
+//console.log(divider)
+var superficie_agricole_totale_sat_2 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+
+
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
+
+}
+
+var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
+if(surface_totale_st_2>=100){
+var divisor = 100;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
+var surface_totale_st_2 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+$('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
+}
+
+
+
+ 
+      });
+  }
 
 
     /********************************statut_juridique_s**************************************/
@@ -6158,9 +6525,9 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 // Append each status_juridique input
 data.status_juridique.forEach(function(item) {
     status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
-        '<div class="col">' +
+        '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
+        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
         '<option value="-">-</option>' +
         '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
         '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
@@ -6174,9 +6541,9 @@ data.status_juridique.forEach(function(item) {
         '</select>' +
         '</div>' +
         '</div>' +
-        '<div class="col">' +
+        '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder1  statut_juridique_s" id="status_juridique" name="status_juridique">' +
+        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="status_juridique" name="status_juridique">' +
         '<option disabled value="-"></option>' +
         '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
         '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
@@ -6203,20 +6570,175 @@ data.status_juridique.forEach(function(item) {
         '</select>' +
         '</div>' +
         '</div>' +
-        '<div class="col">' +
+        '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
-        '<input id="superfecie_sj" name="superfecie_sj"   maxlength="4" num class="form-control statut_juridique_s" style="max-width: 88px;margin-left:20px" value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"   maxlength="2" num class="form-control statut_juridique_s"  style="max-width: 44px;" value="' + (item.superfecie_sj_are || '') + '">' +
-        '<div class="col">' +
+        '<input id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
+        '<input id="superfecie_sj_are" name="superfecie_sj_are"  style="max-width: 45px;"  maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+       
         '</div>' +
+        '</div>' +
+        '<div class="col">' +
+        '<div class="d-grid gap-2">'+
+        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46"type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
         '</div>' +
         '</div>' +
         '</div>';
 });
 
 
+
+
+$('#exploitant').on('change', function() {
+      var exploitantValue = $(this).val();
+     
+      // Determine which list to use based on the 'exploitant' value
+     // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
+      if(exploitantValue === "1"){
+
+      
+
+        listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
+        
+      }else{
+        $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+        
+        
+        
+        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+      }
+     
+  
+  });
+
+
+
+
+
+
+    /*************************************************** */
+    //origine des terres
+
+    var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+    '<option value="14" BoldText>14 - Succession إرث</option>' +
+    '<option value="15" BoldText>15 - Donation هبة</option>' +
+    '<option value="16" BoldText>16 - Testament وصية</option>' +
+    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+    '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
+    '<option value="20" BoldText>20 - Location إجار</option>' +
+    '<option value="21" BoldText>21 - Autre  آخرى </option>' +
+    '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
+
+var listOrigineTerre = {
+    "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+    "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+    "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+    "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+};
+
+
+
+
+
+    function filterByKey(prefix) {
+      var filteredObj = {};
+      Object.keys(listOrigineTerre).forEach(function(key) {
+          if (key.startsWith(prefix)) {
+              filteredObj[key] = listOrigineTerre[key];
+          }
+      });
+      return filteredObj;
+  }
+
+
+    $(document).on('change', '[id^="origine_des_terres_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+    var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+   // console.log(idPart); // Log the extracted part to the console
+  
+   var selectedValue = $(this).val();
+   if (selectedValue !== '6') {  // Check if the selected value is not '6'
+       $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+       $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+   } else {
+       $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+   }
+   
+
+      var id = $(this).val()
+    //  console.log(fullId)
+      var filtered = filterByKey(id);
+      
+//console.log(filtered[id]);
+$('#status_juridique_'+idPart).empty()
+$('#status_juridique_'+idPart).append(filtered[id])
+    })
+
+
+
+
+    $(document).on('change', '[id^="status_juridique_"]', function() {
+      var fullId = $(this).attr('id'); // Get the full ID of the changed input
+      var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
+     // console.log(idPart); // Log the extracted part to the console
+    
+     var selectedValue = $(this).val();
+
+     if (selectedValue !== '2'  && selectedValue !== '3') {
+      $('#si_exploi_eai_eac').prop('disabled', true);
+      $('#si_exploi_eai_eac').val('');
+
+    } else {
+      $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+  }
+
+    })
+
+
+
+
 $('#formContainer').append(status_juridique_inputs);
 
+$('#delete4').on('click', function() {
+// alert("formContainer4")
+       // Get the code_materiel value from data attribute
+       var origine_des_terres = $(this).data('code-origine_des_terres');
+     
+     
+        console.log(origine_des_terres);
+    $.ajax({
+        url: 'assets/php/delete_row4.php',
+        type: 'POST',
+        data: {
+            // cle_code_culture: cle_code_culture, 75E92EyTOmst
+            // id_questionnaire: id_questionnaire,
+            // code_culture: code_culture,
+            origine_des_terres: origine_des_terres
+        },
+        success: function(response) {
+         Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
 
 
 
@@ -6227,7 +6749,7 @@ $('#formContainer').append(status_juridique_inputs);
 
 // Append each status_juridique input
 data.utilisation_du_sol.forEach(function(item) {
-utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-4" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><div class="row"><div class="col-5"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div></div></div></div>'
+utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-6" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div><div class="col-1"><button style="width:41px"type="button" class="btn btn-danger btn-sm">-</button></div></div>'
 });
 
 $('#formContainer2').append(utilisation_du_sol_inputs);
@@ -6244,6 +6766,44 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 
              
@@ -6259,35 +6819,108 @@ $('#formContainer2').append(utilisation_du_sol_inputs);
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
    
-<script src="./assets/js/logique.js"></script>
-<script src="./assets/js/questionnaire-mask.js"></script>
-      <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/questionnaire-mask.js"></script>
+    <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/logique.js"></script>
 </body>
 
 </html>
 <script>
 
 
+$(document).on('keyup','.coherence_surface_total-surface',function(){
+
+/***********************************************/
+  var sum_superficie_hectare= 0
+
+      $(".statut_juridique_s").each(function () {
+        var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+      
+        superficie_hectare=parseFloat(superficie_hectare)
+       
+          if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+            sum_superficie_hectare += superficie_hectare;
+          }
+      });
+       /***********************************************/
+
+/********************************************** */   
+       var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+
+if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hectare<sup_total)){
+  //console.log('ok')
+  $('.surface_total_error').css('border','3px solid red')
+ }else{
+  $('.surface_total_error').css('border','')
+ }
+
+//}
+  })
+
+/********************************************************************************************************************* */
+
+
+  /***************************************************************************************************************** */
+
+
+  $(document).on('keyup','.coherence_surface_total-surface_are',function(){
+
+    /***********************************************/
+      var sum_superficie_are= 0
+  
+          $(".statut_juridique_s").each(function () {
+            var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+            superficie_are=parseFloat(superficie_are)
+              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                sum_superficie_are += superficie_are;
+              }
+          });
+
+          //console.log(sum_superficie_are)
+           /***********************************************/
+          //  var cultures_herbacees_2 = $('[name="cultures_herbacees_2"]').val();
+          //  var terres_au_repos_jacheres_2 = $('[name="terres_au_repos_jacheres_2"]').val();
+          //  var plantations_arboriculture_2 = $('[name="plantations_arboriculture_2"]').val();
+          //  var prairies_naturelles_2 = $('[name="prairies_naturelles_2"]').val();
+          //  var pacages_et_parcours_2 = $('[name="pacages_et_parcours_2"]').val();
+          //  var surfaces_improductives_2 = $('[name="surfaces_improductives_2"]').val();
+          //  var terres_forestieres_bois_forets_maquis_vides_labourables_2 = $('[name="terres_forestieres_bois_forets_maquis_vides_labourables_2"]').val();
+  /********************************************** */   
+        
+  var sup_total_are =  $('#surface_totale_st_2').val()
+  //console.log(sup_total_are)
+ // console.log(sum_superficie_are)
+  //console.log(cultures_herbacees_2+' '+terres_au_repos_jacheres_2+' '+plantations_arboriculture_2+' '+prairies_naturelles_2+' '+pacages_et_parcours_2+' '+surfaces_improductives_2+' '+terres_forestieres_bois_forets_maquis_vides_labourables_2)
+  // if(cultures_herbacees_2!="" && terres_au_repos_jacheres_2!="" && plantations_arboriculture_2!="" && prairies_naturelles_2!="" && pacages_et_parcours_2!="" && surfaces_improductives_2 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_2!=""){
+    if((sum_superficie_are!=undefined && sup_total_are!="") && (sum_superficie_are<sup_total_are)){
+    //  console.log('ok')
+      $('.surface_total_error_are').css('border','3px solid red')
+     }else{
+      $('.surface_total_error_are').css('border','')
+     }
+  
+    // }
+      })
+
 var elements = document.getElementsByClassName("surface");
 //   for (var i = 0; i < elements.length; i++) {
   
    $(document).on("input", ".surface", function() {
 console.log("okkkkkkkk")
-
-
-        var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
+var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
         var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
         var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
         var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
-        document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1).toFixed(2);
+        document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1);
  
         var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
         var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
         var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
         var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
         var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
+        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2);
  
  
         var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
@@ -6295,66 +6928,79 @@ console.log("okkkkkkkk")
         var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
         var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
         var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
-        document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3).toFixed(2);
+        document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3);
  
         var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
         var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
         var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
         var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
         var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);
+        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4);
  
  
         var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
         var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
-        console.log(surfaces_improductives_1)
+      //  console.log(surfaces_improductives_1)
         var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
-        document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+        document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
  
+
+
         var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
         var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
         var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
         var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
-        document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1).toFixed(2);
+        document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
         
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
         var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
-        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
 
 /******************************** */
 
 
 if(superficie_agricole_utile_sau_2>=100){
-console.log(superficie_agricole_utile_sau_1)
+// console.log(superficie_agricole_utile_sau_1)
 var divisor = 100;
 // Calculate the quotient (result of integer division)
 var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
 var quotient = Math.floor(divider / divisor);
 // Calculate the remainder
 var superficie_agricole_utile_sau_2 = divider % divisor;
-$('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient.toFixed(2)));
-$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2.toFixed(2));
-document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
-document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+superficie_agricole_totale_sat_1 + quotient).toFixed(2);
-document.getElementsByName("surface_totale_st_1")[0].value = (superficie_agricole_utile_sau_1+surface_totale_st_1 + superficie_agricole_totale_sat_1 + quotient).toFixed(2);
+$('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1)+ quotient);
+
+console.log("**********************************")
+console.log(superficie_agricole_utile_sau_1)
+console.log(superficie_agricole_totale_sat_1)
+console.log(quotient)
+console.log("**********************************")
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+document.getElementsByName("surface_totale_st_1")[0].value = (superficie_agricole_utile_sau_1+surface_totale_st_1 + superficie_agricole_totale_sat_1 + quotient);
 }
 
 if(superficie_agricole_utile_sau_4>=100){
-console.log(superficie_agricole_utile_sau_4)
+//console.log(superficie_agricole_utile_sau_4)
 var divisor = 100;
 var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
 var superficie_agricole_utile_sau_4 = divider % divisor;
 var quotient = Math.floor(divider / divisor);
-$('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient.toFixed(2)));
-$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4.toFixed(2));
+$('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
 var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
 }
 
 var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
@@ -6366,13 +7012,17 @@ var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_i
 var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
 var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
 
-console.log(divider)
+//console.log(divider)
 var superficie_agricole_totale_sat_2 = divider % divisor;
 var quotient = Math.floor(divider / divisor);
 
+
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
 var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
-document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2).toFixed(2);
-$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(surfaces_improductives_1+pacages_et_parcours_1+superficie_agricole_utile_sau_1)+parseFloat(quotient.toFixed(2)));
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
 
 }
 
@@ -6386,14 +7036,19 @@ var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("su
 var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
 var surface_totale_st_2 = divider % divisor;
 var quotient = Math.floor(divider / divisor);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2).toFixed(2);
-$('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient.toFixed(2)));
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+$('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
+
+
+
 }
 
 
 
+
+
+});
  
-      });
-  //}
 
 </script>

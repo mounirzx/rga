@@ -155,7 +155,7 @@ $(document).ready(function() {
             //i have created an id on remove row red color button called statut_juridique_check
             // [44] [45] [6]
            // $('#si_exploi_eai_eac').prop('disabled', true); 
-            $('.reference_cadastrale').prop('disabled', true); 
+          // $('.reference_cadastrale').prop('disabled', true); 
             $('#si_exploi_eac').prop('disabled', true); 
             $('#exploi_superficie_hec').prop('disabled', true); 
             $('#exploi_superficie_are').prop('disabled', true); 
@@ -165,7 +165,7 @@ $(document).ready(function() {
      
              // [44] [45] [6]
           //  $('#si_exploi_eai_eac').prop('disabled', false); 
-          $('.reference_cadastrale').prop('disabled', true); 
+       //   $('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true); 
           $('#exploi_superficie_hec').prop('disabled', true); 
           $('#exploi_superficie_are').prop('disabled', true);
@@ -183,7 +183,7 @@ formContainer.addEventListener('click', function(event) {
         // Your event handling code here
        // [44] [45] [6]
       // $('#si_exploi_eai_eac').prop('disabled', true); 
-       $('.reference_cadastrale').prop('disabled', true); 
+   //    $('.reference_cadastrale').prop('disabled', true); 
        $('#si_exploi_eac').prop('disabled', true); 
        $('#exploi_superficie_hec').prop('disabled', true); 
        $('#exploi_superficie_are').prop('disabled', true); 
@@ -200,7 +200,9 @@ formContainer.addEventListener('click', function(event) {
 // total_forage
 // total_puits
 // total_source
+//eau_total_source
 $('#forage, #puits, #source').change(function() {
+    alert('ddd')
     
       var isChecked = $(this).prop('checked');
       var inputElement = $(this).closest('.form-check').find('.bneder-input');
@@ -301,28 +303,113 @@ function toggleElements($elements, disabled) {
         var inputValue1 = parseInt($(inputId1).val()) || 0;
         var inputValue2 = parseInt($(inputId2).val()) || 0;
        // console.log('val1: '+inputValue2+" val2: "+inputValue2)
-        if (inputValue1 >= inputValue2) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Limite dépassée',
-                text: errorMessage,
-            });
+        if (inputValue2 < inputValue1) {
+         
+
+
+            displayMessage_elvage(errorMessage, 'error');
+
             $(this).val('');
         }
     });
 }
 //   77 <= 78
-handleInputComparisonEqualOrBigger('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Dont Berbis ne peut pas dépasser le nombre total de Ovins');
+handleInputComparisonEqualOrBigger('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Berbis ne peut dépasser le nombre total des Ovins');
 //   79 <= 80
-handleInputComparisonEqualOrBigger('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de Dont chèvres ne peut pas dépasser le nombre total de Caprins');
+handleInputComparisonEqualOrBigger('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de chèvres ne peut dépasser le nombre total de Caprins');
 //   81 <= 82
-handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de Dont chamelles ne peut pas dépasser le nombre total de Camelins');
+handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de chamelles ne peut dépasser le nombre total de Camelins');
 //   83 <= 84
-handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de Dont juments ne peut pas dépasser le nombre total de Equins');
+handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
 // 91 dont pleins <= Ruches Modernes
-handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
 // 92 dont pleins <= Ruches Traditionnelles
-handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de Dont pleines ne peut pas dépasser le nombre total des Ruches');
+//handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
+
+
+
+// Function to calculate total number of Vaches
+function calculateTotalVaches() {
+    var total = 0;
+    // Loop through each input field for vaches laitieres
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
+        // Parse the value as an integer and add it to the total
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+// Event listener for input changes
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('input', function() {
+    var chapt_bovins = parseInt($('#chapt_bovins').val()) || 0; // Get the maximum number of bovins
+    var totalVaches = calculateTotalVaches(); // Calculate the total number of vaches laitieres
+
+    // Check if the total number of vaches laitieres exceeds or is less than the number of bovins
+    if (totalVaches > chapt_bovins) {
+        displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
+        setBorders('red');
+    } else if (totalVaches < chapt_bovins) {
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'error');
+        setBorders('red');
+    } else {
+        setBorders('green');
+    }
+});
+
+// Event listener for input focus out (when user leaves the input)
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('focusout', function() {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '' );
+
+});
+
+// Function to set border colors
+function setBorders(color) {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '2px solid ' + color);
+}
+
+
+// Function to handle input comparison and apply border color
+function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorMessage) {
+    $(selector).on('input', function() {
+        var value = parseInt($(this).val()) || 0;
+        var comparisonValue = parseInt($(comparisonSelector).val()) || 0;
+
+        if (value > comparisonValue) {
+            displayMessage_elvage(errorMessage, 'error');
+            $(this).css('border', '2px solid red');
+        } else {
+            $(this).css('border', '2px solid green'); // Reset border color if valid
+        }
+    });
+}
+
+handleInputComparisonEqualOrBigger('#chapt_dont_vaches_laitieres_blm', '#chapt_bovins', 'La somme des types de bovins ne peut être supérieure au total bovins');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  117 <= 64
 function calculateTotalSupIrrigation() {
     var totalAres = 0;
@@ -332,8 +419,8 @@ function calculateTotalSupIrrigation() {
         totalAres += ares;
     });
     return totalAres;
-
 }
+
 function calculateTotalModeIrrigation() {
     var total = 0;
     // Loop through each input field with class 'Mode_irrigation'
@@ -346,25 +433,55 @@ function calculateTotalModeIrrigation() {
 function compareIrrigationTotals() {
     var totalAres = calculateTotalSupIrrigation();
     var totalModeIrrigation = calculateTotalModeIrrigation();
-    // console.log("totalAres: "+totalAres);
-    // console.log("totalModeIrrigation: "+totalModeIrrigation);
-    if (totalAres <=  totalModeIrrigation) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Limite dépassée',
-            text: "Le total des modes d'irrigation ne peut pas dépasser le total des superficies d'irrigation.",
+    console.log("totalAres: " + totalAres);
+    console.log("totalModeIrrigation: " + totalModeIrrigation);
+
+    var totalAres5Percent = totalAres * 0.05;
+    var totalModeIrrigation5Percent = totalModeIrrigation * 0.05;
+
+    var threshold = Math.min(totalAres5Percent, totalModeIrrigation5Percent) * 0.05;
+    console.log("threshold: " + threshold);
+
+    var difference = Math.abs(totalAres5Percent - totalModeIrrigation5Percent);
+    console.log("difference: " + difference);
+
+    if (difference > threshold) {
+        var $message = $('<div>').addClass('error-message').text("Erreur : La somme des surfaces de culture irriguées est différente de la somme des surfaces équipées d'irrigation.");
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+            
         });
+        $('#error_messages_irri').empty().append($message);
+        setTimeout(() => $message.fadeOut(() => $message.remove()), 5000);
+        $('.Mode_irrigation').css('border', '2px solid red');
+    } else {
+        $('.Mode_irrigation').css('border', '2px solid green');
     }
 }
-$(document).on('input', '[id^="superficie_are_"]', function() {
+
+$('.Mode_irrigation').focusout(function() {
+    if ($(this).css('border-color') === 'rgb(0, 128, 0)') { // Checking if border color is green
+      $("#eau_aspersion_classique").css('border', '');
+        $("#eau_goutte_a_goutte").css('border', '');
+        $("#eau_epandage_de_crues").css('border', '');
+        $("#eau_gravitaire").css('border', '');
+        $("#eau_pivots").css('border', '');
+        $("#eau_enrouleur").css('border', '');
+        $("#eau_foggara_hec").css('border', '');
+        $("#eau_pluie_artificielle").css('border', '');
+        $("#eau_autre_hec").css('border', '');
+    }
+});
 
 
+$('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_gravitaire, #eau_pivots, #eau_enrouleur, #eau_foggara_hec, #eau_pluie_artificielle, #eau_autre_hec').on('input', function() {
     compareIrrigationTotals();
 });
-$(document).on('input', '.Mode_irrigation', function() {
 
-    compareIrrigationTotals();
-});
+
+// $(document).on('input', '[id^="superficie_are_"]', compareIrrigationTotals);
+// $(document).on('input', '.Mode_irrigation', compareIrrigationTotals);
 
 // end  117 <= 64
 //124 Egal à somme (125 et 126) par sexe et par type emploi (permanent/saisonnier)
@@ -726,20 +843,43 @@ $(document).on('change', '[id^="status_juridique"]', function() {
     var statusValue = $(this).val();
 
     // Define the specific conditions under which the alert should be displayed
-    if (origineValue === '6' &&  (statusValue === '2'|| statusValue === '3' )) {
-        $('.reference_cadastrale').prop('disabled', false); 
+    if (origineValue == '6' &&  (statusValue == '2')) {
+       // $('.reference_cadastrale').prop('disabled', false); 
           $('#si_exploi_eac').prop('disabled', false); 
           $('#exploi_superficie_hec').prop('disabled', false); 
           $('#exploi_superficie_are').prop('disabled', false);
     }else{
 
-        $('.reference_cadastrale').prop('disabled', true); 
-          $('#si_exploi_eac').prop('disabled', true); 
+         //$('.reference_cadastrale').prop('disabled', true); 
+          $('#si_exploi_eac').prop('disabled', true);
+          $('#si_exploi_eac').val('');
           $('#exploi_superficie_hec').prop('disabled', true); 
+          $('#exploi_superficie_hec').val('');
           $('#exploi_superficie_are').prop('disabled', true);
+          $('#exploi_superficie_are').val('');
 
     }
+
+    if (origineValue == '9' &&  (statusValue == '22')) {
+
+        $('.reference_cadastrale').prop('disabled', true); 
+        $('.reference_cadastrale').val('');
+
+
+    }else{
+        $('.reference_cadastrale').prop('disabled', false); 
+        $('.reference_cadastrale').val('');
+    }
+
+   
+   
+
 });
+
+
+
+
+
 
 
 $('#exploit_est_un_bloc').on('change', function() {
@@ -886,10 +1026,11 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
 $('#formContainer2').on('input change', '[id^="superficie_hec_"], [id^="superficie_are_"]', function() {
     var $row = $(this).closest('.row');
     var hectares = $row.find('[id^="superficie_hec_"]').val();
+    var irrigue = $row.find('[id^="superficie_are_"]').val();
 
 
 
-if(hectares){
+if(irrigue){
     $('#eau_bassin_d_accumulation').prop('disabled', false);
     $('#eau_bassin_geomembrane').prop('disabled', false);
     $('#eau_reservoir').prop('disabled', false);
@@ -1019,6 +1160,52 @@ function displayMessage(message, type) {
     $('#error_messages').append($message); // Append message to container
     setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
 }
+function displayMessage_elvage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
+function displayMessage_elvage_bovins(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
 
 function calculateTotals() {
     let totalInterca = 0;
@@ -1153,11 +1340,13 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
     
 
 
+//Mise a jour du samedi 
 
-
-
-
-
+$('#nom_zone_district').on('input', function(){
+        var inputVal = $(this).val();
+        $(this).val(inputVal.charAt(0).toUpperCase() + inputVal.slice(1));
+    });
+    
     
     
 //**********************************************Farouk Touil end  ******************************************************* */
@@ -1177,6 +1366,10 @@ $('#formContainer2').on('change', '.code_culture_s', function() {
         $('#nin_exploitant').css('border','2px solid green')
     }
 });
+
+
+
+
 
 
 $('#nom_exploitation').on('input', function(){
@@ -1309,12 +1502,20 @@ $(document).ready(function(){
         // Check if this combination already exists in the array
         if($.inArray(cc, selectedValues) !== -1){
           //  console.log("This combination of values has already been selected.");
-            Swal.fire({
-               title: 'Attention!',
-                text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
+            // Swal.fire({
+            //    title: 'Attention!',
+            //     text: 'Cette option a déjà été sélectionnée. Veuillez en choisir une autre.',
+            //     icon: 'warning',
+            //     confirmButtonText: 'OK'
+            // });
+
+
+            displayMessage('Cette option a déjà été sélectionnée. Veuillez en choisir une autre', 'error');
+
+
+
+
+
             $('#origine_des_terres_' + idPart).addClass('error');
             $('#status_juridique_' + idPart).addClass('error');
             $("#"+fullId).prop("selectedIndex", 0); // Optionally reset the current dropdown

@@ -86,14 +86,14 @@ $form = json_decode(file_get_contents("php://input"), true);
         $cleQuery->bindValue(':id_questionnaire', $data['id_questionnaire']);
         $cleQuery->execute();
         $cleResult = $cleQuery->fetch(PDO::FETCH_ASSOC);
-        $id_status_juridique = $cleResult['id_status_juridique'];
-        $cle_status_juridique = $cleResult['cle_status_juridique'];
-        $id_questionnaire = $cleResult['id_questionnaire'];
+        @$id_status_juridique = $cleResult['id_status_juridique'];
+        @$cle_status_juridique = $cleResult['cle_status_juridique'];
+        @$id_questionnaire = $cleResult['id_questionnaire'];
 
         if ($id_status_juridique > 0) {
-            // $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
-            // $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-            // $deleteStmt->execute();
+            $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
+            $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+            $deleteStmt->execute();
             // Insert new record if the questionnaire does not exist
             foreach ($formDataArrayStatut as $formData) {
                 if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {

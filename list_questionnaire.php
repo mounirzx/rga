@@ -140,3 +140,9 @@ include('includes/header.php');
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script>
+$(document).ready(function() {
+    // Trigger click on "Total questionnaire" link to load the data
+    $('#all').trigger('click');
+});
+</script>

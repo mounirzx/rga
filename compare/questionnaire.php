@@ -1,15 +1,6 @@
 <?php
 include('includes/header.php');
 ?>
-<!-- payload check button -->
-<?php
-  if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "admin_central" ){
-   include('includes/modal.html');
-  }
-
-?>
-<!-- payload check button end -->
-
 <link rel="stylesheet" href="assets/css/questionnaire.css">
 <script  src="./assets/js/questionnaire-mask.js" defer></script>
    <style>
@@ -35,9 +26,40 @@ include('includes/header.php');
 
          <div class="card-body">
  
-         <?php
-include('includes/head.php');
-?>
+         <div class="row" style="color: #495057;">
+    <div class="col">
+        <div style="font-weight: bold; font-size: 11px !important; text-align: center;">
+            <b>REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE</b><br />
+            MINISTERE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL<br />
+            DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE<br />
+        </div>
+    </div>
+    <div class="col">
+        <div class="login100-pic js-tilt" data-tilt=""><img style="max-width: 100%; min-width: 100%;" src="static/logo.svg" alt="IMG" /></div>
+        <!-- <div style="font-weight: bold; font-size: 12px !important; text-align: center;">
+            <b>
+                <br />
+                الاحصاء العام للفلاحة
+            </b>
+            <br />
+            Recensement Générale de l'Agriculture<br />
+            <br />
+        </div> -->
+    </div>
+    <div class="col">
+        <div style="font-weight: bold; font-size: 16px !important; text-align: center;">
+            <b>
+                الجمهورية الجزاﺋﺮﻳﺔ الديمقراطية الشعبية<br />
+                <br />
+                وزارة الفلاحة و التنمية الريفية<br />
+                <br />
+                مديرية الاحصائيات و الرقمنة و الاستشراف
+            </b>
+            <br />
+        </div>
+    </div>
+</div>
+
          <form id="info_form" method="post">
     
 
@@ -612,7 +634,7 @@ Sexe</span>
 
             <div class="row">
                <div class="col">
-            
+               <div id="error_message" style="color: red;"></div>
                <div class="input-group input-group-sm">
                <div class="qst-num zxcount"></div>
           
@@ -791,9 +813,6 @@ l'exploitant est principal
         <option value="3">
           3 - مستأجر - Locataire
         </option>
-        <!-- <option value="4">
-          4 - مستثمر زراعي - Concessionnaire
-        </option> -->
       </select>
     </div>
   </div>
@@ -1186,7 +1205,7 @@ au réseau internet ?
 
                             <select  inptSZ class="form-select fontbneder2 statut_juridique_s statut_juridique_check" id="origine_des_terres" name="origine_des_terres" >
                                 <option selected="" disabled value="-"></option>
-                               <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
+                                <option class="fontbneder2" value="1">1 - Melk personnel titré ملك شخصي موثق</option>
                                 <option class="fontbneder2" value="2">2 - Melk personnel non titré ملك شخصي غير موثق</option>
                                 <option class="fontbneder2" value="3">3 - Melk en indivision titré ملك مشترك موثق</option>
                                 <option class="fontbneder2" value="4">4 - Melk en indivision non titré ملك مشترك غير موثق </option>
@@ -1194,7 +1213,7 @@ au réseau internet ?
                                 <option class="fontbneder2" value="6">6 - Domaine privé de l'état ملكية خاصة للدولة</option>
                                 <option class="fontbneder2" value="7">7 - Wakf privé وقف خاص</option>
                                 <option class="fontbneder2" value="8">8 - Wakf public وقف عام</option>
-                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option> 
+                                <option class="fontbneder2" value="9">9 - Inconnue مجهول</option>
                             </select>
 
                             </div>
@@ -1254,7 +1273,7 @@ au réseau internet ?
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are coherence_surface_total-surface  surface_total_error_are statut_juridique_s"  >
+                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1313,7 +1332,6 @@ au réseau internet ?
 
    <span style="max-width:84%" class="input-group-text fontbneder2" id="basic-addon3">إذا كانت المستثمرة م.ف.ف أو م.ف.ج هل لديه عقد امتياز؟
 
-   
    <br>
    Si l'exploitation est une Ex-EAI ou une Ex-EAC, a - t'il un
 acte de concession ?
@@ -1324,9 +1342,48 @@ acte de concession ?
       <option value="2">2 - Non - لا</option>
    </select>
 </div>
+
+
+   </div>
+   <div class="col-4">
+   <div class="card">
+   <div class="card-header" style="text-align:center;">
+      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
+      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
+      مرجع مسح الأراضي
+      <br>
+      le Référence cadastrale 
+   </div>
+   <div class="card-body" style="padding: 5px;">
+    <span class="fontbneder11" style="padding-left: 50px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
+    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
+        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
+    </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+
 <br>
  
-<div class="card" style="font-size: 12px;">
+
+
+
+
+
+ <br>
+
+
+
+ <div class="card" style="font-size: 12px;">
     <div class="card-header" style="text-align: center;">
       <div class="qst-num zxcount" hidden style="margin: 0px 0px 0px 0px; text-align: left;"></div>
       <div class="qst-num" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;">45</div>
@@ -1365,7 +1422,7 @@ acte de concession ?
         </div>
         <div class="col-4">
             
-                    <div class="input-group input-group-sm" >
+                    <div class="input-group input-group-sm" style="padding-left:10px;">
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
                         <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
@@ -1378,47 +1435,6 @@ acte de concession ?
     <br>
 </div>
  
-
-   </div>
-   <div class="col-4" style="padding-top:49px">
- 
-   <div class="card">
-   <div class="card-header" style="text-align:center;">
-      <div  hidden class="qst-num zxcount"style="margin: 8px 0px 0px -12px; position:absolute ;text-align: left;"></div>
-      <div   class="qst-num"style="margin: 5px 0px 0px -7px; position:absolute ;text-align: left;">46</div>
-      مرجع مسح الأراضي
-      <br>
-      le Référence cadastrale 
-   </div>
-   <div class="card-body">
-    <span class="fontbneder11" style="padding-left: 39px; ">قسم - Section&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; مجموع ملكي - Ilot</span>
-    <div class="input-group input-group-sm" style="margin: auto; width: fit-content;">
-        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_section" name="reference_cadastrale_section" value="">
-        <input num maxlength="3" class="form-control reference_cadastrale bneder" id="reference_cadastrale_ilot" name="reference_cadastrale_ilot" value="">
-    </div>
-</div>
-
-
-</div>
-
-
-</div>
-</div>
-
-
-
-
-<br>
- 
-
-
-
-
-
- <br>
-
-
-
 
 
 <br/>
@@ -1435,9 +1451,7 @@ acte de concession ?
 
 
 
-<div class="row">
-   
-</div>
+
 
 
 
@@ -1511,7 +1525,7 @@ acte de concession ?
          <td style="width: 233px;">
     <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
     <p style="margin: 0px 0px 0px 25px;" > محاصيل عشبية نباتية</p>
-    <p  style="margin: 0px 0px 0px 25px;"> Cultures herbacées</p>
+    <p  style="margin: 0px 0px 0px 25px;"> Cultures herpacées</p>
 </td>
             <td style="padding-left:15px">
                <div class="input-group input-group-sm">
@@ -2879,7 +2893,7 @@ $(document).ready(function(){
             <br>
             <br>
 
-            <div id="error_message_elvage" style="color: red;"></div>
+
 
             <div class="card" style="font-size: 12px;">
                 <div class="card-body" >
@@ -3512,7 +3526,41 @@ $(document).ready(function(){
               <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
             </div>
           </td>
+        </tr><!-- ////new -->
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت بلاستيكية</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Tunnels</p>
+          </td>
+          <td style="padding-left: 61px;">
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td style="padding-right: 48px;">
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
         </tr>
+        <tr>
+          <td style="width:255px;">
+            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
+          </td>
+          <td style="padding-left: 61px;">
+            <div class="input-group input-group-sm">
+              <input id="in110" name="serres_multichapelles_nombre" maxlength="3" num="" class="form-control bneder" value="">
+            </div>
+          </td>
+          <td style="padding-right: 48px;">
+            <div class="input-group input-group-sm">
+              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
+            </div>
+          </td>
+        </tr><!-- ////end new -->
       </tbody>
     </table>
   </div>
@@ -3544,41 +3592,7 @@ $(document).ready(function(){
                   <!-- Cultures herbacées -->
                
                   
-<!-- ////new -->
-<tr>
-          <td style="width:255px;">
-            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">بيوت بلاستيكية</p>
-            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">Serres Tunnels</p>
-          </td>
-          <td >
-            <div class="input-group input-group-sm">
-              <input id="in110" name="serres_tunnels_nombre" maxlength="3" num="" class="form-control bneder" value="">
-            </div>
-          </td>
-          <td >
-            <div class="input-group input-group-sm">
-              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="width:255px;">
-            <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
-            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">بيوت متعددة القبب</p>
-            <p style="padding-left:32px; margin: 0px 0px 0px 25px;">Serres Multichapelles</p>
-          </td>
-          <td >
-            <div class="input-group input-group-sm">
-              <input id="in110" name="serres_multichapelles_nombre" maxlength="3" num="" class="form-control bneder" value="">
-            </div>
-          </td>
-          <td >
-            <div class="input-group input-group-sm">
-              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
-            </div>
-          </td>
-        </tr><!-- ////end new -->
+
                   <tr>
       <td style="width:330px" >
       <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute; "></div>
@@ -4264,12 +4278,10 @@ Petite et Moyenne Hydraulique
             <br>
             <div class="row">
                <div class="col">
-                
                   <div class="card" style="font-size: 12px;">
                      <div class="card-header" style="text-align: center;">طريقة الري - Mode d'irrigation</div>
                      <div class="qst-num zxcount" style="margin: 5px 0px 5px 15px; position:absolute ;text-align: left;"></div>
                      <div class="card-body">
-
   <div class="row">
     <div class="row">
       <div class="col-2"></div>
@@ -4300,18 +4312,18 @@ Petite et Moyenne Hydraulique
  
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input id="in129" id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input id="in132" id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input id="in131" id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4319,17 +4331,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input id="in130" id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input id="in133" id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input id="in134" id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div><br>
       
     </div>
@@ -4337,25 +4349,22 @@ Petite et Moyenne Hydraulique
      
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
+        Foggara</span> <input id="in136" name="eau_foggara_hec"  maxlength="5" num class="form-control bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input id="in135" id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input id="in210" id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
       </div>
     </div>
   </div>
-  <div id="error_messages_irri"></div>
-                  <br>
 </div>
-
                   </div>
                </div>
                </div>
@@ -4619,7 +4628,7 @@ Petite et Moyenne Hydraulique
                      <div class="col">
 
                         <b>
-                        نوعية اليدالعاملة   
+                        نوعية اليد العاملة   
                         -
                         Qualité de la main d'œuvre de l'exploitation
          </b>

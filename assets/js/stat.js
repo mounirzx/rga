@@ -147,9 +147,9 @@ var list_commune
                                         }
                                       
                                     }
-                                    sum_en_attente+= en_attente;
-                                    sum_rejete +=rejete;
-                                    sum_approuve += approuvee;
+                                    sum_en_attente+= parseFloat(en_attente);
+                                    sum_rejete +=parseFloat(rejete);
+                                    sum_approuve += parseFloat(approuvee);
 
                                  
                                     etat = "<td style='background:#ddffca5e'>"+approuvee+"</td><td style='background:#dc354526;'>"+rejete+"</td><td style='background:#ffff0038'>"+en_attente+"</td>"
