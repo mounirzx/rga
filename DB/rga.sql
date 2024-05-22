@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 08:00 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: localhost:3306
+-- Generation Time: May 22, 2024 at 02:12 PM
+-- Server version: 8.0.36-0ubuntu0.20.04.1
+-- PHP Version: 7.4.3-4ubuntu2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,27 +29,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_central` (
-  `id_admin` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nom_admin` varchar(50) NOT NULL,
-  `prenom_admin` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `id_admin` int NOT NULL,
+  `id_user` int NOT NULL,
+  `nom_admin` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_admin` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admin_central`
---
-
-INSERT INTO `admin_central` (`id_admin`, `id_user`, `nom_admin`, `prenom_admin`, `phone`, `email`) VALUES
-(1, 89, 'test', 'test', '4566321', 'test@gh.de'),
-(2, 90, 'gg', 'gg', '48787', 'tez@dfg.dg'),
-(3, 93, 'test', 'test', '48787', 'tez@dfg.dg'),
-(4, 94, 'tetstt', 'tttt', '48787', 'tez@dfg.dg'),
-(5, 95, 'test', 'test', '48787', 'test@d.dfg'),
-(6, 96, 'test', 'test', '48787', 'tez@dfg.dg'),
-(7, 97, 'testg', 'testg', '487874444', 'tez@dfgg.dg'),
-(8, 98, 'test', 'test', '48787', 'w.omri@bneder.dz');
 
 -- --------------------------------------------------------
 
@@ -57,44 +44,13 @@ INSERT INTO `admin_central` (`id_admin`, `id_user`, `nom_admin`, `prenom_admin`,
 --
 
 CREATE TABLE `coherence_superficie` (
-  `id_` int(11) NOT NULL,
-  `id_quest` int(11) NOT NULL,
-  `coherence_stat_jur` varchar(50) NOT NULL,
-  `message_coherence_stat_jur` text NOT NULL,
-  `coherence_util_sol` varchar(50) NOT NULL,
-  `message_coherence_util_sol` text NOT NULL
+  `id_` int NOT NULL,
+  `id_quest` int NOT NULL,
+  `coherence_stat_jur` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `message_coherence_stat_jur` text COLLATE utf8mb4_general_ci NOT NULL,
+  `coherence_util_sol` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `message_coherence_util_sol` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `coherence_superficie`
---
-
-INSERT INTO `coherence_superficie` (`id_`, `id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES
-(1, 11, 'text-warning', '', 'text-warning', ''),
-(2, 8, 'text-success', '', 'text-warning', ''),
-(3, 10, 'text-danger', '', 'text-success', ''),
-(4, 9, 'text-danger', '', 'text-warning', ''),
-(5, 15, 'text-success', '', '', ''),
-(6, 16, 'text-warning', 'La superficie totale n est pas egale la superficie agricole utile', '', ''),
-(7, 17, 'text-danger', 'La superficie totale dépasse 2,99 fois la superficie agricole utile', '', ''),
-(8, 18, 'text-warning', 'La superficie totale n est pas egale la superficie agricole utile.', '', ''),
-(9, 19, 'text-success', '', '', ''),
-(10, 20, 'text-warning', 'La superficie totale n est pas egale la superficie agricole utile.', '', ''),
-(11, 14, 'text-success', '', '', ''),
-(12, 15, 'text-success', '', '', ''),
-(13, 16, 'text-success', '', '', ''),
-(14, 17, 'text-success', '', '', ''),
-(15, 18, 'text-success', '', '', ''),
-(16, 19, 'text-success', '', '', ''),
-(17, 20, 'text-success', '', '', ''),
-(18, 21, 'text-success', '', '', ''),
-(19, 22, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-warning', 'La superficie totale n est pas egale la superficie agricole utile.'),
-(20, 23, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-success', ''),
-(21, 24, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-success', ''),
-(22, 25, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-success', ''),
-(23, 26, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-success', ''),
-(24, 27, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-warning', 'La superficie totale n est pas egale la superficie agricole utile.'),
-(25, 28, 'text-danger', 'la somme des sup de status juridique de passe 5%  de la SAT', 'text-success', '');
 
 -- --------------------------------------------------------
 
@@ -103,17 +59,17 @@ INSERT INTO `coherence_superficie` (`id_`, `id_quest`, `coherence_stat_jur`, `me
 --
 
 CREATE TABLE `communes` (
-  `id` int(11) NOT NULL,
-  `commune_code` varchar(6) NOT NULL,
-  `commune_name` varchar(255) NOT NULL COMMENT 'Name of commune in arabic',
-  `commune_name_ascii` varchar(255) NOT NULL COMMENT 'Name of commune in ASCII characters (french)',
-  `daira_name` varchar(255) NOT NULL COMMENT 'Name of daira in arabic',
-  `daira_name_ascii` varchar(255) NOT NULL COMMENT 'Name of daira in ASCII characters (french)',
-  `wilaya_code` varchar(4) NOT NULL,
-  `wilaya_name` varchar(255) NOT NULL COMMENT 'Name of wilaya in arabic',
-  `wilaya_name_ascii` varchar(255) NOT NULL COMMENT 'Name of wilaya in ASCII characters (french)',
-  `qst_a_recense` int(11) NOT NULL,
-  `qst_recense` int(11) NOT NULL
+  `id` int NOT NULL,
+  `commune_code` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
+  `commune_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of commune in arabic',
+  `commune_name_ascii` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of commune in ASCII characters (french)',
+  `daira_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of daira in arabic',
+  `daira_name_ascii` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of daira in ASCII characters (french)',
+  `wilaya_code` varchar(4) COLLATE utf8mb4_general_ci NOT NULL,
+  `wilaya_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of wilaya in arabic',
+  `wilaya_name_ascii` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Name of wilaya in ASCII characters (french)',
+  `qst_a_recense` int NOT NULL,
+  `qst_recense` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,16 +77,16 @@ CREATE TABLE `communes` (
 --
 
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
-(1, '0101', 'أدرار', 'Adrar', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 1000, 200),
-(2, '0119', 'اقبلي', 'Akabli', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 500, 200),
+(1, '0101', 'أدرار', 'Adrar', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 0, 0),
+(2, '0119', 'اقبلي', 'Akabli', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 0, 0),
 (3, '4903', 'أوقروت', 'Aougrout', 'أوقروت', 'Aougrout', '49', 'تيميمون', 'Timimoun', 0, 0),
-(4, '0112', 'أولف', 'Aoulef', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 200, 1200),
+(4, '0112', 'أولف', 'Aoulef', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 0, 0),
 (5, '5001', 'برج باجي مختار', 'Bordj badji mokhtar', 'برج باجي مختار', 'Bordj Badji Mokhtar', '50', 'برج باجي مختار', 'Bordj Badji Mokhtar', 0, 0),
-(6, '0122', 'بودة', 'Bouda', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 400, 150),
+(6, '0122', 'بودة', 'Bouda', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 0, 0),
 (7, '4908', 'شروين', 'Charouine', 'شروين', 'Charouine', '49', 'تيميمون', 'Timimoun', 0, 0),
 (8, '4904', 'دلدول', 'Deldoul', 'أوقروت', 'Aougrout', '49', 'تيميمون', 'Timimoun', 0, 0),
-(9, '0115', 'فنوغيل', 'Fenoughil', 'فنوغيل', 'Fenoughil', '01', 'أدرار', 'Adrar', 600, 400),
-(10, '0105', 'إن زغمير', 'In zghmir', 'زاوية كنتة', 'Zaouiat Kounta', '01', 'أدرار', 'Adrar', 2000, 1000),
+(9, '0115', 'فنوغيل', 'Fenoughil', 'فنوغيل', 'Fenoughil', '01', 'أدرار', 'Adrar', 0, 0),
+(10, '0105', 'إن زغمير', 'In zghmir', 'زاوية كنتة', 'Zaouiat Kounta', '01', 'أدرار', 'Adrar', 0, 0),
 (11, '4907', 'قصر قدور', 'Ksar kaddour', 'تنركوك', 'Tinerkouk', '49', 'تيميمون', 'Timimoun', 0, 0),
 (12, '4905', 'المطارفة', 'Metarfa', 'أوقروت', 'Aougrout', '49', 'تيميمون', 'Timimoun', 0, 0),
 (13, '0121', 'أولاد أحمد تيمي', 'Ouled ahmed timmi', 'أدرار', 'Adrar', '01', 'أدرار', 'Adrar', 0, 0),
@@ -143,13 +99,13 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (20, '0114', 'تامنطيط', 'Tamantit', 'فنوغيل', 'Fenoughil', '01', 'أدرار', 'Adrar', 0, 0),
 (21, '0102', 'تامست', 'Tamest', 'فنوغيل', 'Fenoughil', '01', 'أدرار', 'Adrar', 0, 0),
 (22, '0113', 'تيمقتن', 'Timekten', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 0, 0),
-(23, '5002', 'تيمياوين', 'Timiaouine', 'برج باجي مختار', 'Bordj Badji Mokhtar', '50', 'برج باجي مختار', 'Bordj Badji Mokhtar', 11, 0),
+(23, '5002', 'تيمياوين', 'Timiaouine', 'برج باجي مختار', 'Bordj Badji Mokhtar', '50', 'برج باجي مختار', 'Bordj Badji Mokhtar', 0, 0),
 (24, '4901', 'تيميمون', 'Timimoun', 'تيميمون', 'Timimoun', '49', 'تيميمون', 'Timimoun', 0, 0),
 (25, '4906', 'تنركوك', 'Tinerkouk', 'تنركوك', 'Tinerkouk', '49', 'تيميمون', 'Timimoun', 0, 0),
 (26, '0106', 'تيت', 'Tit', 'أولف', 'Aoulef', '01', 'أدرار', 'Adrar', 0, 0),
 (27, '0108', 'تسابيت', 'Tsabit', 'تسابيت', 'Tsabit', '01', 'أدرار', 'Adrar', 0, 0),
 (28, '0111', 'زاوية كنتة', 'Zaouiet kounta', 'زاوية كنتة', 'Zaouiat Kounta', '01', 'أدرار', 'Adrar', 0, 0),
-(29, '0222', 'أبو الحسن', 'Abou el hassane', 'أبو الحسن', 'Abou El Hassane', '02', ' الشلف', 'Chlef', 15, 26),
+(29, '0222', 'أبو الحسن', 'Abou el hassane', 'أبو الحسن', 'Abou El Hassane', '02', ' الشلف', 'Chlef', 0, 0),
 (30, '0232', 'عين مران', 'Ain merane', 'عين مران', 'Ain Merane', '02', ' الشلف', 'Chlef', 0, 0),
 (31, '0203', 'بنايرية', 'Benairia', 'الزبوجة', 'Zeboudja', '02', ' الشلف', 'Chlef', 0, 0),
 (32, '0204', 'بني بوعتاب', 'Beni  bouattab', 'الكريمية', 'El Karimia', '02', ' الشلف', 'Chlef', 0, 0),
@@ -160,7 +116,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (37, '0234', 'بريرة', 'Breira', 'بني حواء', 'Beni Haoua', '02', ' الشلف', 'Chlef', 0, 0),
 (38, '0224', 'الشطية', 'Chettia', 'أولاد فارس', 'Ouled Fares', '02', ' الشلف', 'Chlef', 0, 0),
 (39, '0201', 'الشلف', 'Chlef', 'الشلف', 'Chlef', '02', ' الشلف', 'Chlef', 0, 0),
-(40, '0217', 'الظهرة', 'Dahra', 'تاوقريت', 'Taougrit', '02', ' الشلف', 'Chlef', 12, 0),
+(40, '0217', 'الظهرة', 'Dahra', 'تاوقريت', 'Taougrit', '02', ' الشلف', 'Chlef', 0, 0),
 (41, '0227', 'الحجاج', 'El hadjadj', 'أولاد بن عبد القادر', 'Ouled Ben Abdelkader', '02', ' الشلف', 'Chlef', 0, 0),
 (42, '0204', 'الكريمية', 'El karimia', 'الكريمية', 'El Karimia', '02', ' الشلف', 'Chlef', 0, 0),
 (43, '0223', 'المرسى', 'El marsa', 'المرسى', 'El Marsa', '02', ' الشلف', 'Chlef', 0, 0),
@@ -184,8 +140,8 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (61, '0206', 'تاوقريت', 'Taougrit', 'تاوقريت', 'Taougrit', '02', ' الشلف', 'Chlef', 0, 0),
 (62, '0202', 'تنس', 'Tenes', 'تنس', 'Tenes', '02', ' الشلف', 'Chlef', 0, 0),
 (63, '0220', 'الزبوجة', 'Zeboudja', 'الزبوجة', 'Zeboudja', '02', ' الشلف', 'Chlef', 0, 0),
-(64, '0319', 'أفلو', 'Aflou', 'أفلو', 'Aflou', '03', 'الأغواط', 'Laghouat', 15, 12),
-(65, '0307', 'عين ماضي', 'Ain madhi', 'عين ماضي', 'Ain Madhi', '03', 'الأغواط', 'Laghouat', 20, 0),
+(64, '0319', 'أفلو', 'Aflou', 'أفلو', 'Aflou', '03', 'الأغواط', 'Laghouat', 0, 0),
+(65, '0307', 'عين ماضي', 'Ain madhi', 'عين ماضي', 'Ain Madhi', '03', 'الأغواط', 'Laghouat', 0, 0),
 (66, '0311', 'عين سيدي علي', 'Ain sidi ali', 'قتلة سيدي سعيد', 'Gueltat Sidi Saad', '03', 'الأغواط', 'Laghouat', 0, 0),
 (67, '0312', 'البيضاء', 'El beidha', 'قتلة سيدي سعيد', 'Gueltat Sidi Saad', '03', 'الأغواط', 'Laghouat', 0, 0),
 (68, '0303', 'بن ناصر بن شهرة', 'Benacer benchohra', 'قصر الحيران', 'Ksar El Hirane', '03', 'الأغواط', 'Laghouat', 0, 0),
@@ -479,7 +435,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (356, '5401', 'عين قزام', 'Ain guezzam', 'عين قزام', 'In Guezzam', '54', 'عين قزام', 'In Guezzam', 0, 0),
 (357, '5301', 'عين صالح', 'Ain salah', 'عين صالح', 'In Salah', '53', 'عين صالح', 'In Salah', 0, 0),
 (358, '5302', 'فقارة الزوى', 'Foggaret ezzoua', 'عين صالح', 'In Salah', '53', 'عين صالح', 'In Salah', 0, 0),
-(359, '1105', 'أدلس', 'Idles', 'تاظروك', 'Tazrouk', '11', 'تمنراست', 'Tamanrasset', 10, 4),
+(359, '1105', 'أدلس', 'Idles', 'تاظروك', 'Tazrouk', '11', 'تمنراست', 'Tamanrasset', 0, 0),
 (360, '5303', 'إينغر', 'Inghar', 'إينغر', 'In Ghar', '53', 'عين صالح', 'In Salah', 0, 0),
 (361, '1101', 'تمنراست', 'Tamanrasset', 'تمنراست', 'Tamanrasset', '11', 'تمنراست', 'Tamanrasset', 0, 0),
 (362, '1106', 'تاظروك', 'Tazrouk', 'تاظروك', 'Tazrouk', '11', 'تمنراست', 'Tamanrasset', 0, 0),
@@ -642,9 +598,9 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (519, '1504', 'فريحة', 'Freha', 'عزازقة', 'Azazga', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
 (520, '1514', 'فريقات', 'Frikat', 'ذراع الميزان', 'Draa El Mizan', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
 (521, '1560', 'إبودرارن', 'Iboudrarene', 'بني يني', 'Benni Yenni', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
-(522, '1549', 'إيجــار', 'Idjeur', 'بوزقن', 'Bouzeguene', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0);
+(522, '1549', 'إيجــار', 'Idjeur', 'بوزقن', 'Bouzeguene', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
+(523, '1517', 'إفــرحــونان', 'Iferhounene', 'إفرحونان', 'Iferhounene', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0);
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
-(523, '1517', 'إفــرحــونان', 'Iferhounene', 'إفرحونان', 'Iferhounene', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
 (524, '1541', 'إيفيغاء', 'Ifigha', 'عزازقة', 'Azazga', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
 (525, '1554', 'إفليـــسن', 'Iflissen', 'تيقزيرت', 'Tigzirt', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
 (526, '1533', 'إيلـيــلتـن', 'Illilten', 'إفرحونان', 'Iferhounene', '15', 'تيزي وزو', 'Tizi Ouzou', 0, 0),
@@ -733,7 +689,7 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (609, '1635', 'تسالة المرجة', 'Tessala el merdja', 'بئر توتة', 'Birtouta', '16', 'الجزائر', 'Alger', 0, 0),
 (610, '1646', 'زرالدة', 'Zeralda', 'زرالدة', 'Zeralda', '16', 'الجزائر', 'Alger', 0, 0),
 (611, '1723', 'عين الشهداء', 'Ain chouhada', 'الادريسية', 'El Idrissia', '17', 'الجلفة', 'Djelfa', 0, 0),
-(612, '1730', 'عين الإبل', 'Ain el ibel', 'عين الإبل', 'Ain El Ibel', '17', 'الجلفة', 'Djelfa', 0, 10),
+(612, '1730', 'عين الإبل', 'Ain el ibel', 'عين الإبل', 'Ain El Ibel', '17', 'الجلفة', 'Djelfa', 0, 0),
 (613, '1735', 'عين فقه', 'Ain fekka', 'حد الصحاري', 'Had Sahary', '17', 'الجلفة', 'Djelfa', 0, 0),
 (614, '1705', 'عين معبد', 'Ain maabed', 'حاسي بحبح', 'Hassi Bahbah', '17', 'الجلفة', 'Djelfa', 0, 0),
 (615, '1731', 'عين وسارة', 'Ain oussera', 'عين وسارة', 'Ain Oussera', '17', 'الجلفة', 'Djelfa', 0, 0),
@@ -1147,9 +1103,9 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (1023, '2801', 'المسيلة', 'M\'sila', 'المسيلة', 'M\'sila', '28', 'المسيلة', 'M\'Sila', 0, 0),
 (1024, '2806', 'المطارفة', 'M\'tarfa', 'أولاد دراج', 'Ouled Derradj', '28', 'المسيلة', 'M\'Sila', 0, 0),
 (1025, '2819', 'ونوغة', 'Ouanougha', 'حمام الضلعة', 'Hammam Dalaa', '28', 'المسيلة', 'M\'Sila', 0, 0),
-(1026, '2814', 'أولاد عدي لقبالة', 'Ouled addi guebala', 'أولاد دراج', 'Ouled Derradj', '28', 'المسيلة', 'M\'Sila', 0, 0);
+(1026, '2814', 'أولاد عدي لقبالة', 'Ouled addi guebala', 'أولاد دراج', 'Ouled Derradj', '28', 'المسيلة', 'M\'Sila', 0, 0),
+(1027, '2804', 'أولاد دراج', 'Ouled derradj', 'أولاد دراج', 'Ouled Derradj', '28', 'المسيلة', 'M\'Sila', 0, 0);
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
-(1027, '2804', 'أولاد دراج', 'Ouled derradj', 'أولاد دراج', 'Ouled Derradj', '28', 'المسيلة', 'M\'Sila', 0, 0),
 (1028, '2810', 'أولاد ماضي', 'Ouled madhi', 'شلال', 'Chellal', '28', 'المسيلة', 'M\'Sila', 0, 0),
 (1029, '2828', 'أولاد منصور', 'Ouled mansour', 'حمام الضلعة', 'Hammam Dalaa', '28', 'المسيلة', 'M\'Sila', 0, 0),
 (1030, '2821', 'أولاد سيدي ابراهيم', 'Ouled sidi brahim', 'أولاد سيدي ابراهيم', 'Ouled Sidi Brahim', '28', 'المسيلة', 'M\'Sila', 0, 0),
@@ -1617,11 +1573,11 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (1492, '4710', 'بونورة', 'Bounoura', 'بونورة', 'Bounoura', '47', 'غرداية', 'Ghardaïa', 0, 0),
 (1493, '4703', 'ضاية بن ضحوة', 'Dhayet bendhahoua', 'ضاية بن ضحوة', 'Dhayet Ben Dhahoua', '47', 'غرداية', 'Ghardaïa', 0, 0),
 (1494, '4707', 'العطف', 'El atteuf', 'بونورة', 'Bounoura', '47', 'غرداية', 'Ghardaïa', 0, 0),
-(1495, '5801', 'المنيعة', 'El meniaa', 'المنيعة', 'El Menia', '58', 'المنيعة', 'El Menia', 0, 200),
+(1495, '5801', 'المنيعة', 'El meniaa', 'المنيعة', 'El Menia', '58', 'المنيعة', 'El Menia', 0, 0),
 (1496, '4701', 'غرداية', 'Ghardaia', 'غرداية', 'Ghardaia', '47', 'غرداية', 'Ghardaïa', 0, 0),
 (1497, '4706', 'القرارة', 'El guerrara', 'القرارة', 'El Guerrara', '47', 'غرداية', 'Ghardaïa', 0, 0),
-(1498, '5804', 'حاسي الفحل', 'Hassi fehal', 'المنصورة', 'Mansourah', '58', 'المنيعة', 'El Menia', 0, 200),
-(1499, '5802', 'حاسي القارة', 'Hassi gara', 'المنيعة', 'El Menia', '58', 'المنيعة', 'El Menia', 0, 500),
+(1498, '5804', 'حاسي الفحل', 'Hassi fehal', 'المنصورة', 'Mansourah', '58', 'المنيعة', 'El Menia', 0, 0),
+(1499, '5802', 'حاسي القارة', 'Hassi gara', 'المنيعة', 'El Menia', '58', 'المنيعة', 'El Menia', 0, 0),
 (1500, '4713', 'المنصورة', 'Mansoura', 'المنصورة', 'Mansourah', '47', 'غرداية', 'Ghardaïa', 0, 0),
 (1501, '4705', 'متليلي', 'Metlili', 'متليلي', 'Metlili', '47', 'غرداية', 'Ghardaïa', 0, 0),
 (1502, '4709', 'سبسب', 'Sebseb', 'متليلي', 'Metlili', '47', 'غرداية', 'Ghardaïa', 0, 0),
@@ -1648,9 +1604,9 @@ INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_asci
 (1523, '4809', 'مديونة', 'Mediouna', 'سيدي أمحمد بن علي', 'Sidi M\'hamed Ben Ali', '48', 'غليزان', 'Relizane', 0, 0),
 (1524, '4828', 'منداس', 'Mendes', 'منداس', 'Mendes', '48', 'غليزان', 'Relizane', 0, 0),
 (1525, '4837', 'مرجة سيدي عابد', 'Merdja sidi abed', 'وادي رهيو', 'Oued Rhiou', '48', 'غليزان', 'Relizane', 0, 0),
-(1526, '4821', 'واريزان', 'Ouarizane', 'وادي رهيو', 'Oued Rhiou', '48', 'غليزان', 'Relizane', 0, 0);
+(1526, '4821', 'واريزان', 'Ouarizane', 'وادي رهيو', 'Oued Rhiou', '48', 'غليزان', 'Relizane', 0, 0),
+(1527, '4826', 'وادي الجمعة', 'Oued el djemaa', 'الحمادنة', 'El H\'madna', '48', 'غليزان', 'Relizane', 0, 0);
 INSERT INTO `communes` (`id`, `commune_code`, `commune_name`, `commune_name_ascii`, `daira_name`, `daira_name_ascii`, `wilaya_code`, `wilaya_name`, `wilaya_name_ascii`, `qst_a_recense`, `qst_recense`) VALUES
-(1527, '4826', 'وادي الجمعة', 'Oued el djemaa', 'الحمادنة', 'El H\'madna', '48', 'غليزان', 'Relizane', 0, 0),
 (1528, '4820', 'وادي السلام', 'Oued essalem', 'منداس', 'Mendes', '48', 'غليزان', 'Relizane', 0, 0),
 (1529, '4802', 'وادي رهيو', 'Oued-rhiou', 'وادي رهيو', 'Oued Rhiou', '48', 'غليزان', 'Relizane', 0, 0),
 (1530, '4805', 'أولاد يعيش', 'Ouled aiche', 'عمي موسى', 'Ammi Moussa', '48', 'غليزان', 'Relizane', 0, 0),
@@ -1678,7 +1634,7 @@ CREATE TABLE `communes2` (
   `daira_name` varchar(45) DEFAULT NULL,
   `wilaya_code` varchar(3) DEFAULT NULL,
   `wilaya_name` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `communes2`
@@ -3236,16 +3192,16 @@ INSERT INTO `communes2` (`commune_code`, `commune_name`, `daira_name`, `wilaya_c
 --
 
 CREATE TABLE `controleur` (
-  `nom_controleur` varchar(20) NOT NULL,
-  `prenom_controleur` varchar(20) NOT NULL,
-  `id_controleur` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `wilaya` varchar(50) NOT NULL,
-  `commune` text NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `added_by` int(11) NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `nom_controleur` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_controleur` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_controleur` int NOT NULL,
+  `id_user` int NOT NULL,
+  `wilaya` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `commune` text COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `added_by` int NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3255,22 +3211,14 @@ CREATE TABLE `controleur` (
 --
 
 CREATE TABLE `materiel_agricole` (
-  `id_materiel_agricol` int(11) NOT NULL,
-  `cle_materiel_agricole` varchar(20) NOT NULL,
-  `id_questionnaire` int(11) NOT NULL,
-  `code_materiel` varchar(100) NOT NULL,
-  `code_materiel_nombre` varchar(100) NOT NULL,
-  `ee_mode_mobilisation_materiel` text NOT NULL,
-  `ee_mode_exploitation_materiel` text NOT NULL
+  `id_materiel_agricol` int NOT NULL,
+  `cle_materiel_agricole` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_questionnaire` int NOT NULL,
+  `code_materiel` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `code_materiel_nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `ee_mode_mobilisation_materiel` text COLLATE utf8mb4_general_ci NOT NULL,
+  `ee_mode_exploitation_materiel` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `materiel_agricole`
---
-
-INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`) VALUES
-(1, '13-12-12', 13, '12', '12', '2', '1'),
-(2, '22-1-22', 22, '1', '22', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -3279,10 +3227,10 @@ INSERT INTO `materiel_agricole` (`id_materiel_agricol`, `cle_materiel_agricole`,
 --
 
 CREATE TABLE `nb_quest_recensee` (
-  `id` int(11) NOT NULL,
-  `commune_code` varchar(50) NOT NULL,
+  `id` int NOT NULL,
+  `commune_code` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `date` datetime NOT NULL,
-  `nombre_quest` int(11) NOT NULL
+  `nombre_quest` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3292,327 +3240,297 @@ CREATE TABLE `nb_quest_recensee` (
 --
 
 CREATE TABLE `questionnaire` (
-  `id_questionnaire` int(11) NOT NULL,
-  `commune_code` varchar(4) NOT NULL,
-  `num_qst` text DEFAULT NULL,
-  `exploitant_cle_unique` varchar(255) NOT NULL,
-  `date_passage` text DEFAULT NULL,
-  `nom_zone_district` text DEFAULT NULL,
-  `num_zone_district` int(2) DEFAULT NULL,
-  `user` int(11) DEFAULT NULL,
-  `nom_exploitant` text DEFAULT NULL,
-  `prenom_exploitant` text DEFAULT NULL,
-  `annee_naissance_exploitant` text DEFAULT NULL,
-  `sexe_exploitant` text DEFAULT NULL,
-  `niveau_instruction` text DEFAULT NULL,
-  `niveau_formation_agricole` text DEFAULT NULL,
-  `adress_exploitant` text DEFAULT NULL,
-  `phone_exploitant` text DEFAULT NULL,
-  `email_exploitant` text DEFAULT NULL,
-  `nin_exploitant` text DEFAULT NULL,
-  `nis_exploitant` text DEFAULT NULL,
-  `caw` text DEFAULT NULL,
-  `capa` text DEFAULT NULL,
-  `unpa` text DEFAULT NULL,
-  `ccw` text DEFAULT NULL,
-  `cam` text DEFAULT NULL,
-  `dispositif_social` text DEFAULT NULL,
-  `num_carte_fellah_exploitant` text DEFAULT NULL,
-  `assurance_exploitant` text DEFAULT NULL,
-  `num_sec_sociale` text DEFAULT NULL,
-  `issu_famille_agricole` text DEFAULT NULL,
-  `exploitant` text DEFAULT NULL,
-  `nb_co_exploitants` text DEFAULT NULL,
-  `nature_exploitant` text DEFAULT NULL,
-  `nom_exploitation` text DEFAULT NULL,
-  `adress_exploitation` text DEFAULT NULL,
-  `statut_juridique_de_lexploitation` text DEFAULT NULL,
-  `activite_exploitation` text DEFAULT NULL,
-  `type_activite_exploitation` text DEFAULT NULL,
-  `lat_exploitation` text DEFAULT NULL,
-  `lon_exploitation` text DEFAULT NULL,
-  `longitude_x_prefix` text DEFAULT NULL,
-  `route_national` text DEFAULT NULL,
-  `chemin_de_wilaya` text DEFAULT NULL,
-  `route_communale` text DEFAULT NULL,
-  `piste` text DEFAULT NULL,
-  `acces_agricole` text DEFAULT NULL,
-  `acces_rural` text DEFAULT NULL,
-  `reseau_electrique` text DEFAULT NULL,
-  `reseau_telephonique` text DEFAULT NULL,
-  `reseau_telephonique_si_oui` text DEFAULT NULL,
-  `reseau_internet` text DEFAULT NULL,
-  `reseau_internet_si_oui` text DEFAULT NULL,
-  `reference_cadastrale_ilot` text DEFAULT NULL,
-  `reference_cadastrale_section` text DEFAULT NULL,
-  `si_exploi_eai_eac` text DEFAULT NULL,
-  `si_exploi_eac` text DEFAULT NULL,
-  `exploi_superficie_hec` text DEFAULT NULL,
-  `exploi_superficie_are` text DEFAULT NULL,
-  `exploit_est_un_bloc` text DEFAULT NULL,
-  `exploit_est_un_bloc_oui` text DEFAULT NULL,
-  `exploit_indus_sur_exploitation` text DEFAULT NULL,
-  `exp_indu_si_oui_nombre_menage` text DEFAULT NULL,
-  `surface_bati_occupe` text DEFAULT NULL,
-  `surface_non_bati_occupe` text DEFAULT NULL,
-  `eng_reseau_electrique` text DEFAULT NULL,
-  `eng_groupe_electrogene` text DEFAULT NULL,
-  `eng_energie_solaire` text DEFAULT NULL,
-  `eng_energie_eolienne` text DEFAULT NULL,
-  `eng_energie_carburant` text DEFAULT NULL,
-  `autres_sources_d_energie` text DEFAULT NULL,
-  `oliviers` text DEFAULT NULL,
-  `figuiers` text DEFAULT NULL,
-  `noyaux_pepins` text DEFAULT NULL,
-  `vigne` text DEFAULT NULL,
-  `amandiers` text DEFAULT NULL,
-  `grenadiers` text DEFAULT NULL,
-  `cognassiers` text DEFAULT NULL,
-  `palmiers_dattiers` text DEFAULT NULL,
-  `caroubier` text DEFAULT NULL,
-  `autre_arbres_isoles` int(11) DEFAULT NULL,
-  `pratiquez_vous_lagriculture_biologique` text DEFAULT NULL,
-  `si_oui_avez_vous_un_certificat` text DEFAULT NULL,
-  `pratiquez_vous_laquaculture_integree_a_lagriculture` text DEFAULT NULL,
-  `pratiquez_vous_l_heliciculture` text DEFAULT NULL,
-  `pratiquez_vous_une_agriculture_conventionnee` text DEFAULT NULL,
-  `tomate_industrielle` text DEFAULT NULL,
-  `cereales` text DEFAULT NULL,
-  `aviculture` text DEFAULT NULL,
-  `maraichages` text DEFAULT NULL,
-  `pomme_de_terre` text DEFAULT NULL,
-  `autre_division` text DEFAULT NULL,
-  `pratiquez_vous_la_myciculture` text DEFAULT NULL,
-  `chapt_bovins` text DEFAULT NULL,
-  `chapt_dont_vaches_laitieres_blm` text DEFAULT NULL,
-  `chapt_dont_vaches_laitieres_bla` text DEFAULT NULL,
-  `chapt_dont_vaches_laitieres_bll` text DEFAULT NULL,
-  `chapt_ovins` text DEFAULT NULL,
-  `chapt_dont_brebis` text DEFAULT NULL,
-  `chapt_equins` text DEFAULT NULL,
-  `chapt_dont_juments` text DEFAULT NULL,
-  `chapt_caprins` text DEFAULT NULL,
-  `chapt_dont_chevres` text DEFAULT NULL,
-  `chapt_camelins` text DEFAULT NULL,
-  `chapt_dont_chamelles` text DEFAULT NULL,
-  `chapt_mulets` text DEFAULT NULL,
-  `chapt_anes` text DEFAULT NULL,
-  `chapt_cuniculture` text DEFAULT NULL,
-  `chapt_ruches_modernes` text DEFAULT NULL,
-  `chapt_dont_sont_pleines` text DEFAULT NULL,
-  `chapt_ruches_traditionnelles` text DEFAULT NULL,
-  `chapt_dont_sont_pleines_2` text DEFAULT NULL,
-  `chapt_poules_ponte` text DEFAULT NULL,
-  `chapt_poules_chair` text DEFAULT NULL,
-  `chapt_dindes_ponte` text DEFAULT NULL,
-  `chapt_dindes_chair` text DEFAULT NULL,
-  `chapt_autre_aviculture_ponte` text DEFAULT NULL,
-  `chapt_autre_aviculture_chair` text DEFAULT NULL,
-  `chapt_Pratiquez_transhumance` int(11) DEFAULT NULL,
-  `bat_exploitation_agricole_sont_exploites` text DEFAULT NULL,
-  `eau_barrage` text DEFAULT NULL,
-  `eau_exploitation_type_irrigation` text DEFAULT NULL,
-  `eau_station_depuration` text DEFAULT NULL,
-  `eau_ensemble_de_forages` text DEFAULT NULL,
-  `eau_puits` text DEFAULT NULL,
-  `total_eau_puits` text DEFAULT NULL,
-  `eau_forage` text DEFAULT NULL,
-  `total_eau_forage` text DEFAULT NULL,
-  `eau_pompage_doued` text DEFAULT NULL,
-  `eau_crues_doued` text DEFAULT NULL,
-  `eau_petit_barrage` text DEFAULT NULL,
-  `eau_retenu_collinaire` text DEFAULT NULL,
-  `eau_forage_collectif` text DEFAULT NULL,
-  `eau_foggara` text DEFAULT NULL,
-  `eau_source` text DEFAULT NULL,
-  `total_eau_source` text DEFAULT NULL,
-  `eau_station_depuration_2` text DEFAULT NULL,
-  `eau_autres_ress` text DEFAULT NULL,
-  `eau_aspersion_classique` text DEFAULT NULL,
-  `eau_gravitaire` text DEFAULT NULL,
-  `eau_epandage_de_crues` text DEFAULT NULL,
-  `eau_goutte_a_goutte` text DEFAULT NULL,
-  `eau_pivots` text DEFAULT NULL,
-  `eau_enrouleur` text DEFAULT NULL,
-  `eau_pluie_artificielle` text DEFAULT NULL,
-  `eau_foggara_hec` text DEFAULT NULL,
-  `eau_autre_hec` text DEFAULT NULL,
-  `eau_bassin_d_accumulation` text DEFAULT NULL,
-  `eau_bassin_geomembrane` text DEFAULT NULL,
-  `eau_reservoir` text DEFAULT NULL,
-  `eau_citrene_souple` text DEFAULT NULL,
-  `eau_mare_deau` text DEFAULT NULL,
-  `eau_ced` text DEFAULT NULL,
-  `eau_digue` text DEFAULT NULL,
-  `eau_total_forage` text DEFAULT NULL,
-  `eau_total_puits` text DEFAULT NULL,
-  `eau_total_source` text DEFAULT NULL,
-  `eau_autres_1` text DEFAULT NULL,
-  `co_exploitants_y_compris_exploitant_principa_l` text DEFAULT NULL,
-  `co_exploitants_y_compris_exploitant_principa_2` text DEFAULT NULL,
-  `co_exploitants_y_compris_exploitant_principa_3` text DEFAULT NULL,
-  `co_exploitants_y_compris_exploitant_principa_4` text DEFAULT NULL,
-  `ouvriers_agricoles_1` text DEFAULT NULL,
-  `ouvriers_agricoles_2` text DEFAULT NULL,
-  `ouvriers_agricoles_3` text DEFAULT NULL,
-  `ouvriers_agricoles_4` text DEFAULT NULL,
-  `ouvriers_agricoles_etranges_1` text DEFAULT NULL,
-  `ouvriers_agricoles_etranges_2` text DEFAULT NULL,
-  `ouvriers_agricoles_etranges_3` text DEFAULT NULL,
-  `ouvriers_agricoles_etranges_4` text DEFAULT NULL,
-  `main_oeuvre_ordinnaire_1` text DEFAULT NULL,
-  `main_oeuvre_ordinnaire_2` text DEFAULT NULL,
-  `main_oeuvre_ordinnaire_3` text DEFAULT NULL,
-  `main_oeuvre_ordinnaire_4` text DEFAULT NULL,
-  `main_oeuvre_qualifiee_1` text DEFAULT NULL,
-  `main_oeuvre_qualifiee_2` text DEFAULT NULL,
-  `main_oeuvre_qualifiee_3` text DEFAULT NULL,
-  `main_oeuvre_qualifiee_4` text DEFAULT NULL,
-  `mo_exploitant_individuel_1` text DEFAULT NULL,
-  `mo_exploitant_individuel_2` text DEFAULT NULL,
-  `mo_exploitant_individuel_3` text DEFAULT NULL,
-  `mo_exploitant_individuel_4` text DEFAULT NULL,
-  `mo_adultes_plus_15_ans_11` text DEFAULT NULL,
-  `mo_adultes_plus_15_ans_22` text DEFAULT NULL,
-  `mo_adultes_plus_15_ans_3` text DEFAULT NULL,
-  `mo_adultes_plus_15_ans_4` text DEFAULT NULL,
-  `mo_enfants_moins_15_ans_1` text DEFAULT NULL,
-  `mo_enfants_moins_15_ans_2` text DEFAULT NULL,
-  `mo_enfants_moins_15_ans_3` text DEFAULT NULL,
-  `mo_enfants_moins_15_ans_4` text DEFAULT NULL,
-  `ma_nombre_de_personnes` text DEFAULT NULL,
-  `ma_adultes_plus_15_ans_m` text DEFAULT NULL,
-  `ma_adultes_plus_15_ans_f` text DEFAULT NULL,
-  `ma_enfants_moins_15_ans_m` text DEFAULT NULL,
-  `ma_enfants_moins_15_ans_f` text DEFAULT NULL,
-  `ui_semences_selectionnees` text DEFAULT NULL,
-  `ui_semences_certifiees` text DEFAULT NULL,
-  `ui_semences_de_la_ferme` text DEFAULT NULL,
-  `ui_bio` text DEFAULT NULL,
-  `ui_engrais_azotes` text DEFAULT NULL,
-  `ui_engrais_phosphates` text DEFAULT NULL,
-  `ui_autres_engrais_mineraux` text DEFAULT NULL,
-  `ui_engrais_organique` text DEFAULT NULL,
-  `ui_fumier` text DEFAULT NULL,
-  `ui_produits_phytosanitaires` text DEFAULT NULL,
-  `ui_vaccins` text DEFAULT NULL,
-  `ui_medicaments_veterinaires` text DEFAULT NULL,
-  `fa_credit_bancaire` text DEFAULT NULL,
-  `fa_propres_ressources` text DEFAULT NULL,
-  `fa_soutien_public` text DEFAULT NULL,
-  `fa_emprunt_a_un_tiers` text DEFAULT NULL,
-  `fa_financiere` text DEFAULT NULL,
-  `fa_materiel` text DEFAULT NULL,
-  `fa_culture` text DEFAULT NULL,
-  `fa_cultures` text DEFAULT NULL,
-  `fa_intrants` text DEFAULT NULL,
-  `fa_ettahadi` text DEFAULT NULL,
-  `fa_classique` text DEFAULT NULL,
-  `fa_leasing` text DEFAULT NULL,
-  `fa_rfig` text DEFAULT NULL,
-  `fa_avez_vous_contracte_une_assurance_agricole` text DEFAULT NULL,
-  `fa_si_oui_quelle_compagnie` text DEFAULT NULL,
-  `fa_terre` text DEFAULT NULL,
-  `fa_personnel` text DEFAULT NULL,
-  `fa_batiments` text DEFAULT NULL,
-  `fa_materiels` text DEFAULT NULL,
-  `fa_cheptel` text DEFAULT NULL,
-  `ee_fournisseurs_de_services_situes_dans_la_commune` text DEFAULT NULL,
-  `ee_mode_mobilisation_materiel` text DEFAULT NULL,
-  `ee_mode_exploitation_materiel` text DEFAULT NULL,
-  `ee_banque` text DEFAULT NULL,
-  `ee_poste` text DEFAULT NULL,
-  `ee_fournisseur` text DEFAULT NULL,
-  `ee_veterinaire` text DEFAULT NULL,
-  `ee_laboratoire` text DEFAULT NULL,
-  `ee_bureau_detudes` text DEFAULT NULL,
-  `ee_cooperatives_specialisees` text DEFAULT NULL,
-  `ee_assurances` text DEFAULT NULL,
-  `ee_vente_sur_pied` text DEFAULT NULL,
-  `ee_au_marche_de_gros` text DEFAULT NULL,
-  `ee_intermediaire` text DEFAULT NULL,
-  `ee_vente_directe` text DEFAULT NULL,
-  `ee_local` text DEFAULT NULL,
-  `ee_national` text DEFAULT NULL,
-  `ee_international` text DEFAULT NULL,
-  `ee_cooperative_agricole` text DEFAULT NULL,
-  `ee_association_professionnelle_agricole` text DEFAULT NULL,
-  `ee_groupe_d_interet_commun_gic` text DEFAULT NULL,
-  `ee_autre_organisation` text DEFAULT NULL,
-  `ee_cwifa` text DEFAULT NULL,
-  `ee_consommationauto` text DEFAULT NULL,
-  `etat` text DEFAULT NULL,
-  `batiment_de_stockage_nombre` text DEFAULT NULL,
-  `batiment_de_stockage_surface` text DEFAULT NULL,
-  `bergerie_nombre` text DEFAULT NULL,
-  `bergerie_surface` text DEFAULT NULL,
-  `etable_nombre` text DEFAULT NULL,
-  `etable_surface` text DEFAULT NULL,
-  `ecurie_de_chevaux_nombre` text DEFAULT NULL,
-  `ecurie_de_chevaux_surface` text DEFAULT NULL,
-  `poulailler_batis_en_dur_nombre` text DEFAULT NULL,
-  `poulailler_batis_en_dur_surface` text DEFAULT NULL,
-  `poulailler_sous_serre_nombre` text DEFAULT NULL,
-  `poulailler_sous_serre_surface` text DEFAULT NULL,
-  `batiments_dhabitation_nombre` text DEFAULT NULL,
-  `batiments_dhabitation_surface` text DEFAULT NULL,
-  `serres_tunnels_nombre` text DEFAULT NULL,
-  `serres_tunnels_surface` text DEFAULT NULL,
-  `serres_multichapelles_surface` text DEFAULT NULL,
-  `serres_multichapelles_nombre` text DEFAULT NULL,
-  `batiment_dentreposage_des_produits_agricoles_nombre` text DEFAULT NULL,
-  `batiment_dentreposage_des_produits_agricoles_surface` text DEFAULT NULL,
-  `autres_batiment_stockage_nombre` text DEFAULT NULL,
-  `autres_batiment_stockage_surface` text DEFAULT NULL,
-  `batiment_pour_le_remisage_du_materiel_agricole_nombre` text DEFAULT NULL,
-  `batiment_pour_le_remisage_du_materiel_agricole_surface` text DEFAULT NULL,
-  `caves_nombre` text DEFAULT NULL,
-  `caves_surface` text DEFAULT NULL,
-  `unite_de_conditionnement_nombre` text DEFAULT NULL,
-  `unite_de_conditionnement_surface` text DEFAULT NULL,
-  `unite_de_transformation_nombre` text DEFAULT NULL,
-  `unite_de_transformation_surface` text DEFAULT NULL,
-  `centre_de_collecte_de_lait_nombre` text DEFAULT NULL,
-  `centre_de_collecte_de_lait_surface` text DEFAULT NULL,
-  `autre_batiments_nombre` text DEFAULT NULL,
-  `autre_batiments_surface` text DEFAULT NULL,
-  `chambre_froide_nombre` text DEFAULT NULL,
-  `chambre_froide_surface` text DEFAULT NULL
+  `id_questionnaire` int NOT NULL,
+  `code_validation` text COLLATE utf8mb4_general_ci NOT NULL,
+  `commune_code` varchar(4) COLLATE utf8mb4_general_ci NOT NULL,
+  `num_qst` text COLLATE utf8mb4_general_ci,
+  `exploitant_cle_unique` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_passage` text COLLATE utf8mb4_general_ci,
+  `date_saisi` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_validation` text COLLATE utf8mb4_general_ci NOT NULL,
+  `nom_zone_district` text COLLATE utf8mb4_general_ci,
+  `num_zone_district` int DEFAULT NULL,
+  `user` int DEFAULT NULL,
+  `nom_exploitant` text COLLATE utf8mb4_general_ci,
+  `prenom_exploitant` text COLLATE utf8mb4_general_ci,
+  `annee_naissance_exploitant` text COLLATE utf8mb4_general_ci,
+  `sexe_exploitant` text COLLATE utf8mb4_general_ci,
+  `niveau_instruction` text COLLATE utf8mb4_general_ci,
+  `niveau_formation_agricole` text COLLATE utf8mb4_general_ci,
+  `adress_exploitant` text COLLATE utf8mb4_general_ci,
+  `phone_exploitant` text COLLATE utf8mb4_general_ci,
+  `email_exploitant` text COLLATE utf8mb4_general_ci,
+  `nin_exploitant` text COLLATE utf8mb4_general_ci,
+  `nis_exploitant` text COLLATE utf8mb4_general_ci,
+  `caw` text COLLATE utf8mb4_general_ci,
+  `capa` text COLLATE utf8mb4_general_ci,
+  `unpa` text COLLATE utf8mb4_general_ci,
+  `ccw` text COLLATE utf8mb4_general_ci,
+  `cam` text COLLATE utf8mb4_general_ci,
+  `dispositif_social` text COLLATE utf8mb4_general_ci,
+  `num_carte_fellah_exploitant` text COLLATE utf8mb4_general_ci,
+  `assurance_exploitant` text COLLATE utf8mb4_general_ci,
+  `num_sec_sociale` text COLLATE utf8mb4_general_ci,
+  `issu_famille_agricole` text COLLATE utf8mb4_general_ci,
+  `exploitant` text COLLATE utf8mb4_general_ci,
+  `nb_co_exploitants` text COLLATE utf8mb4_general_ci,
+  `nature_exploitant` text COLLATE utf8mb4_general_ci,
+  `nom_exploitation` text COLLATE utf8mb4_general_ci,
+  `adress_exploitation` text COLLATE utf8mb4_general_ci,
+  `statut_juridique_de_lexploitation` text COLLATE utf8mb4_general_ci,
+  `activite_exploitation` text COLLATE utf8mb4_general_ci,
+  `type_activite_exploitation` text COLLATE utf8mb4_general_ci,
+  `lat_exploitation` text COLLATE utf8mb4_general_ci,
+  `lon_exploitation` text COLLATE utf8mb4_general_ci,
+  `longitude_x_prefix` text COLLATE utf8mb4_general_ci,
+  `route_national` text COLLATE utf8mb4_general_ci,
+  `chemin_de_wilaya` text COLLATE utf8mb4_general_ci,
+  `route_communale` text COLLATE utf8mb4_general_ci,
+  `piste` text COLLATE utf8mb4_general_ci,
+  `acces_agricole` text COLLATE utf8mb4_general_ci,
+  `acces_rural` text COLLATE utf8mb4_general_ci,
+  `reseau_electrique` text COLLATE utf8mb4_general_ci,
+  `reseau_telephonique` text COLLATE utf8mb4_general_ci,
+  `reseau_telephonique_si_oui` text COLLATE utf8mb4_general_ci,
+  `reseau_internet` text COLLATE utf8mb4_general_ci,
+  `reseau_internet_si_oui` text COLLATE utf8mb4_general_ci,
+  `reference_cadastrale_section` text COLLATE utf8mb4_general_ci NOT NULL,
+  `reference_cadastrale_ilot` text COLLATE utf8mb4_general_ci NOT NULL,
+  `reference_cadastrale` text COLLATE utf8mb4_general_ci,
+  `si_exploi_eai_eac` text COLLATE utf8mb4_general_ci,
+  `si_exploi_eac` text COLLATE utf8mb4_general_ci,
+  `exploi_superficie_hec` text COLLATE utf8mb4_general_ci,
+  `exploi_superficie_are` text COLLATE utf8mb4_general_ci,
+  `exploit_est_un_bloc` text COLLATE utf8mb4_general_ci,
+  `exploit_est_un_bloc_oui` text COLLATE utf8mb4_general_ci,
+  `exploit_indus_sur_exploitation` text COLLATE utf8mb4_general_ci,
+  `exp_indu_si_oui_nombre_menage` text COLLATE utf8mb4_general_ci,
+  `surface_bati_occupe` text COLLATE utf8mb4_general_ci,
+  `surface_non_bati_occupe` text COLLATE utf8mb4_general_ci,
+  `eng_reseau_electrique` text COLLATE utf8mb4_general_ci,
+  `eng_groupe_electrogene` text COLLATE utf8mb4_general_ci,
+  `eng_energie_solaire` text COLLATE utf8mb4_general_ci,
+  `eng_energie_eolienne` text COLLATE utf8mb4_general_ci,
+  `eng_energie_carburant` text COLLATE utf8mb4_general_ci,
+  `autres_sources_d_energie` text COLLATE utf8mb4_general_ci,
+  `oliviers` text COLLATE utf8mb4_general_ci,
+  `figuiers` text COLLATE utf8mb4_general_ci,
+  `noyaux_pepins` text COLLATE utf8mb4_general_ci,
+  `vigne` text COLLATE utf8mb4_general_ci,
+  `amandiers` text COLLATE utf8mb4_general_ci,
+  `grenadiers` text COLLATE utf8mb4_general_ci,
+  `cognassiers` text COLLATE utf8mb4_general_ci,
+  `palmiers_dattiers` text COLLATE utf8mb4_general_ci,
+  `caroubier` text COLLATE utf8mb4_general_ci,
+  `autre_arbres_isoles` int DEFAULT NULL,
+  `pratiquez_vous_lagriculture_biologique` text COLLATE utf8mb4_general_ci,
+  `si_oui_avez_vous_un_certificat` text COLLATE utf8mb4_general_ci,
+  `pratiquez_vous_laquaculture_integree_a_lagriculture` text COLLATE utf8mb4_general_ci,
+  `pratiquez_vous_l_heliciculture` text COLLATE utf8mb4_general_ci,
+  `pratiquez_vous_une_agriculture_conventionnee` text COLLATE utf8mb4_general_ci,
+  `tomate_industrielle` text COLLATE utf8mb4_general_ci,
+  `cereales` text COLLATE utf8mb4_general_ci,
+  `aviculture` text COLLATE utf8mb4_general_ci,
+  `maraichages` text COLLATE utf8mb4_general_ci,
+  `pomme_de_terre` text COLLATE utf8mb4_general_ci,
+  `autre_division` text COLLATE utf8mb4_general_ci,
+  `pratiquez_vous_la_myciculture` text COLLATE utf8mb4_general_ci,
+  `chapt_bovins` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_vaches_laitieres_blm` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_vaches_laitieres_bla` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_vaches_laitieres_bll` text COLLATE utf8mb4_general_ci,
+  `chapt_ovins` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_brebis` text COLLATE utf8mb4_general_ci,
+  `chapt_equins` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_juments` text COLLATE utf8mb4_general_ci,
+  `chapt_caprins` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_chevres` text COLLATE utf8mb4_general_ci,
+  `chapt_camelins` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_chamelles` text COLLATE utf8mb4_general_ci,
+  `chapt_mulets` text COLLATE utf8mb4_general_ci,
+  `chapt_anes` text COLLATE utf8mb4_general_ci,
+  `chapt_cuniculture` text COLLATE utf8mb4_general_ci,
+  `chapt_ruches_modernes` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_sont_pleines` text COLLATE utf8mb4_general_ci,
+  `chapt_ruches_traditionnelles` text COLLATE utf8mb4_general_ci,
+  `chapt_dont_sont_pleines_2` text COLLATE utf8mb4_general_ci,
+  `chapt_poules_ponte` text COLLATE utf8mb4_general_ci,
+  `chapt_poules_chair` text COLLATE utf8mb4_general_ci,
+  `chapt_dindes_ponte` text COLLATE utf8mb4_general_ci,
+  `chapt_dindes_chair` text COLLATE utf8mb4_general_ci,
+  `chapt_autre_aviculture_ponte` text COLLATE utf8mb4_general_ci,
+  `chapt_autre_aviculture_chair` text COLLATE utf8mb4_general_ci,
+  `chapt_Pratiquez_transhumance` int DEFAULT NULL,
+  `bat_exploitation_agricole_sont_exploites` text COLLATE utf8mb4_general_ci,
+  `eau_barrage` text COLLATE utf8mb4_general_ci,
+  `eau_exploitation_type_irrigation` text COLLATE utf8mb4_general_ci,
+  `eau_station_depuration` text COLLATE utf8mb4_general_ci,
+  `eau_ensemble_de_forages` text COLLATE utf8mb4_general_ci,
+  `eau_puits` text COLLATE utf8mb4_general_ci,
+  `total_eau_puits` text COLLATE utf8mb4_general_ci,
+  `eau_forage` text COLLATE utf8mb4_general_ci,
+  `total_eau_forage` text COLLATE utf8mb4_general_ci,
+  `eau_pompage_doued` text COLLATE utf8mb4_general_ci,
+  `eau_crues_doued` text COLLATE utf8mb4_general_ci,
+  `eau_petit_barrage` text COLLATE utf8mb4_general_ci,
+  `eau_retenu_collinaire` text COLLATE utf8mb4_general_ci,
+  `eau_forage_collectif` text COLLATE utf8mb4_general_ci,
+  `eau_foggara` text COLLATE utf8mb4_general_ci,
+  `eau_source` text COLLATE utf8mb4_general_ci,
+  `total_eau_source` text COLLATE utf8mb4_general_ci,
+  `eau_station_depuration_2` text COLLATE utf8mb4_general_ci,
+  `eau_autres_ress` text COLLATE utf8mb4_general_ci,
+  `eau_aspersion_classique` text COLLATE utf8mb4_general_ci,
+  `eau_gravitaire` text COLLATE utf8mb4_general_ci,
+  `eau_epandage_de_crues` text COLLATE utf8mb4_general_ci,
+  `eau_goutte_a_goutte` text COLLATE utf8mb4_general_ci,
+  `eau_pivots` text COLLATE utf8mb4_general_ci,
+  `eau_enrouleur` text COLLATE utf8mb4_general_ci,
+  `eau_pluie_artificielle` text COLLATE utf8mb4_general_ci,
+  `eau_foggara_hec` text COLLATE utf8mb4_general_ci,
+  `eau_autre_hec` text COLLATE utf8mb4_general_ci,
+  `eau_bassin_d_accumulation` text COLLATE utf8mb4_general_ci,
+  `eau_bassin_geomembrane` text COLLATE utf8mb4_general_ci,
+  `eau_reservoir` text COLLATE utf8mb4_general_ci,
+  `eau_citrene_souple` text COLLATE utf8mb4_general_ci,
+  `eau_mare_deau` text COLLATE utf8mb4_general_ci,
+  `eau_ced` text COLLATE utf8mb4_general_ci,
+  `eau_digue` text COLLATE utf8mb4_general_ci,
+  `eau_total_forage` text COLLATE utf8mb4_general_ci,
+  `eau_total_puits` text COLLATE utf8mb4_general_ci,
+  `eau_total_source` text COLLATE utf8mb4_general_ci,
+  `eau_autres_1` text COLLATE utf8mb4_general_ci,
+  `co_exploitants_y_compris_exploitant_principa_l` text COLLATE utf8mb4_general_ci,
+  `co_exploitants_y_compris_exploitant_principa_2` text COLLATE utf8mb4_general_ci,
+  `co_exploitants_y_compris_exploitant_principa_3` text COLLATE utf8mb4_general_ci,
+  `co_exploitants_y_compris_exploitant_principa_4` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_1` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_2` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_3` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_4` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_etranges_1` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_etranges_2` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_etranges_3` text COLLATE utf8mb4_general_ci,
+  `ouvriers_agricoles_etranges_4` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_ordinnaire_1` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_ordinnaire_2` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_ordinnaire_3` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_ordinnaire_4` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_qualifiee_1` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_qualifiee_2` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_qualifiee_3` text COLLATE utf8mb4_general_ci,
+  `main_oeuvre_qualifiee_4` text COLLATE utf8mb4_general_ci,
+  `mo_exploitant_individuel_1` text COLLATE utf8mb4_general_ci,
+  `mo_exploitant_individuel_2` text COLLATE utf8mb4_general_ci,
+  `mo_exploitant_individuel_3` text COLLATE utf8mb4_general_ci,
+  `mo_exploitant_individuel_4` text COLLATE utf8mb4_general_ci,
+  `mo_adultes_plus_15_ans_11` text COLLATE utf8mb4_general_ci,
+  `mo_adultes_plus_15_ans_22` text COLLATE utf8mb4_general_ci,
+  `mo_adultes_plus_15_ans_3` text COLLATE utf8mb4_general_ci,
+  `mo_adultes_plus_15_ans_4` text COLLATE utf8mb4_general_ci,
+  `mo_enfants_moins_15_ans_1` text COLLATE utf8mb4_general_ci,
+  `mo_enfants_moins_15_ans_2` text COLLATE utf8mb4_general_ci,
+  `mo_enfants_moins_15_ans_3` text COLLATE utf8mb4_general_ci,
+  `mo_enfants_moins_15_ans_4` text COLLATE utf8mb4_general_ci,
+  `ma_nombre_de_personnes` text COLLATE utf8mb4_general_ci,
+  `ma_adultes_plus_15_ans_m` text COLLATE utf8mb4_general_ci,
+  `ma_adultes_plus_15_ans_f` text COLLATE utf8mb4_general_ci,
+  `ma_enfants_moins_15_ans_m` text COLLATE utf8mb4_general_ci,
+  `ma_enfants_moins_15_ans_f` text COLLATE utf8mb4_general_ci,
+  `ui_semences_selectionnees` text COLLATE utf8mb4_general_ci,
+  `ui_semences_certifiees` text COLLATE utf8mb4_general_ci,
+  `ui_semences_de_la_ferme` text COLLATE utf8mb4_general_ci,
+  `ui_bio` text COLLATE utf8mb4_general_ci,
+  `ui_engrais_azotes` text COLLATE utf8mb4_general_ci,
+  `ui_engrais_phosphates` text COLLATE utf8mb4_general_ci,
+  `ui_autres_engrais_mineraux` text COLLATE utf8mb4_general_ci,
+  `ui_engrais_organique` text COLLATE utf8mb4_general_ci,
+  `ui_fumier` text COLLATE utf8mb4_general_ci,
+  `ui_produits_phytosanitaires` text COLLATE utf8mb4_general_ci,
+  `ui_vaccins` text COLLATE utf8mb4_general_ci,
+  `ui_medicaments_veterinaires` text COLLATE utf8mb4_general_ci,
+  `fa_credit_bancaire` text COLLATE utf8mb4_general_ci,
+  `fa_propres_ressources` text COLLATE utf8mb4_general_ci,
+  `fa_soutien_public` text COLLATE utf8mb4_general_ci,
+  `fa_emprunt_a_un_tiers` text COLLATE utf8mb4_general_ci,
+  `fa_financiere` text COLLATE utf8mb4_general_ci,
+  `fa_materiel` text COLLATE utf8mb4_general_ci,
+  `fa_culture` text COLLATE utf8mb4_general_ci,
+  `fa_cultures` text COLLATE utf8mb4_general_ci,
+  `fa_intrants` text COLLATE utf8mb4_general_ci,
+  `fa_ettahadi` text COLLATE utf8mb4_general_ci,
+  `fa_classique` text COLLATE utf8mb4_general_ci,
+  `fa_leasing` text COLLATE utf8mb4_general_ci,
+  `fa_rfig` text COLLATE utf8mb4_general_ci,
+  `fa_avez_vous_contracte_une_assurance_agricole` text COLLATE utf8mb4_general_ci,
+  `fa_si_oui_quelle_compagnie` text COLLATE utf8mb4_general_ci,
+  `fa_terre` text COLLATE utf8mb4_general_ci,
+  `fa_personnel` text COLLATE utf8mb4_general_ci,
+  `fa_batiments` text COLLATE utf8mb4_general_ci,
+  `fa_materiels` text COLLATE utf8mb4_general_ci,
+  `fa_cheptel` text COLLATE utf8mb4_general_ci,
+  `ee_fournisseurs_de_services_situes_dans_la_commune` text COLLATE utf8mb4_general_ci,
+  `ee_mode_mobilisation_materiel` text COLLATE utf8mb4_general_ci,
+  `ee_mode_exploitation_materiel` text COLLATE utf8mb4_general_ci,
+  `ee_banque` text COLLATE utf8mb4_general_ci,
+  `ee_poste` text COLLATE utf8mb4_general_ci,
+  `ee_fournisseur` text COLLATE utf8mb4_general_ci,
+  `ee_veterinaire` text COLLATE utf8mb4_general_ci,
+  `ee_laboratoire` text COLLATE utf8mb4_general_ci,
+  `ee_bureau_detudes` text COLLATE utf8mb4_general_ci,
+  `ee_cooperatives_specialisees` text COLLATE utf8mb4_general_ci,
+  `ee_assurances` text COLLATE utf8mb4_general_ci,
+  `ee_vente_sur_pied` text COLLATE utf8mb4_general_ci,
+  `ee_au_marche_de_gros` text COLLATE utf8mb4_general_ci,
+  `ee_intermediaire` text COLLATE utf8mb4_general_ci,
+  `ee_vente_directe` text COLLATE utf8mb4_general_ci,
+  `ee_local` text COLLATE utf8mb4_general_ci,
+  `ee_national` text COLLATE utf8mb4_general_ci,
+  `ee_international` text COLLATE utf8mb4_general_ci,
+  `ee_cooperative_agricole` text COLLATE utf8mb4_general_ci,
+  `ee_association_professionnelle_agricole` text COLLATE utf8mb4_general_ci,
+  `ee_groupe_d_interet_commun_gic` text COLLATE utf8mb4_general_ci,
+  `ee_autre_organisation` text COLLATE utf8mb4_general_ci,
+  `ee_cwifa` text COLLATE utf8mb4_general_ci,
+  `ee_consommationauto` text COLLATE utf8mb4_general_ci,
+  `etat` text COLLATE utf8mb4_general_ci,
+  `batiment_de_stockage_nombre` text COLLATE utf8mb4_general_ci,
+  `batiment_de_stockage_surface` text COLLATE utf8mb4_general_ci,
+  `bergerie_nombre` text COLLATE utf8mb4_general_ci,
+  `bergerie_surface` text COLLATE utf8mb4_general_ci,
+  `etable_nombre` text COLLATE utf8mb4_general_ci,
+  `etable_surface` text COLLATE utf8mb4_general_ci,
+  `ecurie_de_chevaux_nombre` text COLLATE utf8mb4_general_ci,
+  `ecurie_de_chevaux_surface` text COLLATE utf8mb4_general_ci,
+  `poulailler_batis_en_dur_nombre` text COLLATE utf8mb4_general_ci,
+  `poulailler_batis_en_dur_surface` text COLLATE utf8mb4_general_ci,
+  `poulailler_sous_serre_nombre` text COLLATE utf8mb4_general_ci,
+  `poulailler_sous_serre_surface` text COLLATE utf8mb4_general_ci,
+  `batiments_dhabitation_nombre` text COLLATE utf8mb4_general_ci,
+  `batiments_dhabitation_surface` text COLLATE utf8mb4_general_ci,
+  `serres_tunnels_nombre` text COLLATE utf8mb4_general_ci,
+  `serres_tunnels_surface` text COLLATE utf8mb4_general_ci,
+  `serres_multichapelles_surface` text COLLATE utf8mb4_general_ci,
+  `serres_multichapelles_nombre` text COLLATE utf8mb4_general_ci,
+  `batiment_dentreposage_des_produits_agricoles_nombre` text COLLATE utf8mb4_general_ci,
+  `batiment_dentreposage_des_produits_agricoles_surface` text COLLATE utf8mb4_general_ci,
+  `autres_batiment_stockage_nombre` text COLLATE utf8mb4_general_ci,
+  `autres_batiment_stockage_surface` text COLLATE utf8mb4_general_ci,
+  `batiment_pour_le_remisage_du_materiel_agricole_nombre` text COLLATE utf8mb4_general_ci,
+  `batiment_pour_le_remisage_du_materiel_agricole_surface` text COLLATE utf8mb4_general_ci,
+  `caves_nombre` text COLLATE utf8mb4_general_ci,
+  `caves_surface` text COLLATE utf8mb4_general_ci,
+  `unite_de_conditionnement_nombre` text COLLATE utf8mb4_general_ci,
+  `unite_de_conditionnement_surface` text COLLATE utf8mb4_general_ci,
+  `unite_de_transformation_nombre` text COLLATE utf8mb4_general_ci,
+  `unite_de_transformation_surface` text COLLATE utf8mb4_general_ci,
+  `centre_de_collecte_de_lait_nombre` text COLLATE utf8mb4_general_ci,
+  `centre_de_collecte_de_lait_surface` text COLLATE utf8mb4_general_ci,
+  `autre_batiments_nombre` text COLLATE utf8mb4_general_ci,
+  `autre_batiments_surface` text COLLATE utf8mb4_general_ci,
+  `chambre_froide_nombre` text COLLATE utf8mb4_general_ci,
+  `chambre_froide_surface` text COLLATE utf8mb4_general_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `questionnaire`
---
-
-INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exploitant_cle_unique`, `date_passage`, `nom_zone_district`, `num_zone_district`, `user`, `nom_exploitant`, `prenom_exploitant`, `annee_naissance_exploitant`, `sexe_exploitant`, `niveau_instruction`, `niveau_formation_agricole`, `adress_exploitant`, `phone_exploitant`, `email_exploitant`, `nin_exploitant`, `nis_exploitant`, `caw`, `capa`, `unpa`, `ccw`, `cam`, `dispositif_social`, `num_carte_fellah_exploitant`, `assurance_exploitant`, `num_sec_sociale`, `issu_famille_agricole`, `exploitant`, `nb_co_exploitants`, `nature_exploitant`, `nom_exploitation`, `adress_exploitation`, `statut_juridique_de_lexploitation`, `activite_exploitation`, `type_activite_exploitation`, `lat_exploitation`, `lon_exploitation`, `longitude_x_prefix`, `route_national`, `chemin_de_wilaya`, `route_communale`, `piste`, `acces_agricole`, `acces_rural`, `reseau_electrique`, `reseau_telephonique`, `reseau_telephonique_si_oui`, `reseau_internet`, `reseau_internet_si_oui`, `reference_cadastrale_ilot`, `reference_cadastrale_section`, `si_exploi_eai_eac`, `si_exploi_eac`, `exploi_superficie_hec`, `exploi_superficie_are`, `exploit_est_un_bloc`, `exploit_est_un_bloc_oui`, `exploit_indus_sur_exploitation`, `exp_indu_si_oui_nombre_menage`, `surface_bati_occupe`, `surface_non_bati_occupe`, `eng_reseau_electrique`, `eng_groupe_electrogene`, `eng_energie_solaire`, `eng_energie_eolienne`, `eng_energie_carburant`, `autres_sources_d_energie`, `oliviers`, `figuiers`, `noyaux_pepins`, `vigne`, `amandiers`, `grenadiers`, `cognassiers`, `palmiers_dattiers`, `caroubier`, `autre_arbres_isoles`, `pratiquez_vous_lagriculture_biologique`, `si_oui_avez_vous_un_certificat`, `pratiquez_vous_laquaculture_integree_a_lagriculture`, `pratiquez_vous_l_heliciculture`, `pratiquez_vous_une_agriculture_conventionnee`, `tomate_industrielle`, `cereales`, `aviculture`, `maraichages`, `pomme_de_terre`, `autre_division`, `pratiquez_vous_la_myciculture`, `chapt_bovins`, `chapt_dont_vaches_laitieres_blm`, `chapt_dont_vaches_laitieres_bla`, `chapt_dont_vaches_laitieres_bll`, `chapt_ovins`, `chapt_dont_brebis`, `chapt_equins`, `chapt_dont_juments`, `chapt_caprins`, `chapt_dont_chevres`, `chapt_camelins`, `chapt_dont_chamelles`, `chapt_mulets`, `chapt_anes`, `chapt_cuniculture`, `chapt_ruches_modernes`, `chapt_dont_sont_pleines`, `chapt_ruches_traditionnelles`, `chapt_dont_sont_pleines_2`, `chapt_poules_ponte`, `chapt_poules_chair`, `chapt_dindes_ponte`, `chapt_dindes_chair`, `chapt_autre_aviculture_ponte`, `chapt_autre_aviculture_chair`, `chapt_Pratiquez_transhumance`, `bat_exploitation_agricole_sont_exploites`, `eau_barrage`, `eau_exploitation_type_irrigation`, `eau_station_depuration`, `eau_ensemble_de_forages`, `eau_puits`, `total_eau_puits`, `eau_forage`, `total_eau_forage`, `eau_pompage_doued`, `eau_crues_doued`, `eau_petit_barrage`, `eau_retenu_collinaire`, `eau_forage_collectif`, `eau_foggara`, `eau_source`, `total_eau_source`, `eau_station_depuration_2`, `eau_autres_ress`, `eau_aspersion_classique`, `eau_gravitaire`, `eau_epandage_de_crues`, `eau_goutte_a_goutte`, `eau_pivots`, `eau_enrouleur`, `eau_pluie_artificielle`, `eau_foggara_hec`, `eau_autre_hec`, `eau_bassin_d_accumulation`, `eau_bassin_geomembrane`, `eau_reservoir`, `eau_citrene_souple`, `eau_mare_deau`, `eau_ced`, `eau_digue`, `eau_total_forage`, `eau_total_puits`, `eau_total_source`, `eau_autres_1`, `co_exploitants_y_compris_exploitant_principa_l`, `co_exploitants_y_compris_exploitant_principa_2`, `co_exploitants_y_compris_exploitant_principa_3`, `co_exploitants_y_compris_exploitant_principa_4`, `ouvriers_agricoles_1`, `ouvriers_agricoles_2`, `ouvriers_agricoles_3`, `ouvriers_agricoles_4`, `ouvriers_agricoles_etranges_1`, `ouvriers_agricoles_etranges_2`, `ouvriers_agricoles_etranges_3`, `ouvriers_agricoles_etranges_4`, `main_oeuvre_ordinnaire_1`, `main_oeuvre_ordinnaire_2`, `main_oeuvre_ordinnaire_3`, `main_oeuvre_ordinnaire_4`, `main_oeuvre_qualifiee_1`, `main_oeuvre_qualifiee_2`, `main_oeuvre_qualifiee_3`, `main_oeuvre_qualifiee_4`, `mo_exploitant_individuel_1`, `mo_exploitant_individuel_2`, `mo_exploitant_individuel_3`, `mo_exploitant_individuel_4`, `mo_adultes_plus_15_ans_11`, `mo_adultes_plus_15_ans_22`, `mo_adultes_plus_15_ans_3`, `mo_adultes_plus_15_ans_4`, `mo_enfants_moins_15_ans_1`, `mo_enfants_moins_15_ans_2`, `mo_enfants_moins_15_ans_3`, `mo_enfants_moins_15_ans_4`, `ma_nombre_de_personnes`, `ma_adultes_plus_15_ans_m`, `ma_adultes_plus_15_ans_f`, `ma_enfants_moins_15_ans_m`, `ma_enfants_moins_15_ans_f`, `ui_semences_selectionnees`, `ui_semences_certifiees`, `ui_semences_de_la_ferme`, `ui_bio`, `ui_engrais_azotes`, `ui_engrais_phosphates`, `ui_autres_engrais_mineraux`, `ui_engrais_organique`, `ui_fumier`, `ui_produits_phytosanitaires`, `ui_vaccins`, `ui_medicaments_veterinaires`, `fa_credit_bancaire`, `fa_propres_ressources`, `fa_soutien_public`, `fa_emprunt_a_un_tiers`, `fa_financiere`, `fa_materiel`, `fa_culture`, `fa_cultures`, `fa_intrants`, `fa_ettahadi`, `fa_classique`, `fa_leasing`, `fa_rfig`, `fa_avez_vous_contracte_une_assurance_agricole`, `fa_si_oui_quelle_compagnie`, `fa_terre`, `fa_personnel`, `fa_batiments`, `fa_materiels`, `fa_cheptel`, `ee_fournisseurs_de_services_situes_dans_la_commune`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`, `ee_banque`, `ee_poste`, `ee_fournisseur`, `ee_veterinaire`, `ee_laboratoire`, `ee_bureau_detudes`, `ee_cooperatives_specialisees`, `ee_assurances`, `ee_vente_sur_pied`, `ee_au_marche_de_gros`, `ee_intermediaire`, `ee_vente_directe`, `ee_local`, `ee_national`, `ee_international`, `ee_cooperative_agricole`, `ee_association_professionnelle_agricole`, `ee_groupe_d_interet_commun_gic`, `ee_autre_organisation`, `ee_cwifa`, `ee_consommationauto`, `etat`, `batiment_de_stockage_nombre`, `batiment_de_stockage_surface`, `bergerie_nombre`, `bergerie_surface`, `etable_nombre`, `etable_surface`, `ecurie_de_chevaux_nombre`, `ecurie_de_chevaux_surface`, `poulailler_batis_en_dur_nombre`, `poulailler_batis_en_dur_surface`, `poulailler_sous_serre_nombre`, `poulailler_sous_serre_surface`, `batiments_dhabitation_nombre`, `batiments_dhabitation_surface`, `serres_tunnels_nombre`, `serres_tunnels_surface`, `serres_multichapelles_surface`, `serres_multichapelles_nombre`, `batiment_dentreposage_des_produits_agricoles_nombre`, `batiment_dentreposage_des_produits_agricoles_surface`, `autres_batiment_stockage_nombre`, `autres_batiment_stockage_surface`, `batiment_pour_le_remisage_du_materiel_agricole_nombre`, `batiment_pour_le_remisage_du_materiel_agricole_surface`, `caves_nombre`, `caves_surface`, `unite_de_conditionnement_nombre`, `unite_de_conditionnement_surface`, `unite_de_transformation_nombre`, `unite_de_transformation_surface`, `centre_de_collecte_de_lait_nombre`, `centre_de_collecte_de_lait_surface`, `autre_batiments_nombre`, `autre_batiments_surface`, `chambre_froide_nombre`, `chambre_froide_surface`) VALUES
-(1, 'N/A', '', 'Tet-Tet-02-0--null000000000000000001-N/A--', '0--0--2024', NULL, NULL, 88, 'Tet', 'Tet', '02-0--null', NULL, NULL, NULL, '', '', '', '000000000000000001', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'N/A', '', '--02-0--null465323200000000000-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '465323200000000000', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(3, 'N/A', '', 'Test-Test-02-0--null120000210000000000-N/A--', '0--0--2024', NULL, NULL, 88, 'Test', 'Test', '02-0--null', NULL, NULL, NULL, '', '', '', '120000210000000000', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '40', '20', '30', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(4, 'N/A', '', 'Hhhh-Hhhh-02-0--null120388151515151515-N/A--', '0--0--2024', NULL, NULL, 88, 'Hhhh', 'Hhhh', '02-02-null', NULL, NULL, NULL, '', '', '', '120388151515151515', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '1', '1', '12', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, 'N/A', '', '--02-0--null654321544221212121-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '654321544221212121', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(6, 'N/A', '', '--02-0--null654321544221212122-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-02-null', NULL, NULL, NULL, '', '', '', '654321544221212122', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '0', '0', '0', '0', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(7, 'N/A', '', 'Sd-Sd-02-0--null456456451121000000-N/A--', '0--0--2024', NULL, NULL, 88, 'Sd', 'Sd', '02-02-null', NULL, NULL, NULL, '', '', '', '456456451121000000', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '0', '0', '0', '0', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '1', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '12', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(8, 'N/A', '', 'Ff-Ff-02-0--null222222222333333333-N/A--', '0--0--2024', NULL, NULL, 88, 'Ff', 'Ff', '02-0--null', NULL, NULL, NULL, '', '', '', '222222222333333333', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '2', '2', '2', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(9, 'N/A', '', 'Cc-Cc-02-0--null232111111111111111-N/A--', '0--0--2024', NULL, NULL, 88, 'Cc', 'Cc', '02-0--null', NULL, NULL, NULL, '', '', '', '232111111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '2', '2', '2', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(10, 'N/A', '', 'Cc-Cc-02-0--null537111111111111111-N/A--', '0--0--2024', NULL, NULL, 88, 'Cc', 'Cc', '02-02-null', NULL, NULL, NULL, '', '', '', '537111111111111111', '', '1', '1', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '0', '0', '0', '0', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '1', '0', '0', '1', '0', '0', NULL, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '1', '2', '4', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(13, 'N/A', '', 'TEST-Test-02-0--null785421012540000000-N/A--24.00', '0--0--2024', NULL, NULL, 88, 'TEST', 'Test', '02-0--null', NULL, NULL, NULL, '', '', '', '785421012540000000', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(11, 'N/A', '', 'Tbbbb-Tbbbb-02-0--null452125528000010001-N/A--', '0--0--2024', NULL, NULL, 88, 'Tbbbb', 'Tbbbb', '02-0--null', NULL, NULL, NULL, '', '', '', '452125528000010001', '', '', '', '', '', '', '', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '1', '1', '1', '1', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '1', '1', '1', '1', '1', '1', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '1', '', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '', '', '', '', '', '', '', '', '', '1', '1', '', '1', '', '1', '1', '20', '20', '20', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '-', NULL, NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(12, 'N/A', '', 'Gg-Gg-02-0--null125400005220000000-N/A-Test-', '0--0--2024', NULL, NULL, 88, 'Gg', 'Gg', '02-0--null', NULL, NULL, NULL, '', '', '', '125400005220000000', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, 'Test', '', NULL, NULL, NULL, '', '', 'EST', '1', '1', '1', '1', '1', '1', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '1', '1', '1', '1', '1', '1', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '1', '', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '', '', '', '', '', '', '', '', '', '1', '1', '0', '1', '0', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '-', NULL, NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(14, 'N/A', '', '--02-0--null-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(15, 'N/A', '', 'TEST-Test-02-0--null200020002000001111-N/A--', '0--0--2024', NULL, NULL, 88, 'TEST', 'Test', '02-0--null', NULL, NULL, NULL, '', '', '', '200020002000001111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(16, 'N/A', '', 'RGA-RGA-02-0--null320002100020002120-N/A--', '0--0--2024', NULL, NULL, 88, 'RGA', 'RGA', '02-0--null', NULL, NULL, NULL, '', '', '', '320002100020002120', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(17, 'N/A', '', '--02-0--null555555555555555555-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '555555555555555555', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, 'N/A', '', '--02-0--null456546456456456456-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '456546456456456456', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(19, 'N/A', '', '--02-0--null456546456456456256-N/A--', '0--0--2024', NULL, NULL, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '456546456456456256', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(20, 'N/A', '', '--02-0--null455555555555555555-N/A--', '0--0--2024', 'N/A', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '455555555555555555', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(21, 'N/A', '', '--02-0--null6546456456456456-N/A--', '0--0--2024', 'fgdgfdfgfdg', 45, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '6546456456456456', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', 'on', 'on', 'on', 'on', 'on', 'on', NULL, '-', '-', '-', '-', '', NULL, '-', '', '', '', NULL, '', NULL, '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'on', '', 'on', 'on', 'on', NULL, 'on', NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', '', '', '', '', '', '', '', '', '', 'on', 'on', '0', 'on', '0', 'on', 'on', '', '', '', 'on', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, 'on', 'on', 'on', 'on', 'on', '-', NULL, NULL, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(22, 'N/A', '', 'ABES-Mounir-03-03-1903555555555555555555-N/A--12', '0--0--2024', '', 0, 88, 'ABES', 'Mounir', '03-03-1903', NULL, NULL, NULL, '', '', '', '555555555555555555', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '1', '0', '0', '1', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(23, 'N/A', '', '--02-0--null444444444444444444-N/A--', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '444444444444444444', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '545', '888', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(24, 'N/A', '', '--02-0--null454454545555555555-N/A--', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '454454545555555555', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '', '', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(25, 'N/A', '', '--02-0--null45445454555555555-N/A--', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '45445454555555555', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '', '', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(26, 'N/A', '', '--02-0--null454454545555555556-N/A--', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '454454545555555556', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '222', '444', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(27, 'N/A', '', '--02-0--null213123123123123123-N/A--1', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '213123123123123123', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '', '', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '99999', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', ''),
-(28, 'N/A', '', '--02-0--null212111111111111111-N/A--', '0--0--2024', '', 0, 88, '', '', '02-0--null', NULL, NULL, NULL, '', '', '', '212111111111111111', '', '0', '0', '0', '0', '0', '0', '', NULL, '', NULL, NULL, '', NULL, '', '', NULL, NULL, NULL, '', '', 'EST', '0', '0', '0', '0', '0', '0', NULL, NULL, NULL, NULL, NULL, '', '', NULL, '', '', '', NULL, '', NULL, '', '', '', '0', '0', '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '0', '', '0', '0', '0', NULL, '0', NULL, '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, '0', '0', '0', '0', '0', '-', NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'En attente', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -3621,18 +3539,18 @@ INSERT INTO `questionnaire` (`id_questionnaire`, `commune_code`, `num_qst`, `exp
 --
 
 CREATE TABLE `recenseur` (
-  `id_recensseur` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nom_recensseur` varchar(100) NOT NULL,
-  `prenom_recenseur` varchar(50) NOT NULL,
-  `commune` varchar(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `controleur` int(11) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `num_zone_district` int(11) NOT NULL,
-  `num_exploitation` int(11) NOT NULL,
-  `nom_zone_district` varchar(50) NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `id_recensseur` int NOT NULL,
+  `id_user` int NOT NULL,
+  `nom_recensseur` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_recenseur` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `commune` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `controleur` int NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `num_zone_district` int DEFAULT NULL,
+  `num_exploitation` int DEFAULT NULL,
+  `nom_zone_district` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3642,32 +3560,14 @@ CREATE TABLE `recenseur` (
 --
 
 CREATE TABLE `status_juridique` (
-  `id_status_juridique` int(11) NOT NULL,
-  `cle_status_juridique` varchar(8) NOT NULL,
-  `id_questionnaire` int(11) NOT NULL,
-  `origine_des_terres` varchar(100) DEFAULT NULL,
-  `status_juridique` varchar(100) DEFAULT NULL,
-  `superfecie_sj` varchar(20) DEFAULT NULL,
-  `superfecie_sj_are` varchar(20) DEFAULT NULL
+  `id_status_juridique` int NOT NULL,
+  `cle_status_juridique` varchar(8) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_questionnaire` int NOT NULL,
+  `origine_des_terres` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status_juridique` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superfecie_sj` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superfecie_sj_are` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `status_juridique`
---
-
-INSERT INTO `status_juridique` (`id_status_juridique`, `cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES
-(1, '7-2-23', 7, '2', '23', '12', '1'),
-(2, '7-2--', 7, '2', '-', '12', '1'),
-(3, '8-5-12', 8, '5', '12', '12', '1'),
-(4, '9-4-23', 9, '4', '23', '22', '22'),
-(5, '10-2-23', 10, '2', '23', '2', '2'),
-(6, '11-3-23', 11, '3', '23', '12', '12'),
-(7, '10-2--', 10, '2', '-', '2', '2'),
-(8, '13-2-13', 13, '2', '13', '12', '12'),
-(9, '15-2-14', 15, '2', '14', '1', '1'),
-(10, '16-9-18', 16, '9', '18', '23', '23'),
-(11, '17-3-23', 17, '3', '23', '55', '44'),
-(12, '22-1-16', 22, '1', '16', '44', '2');
 
 -- --------------------------------------------------------
 
@@ -3676,8 +3576,8 @@ INSERT INTO `status_juridique` (`id_status_juridique`, `cle_status_juridique`, `
 --
 
 CREATE TABLE `superficie_exploitation` (
-  `id` int(11) NOT NULL,
-  `id_questionnaire` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `id_questionnaire` int DEFAULT NULL,
   `cultures_herbacees_1` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_2` decimal(10,2) DEFAULT NULL,
   `cultures_herbacees_3` decimal(10,2) DEFAULT NULL,
@@ -3710,40 +3610,6 @@ CREATE TABLE `superficie_exploitation` (
   `surface_totale_st_2` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `superficie_exploitation`
---
-
-INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herbacees_1`, `cultures_herbacees_2`, `cultures_herbacees_3`, `cultures_herbacees_4`, `terres_au_repos_jacheres_1`, `terres_au_repos_jacheres_2`, `terres_au_repos_jacheres_3`, `terres_au_repos_jacheres_4`, `plantations_arboriculture_1`, `plantations_arboriculture_2`, `plantations_arboriculture_3`, `plantations_arboriculture_4`, `prairies_naturelles_1`, `prairies_naturelles_2`, `prairies_naturelles_3`, `prairies_naturelles_4`, `superficie_agricole_utile_sau_1`, `superficie_agricole_utile_sau_2`, `superficie_agricole_utile_sau_3`, `superficie_agricole_utile_sau_4`, `pacages_et_parcours_1`, `pacages_et_parcours_2`, `surfaces_improductives_1`, `surfaces_improductives_2`, `superficie_agricole_totale_sat_1`, `superficie_agricole_totale_sat_2`, `terres_forestieres_bois_forets_maquis_vides_labourables_1`, `terres_forestieres_bois_forets_maquis_vides_labourables_2`, `surface_totale_st_1`, `surface_totale_st_2`) VALUES
-(1, 1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(2, 2, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(3, 3, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(4, 4, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(5, 5, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(6, 6, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(7, 7, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(8, 8, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(9, 9, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(10, 10, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(11, 11, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(12, 12, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(13, 13, 12.00, 12.00, 12.00, 12.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 12.00, 12.00, 12.00, 12.00, 0.00, 0.00, 0.00, 0.00, 24.00, 24.00, 0.00, 0.00, 24.00, 24.00),
-(14, 14, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(15, 15, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(16, 16, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(17, 17, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(18, 18, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(19, 19, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(20, 20, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(21, 21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(22, 22, 12.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 12.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 12.00, 0.00, 0.00, 0.00, 12.00, 0.00),
-(23, 23, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(24, 24, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(25, 25, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(26, 26, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00),
-(27, 27, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 1.00, 0.00),
-(28, 28, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
-
 -- --------------------------------------------------------
 
 --
@@ -3751,13 +3617,13 @@ INSERT INTO `superficie_exploitation` (`id`, `id_questionnaire`, `cultures_herba
 --
 
 CREATE TABLE `superviseur` (
-  `id_superviseur` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nom_superviseur` varchar(50) NOT NULL,
-  `prenom_superviseur` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `wilaya` varchar(5) NOT NULL,
-  `email` varchar(200) NOT NULL,
+  `id_superviseur` int NOT NULL,
+  `id_user` int NOT NULL,
+  `nom_superviseur` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_superviseur` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `wilaya` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
   `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -3766,13 +3632,64 @@ CREATE TABLE `superviseur` (
 --
 
 INSERT INTO `superviseur` (`id_superviseur`, `id_user`, `nom_superviseur`, `prenom_superviseur`, `phone`, `wilaya`, `email`, `creation_date`) VALUES
-(1, 91, 'Mounir', 'test', 'test', '01', 'mounir2013b@gmail.com', '2024-05-15 11:06:04'),
-(2, 92, 'Mounir', 'Mounir', '0665195617', '01', 'mounir2013b@gmail.com', '2024-05-15 11:06:44'),
-(3, 93, 'Mounir', 'Mounir', '0665195617', '01', 'mounir2013b@gmail.com', '2024-05-15 11:09:51'),
-(4, 94, 'Mounir', 'Mounir', '0665195617', '02', 'mounir2013b@gmail.com', '2024-05-15 11:11:15'),
-(5, 95, 'Mounir', 'Mounir', '0665195617', '01', 'mounir2013b@gmail.com', '2024-05-15 11:18:53'),
-(6, 96, 'Abes', 'Mounir', '0665195617', '02', 'mounir2013b@gmail.com', '2024-05-15 11:19:13'),
-(7, 97, 'Mounir', 'Mounir', '0657276817', '01', 'mounir2013b@gmail.com', '2024-05-15 11:19:28');
+(1, 2, 'Farid', 'BAKRI', '669326847', '28', 'dsa28@madr.gov.dz', '2024-05-22 12:42:23'),
+(2, 3, 'Mohamed Saleh', 'TOUHAMI', '663462424', '01', 'dsa01@madr.gov.dz', '2024-05-22 12:42:56'),
+(3, 4, 'Radhia', 'DERBAH', '666882731', '02', 'dsa02@madr.gov.dz', '2024-05-22 12:43:31'),
+(4, 5, 'Bachir', 'HOUASNIA', '676165900', '03', 'dsa03@madr.gov.dz', '2024-05-22 12:44:16'),
+(5, 6, 'BENAOUMEUR', 'SELEM', '774282372', '29', 'dsa29@madr.gov.dz', '2024-05-22 12:44:30'),
+(6, 7, 'Amal', 'BOUCHEMAL', '698576211', '30', 'dsa30@madr.gov.dz', '2024-05-22 12:45:38'),
+(7, 8, 'Karim', 'MAANSER', '662485956', '04', 'dsa04@madr.gov.dz', '2024-05-22 12:45:39'),
+(8, 9, 'Ali', 'MANSOURI', '673981206', '05', 'dsa05@madr.gov.dz', '2024-05-22 12:46:34'),
+(9, 10, 'Djelloul', 'BENMOUSSA', '779793039', '31', 'dsa31@madr.gov.dz', '2024-05-22 12:46:36'),
+(10, 11, 'Rachid', 'HADDADI', '663033891', '06', 'dsa06@madr.gov.dz', '2024-05-22 12:47:30'),
+(11, 12, 'Bouhafs', 'BAHAOUSSI', '795610539', '32', 'dsa32@madr.gov.dz', '2024-05-22 12:47:31'),
+(12, 13, 'Rabie', 'BEN SAHEL', '661377174', '07', 'dsa07@madr.gov.dz', '2024-05-22 12:48:07'),
+(13, 14, 'Mohamed Lamine', 'KERBAI', '667344906', '33', 'dsa33@madr.gov.dz', '2024-05-22 12:48:34'),
+(14, 15, 'Tayeb', 'BENHADDAD', '663036404', '08', 'dsa08@madr.gov.dz', '2024-05-22 12:48:50'),
+(15, 18, 'Saadi', 'BECHANE', '790829852', '34', 'dsa34@madr.gov.dz', '2024-05-22 12:49:53'),
+(16, 20, 'Meriem', 'AOUISSI', '556998243', '09', 'dsa09@madr.gov.dz', '2024-05-22 12:49:55'),
+(17, 21, 'Farid', 'AZZI', '772172832', '35', 'dsa35@madr.gov.dz', '2024-05-22 12:50:50'),
+(18, 23, 'Omar', 'GUETTAF', '778414013', '10', 'dsa10@madr.gov.dz', '2024-05-22 12:51:42'),
+(19, 24, 'Adel', 'GASMALLAH', '697142777', '36', 'dsa36@madr.gov.dz', '2024-05-22 12:52:58'),
+(20, 26, 'tayab', 'KAMELI', '670657109', '37', 'dsa37@madr.gov.dz', '2024-05-22 12:53:45'),
+(21, 28, 'Abdelaziz', 'SEDDI', '663440610', '11', 'dsa11@madr.gov.dz', '2024-05-22 12:54:38'),
+(22, 30, 'yamina', 'MENAD', '775327120', '38', 'dsa38@madr.gov.dz', '2024-05-22 12:54:42'),
+(23, 32, 'Ahmed', 'MEGUIRHI', '664713141', '39', 'dsa39@madr.gov.dz', '2024-05-22 12:55:33'),
+(24, 33, 'Imed Eddine', 'MOKDAD', '671498671', '40', 'dsa40@madr.gov.dz', '2024-05-22 12:56:24'),
+(25, 35, 'SAMIA', 'MAHMOUDI', '674484164', '12', 'dsa12@madr.gov.dz', '2024-05-22 12:56:41'),
+(26, 37, 'Ali', 'ARAR', '662582089', '41', 'dsa41@madr.gov.dz', '2024-05-22 12:58:11'),
+(27, 38, 'Hicham', 'GOUIZI', '697661981', '13', 'dsa13@madr.gov.dz', '2024-05-22 12:58:54'),
+(28, 39, 'Karima', 'MELHANI', '778214688', '42', 'dsa42@madr.gov.dz', '2024-05-22 12:58:54'),
+(29, 40, 'Mohamed', 'BOUSSAHA', '659457369', '43', 'dsa43@madr.gov.dz', '2024-05-22 13:04:30'),
+(30, 41, 'Asma', 'NASRI', '772597861', '44', 'dsa44@madr.gov.dz', '2024-05-22 13:05:48'),
+(31, 42, 'Nacer', 'OUTAFOUT', '552492742', '45', 'dsa45@madr.gov.dz', '2024-05-22 13:06:43'),
+(32, 43, 'Bouhadjar', 'ABDELDJELIL', '560886229', '46', 'dsa46@madr.gov.dz', '2024-05-22 13:07:38'),
+(33, 44, 'Abdelkader', 'KERRACHE', '661736075', '47', 'dsa47@madr.gov.dz', '2024-05-22 13:08:18'),
+(34, 45, 'Khaled', 'GUELTA', '672313640', '14', 'dsa14@madr.gov.dz', '2024-05-22 13:08:39'),
+(35, 46, 'Ali', 'KHEFFACHE', '540178339', '15', 'dsa15@madr.gov.dz', '2024-05-22 13:09:17'),
+(36, 47, 'Bachir', 'KADOURI', '659979782', '48', 'dsa48@madr.gov.dz', '2024-05-22 13:09:18'),
+(37, 48, 'Rachida', 'Rachida	BASTA', '666371970', '16', 'dsa16@madr.gov.dz', '2024-05-22 13:09:51'),
+(38, 49, 'Messaoud', 'BEDDAR', '668675994', '49', 'dsa49@madr.gov.dz', '2024-05-22 13:10:39'),
+(39, 50, 'Abdelkader', 'BAYOUCEF', '658783558', '50', 'dsa50@madr.gov.dz', '2024-05-22 13:11:20'),
+(40, 51, 'Zine elabidine', 'BELKHEIRI', '668626134', '17', 'dsa17@madr.gov.dz', '2024-05-22 13:11:58'),
+(41, 52, 'Zine Elabidine', 'HARKAT', '792748162', '51', 'dsa51@madr.gov.dz', '2024-05-22 13:12:10'),
+(42, 53, 'Fateh', 'SERHANE', '665307705', '18', 'dsa18@madr.gov.dz', '2024-05-22 13:12:42'),
+(43, 54, 'hafidha', 'CHEKROUN', '662424244', '52', 'dsa52@madr.gov.dz', '2024-05-22 13:12:58'),
+(44, 55, 'Abdelmalek', 'HELLAL', '775131763', '19', 'dsa19@madr.gov.dz', '2024-05-22 13:13:52'),
+(45, 56, 'Abdelaziz', 'ZANGHILA', '540603521', '53', 'dsa53@madr.gov.dz', '2024-05-22 13:14:09'),
+(46, 57, 'Hakim', 'REGUIEG', '662386901', '20', 'dsa20@madr.gov.dz', '2024-05-22 13:14:52'),
+(47, 58, 'Mohammed Tayeb', 'BIGA', '664569544', '54', 'dsa54@madr.gov.dz', '2024-05-22 13:15:09'),
+(48, 59, 'Salah eddine', 'NAJAH', '557494787', '21', 'dsa21@madr.gov.dz', '2024-05-22 13:16:00'),
+(49, 60, 'Khaled', 'BERIALA', '671670965', '55', 'dsa55@madr.gov.dz', '2024-05-22 13:16:03'),
+(50, 62, 'Mohamed', 'BEKRI', '556369982', '22', 'dsa22@madr.gov.dz', '2024-05-22 13:16:39'),
+(51, 63, 'Amina Sana', 'ELIES', '655320201', '56', 'dsa56@madr.gov.dz', '2024-05-22 13:16:45'),
+(52, 67, 'Lamia', 'ABED', '552880574', '23', 'dsa23@madr.gov.dz', '2024-05-22 13:17:25'),
+(53, 68, 'Hicham', 'CHETTI', '659160933', '57', 'dsa57@madr.gov.dz', '2024-05-22 13:17:33'),
+(54, 70, 'Soumia', 'SAIDIA', '697918289', '24', 'dsa24@madr.gov.dz', '2024-05-22 13:18:26'),
+(55, 71, 'Ameur', 'BOUNAAAMA', '671556218', '58', 'dsa58@madr.gov.dz', '2024-05-22 13:18:29'),
+(56, 74, 'Karim', 'MIZOU', '795856049', '25', 'dsa25@madr.gov.dz', '2024-05-22 13:19:46'),
+(57, 75, 'Nawel', 'BOUDLAL', '2669765046', '26', 'dsa26@madr.gov.dz', '2024-05-22 13:20:39'),
+(58, 76, 'lahcen', 'BOUMZIZA', '782361030', '27', 'dsa27@madr.gov.dz', '2024-05-22 13:21:29');
 
 -- --------------------------------------------------------
 
@@ -3781,13 +3698,13 @@ INSERT INTO `superviseur` (`id_superviseur`, `id_user`, `nom_superviseur`, `pren
 --
 
 CREATE TABLE `superviseur_national` (
-  `id_superviseur_national` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nom_superviseur_national` varchar(50) NOT NULL,
-  `prenom_superviseur_national` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `wilaya` varchar(5) NOT NULL,
-  `email` varchar(200) NOT NULL,
+  `id_superviseur_national` int NOT NULL,
+  `id_user` int NOT NULL,
+  `nom_superviseur_national` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_superviseur_national` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `wilaya` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
   `creation_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -3796,9 +3713,35 @@ CREATE TABLE `superviseur_national` (
 --
 
 INSERT INTO `superviseur_national` (`id_superviseur_national`, `id_user`, `nom_superviseur_national`, `prenom_superviseur_national`, `phone`, `wilaya`, `email`, `creation_date`) VALUES
-(1, 89, 'ff', 'ff', '0665195617', '01', 'm.abes@bneder.dz', '2024-05-15 11:02:50'),
-(2, 90, 'Mounir', 'test', 'm.abes@bne', '01', 'm.abes@bneder.dz', '2024-05-15 11:04:06'),
-(3, 98, 'Mounir', 'Mounir', '0665195617', '01', 'm.abes@bneder.dz', '2024-05-15 11:29:56');
+(1, 105, 'Halim', 'HAFIR', '0778688853', ',10,28', 'hafirhalim@yahoo.fr', '2024-05-22 13:45:45'),
+(2, 106, 'Darradji', 'HAREK', '0665149165', ',11,53', 'derradji11@gmail.com', '2024-05-22 13:46:59'),
+(3, 107, 'Toufik', 'BELLOUT', '0666321093', ',13,46', 'toufik.bellout@hotmail.com', '2024-05-22 13:47:53'),
+(4, 108, 'Hadjer', 'FERDJALLAH', '0561648272', ',14,38', 'rachafardjallah87@gmail.com', '2024-05-22 13:48:43'),
+(5, 109, 'Karim', 'KOURABA', '0556095863', ',06,15', 'k.kouraba@madr.gov.dZ', '2024-05-22 13:49:07'),
+(6, 110, 'Lamia', 'SOUL', '0550172830', ',16,35', 'sl_lamia@yahoo.fr', '2024-05-22 13:49:33'),
+(7, 111, 'Tarek', 'BEN AISSA', '0697691754', ',03,17', 't.benaissa@madr.gov.dz', '2024-05-22 13:49:59'),
+(8, 112, 'Hakim', 'OULD OUELHADJ', '0675007604', ',20,32', 'hakimitelv@yahoo.com', '2024-05-22 13:51:09'),
+(9, 113, 'Saber', 'TOUATI', '0554282194', ',23,36', 's.touati@madr.gov.dz', '2024-05-22 13:51:41'),
+(10, 114, 'Mohamed bourhane eddine', 'DJEKBOUB', '0775872701', ',24,41', 'm.djekboub@madr.gov.dz', '2024-05-22 13:52:21'),
+(11, 115, 'Karim', 'LEKIKOT', '0561641027', ',21,25', 'lekikotkarim@yahoo.fr', '2024-05-22 13:53:36'),
+(12, 116, 'Fatiha', 'KHIAT', '0697599600', ',26,44', 'f.khiat@madr.gov.dz', '2024-05-22 13:54:02'),
+(13, 117, 'Redouane', 'MESSAOUDI', '0557059447', ',27,31', 'r.messaoudi@madr.gov.dz', '2024-05-22 13:54:37'),
+(14, 118, 'Omar', 'MEBBANI', '0671727062', ',22,29', 'omarmebbani@gmail.com', '2024-05-22 13:55:14'),
+(15, 119, 'Mohammed', 'BERREKBIA', '0790445078', ',30,55', 'berrekbiamohammed@gmail.com', '2024-05-22 13:55:48'),
+(16, 120, 'Nasreddine', 'LOUAHDI', '0674409441', ',19,34', 'n.louahdi@gmail.com', '2024-05-22 13:56:51'),
+(17, 121, 'Halima', 'KHALED', '0662836431', ',39,57', 'Khhalima2004@gmail.com', '2024-05-22 13:57:32'),
+(18, 122, 'Merouane', 'ZEMIRLI', '0771657128', ',12,40', 'zemirli.m@dgf.org.dz', '2024-05-22 13:58:17'),
+(19, 123, 'Sid ahmed', 'CHEBBAH', '0661109009', ',09,42', 'chebbahcaw@gmail.com', '2024-05-22 13:58:41'),
+(20, 124, 'Mustapha', 'DJEBBAR', '0773883979', ',08,45', 'contact.externe@yahoo.fr', '2024-05-22 13:59:17'),
+(21, 125, 'Mokhtar', 'ROULA', '0668572442', ',18,43', 'tifouri@gmail.com', '2024-05-22 13:59:48'),
+(22, 126, 'Noreddine', 'AIT BELKACEM', '0793939329', ',01,49', 'tifouri@gmail.com', '2024-05-22 14:00:21'),
+(23, 127, 'Abderrahmane', 'HADJADJ', '0662912450', ',47,58', 'h.abderrahmane71@gmail.com', '2024-05-22 14:00:55'),
+(24, 128, 'Abdelkarim', 'ABDELNEBI', '0696477699', ',02,48', 'abdelnebi@live.fr', '2024-05-22 14:01:38'),
+(25, 129, 'Sabiha', 'BOUCEDRA', '0660843309', ',50,54', 'boucedrasabiha@yahoo.fr', '2024-05-22 14:02:09'),
+(26, 130, 'Aissa', 'DERBALI', '0673452792', ',07,51', 'derbaliaissa15@gmail.com', '2024-05-22 14:03:13'),
+(27, 131, 'Mohamed djamel eddine', 'ADEM', '0775047186', ',52,37', 'ademmed90@gmail.com', '2024-05-22 14:03:44'),
+(28, 132, 'Faouzi', 'ABIKCHI', '0673407466', ',56,33', 'f.abikchi@madr.gov.dz', '2024-05-22 14:04:28'),
+(29, 133, 'Ahmed', 'OUHAMMA', '0671732470', ',04,05', 'ahmedouhamma05@gmail.com', '2024-05-22 14:05:07');
 
 -- --------------------------------------------------------
 
@@ -3807,14 +3750,14 @@ INSERT INTO `superviseur_national` (`id_superviseur_national`, `id_user`, `nom_s
 --
 
 CREATE TABLE `users` (
-  `id_user` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `nonhashedpass` varchar(50) NOT NULL,
-  `role` varchar(100) NOT NULL,
-  `update_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id_user` int NOT NULL,
+  `username` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nonhashedpass` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `role` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_login` timestamp NULL DEFAULT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
+  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -3822,17 +3765,94 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `nonhashedpass`, `role`, `update_date`, `last_login`, `date_creation`) VALUES
-(88, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 'admin', '2024-05-02 09:31:42', '2024-05-16 09:22:04', '2024-05-02 09:31:42'),
-(89, 'SN-01', '073ed6ad5a6ba2b3ce984c15e81fb371eb856d4a', 'teeeeest', 'superviseur_national', '2024-05-15 10:02:50', '2024-05-15 10:02:50', '2024-05-15 10:02:50'),
-(90, 'SN-02', 'fa2d35d6df9b8bab6f982dabc04e6539071458e9', '73572240', 'superviseur_national', '2024-05-15 10:04:06', '2024-05-15 10:04:07', '2024-05-15 10:04:06'),
-(91, 'S01-01', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'test', 'superviseur', '2024-05-15 10:06:04', '2024-05-15 10:06:04', '2024-05-15 10:06:04'),
-(92, 'S01-02', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:06:44', '2024-05-15 10:06:44', '2024-05-15 10:06:44'),
-(93, 'S01-03', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:09:51', '2024-05-15 10:09:51', '2024-05-15 10:09:51'),
-(94, 'S02-01', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:11:15', '2024-05-15 10:11:15', '2024-05-15 10:11:15'),
-(95, 'S01-04', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:18:53', '2024-05-15 10:18:53', '2024-05-15 10:18:53'),
-(96, 'S02-02', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:19:13', '2024-05-15 10:19:13', '2024-05-15 10:19:13'),
-(97, 'S01-05', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur', '2024-05-15 10:19:28', '2024-05-15 10:19:28', '2024-05-15 10:19:28'),
-(98, 'SN-03', '435b41068e8665513a20070c033b08b9c66e4332', 'toor', 'superviseur_national', '2024-05-15 10:29:56', '2024-05-15 10:29:56', '2024-05-15 10:29:56');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', 'admin', '2024-05-22 12:41:58', '2024-05-22 13:43:09', '2024-05-22 12:41:58'),
+(2, 'S28-01', 'e338d468cb56b467aba7c16a103a077f92a811f9', 'y7#zG3U26A', 'superviseur', '2024-05-22 12:42:23', '2024-05-22 13:19:09', '2024-05-22 12:42:23'),
+(3, 'S01-01', '9d81888c1aaacfbb01901a829fe3d5371c90b1d1', '5VVSF-gmAg', 'superviseur', '2024-05-22 12:42:56', '2024-05-22 13:30:22', '2024-05-22 12:42:56'),
+(4, 'S02-01', '68a064300b6e0d098639957bee39fa826a0a3b05', 'Um2wE-PBrr', 'superviseur', '2024-05-22 12:43:31', '2024-05-22 13:22:00', '2024-05-22 12:43:31'),
+(5, 'S03-01', 'ff83c3e69f132db12401f08c9a98680b5979393c', '6b#88UkvqK', 'superviseur', '2024-05-22 12:44:16', '2024-05-22 13:22:13', '2024-05-22 12:44:16'),
+(6, 'S29-01', '37fb470d983a2b7a8e4995e320cea9508e24e39f', 'BKPGbqp8_A', 'superviseur', '2024-05-22 12:44:30', '2024-05-22 13:19:46', '2024-05-22 12:44:30'),
+(7, 'S30-01', '2b7dff3c24497f0dfaf1f8c101d2318c50f7c9e3', 'JVyxRE@3cc', 'superviseur', '2024-05-22 12:45:38', '2024-05-22 13:20:18', '2024-05-22 12:45:38'),
+(8, 'S04-01', '757eb64f97229d28efe9deb997843d3051a6a8b7', '9yu-SP7kvT', 'superviseur', '2024-05-22 12:45:39', '2024-05-22 13:22:25', '2024-05-22 12:45:39'),
+(9, 'S05-01', '8322e817ce6bab435b3a8a1f240525508d14ecba', '5VBSXH#beH', 'superviseur', '2024-05-22 12:46:34', '2024-05-22 13:22:37', '2024-05-22 12:46:34'),
+(10, 'S31-01', '9cc39ad5226acb5e581dc1de55dfffb7c145752f', 'Ab_bB36W4a', 'superviseur', '2024-05-22 12:46:36', '2024-05-22 13:20:41', '2024-05-22 12:46:36'),
+(11, 'S06-01', 'b0c64e7d20c4f769faf759a1149dfca0923c3bb0', '6sexAx#s34', 'superviseur', '2024-05-22 12:47:30', '2024-05-22 13:22:47', '2024-05-22 12:47:30'),
+(12, 'S32-01', '314d0f23f0cda4171620ac36a67cbabff54d0ef7', 'QPK2dZn_Nk', 'superviseur', '2024-05-22 12:47:31', '2024-05-22 13:21:03', '2024-05-22 12:47:31'),
+(13, 'S07-01', '07b0a218631e956d929545ca5b8f96f8cabaaa03', 'e3c#tdQ9Tw', 'superviseur', '2024-05-22 12:48:07', '2024-05-22 13:22:57', '2024-05-22 12:48:07'),
+(14, 'S33-01', 'fdc45cba452976e13acbcdec20a84548e49ae248', '7FwP@EzKnB', 'superviseur', '2024-05-22 12:48:34', '2024-05-22 13:21:56', '2024-05-22 12:48:34'),
+(15, 'S08-01', '903004593e56bac212c2dfac2a565f0e8052c0d6', '2buRG@V5Dk', 'superviseur', '2024-05-22 12:48:49', '2024-05-22 13:23:09', '2024-05-22 12:48:49'),
+(18, 'S34-01', 'd83d4404fc889fb8b05128029195bd656d4e5b1d', '2D3hw_DwAT', 'superviseur', '2024-05-22 12:49:53', '2024-05-22 13:22:16', '2024-05-22 12:49:53'),
+(20, 'S09-01', 'f7e65b45eeef9830f91ae79f540423e24db2232f', '3AjuDe_vx9', 'superviseur', '2024-05-22 12:49:55', '2024-05-22 13:23:26', '2024-05-22 12:49:55'),
+(21, 'S35-01', '4874113d657aaa6cc7d74ceb998e413a6cf32d81', '7uJbA-nSHX', 'superviseur', '2024-05-22 12:50:50', '2024-05-22 13:22:37', '2024-05-22 12:50:50'),
+(23, 'S10-01', '0388aab070aa486e4b0f31737f9e2e2a56302a6e', '9vxj2S-7kc', 'superviseur', '2024-05-22 12:51:42', '2024-05-22 13:23:38', '2024-05-22 12:51:42'),
+(24, 'S36-01', '1e02e4a7df689d82bf2f3fa6334a2cb17439a594', 'HZJw@JGq5c', 'superviseur', '2024-05-22 12:52:58', '2024-05-22 13:22:58', '2024-05-22 12:52:58'),
+(26, 'S37-01', '107fe876e0e8857c9c6528f8519c8680009c2a20', 'hxm#5CH7EL', 'superviseur', '2024-05-22 12:53:45', '2024-05-22 13:24:11', '2024-05-22 12:53:45'),
+(28, 'S11-01', '0259c69bcc805204d05eacf502f40606be4ed0e7', 'Hw_8GFKtLc', 'superviseur', '2024-05-22 12:54:38', '2024-05-22 13:23:53', '2024-05-22 12:54:38'),
+(30, 'S38-01', '9d72a7f8901130808adf90b1d1e3c3fa0647cd46', '6j#7PWNWCV', 'superviseur', '2024-05-22 12:54:42', '2024-05-22 13:24:36', '2024-05-22 12:54:42'),
+(32, 'S39-01', 'e4ececd5ca082645d44ca138ec2a138790950c2a', 't-8mt5458E', 'superviseur', '2024-05-22 12:55:33', '2024-05-22 13:24:59', '2024-05-22 12:55:33'),
+(33, 'S40-01', '720404a331579df9e8950d726841e0c2c577288a', 'LVjBs_949S', 'superviseur', '2024-05-22 12:56:24', '2024-05-22 13:25:31', '2024-05-22 12:56:24'),
+(35, 'S12-01', 'bc5680d5139974903147e54a163481ba6e12f53d', 'kzA7NJhES#', 'superviseur', '2024-05-22 12:56:40', '2024-05-22 13:24:04', '2024-05-22 12:56:40'),
+(37, 'S41-01', '8c5ac9673af4f7f84da6517f1732bde9c48ad443', '5ghSJUfC@q', 'superviseur', '2024-05-22 12:58:11', '2024-05-22 13:25:54', '2024-05-22 12:58:11'),
+(38, 'S13-01', 'd9410373f1d989b4ecbfa9b9f6feee0e82b521f9', 'yf62_ZhQ7B', 'superviseur', '2024-05-22 12:58:54', '2024-05-22 13:24:15', '2024-05-22 12:58:54'),
+(39, 'S42-01', '868ddbde968f1d368dcf71809e9afbfaa8f47e63', 'y8698WEP-G', 'superviseur', '2024-05-22 12:58:54', '2024-05-22 13:26:14', '2024-05-22 12:58:54'),
+(40, 'S43-01', '16f298e4cc10d1ffdd044abeb0c4d4f0444caaf4', 'AJFgz8#8Yy', 'superviseur', '2024-05-22 13:04:30', '2024-05-22 13:26:34', '2024-05-22 13:04:30'),
+(41, 'S44-01', '2875580e0eff11b36dad19e4887d4f0943298ee8', '#PdE8bRSe3', 'superviseur', '2024-05-22 13:05:48', '2024-05-22 13:26:56', '2024-05-22 13:05:48'),
+(42, 'S45-01', '2101e24eebecfd41ff89f6f79b455e4e42c1eec9', 'rQ8zeE7V-M', 'superviseur', '2024-05-22 13:06:43', '2024-05-22 13:27:16', '2024-05-22 13:06:43'),
+(43, 'S46-01', '65d03ae778d4693616406ee659be5c52f69dded2', 'w_B9WbHBbv', 'superviseur', '2024-05-22 13:07:38', '2024-05-22 13:27:34', '2024-05-22 13:07:38'),
+(44, 'S47-01', '63133b9fa003d671e022b5b663bb4a52c599ecc1', 'WJ#BmmZ8Cq', 'superviseur', '2024-05-22 13:08:18', '2024-05-22 13:28:57', '2024-05-22 13:08:18'),
+(45, 'S14-01', 'bf3b6d5df8ee4b4d1a186b50f98825a3d15bf650', 'UV#AKCs4tk', 'superviseur', '2024-05-22 13:08:39', '2024-05-22 13:24:32', '2024-05-22 13:08:39'),
+(46, 'S15-01', 'f31ccff6fc2a010ac21b714684d33e062ac1703b', 'WZbap-K6zw', 'superviseur', '2024-05-22 13:09:17', '2024-05-22 13:24:46', '2024-05-22 13:09:17'),
+(47, 'S48-01', '3f1ffad0a0f96ba0cd42ecd2b454070f065de4f9', 'gBf8h5ja@H', 'superviseur', '2024-05-22 13:09:18', '2024-05-22 13:29:19', '2024-05-22 13:09:18'),
+(48, 'S16-01', 'ea2c1c38aaf2a922f0cc843e577cf83f4707dd9c', '4-WKt9AqnC', 'superviseur', '2024-05-22 13:09:51', '2024-05-22 13:25:01', '2024-05-22 13:09:51'),
+(49, 'S49-01', 'ad6fe91889e1dfdbeaffb67eac5167ed3c4d286a', 'L9cEQ_aqAk', 'superviseur', '2024-05-22 13:10:39', '2024-05-22 13:29:43', '2024-05-22 13:10:39'),
+(50, 'S50-01', 'a6df58a2aaa8c6d40bdb56161eb6764473458326', '886Z#efjAr', 'superviseur', '2024-05-22 13:11:20', '2024-05-22 13:30:02', '2024-05-22 13:11:20'),
+(51, 'S17-01', '9a7e5079cd55881cd59615a06a823fec13da9c95', 'eke@fyhqK5', 'superviseur', '2024-05-22 13:11:58', '2024-05-22 13:25:18', '2024-05-22 13:11:58'),
+(52, 'S51-01', 'dafcf012d4eea011647e5b94493e51301c9dcccf', 'QJ-2YHur3c', 'superviseur', '2024-05-22 13:12:10', '2024-05-22 13:30:24', '2024-05-22 13:12:10'),
+(53, 'S18-01', 'b94bcc3d488e82ff36dbd79b34ff2a1cb86756d8', 'q#bH3QBzE5', 'superviseur', '2024-05-22 13:12:42', '2024-05-22 13:25:33', '2024-05-22 13:12:42'),
+(54, 'S52-01', '0b78d80853a0405bfb1c55ba67a298492f5a7088', 'px@ZQ4kAhA', 'superviseur', '2024-05-22 13:12:58', '2024-05-22 13:30:42', '2024-05-22 13:12:58'),
+(55, 'S19-01', '1e2c77109069cca3a811966756ff6588fe4c66ff', 'rP9aC@7N2W', 'superviseur', '2024-05-22 13:13:52', '2024-05-22 13:25:45', '2024-05-22 13:13:52'),
+(56, 'S53-01', '3d6a90c3530e552c42e0a1a211e26bea4f8665ee', 'mQs#gmRY2F', 'superviseur', '2024-05-22 13:14:09', '2024-05-22 13:30:59', '2024-05-22 13:14:09'),
+(57, 'S20-01', '8e96329f015fbb63edffd2e7512c8c86fb8d0ccd', 'V_XZ9XZmYF', 'superviseur', '2024-05-22 13:14:52', '2024-05-22 13:26:01', '2024-05-22 13:14:52'),
+(58, 'S54-01', 'ada4faf3d64bb3a370d19becae6a0e552d883e82', 'Xztt3z_vTL', 'superviseur', '2024-05-22 13:15:09', '2024-05-22 13:31:18', '2024-05-22 13:15:09'),
+(59, 'S21-01', '62a1480b3d5bdc22e6bd1f38443dd47bc26d9ec7', 'DEvJ_XtU3K@', 'superviseur', '2024-05-22 13:16:00', '2024-05-22 13:26:12', '2024-05-22 13:16:00'),
+(60, 'S55-01', '2c07e23c787ed830905d1042548abda65dfcda91', 'eQeTM8-ZtH', 'superviseur', '2024-05-22 13:16:03', '2024-05-22 13:31:39', '2024-05-22 13:16:03'),
+(62, 'S22-01', 'd6d0ff60c0bd5ad703beba950e0bd8e00e9ea8af', 'ZWC4vNce@u', 'superviseur', '2024-05-22 13:16:39', '2024-05-22 13:26:24', '2024-05-22 13:16:39'),
+(63, 'S56-01', 'd475614960f8da777be98e7757fe2885ac4be1dd', 'LZRzHdr_Y3', 'superviseur', '2024-05-22 13:16:45', '2024-05-22 13:32:00', '2024-05-22 13:16:45'),
+(67, 'S23-01', 'ec0cce03f7b874540a5b163b1e920bd23cfb168a', 'j@XPzz678a', 'superviseur', '2024-05-22 13:17:25', '2024-05-22 13:26:36', '2024-05-22 13:17:25'),
+(68, 'S57-01', '4aa4cc60802d49a970767e5ef3fabb6f7b34fcf1', 'E4QPggL@BK', 'superviseur', '2024-05-22 13:17:33', '2024-05-22 13:32:18', '2024-05-22 13:17:33'),
+(70, 'S24-01', 'd4d8d324cc20b00e2ec856addb5ee00d214068e8', 'Bmy3X#QDRR', 'superviseur', '2024-05-22 13:18:26', '2024-05-22 13:26:50', '2024-05-22 13:18:26'),
+(71, 'S58-01', '4f42f3fc47b985cd6da6fde9a990d8e8355fa922', 'wd_S93aU2K', 'superviseur', '2024-05-22 13:18:29', '2024-05-22 14:01:53', '2024-05-22 13:18:29'),
+(74, 'S25-01', 'c855718f3ca7170c34c69f7dc89c0ddbad94a054', 'hs_dYr473C', 'superviseur', '2024-05-22 13:19:46', '2024-05-22 13:27:27', '2024-05-22 13:19:46'),
+(75, 'S26-01', 'a5db394c409a48ecdea3a71cd4058cd272f9e8b5', 'G7LxSmE_k3', 'superviseur', '2024-05-22 13:20:39', '2024-05-22 13:27:39', '2024-05-22 13:20:39'),
+(76, 'S27-01', '6304d8451544781375a124a5a84935db54509e01', 'zQ#cQS654d', 'superviseur', '2024-05-22 13:21:29', '2024-05-22 13:27:49', '2024-05-22 13:21:29'),
+(105, 'SN-01', '837ebbe137b4c2cb6ada5d529cd42e9ef427acfc', 'v7_RSjTY55', 'superviseur_national', '2024-05-22 13:45:45', '2024-05-22 13:46:15', '2024-05-22 13:45:45'),
+(106, 'SN-02', 'dc85b9ce31bf5eac306be4067b005bf951d25916', 'C3VT-pSxkE', 'superviseur_national', '2024-05-22 13:46:59', '2024-05-22 13:47:23', '2024-05-22 13:46:59'),
+(107, 'SN-03', '2fbc4f7ddff6049cfbe2954fa59e1ae63df7e9e9', 'm_A3rXvMXF', 'superviseur_national', '2024-05-22 13:47:53', '2024-05-22 13:48:16', '2024-05-22 13:47:53'),
+(108, 'SN-04', '56a97874fa83a698f84cef133f3772cbe88ca3c3', 'qB2Ce#h5kS', 'superviseur_national', '2024-05-22 13:48:43', '2024-05-22 13:49:02', '2024-05-22 13:48:43'),
+(109, 'SN-05', 'd6c2ada57faa4ba041eb5e429a2fa9c3b0f55701', '7kYH5uH_Tn', 'superviseur_national', '2024-05-22 13:49:07', '2024-05-22 13:49:26', '2024-05-22 13:49:07'),
+(110, 'SN-06', '1557bd549edcb4def96f07ba17fc2efdd6a81045', '6eN4RmfH@8', 'superviseur_national', '2024-05-22 13:49:33', '2024-05-22 13:49:50', '2024-05-22 13:49:33'),
+(111, 'SN-07', 'ad19f7bab2ea1c803167edaa0de60e37d5dd73ab', 'D#FCRykq9L', 'superviseur_national', '2024-05-22 13:49:59', '2024-05-22 13:50:19', '2024-05-22 13:49:59'),
+(112, 'SN-08', '138d813ffa9b936af3577915c3a51ad503af069d', 'Q-KW4kfw3V', 'superviseur_national', '2024-05-22 13:51:09', '2024-05-22 13:51:29', '2024-05-22 13:51:09'),
+(113, 'SN-09', '32ac1f19e08ac301882d9beaae7a51d956fc53c5', 'v-kkYaQ5rY', 'superviseur_national', '2024-05-22 13:51:41', '2024-05-22 13:51:58', '2024-05-22 13:51:41'),
+(114, 'SN-10', 'e83878fec57f82e4c15cbac995fa2f0042a86238', 'ZA7d_QPTVT', 'superviseur_national', '2024-05-22 13:52:21', '2024-05-22 13:52:52', '2024-05-22 13:52:21'),
+(115, 'SN-11', 'b11ad70ccc756c95e113224b1630e9fc6e2903f4', 'wvFPEge#6z', 'superviseur_national', '2024-05-22 13:53:36', '2024-05-22 13:54:02', '2024-05-22 13:53:36'),
+(116, 'SN-12', 'a17d6c5d753b09ff7deebddcca5c9ce26157eaf8', 'ccUNY-cLM6', 'superviseur_national', '2024-05-22 13:54:02', '2024-05-22 13:54:27', '2024-05-22 13:54:02'),
+(117, 'SN-13', 'fcb96c48a7573a13b186018525bf17860d835c94', '3W3kH@fUNp', 'superviseur_national', '2024-05-22 13:54:37', '2024-05-22 13:55:00', '2024-05-22 13:54:37'),
+(118, 'SN-14', 'ca177042b4f7a0e913c188fba99ad846d81f639f', 'PQ#NVspd2H', 'superviseur_national', '2024-05-22 13:55:14', '2024-05-22 13:55:32', '2024-05-22 13:55:14'),
+(119, 'SN-15', 'bbd996071cc17f0efb826d40a9527b9935a891bc', 'x75xjd_gA7', 'superviseur_national', '2024-05-22 13:55:48', '2024-05-22 13:56:01', '2024-05-22 13:55:48'),
+(120, 'SN-16', '28ec6f884b6ae98017944aed70b332ff32b4c628', 'E@hx5Lg3mz', 'superviseur_national', '2024-05-22 13:56:51', '2024-05-22 13:57:41', '2024-05-22 13:56:51'),
+(121, 'SN-17', '9ff0811595d37eccde245ddae3a7c5570fb9d469', 'kt_Fd2ANtc', 'superviseur_national', '2024-05-22 13:57:32', '2024-05-22 13:58:09', '2024-05-22 13:57:32'),
+(122, 'SN-18', 'd73afa1f824454be96f8144fc349566d9e732b53', 'F5eM_jneZg', 'superviseur_national', '2024-05-22 13:58:17', '2024-05-22 13:58:34', '2024-05-22 13:58:17'),
+(123, 'SN-19', '4c08a09edcb23d14f674184a22ea48cc6f78efa9', 'SB_XJ5B6kV', 'superviseur_national', '2024-05-22 13:58:41', '2024-05-22 13:59:03', '2024-05-22 13:58:41'),
+(124, 'SN-20', '888b3816f862ef1c465952a42e30366ea96c29b1', 'nEqxr4_fJp', 'superviseur_national', '2024-05-22 13:59:17', '2024-05-22 13:59:36', '2024-05-22 13:59:17'),
+(125, 'SN-21', 'ff1a3be21d56bb656279f923f00dddbfdb04c9bd', '59_QgHbzGW', 'superviseur_national', '2024-05-22 13:59:48', '2024-05-22 14:00:10', '2024-05-22 13:59:48'),
+(126, 'SN-22', '489dd4f1230a82e4adcf8119222a96bfe8694734', 'b#d3FB6TWR', 'superviseur_national', '2024-05-22 14:00:21', '2024-05-22 14:00:38', '2024-05-22 14:00:21'),
+(127, 'SN-23', 'ba4019965ba928e5f2dcc00f81451be53370464f', 'FHeFQYe4#7', 'superviseur_national', '2024-05-22 14:00:55', '2024-05-22 14:01:17', '2024-05-22 14:00:55'),
+(128, 'SN-24', '463ad66c647fa29396c85fdc7e1c3c8ed493adb0', '#w7sg277JM', 'superviseur_national', '2024-05-22 14:01:38', '2024-05-22 14:01:47', '2024-05-22 14:01:38'),
+(129, 'SN-25', '3daa9568b57c289cfd614988673ac6867549a4d2', 'GmUaA_4kKW', 'superviseur_national', '2024-05-22 14:02:09', '2024-05-22 14:02:58', '2024-05-22 14:02:09'),
+(130, 'SN-26', '93c9a6cf3add9a8f5e6139978bf727472327b29a', 'vy5Ytxt-7F', 'superviseur_national', '2024-05-22 14:03:13', '2024-05-22 14:03:27', '2024-05-22 14:03:13'),
+(131, 'SN-27', '92289657d01ac17d73c56fef3f392ed120017af9', 'FKX9#qXXtf', 'superviseur_national', '2024-05-22 14:03:44', '2024-05-22 14:04:01', '2024-05-22 14:03:44'),
+(132, 'SN-28', '07585f8b75fd23510a4cff2b73dbb790fad1487f', 'KFC66f@N4e', 'superviseur_national', '2024-05-22 14:04:28', '2024-05-22 14:05:20', '2024-05-22 14:04:28'),
+(133, 'SN-29', 'ea5142b35d45f0925435f221824e8a5a6188ce4f', 'pF2W9-3RrR', 'superviseur_national', '2024-05-22 14:05:07', '2024-05-22 14:05:23', '2024-05-22 14:05:07');
 
 -- --------------------------------------------------------
 
@@ -3841,13 +3861,13 @@ INSERT INTO `users` (`id_user`, `username`, `password`, `nonhashedpass`, `role`,
 --
 
 CREATE TABLE `utilisation_du_sol` (
-  `id` int(11) NOT NULL,
-  `cle_code_culture` varchar(20) NOT NULL,
-  `id_questionnaire` int(11) NOT NULL,
-  `code_culture` varchar(200) DEFAULT NULL,
-  `superficie_hec` varchar(10) DEFAULT NULL,
-  `superficie_are` varchar(10) DEFAULT NULL,
-  `en_intercalaire` varchar(10) DEFAULT NULL
+  `id` int NOT NULL,
+  `cle_code_culture` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_questionnaire` int DEFAULT NULL,
+  `code_culture` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superficie_hec` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superficie_are` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `en_intercalaire` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -3857,9 +3877,9 @@ CREATE TABLE `utilisation_du_sol` (
 --
 
 CREATE TABLE `validation_questionnaire` (
-  `id_validation` int(11) NOT NULL,
-  `id_questionnaire` int(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `id_validation` int NOT NULL,
+  `id_questionnaire` int NOT NULL,
+  `status` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -3899,8 +3919,8 @@ ALTER TABLE `controleur`
 ALTER TABLE `materiel_agricole`
   ADD PRIMARY KEY (`id_materiel_agricol`),
   ADD UNIQUE KEY `cle_materiel_agricole` (`cle_materiel_agricole`),
-  ADD KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE,
-  ADD KEY `id_questionnaire` (`id_questionnaire`) USING BTREE;
+  ADD KEY `id_questionnaire` (`id_questionnaire`),
+  ADD KEY `idx_id_questionnaire` (`id_questionnaire`,`cle_materiel_agricole`) USING BTREE;
 
 --
 -- Indexes for table `nb_quest_recensee`
@@ -3984,95 +4004,85 @@ ALTER TABLE `validation_questionnaire`
 -- AUTO_INCREMENT for table `admin_central`
 --
 ALTER TABLE `admin_central`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_admin` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `coherence_superficie`
 --
 ALTER TABLE `coherence_superficie`
-  MODIFY `id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `controleur`
 --
 ALTER TABLE `controleur`
-  MODIFY `id_controleur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_controleur` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `materiel_agricole`
 --
 ALTER TABLE `materiel_agricole`
-  MODIFY `id_materiel_agricol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_materiel_agricol` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nb_quest_recensee`
 --
 ALTER TABLE `nb_quest_recensee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id_questionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_questionnaire` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `recenseur`
 --
 ALTER TABLE `recenseur`
-  MODIFY `id_recensseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recensseur` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `status_juridique`
 --
 ALTER TABLE `status_juridique`
-  MODIFY `id_status_juridique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_status_juridique` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superficie_exploitation`
 --
 ALTER TABLE `superficie_exploitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `superviseur`
 --
 ALTER TABLE `superviseur`
-  MODIFY `id_superviseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_superviseur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `superviseur_national`
 --
 ALTER TABLE `superviseur_national`
-  MODIFY `id_superviseur_national` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_superviseur_national` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `utilisation_du_sol`
 --
 ALTER TABLE `utilisation_du_sol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `validation_questionnaire`
 --
 ALTER TABLE `validation_questionnaire`
-  MODIFY `id_validation` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `recenseur`
---
-ALTER TABLE `recenseur`
-  ADD CONSTRAINT `recenseur_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id_validation` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
