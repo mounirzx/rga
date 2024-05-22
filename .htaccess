@@ -29,3 +29,4 @@ RewriteRule ^QuestionnairePreview$ ./questionnaire_update.php?id=%1 [NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ not-found/not-found.html [L]
+RewriteRule ^Logs(/.*)?$ not-found/not-found.html [L]
