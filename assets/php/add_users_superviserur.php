@@ -99,19 +99,19 @@ try {
     $updateLastLogin->execute(array($id_user));
 
     // Include the code for sending emails
-    $url = 'https://rga.madr.gov.dz/rga-mails/';
+    // $url = 'https://rga.madr.gov.dz/rga-mails/';
     // Initialize cURL session
-    $ch = curl_init($url);
+    // $ch = curl_init($url);
 
-    $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email,'link'=>$link];
-    // Set the POST data
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    // $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email,'link'=>$link];
+    // // Set the POST data
+    // curl_setopt($ch, CURLOPT_POST, true);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
     // Execute the request
-    $response = curl_exec($ch);
-    // Close cURL session
-    curl_close($ch);
+    // $response = curl_exec($ch);
+    // // Close cURL session
+    // curl_close($ch);
 
     echo json_encode(array("response"=> "true"));
 } catch (Exception $e) {

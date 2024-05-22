@@ -179,9 +179,8 @@ if(!emailRegex.test(email)){
                 $('#email_error').html('')
                 $('#first_name_error').html('')
                 $('#last_name_error').html('')
-            
                 $.ajax({
-                    url:"assets/php/add_users.php",
+                    url:"assets/php/add_users_superviserur.php",
                     method:'post',
                     async:false,
                     data:{role:"superviseur",first_name:first_name,last_name:last_name,email:email,phone:phone,wilaya:wilaya,username:username,password:password},
