@@ -1523,7 +1523,7 @@ acte de concession ?
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface_are bneder controle_sumSj_sat_hectare" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  form-control  coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1561,7 +1561,7 @@ acte de concession ?
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface  form-control coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1604,7 +1604,7 @@ acte de concession ?
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1647,7 +1647,7 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1724,7 +1724,7 @@ acte de concession ?
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     <input class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="pacages_et_parcours_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1753,7 +1753,7 @@ acte de concession ?
             
                      
                      
-                     <input  class="form-control bneder surface coherence_surface_total-surface_are controle_sumSj_sat_hectare" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control bneder surface coherence_surface_total-surface controle_sumSj_sat_hectare" name="surfaces_improductives_2"  maxlength="2" num   value="">
                      
                </div>
             </td>
@@ -1801,7 +1801,7 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface_are bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     <input  class="surface  form-control coherence_surface_total-surface bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
                      
                </div>
             </td>
@@ -1827,7 +1827,7 @@ acte de concession ?
                   
                 
                      
-                  <input  disabled bleuBG class="surface bneder form-control  coherence_surface_total-surface_are  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   num maxlength="2" >
+                  <input  disabled bleuBG class="surface bneder form-control  coherence_surface_total-surface  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   num maxlength="2" >
                      
 
                
