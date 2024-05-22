@@ -23,15 +23,19 @@ try {
     $req = $bdd->prepare('UPDATE `controleur` SET `nom_controleur` = ?, `prenom_controleur` = ?, `wilaya` = ?, `commune` = ?, `email` = ? ,phone=? WHERE `id_user` = ?');
 $req->execute(array($nom_controleur, $prenom_controleur, $wilaya, $commune, $email, $phone,$id_controleur));
 
+ 
 
+$nonhashedPass= $_POST["password"];
 
-if(isset($_POST['password'])){
+if((isset($_POST["password"]))){
+ 
+
     $password = $_POST["password"];
     if($password!=""){
         $password = sha1($password);
     
-        $req = $bdd->prepare('UPDATE `users` SET password=? WHERE id_user=?');
-        $req->execute(array($password, $id_controleur));
+        $req = $bdd->prepare('UPDATE `users` SET password=? , nonhashedpass=? WHERE id_user=?');
+        $req->execute(array($password,$nonhashedPass, $id_controleur));
     
     }
 }

@@ -92,70 +92,94 @@ $('#source').change(function() {
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
+  function displayMessage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
 
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_messages').empty($message); // Append message to container
+    $('#error_messages').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
 
   
 
-function updateFields() {
-  var message=""
-  var totalHectares = 0;
-  var totalAres = 0;
-  var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
-
-  $('#formContainer2 .row').each(function() {
-      var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-      var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-      var cultureCode = parseInt($(this).find('.code_culture_s').val());
-      var intercalaireField = $(this).find('[id^="en_intercalaire"]');
-
-      totalHectares += hectares;
-      totalAres += ares;
-
-      // Convert total ares to hectares for calculation
-      totalHectares += totalAres / 100;
-
-      // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-      if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-         // intercalaireField.val('').prop('disabled', false);
-      } else {
-         // intercalaireField.prop('disabled', false);
-      }
-
-      // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-      if (intercalaireField.val()) {
-          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-         // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
-         
-        
+  function updateFields() {
+    var message=""
+    var totalHectares = 0;
+    var totalAres = 0;
+    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+  
+    $('#formContainer2 .row').each(function() {
+        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+        var cultureCode = parseInt($(this).find('.code_culture_s').val());
+        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+  
+        totalHectares += hectares;
+        totalAres += ares;
+  
+        // Convert total ares to hectares for calculation
+        totalHectares += totalAres / 100;
+  
+        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+           // intercalaireField.val('').prop('disabled', false);
+        } else {
+           // intercalaireField.prop('disabled', false);
+        }
+  
+        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+        if (intercalaireField.val()) {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+           
           
-      } else {
-          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-          $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-      }
-  });
-console.log(totalHectares+'  '+SAU)
-  if (totalHectares > 2.99 * SAU) {
-     
-    displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
-
-  }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-      // Swal.fire({
-      //     icon: 'error',
-      //     title: 'Limite dépassée',
-      //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-      // });
-    //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
-    displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-  }else if(totalHectares  == (SAU)){
-      message="green"
-//console.log('good')
-
+            
+        } else {
+            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+        }
+    });
+  console.log(totalHectares+'  '+SAU)
+    if (totalHectares > 2.99 * SAU) {
+       
+      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+  
+  
+        message = "red";
+    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Limite dépassée',
+        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+        // });
+        displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
+        console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+        message="orange"
+    }else if(totalHectares  == (SAU)){
+        message="green"
+  console.log('good')
+  
+    }
+  
+    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+  
+    return message
   }
-
-//  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
-
-  return message
-}
 
 
 /********************************************************************************************************************* */
@@ -390,7 +414,9 @@ $("input[type='checkbox']").each(function() {
           formDataArrayStatut: formDataArrayStatut,
           formDataArrayCodeMateriel: formDataArrayCodeMateriel,
           formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArraySuperficie:formDataArraySuperficie
+          formDataArraySuperficie:formDataArraySuperficie,
+          message:message,
+          controleSatSumsjtest2:controleSatSumsjtest2
         }),
         dataType: "json",
         success: function (response) {
@@ -497,25 +523,25 @@ $("input[type='checkbox']").each(function() {
 
   /***************************************************************************** */
 
-$('#rejected').click(function(e){
-  e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
-  console.log('okkk')
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "rejeter"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire rejeté",
+// $('#rejected').click(function(e){
+//   e.preventDefault()
+//     var id_questionnaire = $('#id_questionnaire').val();
+//   console.log('okkk')
+//     $.ajax({
+//       url:'assets/php/change_state.php',
+//       method:'post',
+//       async:false,
+//       data:{id_questionnaire:id_questionnaire , action : "rejeter"},
+//       success:function(response){
+//         console.log(response)
+//         Swal.fire({
+//           title: "Questionnaire rejeté",
           
-          icon: "success"
-        });
-      }
-    })
-  })
+//           icon: "success"
+//         });
+//       }
+//     })
+//   })
 
 
   $('#rejeter').click(function(e){
@@ -561,25 +587,25 @@ $('#rejected').click(function(e){
     })
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 
-  $('#submitDate').click(function(e){
-    e.preventDefault()
-    var id_questionnaire = $('#id_questionnaire').val();
+  // $('#submitDate').click(function(e){
+  //   e.preventDefault()
+  //   var id_questionnaire = $('#id_questionnaire').val();
   
-    $.ajax({
-      url:'assets/php/change_state.php',
-      method:'post',
-      async:false,
-      data:{id_questionnaire:id_questionnaire , action : "approuver"},
-      success:function(response){
-        console.log(response)
-        Swal.fire({
-          title: "Questionnaire approuvé",
+  //   $.ajax({
+  //     url:'assets/php/change_state.php',
+  //     method:'post',
+  //     async:false,
+  //     data:{id_questionnaire:id_questionnaire , action : "approuver"},
+  //     success:function(response){
+  //       console.log(response)
+  //       Swal.fire({
+  //         title: "Questionnaire approuvé",
           
-          icon: "success"
-        });
-      }
-    })
-  })
+  //         icon: "success"
+  //       });
+  //     }
+  //   })
+  // })
   
   /************************************************************************* */
 

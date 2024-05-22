@@ -161,72 +161,69 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 });
 
 // Dropdown change events for handling specific conditions
-
-
-
-
-
 function updateFields() {
-    var message=""
-    var totalHectares = 0;
-    var totalAres = 0;
-    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+  var message=""
+  var totalHectares = 0;
+  var totalAres = 0;
+  var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
 
-    $('#formContainer2 .row').each(function() {
-        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        var cultureCode = parseInt($(this).find('.code_culture_s').val());
-        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+  $('#formContainer2 .row').each(function() {
+      var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+      var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+      var cultureCode = parseInt($(this).find('.code_culture_s').val());
+      var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-        totalHectares += hectares;
-        totalAres += ares;
+      totalHectares += hectares;
+      totalAres += ares;
 
-        // Convert total ares to hectares for calculation
-        totalHectares += totalAres / 100;
+      // Convert total ares to hectares for calculation
+      totalHectares += totalAres / 100;
 
-        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-           // intercalaireField.val('').prop('disabled', false);
-        } else {
-           // intercalaireField.prop('disabled', false);
-        }
+      // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+      if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+         // intercalaireField.val('').prop('disabled', false);
+      } else {
+         // intercalaireField.prop('disabled', false);
+      }
 
-        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-        if (intercalaireField.val()) {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
-           
+      // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+      if (intercalaireField.val()) {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+         // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+         
+        
           
-            
-        } else {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-        }
-    });
+      } else {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+          $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+      }
+  });
 console.log(totalHectares+'  '+SAU)
-    if (totalHectares > 2.99 * SAU) {
-       
-      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+  if (totalHectares > 2.99 * SAU) {
+     
+    displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
 
-    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Limite dépassée',
-        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-        // });
-      //  console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+
+      message = "red";
+  }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+      // Swal.fire({
+      //     icon: 'error',
+      //     title: 'Limite dépassée',
+      //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+      // });
       displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-    }else if(totalHectares  == (SAU)){
-        message="green"
-//console.log('good')
+      console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+      message="orange"
+  }else if(totalHectares  == (SAU)){
+      message="green"
+console.log('good')
 
-    }
+  }
 
   //  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
 
-    return message
+  return message
 }
-
 
 /********************************************************************************************************************* */
 function controleSatSumsjtest () {
@@ -563,7 +560,7 @@ if(data[i].message_coherence_util_sol!=""){
 }
 
 
-          qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
+          qst_list += "<tr style=' background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
     "' data-id='" + data[i].id_questionnaire +
@@ -652,70 +649,77 @@ if(data[i].message_coherence_util_sol!=""){
 // });
 
 
+
 $(document).on('keyup','.coherence_surface_total-surface',function(){
-  var supStatutJur= 0
-    /***********************************************/
-      var sum_superficie_hectare= 0
-  
-          $(".statut_juridique_s").each(function () {
-            var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+var supStatutJur= 0 
+  /***********************************************/
+    var sum_superficie_hectare= 0
+
+        $(".statut_juridique_s").each(function () {
+          var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+        
+          superficie_hectare=parseFloat(superficie_hectare)
          
-            superficie_hectare=parseFloat(superficie_hectare)
-           
-              if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
-                sum_superficie_hectare += superficie_hectare;
-              }
-          });
-  
-  
-          var sum_superficie_are= 0
-     
-              $(".statut_juridique_s").each(function () {
-                var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
-                console.log(superficie_are)
-                superficie_are=parseFloat(superficie_are)
-                  if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
-                    sum_superficie_are += superficie_are;
-                  }
-              });
-  
+            if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+              sum_superficie_hectare += superficie_hectare;
+            }
+        });
+
+
+        var sum_superficie_are= 0
+    
+            $(".statut_juridique_s").each(function () {
+              var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+              console.log(superficie_are)
+              superficie_are=parseFloat(superficie_are)
+                if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                  sum_superficie_are += superficie_are;
+                }
+            });
+
+            supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
+            if(sum_superficie_are >= 100){
+      
+              var divisor = 100
+              var quotient = Math.floor(sum_superficie_are / divisor);
+              var sum_superficie_are = sum_superficie_are % divisor;
+         
+              sum_superficie_hectare   = sum_superficie_hectare+quotient
+
+    
+
               supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
-              if(sum_superficie_are >= 100){
        
-                var divisor = 100
-                var quotient = Math.floor(sum_superficie_are / divisor);
-                var sum_superficie_are = sum_superficie_are % divisor;
-           
-                sum_superficie_hectare   = sum_superficie_hectare+quotient
-  
-     
-  
-                supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
-         
-              }
-  
-  
-  var superficie_total = 0
-           var sup_total     = null
-  var sup_total =  $('#surface_totale_st_1').val()
-  var surface_totale_st_2 =  $('#surface_totale_st_2').val()
-  
-  superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
-  //alert(superficie_total)
-  
-  // if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
-    if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!==superficie_total)){
-      console.log("supStatutJur <= superficie_total red")
-      //console.log('ok')
-      $('.surface_total_error').css('border','3px solid red')
-    }else{
-      console.log('supStatutJur>=superficie_total green ')
-      $('.surface_total_error').css('border','3px solid green')
-      //$('.surface_total_error').css('border','')
-     }
-  
-    //}
-      })
+            }
+
+
+var superficie_total = 0
+         var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+var surface_totale_st_2 =  $('#surface_totale_st_2').val()
+
+console.log(surface_totale_st_2)
+superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
+
+
+// if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+  if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!=superficie_total)){
+    console.log("supStatutJur")
+    console.log(supStatutJur)
+    console.log("superficie_total")
+    console.log(superficie_total)
+    console.log("supStatutJur <= superficie_total")
+    //console.log('ok')
+    $('.surface_total_error').css('border','3px solid red')
+   }else{
+    console.log('supStatutJur>=superficie_total')
+    $('.surface_total_error').css('border','3px solid green')
+    //$('.surface_total_error').css('border','')
+   }
+
+  //}
+    })
+
 /********************************************************************************************************************* */
 
 $(document).on('input', '.controle_sumSj_sat_hectare', function () {
@@ -765,7 +769,7 @@ var sum_superfecie_sj=0
 
     var elements = document.getElementsByClassName("surface");
     for (var i = 0; i < elements.length; i++) {
-   
+    
       elements[i].addEventListener("input", function () {
         var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
@@ -773,184 +777,197 @@ var sum_superfecie_sj=0
         var cultures_herbacees_1 = parseFloat(document.getElementsByName("cultures_herbacees_1")[0].value) || 0;
         var superficie_agricole_utile_sau_1 = prairies_naturelles_1 + plantations_arboriculture_1 + terres_au_repos_jacheres_1 + cultures_herbacees_1;
         document.getElementsByName("superficie_agricole_utile_sau_1")[0].value = (superficie_agricole_utile_sau_1);
-   
+ 
         var prairies_naturelles_2 = parseFloat(document.getElementsByName("prairies_naturelles_2")[0].value) || 0;
         var plantations_arboriculture_2 = parseFloat(document.getElementsByName("plantations_arboriculture_2")[0].value) || 0;
         var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
         var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
         var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
         document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2);
-   
-   
+ 
+ 
         var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
         var plantations_arboriculture_3 = parseFloat(document.getElementsByName("plantations_arboriculture_3")[0].value) || 0;
         var terres_au_repos_jacheres_3 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_3")[0].value) || 0;
         var cultures_herbacees_3 = parseFloat(document.getElementsByName("cultures_herbacees_3")[0].value) || 0;
         var superficie_agricole_utile_sau_3 = prairies_naturelles_3 + plantations_arboriculture_3 + terres_au_repos_jacheres_3 + cultures_herbacees_3;
         document.getElementsByName("superficie_agricole_utile_sau_3")[0].value = (superficie_agricole_utile_sau_3);
-   
+ 
         var prairies_naturelles_4 = parseFloat(document.getElementsByName("prairies_naturelles_4")[0].value) || 0;
         var plantations_arboriculture_4 = parseFloat(document.getElementsByName("plantations_arboriculture_4")[0].value) || 0;
         var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
         var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
         var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
         document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4);
-   
-   
+ 
+ 
         var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
         var surfaces_improductives_1 = parseFloat(document.getElementsByName("surfaces_improductives_1")[0].value) || 0;
       //  console.log(surfaces_improductives_1)
         var superficie_agricole_totale_sat_1 = pacages_et_parcours_1 + surfaces_improductives_1 + superficie_agricole_utile_sau_3
         document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
-   
-   
-   
+ 
+
+
         var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
         var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-        var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4 + superficie_agricole_utile_sau_2
+        var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
         document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-   
+ 
         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
         var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1
         document.getElementsByName("surface_totale_st_1")[0].value = (surface_totale_st_1 + superficie_agricole_totale_sat_1 + superficie_agricole_utile_sau_1);
-       
-   
+        
+ 
         var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
         var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2
         document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-   
-   /******************************** */
-   
-   
-   if(superficie_agricole_utile_sau_2>=100){
-   // console.log(superficie_agricole_utile_sau_1)
-   var divisor = 100;
-   // Calculate the quotient (result of integer division)
-   var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-   var quotient = Math.floor(divider / divisor);
-   // Calculate the remainder
-   var superficie_agricole_utile_sau_2 = divider % divisor;
-   $('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
-   $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
 
-   var superficie_agricole_utile_sau_3 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_3")[0].value) || 0;
-   var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
-   var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   
-   document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-   document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-   document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (parseFloat(superficie_agricole_utile_sau_1)+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1)+ quotient);
-   
-   // var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-   // var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val()
-   
-   
-   
-   var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
-   var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-   
-   document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
-   }
-   
-   if(superficie_agricole_utile_sau_4>=100){
-   //console.log(superficie_agricole_utile_sau_4)
-   var divisor = 100;
-   var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-   var superficie_agricole_utile_sau_4 = divider % divisor;
-   var quotient = Math.floor(divider / divisor);
-   
-   
-   
-   $('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
-   $('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
-   
-   
-   
-   var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
-   var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-   var superficie_agricole_utile_sau_2 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_2")[0].value) || 0;
-   var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-   
-   var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-   
-   document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
-   document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2);
-   
-   $('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
-   
-   
-   }
-   
-   var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-   if(superficie_agricole_totale_sat_2>=100){
-   
-   var divisor = 100;
-   var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
-   var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
-   
-   //console.log(divider)
-   var superficie_agricole_totale_sat_2 = divider % divisor;
-   var quotient = Math.floor(divider / divisor);
-   
-   
-   var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
-   var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-   var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-   var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
-   
-   
-   
-   
-   
-   document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
-   
-   var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-   
-   $('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
-   
-   
-   
-   console.log('*********************************')
-   console.log(superficie_agricole_utile_sau_1)
-   console.log(superficie_agricole_utile_sau_3)
-   console.log('*********************************')
-   
-   
-   var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
-   
-   
-   var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
-   
-   
-   document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
-   }
-   
-   /*********************************************** */
-   var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
-   if(surface_totale_st_2>=100){
-   var divisor = 100;
-   
-   
-   var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-   var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-   var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
-   var surface_totale_st_2 = divider % divisor;
-   var quotient = Math.floor(divider / divisor);
-   document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
-   var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-   $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
-   }
-   
-   
-   
-   
-      });
-   }
+/******************************** */
+
+
+if(superficie_agricole_utile_sau_2>=100){
+ // console.log(superficie_agricole_utile_sau_1)
+var divisor = 100;
+// Calculate the quotient (result of integer division)
+var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+var quotient = Math.floor(divider / divisor);
+// Calculate the remainder
+var superficie_agricole_utile_sau_2 = divider % divisor;
+$('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+
+
+var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
+var superficie_agricole_utile_sau_3 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_3")[0].value) || 0;
+
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+
+
+document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1));
+
+
+//var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+
+
+//  var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val()
+
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+if(superficie_agricole_utile_sau_4>=100){
+//console.log(superficie_agricole_utile_sau_4)
+var divisor = 100;
+var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+var superficie_agricole_utile_sau_4 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+
+
+
+$('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
+
+
+
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+var superficie_agricole_utile_sau_2 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_2")[0].value) || 0;
+var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+
+var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
+document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2);
+
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+if(superficie_agricole_totale_sat_2>=100){
+
+var divisor = 100;
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
+
+//console.log(divider)
+var superficie_agricole_totale_sat_2 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+
+
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
+
+
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
+
+
+
+console.log('*********************************')
+console.log(superficie_agricole_utile_sau_1)
+console.log(superficie_agricole_utile_sau_3)
+console.log('*********************************')
+
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+/*********************************************** */
+var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
+if(surface_totale_st_2>=100){
+var divisor = 100;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
+var surface_totale_st_2 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+$('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
+}
+
+
+
+
+    });
+}
+
 
 
     $('#exploitant').on('change', function() {
