@@ -206,7 +206,7 @@ function updateFields() {
 console.log(totalHectares+'  '+SAU)
   if (totalHectares > 2.99 * SAU) {
      
-    displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+   // displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
 
 
       message = "red";
@@ -216,8 +216,8 @@ console.log(totalHectares+'  '+SAU)
       //     title: 'Limite dépassée',
       //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
       // });
-      displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-      console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+    //  displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
+      //console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
       message="orange"
   }else if(totalHectares  == (SAU)){
       message="green"
