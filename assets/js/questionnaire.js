@@ -702,6 +702,9 @@ $(document).on('keypress','.coherence_surface_total-surface',function(){
   var sup_total =  $('#surface_totale_st_1').val()
   var surface_totale_st_2 =  $('#surface_totale_st_2').val()
   
+
+  console.log(sup_total)
+  console.log(surface_totale_st_2)
   superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
   console.log("********************")
   console.log(supStatutJur)
