@@ -18,12 +18,12 @@ $form = json_decode(file_get_contents("php://input"), true);
    
     
 
-    // // Debugging: Log formDataArrayStatut to check content
-    // ob_start();
-    // echo "Debug: ", print_r($formDataArraySuperficie, true);
-    // $logData = ob_get_clean();
-    // $logFilePath = __DIR__ . '/logfile.log';
-    // file_put_contents($logFilePath, $logData, FILE_APPEND);
+    // Debugging: Log formDataArrayStatut to check content
+    ob_start();
+    echo "Debug: ", print_r($formDataArrayStatut, true);
+    $logData = ob_get_clean();
+    $logFilePath = __DIR__ . '/logfile.log';
+    file_put_contents($logFilePath, $logData, FILE_APPEND);
 
     // Prepare the list of fields to update, excluding specific fields
     $excludeFields = ['origine_des_terres', 'status_juridique', 'superficie_hectare', 'superficie_are'];
@@ -247,11 +247,11 @@ $cle_code_culture = ($result !== false && is_array($result)) ? $result['cle_code
 $id_questionnaire = ($result !== false && is_array($result)) ? $result['id_questionnaire'] : 0;
 
 // Insert new record if the questionnaire does not exist
-// if ($id > 0) {
-//     $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
-//     $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-//     $deleteStmt->execute();
-// }
+if ($id > 0) {
+    $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    $deleteStmt->execute();
+}
 
 foreach ($formDataArrayCodeCulture as $formData) {
     if (!empty($formData['code_culture'])) {

@@ -5795,7 +5795,7 @@ Petite et Moyenne Hydraulique
 
 // } else
 
-if ($_SESSION['role'] == "recenseur") {
+if ($_SESSION['role'] == "recenseur" || $_SESSION['role'] == "admin") {
     $approveBtnText = "Ajouter";
     $rejectBtnText = "Annuler";
 }
@@ -5805,7 +5805,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 <?php 
 
-if($_SESSION['role'] == "recenseur"){
+if($_SESSION['role'] == "recenseur" || $_SESSION['role'] == "admin"){
   ?>
   <div class="row">
     <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">

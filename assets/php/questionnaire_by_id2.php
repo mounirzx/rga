@@ -4,7 +4,7 @@ include('config.php');
 
 header('Content-Type: application/json');  // Ensure the output is treated as JSON
 
-$id = 25; // Assuming you have the ID to fetch records
+$id = 11; // Assuming you have the ID to fetch records
 
 try {
     // Establish a connection to the database
@@ -87,12 +87,12 @@ $stmt_sj->execute();
 $results['status_juridique'] = $stmt_sj->fetchAll(PDO::FETCH_ASSOC);
 
 // Insert an empty row at the beginning
-array_unshift($results['status_juridique'], array(
-    'origine_des_terres' => '',
-    'status_juridique' => '',
-    'superfecie_sj' => '',
-    'superfecie_sj_are' => ''
-));
+// array_unshift($results['status_juridique'], array(
+//     'origine_des_terres' => '',
+//     'status_juridique' => '',
+//     'superfecie_sj' => '',
+//     'superfecie_sj_are' => ''
+// ));
 
     // Output the combined array
     echo json_encode($results);

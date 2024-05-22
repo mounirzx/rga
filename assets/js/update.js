@@ -154,7 +154,7 @@ $(document).ready(function () {
             $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
         }
     });
-  console.log(totalHectares+'  '+SAU)
+  //console.log(totalHectares+'  '+SAU)
     if (totalHectares > 2.99 * SAU) {
        
       //displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
@@ -172,11 +172,11 @@ $(document).ready(function () {
         message="orange"
     }else if(totalHectares  == (SAU)){
         message="green"
-  console.log('good')
+ // console.log('good')
   
     }
   
-    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+   // console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
   
     return message
   }
@@ -241,6 +241,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
 
 
   $("#submitDate").click(function (e) {
+    
     e.preventDefault();
     var message = updateFields()
     var controleSatSumsjtest2 = controleSatSumsjtest()
@@ -308,7 +309,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
      
       if (isValidObject(formDataCodeCulture)) {
         formDataArrayCodeCulture.push(formDataCodeCulture);
-        //console.log("the array:", formDataArrayCodeCulture);
+        console.log("the array:", formDataArrayCodeCulture);
     } else {
       
     }
@@ -357,13 +358,13 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
     var day_of_passage = $("#day_of_passage").val();
     var month_of_passage = $("#month_of_passage").val();
     var year_of_passage = $("#year_of_passage").val();
-    var formattedDatePassage =
-      day_of_passage.padStart(2, "0") +
-      "-" +
-      month_of_passage.padStart(2, "0") +
-      "-" +
-      year_of_passage;
-    formDataObj["date_passage"] = formattedDatePassage;
+    // var formattedDatePassage =
+    //   day_of_passage.padStart(2, "0") +
+    //   "-" +
+    //   month_of_passage.padStart(2, "0") +
+    //   "-" +
+    //   year_of_passage;
+   // formDataObj["date_passage"] = formattedDatePassage;
 
     var jour_de_naissance = $("#jour_de_naissance").val();
     var mois_de_naissance = $("#mois_de_naissance").val();
@@ -547,14 +548,14 @@ $("input[type='checkbox']").each(function() {
   $('#rejeter').click(function(e){
     e.preventDefault()
       var id_questionnaire = $('#id_questionnaire').val();
-    console.log('okkk')
+    //console.log('okkk')
       $.ajax({
         url:'assets/php/change_state.php',
         method:'post',
         async:false,
         data:{id_questionnaire:id_questionnaire , action : "rejeter"},
         success:function(response){
-          console.log(response)
+         // console.log(response)
           Swal.fire({
             title: "Questionnaire rejeté",
             
@@ -576,7 +577,7 @@ $("input[type='checkbox']").each(function() {
         async:false,
         data:{id_questionnaire:id_questionnaire , action : "approuver"},
         success:function(response){
-          console.log(response)
+       //   console.log(response)
           Swal.fire({
             title: "Questionnaire approuvé",
             
@@ -690,7 +691,7 @@ var listOrigineTerre = {
  // console.log(idPart); // Log the extracted part to the console
 
  var selectedValue = $(this).val();
- console.log(selectedValue)
+// console.log(selectedValue)
  if (selectedValue !== '6') {  // Check if the selected value is not '6'
      $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
      $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
