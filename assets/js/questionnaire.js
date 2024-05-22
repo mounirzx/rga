@@ -161,11 +161,6 @@ $('#superficie_agricole_utile_sau_1').on('change', function() {
 });
 
 // Dropdown change events for handling specific conditions
-
-
-
-
-
 function updateFields() {
   var message=""
   var totalHectares = 0;
@@ -225,7 +220,7 @@ console.log('good')
 
   }
 
-  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
+  //  console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
 
   return message
 }
@@ -654,74 +649,77 @@ if(data[i].message_coherence_util_sol!=""){
 // });
 
 
-$(document).on('keypress','.coherence_surface_total-surface',function(){
-  var supStatutJur= 0
-    /***********************************************/
-      var sum_superficie_hectare= 0
-  
-          $(".statut_juridique_s").each(function () {
-            var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
-         
-            superficie_hectare=parseFloat(superficie_hectare)
-           
-              if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
-                sum_superficie_hectare += superficie_hectare;
-              }
-          });
-  
-  
-          var sum_superficie_are= 0
-     
-              $(".statut_juridique_s").each(function () {
-                var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
-                console.log(superficie_are)
-                superficie_are=parseFloat(superficie_are)
-                  if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
-                    sum_superficie_are += superficie_are;
-                  }
-              });
-  
-              supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
-              if(sum_superficie_are >= 100){
-       
-                var divisor = 100
-                var quotient = Math.floor(sum_superficie_are / divisor);
-                var sum_superficie_are = sum_superficie_are % divisor;
-           
-                sum_superficie_hectare   = sum_superficie_hectare+quotient
-  
-     
-  
-                supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
-         
-              }
-  
-  
-  var superficie_total = 0
-           var sup_total     = null
-  var sup_total =  $('#surface_totale_st_1').val()
-  var surface_totale_st_2 =  $('#surface_totale_st_2').val()
-  
 
-  console.log(sup_total)
-  console.log(surface_totale_st_2)
-  superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
-  console.log("********************")
-  console.log(supStatutJur)
-  console.log(superficie_total)
-  console.log("********************")
+$(document).on('keyup','.coherence_surface_total-surface',function(){
+var supStatutJur= 0 
+  /***********************************************/
+    var sum_superficie_hectare= 0
 
-    if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!==superficie_total)){
+        $(".statut_juridique_s").each(function () {
+          var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+        
+          superficie_hectare=parseFloat(superficie_hectare)
+         
+            if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+              sum_superficie_hectare += superficie_hectare;
+            }
+        });
+
+
+        var sum_superficie_are= 0
     
-      $('.surface_total_error').css('border','3px solid red')
-    }else{
-  
-      $('.surface_total_error').css('border','3px solid green')
+            $(".statut_juridique_s").each(function () {
+              var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+              console.log(superficie_are)
+              superficie_are=parseFloat(superficie_are)
+                if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                  sum_superficie_are += superficie_are;
+                }
+            });
+
+            supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
+            if(sum_superficie_are >= 100){
       
-     }
-  
-    //}
-      })
+              var divisor = 100
+              var quotient = Math.floor(sum_superficie_are / divisor);
+              var sum_superficie_are = sum_superficie_are % divisor;
+         
+              sum_superficie_hectare   = sum_superficie_hectare+quotient
+
+    
+
+              supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
+       
+            }
+
+
+var superficie_total = 0
+         var sup_total     = null
+var sup_total =  $('#surface_totale_st_1').val()
+var surface_totale_st_2 =  $('#surface_totale_st_2').val()
+
+console.log(surface_totale_st_2)
+superficie_total = parseFloat(sup_total + "." + surface_totale_st_2);
+
+
+// if(cultures_herbacees_1!="" && terres_au_repos_jacheres_1!="" && plantations_arboriculture_1!="" && prairies_naturelles_1!="" && pacages_et_parcours_1!="" && surfaces_improductives_1 !="" && terres_forestieres_bois_forets_maquis_vides_labourables_1!=""){
+  if((supStatutJur!=undefined && superficie_total!="") && (supStatutJur!=superficie_total)){
+    console.log("supStatutJur")
+    console.log(supStatutJur)
+    console.log("superficie_total")
+    console.log(superficie_total)
+    console.log("supStatutJur <= superficie_total")
+    //console.log('ok')
+    $('.surface_total_error').css('border','3px solid red')
+   }else{
+    console.log('supStatutJur>=superficie_total')
+    $('.surface_total_error').css('border','3px solid green')
+    //$('.surface_total_error').css('border','')
+   }
+
+  //}
+    })
+
 /********************************************************************************************************************* */
 
 $(document).on('input', '.controle_sumSj_sat_hectare', function () {
@@ -829,7 +827,7 @@ var sum_superfecie_sj=0
 
 
 if(superficie_agricole_utile_sau_2>=100){
-// console.log(superficie_agricole_utile_sau_1)
+ // console.log(superficie_agricole_utile_sau_1)
 var divisor = 100;
 // Calculate the quotient (result of integer division)
 var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
