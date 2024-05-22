@@ -99,7 +99,7 @@ try {
     $updateLastLogin->execute(array($id_user));
 
     // Include the code for sending emails
-    $url = 'https://dgl.bneder.dz/rga-mails/';
+    $url = 'https://rga.madr.gov.dz/rga-mails/';
     // Initialize cURL session
     $ch = curl_init($url);
 

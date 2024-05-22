@@ -171,10 +171,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
                <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">Liste des utilisateurs  <br/>    قائمة المستخدمين</a>
+               <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">     <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">Liste des utilisateurs  <br/>    قائمة المستخدمين</a>
             </li>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="SuperviseursNational">Superviseurs nationaux  <br/>  المشرفين الوطنيين</a>
+               <a class="nav-link active" aria-current="page" href="SuperviseursNational"> <i style="font-size: 19px; color: blue;" class="fa-solid fa-user-tie"></i> &nbsp;Superviseurs nationaux  <br/>  المشرفين الوطنيين</a>
             </li>
             <?php
            }
@@ -184,7 +184,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="Superviseurs">Superviseurs wilayas <br/>  المشرفين الولائيين</a>
+               <a class="nav-link active" aria-current="page" href="Superviseurs"> <i style="font-size: 19px; color: green;" class="fa-solid fa-user-tie"></i>&nbsp;Superviseurs wilayas <br/>  المشرفين الولائيين</a>
             </li>
             <?php
            }
@@ -193,7 +193,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="admin"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="admin_central.php">Responsables centraux  <br/>  المسؤولين المركزيين </a>
+               <a class="nav-link active" aria-current="page" href="admin_central.php"> <i style="font-size: 19px; color: red;" class="fa-solid fa-user-tie"></i> &nbsp;Responsables centraux  <br/>  المسؤولين المركزيين </a>
             </li>
             <?php
            }
