@@ -4,7 +4,31 @@ if (isset($_GET['id'])) {
    $id = $_GET['id'];  // Retrieve the id
 
 } 
+
+include './assets/php/config.php';
+$etat="";
+try {
+
+    //connexion a la base de données
+    $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+    // LISTE BULLETIN
+    $req = $bdd->prepare('SELECT * FROM `questionnaire` where id_questionnaire =? ');
+    $req->execute(array($id));
+ 
+  $res = $req->fetch(PDO::FETCH_ASSOC);
+$etat = $res['etat'];
+
+
+} catch (Exception $e) {
+    $msg = $e->getMessage();
+    echo json_encode(array("reponse" => "false", "place" => "tc", "message" => $msg, "type" => "danger", "icon" => "nc-icon nc-bell-55", "autoDismiss" => 0));
+}
+
 ?>
+
+
+
 
 <!-- DB data questionnaire_by_id.php check button -->
 <!-- payload check button -->
@@ -5687,51 +5711,47 @@ Petite et Moyenne Hydraulique
 
 
 
-
-
-
-
-
-
-
-
 <?php
-// Determine button text based on user's role
+
+if ($_SESSION['role'] == "controleur" && $etat!="Approuvés" ){
 
 
-if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "controleur" || $_SESSION['role'] == "superviseur") {
-    $approveBtnText = "Valider";
-    $rejectBtnText = "Rejeter";
-?>
-    <div class="row">
+  ?>
 
-    <!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
-    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
-        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" ><?= $approveBtnText ?></button>
-    </div>
-    
-    <!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
-    <div class="col">
-        <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejected" href="#"><?= $rejectBtnText ?></button>
-    </div>
+<div class="row">
+
+<!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
+<div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+    <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" >Valider</button>
+</div>
+
+<!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
+<div class="col">
+    <button class="btn btn-danger btn-lg reject-btn" style="width: 100%;" id="rejeter" href="#">Rejeter</button>
+</div>
 </div>
 <?php
-} elseif ($_SESSION['role'] == "recenseur") {
-    $approveBtnText = "Modifier";
-    $rejectBtnText = "Annuler";
+
+}elseif ($_SESSION['role'] == "recenseur" && $etat!="Approuvés") {
+  $approveBtnText = "Modifier";
+  $rejectBtnText = "Annuler";
 
 ?>
-    <div class="row">
-    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
-        <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
-    </div>
-    <div class="col">
-        <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962"><?= $rejectBtnText ?></a>
-    </div>
+  <div class="row">
+  <div class="col">
+      <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button">Modifier</button>
+  </div>
+  <div class="col">
+      <a class="btn btn-danger btn-lg reject-btn" style="width: 100%;" href="#" data-state="rejected" data-id="962">Annuler</a>
+  </div>
 </div>
 <?php
 }
+
 ?>
+
+
+
 
 
 <script>
