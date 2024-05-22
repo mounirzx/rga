@@ -33,7 +33,7 @@ try {
         
         }
     }
-    $url = 'https://dgl.bneder.dz/rga-mails/rga-update-mails.php';
+    $url = 'https://rga.madr.gov.dz/rga-mails/rga-update-mails.php';
     // Initialize cURL session
     $ch = curl_init($url);
     
