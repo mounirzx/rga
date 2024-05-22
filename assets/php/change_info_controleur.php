@@ -23,7 +23,7 @@ try {
     $req = $bdd->prepare('UPDATE `controleur` SET `nom_controleur` = ?, `prenom_controleur` = ?, `wilaya` = ?, `commune` = ?, `email` = ? ,phone=? WHERE `id_user` = ?');
 $req->execute(array($nom_controleur, $prenom_controleur, $wilaya, $commune, $email, $phone,$id_controleur));
 
-
+ 
 
 $nonhashedPass= $_POST["password"];
 

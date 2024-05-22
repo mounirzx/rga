@@ -221,5 +221,24 @@ if(!emailRegex.test(email)){
             
                    
                 })
+           
+                
+
+
+
+                var count = 0;
+
+                $('#phone').on('input', function() {
+                    var input = $(this).val().trim();
+                    var numbers = input.replace(/\D/g, ''); // Remove non-numeric characters
             
+                    if (numbers.length > 10) {
+                        // If more than 10 numbers are entered, remove the extra ones
+                        numbers = numbers.slice(0, 10);
+                    }
+            
+                    $(this).val(numbers); // Update input value
+                    count = numbers.length;
+                });
+           
 })//ready
