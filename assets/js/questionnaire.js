@@ -560,7 +560,7 @@ if(data[i].message_coherence_util_sol!=""){
 }
 
 
-          qst_list += "<tr style='border:1px solid #262626; background:" + classes + "'>" +
+          qst_list += "<tr style=' background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
     "' data-id='" + data[i].id_questionnaire +
