@@ -44,7 +44,7 @@ if (cooldownRemainingTime) {
               } else if (data.success == 2) {
                   $(".error").html("Nom d'utilisateur ou mot de passe invalide");
               } else if (data.success == 3) {
-                  if (data.role == "superviseur" || data.role == "controleur") {
+                  if (data.role == "superviseur" || data.role == "controleur" || data.role=="superviseur_national") {
                       window.location = "Statistiques";
                   } else if (data.role == "recenseur" || data.role == "admin") {
                       window.location = "Questionnaire";
