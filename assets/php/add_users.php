@@ -117,20 +117,20 @@ try {
         $updateLastLogin = $bdd->prepare("UPDATE users SET last_login = NOW() WHERE id_user = ?");
         $updateLastLogin->execute(array($id_user));
     
-        // Include the code for sending emails
-        $url = 'https://dgl.bneder.dz/rga-mails/';
-        // Initialize cURL session
-        $ch = curl_init($url);
+        // // Include the code for sending emails
+        // $url = 'https://dgl.bneder.dz/rga-mails/';
+        // // Initialize cURL session
+        // $ch = curl_init($url);
     
-        $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email,'link'=>$link];
-        // Set the POST data
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        // $data = ['username'=>$username, 'nonhashedPass'=>$nonhashedPass, 'role'=>$role, 'email'=>$email,'link'=>$link];
+        // // Set the POST data
+        // curl_setopt($ch, CURLOPT_POST, true);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     
-        // Execute the request
-        $response = curl_exec($ch);
-        // Close cURL session
-        curl_close($ch);
+        // // Execute the request
+        // $response = curl_exec($ch);
+        // // Close cURL session
+        // curl_close($ch);
     
         echo json_encode(array("response"=> "true"));
     }else{
