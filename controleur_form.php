@@ -10,6 +10,7 @@ if(isset($_SESSION['wilaya'])){
    // $wilaya_name = $_SESSION['wilaya_name'];
 }
 
+$role = $_SESSION['role'];
 
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -80,7 +81,7 @@ if(isset($_SESSION['wilaya'])){
               
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom d'utilisateur</span>
-                    <input type="text" class="form-control" name="username" id="username" disabled>
+                    <input type="text" class="form-control" name="username" id="username" <?php $role=='admin'   ? '' : 'disabled'  ?>>
                 </div>
                 <br>
                 <br><div class="input-group input-group-sm">
@@ -99,15 +100,21 @@ if(isset($_SESSION['wilaya'])){
                 </div> -->
 
                 <script>
-                    function generatePassword() {
-                        // Generate a random 8-digit password
-                        var newPassword = Math.floor(10000000 + Math.random() * 90000000);
-                        
-                        // Set the generated password to the password input field
-                        document.getElementById("password").value = newPassword;
-                        //document.getElementById("password2").value = newPassword;
-                    }
-                </script>
+function generatePassword() {
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!!@@##&&**--()__++//:,.??"; // Define the characters to be used in the password
+    var password = "";
+    var length = 8; // Define the desired length of the password
+
+    for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charset.length); // Get a random index from the charset
+        password += charset[randomIndex]; // Append the character at the random index to the password
+    }
+    
+    // Set the generated password to the password input fields
+    document.getElementById("password").value = password;
+    document.getElementById("password2").value = password;
+}
+</script>
                 <br>
                 <button class="btn btn-success btn-lg" style="width: 100%;" id="valider">Valider</button>
             </form>

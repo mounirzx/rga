@@ -27,9 +27,9 @@ try {
         $password = $_POST["password"];
         if($password!=""){
             $password = sha1($password);
-        
-            $req = $bdd->prepare('UPDATE `users` SET password=? , nonhashedpass=? WHERE id_user=?');
-            $req->execute(array($password,$nonhashedPass, $id_recensseur));
+            
+            $req = $bdd->prepare('UPDATE `users` SET password=? , nonhashedpass=? ,username=? WHERE id_user=?');
+            $req->execute(array($password,$nonhashedPass,$username, $id_recensseur));
         
         }
     }
