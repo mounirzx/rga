@@ -6350,7 +6350,33 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
 });
     $('#formContainer3').append(inputs);
 
+    $('#delete3').on('click', function() {
+     // alert("formContainer3")
+       // Get the code_materiel value from data attribute
+       var code_materiel = $(this).data('code-materiel');
+     
 
+
+    // Send the data to the PHP file using AJAX
+    $.ajax({
+        url: 'assets/php/delete_row2.php',
+        type: 'POST',
+        data: {code_materiel: code_materiel},
+        success: function(response) {
+            // Handle the response from the server
+            Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
 
 
 
@@ -7023,6 +7049,37 @@ $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_
 
 
 $('#formContainer2').append(utilisation_du_sol_inputs);
+$('#delete2').on('click', function() {
+ //alert("formContainer2")
+       // Get the code_materiel value from data attribute
+       var superficie_are = $(this).data('code-superficie_are');
+       var superficie_hec = $(this).data('code-superficie_hec');
+     
+        console.log(superficie_hec);
+    $.ajax({
+        url: 'assets/php/delete_row.php',
+        type: 'POST',
+        data: {
+            // cle_code_culture: cle_code_culture,
+            // id_questionnaire: id_questionnaire,
+            // code_culture: code_culture,
+            superficie_hec: superficie_hec,
+            superficie_are: superficie_are
+        },
+        success: function(response) {
+         Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.',
+                });
+                row.remove(); // remove the row visually from the table
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.error(error);
+        }
+    });
+});
 
            
          }
