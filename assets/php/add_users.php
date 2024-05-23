@@ -67,15 +67,6 @@ try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-    $req = $bdd->prepare('select * from users where username =? ');
-    $req->execute(array($username));
-
-    $count = $req->rowCount();
-
-    if($count==0){
-
-
-
     $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`,nonhashedpass, `role`, `date_creation`) VALUES(?,?,?,?,NOW()) ');
     $req->execute(array($username, $password, $nonhashedPass,$role));
 
@@ -123,9 +114,6 @@ try {
     curl_close($ch);
 
     echo json_encode(array("response"=> "true"));
-}else{
-    echo json_encode(array("response"=> "false"));
-}
 } catch (Exception $e) {
     $msg = $e->getMessage();
     echo $msg;
