@@ -29,7 +29,7 @@ try {
             $password = sha1($password);
         
             $req = $bdd->prepare('UPDATE `users` SET password=? , nonhashedpass=? ,username=? WHERE id_user=?');
-            $req->execute(array($password,$nonhashedPass,$username, $id_controleur));
+            $req->execute(array($password,$nonhashedPass,$username, $id_recensseur));
         
         }
     }
