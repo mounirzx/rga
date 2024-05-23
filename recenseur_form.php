@@ -1,5 +1,8 @@
 <?php
 include('includes/header.php');
+
+$role = $_SESSION['role'];
+
 ?>
 
 
@@ -70,7 +73,26 @@ if(isset($_GET['controleur'])){
               
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom d'utilisateur</span>
-                    <input type="text" class="form-control" name="username" id="username" disabled>
+
+                    <?php 
+if($role=="admin"){
+
+    ?>
+ <input type="text" class="form-control" name="username" id="username">
+            
+<?php 
+
+
+}
+
+else{
+
+    ?>
+ <input type="text" class="form-control" name="username" id="username"  disabled >
+<?php 
+}
+                    ?>
+                 
                 </div>
                 <br>
                 <br><div class="input-group input-group-sm">
