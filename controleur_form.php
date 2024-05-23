@@ -11,6 +11,8 @@ if(isset($_SESSION['wilaya'])){
 }
 
 
+$role = $_SESSION['role'];
+
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -80,7 +82,7 @@ if(isset($_SESSION['wilaya'])){
               
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom d'utilisateur</span>
-                    <input type="text" class="form-control" name="username" id="username" disabled>
+                    <input type="text" class="form-control" name="username" id="username" <?php $role=='admin'   ? '' : 'disabled'  ?>>
                 </div>
                 <br>
                 <br><div class="input-group input-group-sm">
