@@ -83,6 +83,13 @@ $('#add_user').click(function(e){
                       $('#phone').val("")
                       $('#username').val("")
                       $('#password').val("")
+                }else if(data.response=="false"){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Cet utilisateur existe déja",
+                       
+                      });
                 }else{
                     Swal.fire({
                         icon: "error",

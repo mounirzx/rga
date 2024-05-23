@@ -205,6 +205,13 @@ if(!emailRegex.test(email)){
                               $('#phone').val("")
                               $('#username').val("")
                               $('#password').val("")
+                            }else if(data.response=="false"){
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "Cet utilisateur existe déja",
+                                   
+                                  });
                             }
                             else{
                                 Swal.fire({
