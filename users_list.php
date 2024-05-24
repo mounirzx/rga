@@ -135,7 +135,7 @@ include('includes/header.php');
                             }
 
 
-                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+nom+' '+prenom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button id="user_details" controleur="'+controleur+'" role="'+data[i].role+'" data="'+id_user+'" wilaya="'+wilaya+'"  wilaya_code_controleur ="'+wilaya_code_controleur+'"class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button></td></tr>'
+                        list_users+='<tr><td>'+(i+1)+'</td><td>'+data[i].username+'</td><td>'+wilaya+'</td><td>'+commune+'</td><td>'+prenom+' '+nom+'</td><td>'+phone+'</td><td>'+data[i].role+'</td><td><button id="user_details" controleur="'+controleur+'" role="'+data[i].role+'" data="'+id_user+'" wilaya="'+wilaya+'"  wilaya_code_controleur ="'+wilaya_code_controleur+'"class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i></button></td></tr>'
                     }
                     $('#list_users').empty()
                     $('#list_users').append(list_users)

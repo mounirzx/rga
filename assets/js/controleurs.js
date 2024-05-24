@@ -16,7 +16,7 @@ $(document).ready(function(){
               data = response
                 var list_controleurs=""
                 for(i=0;i<data.length;i++){
-                    list_controleurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].commune+"</td><td>"+data[i].nom_controleur+"  "+data[i].prenom_controleur+"</td><td>"+data[i].phone+"</td><td>Controleur</td><td><a href='./controleur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
+                    list_controleurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].commune+"</td><td>"+data[i].prenom_controleur_controleur+"  "+data[i].nom_controleur+"</td><td>"+data[i].phone+"</td><td>Controleur</td><td><a href='./controleur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
                 }
                 $('#list_controleurs').append(list_controleurs)
                 $('#tableControleur').DataTable();

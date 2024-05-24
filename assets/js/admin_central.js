@@ -16,7 +16,7 @@ $.ajax({
         var list_admin_central="";
         count_users=data.length;
         for(var i = 0; i<data.length; i++){
-            list_admin_central+="<tr><td></td><td>"+data[i].username+"</td><td>"+data[i].nom_admin+"</td><td>"+data[i].phone+"</td><td>Admin central</td><td><a class='btn btn-warning btn-sm'  href='edit_admin_central.php?id_user="+data[i].id_user+"'><i class='fa-solid fa-user-pen'></i></a></td></tr>"
+            list_admin_central+="<tr><td></td><td>"+data[i].username+"</td><td>"+data[i].prenom_admin+' '+data[i].nom_admin+"</td><td>"+data[i].phone+"</td><td>Admin central</td><td><a class='btn btn-warning btn-sm'  href='edit_admin_central.php?id_user="+data[i].id_user+"'><i class='fa-solid fa-user-pen'></i></a></td></tr>"
         }
         $('#list_admin_central').html(list_admin_central)
     }

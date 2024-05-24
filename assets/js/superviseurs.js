@@ -10,7 +10,7 @@ $(document).ready(function(){
               data = JSON.parse(response)
                 var list_superviseurs=""
                 for(i=0;i<data.length;i++){
-                    list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].nom_superviseur+"  "+data[i].prenom_superviseur+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
+                    list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].prenom_superviseur+"  "+data[i].nom_superviseur+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
                 }
                 $('#list_superviseurs').append(list_superviseurs)
                 $('#tableSuperviseur').DataTable();

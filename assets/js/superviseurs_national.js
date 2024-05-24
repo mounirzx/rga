@@ -16,7 +16,7 @@ $(document).ready(function(){
                     count_user = data.length
                    
                     for(i=0;i<data.length;i++){
-                        list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya+"</td><td>"+data[i].nom_superviseur_national+"  "+data[i].prenom_superviseur_national+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_national_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
+                        list_superviseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya+"</td><td>"+data[i].prenom_superviseur_national+"  "+data[i].nom_superviseur_national+"</td><td>"+data[i].phone+"</td><td>Superviseur</td><td><a href='./superviseur_national_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
                     }
                     $('#list_superviseurs_national').append(list_superviseurs)
                     $('#tableSuperviseur').DataTable();
