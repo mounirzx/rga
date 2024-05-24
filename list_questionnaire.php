@@ -99,7 +99,7 @@ include('includes/header.php');
 
             
             <br>
-            <table id="listTable" class="table table_bordered">
+            <table style="text-align:center" id="listTable" class="table table_bordered">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

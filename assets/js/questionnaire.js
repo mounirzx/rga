@@ -569,7 +569,7 @@ if(data[i].message_coherence_util_sol!=""){
     "</td><td>" +
     data[i].nom_exploitation +
     "</td><td>" +
-    data[i].nom_exploitation +
+    data[i].exploi_superficie_hec +
     "</td><td>" +
     data[i].wilaya_name_ascii +
     "</td><td>" +
