@@ -90,9 +90,12 @@ include('includes/header.php');
                         document.getElementById("password").value = newPassword;
                         //document.getElementById("password2").value = newPassword;
                     }
+                    function disableButton() {
+                        document.getElementById("valider").disabled = true;
+                    }
                 </script>
                 <br>
-                <button class="btn btn-success btn-lg" style="width: 100%;" id="valider">Valider</button>
+                <button class="btn btn-success btn-lg" style="width: 100%;" id="valider" onclick="disableButton()">Valider</button>
             </form>
         </div>
     </div>
