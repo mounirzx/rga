@@ -195,6 +195,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="admin_central.php"> <i style="font-size: 19px; color: red;" class="fa-solid fa-user-tie"></i> &nbsp;Responsables centraux  <br/>  المسؤولين المركزيين </a>
             </li>
+            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <a class="nav-link active" aria-current="page" href="Userupdate"> <i style="font-size: 19px; color: cayen;" class="fa-solid fa-user-tie"></i> &nbsp;modification des utilisateur  <br/>  تحديث المستخدمين</a>
+            </li>
             <?php
            }
            ?>       

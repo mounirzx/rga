@@ -543,11 +543,11 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
             classes = "#fff3cd;";
           }
           // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          // var encryptedId = CryptoJS.AES.encrypt(
-          //   data[i].id_questionnaire.toString(),
-          //   "your_secret_key"
-          // ).toString();
-// console.log(data[i].message_coherence_stat_jur)
+          var encryptedId = CryptoJS.AES.encrypt(
+            data[i].id_questionnaire.toString(),
+            "RGA"
+          ).toString();
+console.log(data[i].message_coherence_stat_jur)
 
 var message="Superficie tot egale SAU";
 if(data[i].message_coherence_stat_jur!=""){
@@ -563,6 +563,8 @@ if(data[i].message_coherence_util_sol!=""){
           qst_list += "<tr style=' background:" + classes + "'>" +
     "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
     encodeURIComponent(data[i].id_questionnaire) + 
+    "?Quest="+
+    btoa(encryptedId) +
     "' data-id='" + data[i].id_questionnaire +
     "'><i class='fa-solid fa-eye'></i></a></td><td>" +
     data[i].nom_exploitant + " " + data[i].prenom_exploitant +

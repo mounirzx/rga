@@ -1,7 +1,10 @@
+
 <?php
 include('includes/header.php');
 if (isset($_GET['id'])) {
-   $id = $_GET['id'];  // Retrieve the id
+  $id = $_GET['id'];  // Retrieve the id
+  $urlParts = explode("?", $id);
+  $id = $urlParts[0];
 
 } 
 
@@ -6017,8 +6020,30 @@ document.getElementById('submitDate').click();
          console.log("id")
          //alert('ok')
     // Fetch questionnaire data by ID on page load
-    var urlParams = new URLSearchParams(window.location.search);
-   var id = urlParams.get('id');
+
+  //   var urlParams = new URLSearchParams(window.location.search);
+  //  var id = urlParams.get('id');
+
+  var urlString = window.location.href;
+
+// Split the URL by the question mark to separate the query parameters
+var urlParts = urlString.split("?");
+// Get the last part which contains the query parameters
+var queryParams = urlParts[urlParts.length - 1];
+
+// Create a URLSearchParams object to parse the query parameters
+var searchParams = new URLSearchParams(queryParams);
+
+// Get the value of the 'Quest' parameter
+var questValue = searchParams.get('Quest');
+
+// Store the value of 'Quest' parameter in a variable
+var questVariable = questValue;
+// Decrypt the 'Quest' value
+var decryptedValue = CryptoJS.AES.decrypt(atob(questVariable), 'RGA').toString(CryptoJS.enc.Utf8);
+
+// Parse the decrypted value to an integer
+var id = parseInt(decryptedValue);
 
     if (id) {
         fetchQuestionnaireById(id);
@@ -6026,6 +6051,8 @@ document.getElementById('submitDate').click();
 
     // Function to fetch questionnaire data by ID
     function fetchQuestionnaireById(id) {
+
+      
         $.ajax({
             url: './assets/php/questionnaire_by_id.php',
             method: 'GET',
