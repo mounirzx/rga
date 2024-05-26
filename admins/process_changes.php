@@ -1,9 +1,6 @@
 <?php
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "rootRGAdb"; // Assuming empty password
-$dbname = "rga";
+include('config.php');
 
 try {
     // Create a PDO instance

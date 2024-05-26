@@ -1,9 +1,6 @@
 <?php
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "rootRGAdb";
-$dbname = "rga";
+include('config.php');
 
 // Function to establish database connection
 function connectToDatabase() {
