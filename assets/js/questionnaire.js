@@ -550,13 +550,29 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 console.log(data[i].message_coherence_stat_jur)
 
 var message="Superficie tot egale SAU";
-if(data[i].message_coherence_stat_jur!=""){
-  message=data[i].message_coherence_stat_jur
+if(data[i].message_coherence_stat_jur==null){
+  message="Pas de données";
 }
+if(data[i].message_coherence_stat_jur!=""){
+  if(data[i].message_coherence_stat_jur==null){
+    message="Pas de données";
+  }else{
+    message=data[i].message_coherence_stat_jur
+  }
 
+}
+console.log(message)
 var message_util_sol="SAT egal SUM sup util du sol"
+if(data[i].message_coherence_util_sol==null){
+  message_util_sol="Pas de données"
+}
 if(data[i].message_coherence_util_sol!=""){
-  message_util_sol=data[i].message_coherence_util_sol
+  if(data[i].message_coherence_util_sol==null){
+    message_util_sol="Pas de données"
+  }else{
+    message_util_sol=data[i].message_coherence_util_sol
+  }
+  //message_util_sol=data[i].message_coherence_util_sol
 }
 
 

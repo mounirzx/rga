@@ -2,7 +2,7 @@
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "rootRGAdb";
 $dbname = "rga";
 
 // Function to establish database connection using PDO

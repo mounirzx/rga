@@ -1842,6 +1842,48 @@ $('#activite_exploitation').change(function(){
         $('#type_activite_exploitation').html('  <option value="-" disabled selected><option value="1">1 - لديه أرض - Avec terre</option> <option value="2">2 - بدون أرض - Sans terre</option>')
     }
 })
+
+
+
+
+
+
+
+$('.double').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 5) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 5);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 2) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 2) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 2);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
  });
  
  

@@ -282,7 +282,27 @@ if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_centra
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background: aliceblue;">
-        <h5 class="modal-title" id="exampleModalLabel" style='font-size:15px'>Ajouter nombre d'exploiatations recensées par jour</h5>
+
+      <?php
+    if($_SESSION['role']=="superviseur"){
+
+   
+?>
+
+        <h5 class="modal-title" id="exampleModalLabel" style='font-size:15px'>Ajouter nombre d'exploiatations total à recenser </h5>
+
+        <?php
+
+    }elseif($_SESSION['role']=="controleur"){
+
+    
+?>
+ <h5 class="modal-title" id="exampleModalLabel" style='font-size:15px'>Ajouter nombre d'exploiatations recensées par jour </h5>
+ <?php
+
+    }
+?>
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = ""; // Assuming empty password
+$password = "rootRGAdb"; // Assuming empty password
 $dbname = "rga";
 
 try {

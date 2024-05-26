@@ -83,3 +83,4 @@
         adjustMaxWidth(); // Execute adjustMaxWidth
         numerottationCounter(); // Execute numerottationCounter
     })
+

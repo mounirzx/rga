@@ -24,11 +24,13 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
+    
+
     // Explicitly setting the connection character set to UTF-8 to ensure consistency
     $bdd->exec("SET NAMES 'utf8'");
     $bdd->exec("SET CHARACTER SET utf8");
 
-    
+    $bdd->beginTransaction();
 
 
     // Prepare parameters for SQL statement for questionnaire table
@@ -239,11 +241,15 @@ if($controleSatSumsjtest2=="green"){
 $req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES (?, ?, ?, ?,?)');
 $req4->execute(array($lastInsertId,$coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol));
 
-
+$bdd->commit();
 /************************************************************************ */
 // your database logic
     echo json_encode(['response' => true]);
 } catch (Exception $e) {
+
+    if ($bdd->inTransaction()) {
+        $bdd->rollBack();
+    }
     http_response_code(500); // Set appropriate response code
     echo json_encode(['response' => false, 'error' => $e->getMessage()]);
 }

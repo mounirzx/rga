@@ -4161,37 +4161,37 @@ $(document).ready(function(){
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
 <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
-محيطات الري المتوسطة و الصغرى<br>
-Petite et Moyenne Hydraulique
+مصدر الري   <br>
+Source d'irrigation
 </div>
 <div class="card-body">
 <div class="row">
 <div class="col">
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault666" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault666">سد<br>
+         <input class="form-check-input pm_hydraulique" id="eau_barrage" name="eau_barrage" type="checkbox"> <label class="form-check-label" for="eau_barrage">سد<br>
          Barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault777" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="flexCheckDefault777">محطة معالجة مياه الصرف<br>
+         <input class="form-check-input pm_hydraulique" id="eau_station_depuration" name="eau_station_depuration" type="checkbox"> <label class="form-check-label" for="eau_station_depuration">محطة معالجة مياه الصرف<br>
          Station d'épuration</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault888" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="flexCheckDefault888">مجموعة آبار عميقة<br>
+         <input class="form-check-input pm_hydraulique" id="eau_ensemble_de_forages" name="eau_ensemble_de_forages" type="checkbox"> <label class="form-check-label" for="eau_ensemble_de_forages">مجموعة آبار عميقة<br>
          Ensemble de forages</label>
        </div>
      </div>
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault1010" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">سد صغير<br>
+         <input class="form-check-input pm_hydraulique" id="eau_petit_barrage" name="eau_petit_barrage" type="checkbox"> <label class="form-check-label" for="eau_petit_barrage">سد صغير<br>
          Petit barrage</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault1011" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">خزان التلال<br>
+         <input class="form-check-input pm_hydraulique" id="eau_retenu_collinaire" name="eau_retenu_collinaire" type="checkbox"> <label class="form-check-label" for="eau_retenu_collinaire">خزان التلال<br>
          Retenu collinaire</label>
        </div><br>
 <!-- herere -->
       <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault122" name="eau_forage_collectif" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">بئر عميق جماعي<br>
+         <input class="form-check-input pm_hydraulique" id="eau_forage_collectif" name="eau_forage_collectif" type="checkbox"> <label class="form-check-label" for="eau_forage_collectif">بئر عميق جماعي<br>
          Forage collectif </label>
       </div>
      <br>
@@ -4240,19 +4240,19 @@ Petite et Moyenne Hydraulique
  <!-- farouk touil -->
      <div class="col">
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault1010" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1010">ضخ من الوادي<br>
+         <input class="form-check-input pm_hydraulique" id="eau_pompage_doued" name="eau_pompage_doued" type="checkbox"> <label class="form-check-label" for="eau_pompage_doued">ضخ من الوادي<br>
          Pompage d'Oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault1011" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="flexCheckDefault1011">فيض الوادي<br>
+         <input class="form-check-input pm_hydraulique" id="eau_crues_doued" name="eau_crues_doued" type="checkbox"> <label class="form-check-label" for="eau_crues_doued">فيض الوادي<br>
          Crues d'oued</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input" id="flexCheckDefault122" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">فقارة<br>
+         <input class="form-check-input" id="eau_foggara" name="eau_foggara" type="checkbox"> <label class="form-check-label" for="eau_foggara">فقارة<br>
          Foggara</label>
        </div><br>
        <div class="form-check">
-         <input class="form-check-input pm_hydraulique" id="flexCheckDefault122" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="flexCheckDefault122">مصادر أخرى<br>
+         <input class="form-check-input pm_hydraulique" id="eau_autres_ress" name="eau_autres_ress" type="checkbox"> <label class="form-check-label" for="eau_autres_ress">مصادر أخرى<br>
          Autres</label>
        </div><br>
      </div>
@@ -4300,18 +4300,18 @@ Petite et Moyenne Hydraulique
  
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input   id="eau_aspersion_classique" name="eau_aspersion_classique"    class="form-control Mode_irrigation  bneder double"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"    class="form-control Mode_irrigation  bneder double"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"    class="form-control Mode_irrigation  bneder double"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4319,17 +4319,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"    class="form-control Mode_irrigation  bneder double"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input  id="eau_pivots" name="eau_pivots"    class="form-control Mode_irrigation  bneder double"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"    class="form-control Mode_irrigation  bneder double"  value="">
       </div><br>
       
     </div>
@@ -4337,18 +4337,18 @@ Petite et Moyenne Hydraulique
      
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
+        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"    class="form-control Mode_irrigation bneder double"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"    class="form-control Mode_irrigation  bneder double"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"    class="form-control Mode_irrigation  bneder double"  value="">
       </div>
     </div>
   </div>

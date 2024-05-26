@@ -14,6 +14,35 @@ include('includes/header.php');
     </style>
     <br>
     <br>
+
+
+<!-- 
+<div class="card">
+<div class="card-body">
+            <div class="row">
+                <div style="padding-left:100px" class="col">
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th style="min-width:300px">Username</th>
+                                <th style="min-width:300px">Mot de passe</th>
+                                <th style="min-width:80px">Actions</th> 
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+       
+            </div>
+        </div>
+
+</div> -->
+
+
+
+
+
+
     <div class="card">
         <div style="text-align: center;" class="card-header">
             <div class="row">
@@ -28,6 +57,7 @@ include('includes/header.php');
                     <table id="userTable">
                         <thead>
                             <tr>
+                            <th style="min-width:300px">id</th>
                                 <th style="min-width:300px">Username</th>
                                 <th style="min-width:300px">Mot de passe</th>
                                 <th style="min-width:80px">Actions</th> 
@@ -64,6 +94,25 @@ include('includes/header.php');
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script>
+
+
+
+// $(document).ready(function(){
+
+// function listUsers(){
+//     $.ajax({
+//         url:'admins/listUsers.php',
+//         method:'post',
+//         async:false,
+//         success:function(data){
+//                 console.log(response)
+//         }
+//     })
+// }
+
+// })
+
+
             $(document).ready(function() {
                 var table = $('#userTable').DataTable({
                     ajax: {
@@ -71,12 +120,13 @@ include('includes/header.php');
                         dataSrc: ''
                     },
                     columns: [
+                        { data: 'id_user' },
                         { data: 'username' },
                         { data: 'nonhashedpass' },
                         {
                             // New column for delete button
                             data: null,
-                            defaultContent: '<button class="btn btn-danger deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button>'
+                            defaultContent: '<button class="btn btn-danger  deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button>'
                         }
                     ]
                 });
@@ -107,7 +157,7 @@ include('includes/header.php');
 
                     // Get the cell data and replace with input field and validate button
                     var cellData = cell.data();
-                    $(this).html('<div class="edit-container"><input type="text" class="form-control" id="pasteField" value="' + cellData + '"><button class="btn btn-success validateBtn"><i style="font-size: 19px; color: white;" class="fa fa-check" aria-hidden="true"></i></button></div>');
+                    $(this).html('<div class="edit-container"><input type="text" class="form-control" id="pasteField" value="' + cellData + '"><button  class="btn btn-success validateBtn"><i style="font-size: 19px; color: white;" class="fa fa-check" aria-hidden="true"></i></button></div>');
                     // Focus on the input field 
                     $(this).find('input').focus();
                 });
@@ -117,15 +167,17 @@ include('includes/header.php');
                     var newValue = $(this).prev('input').val();
                     var cell = table.cell($(this).closest('td'));
                     var columnIndex = cell.index().column;
+                  
                     var rowIndex = cell.index().row;
                     var columnName = table.column(columnIndex).dataSrc(); // Get actual column name
-
+                    var id_user = table.cell(rowIndex, 0).data();
+console.log(id_user)
                     // Send the new value to PHP for update
                     $.ajax({
                         url: 'admins/process_changes.php',
                         method: 'POST',
                         data: {
-                            id: rowIndex + 1, // Assuming IDs start from 1
+                            id: id_user , // Assuming IDs start from 1
                             column: columnName,
                             value: newValue
                         },
@@ -149,7 +201,8 @@ include('includes/header.php');
                     var userId = rowData.id_user;
                     var role = rowData.role;
                     var username = rowData.username; // Get the username
-
+console.log(userId)
+console.log(role)
                     // Display confirmation dialog using SweetAlert
                     Swal.fire({
                         title: 'Êtes-vous sûr?',
