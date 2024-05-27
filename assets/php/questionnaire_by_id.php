@@ -38,7 +38,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
           // Fetch data from status_juridique table
         $stmt_sj = $bdd->prepare("
-        SELECT origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
+        SELECT cle_status_juridque, origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
         FROM status_juridique
         WHERE id_questionnaire = :id
         ");

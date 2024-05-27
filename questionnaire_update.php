@@ -1296,7 +1296,7 @@ au réseau internet ?
                        <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
+                                    <input  doubleARE id="superfecie_sj_are" name="superfecie_sj_are"  class="form-control superficie_are coherence_surface_total-surface_are  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1374,7 +1374,8 @@ au réseau internet ?
             inputElement.removeAttribute('disabled');
         });
     
-     
+        restrictInputToDoublesARE();
+
     });
 
                  </script>
@@ -6754,14 +6755,53 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col">' +
         '<div class="d-grid gap-2">'+
-        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46"type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" >-</button>' +
+        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46"type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" data-code-origine_des_terres="' + item.cle_status_juridique + '" >-</button>' +
         '</div>' +
         '</div>' +
         '</div>';
 });
 
 
+$(document).on('click', '.disable-44-45-46', function() {
+    // Get the cle_status_juridique value from data attribute
+    var cle_status_juridique = $(this).data('code-origine_des_terres');
+    var buttonId = $(this).attr('id');
 
+    // Ask for confirmation before proceeding
+    if (confirm("Are you sure you want to delete this row?")) {
+        // Send the data to the PHP file using AJAX
+        $.ajax({
+            url: 'assets/php/delete_row4.php',
+            type: 'POST',
+            data: { cle_status_juridique: cle_status_juridique },
+            success: function(response) {
+                // Remove the corresponding row visually from the table
+                $('#' + buttonId).closest('.row').remove();
+
+                // Show success message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.'
+                });
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
+                
+                // Show error message using SweetAlert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while deleting the row.'
+                });
+            }
+        });
+    } else {
+        // If user clicks cancel, stop everything and exit
+        // window.location.reload();
+    }
+});
 
 $('#exploitant').on('change', function() {
       var exploitantValue = $(this).val();

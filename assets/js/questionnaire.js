@@ -466,11 +466,14 @@ $("input[type='checkbox']").each(function() {
           Swal.fire({
             icon: "success",
             title: "Succès!",
-            text: "Enregistrement effectué avec succès!"
+            text: "Enregistrement effectué avec succès!",
+            showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: " <a style='color:#fff' href='./Questionnaire'>Continuer la saisie</a>",
+  cancelButtonText: "<a style='color:#fff' href='./ListeQuestionnaires'>Quitter la saisie</a>  "
+  
           });
-
-
-        
         } else {
           Swal.fire({
             icon: "error",
@@ -515,8 +518,13 @@ $("input[type='checkbox']").each(function() {
     });
   });
   
-  });
 
+
+
+  });
+  // $(".swal2-confirm").click(function(){
+  //   window.location.href='/ListeQuestionnaires';
+  // })
 
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
