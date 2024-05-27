@@ -16,7 +16,7 @@ function connectToDatabase() {
 // Function to retrieve users from the database
 function getUsers() {
     $conn = connectToDatabase();
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users where role ='controleur' OR role='recenseur' ";
     $result = $conn->query($sql);
     $data = array();
     if ($result->num_rows > 0) {

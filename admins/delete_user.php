@@ -20,7 +20,7 @@ function deleteUser($id, $role) {
     $conn = connectToDatabase();
     try {
         // Define the expected roles
-        $validRoles = ['controleur', 'superviseur', 'superviseur_national', 'recenceur', 'admin_central'];
+        $validRoles = ['controleur', 'superviseur', 'superviseur_national', 'recenseur', 'admin_central'];
 
         // Check if the provided role is valid
         if (!in_array($role, $validRoles)) {

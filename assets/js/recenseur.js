@@ -69,7 +69,7 @@ $(document).ready(function(){
                 var data = JSON.parse(response)
                 var commune="";
                 for(i=0;i<data.length;i++){
-                    commune+="<option value='"+data[i].commune_code+"'>"+data[i].commune_name_ascii+" "+data[i].commune_name+"</option>"
+                    commune+="<option value='"+ data[i].commune_code+"'>"+data[i].commune_name_ascii+" "+data[i].commune_name+" "+data[i].commune_code+"</option>"
                 }
                 $('#commune').append(commune)
 
@@ -102,7 +102,7 @@ if(!emailRegex.test(email)){
     $('#first_name_error').html('')
     $('#last_name_error').html('')
 }
-
+$(this).attr('disabled','true')
         $.ajax({
             url:"assets/php/change_info_recenseur.php",
             method:'post',
@@ -180,7 +180,7 @@ if(!emailRegex.test(email)){
             $('#first_name_error').html('')
             $('#last_name_error').html('')
         }
-        
+        $(this).attr('disabled','true')
                 $.ajax({
                     url:"assets/php/add_users.php",
                     method:'post',
@@ -205,8 +205,14 @@ if(!emailRegex.test(email)){
                               $('#phone').val("")
                               $('#username').val("")
                               $('#password').val("")
-                            }
-                            else{
+                            }else if(data.response=="1"){
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "Cet utilisateur existe déja",
+                                   
+                                  });
+                            }else{
                                 Swal.fire({
                                     icon: "error",
                                     title: "Oops...",

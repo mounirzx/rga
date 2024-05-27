@@ -403,49 +403,85 @@ $("input[type='checkbox']").each(function() {
       
     });
 
+    // const swalWithBootstrapButtons = Swal.mixin({
+    //   customClass: {
+    //     confirmButton: "btn btn-success",
+    //     cancelButton: "btn btn-danger"
+    //   },
+    //   buttonsStyling: false
+    // });
+    swal.fire({
+      title: "Voulez vous confirmer la modification?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Oui, Confirmer",
+      cancelButtonText: "Non, Annuler",
+      confirmButtonColor: "green",
+      cancelButtonColor:"red",
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // swalWithBootstrapButtons.fire({
+        //   title: "Deleted!",
+        //   text: "Your file has been deleted.",
+        //   icon: "success"
+        // });
+        $(function () {
+          $.ajax({
+            url: "assets/php/update.php",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+              form: formDataObj,
+              formDataArrayStatut: formDataArrayStatut,
+              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+              formDataArrayCodeCulture: formDataArrayCodeCulture,
+              formDataArraySuperficie:formDataArraySuperficie,
+              message:message,
+              controleSatSumsjtest2:controleSatSumsjtest2
+            }),
+            dataType: "json",
+            success: function (response) {
+              // No need to parse response as 'dataType: "json"' does that automatically
+              if (response.response === "success") {
+                Swal.fire({
+                  icon: "success",
+                  title: "Succès!",
+                   confirmButtonColor: "green",
+                  text: "Modification effectée avec succès!",
+                 confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>",
 
-    $(function () {
-      $.ajax({
-        url: "assets/php/update.php",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-          form: formDataObj,
-          formDataArrayStatut: formDataArrayStatut,
-          formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-          formDataArrayCodeCulture: formDataArrayCodeCulture,
-          formDataArraySuperficie:formDataArraySuperficie,
-          message:message,
-          controleSatSumsjtest2:controleSatSumsjtest2
-        }),
-        dataType: "json",
-        success: function (response) {
-          // No need to parse response as 'dataType: "json"' does that automatically
-          if (response.response === "success") {
-            Swal.fire({
-              icon: "success",
-              title: "Succès!",
-              text: "Enregistrement effectué avec succès!",
-            });
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Erreur!",
-              html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>",
-            });
-          }
-        },
-        error: function (xhr, status, error) {
-          Swal.fire({
-            icon: "error",
-            title: "Échec de la requête",
-            text:
-              "Un problème est survenu lors de la requête: " + xhr.statusText,
+                });
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Erreur!",
+                  html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>",
+                });
+              }
+            },
+            error: function (xhr, status, error) {
+              Swal.fire({
+                icon: "error",
+                title: "Échec de la requête",
+                text:
+                  "Un problème est survenu lors de la requête: " + xhr.statusText,
+              });
+            },
           });
-        },
-      });
-    });
+        });
+    
 
+
+
+
+      } 
+        /* Read more about handling dismissals below */
+      
+      
+     
+    });
+  
     function qstList(etat) {
       $.ajax({
         url: url.qstList,

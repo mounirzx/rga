@@ -133,7 +133,7 @@ include('includes/head.php');
                     المحصي
                     <br />
                     Nom du recenseur</span>
-                    <input readonly class="form-control " id="nom_recensseur" name="nom_recensseur"  value="" />
+                    <input readonly class="form-control " id="prenom_recenseur" name="prenom_recenseur"  value="" />
                  </div>
                  <br />
                  <div class="input-group input-group-sm">
@@ -142,7 +142,7 @@ include('includes/head.php');
                     المحصي
                     <br />
                     Prénom du recenseur</span>
-                    <input readonly class="form-control " id="prenom_recenseur" name="prenom_recenseur"   
+                    <input readonly class="form-control "    id="nom_recensseur" name="nom_recensseur"
                        value="" />
                  </div>
                  <br />
@@ -309,7 +309,7 @@ if ($_SESSION['role'] == "recenseur") {
       المراقب
       <br />
       Nom du contrôleur</span>
-      <input  <?= $disabled ?> readonly class="form-control"  id="nom_controleur"
+      <input  <?= $disabled ?> readonly class="form-control"  id="prenom_controleur"
          />
    </div>
    <br />
@@ -320,7 +320,7 @@ if ($_SESSION['role'] == "recenseur") {
       المراقب
       <br />
       prénom du contrôleur</span>
-      <input  <?= $disabled ?> readonly class="form-control"  id="prenom_controleur" />
+      <input  <?= $disabled ?> readonly class="form-control"  id="nom_controleur" />
    </div>
 
 </div>
@@ -1251,10 +1251,10 @@ au réseau internet ?
  
                         <div class="col-3">
                             <div style="margin-left:20px" class="input-group input-group-sm">
-                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
+                       <input  id="superfecie_sj" name="superfecie_sj"    maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control  coherence_surface_total-surface controle_sumSj_sat_hectare surface_total_error statut_juridique_s"    >
                     
                                     
-                                    <input  id="superfecie_sj_are" name="superfecie_sj_are"  maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="form-control superficie_are coherence_surface_total-surface_are coherence_surface_total-surface  surface_total_error_are statut_juridique_s"  >
+                                    <input doubleARE id="superfecie_sj_are" name="superfecie_sj_are"   class="form-control  superficie_are coherence_surface_total-surface_are coherence_surface_total-surface  surface_total_error_are statut_juridique_s"  >
                              
 
                             </div>
@@ -1367,7 +1367,7 @@ acte de concession ?
             
                     <div class="input-group input-group-sm" >
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-                        <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
+                        <input   class="form-control bneder double_are" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
                 
               
@@ -1523,7 +1523,7 @@ acte de concession ?
                      
                  
                      
-                     <input  class="surface  form-control  coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="cultures_herbacees_2" id="cultures_herbacees_2"   maxlength="2" num   value="">
+                     <input  class="surface  double_are form-control  coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="cultures_herbacees_2" id="cultures_herbacees_2"      value="">
                      
                </div>
             </td>
@@ -1536,7 +1536,7 @@ acte de concession ?
              
                      
                      
-                     <input  class="surface  form-control bneder controle_sumSj_sat_hectare" name="cultures_herbacees_4" id="cultures_herbacees_4"  maxlength="2" num   value="">
+                     <input  class="surface double_are form-control bneder controle_sumSj_sat_hectare" name="cultures_herbacees_4" id="cultures_herbacees_4"    value="">
                      
                </div>
             </td>
@@ -1561,7 +1561,7 @@ acte de concession ?
                   
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"  maxlength="2" num   value="">
+                     <input  class="surface double_are form-control coherence_surface_total-surface bneder controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_2" id="terres_au_repos_jacheres_2"     value="">
                      
                </div>
             </td>
@@ -1578,7 +1578,7 @@ acte de concession ?
                 
                       
                      
-                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder form-control double_are controle_sumSj_sat_hectare" name="terres_au_repos_jacheres_4" id="terres_au_repos_jacheres_4"     value="">
                      
                </div>
             </td>
@@ -1604,7 +1604,7 @@ acte de concession ?
                  
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="plantations_arboriculture_2" id="plantations_arboriculture_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder double_are form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="plantations_arboriculture_2" id="plantations_arboriculture_2"    value="">
                      
                </div>
             </td>
@@ -1621,7 +1621,7 @@ acte de concession ?
                  
                      
                      
-                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="plantations_arboriculture_4" id="plantations_arboriculture_4"   maxlength="2" num   value="">
+                     <input  class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="plantations_arboriculture_4" id="plantations_arboriculture_4"      value="">
                      
                </div>
             </td>
@@ -1647,7 +1647,7 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="prairies_naturelles_2" id="prairies_naturelles_2"  maxlength="2" num   value="">
+                     <input  class="surface bneder double_are  form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="prairies_naturelles_2" id="prairies_naturelles_2"    value="">
                      
                </div>
             </td>
@@ -1664,7 +1664,7 @@ acte de concession ?
             
                      
                      
-                     <input  class="surface bneder form-control controle_sumSj_sat_hectare" name="prairies_naturelles_4" id="prairies_naturelles_4"  maxlength="2" num   value="">
+                     <input  class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="prairies_naturelles_4" id="prairies_naturelles_4"    value="">
                      
                  
                </div>
@@ -1684,7 +1684,7 @@ acte de concession ?
                
                
                      <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="">
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="">
                      
                </div>
             </td>
@@ -1697,7 +1697,7 @@ acte de concession ?
                   
             
                       
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly="" disabled num maxlength="2" value="">
+                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly="" disabled  value="">
                  
                </div>
             </td>
@@ -1724,7 +1724,7 @@ acte de concession ?
                  
                      
                      
-                     <input class="surface bneder form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="pacages_et_parcours_2"  maxlength="2" num   value="">
+                     <input class="surface bneder double_are form-control coherence_surface_total-surface controle_sumSj_sat_hectare" name="pacages_et_parcours_2"    value="">
                      
                </div>
             </td>
@@ -1753,7 +1753,7 @@ acte de concession ?
             
                      
                      
-                     <input  class="form-control bneder surface coherence_surface_total-surface controle_sumSj_sat_hectare" name="surfaces_improductives_2"  maxlength="2" num   value="">
+                     <input  class="form-control double_are bneder surface coherence_surface_total-surface controle_sumSj_sat_hectare" name="surfaces_improductives_2"   value="">
                      
                </div>
             </td>
@@ -1777,7 +1777,7 @@ acte de concession ?
                   
                  
                      
-                     <input   bleuBG class="surface  form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2" value="">
+                     <input   bleuBG class="surface double_are form-control bneder" name="superficie_agricole_totale_sat_2" readonly="" disabled  value="">
                      
                </div>
             </td>
@@ -1801,7 +1801,7 @@ acte de concession ?
                
                      
                      
-                     <input  class="surface  form-control coherence_surface_total-surface bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2" num maxlength="2"  value="">
+                     <input  class="surface double_are form-control coherence_surface_total-surface bneder" name="terres_forestieres_bois_forets_maquis_vides_labourables_2"   value="">
                      
                </div>
             </td>
@@ -1827,7 +1827,7 @@ acte de concession ?
                   
                 
                      
-                  <input  disabled bleuBG class="surface bneder form-control  coherence_surface_total-surface  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   num maxlength="2" >
+                  <input  disabled bleuBG class="surface bneder form-control double_are coherence_surface_total-surface  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   >
                      
 
                
@@ -1981,7 +1981,7 @@ acte de concession ?
                      </span>
                    
                       
-                        <input num maxlength="4" class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
+                        <input  class="form-control double_are_non_bati bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
                    
                   </div>
                   </div>
@@ -3402,7 +3402,7 @@ $(document).ready(function(){
       <td>
      
       <div class="input-group input-group-sm">
-          <input id="in83" name="batiments_dhabitation_surface" style="float:right;" class="form-control bneder"  maxlength="5" num  value="">
+          <input id="in83" name="batiments_dhabitation_surface" style="float:right;" class="form-control bneder double_are_surface"  value="">
         </div>
       </td>
     </tr>
@@ -3441,7 +3441,7 @@ $(document).ready(function(){
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in103" name="bergerie_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in103" name="bergerie_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3458,7 +3458,7 @@ $(document).ready(function(){
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in105" name="etable_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in105" name="etable_surface" class="form-control double_are_surface bneder" value="">
             </div>
           </td>
         </tr>
@@ -3466,7 +3466,7 @@ $(document).ready(function(){
           <td style="width:255px;">
             <div class="qst-num zxcount" style="margin: 5px 0px 2px 0px; position: absolute;"></div>
             <p style="padding-left:15px;margin: 0px 0px 0px 25px;">اسطبل خيول</p>
-            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Ecurie de chevauxv</p>
+            <p style="padding-left:15px;margin: 0px 0px 0px 25px;">Ecurie de chevaux</p>
           </td>
           <td style="padding-left: 61px;">
             <div class="input-group input-group-sm">
@@ -3475,7 +3475,7 @@ $(document).ready(function(){
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in107" name="ecurie_de_chevaux_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3492,7 +3492,7 @@ $(document).ready(function(){
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control double_are_surface bneder"value="">
             </div>
           </td>
         </tr>
@@ -3509,7 +3509,7 @@ $(document).ready(function(){
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="poulailler_sous_serre_surface" class="form-control double_are_surface bneder" value="">
             </div>
           </td>
         </tr>
@@ -3558,7 +3558,7 @@ $(document).ready(function(){
           </td>
           <td >
             <div class="input-group input-group-sm">
-              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="serres_tunnels_surface" class="form-control double_are_surface bneder" value="">
             </div>
           </td>
         </tr>
@@ -3575,7 +3575,7 @@ $(document).ready(function(){
           </td>
           <td >
             <div class="input-group input-group-sm">
-              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="serres_multichapelles_surface" class="form-control double_are_surface bneder" value="">
             </div>
           </td>
         </tr><!-- ////end new -->
@@ -3592,7 +3592,7 @@ $(document).ready(function(){
          <td>
       <div class="input-group input-group-sm">
 
-          <input id="in83" name="batiment_de_stockage_surface"  class="form-control bneder"  maxlength="5" num  value="">
+          <input id="in83" name="batiment_de_stockage_surface"  class="form-control double_are_surface bneder"  value="">
         </div>
       </td>
     </tr>
@@ -3615,7 +3615,7 @@ $(document).ready(function(){
                      <td>
                      
                      <div class="input-group input-group-sm">
-                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" class="form-control double_are_surface bneder"  value="">
                   </div>
                      </td>
                   </tr>
@@ -3635,7 +3635,7 @@ $(document).ready(function(){
                      <td>
                   
                      <div class="input-group input-group-sm">
-                           <input id="in87" name="autres_batiment_stockage_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in87" name="autres_batiment_stockage_surface" class="form-control bneder double_are_surface"  value="">
                   </div>
                      </td>
                   </tr>
@@ -3656,7 +3656,7 @@ $(document).ready(function(){
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in89" name="caves_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in89" name="caves_surface" class="form-control bneder double_are_surface"  value="">
                         </div>
                      </td>
                   </tr>
@@ -3675,7 +3675,7 @@ $(document).ready(function(){
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in91" name="unite_de_conditionnement_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in91" name="unite_de_conditionnement_surface" class="form-control bneder double_are_surface"   value="">
                         </div>
                      </td>
                   </tr>
@@ -3694,7 +3694,7 @@ $(document).ready(function(){
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in93" name="unite_de_transformation_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in93" name="unite_de_transformation_surface" class="form-control bneder double_are_surface"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3715,7 +3715,7 @@ $(document).ready(function(){
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in95" name="centre_de_collecte_de_lait_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in95" name="centre_de_collecte_de_lait_surface" class="form-control bneder double_are_surface"    value="">
                         </div>
                      </td>
                   </tr>
@@ -3735,7 +3735,7 @@ $(document).ready(function(){
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in223" name="autre_batiments_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in223" name="autre_batiments_surface" class="form-control bneder double_are_surface"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3815,7 +3815,7 @@ $(document).ready(function(){
                      <td >
                      <div class="input-group input-group-sm">
                           
-                           <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in113" name="chambre_froide_surface" class="form-control bneder double_are_surface"    value="">
                         </div>
                      </td>
                   </tr>

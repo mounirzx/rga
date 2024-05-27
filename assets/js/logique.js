@@ -270,8 +270,8 @@ formContainer.addEventListener('click', function(event) {
        $('#exploi_superficie_are').prop('disabled', true); 
        // [44] [45] [6]
         // Assuming you want to remove the parent row when the button is clicked
-        const formRow = event.target.closest('.row');
-        formRow.remove();
+        // const formRow = event.target.closest('.row');
+        // formRow.remove();
     }
 });
 
@@ -723,6 +723,111 @@ function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
 //         });
 //     });
 // });
+
+
+$('.double_are').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 2) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 2);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 2) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 2) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 2);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
+
+$('.double_are_non_bati').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 4) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 4);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 2) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 2) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 2);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
+$('.double_are_surface').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 5) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 5);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 1) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 1) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 1);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
   //--------------------------------------------------- mounir's part end ! ------------------------------------------------//
 
 
@@ -1585,7 +1690,7 @@ $(document).ready(function(){
             inputElement.removeAttribute('disabled');
         });
     
-     
+        restrictInputToDoublesARE();
     });
 
 
