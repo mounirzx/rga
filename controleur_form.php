@@ -81,8 +81,24 @@ $role = $_SESSION['role'];
               
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom d'utilisateur</span>
-                    <input type="text" class="form-control" name="username" id="username" <?php $role=='admin'   ? '' : 'disabled'  ?>>
-                </div>
+                    <?php 
+                        if($role=="admin"){
+
+                            ?>
+                                   <input type="text" class="form-control" name="username" id="username">
+                                    
+                        <?php 
+
+
+                        }
+
+                        else{
+
+                            ?>
+                                 <input type="text" class="form-control" name="username" id="username"  disabled >
+                        <?php 
+                        }
+                                            ?>   </div>
                 <br>
                 <br><div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Mot de passe</span>
