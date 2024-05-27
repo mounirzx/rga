@@ -15,7 +15,7 @@ $(document).ready(function(){
                 for(i=0;i<data.length;i++){
                     wilaya = data[0].wilaya_code
                     console.log(wilaya)
-                    list_recenseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].prenom_recensseur+"  "+data[i].nom_recenseur+"</td><td>"+data[i].phone+"</td><td>Recenseur</td><td><a href='./recenseur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
+                    list_recenseurs+="<tr><td>"+(i+1)+"</td><td>"+data[i].username+"</td><td>"+data[i].wilaya_name_ascii+"</td><td>"+data[i].prenom_recenseur+"  "+data[i].nom_recensseur+"</td><td>"+data[i].phone+"</td><td>Recenseur</td><td><a href='./recenseur_form.php?id_user="+data[i].id_user+"' class='btn btn-warning btn-sm'>Modifier</a></td></tr>"
                 }
                 $('#list_recenseurs').append(list_recenseurs)
                 $('#tablerecenseur').DataTable();

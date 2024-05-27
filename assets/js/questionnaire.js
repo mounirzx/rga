@@ -478,7 +478,13 @@ $("input[type='checkbox']").each(function() {
           Swal.fire({
             icon: "error",
             title: "Erreur!",
-            text: "Erreur lors de l'enregistrement: " + (response.error || "Erreur inconnue")
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: " <a style='color:#fff' href='./Questionnaire'>Continuer la saisie</a>",
+            cancelButtonText: "<a style='color:#fff' href='./ListeQuestionnaires'>Quitter la saisie</a>  ",
+
+            text:  (response.error || "Erreur inconnue")
           });
         }
       },

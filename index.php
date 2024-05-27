@@ -19,6 +19,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="./static/css/util.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/main.css"/>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+
     <!--===============================================================================================-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <style>

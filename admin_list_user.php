@@ -120,7 +120,7 @@ include('includes/header.php');
                         dataSrc: ''
                     },
                     columns: [
-                        { data: 'id_user' },
+                        { data: 'id_user' , className: 'text-center'},
                         { data: 'username' },
                         { data: 'nonhashedpass' },
                         {
@@ -136,11 +136,9 @@ include('includes/header.php');
                     var cell = table.cell(this);
                     var columnIndex = cell.index().column;
                     var rowIndex = cell.index().row;
-
-                    if (rowIndex === undefined || $(this).find('.deleteBtn').length > 0) {
-                        return; // Header cell clicked or delete button clicked, do nothing
+                    if (columnIndex === 0 || $(this).find('.deleteBtn').length > 0) {
+                        return; // "id" column clicked or delete button clicked, do nothing
                     }
-
                     // Check if the clicked cell already contains an input field
                     if ($(this).find('input').length > 0) {
                         return; // Input field already exists, do nothing

@@ -245,11 +245,21 @@ $bdd->commit();
 /************************************************************************ */
 // your database logic
     echo json_encode(['response' => true]);
-} catch (Exception $e) {
-
-    if ($bdd->inTransaction()) {
-        $bdd->rollBack();
+} catch (PDOException $e) {
+    if ($e->getCode() === '23000') { // Check if the error code is Integrity constraint violation
+        $errorMessage = $e->getMessage();
+        if (strpos($errorMessage, 'Duplicate entry') !== false) {
+            // Extract the key from the error message
+            preg_match('/Duplicate entry \'(.+?)\'/', $errorMessage, $matches);
+            if (isset($matches[1])) {
+                // Key already exists, handle the message accordingly
+                $existingKey = $matches[1];
+                echo json_encode(['response' => false, 'error' => 'Le questionnaire existe déjà']);
+                exit; // Stop further execution
+            }
+        }
     }
+    // If the error code is not Integrity constraint violation or key extraction fails, handle the error normally
     http_response_code(500); // Set appropriate response code
     echo json_encode(['response' => false, 'error' => $e->getMessage()]);
 }

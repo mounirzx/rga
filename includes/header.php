@@ -13,6 +13,8 @@ if(!isset($_SESSION['is_login'])){
 <head>
     <meta charset="UTF-8">
     <title>RGA</title>
+    <!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script> -->
+
     <link rel="icon" type="image/png" href="./static/images/icons/favicon.ico" />
 
 <link rel="stylesheet" href="./assets/css/questionnaire.css">
@@ -246,24 +248,62 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             </div>
         </div>
     </div>
-<script>
+    <script>
+
 $(document).ready(function () {
-function checkConnection() {
-if (navigator.onLine) {
-$('#connectionModal').modal('hide');
-} else {
-    
-    $('#connectionModal').modal('show');
-    setInterval(checkConnection, 20);
-}
-}
+    let connectionCheckInterval;
+    const offlineCheckInterval = 10; // 0.1 seconds
+    const onlineCheckInterval = 5000; // 5 seconds
 
-// Check connection every 5 seconds
-setInterval(checkConnection, 5000);
+    function checkConnection() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('HEAD', '/', true);
+        xhr.timeout = 3000; // Timeout in milliseconds
 
-// Initial check
-checkConnection();
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // Connection successful
+                $('#connectionModal').modal('hide');
+                clearInterval(connectionCheckInterval);
+                scheduleNextCheck(onlineCheckInterval);
+            } else {
+                // Connection error (e.g., server down)
+                $('#connectionModal').modal('show');
+                clearInterval(connectionCheckInterval);
+                scheduleNextCheck(offlineCheckInterval);
+            }
+        };
+
+        xhr.onerror = function () {
+            // Connection error
+            $('#connectionModal').modal('show');
+            clearInterval(connectionCheckInterval);
+            scheduleNextCheck(offlineCheckInterval);
+        };
+
+        xhr.ontimeout = function () {
+            // Request timed out (slow connection)
+            $('#connectionModal').modal('show');
+            clearInterval(connectionCheckInterval);
+            scheduleNextCheck(offlineCheckInterval);
+        };
+
+        xhr.send();
+    }
+
+    function scheduleNextCheck(interval) {
+        connectionCheckInterval = setInterval(checkConnection, interval);
+    }
+
+    // Initial check
+    checkConnection();
+
+    // Additional event listeners to handle network changes
+    window.addEventListener('online', checkConnection);
+    window.addEventListener('offline', checkConnection);
 });
+
+
 </script>
 
 <nav class="navbar navbar-expand-lg"  style="background-color: #ffffff;border-radius: 5px; border-bottom-left-radius: 50px; height: 75px; text-align: center">

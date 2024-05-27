@@ -13,15 +13,15 @@ try {
 // Check if the request is a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve data from POST
-    $cle_status_juridique = $_POST['cle_status_juridique'];
-
+    $cle_code_culture = $_POST['cle_code_culture'];
+   
     // Prepare a DELETE SQL query
-    $sql = "DELETE FROM `status_juridique` WHERE `cle_status_juridique` = ? ";
+    $sql = "DELETE FROM `utilisation_du_sol` WHERE `cle_code_culture` =? ";
     $stmt = $bdd->prepare($sql);
 
     try {
         // Execute the query with the provided values
-        $stmt->execute([$cle_status_juridique]);
+        $stmt->execute([$cle_code_culture]);
 
         // Check if any rows were affected
         if ($stmt->rowCount()) {

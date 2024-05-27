@@ -38,7 +38,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
           // Fetch data from status_juridique table
         $stmt_sj = $bdd->prepare("
-        SELECT cle_status_juridque, origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
+        SELECT cle_status_juridique, origine_des_terres, status_juridique, superfecie_sj, superfecie_sj_are
         FROM status_juridique
         WHERE id_questionnaire = :id
         ");
@@ -49,7 +49,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
 
           // Fetch data from materiel_agricole table
         $stmt_ma = $bdd->prepare("
-        SELECT code_materiel, code_materiel_nombre, ee_mode_mobilisation_materiel, ee_mode_exploitation_materiel
+        SELECT cle_materiel_agricole, code_materiel, code_materiel_nombre, ee_mode_mobilisation_materiel, ee_mode_exploitation_materiel
         FROM materiel_agricole
         WHERE id_questionnaire = :id
         ");
@@ -60,7 +60,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Check if 'id' is provide
 
             // Fetch data from utilisation_du_sol table
         $stmt_uds = $bdd->prepare("
-        SELECT code_culture, superficie_hec, superficie_are, en_intercalaire
+        SELECT cle_code_culture, code_culture, superficie_hec, superficie_are, en_intercalaire
         FROM utilisation_du_sol
         WHERE id_questionnaire = :id
         ");

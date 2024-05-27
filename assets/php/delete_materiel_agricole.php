@@ -13,21 +13,21 @@ try {
 // Check if the request is a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve data from POST
-    $cle_status_juridique = $_POST['cle_status_juridique'];
+    $code_materiel = $_POST['code_materiel'];
 
     // Prepare a DELETE SQL query
-    $sql = "DELETE FROM `status_juridique` WHERE `cle_status_juridique` = ? ";
+    $sql = "DELETE FROM `materiel_agricole` WHERE `code_materiel` = ? ";
     $stmt = $bdd->prepare($sql);
 
     try {
         // Execute the query with the provided values
-        $stmt->execute([$cle_status_juridique]);
+        $stmt->execute([$code_materiel]);
 
         // Check if any rows were affected
         if ($stmt->rowCount()) {
-            echo true;
+            echo 'Row(s) deleted successfully';
         } else {
-            echo false;
+            echo 'No rows matched the criteria';
         }
     } catch (PDOException $e) {
         echo "Database error: " . $e->getMessage();

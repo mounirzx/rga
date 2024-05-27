@@ -1449,7 +1449,7 @@ acte de concession ?
            
                     <div class="input-group input-group-sm" >
                         <input num maxlength="5" class="form-control bneder" id="exploi_superficie_hec" name="exploi_superficie_hec" value="">
-                        <input  num maxlength="2" class="form-control bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
+                        <input   class="form-control double_are bneder" id="exploi_superficie_are" name="exploi_superficie_are" value="">
                
                
              
@@ -1740,8 +1740,8 @@ acte de concession ?
                      </span>
                    
                       
-                        <input num maxlength="4" class="form-control bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
-                   
+                        <input  class="form-control double_are_non_bati bneder" id="surface_non_bati_occupe" name="surface_non_bati_occupe" >
+
                   </div>
                   </div>
                   </div>
@@ -3254,7 +3254,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <p style="padding-left:28px;margin: 0px 0px 0px 25px;">Bâtiments d'habitation</p></td>
       <td>
       <div class="input-group input-group-sm">
-         <input id="in82" name="batiments_dhabitation_nombre"  maxlength="3" num class="form-control bneder"  value="">
+         <input id="in82" name="batiments_dhabitation_nombre"  maxlength="3" num class="form-control double_are_surface bneder"  value="">
       </div>
       </td>
       
@@ -3262,7 +3262,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
       <td>
      
       <div class="input-group input-group-sm">
-          <input id="in83" name="batiments_dhabitation_surface" style="float:right;" class="form-control bneder"  maxlength="5" num  value="">
+          <input id="in83" name="batiments_dhabitation_surface" style="float:right;" class="form-control double_are_surface batiments_dhabitation_surface bneder"   value="">
         </div>
       </td>
     </tr>
@@ -3301,7 +3301,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in103" name="bergerie_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in103" name="bergerie_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3318,7 +3318,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in105" name="etable_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in105" name="etable_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3335,7 +3335,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in107" name="ecurie_de_chevaux_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in107" name="ecurie_de_chevaux_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3352,7 +3352,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in109" name="poulailler_batis_en_dur_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3369,7 +3369,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td style="padding-right: 48px;">
             <div class="input-group input-group-sm">
-              <input id="in111" name="poulailler_sous_serre_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="poulailler_sous_serre_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3418,7 +3418,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td >
             <div class="input-group input-group-sm">
-              <input id="in111" name="serres_tunnels_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="serres_tunnels_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr>
@@ -3435,7 +3435,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
           </td>
           <td >
             <div class="input-group input-group-sm">
-              <input id="in111" name="serres_multichapelles_surface" class="form-control bneder" maxlength="5" num="" value="">
+              <input id="in111" name="serres_multichapelles_surface" class="form-control double_are_surface bneder"  value="">
             </div>
           </td>
         </tr><!-- ////end new -->
@@ -3452,7 +3452,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
          <td>
       <div class="input-group input-group-sm">
 
-          <input id="in83" name="batiment_de_stockage_surface"  class="form-control bneder"  maxlength="5" num  value="">
+          <input id="in83" name="batiment_de_stockage_surface"  class="form-control double_are_surface bneder"    value="">
         </div>
       </td>
     </tr>
@@ -3475,7 +3475,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      
                      <div class="input-group input-group-sm">
-                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in85" name="batiment_dentreposage_des_produits_agricoles_surface" class="form-control double_are_surface bneder"    value="">
                   </div>
                      </td>
                   </tr>
@@ -3495,7 +3495,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                   
                      <div class="input-group input-group-sm">
-                           <input id="in87" name="autres_batiment_stockage_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in87" name="autres_batiment_stockage_surface" class="form-control double_are_surface bneder"     value="">
                   </div>
                      </td>
                   </tr>
@@ -3516,7 +3516,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in89" name="caves_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in89" name="caves_surface" class="form-control double_are_surface bneder"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3535,7 +3535,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in91" name="unite_de_conditionnement_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in91" name="unite_de_conditionnement_surface" class="form-control double_are_surface bneder"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3554,7 +3554,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in93" name="unite_de_transformation_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in93" name="unite_de_transformation_surface" class="form-control double_are_surface bneder"    value="">
                         </div>
                      </td>
                   </tr>
@@ -3575,7 +3575,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in95" name="centre_de_collecte_de_lait_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in95" name="centre_de_collecte_de_lait_surface" class="form-control double_are_surface bneder"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3595,7 +3595,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td>
                      <div class="input-group input-group-sm">
                            
-                           <input id="in223" name="autre_batiments_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in223" name="autre_batiments_surface" class="form-control double_are_surface bneder"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3675,7 +3675,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                      <td >
                      <div class="input-group input-group-sm">
                           
-                           <input id="in113" name="chambre_froide_surface" class="form-control bneder"  maxlength="5" num   value="">
+                           <input id="in113" name="chambre_froide_surface" class="form-control double_are_surface bneder"     value="">
                         </div>
                      </td>
                   </tr>
@@ -3685,7 +3685,75 @@ document.getElementById('addForm2').addEventListener('click', function() {
 
 
 
+<script>
+  
+  $('.double_are_non_bati').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
 
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 4) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 4);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 2) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 2) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 2);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
+  $('.double_are_surface').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 5) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 5);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 1) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 1) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 1);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+</script>
 
 
 
@@ -4222,18 +4290,18 @@ Petite et Moyenne Hydraulique
  
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رشاش كلاسيكي<br>
-        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Aspersion classique</span> <input  id="eau_aspersion_classique" name="eau_aspersion_classique"  class="form-control Mode_irrigation double double bneder"  value="">
       </div><br>
 
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">تقطير<br>
-        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Goutte à goutte</span> <input  id="eau_goutte_a_goutte" name="eau_goutte_a_goutte"  class="form-control Mode_irrigation double  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فيض<br>
-        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Epandage de crues</span> <input  id="eau_epandage_de_crues" name="eau_epandage_de_crues"  class="form-control Mode_irrigation double  bneder"  value="">
       </div><br>
     </div>
     <div class="col">
@@ -4241,17 +4309,17 @@ Petite et Moyenne Hydraulique
 
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">سطحي<br>
-        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Gravitaire</span> <input  id="eau_gravitaire" name="eau_gravitaire"  class="form-control Mode_irrigation double  bneder"  value="">
       </div>
 
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">رش محوري<br>
-        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pivots</span> <input  id="eau_pivots" name="eau_pivots"  class="form-control Mode_irrigation double  bneder"  value="">
       </div><br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">لفاف<br>
-        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Enrouleur</span> <input  id="eau_enrouleur" name="eau_enrouleur"  class="form-control Mode_irrigation double  bneder"  value="">
       </div><br>
       
     </div>
@@ -4259,18 +4327,18 @@ Petite et Moyenne Hydraulique
      
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">فقارة<br>
-        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  maxlength="5" num class="form-control Mode_irrigation bneder"  value="">
+        Foggara</span> <input id="eau_foggara_hec" name="eau_foggara_hec"  class="form-control Mode_irrigation double bneder"  value="">
       </div>
       <br>
       
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">أمطار إصطناعية<br>
-        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Pluie artificielle</span> <input  id="eau_pluie_artificielle" name="eau_pluie_artificielle"  class="form-control Mode_irrigation double  bneder"  value="">
       </div>
       <br>
       <div class="input-group input-group-sm">
         <span class="input-group-text" id="basic-addon3" style="width:120px;;">طرق أخرى<br>
-        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  maxlength="5" num class="form-control Mode_irrigation  bneder"  value="">
+        Autre</span> <input  id="eau_autre_hec" name="eau_autre_hec"  class="form-control Mode_irrigation double  bneder"  value="">
       </div>
     </div>
   </div>
@@ -6430,14 +6498,84 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    inputs += '</div>';
 
     inputs += '<div class="col-1">';
-    inputs += '<div class="d-grid gap-2"><button style="width:41px" type="button" class="btn btn-danger btn-sm">-</button></div>';
+    inputs += '<div class="d-grid gap-2"><button style="width:41px" type="button" class="btn btn-danger btn-sm delete-btn delete_materiel_agricole" data-code-materiel="' + item.code_materiel + '" id="delete-' + item.code_materiel_nombre + '-' + item.ee_mode_mobilisation_materiel + '" >-</button></div>';
     inputs += '</div>';
     inputs += '</div>';
 });
     $('#formContainer3').append(inputs);
 
 
+//     $(document).on('click', '.delete-btn', function() {
+//     // Get the code_materiel value from data attribute
+//     var code_materiel = $(this).data('code-materiel');
+//     var buttonId = $(this).attr('id');
+    
+//     // Send the data to the PHP file using AJAX
+//     $.ajax({
+//         url: 'assets/php/delete_materiel_agricole.php',
+//         type: 'POST',
+//         data: { code_materiel: code_materiel },
+//         success: function(response) {
+//             // Handle the response from the server
+//             Swal.fire({
+//                 icon: 'success',
+//                 title: 'Deleted!',
+//                 text: 'The row has been successfully deleted.',
+//             });
+            
+//             // Remove the corresponding row visually from the table
+//             $('#' + buttonId).closest('.row').remove();
+//         },
+//         error: function(xhr, status, error) {
+//             // Handle the error
+//             console.error(error);
+//         }
+//     });
+// });
 
+    $(document).on('click', '.delete_materiel_agricole', function() {
+    // Get the cle_code_culture value from the data attribute
+     var code_materiel = $(this).data('code-materiel');
+    var buttonId = $(this).attr('id');
+    // Display an alert with the cle_code_culture value
+  //  alert(buttonId);
+
+    // Ask for confirmation before proceeding
+    if (confirm("Are you sure you want to delete this row?")) {
+        // Send the data to the PHP file using AJAX
+        $.ajax({
+            url: 'assets/php/delete_materiel_agricole.php',
+            type: 'POST',
+            data: { code_materiel: code_materiel },
+            success: function(response) {
+            
+                // Remove the corresponding row visually from the table
+                $('#' + buttonId).closest('.row').remove();
+
+                // Show success message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.'
+                });
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
+                
+                // Show error message using SweetAlert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while deleting the row.'
+                });
+            }
+        });
+    } else {
+        // If user clicks cancel, stop everything and exit
+        // window.location.reload();
+    }
+});
 
 
 
@@ -6755,12 +6893,17 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col">' +
         '<div class="d-grid gap-2">'+
-        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46"type="button" id="delete4" data-code-origine_des_terres="' + item.origine_des_terres + '" data-code-origine_des_terres="' + item.cle_status_juridique + '" >-</button>' +
+        '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46" type="button" id="delete-' + item.origine_des_terres + '" data-code-origine_des_terres="' + item.cle_status_juridique + '" >-</button>' +
         '</div>' +
         '</div>' +
         '</div>';
 });
 
+
+
+
+
+$('#formContainer').append(status_juridique_inputs);
 
 $(document).on('click', '.disable-44-45-46', function() {
     // Get the cle_status_juridique value from data attribute
@@ -6802,6 +6945,27 @@ $(document).on('click', '.disable-44-45-46', function() {
         // window.location.reload();
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $('#exploitant').on('change', function() {
       var exploitantValue = $(this).val();
@@ -6956,39 +7120,6 @@ $('#status_juridique_'+idPart).append(filtered[id])
 
 
 
-$('#formContainer').append(status_juridique_inputs);
-
-$('#delete4').on('click', function() {
-// alert("formContainer4")
-       // Get the code_materiel value from data attribute
-       var origine_des_terres = $(this).data('code-origine_des_terres');
-     
-     
-        console.log(origine_des_terres);
-    $.ajax({
-        url: 'assets/php/delete_row4.php',
-        type: 'POST',
-        data: {
-            // cle_code_culture: cle_code_culture, 75E92EyTOmst
-            // id_questionnaire: id_questionnaire,
-            // code_culture: code_culture,
-            origine_des_terres: origine_des_terres
-        },
-        success: function(response) {
-         Swal.fire({
-                    icon: 'success',
-                    title: 'Deleted!',
-                    text: 'The row has been successfully deleted.',
-                });
-                row.remove(); // remove the row visually from the table
-        },
-        error: function(xhr, status, error) {
-            // Handle the error
-            console.error(error);
-        }
-    });
-});
-
 
 
 
@@ -6999,12 +7130,180 @@ $('#delete4').on('click', function() {
 
 // Append each status_juridique input
 data.utilisation_du_sol.forEach(function(item) {
-utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-6" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div><div class="col-1"><button style="width:41px"type="button" class="btn btn-danger btn-sm">-</button></div></div>'
+utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-6" style="margin-right: 20px;"><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blétendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autrescéréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles- عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - ois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Poissec -بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricotsec- الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fèvesèche- فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - VesceetVesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïsfourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autresfourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pommedeterre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignonsecet vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail -ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate-طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment-فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte-جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette -كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet-اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - ChouetChou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut -قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave -الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fèveverte- فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricotvert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petitpois- البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises-فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomateindustrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave àsucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac-التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres-أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger-أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier-أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier-أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier-أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier-أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier-أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêchier et nectarinier-أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier-أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier-أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier-أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier-أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table-أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier-أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier-أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noix-أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier-أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour)-أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres)-أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve-أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier-أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier-أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres-أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input bigtb id="superficie_hec" name="superficie_hec" type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_hec+'" ></div><div class="col"><input id="superficie_are" name="superficie_are"  type="number" max="999" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(999, this.value));" value="'+item.superficie_are+'" ></div><div class="col"><input id="en_intercalaire"  name="en_intercalaire" type="number" max="99" class="form-control code_culture_s" oninput="this.value = Math.max(0, Math.min(99, this.value));"  value="'+item.en_intercalaire+'"></div><div class="col-1"><button style="width:41px" type="button" class="btn btn-danger btn-sm delete_code_culture" id="delete-' + item.superficie_are + '" data-code-superficie_are="' + item.cle_code_culture + '">-</button></div></div>'
 
 totalirriguer += parseInt(item.superficie_are);
 
 
 });
+
+
+
+$('#formContainer2').append(utilisation_du_sol_inputs);
+
+
+$(document).on('click', '.delete_code_culture', function() {
+    // Get the cle_code_culture value from the data attribute
+    var cle_code_culture = $(this).data('code-superficie_are');
+    var buttonId = $(this).attr('id');
+ 
+    // Display an alert with the cle_code_culture value
+ //  alert(cle_code_culture);
+
+    // Ask for confirmation before proceeding
+    if (confirm("Are you sure you want to delete this row?")) {
+        // Send the data to the PHP file using AJAX
+        $.ajax({
+            url: 'assets/php/delete_code_culture.php',
+            type: 'POST',
+            data: { cle_code_culture: cle_code_culture },
+            success: function(response) {
+            
+                // Remove the corresponding row visually from the table
+                $('#' + buttonId).closest('.row').remove();
+
+                // Show success message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The row has been successfully deleted.'
+                });
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
+                
+                // Show error message using SweetAlert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while deleting the row.'
+                });
+            }
+        });
+    } else {
+        // If user clicks cancel, stop everything and exit
+        // window.location.reload();
+    }
+});
+
+
+
+
+
+// '<button style=" position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46" type="button" id="delete-' + item.origine_des_terres + '" data-code-origine_des_terres="' + item.cle_status_juridique + '" >-</button>' +
+
+// $(document).on('click', '.delete_code_culture', function() {
+//     // Get the cle_code_culture value from the data attribute
+//     var cle_code_culture = $(this).data('code-superficie_are');
+    
+//     // Display an alert with the cle_code_culture value
+//     alert(cle_code_culture);
+
+//     // Ask for confirmation before proceeding
+//     if (confirm("Are you sure you want to delete this row?")) {
+//         // Send the data to the PHP file using AJAX
+//         $.ajax({
+//             url: 'assets/php/delete_row4.php',
+//             type: 'POST',
+//             data: { cle_code_culture: cle_code_culture },
+//             success: function(response) {
+//                 // Remove the corresponding row visually from the table
+//                 $('#' + buttonId).closest('.row').remove();
+
+//                 // Show success message using SweetAlert
+//                 Swal.fire({
+//                     icon: 'success',
+//                     title: 'Deleted!',
+//                     text: 'The row has been successfully deleted.'
+//                 });
+//             },
+//             error: function(xhr, status, error) {
+//                 // Handle the error
+//                 console.error(error);
+                
+//                 // Show error message using SweetAlert
+//                 Swal.fire({
+//                     icon: 'error',
+//                     title: 'Error!',
+//                     text: 'An error occurred while deleting the row.'
+//                 });
+//             }
+//         });
+//     } else {
+//         // If user clicks cancel, stop everything and exit
+//         // window.location.reload();
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7115,35 +7414,6 @@ $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$('#formContainer2').append(utilisation_du_sol_inputs);
 
            
          }
