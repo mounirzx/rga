@@ -6,11 +6,47 @@ include('includes/header.php');
     <br>
     <br>
     <style>
+    .skeleton {
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        display: inline-block;
+        height: 48px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
 
-/* tr {
-    border: 1px solid #d1cece;
-    background: #d1e7dd;
-} */
+    .skeleton::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+        animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+        0% {
+            left: -100%;
+        }
+        50% {
+            left: 100%;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+
+    .skeleton-row td {
+        padding: 10px;
+    }
+
+    .skeleton-row td .skeleton {
+        width: 100%;
+        height: 20px;
+    }
     </style>
 
     <div class="card">
@@ -115,9 +151,8 @@ include('includes/header.php');
                     </tr>
                 </thead>
                 <tbody id="qst_list">
-
-                    
-                 
+                    <!-- Skeleton loader rows -->
+                   
                 </tbody>
             </table>
 
@@ -140,9 +175,3 @@ include('includes/header.php');
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
-<script>
-$(document).ready(function() {
-    // Trigger click on "Total questionnaire" link to load the data
-    $('#all').trigger('click');
-});
-</script>

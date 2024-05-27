@@ -528,98 +528,106 @@ $("input[type='checkbox']").each(function() {
 
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-  function qstList(etat) {
-    $.ajax({
+function qstList(etat) {
+  $.ajax({
       url: url.qstList,
       method: "post",
-      async: false,
+      
       data: { etat: etat },
-      success: function (response) {
-      //  console.log(response);
-
-        var qst_list;
-        var data = JSON.parse(response);
-
-        for (i = 0; i < data.length; i++) {
-          var etat = data[i].etat;
-          var classes;
-          if (etat == "Approuvés") {
-            classes = "#55a90b42;";
-          } else if (etat == "Rejetés") {
-            classes = "#f8d7da;";
-          } else if (etat == "En attente") {
-            classes = "#fff3cd;";
-          }
-          // var encryptedId = CryptoJS.AES.encrypt(data[i].id_questionnaire, 'your_secret_key').toString();
-          var encryptedId = CryptoJS.AES.encrypt(
-            data[i].id_questionnaire.toString(),
-            "RGA"
-          ).toString();
-console.log(data[i].message_coherence_stat_jur)
-
-var message="Superficie tot egale SAU";
-if(data[i].message_coherence_stat_jur==null){
-  message="Pas de données";
-}
-if(data[i].message_coherence_stat_jur!=""){
-  if(data[i].message_coherence_stat_jur==null){
-    message="Pas de données";
-  }else{
-    message=data[i].message_coherence_stat_jur
-  }
-
-}
-console.log(message)
-var message_util_sol="SAT egal SUM sup util du sol"
-if(data[i].message_coherence_util_sol==null){
-  message_util_sol="Pas de données"
-}
-if(data[i].message_coherence_util_sol!=""){
-  if(data[i].message_coherence_util_sol==null){
-    message_util_sol="Pas de données"
-  }else{
-    message_util_sol=data[i].message_coherence_util_sol
-  }
-  //message_util_sol=data[i].message_coherence_util_sol
-}
-
-
-          qst_list += "<tr style=' background:" + classes + "'>" +
-    "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
-    encodeURIComponent(data[i].id_questionnaire) + 
-    "?Quest="+
-    btoa(encryptedId) +
-    "' data-id='" + data[i].id_questionnaire +
-    "'><i class='fa-solid fa-eye'></i></a></td><td>" +
-    data[i].nom_exploitant + " " + data[i].prenom_exploitant +
-    "</td><td>" +
-    data[i].nom_exploitation +
-    "</td><td>" +
-    data[i].exploi_superficie_hec +
-    "</td><td>" +
-    data[i].wilaya_name_ascii +
-    "</td><td>" +
-    data[i].commune_name_ascii +
-    "</td><td></td><td>" +
-    data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-    "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message+"'  class='fa-solid fa-circle "+data[i].coherence_stat_jur+"'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='"+message_util_sol+"' class='fa-solid fa-circle "+data[i].coherence_util_sol+"'></i></td></tr>";
-
-        }
-        $("#qst_list").empty();
-        $("#qst_list").append(qst_list);
-        $("#listTable").DataTable();
-        $('[data-bs-toggle="tooltip"]').tooltip();
+      beforeSend: function() {
+          // Show loading animation
+          $('#qst_list').html(
+            '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' 
+    
+          );
       },
-    });
-  }
+      success: function(response) {
+          var qst_list = "";
+          var data = JSON.parse(response);
+
+          for (var i = 0; i < data.length; i++) {
+              var etat = data[i].etat;
+              var classes;
+              if (etat == "Approuvés") {
+                  classes = "#55a90b42;";
+              } else if (etat == "Rejetés") {
+                  classes = "#f8d7da;";
+              } else if (etat == "En attente") {
+                  classes = "#fff3cd;";
+              }
+
+              var encryptedId = CryptoJS.AES.encrypt(
+                  data[i].id_questionnaire.toString(),
+                  "RGA"
+              ).toString();
+
+              var message_coherence_stat_jur = data[i].message_coherence_stat_jur || "Pas de données";
+              var message_coherence_util_sol = data[i].message_coherence_util_sol || "Pas de données";
+
+              qst_list += "<tr style=' background:" + classes + "'>" +
+                  "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
+                  encodeURIComponent(data[i].id_questionnaire) +
+                  "?Quest=" +
+                  btoa(encryptedId) +
+                  "' data-id='" + data[i].id_questionnaire +
+                  "'><i class='fa-solid fa-eye'></i></a></td><td>" +
+                  data[i].nom_exploitant + " " + data[i].prenom_exploitant +
+                  "</td><td>" +
+                  data[i].nom_exploitation +
+                  "</td><td>" +
+                  data[i].exploi_superficie_hec +
+                  "</td><td>" +
+                  data[i].wilaya_name_ascii +
+                  "</td><td>" +
+                  data[i].commune_name_ascii +
+                  "</td><td></td><td>" +
+                  data[i].nom_recensseur + " " + data[i].prenom_recenseur +
+                  "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_stat_jur + "'  class='fa-solid fa-circle " + data[i].coherence_stat_jur + "'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_util_sol + "' class='fa-solid fa-circle " + data[i].coherence_util_sol + "'></i></td></tr>";
+          }
+          $("#qst_list").empty(); // Clear the existing table content
+          $("#qst_list").append(qst_list); // Append the new data to the table
+          $('[data-bs-toggle="tooltip"]').tooltip(); // Enable tooltips for the new content
+          
+          // Destroy the existing DataTable instance
+          if ($.fn.DataTable.isDataTable("#listTable")) {
+              $("#listTable").DataTable().destroy();
+          }
+          
+          // Reinitialize DataTables with pagination options
+          $("#listTable").DataTable({
+              "paging": true, // Enable pagination
+              "pageLength": 10, // Set number of rows per page
+              // Other DataTable options...
+          });
+          
+      
+      },
+      
+      error: function(error) {
+          console.error('Error fetching data', error);
+      }
+  });
+}
+
 
    qstList("all");
 
-  $(".etat").click(function () {
+
+   $(".etat").click(function () {
     var etat = $(this).attr("data");
    // console.log(etat);
     qstList(etat);
   });
+
 
 
 
