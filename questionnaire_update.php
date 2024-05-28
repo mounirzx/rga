@@ -6887,7 +6887,7 @@ data.status_juridique.forEach(function(item) {
         '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
         '<input id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"  style="max-width: 45px;"  maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+        '<input id="superfecie_sj_are" doubleare name="superfecie_sj_are"  style="max-width: 50px;"  class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
        
         '</div>' +
         '</div>' +
