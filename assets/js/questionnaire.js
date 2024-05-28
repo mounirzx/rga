@@ -599,21 +599,30 @@ function qstList(etat) {
                   data[i].nom_recensseur + " " + data[i].prenom_recenseur +
                   "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_stat_jur + "'  class='fa-solid fa-circle " + data[i].coherence_stat_jur + "'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_util_sol + "' class='fa-solid fa-circle " + data[i].coherence_util_sol + "'></i></td></tr>";
           }
-          $("#qst_list").empty(); // Clear the existing table content
-          $("#qst_list").append(qst_list); // Append the new data to the table
-          $('[data-bs-toggle="tooltip"]').tooltip(); // Enable tooltips for the new content
-          
-          // Destroy the existing DataTable instance
-          if ($.fn.DataTable.isDataTable("#listTable")) {
-              $("#listTable").DataTable().destroy();
-          }
-          
-          // Reinitialize DataTables with pagination options
-          $("#listTable").DataTable({
-              "paging": true, // Enable pagination
-              "pageLength": 10, // Set number of rows per page
-              // Other DataTable options...
-          });
+       // Debugging: Log the content of qst_list
+console.log("qst_list content:", qst_list);
+$("#listTable").DataTable().clear().destroy(); // Clear and destroy
+
+// Clear the existing table content
+$("#qst_list").empty(); 
+
+// Append the new data to the table
+$("#qst_list").append(qst_list); 
+
+// Enable tooltips for the new content
+$('[data-bs-toggle="tooltip"]').tooltip();
+
+// Destroy the existing DataTable instance if it exists
+
+
+
+// Reinitialize DataTables with pagination options
+$("#listTable").DataTable({
+    "paging": true,     // Enable pagination
+    "pageLength": 10,   // Set number of rows per page
+    // Other DataTable options...
+});
+
           
       
       },
