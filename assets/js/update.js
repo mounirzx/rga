@@ -64,30 +64,59 @@ $('#source').change(function() {
   }
 });
 
-  $.ajax({
-    url: url.GetData,
-    dataType: "json",
-    success: function (response) {
-      //console.log(response);
-      if (response.reponse !== "false") {
-        $("#nom_recensseur").val(response.nom_recensseur || "N/A");
-        $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
-        $("#nom_controleur").val(response.nom_controleur || "N/A");
-        $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+// Function to decrypt the UID
+function decryptUID(encryptedUID) {
+  var decryptedValue = CryptoJS.AES.decrypt(encryptedUID, 'RGA').toString(CryptoJS.enc.Utf8);
+  return decryptedValue;
+}
+// var decryptedValue = CryptoJS.AES.decrypt(atob(questVariable), 'RGA').toString(CryptoJS.enc.Utf8);
 
-        $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
-        $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
-        $("#commune_code").val(response.commune || "N/A");
-        // $("#nom_zone_district").val(response.nom_zone_district || "N/A");
-        // $("#num_zone_district").val(response.num_zone_district || "N/A");
+// Function to extract and decrypt UID from the current page URL
+function getDecryptedUIDFromCurrentURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const uidParam = urlParams.get('uid');
+  const endIndex = uidParam.indexOf('?id='); // Find the index of '?id='
+  let uidToDecrypt;
+  if (endIndex !== -1) {
+      uidToDecrypt = uidParam.substring(0, endIndex); // Get the UID substring before '?id='
+  } else {
+      uidToDecrypt = uidParam; // Use the full UID if '?id=' is not found
+  }
+  return decryptUID(uidToDecrypt); // Decrypt the UID and return it
+}
+
+// Get the decrypted UID
+var decryptedUID = getDecryptedUIDFromCurrentURL();
+
+
+// AJAX request to send decrypted UID to the server using POST method
+$.ajax({
+  url: url.GetData,
+  type: 'POST',
+  dataType: "json",
+  data: { uid: decryptedUID }, // Sending decrypted UID as a POST parameter
+  success: function (response) {
+      // Handle response
+      if (response.reponse !== "false") {
+          $("#nom_recensseur").val(response.nom_recensseur || "N/A");
+          $("#prenom_recenseur").val(response.prenom_recenseur || "N/A");
+          $("#nom_controleur").val(response.nom_controleur || "N/A");
+          $("#prenom_controleur").val(response.prenom_controleur || "N/A");
+
+          $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
+          $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
+          $("#commune_code").val(response.commune || "N/A");
       } else {
-        //console.error("Error: " + response.message);
+          // Handle error
+          console.error("Error: " + response.message);
       }
-    },
-    error: function (xhr, status, error) {
-      //console.error("AJAX Error:", status, error);
-    },
-  });
+  },
+  error: function (xhr, status, error) {
+      // Handle error
+      console.error("AJAX Error:", status, error);
+  }
+});
+
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/

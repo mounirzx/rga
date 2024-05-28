@@ -3,7 +3,7 @@ $(document).ready(function () {
     url: url.GetData,
     dataType: "json",
     success: function (response) {
-    //  console.log("response");
+     console.log("response");
      // console.log(response);
       if (response.reponse !== "false") {
         $("#nom_recensseur").val(response.nom_recensseur || "N/A");
@@ -576,11 +576,15 @@ function qstList(etat) {
                   "RGA"
               ).toString();
 
+              var encryptedIduser = CryptoJS.AES.encrypt(
+                data[i].user.toString(),
+                "RGA"
+            ).toString();
               var message_coherence_stat_jur = data[i].message_coherence_stat_jur || "Pas de données";
               var message_coherence_util_sol = data[i].message_coherence_util_sol || "Pas de données";
 
               qst_list += "<tr style=' background:" + classes + "'>" +
-                  "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
+                  "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?uid="+ encodeURIComponent(encryptedIduser)+ "?id=" +
                   encodeURIComponent(data[i].id_questionnaire) +
                   "?Quest=" +
                   btoa(encryptedId) +
