@@ -630,7 +630,7 @@ function qstList(etat) {
 
    $(".etat").click(function () {
     var etat = $(this).attr("data");
-   // console.log(etat);
+   console.log(etat);
     qstList(etat);
   });
 

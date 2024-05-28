@@ -250,58 +250,58 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
     </div>
     <script>
 
-$(document).ready(function () {
-    let connectionCheckInterval;
-    const offlineCheckInterval = 10; // 0.1 seconds
-    const onlineCheckInterval = 5000; // 5 seconds
+        $(document).ready(function () {
+            // let connectionCheckInterval;
+            // const offlineCheckInterval = 10; // 0.1 seconds
+            // const onlineCheckInterval = 5000; // 5 seconds
 
-    function checkConnection() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('HEAD', '/', true);
-        xhr.timeout = 3000; // Timeout in milliseconds
+            // function checkConnection() {
+            //     var xhr = new XMLHttpRequest();
+            //     xhr.open('HEAD', '/', true);
+            //     xhr.timeout = 20000; // Timeout in milliseconds
 
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                // Connection successful
-                $('#connectionModal').modal('hide');
-                clearInterval(connectionCheckInterval);
-                scheduleNextCheck(onlineCheckInterval);
-            } else {
-                // Connection error (e.g., server down)
-                $('#connectionModal').modal('show');
-                clearInterval(connectionCheckInterval);
-                scheduleNextCheck(offlineCheckInterval);
-            }
-        };
+            //     xhr.onload = function () {
+            //         if (xhr.status >= 200 && xhr.status < 300) {
+            //             // Connection successful
+            //             $('#connectionModal').modal('hide');
+            //             clearInterval(connectionCheckInterval);
+            //             scheduleNextCheck(onlineCheckInterval);
+            //         } else {
+            //             // Connection error (e.g., server down)
+            //             $('#connectionModal').modal('show');
+            //             clearInterval(connectionCheckInterval);
+            //             scheduleNextCheck(offlineCheckInterval);
+            //         }
+            //     };
 
-        xhr.onerror = function () {
-            // Connection error
-            $('#connectionModal').modal('show');
-            clearInterval(connectionCheckInterval);
-            scheduleNextCheck(offlineCheckInterval);
-        };
+            //     xhr.onerror = function () {
+            //         // Connection error
+            //         $('#connectionModal').modal('show');
+            //         clearInterval(connectionCheckInterval);
+            //         scheduleNextCheck(offlineCheckInterval);
+            //     };
 
-        xhr.ontimeout = function () {
-            // Request timed out (slow connection)
-            $('#connectionModal').modal('show');
-            clearInterval(connectionCheckInterval);
-            scheduleNextCheck(offlineCheckInterval);
-        };
+            //     xhr.ontimeout = function () {
+            //         // Request timed out (slow connection)
+            //         $('#connectionModal').modal('show');
+            //         clearInterval(connectionCheckInterval);
+            //         scheduleNextCheck(offlineCheckInterval);
+            //     };
 
-        xhr.send();
-    }
+            //     xhr.send();
+            // }
 
-    function scheduleNextCheck(interval) {
-        connectionCheckInterval = setInterval(checkConnection, interval);
-    }
+            // function scheduleNextCheck(interval) {
+            //     connectionCheckInterval = setInterval(checkConnection, interval);
+            // }
 
-    // Initial check
-    checkConnection();
+            // // Initial check
+            // checkConnection();
 
-    // Additional event listeners to handle network changes
-    window.addEventListener('online', checkConnection);
-    window.addEventListener('offline', checkConnection);
-});
+            // // Additional event listeners to handle network changes
+            // window.addEventListener('online', checkConnection);
+            // window.addEventListener('offline', checkConnection);
+        });
 
 
 </script>
