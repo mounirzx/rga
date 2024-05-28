@@ -70,21 +70,37 @@ try {
     $reqQuestionnaire = $bdd->prepare("INSERT INTO `questionnaire` ($sqlColumnsQuestionnaire) VALUES ($sqlValuesQuestionnaire)");
     $reqQuestionnaire->execute($paramsQuestionnaire);
 
-    // Get the last inserted ID of the questionnaire table
-    $lastInsertId = $bdd->lastInsertId();
+    
 
+    // Recuperation de la cle id questionnaire pour lien avec les autres tables
+    $query = $bdd->prepare("SELECT `id_questionnaire` FROM `questionnaire` WHERE `exploitant_cle_unique` = :exploitant_cle_unique");
+    $query->bindParam(':exploitant_cle_unique', $cle, PDO::PARAM_STR);
+    $query->execute();
+    
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+ 
+    $id_questionnaire = $result['id_questionnaire'];
+    
+    // Get the last inserted ID of the questionnaire table
+
+
+
+
+
+    
      // Insert data into the status_juridique table for each set of dynamic data
      //$stat_jur_hectare_array=[];
      foreach ($formDataArrayStatut as $formData) {
         if (!empty($formData->origine_des_terres) && !empty($formData->status_juridique) && !empty($formData->superfecie_sj) && !empty($formData->superfecie_sj_are)) {
-            $cle_status_juridique = substr($lastInsertId . "-" .$formData->origine_des_terres."-".$formData->status_juridique, 0, 8);
+            $cle_status_juridique = substr($id_questionnaire . "-" .$formData->origine_des_terres."-".$formData->status_juridique, 0, 8);
     
              $reqStatusJuridique = $bdd->prepare("INSERT INTO `status_juridique` (`cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES (:cle_status_juridique, :id_questionnaire, :origine_des_terres, :status_juridique, :superfecie_sj, :superfecie_sj_are)");
     
             try {
                 $reqStatusJuridique->execute([
                     'cle_status_juridique' => $cle_status_juridique,
-                    'id_questionnaire' => $lastInsertId,
+                    'id_questionnaire' => $id_questionnaire,
                     'origine_des_terres' => $formData->origine_des_terres,
                     'status_juridique' => $formData->status_juridique,
                     'superfecie_sj' => $formData->superfecie_sj,
@@ -103,10 +119,10 @@ try {
 
 
 
-    if (!empty($lastInsertId)) {
+    if (!empty($id_questionnaire)) {
         // Prepare parameters for SQL statement
         $paramsSuperficieExploitation = [
-            'id_questionnaire' => $lastInsertId,
+            'id_questionnaire' => $id_questionnaire,
             'cultures_herbacees_1' => $data->cultures_herbacees_1, // Assuming you have this field directly in the $data object
             'cultures_herbacees_2' => $data->cultures_herbacees_2,
             'cultures_herbacees_3' => $data->cultures_herbacees_3,
@@ -158,7 +174,7 @@ try {
         // Check for non-empty necessary fields
         if (!empty($formData->code_culture) && !empty($formData->superficie_hec) && !empty($formData->superficie_are)) {
             // Generate a unique key for `cle_code_culture`
-            $cle_code_culture = $lastInsertId . "-" . $formData->code_culture . "-" . $formData->superficie_hec . "-" . $formData->superficie_are;
+            $cle_code_culture = $id_questionnaire . "-" . $formData->code_culture . "-" . $formData->superficie_hec . "-" . $formData->superficie_are;
     
             // Prepare SQL statement to insert data into `utilisation_du_sol` table
             $reqUtilisationDuSol = $bdd->prepare("INSERT INTO `utilisation_du_sol` (`cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES (:cle_code_culture, :id_questionnaire, :code_culture, :superficie_hec, :superficie_are, :en_intercalaire)");
@@ -166,7 +182,7 @@ try {
             // Execute the prepared statement with provided parameters
             $reqUtilisationDuSol->execute([
                 'cle_code_culture' => $cle_code_culture,
-                'id_questionnaire' => $lastInsertId,
+                'id_questionnaire' => $id_questionnaire,
                 'code_culture' => $formData->code_culture,
                 'superficie_hec' => $formData->superficie_hec,
                 'superficie_are' => $formData->superficie_are,
@@ -185,12 +201,12 @@ try {
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData->code_materiel) && !empty($formData->code_materiel_nombre)
     && !empty($formData->ee_mode_mobilisation_materiel) &&  !empty($formData->ee_mode_exploitation_materiel)) {
-        $cle_materiel_agricole = $lastInsertId . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre;
+        $cle_materiel_agricole = $id_questionnaire . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre;
 
  $reqMaterielAgricole = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`,`ee_mode_mobilisation_materiel`,`ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
         $reqMaterielAgricole->execute([
             'cle_materiel_agricole' => $cle_materiel_agricole,
-            'id_questionnaire' => $lastInsertId,
+            'id_questionnaire' => $id_questionnaire,
             'code_materiel' => $formData->code_materiel,
             'code_materiel_nombre' => $formData->code_materiel_nombre,
             'ee_mode_mobilisation_materiel' => $formData->ee_mode_mobilisation_materiel,
@@ -239,13 +255,16 @@ if($controleSatSumsjtest2=="green"){
 }
 /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 $req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES (?, ?, ?, ?,?)');
-$req4->execute(array($lastInsertId,$coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol));
+$req4->execute(array($id_questionnaire,$coherence_stat_jur,$message_coherence_stat_jur,$coherence_util_sol,$message_coherence_util_sol));
 
 $bdd->commit();
 /************************************************************************ */
 // your database logic
-    echo json_encode(['response' => true]);
+echo json_encode(['response' => true]);
 } catch (PDOException $e) {
+    if ($bdd->inTransaction()) {
+        $bdd->rollBack();
+    }
     if ($e->getCode() === '23000') { // Check if the error code is Integrity constraint violation
         $errorMessage = $e->getMessage();
         if (strpos($errorMessage, 'Duplicate entry') !== false) {
@@ -259,7 +278,6 @@ $bdd->commit();
             }
         }
     }
-    // If the error code is not Integrity constraint violation or key extraction fails, handle the error normally
     http_response_code(500); // Set appropriate response code
     echo json_encode(['response' => false, 'error' => $e->getMessage()]);
 }

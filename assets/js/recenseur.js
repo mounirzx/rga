@@ -40,7 +40,7 @@ $(document).ready(function(){
                 console.log(response)
                 var data = JSON.parse(response)
                
-                $('#first_name').val(data[0].nom_recensseur)
+                $('#first_name').val(data[0].prenom_recenseur)
                 $('#last_name').val(data[0].nom_recensseur)
                 $('#email').val(data[0].email)
                 $('#commune').val(data[0].commune)
