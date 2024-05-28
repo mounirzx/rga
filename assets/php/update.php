@@ -81,61 +81,65 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 
-        // Check if the questionnaire already exists
-        $cleQuery = $bdd->prepare("SELECT  `id_status_juridique`, `cle_status_juridique`, `id_questionnaire` FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
-        $cleQuery->bindValue(':id_questionnaire', $data['id_questionnaire']);
-        $cleQuery->execute();
-        $cleResult = $cleQuery->fetch(PDO::FETCH_ASSOC);
-        @$id_status_juridique = $cleResult['id_status_juridique'];
-        @$cle_status_juridique = $cleResult['cle_status_juridique'];
-        @$id_questionnaire = $cleResult['id_questionnaire'];
-
-        if ($id_status_juridique > 0) {
-            $deleteStmt = $bdd->prepare("DELETE FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
-            $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-            $deleteStmt->execute();
-            // Insert new record if the questionnaire does not exist
-            foreach ($formDataArrayStatut as $formData) {
-                if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {
-                    // Generate a unique cle_status_juridique value
-                    $cle_status_juridique = substr($data['id_questionnaire'] . "-" . $formData['origine_des_terres'] . "-" . $formData['status_juridique'], 0, 8);
-        
-                    // Check if the generated cle_status_juridique already exists
-                    $checkDuplicateQuery = $bdd->prepare("SELECT COUNT(*) AS count FROM `status_juridique` WHERE `cle_status_juridique` = :cle_status_juridique");
-                    $checkDuplicateQuery->bindValue(':cle_status_juridique', $cle_status_juridique);
-                    $checkDuplicateQuery->execute();
-                    $duplicateCount = $checkDuplicateQuery->fetchColumn();
-        
-                    if ($duplicateCount == 0) {
-                        // No duplicate, insert the record
-                        $reqStatusJuridique = $bdd->prepare("INSERT INTO `status_juridique` (`cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES (:cle_status_juridique, :id_questionnaire, :origine_des_terres, :status_juridique, :superfecie_sj, :superfecie_sj_are)");
-        
-                        $reqStatusJuridique->execute([
-                            'cle_status_juridique' => $cle_status_juridique,
-                            'id_questionnaire' => $data['id_questionnaire'],
-                            'origine_des_terres' => $formData['origine_des_terres'],
-                            'status_juridique' => $formData['status_juridique'],
-                            'superfecie_sj' => $formData['superfecie_sj'],
-                            'superfecie_sj_are' => $formData['superfecie_sj_are']
-                        ]);
-                    } else {
-                        // Duplicate found, update the existing record
-                        $updateStmt = $bdd->prepare("UPDATE `status_juridique` SET `origine_des_terres` = :origine_des_terres, `status_juridique` = :status_juridique, `superfecie_sj` = :superfecie_sj, `superfecie_sj_are` = :superfecie_sj_are WHERE `cle_status_juridique` = :cle_status_juridique");
-                        $updateStmt->bindValue(':origine_des_terres', $formData['origine_des_terres']);
-                        $updateStmt->bindValue(':status_juridique', $formData['status_juridique']);
-                        $updateStmt->bindValue(':superfecie_sj', $formData['superfecie_sj']);
-                        $updateStmt->bindValue(':superfecie_sj_are', $formData['superfecie_sj_are']);
-                        $updateStmt->bindValue(':cle_status_juridique', $cle_status_juridique);
-                        $updateStmt->execute();
-                    }
-                }
-            }
-        } 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+// Check if the questionnaire already exists
+$cleQuery1 = $bdd->prepare("SELECT `id_status_juridique`, `cle_status_juridique`, `id_questionnaire` FROM `status_juridique` WHERE `id_questionnaire` = :id_questionnaire");
+$cleQuery1->bindValue(':id_questionnaire', $data['id_questionnaire']);
+$cleQuery1->execute();
+$cleResul1 = $cleQuery1->fetch(PDO::FETCH_ASSOC);
+
+$id_status_juridique = ($cleResul1 !== false && is_array($cleResul1)) ? $cleResul1['id_status_juridique'] : 0;
+$cle_status_juridique = ($cleResul1 !== false && is_array($cleResul1)) ? $cleResul1['cle_status_juridique'] : '';
+$id_questionnaire = ($cleResul1 !== false && is_array($cleResul1)) ? $cleResul1['id_questionnaire'] : 0;
+
+foreach ($formDataArrayStatut as $formData) {
+    if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {
+        // Generate a unique cle_status_juridique value
+        $cle_status_juridique = substr($data['id_questionnaire'] . "-" . $formData['origine_des_terres'] . "-" . $formData['status_juridique'], 0, 20);
+
+        // Check if the generated cle_status_juridique already exists
+        $checkDuplicateQuery1 = $bdd->prepare("SELECT COUNT(*) AS count FROM `status_juridique` WHERE `cle_status_juridique` = :cle_status_juridique");
+        $checkDuplicateQuery1->bindValue(':cle_status_juridique', $cle_status_juridique);
+        $checkDuplicateQuery1->execute();
+        $duplicateCount = $checkDuplicateQuery1->fetchColumn();
+
+        if ($duplicateCount == 0) {
+            // Insert new record
+            $insertStmt1 = $bdd->prepare("INSERT INTO `status_juridique` (`cle_status_juridique`, `id_questionnaire`, `origine_des_terres`, `status_juridique`, `superfecie_sj`, `superfecie_sj_are`) VALUES (:cle_status_juridique, :id_questionnaire, :origine_des_terres, :status_juridique, :superfecie_sj, :superfecie_sj_are)");
+
+            $insertStmt1->execute([
+                'cle_status_juridique' => $cle_status_juridique,
+                'id_questionnaire' => $data['id_questionnaire'],
+                'origine_des_terres' => $formData['origine_des_terres'],
+                'status_juridique' => $formData['status_juridique'],
+                'superfecie_sj' => $formData['superfecie_sj'],
+                'superfecie_sj_are' => $formData['superfecie_sj_are']
+            ]);
+        } else {
+            // Duplicate found, update the existing record
+            $updateStmt1 = $bdd->prepare("UPDATE `status_juridique` SET `origine_des_terres` = :origine_des_terres, `status_juridique` = :status_juridique, `superfecie_sj` = :superfecie_sj, `superfecie_sj_are` = :superfecie_sj_are WHERE `cle_status_juridique` = :cle_status_juridique");
+            $updateStmt1->bindValue(':origine_des_terres', $formData['origine_des_terres']);
+            $updateStmt1->bindValue(':status_juridique', $formData['status_juridique']);
+            $updateStmt1->bindValue(':superfecie_sj', $formData['superfecie_sj']);
+            $updateStmt1->bindValue(':superfecie_sj_are', $formData['superfecie_sj_are']);
+            $updateStmt1->bindValue(':cle_status_juridique', $cle_status_juridique);
+            $updateStmt1->execute();
+        }
+    }
+}
 
 
 
@@ -183,14 +187,14 @@ $form = json_decode(file_get_contents("php://input"), true);
 
 
 // Check if the questionnaire already exists
-$query = $bdd->prepare("SELECT `id`, `cle_code_culture`, `id_questionnaire`, `code_culture` FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
-$query->bindValue(':id_questionnaire', $data['id_questionnaire']);
-$query->execute();
-$result = $query->fetch(PDO::FETCH_ASSOC);
+$cleQuery2 = $bdd->prepare("SELECT `id`, `cle_code_culture`, `id_questionnaire`, `code_culture` FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+$cleQuery2->bindValue(':id_questionnaire', $data['id_questionnaire']);
+$cleQuery2->execute();
+$cleResul2 = $cleQuery2->fetch(PDO::FETCH_ASSOC);
 
-$id = ($result !== false && is_array($result)) ? $result['id'] : 0;
-$cle_code_culture = ($result !== false && is_array($result)) ? $result['cle_code_culture'] : '';
-$id_questionnaire = ($result !== false && is_array($result)) ? $result['id_questionnaire'] : 0;
+$id = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id'] : 0;
+$cle_code_culture = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['cle_code_culture'] : '';
+$id_questionnaire = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id_questionnaire'] : 0;
 
 
 foreach ($formDataArrayCodeCulture as $formData) {
@@ -199,16 +203,16 @@ foreach ($formDataArrayCodeCulture as $formData) {
         $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'], 0, 20);
 
         // Check if the generated cle_code_culture already exists
-        $checkDuplicateQuery = $bdd->prepare("SELECT COUNT(*) AS count FROM `utilisation_du_sol` WHERE `cle_code_culture` = :cle_code_culture");
-        $checkDuplicateQuery->bindValue(':cle_code_culture', $cle_code_culture);
-        $checkDuplicateQuery->execute();
-        $duplicateCounts = $checkDuplicateQuery->fetchColumn();
+        $checkDuplicateQuery2 = $bdd->prepare("SELECT COUNT(*) AS count FROM `utilisation_du_sol` WHERE `cle_code_culture` = :cle_code_culture");
+        $checkDuplicateQuery2->bindValue(':cle_code_culture', $cle_code_culture);
+        $checkDuplicateQuery2->execute();
+        $duplicateCounts = $checkDuplicateQuery2->fetchColumn();
 
         if ($duplicateCounts == 0) {
             // Insert new record
-            $insertStmt = $bdd->prepare("INSERT INTO `utilisation_du_sol` (`cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES (:cle_code_culture, :id_questionnaire, :code_culture, :superficie_hec, :superficie_are, :en_intercalaire)");
+            $insertStmt2 = $bdd->prepare("INSERT INTO `utilisation_du_sol` (`cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES (:cle_code_culture, :id_questionnaire, :code_culture, :superficie_hec, :superficie_are, :en_intercalaire)");
 
-            $insertStmt->execute([
+            $insertStmt2->execute([
                 'cle_code_culture' => $cle_code_culture,
                 'id_questionnaire' => $data['id_questionnaire'],
                 'code_culture' => $formData['code_culture'],
@@ -218,13 +222,15 @@ foreach ($formDataArrayCodeCulture as $formData) {
             ]);
         } else {
             // Duplicate found, update the existing record
-            $updateStmt = $bdd->prepare("UPDATE `utilisation_du_sol` SET `code_culture` = :code_culture, `superficie_hec` = :superficie_hec, `superficie_are` = :superficie_are, `en_intercalaire` = :en_intercalaire WHERE `cle_code_culture` = :cle_code_culture");
-            $updateStmt->bindValue(':code_culture', $formData['code_culture']);
-            $updateStmt->bindValue(':superficie_hec', $formData['superficie_hec']);
-            $updateStmt->bindValue(':superficie_are', $formData['superficie_are']);
-            $updateStmt->bindValue(':en_intercalaire', $formData['en_intercalaire']);
-            $updateStmt->bindValue(':cle_code_culture', $cle_code_culture);
-            $updateStmt->execute();
+            $updateStmt2 = $bdd->prepare("UPDATE `utilisation_du_sol` SET `code_culture` = :code_culture, `superficie_hec` = :superficie_hec, `superficie_are` = :superficie_are, `en_intercalaire` = :en_intercalaire WHERE `cle_code_culture` = :cle_code_culture");
+            $updateStmt2->bindValue(':code_culture', $formData['code_culture']);
+            $updateStmt2->bindValue(':superficie_hec', $formData['superficie_hec']);
+            $updateStmt2->bindValue(':superficie_are', $formData['superficie_are']);
+            $updateStmt2->bindValue(':en_intercalaire', $formData['en_intercalaire']);
+            $updateStmt2->bindValue(':cle_code_culture', $cle_code_culture);
+            $updateStmt2->execute();
+            // Clear the variable after the update
+            $cle_code_culture = '';
         }
     }
 }
@@ -253,14 +259,14 @@ foreach ($formDataArrayCodeCulture as $formData) {
 
 
 // Check if the questionnaire already exists
-$cleQuery = $bdd->prepare("SELECT `id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`, `code_materiel_nombre` FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
-$cleQuery->bindValue(':id_questionnaire', $data['id_questionnaire']);
-$cleQuery->execute();
-$cleResult = $cleQuery->fetch(PDO::FETCH_ASSOC);
+$cleQuery3 = $bdd->prepare("SELECT `id_materiel_agricol`, `cle_materiel_agricole`, `id_questionnaire`, `code_materiel_nombre` FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
+$cleQuery3->bindValue(':id_questionnaire', $data['id_questionnaire']);
+$cleQuery3->execute();
+$cleResult3 = $cleQuery3->fetch(PDO::FETCH_ASSOC);
 
-$id_materiel_agricol = ($cleResult !== false && is_array($cleResult)) ? $cleResult['id_materiel_agricol'] : 0;
-$cle_materiel_agricole = ($cleResult !== false && is_array($cleResult)) ? $cleResult['cle_materiel_agricole'] : '';
-$id_questionnaire = ($cleResult !== false && is_array($cleResult)) ? $cleResult['id_questionnaire'] : 0;
+$id_materiel_agricol = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_materiel_agricol'] : 0;
+$cle_materiel_agricole = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['cle_materiel_agricole'] : '';
+$id_questionnaire = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_questionnaire'] : 0;
 
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
@@ -268,16 +274,16 @@ foreach ($formDataArrayCodeMateriel as $formData) {
         $cle_materiel_agricole = substr($data['id_questionnaire'] . "-" . $formData['code_materiel'] . "-" . $formData['code_materiel_nombre'], 0, 20);
 
         // Check if the generated cle_materiel_agricole already exists
-        $checkDuplicateQuery = $bdd->prepare("SELECT COUNT(*) AS count FROM `materiel_agricole` WHERE `cle_materiel_agricole` = :cle_materiel_agricole");
-        $checkDuplicateQuery->bindValue(':cle_materiel_agricole', $cle_materiel_agricole);
-        $checkDuplicateQuery->execute();
-        $duplicateCount = $checkDuplicateQuery->fetchColumn();
+        $checkDuplicateQuery3 = $bdd->prepare("SELECT COUNT(*) AS count FROM `materiel_agricole` WHERE `cle_materiel_agricole` = :cle_materiel_agricole");
+        $checkDuplicateQuery3->bindValue(':cle_materiel_agricole', $cle_materiel_agricole);
+        $checkDuplicateQuery3->execute();
+        $duplicateCountss = $checkDuplicateQuery3->fetchColumn();
 
-        if ($duplicateCount == 0) {
+        if ($duplicateCountss == 0) {
             // Insert new record
-            $insertStmt = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
+            $insertStmt3 = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`, `ee_mode_mobilisation_materiel`, `ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
 
-            $insertStmt->execute([
+            $insertStmt3->execute([
                 'cle_materiel_agricole' => $cle_materiel_agricole,
                 'id_questionnaire' => $data['id_questionnaire'],
                 'code_materiel' => $formData['code_materiel'],
@@ -287,13 +293,13 @@ foreach ($formDataArrayCodeMateriel as $formData) {
             ]);
         } else {
             // Duplicate found, update the existing record
-            $updateStmt = $bdd->prepare("UPDATE `materiel_agricole` SET `code_materiel` = :code_materiel, `code_materiel_nombre` = :code_materiel_nombre, `ee_mode_mobilisation_materiel` = :ee_mode_mobilisation_materiel, `ee_mode_exploitation_materiel` = :ee_mode_exploitation_materiel WHERE `cle_materiel_agricole` = :cle_materiel_agricole");
-            $updateStmt->bindValue(':code_materiel', $formData['code_materiel']);
-            $updateStmt->bindValue(':code_materiel_nombre', $formData['code_materiel_nombre']);
-            $updateStmt->bindValue(':ee_mode_mobilisation_materiel', $formData['ee_mode_mobilisation_materiel']);
-            $updateStmt->bindValue(':ee_mode_exploitation_materiel', $formData['ee_mode_exploitation_materiel']);
-            $updateStmt->bindValue(':cle_materiel_agricole', $cle_materiel_agricole);
-            $updateStmt->execute();
+            $updateStmt3 = $bdd->prepare("UPDATE `materiel_agricole` SET `code_materiel` = :code_materiel, `code_materiel_nombre` = :code_materiel_nombre, `ee_mode_mobilisation_materiel` = :ee_mode_mobilisation_materiel, `ee_mode_exploitation_materiel` = :ee_mode_exploitation_materiel WHERE `cle_materiel_agricole` = :cle_materiel_agricole");
+            $updateStmt3->bindValue(':code_materiel', $formData['code_materiel']);
+            $updateStmt3->bindValue(':code_materiel_nombre', $formData['code_materiel_nombre']);
+            $updateStmt3->bindValue(':ee_mode_mobilisation_materiel', $formData['ee_mode_mobilisation_materiel']);
+            $updateStmt3->bindValue(':ee_mode_exploitation_materiel', $formData['ee_mode_exploitation_materiel']);
+            $updateStmt3->bindValue(':cle_materiel_agricole', $cle_materiel_agricole);
+            $updateStmt3->execute();
         }
     }
 }
