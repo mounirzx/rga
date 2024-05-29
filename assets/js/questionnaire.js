@@ -611,7 +611,8 @@ col="<td>"+data[i].exploitant_cle_unique+"</td>"
                   data[i].commune_name_ascii +
                   "</td><td></td><td>" +
                   data[i].nom_recensseur + " " + data[i].prenom_recenseur +
-                  "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_stat_jur + "'  class='fa-solid fa-circle " + data[i].coherence_stat_jur + "'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_util_sol + "' class='fa-solid fa-circle " + data[i].coherence_util_sol + "'></i></td></tr>";
+                  "</td> <td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_stat_jur + "'  class='fa-solid fa-circle " + (data[i].coherence_stat_jur == '' ? 'text-light' : data[i].coherence_stat_jur) + "'></i></td><td><i style='font-size:28px' data-bs-toggle='tooltip' data-bs-title='" + message_coherence_util_sol + "' class='fa-solid fa-circle " + (data[i].coherence_util_sol == "" ? 'text-light' :  data[i].coherence_util_sol )+ "'></i></td></tr>";
+                  
           }
        // Debugging: Log the content of qst_list
 console.log("qst_list content:", qst_list);
