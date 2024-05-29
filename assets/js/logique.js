@@ -1822,43 +1822,51 @@ function updateSelect6() {
 $(document).ready(function(){
     var combinations = {}; // Object to hold combinations to ensure uniqueness
  
- // Function to generate a unique combination based on row inputs
- function generateCombination(row) {
-     return row.find('[id^="code_materiel"]').val() + '-' +
-            row.find('[id^="code_materiel_nombre"]').val() + '-' +
-            row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
-            row.find('[id^="ee_mode_exploitation_materiel"]').val();
- }
- 
- // Function to check and manage unique combinations
- function manageCombinations(row) {
-     var key = generateCombination(row);
-     if (combinations[key]) {
-         Swal.fire({
-             title: 'Attention!',
-             text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
-             icon: 'warning',
-             confirmButtonText: 'OK'
-         });
-         // Reset the row's selects to the default option
-         row.find('select').val(function() {
-             return $(this).children('option:first').val();
-         });
-     } else {
-         // Add or update the combination in the map
-         Object.values(combinations).forEach((val, idx) => {
-             if (val.row.is(row)) {
-                 delete combinations[idx];
-             }
-         });
-         combinations[key] = { row: row };
-     }
- }
- 
- // Handle changes in any of the dropdowns
- $('#formContainer3').on('change', 'select', function() {
-     manageCombinations($(this).closest('.row'));
- });
+// Function to generate a unique key for a row
+function generateCombination(row) {
+    return row.find('[id^="code_materiel"]').val() + '-' +
+           row.find('[id^="code_materiel_nombre"]').val() + '-' +
+           row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
+           row.find('[id^="ee_mode_exploitation_materiel"]').val();
+}
+
+// Function to check and manage unique combinations
+function manageCombinations(row) {
+    var key = generateCombination(row);
+    var isDuplicate = false;
+    
+    // Check for duplicates by iterating through all rows
+    $('#formContainer3 .row').each(function() {
+        var currentRow = $(this);
+        if (currentRow.is(row)) {
+            return true; // Skip the current row
+        }
+        var currentKey = generateCombination(currentRow);
+        if (currentKey === key) {
+            isDuplicate = true;
+            return false; // Break the loop if a duplicate is found
+        }
+    });
+
+    if (isDuplicate) {
+        Swal.fire({
+            title: 'Attention!',
+            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        // Reset the row's selects to the default option
+        row.find('select').val(function() {
+            return $(this).children('option:first').val();
+        });
+    }
+}
+
+// Handle changes in any of the dropdowns
+$('#formContainer3').on('change', 'select', function() {
+    manageCombinations($(this).closest('.row'));
+});
+
  
  // Handle the addition of new rows
  $('#addForm3').click(function() {
