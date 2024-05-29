@@ -4215,13 +4215,13 @@ Source d'irrigation
         <label class="form-check-label" for="Puits">بئر<br> Puits</label>
         <!-- Input element to insert an integer value -->
         <div style=" display:none; margin-left:35px;" class="input-group bneder-input input-group-sm">
-              
+             
               <input num maxlength="3" name="eau_total_puits"  id="eau_total_puits" class="form-control bneder-input bneder pm_hydraulique" style="display:none;" >
         <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
     </div><br>
-  
+ 
       <div class="form-check">
         <input class="form-check-input" id="forage" name="eau_forage" type="checkbox">
         <label class="form-check-label" for="Forage">بئر عميق<br> Forage</label>
@@ -4232,7 +4232,7 @@ Source d'irrigation
                       <span class="input-group-text" id="basic-addon3">العدد<br>
               Nombre</span>
             </div>
-    
+   
       </div>
       <br>
 </div>

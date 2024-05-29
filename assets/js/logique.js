@@ -1857,7 +1857,7 @@ $(document).ready(function(){
  
  // Handle changes in any of the dropdowns
  $('#formContainer3').on('change', 'select', function() {
-     manageCombinations($(this).closest('.row'));
+    // manageCombinations($(this).closest('.row'));
  });
  
  // Handle the addition of new rows
