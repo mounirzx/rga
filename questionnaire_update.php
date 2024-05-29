@@ -1589,8 +1589,8 @@ acte de concession ?
 
      <div id="superficieExploitation">
 
-
-     </div>
+    </div>
+    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="surface">
      </div>
      </div>
      </div>
@@ -6825,12 +6825,30 @@ var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale
 $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
 }
 
+var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
+var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
+let superficie_total;
+
+if (surface_totale_st_2.includes('.')) {
+  // Remove comma from surface_totale_st_2
+  surface_totale_st_2 = surface_totale_st_2.replace('.', '');
+}
+
+// Concatenate and parse to float
+superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+
+
 
 
  
       });
   }
-
+  document.addEventListener('DOMContentLoaded', function () {
+            // Get the form element
+            var form = document.getElementById('myForm');
+            
+            })
 
     /********************************statut_juridique_s**************************************/
    

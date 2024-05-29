@@ -1019,7 +1019,23 @@ var quotient = Math.floor(divider / divisor);
 document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
 var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
 $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
+
 }
+
+var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
+var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
+let superficie_total;
+
+if (surface_totale_st_2.includes('.')) {
+  // Remove comma from surface_totale_st_2
+  surface_totale_st_2 = surface_totale_st_2.replace('.', '');
+}
+
+// Concatenate and parse to float
+superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+
+
 
 
 
