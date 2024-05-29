@@ -762,10 +762,10 @@ Sexe</span>
          
         </option>
         <option value="1">
-          1 - الوحيد - Unique
-        </option>
-        <option value="2">
-          2 - الرئيسي - Principal
+           1 - الرئيسي - Principal
+         </option>
+         <option value="2">
+           2 - الوحيد - Unique
         </option>
       </select>
     </div><br>

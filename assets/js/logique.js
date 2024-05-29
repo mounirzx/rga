@@ -887,7 +887,7 @@ $('#niveau_instruction').on('change', function() {
   // Function to toggle the disabled state and clear the input based on dropdown selection
   function toggleAndClearCoExploitantsInput() {
     var selectedValue = $('#exploitant').val(); // Get the selected value
-    if (selectedValue === '1') { // If "1 - Unique" is selected
+    if (selectedValue === '2') { // If "2 - Unique" is selected
         $('#nb_co_exploitants').prop('disabled', true).val(''); // Disable the input and clear its value
         // $('#origine_des_terres').prop('disabled', true).val(''); // Disable the input and clear its value
         // $('#status_juridique').prop('disabled', true).val(''); // Disable the input and clear its value
