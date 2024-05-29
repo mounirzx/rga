@@ -1,7 +1,21 @@
 <?php 
 include('includes/header.php');
-$role=$_SESSION['role'];
+include './assets/php/config.php';
 
+
+$bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$req = $bdd->prepare("SELECT 
+COUNT(*) AS total,
+SUM(CASE WHEN etat = 'Approuvés' THEN 1 ELSE 0 END) AS approuves,
+SUM(CASE WHEN etat = 'Rejetés' THEN 1 ELSE 0 END) AS rejetes,
+SUM(CASE WHEN etat = 'En attente' THEN 1 ELSE 0 END) AS en_attente
+FROM questionnaire");
+$req->execute();
+$res  = $req->fetch(PDO::FETCH_ASSOC);
+$approuves = $res["approuves"];
+$rejetes = $res["rejetes"];
+$en_attente = $res["en_attente"];
+$total = $res["total"];
 ?>
     <br>
     <br>
@@ -69,7 +83,7 @@ $role=$_SESSION['role'];
                    
                             <img src="static/icons/form.svg" alt="State Icon" style="width: 20px; height: 35px; margin-left: 5px;">
                             
-                               <span id="total_questionnaire"></span>
+                               <span id="total_questionnaire"><?php echo$total; ?></span>
                             
                         </div>
                     </a>
@@ -86,7 +100,7 @@ $role=$_SESSION['role'];
                         </div>
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/wait.svg" alt="State Icon" style="width: 22px; height: 35px; margin-left: 5px;">
-                            <span id="sum_en_attente"></span>
+                            <span id="sum_en_attente"><?php echo$en_attente; ?></span>
                         </div>
                     </a>
                     </div>
@@ -100,7 +114,7 @@ $role=$_SESSION['role'];
                         </div>
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/reject.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
-                            <span id="sum_rejete"></span>
+                            <span id="sum_rejete"><?php echo$rejetes; ?></span>
                         </div>
                     </a>
                     </div>
@@ -114,7 +128,7 @@ $role=$_SESSION['role'];
                         </div>
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/accept.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
-                            <span id="sum_approuvee"></span>
+                            <span id="sum_approuvee"><?php echo$approuves; ?></span>
                         </div>
                     </div>
                 </a>
