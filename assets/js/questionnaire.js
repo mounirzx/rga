@@ -534,8 +534,11 @@ $("input[type='checkbox']").each(function() {
 
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-function qstList(etat) {
-  $.ajax({
+  function qstList(etat) {
+var role=$('#role').val()
+
+
+    $.ajax({
       url: url.qstList,
       method: "post",
       
@@ -576,16 +579,23 @@ function qstList(etat) {
                   "RGA"
               ).toString();
 
+              var encryptedIduser = CryptoJS.AES.encrypt(
+                data[i].user.toString(),
+                "RGA"
+            ).toString();
               var message_coherence_stat_jur = data[i].message_coherence_stat_jur || "Pas de données";
               var message_coherence_util_sol = data[i].message_coherence_util_sol || "Pas de données";
-
+var col =""
+if(role=="admin" || role =="admin_central"){
+col="<td>"+data[i].exploitant_cle_unique+"</td>"
+}
               qst_list += "<tr style=' background:" + classes + "'>" +
-                  "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?id=" +
+                  "<td><a class='btn btn-primary updateBtn btn-sm' href='" + url.questionnairePreview + "?uid="+ encodeURIComponent(encryptedIduser)+ "?id=" +
                   encodeURIComponent(data[i].id_questionnaire) +
                   "?Quest=" +
                   btoa(encryptedId) +
                   "' data-id='" + data[i].id_questionnaire +
-                  "'><i class='fa-solid fa-eye'></i></a></td><td>" +
+                  "'><i class='fa-solid fa-eye'></i></a></td>"+col+"<td>" +
                   data[i].nom_exploitant + " " + data[i].prenom_exploitant +
                   "</td><td>" +
                   data[i].nom_exploitation +
@@ -638,9 +648,9 @@ $("#listTable").DataTable({
    qstList("all");
 
 
-   $(".etat").click(function () {
+  $(".etat").click(function () {
     var etat = $(this).attr("data");
-   console.log(etat);
+   // console.log(etat);
     qstList(etat);
   });
 

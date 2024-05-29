@@ -4007,7 +4007,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+        <select  inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
           <option selected="selected" vlaue="-">
           </option>
           <option class="fontbneder2" value="1">
@@ -6476,7 +6476,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    // Additional code for 'Mode of Mobilization' select input
    inputs += '<div class="col">';
    inputs += '<div class="input-group input-group-sm">';
-   inputs += '<select class="form-select code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
+   inputs += '<select inptsz class="form-select fontbneder2 code_materiel_s" id="ee_mode_mobilisation_materiel" name="ee_mode_mobilisation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
    inputs += '<option value="1" ' + (item.ee_mode_mobilisation_materiel === "1" ? 'selected' : '') + '>1- en proprièté - ملكية</option>';
    inputs += '<option value="2" ' + (item.ee_mode_mobilisation_materiel === "2" ? 'selected' : '') + '>2- en location - إجار</option>';
@@ -6488,7 +6488,7 @@ inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
    // Additional code for 'Mode of Exploitation' select input
    inputs += '<div class="col">';
    inputs += '<div class="input-group input-group-sm">';
-   inputs += '<select class="form-select code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
+   inputs += '<select inptsz class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">';
    inputs += '<option selected="selected" value="-"> </option>';
    inputs += '<option value="1" ' + (item.ee_mode_exploitation_materiel === "1" ? 'selected' : '') + '>1- en individuel - فردية</option>';
    inputs += '<option value="2" ' + (item.ee_mode_exploitation_materiel === "2" ? 'selected' : '') + '>2- en collectif - جماعية</option>';
@@ -6887,7 +6887,7 @@ data.status_juridique.forEach(function(item) {
         '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
         '<input id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" name="superfecie_sj_are"  style="max-width: 45px;"  maxlength="2" num class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+        '<input id="superfecie_sj_are" doubleare name="superfecie_sj_are"  style="max-width: 50px;"  class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
        
         '</div>' +
         '</div>' +
@@ -7125,8 +7125,8 @@ $('#status_juridique_'+idPart).append(filtered[id])
 
     /****************************************utilisation_du_sol********************************************* */
 
-    var utilisation_du_sol_inputs = "";
     var totalirriguer = 0; // Declare total in the global scope
+    var utilisation_du_sol_inputs = "";
 
 // Append each status_juridique input
 data.utilisation_du_sol.forEach(function(item) {

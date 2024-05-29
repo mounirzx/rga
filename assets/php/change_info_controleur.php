@@ -59,30 +59,3 @@ curl_close($ch);
     echo $msg;
 }
 ?>
-
-
-$body ="
-<html>
-<head>
-<title>L'application de l'RGA</title>
-</head>
-<body>
-
-<p>Bonjour,</p>
-<p>Votre compte dans la plate-forme de saisie de l'RGA 2024 a été modifier avec succès. Vous trouverez ci-dessous les informations de connexion :</p>
-
-
-<ul>
-
-<li>
-<strong>Le lien :</strong><a href=$rgaLink>la plate-forme de saisie de l'RGA 2024</a></li>
-<li>
-<strong>Compte:</strong> $role</li>
-    <li><strong>Nom d'utilisateur:</strong> $username</li>
-    <li><strong>Mot de passe:</strong> $nonhashedPass</li>
-</ul>
-<p>Cordialement,</p>
-<p>Votre équipe de support</p>
-</body>
-</html>
-";

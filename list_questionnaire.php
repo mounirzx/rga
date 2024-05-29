@@ -1,5 +1,6 @@
 <?php 
 include('includes/header.php');
+$role=$_SESSION['role'];
 
 ?>
     <br>
@@ -131,7 +132,7 @@ include('includes/header.php');
 
           
 
-
+<input type="hidden" value="<?php echo $role;  ?>" id="role" />
 
             
             <br>
@@ -139,6 +140,13 @@ include('includes/header.php');
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <?php
+                        if($role=="admin" || $role=="admin_central"){
+                            ?>
+<th scope="col">Clé</th>
+                            <?php
+                        }
+                        ?>
                         <th scope="col">L'exploitant</th>
                         <th scope="col">L'exploitation</th>
                         <th scope="col">Superficie (Ha)</th>

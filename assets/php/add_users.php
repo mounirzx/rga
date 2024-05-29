@@ -67,10 +67,32 @@ try {
     //connexion a la base de données
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
+
+    $bdd->beginTransaction();
+
+
+
+    $req = $bdd->prepare('select * from users where username =? ');
+    $req->execute(array($username));
+
+    $count = $req->rowCount();
+
+    if($count==0){
+
+
+
     $req = $bdd->prepare('INSERT INTO `users`( `username`, `password`,nonhashedpass, `role`, `date_creation`) VALUES(?,?,?,?,NOW()) ');
     $req->execute(array($username, $password, $nonhashedPass,$role));
 
-    $id_user = $bdd->lastInsertId();
+
+    //select by username 
+
+    $req3 = $bdd->prepare('select * from users where username =? ');
+    $req3->execute(array($username));
+    $data =$res = $req3->fetch(PDO::FETCH_ASSOC);
+    $id_user = $data['id_user'];
+    //$id_user = $bdd->lastInsertId();
+
 
     if ($role == 'superviseur_national') {
         $req2 = $bdd->prepare('INSERT INTO `superviseur_national`(`id_user`, `nom_superviseur_national`, `prenom_superviseur_national`, `phone`, `wilaya`, `email`, `creation_date`) VALUES(?,?,?,?,?,?,NOW())');
@@ -92,7 +114,7 @@ try {
     }
 
     
-   
+   $bdd->commit();
 
     // Update last_login field for the newly added user
     $updateLastLogin = $bdd->prepare("UPDATE users SET last_login = NOW() WHERE id_user = ?");
@@ -114,9 +136,15 @@ try {
     curl_close($ch);
 
     echo json_encode(array("response"=> "true"));
+}else{
+    echo json_encode(array("response"=> "1"));
+}
 } catch (Exception $e) {
     $msg = $e->getMessage();
     echo $msg;
+    if ($bdd->inTransaction()) {
+        $bdd->rollBack();
+        }
 }
 }
 ?>

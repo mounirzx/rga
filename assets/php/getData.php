@@ -5,7 +5,7 @@ include './config.php';
 
 
 session_start();
-$_id_user = $_SESSION['id_user'];
+$uid = isset($_POST['uid']) ? $_POST['uid'] : $_SESSION['id_user'];
 
 try {
 
@@ -37,7 +37,7 @@ WHERE
     
     
 ');
-    $req->execute(array($_id_user));
+    $req->execute(array($uid));
 $result = $req->fetch(PDO::FETCH_ASSOC);
     echo json_encode($result);
 } catch (Exception $e) {

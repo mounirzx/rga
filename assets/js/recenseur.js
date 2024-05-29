@@ -132,6 +132,9 @@ $(this).attr('disabled','true')
 
     /************************************************************************************** */
     $('#commune').change(function(){
+        var commune_code = $(this).val()
+        var code_wilaya = commune_code.slice(0,2)
+
         $.ajax({
             url:'assets/php/recenseur_by_wilaya.php',
             method:'post',
@@ -152,7 +155,7 @@ $(this).attr('disabled','true')
                     
                 }
                
-                $('#username').val('R'+data.wilaya +'-'+count)
+                $('#username').val('R'+code_wilaya +'-'+count)
             }
         })
 
@@ -160,7 +163,23 @@ $(this).attr('disabled','true')
       
     })
     /***************************************************************************** */
-    
+
+    $("#last_name").on("input", function() {
+        var inputText = $(this).val();
+        var upperCaseText = inputText.toUpperCase();
+        $(this).val(upperCaseText);
+    });
+
+    function convertFirstLetterToUpperCase(inputString) {
+        return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+    }
+
+    $("#first_name").on("input", function() {
+        var inputText = $(this).val();
+        var upperCaseFirstLetter = convertFirstLetterToUpperCase(inputText);
+        $(this).val(upperCaseFirstLetter);
+    });
+    /***************************************************************************** */
     $('#add_user').click(function(e){
         e.preventDefault()
         

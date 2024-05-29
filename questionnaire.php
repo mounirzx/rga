@@ -4079,7 +4079,7 @@ $(document).ready(function(){
     </div>
     <div class="col">
       <div class="input-group input-group-sm">
-        <select style="margin-left:11px" inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
+        <select  inptsz="" class="form-select fontbneder2 code_materiel_s" id="ee_mode_exploitation_materiel" name="ee_mode_exploitation_materiel">
           <option selected="selected" vlaue="-">
           </option>
           <option class="fontbneder2" value="1">

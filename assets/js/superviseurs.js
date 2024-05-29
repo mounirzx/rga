@@ -159,7 +159,24 @@ if(!emailRegex.test(email)){
         
     
     
+        /***************************************************************************** */
+
+        $("#last_name").on("input", function() {
+            var inputText = $(this).val();
+            var upperCaseText = inputText.toUpperCase();
+            $(this).val(upperCaseText);
+        });
     
+        function convertFirstLetterToUpperCase(inputString) {
+            return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+        }
+    
+        $("#first_name").on("input", function() {
+            var inputText = $(this).val();
+            var upperCaseFirstLetter = convertFirstLetterToUpperCase(inputText);
+            $(this).val(upperCaseFirstLetter);
+        });
+        /***************************************************************************** */
     /******************************************************************************************** */
         $('#add_user').click(function(e){
             e.preventDefault()
