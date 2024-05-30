@@ -959,15 +959,15 @@ $('#exploitant').on('change', function() {
 //     $('#access_mode').html(accessOptions);
 // });
 
-$('#origine_des_terres').on('change', function() {
-    var selectedValue = $(this).val();
-    if (selectedValue !== '6') {  // Check if the selected value is not '6'
-        $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
-        $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
-    } else {
-        $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
-    }
-});
+// $('#origine_des_terres').on('change', function() {
+//     var selectedValue = $(this).val();
+//     if (selectedValue !== '6') {  // Check if the selected value is not '6'
+//         $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+//         $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+//     } else {
+//         $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+//     }
+// });
 
 
 $(document).on('change', '[id^="status_juridique"]', function() {
