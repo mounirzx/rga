@@ -387,11 +387,11 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
     var month_of_passage = $("#month_of_passage").val();
     var year_of_passage = $("#year_of_passage").val();
     var formattedDatePassage =
-      day_of_passage.padStart(2, "0") +
-      "-" +
-      month_of_passage.padStart(2, "0") +
-      "-" +
-      year_of_passage;
+      // day_of_passage.padStart(2, "0") +
+      // "-" +
+      // month_of_passage.padStart(2, "0") +
+      // "-" +
+      // year_of_passage;
     formDataObj["date_passage"] = formattedDatePassage;
 
     var jour_de_naissance = $("#jour_de_naissance").val();

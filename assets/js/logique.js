@@ -204,7 +204,7 @@ $('#source').change(toggleSource);
                 .prop('checked', false); // Optionally uncheck on enable, depending on your needs
         } else if (selectedValue === "2") {
             // Disable and uncheck checkboxes
-            $('#eng_reseau_electrique, #eng_groupe_electrogene, #eng_energie_solaire, #eng_energie_eolienne, #eng_energie_carburant, #autres_sources_d_energie')
+            $('#eng_reseau_electrique')
                 .prop('disabled', true)
                 .prop('checked', false);
         }
