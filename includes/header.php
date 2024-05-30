@@ -398,7 +398,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs</a>
+               <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs <br/> المراقبين</a>
             </li>
 
             <?php
@@ -408,7 +408,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="controleur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs</a>
+            <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs <br/> اعوان الاحصاء</a>
             </li>
           
             <?php
