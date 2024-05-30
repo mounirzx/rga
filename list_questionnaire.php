@@ -151,9 +151,17 @@ $total = $res["total"];
 
             
             <br>
+            <?php
+            if($role=="admin" || $role=="admin_central"){
+
+                ?>
             <select id="wilaya" class='form-control' style="background: #0064f5;color: white;">
                         <option value="">Selection de wilaya</option>
                     </select>
+<?php
+
+            }
+                    ?>
             <table style="text-align:center" id="listTable" class="table table_bordered">
                 <thead>
                     <tr>
@@ -170,7 +178,8 @@ $total = $res["total"];
                         <th scope="col">Superficie (Ha)</th>
                         <th scope="col">Wilaya</th>
                         <th scope="col">Commune</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Date de passage</th>
+                        <th scope="col">Date de saisi</th>
                         <th scope="col">Recenseur</th>
                         <th scope="col">Coherence Status Juridique</th>
                         <th scope="col">Coherence  Utilisation du sol</th>
