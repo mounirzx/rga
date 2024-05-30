@@ -5,7 +5,7 @@ include './config.php';
 try {
     // Connection to the database
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . ";charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
+    $wilaya_code = $_POST['wilaya_code'];
 
 
     $req =$bdd->prepare('SELECT  *,
@@ -25,17 +25,11 @@ try {
      LEFT JOIN controleur ON users.id_user = controleur.id_user 
      LEFT JOIN recenseur ON users.id_user = recenseur.id_user 
      LEFT JOIN superviseur_national ON users.id_user = superviseur_national.id_user  
-    --  LEFT JOIN (
-    --     SELECT DISTINCT wilaya_code, wilaya_name, wilaya_name_ascii
-    --     FROM communes
-    -- ) AS communes ON superviseur.wilaya = communes.wilaya_code
-    -- LEFT JOIN (
-    --     SELECT DISTINCT wilaya_code, wilaya_name, wilaya_name_ascii
-    --     FROM communes1
-    -- ) AS communes ON controleur.wilaya = communes1.wilaya_code
-     ');
+     
+where superviseur.wilaya = ? ||  controleur.wilaya = ? ||   recenseur.commune LIKE "' . $wilaya_code . '%"
+ ');
 
-    $req->execute();
+ $req->execute(array($wilaya_code,$wilaya_code));
 
 $i=0;
     while ($res = $req->fetch(PDO::FETCH_ASSOC)) {

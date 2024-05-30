@@ -10,6 +10,7 @@ $nom_controleur = $_POST["first_name"];
 $prenom_controleur = $_POST["last_name"];
 $wilaya = $_POST["wilaya"];
 $commune = implode(',',$_POST['commune']);
+
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $id_controleur = $_POST["id_controleur"];

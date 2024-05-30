@@ -418,7 +418,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="Statistiques">Statistique</a>
+               <a class="nav-link " aria-current="page" href="Statistiques"><i style="font-size: 19px; color: cayen;"  class="fa-solid fa-chart-line"></i> &nbsp; Statistique <br/> الاحصائيات</a>
             </li>
           
             <?php
