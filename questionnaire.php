@@ -5813,7 +5813,7 @@ if ($_SESSION['role'] == "recenseur") {
 if($_SESSION['role'] == "recenseur"){
   ?>
   <div class="row">
-    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-9' : '' ?>">
         <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
     </div>
     <div class="col">

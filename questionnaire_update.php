@@ -5793,7 +5793,7 @@ if ($_SESSION['role'] == "controleur" && $etat!="Approuvés" ){
 <div class="row">
 
 <!--/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */-->
-<div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+<div class="col<?= ($_SESSION['role'] == "recenseur") ? '-9' : '' ?>">
     <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" id="approuver" >Valider</button>
 </div>
 
