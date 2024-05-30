@@ -151,6 +151,9 @@ $total = $res["total"];
 
             
             <br>
+            <select id="wilaya" class='form-control' style="background: #0064f5;color: white;">
+                        <option value="">Selection de wilaya</option>
+                    </select>
             <table style="text-align:center" id="listTable" class="table table_bordered">
                 <thead>
                     <tr>
@@ -198,3 +201,27 @@ $total = $res["total"];
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="./assets/js/questionnaire.js"></script>
+<script>
+
+    
+function getWwilaya(){
+
+$.ajax({
+    url:'assets/php/list_wilaya.php',
+    method:'post',
+    async:false,
+    success:function(response){
+        var data = JSON.parse(response)
+        var wilaya_list="<option></option>"
+        for(i=0;i<data.length; i++){
+            wilaya_list+="<option value='"+data[i].wilaya_code+"'>"+data[i].wilaya_code+" "+data[i].wilaya_name_ascii+"</option>"
+        }
+        $('#wilaya').append(wilaya_list)
+
+
+    }
+})
+}
+
+getWwilaya()
+</script>
