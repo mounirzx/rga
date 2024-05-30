@@ -655,7 +655,7 @@ $('#wilaya').change(function(){
   qstList("all",wilaya_code)
   
 })
-  // qstList("all");
+  qstList("all","");
 
 
   $(".etat").click(function () {
