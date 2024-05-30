@@ -1,6 +1,7 @@
 <?php 
 include('includes/header.php');
 include './assets/php/config.php';
+$role=$_SESSION['role'];
 
 $role = $_SESSION['role'];
 $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
