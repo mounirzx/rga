@@ -25,6 +25,13 @@ if (cooldownRemainingTime) {
     startCountdown(cooldownRemainingTime);
 }
 
+/*********************************************************************************** */
+$("#username").on("input", function() {
+    var inputText = $(this).val();
+    var upperCaseText = inputText.toUpperCase();
+    $(this).val(upperCaseText);
+});
+/**************************************************************************************** */
   $("#login").click(function (e) {
       e.preventDefault();
 
