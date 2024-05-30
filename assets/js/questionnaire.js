@@ -534,7 +534,7 @@ $("input[type='checkbox']").each(function() {
 
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-  function qstList(etat) {
+  function qstList(etat,wilaya_code) {
 var role=$('#role').val()
 
 
@@ -542,7 +542,7 @@ var role=$('#role').val()
       url: url.qstList,
       method: "post",
       
-      data: { etat: etat },
+      data: { etat: etat,wilaya_code:wilaya_code },
       beforeSend: function() {
         var col =""
 if(role=="admin" || role =="admin_central"){
@@ -648,14 +648,20 @@ $("#listTable").DataTable({
   });
 }
 
+$('#wilaya').change(function(){
 
-   qstList("all");
+  var wilaya_code = $(this).val()
+
+  qstList("all",wilaya_code)
+  
+})
+  // qstList("all");
 
 
   $(".etat").click(function () {
     var etat = $(this).attr("data");
    // console.log(etat);
-    qstList(etat);
+    qstList(etat,wilaya_code);
   });
 
 
