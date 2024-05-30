@@ -1590,7 +1590,7 @@ acte de concession ?
      <div id="superficieExploitation">
 
     </div>
-    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="surface">
+    <input id="st_en_hectar"  name="st_en_hectar" type="text" class=" bneder">
      </div>
      </div>
      </div>
