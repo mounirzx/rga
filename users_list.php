@@ -90,7 +90,7 @@ include('includes/header.php');
                 async:false,
                 success:function(response){
                     var data = JSON.parse(response)
-                    var wilaya_list=""
+                    var wilaya_list="<option></option>"
                     for(i=0;i<data.length; i++){
                         wilaya_list+="<option value='"+data[i].wilaya_code+"'>"+data[i].wilaya_code+" "+data[i].wilaya_name_ascii+"</option>"
                     }
