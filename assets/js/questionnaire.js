@@ -604,7 +604,7 @@ col="<td>"+data[i].exploitant_cle_unique+"</td>"
                   "</td><td>" +
                   data[i].nom_exploitation +
                   "</td><td>" +
-                  data[i].exploi_superficie_hec +
+                  data[i].st_en_hectar +
                   "</td><td>" +
                   data[i].wilaya_name_ascii +
                   "</td><td>" +

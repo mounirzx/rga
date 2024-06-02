@@ -1828,7 +1828,7 @@ acte de concession ?
                 
                      
                   <input  disabled bleuBG class="surface bneder form-control double_are coherence_surface_total-surface  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   >
-                  <input id="st_en_hectar"  name="st_en_hectar" type="text" class="surface">
+                  <input id="st_en_hectar" hidden name="st_en_hectar" type="text" class="bneder surface">
                
          
 

@@ -2,5 +2,5 @@
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = "rootRGAdb";
+$password = "";
 $dbname = "rga";

@@ -127,7 +127,7 @@ $.ajax({
 
           $("#wilaya_name_ascii").val(response.wilaya_name_ascii || "N/A");
           $("#commune_name_ascii").val(response.commune_name_ascii || "N/A");
-          $("#commune_code").val(response.commune || "N/A");
+          // $("#commune_code").val(response.commune || "N/A");
       } else {
           // Handle error
           console.error("Error: " + response.message);
