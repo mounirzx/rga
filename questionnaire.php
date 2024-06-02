@@ -1683,8 +1683,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="">
-                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="0">
+                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="0">
                      
                </div>
             </td>

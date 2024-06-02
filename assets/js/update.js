@@ -1,9 +1,31 @@
 $(document).ready(function () {
- 
+   
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
+  // mounir désactiver 29 pour 28=2
+  // Function to toggle the disabled state and clear the input based on dropdown selection
+  function toggleAndClearCoExploitantsInput() {
+    var selectedValue = $('#exploitant').val(); // Get the selected value
+    if (selectedValue === '2') { // If "1 - Unique" is selected
+        $('#nb_co_exploitants').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#origine_des_terres').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#status_juridique').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#superfecie_sj').prop('disabled', true).val(''); // Disable the input and clear its value
+        // $('#superfecie_sj_are').prop('disabled', true).val(''); // Disable the input and clear its value
+        } else {
+        $('#nb_co_exploitants').prop('disabled', false); // Enable the input
+    }
+}
+
+// Initial check in case the dropdown is pre-selected when the page loads
+toggleAndClearCoExploitantsInput();
+
+// Event listener for changes on the dropdown
+$('#exploitant').on('change', function() {
+    toggleAndClearCoExploitantsInput();
+});
 
 
 
@@ -387,11 +409,11 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
     var month_of_passage = $("#month_of_passage").val();
     var year_of_passage = $("#year_of_passage").val();
     var formattedDatePassage =
-      // day_of_passage.padStart(2, "0") +
-      // "-" +
-      // month_of_passage.padStart(2, "0") +
-      // "-" +
-      // year_of_passage;
+      day_of_passage.padStart(2, "0") +
+      "-" +
+      month_of_passage.padStart(2, "0") +
+      "-" +
+      year_of_passage;
     formDataObj["date_passage"] = formattedDatePassage;
 
     var jour_de_naissance = $("#jour_de_naissance").val();
@@ -674,65 +696,53 @@ $("input[type='checkbox']").each(function() {
   
   /************************************************************************* */
 
-  
-  $('#exploitant').on('change', function() {
-    var exploitantValue = $(this).val();
-   
-    // Determine which list to use based on the 'exploitant' value
-   // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
-    if(exploitantValue === "1"){
+//   $('#exploitant').on('change', function() {
+//     var exploitantValue = $(this).val();
+//    if(exploitantValue === "2"){
 
-    
+//     listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
 
-      listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+//     listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
       
-      
-      
-      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
-      
-    }else{
-      $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
-      
-      
-      
-      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
-    }
+//     }else{
+//       $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+//        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+//     }
    
 
-});
+// });
 
 
 
 
 
 
-  /*************************************************** */
-  //origine des terres
+//   /*************************************************** */
+//   //origine des terres
 
-  var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
-  '<option value="14" BoldText>14 - Succession إرث</option>' +
-  '<option value="15" BoldText>15 - Donation هبة</option>' +
-  '<option value="16" BoldText>16 - Testament وصية</option>' +
-  '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
-  '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
-  '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
-  '<option value="20" BoldText>20 - Location إجار</option>' +
-  '<option value="21" BoldText>21 - Autre  آخرى </option>' +
-  '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
+//   var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+//   '<option value="14" BoldText>14 - Succession إرث</option>' +
+//   '<option value="15" BoldText>15 - Donation هبة</option>' +
+//   '<option value="16" BoldText>16 - Testament وصية</option>' +
+//   '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+//   '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+//   '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
+//   '<option value="20" BoldText>20 - Location إجار</option>' +
+//   '<option value="21" BoldText>21 - Autre  آخرى </option>' +
+//   '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
 
-var listOrigineTerre = {
-  "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
-  "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
-  "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-  "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
-};
-
+// var listOrigineTerre = {
+//   "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+//   "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+//   "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+//   "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+// };
 
 
 
@@ -748,32 +758,60 @@ var listOrigineTerre = {
 }
 
 
-  $(document).on('change', '[id^="origine_des_terres_"]', function() {
-  
-    var fullId = $(this).attr('id'); // Get the full ID of the changed input
-  var idPart = fullId.match(/[^_]+$/)[0]; // Extract the part after the last '_'
- // console.log(idPart); // Log the extracted part to the console
-
- var selectedValue = $(this).val();
- console.log(selectedValue)
- if (selectedValue !== '6') {  // Check if the selected value is not '6'
-     $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
-     $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
- } else {
-     $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
- }
- 
-
-    var id = $(this).val()
-  //  console.log(fullId)
-    var filtered = filterByKey(id);
-    
-//console.log(filtered[id]);
-$('#status_juridique_'+idPart).empty()
-$('#status_juridique_'+idPart).append(filtered[id])
-  })
 
 
 
-  
+});
+        //    $('#si_exploi_eai_eac').prop('disabled', true); 
+
+$(document).on('change', '[id^="status_juridique"]', function() {
+    // Extract the unique identifier suffix from the ID
+    var suffix = this.id.match(/\d+$/)[0]; // Matches the number at the end of the ID
+
+    // Get the value from the corresponding 'origine_des_terres' dropdown
+    var origineValue = $('#origine_des_terres_' + suffix).val();
+    var statusValue = $(this).val();
+
+    // Define the specific conditions under which the alert should be displayed
+    if (origineValue == '6' &&  (statusValue == '2')) {
+       // $('.reference_cadastrale').prop('disabled', false); 
+          $('#si_exploi_eac').prop('disabled', false); 
+          $('#si_exploi_eac').val('');
+          $('#si_exploi_eai_eac').prop('disabled', false); 
+
+          $('#exploi_superficie_hec').prop('disabled', false); 
+          $('#exploi_superficie_are').prop('disabled', false);
+    }else if (origineValue == '6' &&  (statusValue == '3')) {
+        // $('.reference_cadastrale').prop('disabled', false); 
+                   $('#si_exploi_eai_eac').prop('disabled', false); 
+
+           $('#si_exploi_eac').prop('disabled', true); 
+           $('#exploi_superficie_hec').prop('disabled', true); 
+           $('#exploi_superficie_are').prop('disabled', true);
+     }else{
+
+         //$('.reference_cadastrale').prop('disabled', true); 
+          $('#si_exploi_eac').prop('disabled', true);
+          $('#si_exploi_eac').val('');
+          $('#exploi_superficie_hec').prop('disabled', true); 
+          $('#exploi_superficie_hec').val('');
+          $('#exploi_superficie_are').prop('disabled', true);
+          $('#exploi_superficie_are').val('');
+
+    }
+
+    if (origineValue == '9' &&  (statusValue == '22')) {
+
+        $('.reference_cadastrale').prop('disabled', true); 
+        $('.reference_cadastrale').val('');
+
+
+    }else{
+        $('.reference_cadastrale').prop('disabled', false); 
+        $('.reference_cadastrale').val('');
+    }
+
+   
+   
+
 });

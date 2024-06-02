@@ -2856,7 +2856,7 @@ document.getElementById('addForm2').addEventListener('click', function() {
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
                             <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">
-                            منها النق
+                            منها النوق
                             <br> Dont chamelles
                             </span>
                                <input class="form-control bneder" num maxlength="5" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
@@ -6180,6 +6180,8 @@ var id = parseInt(decryptedValue);
 
 }); 
 
+     
+        
 /**************superficie_exploitation ********/
 // cultures_herbacees_1
 // terres_au_repos_jacheres_1
@@ -6387,6 +6389,18 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</tr>';
        
 
+let superficie_total;
+
+if (item.surface_totale_st_2.includes('.')) {
+  // Remove comma from surface_totale_st_2
+  surface_totale_st_2 = item.surface_totale_st_2.replace('.', '');
+}
+
+// Concatenate and parse to float
+superficie_total = parseFloat(item.surface_totale_st_1 + "." + item.surface_totale_st_2);
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+
+
 
 });
 
@@ -6434,35 +6448,44 @@ data.materiel_agricole.forEach(function(item) {
 inputs += '<div class="input-group input-group-sm">';
 inputs += '<label InptSZ for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
 inputs += '<select InptSZ class="select-ee materiel_agricole form-select" id="code_materiel" name="code_materiel">';
-inputs += '<option value="-"> - </option>'; // Corrected 'value' spelling
-    inputs += '<option value="1" ' + (item.code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=5 حص</option>';
-    inputs += '<option value="2" ' + (item.code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
-    inputs += '<option value="3" ' + (item.code_materiel === "3" ? 'selected' : '') + '>3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;5حص</option>';
-    inputs += '<option value="4" ' + (item.code_materiel === "4" ? 'selected' : '') + '>4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص</option>';
-    inputs += '<option value="5" ' + (item.code_materiel === "5" ? 'selected' : '') + '>5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص</option>';
-    inputs += '<option value="6" ' + (item.code_materiel === "6" ? 'selected' : '') + '>6 - Motoculteur - جرار صغير</option>';
-    inputs += '<option value="7" ' + (item.code_materiel === "7" ? 'selected' : '') + '>7 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م</option>';
-    inputs += '<option value="8" ' + (item.code_materiel === "8" ? 'selected' : '') + '>8 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م</option>';
-    inputs += '<option value="9" ' + (item.code_materiel === "9" ? 'selected' : '') + '>9 - Véhicules légers - مركبة خفيفة</option>';
-    inputs += '<option value="10" ' + (item.code_materiel === "10" ? 'selected' : '') + '>10 - Véhicules lourds - مركبة ثقيلة</option>';
-    inputs += '<option value="11" ' + (item.code_materiel === "11" ? 'selected' : '') + '>11 - Charrue - محراث</option>';
-    inputs += '<option value="12" ' + (item.code_materiel === "12" ? 'selected' : '') + '>12 - Covercrop - مغطي المزروعات</option>';
-    inputs += '<option value="13" ' + (item.code_materiel === "13" ? 'selected' : '') + '>13 - Epandeur d’engrais - ناثر الأسمدة</option>';
-    inputs += '<option value="14" ' + (item.code_materiel === "14" ? 'selected' : '') + '>14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ</option>';
-    inputs += '<option value="15" ' + (item.code_materiel === "15" ? 'selected' : '') + '>15 - Poudreuses tractées - آلة السحق المقطورة</option>';
-    inputs += '<option value="16" ' + (item.code_materiel === "16" ? 'selected' : '') + '>16 - Semoir - آلة التبذير</option>';
-    inputs += '<option value="17" ' + (item.code_materiel === "17" ? 'selected' : '') + '>17 - Faucheuse - آلة الحش</option>';
-    inputs += '<option value="18" ' + (item.code_materiel === "18" ? 'selected' : '') + '>18 - Ramasseuse-presse - آلة الجمع والربط</option>';
-    inputs += '<option value="19" ' + (item.code_materiel === "19" ? 'selected' : '') + '>19 - Planteuse pomme de terre - آلة غرس البطاطا</option>';
-    inputs += '<option value="20" ' + (item.code_materiel === "20" ? 'selected' : '') + '>20 - Arracheuse pomme de terre - آلة قلع البطاطا</option>';
-    inputs += '<option value="21" ' + (item.code_materiel === "21" ? 'selected' : '') + '>21 - Remorque - مقطورة</option>';
-    inputs += '<option value="22" ' + (item.code_materiel === "22" ? 'selected' : '') + '>22 - Citerne - صهريج</option>';
-    inputs += '<option value="23" ' + (item.code_materiel === "23" ? 'selected' : '') + '>23 - Motopompe - مضخة ميكانيكية</option>';
-    inputs += '<option value="24" ' + (item.code_materiel === "24" ? 'selected' : '') + '>24 - Electropompe - مضخة كهربائية</option>';
-    inputs += '<option value="25" ' + (item.code_materiel === "25" ? 'selected' : '') + '>25 - Ensileuse - الة حصد الاعلاف</option>';
-    inputs += '<option value="26" ' + (item.code_materiel === "26" ? 'selected' : '') + '>26 - Emrubaneuse - الة التغليف</option>';
-    inputs += '<option value="27" ' + (item.code_materiel === "27" ? 'selected' : '') + '>27 - Autre matériel - عتاد آخر</option>';
-    inputs += '</select>';
+inputs += '<option value="-" selected disabled> - </option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">االآت - Engins</option>';
+inputs += '<option value="1" ' + (item.code_materiel === "1" ? 'selected' : '') + '>1 - Tracteur à roue &lt;=45 CV - جرار ذو عجلات &lt;=45 حص</option>';
+inputs += '<option value="2" ' + (item.code_materiel === "2" ? 'selected' : '') + '>2 - Tracteur à roue 45 CV- 65CV - جرار ذو عجلات65-45 حص</option>';
+inputs += '<option value="3" ' + (item.code_materiel === "3" ? 'selected' : '') + '>3 - Tracteur à roue &gt;65 CV - جرار ذو عجلات&gt;65حص</option>';
+inputs += '<option value="4" ' + (item.code_materiel === "4" ? 'selected' : '') + '>4 - Tracteur à chenilles &lt;=80 CV - جرار ذو سلاسل&lt;=80حص</option>';
+inputs += '<option value="5" ' + (item.code_materiel === "5" ? 'selected' : '') + '>5 - Tracteur à chenilles &gt; 80 CV - جرار ذو سلاسل&gt;80حص</option>';
+inputs += '<option value="6" ' + (item.code_materiel === "6" ? 'selected' : '') + '>6 - Motoculteur - جرار صغير</option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">المعدات الزراعية - Matériel aratoire</option>';
+inputs += '<option value="7" ' + (item.code_materiel === "7" ? 'selected' : '') + '>7 - Charrue - محراث</option>';
+inputs += '<option value="8" ' + (item.code_materiel === "8" ? 'selected' : '') + '>8 - Cover croop - مغطي المزروعات</option>';
+inputs += '<option value="9" ' + (item.code_materiel === "9" ? 'selected' : '') + '>9 - Herse - مسلفة</option>';
+inputs += '<option value="10" ' + (item.code_materiel === "10" ? 'selected' : '') + '>10 - Cultivateur - آلة زرع</option>';
+inputs += '<option value="11" ' + (item.code_materiel === "11" ? 'selected' : '') + '>11 - Semoir - آلة بذر</option>';
+inputs += '<option value="12" ' + (item.code_materiel === "12" ? 'selected' : '') + '>12 - Planteuse pomme de terre - آلة غرس البطاطا</option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">معدات المعالجة والتسميد الزراعي - Matériel de traitement et de fertilisation aratoire</option>';
+inputs += '<option value="13" ' + (item.code_materiel === "13" ? 'selected' : '') + '>13 - Epandeur d’engrais - ناثر الأسمدة</option>';
+inputs += '<option value="14" ' + (item.code_materiel === "14" ? 'selected' : '') + '>14 - Pulvérisateur, atomiseurs - آلة الرش والرذاذ</option>';
+inputs += '<option value="15" ' + (item.code_materiel === "15" ? 'selected' : '') + '>15 - Poudreuses tractées - آلة السحق المقطورة</option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">معدات الحصاد - Matériel de récolte</option>';
+inputs += '<option value="16" ' + (item.code_materiel === "16" ? 'selected' : '') + '>16 - Moissonneuse-batteuse 6m - آلة حصاد و درس 6م</option>';
+inputs += '<option value="17" ' + (item.code_materiel === "17" ? 'selected' : '') + '>17 - Moissonneuse-batteuse 3m - آلة حصاد و درس 3م</option>';
+inputs += '<option value="18" ' + (item.code_materiel === "18" ? 'selected' : '') + '>18 - Faucheuse - آلة الحش</option>';
+inputs += '<option value="19" ' + (item.code_materiel === "19" ? 'selected' : '') + '>19 - Ramasseuse-presse - آلة الجمع والربط</option>';
+inputs += '<option value="20" ' + (item.code_materiel === "20" ? 'selected' : '') + '>20 - Arracheuse pomme de terre - آلة قلع البطاطا</option>';
+inputs += '<option value="21" ' + (item.code_materiel === "21" ? 'selected' : '') + '>21 - Ensileuse - الة حصد الاعلاف</option>';
+inputs += '<option value="22" ' + (item.code_materiel === "22" ? 'selected' : '') + '>22 - Emrubaneuse - الة التغليف</option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">معدات النقل - Matériel roulant</option>';
+inputs += '<option value="23" ' + (item.code_materiel === "23" ? 'selected' : '') + '>23 - Véhicules légers - مركبة خفيفة</option>';
+inputs += '<option value="24" ' + (item.code_materiel === "24" ? 'selected' : '') + '>24 - Véhicules lourds - مركبة ثقيلة</option>';
+inputs += '<option disabled style="font-weight: 700; align-items:center;">معدات أخرى - Divers matériel</option>';
+inputs += '<option value="25" ' + (item.code_materiel === "25" ? 'selected' : '') + '>25 - Remorque - مقطورة</option>';
+inputs += '<option value="26" ' + (item.code_materiel === "26" ? 'selected' : '') + '>26 - Citerne - صهريج</option>';
+inputs += '<option value="27" ' + (item.code_materiel === "27" ? 'selected' : '') + '>27 - Motopompe - مضخة ميكانيكية</option>';
+inputs += '<option value="28" ' + (item.code_materiel === "28" ? 'selected' : '') + '>28 - Electropompe - مضخة كهربائية</option>';
+inputs += '<option value="29" ' + (item.code_materiel === "29" ? 'selected' : '') + '>29 - Autre matériel - عتاد آخر</option>';
+inputs += '</select>';
+
     inputs += '</div>';
     inputs += '</div>';
    // Existing JavaScript code to dynamically create inputs
@@ -6825,30 +6848,12 @@ var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale
 $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
 }
 
-var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
-var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
-let superficie_total;
-
-if (surface_totale_st_2.includes('.')) {
-  // Remove comma from surface_totale_st_2
-  surface_totale_st_2 = surface_totale_st_2.replace('.', '');
-}
-
-// Concatenate and parse to float
-superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
-$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
-
-
 
 
  
       });
   }
-  document.addEventListener('DOMContentLoaded', function () {
-            // Get the form element
-            var form = document.getElementById('myForm');
-            
-            })
+
 
     /********************************statut_juridique_s**************************************/
    
@@ -6966,6 +6971,34 @@ $(document).on('click', '.disable-44-45-46', function() {
 
 
 
+       // Check and disable #si_exploi_eac if it's empty
+       console.log("Value of si_exploi_eac:", $('#si_exploi_eac').val());
+
+// Check and disable si_exploi_eac if it's empty
+if ($('#si_exploi_eac').val() == "") {
+    $('#si_exploi_eac').prop('disabled', true);
+}
+
+// Check and disable #si_exploi_eai_eac if it's empty
+if ($('#si_exploi_eai_eac').val()== "" ||$('#si_exploi_eai_eac').val()=="-" ) {
+    $('#si_exploi_eai_eac').prop('disabled', true);
+}
+
+// Check and disable #exploi_superficie_hec if it's empty
+if ($('#exploi_superficie_hec').val().trim() === "") {
+    $('#exploi_superficie_hec').prop('disabled', true);
+}
+
+// Check and disable #exploi_superficie_are if it's empty
+if ($('#exploi_superficie_are').val().trim() === "") {
+    $('#exploi_superficie_are').prop('disabled', true);
+}
+
+// Attach the function to the input event for dynamic checking
+// $('#si_exploi_eac, #si_exploi_eai_eac, #exploi_superficie_hec, #exploi_superficie_are').on('input', function() {
+//     // Check and enable/disable inputs dynamically when their values change
+//     $(this).prop('disabled', $(this).val().trim() === "");
+// });
 
 
 
@@ -6985,66 +7018,53 @@ $(document).on('click', '.disable-44-45-46', function() {
 
 
 
-$('#exploitant').on('change', function() {
-      var exploitantValue = $(this).val();
-     
-      // Determine which list to use based on the 'exploitant' value
-     // var listToUse = (exploitantValue === "1") ? listOrigineTerre1 : listOrigineTerre;
-      if(exploitantValue === "1"){
+  $('#exploitant').on('change', function() {
+    var exploitantValue = $(this).val();
+   if(exploitantValue === "2"){
 
+    listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+
+    listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
       
+    }else{
+      $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
+       listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+    }
+   
 
-        listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
-        
-        
-        
-        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
-        
-      }else{
-        $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
-        
-        
-        
-        listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
-      }
-     
-  
-  });
+});
 
 
 
 
 
 
-    /*************************************************** */
-    //origine des terres
+  /*************************************************** */
+  //origine des terres
 
-    var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
-    '<option value="14" BoldText>14 - Succession إرث</option>' +
-    '<option value="15" BoldText>15 - Donation هبة</option>' +
-    '<option value="16" BoldText>16 - Testament وصية</option>' +
-    '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
-    '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
-    '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
-    '<option value="20" BoldText>20 - Location إجار</option>' +
-    '<option value="21" BoldText>21 - Autre  آخرى </option>' +
-    '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
+  var commonOptions = '<option value="13">13 - Vente/Achat بيع/شراء</option>' +
+  '<option value="14" BoldText>14 - Succession إرث</option>' +
+  '<option value="15" BoldText>15 - Donation هبة</option>' +
+  '<option value="16" BoldText>16 - Testament وصية</option>' +
+  '<option value="17" BoldText>17 - Droit préemption حق الشفاعة</option>' +
+  '<option value="18" BoldText>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+  '<option value="19" BoldText>19 - Certificat de possession شهادة حيازة</option>' +
+  '<option value="20" BoldText>20 - Location إجار</option>' +
+  '<option value="21" BoldText>21 - Autre  آخرى </option>' +
+  '<option value="22" BoldText>22 - Inconnu غير معروف</option>';
 
 var listOrigineTerre = {
-    "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
-    "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
-    "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
-    "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+  "1": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "2": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "3": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "4": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "5": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+  "6": '<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>',
+  "7": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "8": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "9": '<option selected="" disabled BoldText>-</option>' + commonOptions,
+  "12": '<option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
 };
-
-
-
 
 
 
