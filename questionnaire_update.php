@@ -4151,8 +4151,9 @@ $('#addForm3U').click(function() {
 <div class="card" style="font-size: 12px;">
 <div class="card-header" style="text-align: center;">
 <div class="qst-num zxcount" style="margin: 0px 0px 0px 0px; position:absolute ;text-align: left;"></div>
-محيطات الري المتوسطة و الصغرى<br>
-Petite et Moyenne Hydraulique
+مصدر الري
+<br>
+Source d'irrigation
 </div>
 <div class="card-body">
 <div class="row">
