@@ -1590,7 +1590,7 @@ acte de concession ?
      <div id="superficieExploitation">
 
     </div>
-    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="surface">
+    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="bneder">
      </div>
      </div>
      </div>
@@ -6690,7 +6690,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
  /****************************************************************************************************************** */
  var elements = document.getElementsByClassName("surface");
     for (var i = 0; i < elements.length; i++) {
-    
+     
       elements[i].addEventListener("input", function () {
         var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
@@ -6825,18 +6825,18 @@ var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale
 $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
 }
 
-var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
-var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
-let superficie_total;
+// var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
+// var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
+// let superficie_total;
 
-if (surface_totale_st_2.includes('.')) {
-  // Remove comma from surface_totale_st_2
-  surface_totale_st_2 = surface_totale_st_2.replace('.', '');
-}
+// if (surface_totale_st_2.includes('.')) {
+//   // Remove comma from surface_totale_st_2
+//   surface_totale_st_2 = surface_totale_st_2.replace('.', '');
+// }
 
-// Concatenate and parse to float
-superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
-$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+// // Concatenate and parse to float
+// superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
+// $('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
 
 
 
