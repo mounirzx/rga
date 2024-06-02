@@ -797,10 +797,10 @@ Sexe</span>
          
         </option>
         <option value="1">
-          1 - الوحيد - Unique
+        1 - الرئيسي - Principal
         </option>
         <option value="2">
-          2 - الرئيسي - Principal
+        2 - الوحيد - Unique
         </option>
       </select>
     </div><br>
@@ -6390,16 +6390,16 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</tr>';
        
 
-let superficie_total;
+// let superficie_total;
 
-if (item.surface_totale_st_2.includes('.')) {
-  // Remove comma from surface_totale_st_2
-  surface_totale_st_2 = item.surface_totale_st_2.replace('.', '');
-}
+// if (item.surface_totale_st_2.includes('.')) {
+//   // Remove comma from surface_totale_st_2
+//   surface_totale_st_2 = item.surface_totale_st_2.replace('.', '');
+// }
 
-// Concatenate and parse to float
-superficie_total = parseFloat(item.surface_totale_st_1 + "." + item.surface_totale_st_2);
-$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+// // Concatenate and parse to float
+// superficie_total = parseFloat(item.surface_totale_st_1 + "." + item.surface_totale_st_2);
+// $('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
 
 
 
