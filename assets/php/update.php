@@ -200,7 +200,8 @@ $id_questionnaire = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2[
 foreach ($formDataArrayCodeCulture as $formData) {
     if (!empty($formData['code_culture'])) {
         // Generate a unique cle_code_culture value
-        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'], 0, 20);
+        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'] . "-" . $formData['superficie_hec'] . "-" . $formData['superficie_are'], 0, 20);
+     
 
         // Check if the generated cle_code_culture already exists
         $checkDuplicateQuery2 = $bdd->prepare("SELECT COUNT(*) AS count FROM `utilisation_du_sol` WHERE `cle_code_culture` = :cle_code_culture");
