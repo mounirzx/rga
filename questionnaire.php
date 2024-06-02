@@ -1683,8 +1683,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="">
-                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="0">
+                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="0">
                      
                </div>
             </td>
@@ -5813,7 +5813,7 @@ if ($_SESSION['role'] == "recenseur") {
 if($_SESSION['role'] == "recenseur"){
   ?>
   <div class="row">
-    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-2' : '' ?>">
+    <div class="col<?= ($_SESSION['role'] == "recenseur") ? '-9' : '' ?>">
         <button class="btn btn-success btn-lg approve-btn" style="width: 100%;" href="#" data-state="approved" id="submitDate" type="button"><?= $approveBtnText ?></button>
     </div>
     <div class="col">

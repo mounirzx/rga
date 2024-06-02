@@ -204,7 +204,7 @@ $('#source').change(toggleSource);
                 .prop('checked', false); // Optionally uncheck on enable, depending on your needs
         } else if (selectedValue === "2") {
             // Disable and uncheck checkboxes
-            $('#eng_reseau_electrique, #eng_groupe_electrogene, #eng_energie_solaire, #eng_energie_eolienne, #eng_energie_carburant, #autres_sources_d_energie')
+            $('#eng_reseau_electrique')
                 .prop('disabled', true)
                 .prop('checked', false);
         }
@@ -237,9 +237,10 @@ $('#source').change(toggleSource);
             // [44] [45] [6]
            // $('#si_exploi_eai_eac').prop('disabled', true); 
           // $('.reference_cadastrale').prop('disabled', true); 
-            $('#si_exploi_eac').prop('disabled', true); 
-            $('#exploi_superficie_hec').prop('disabled', true); 
-            $('#exploi_superficie_are').prop('disabled', true); 
+          //mounir
+            // $('#si_exploi_eac').prop('disabled', true); 
+            // $('#exploi_superficie_hec').prop('disabled', true); 
+            // $('#exploi_superficie_are').prop('disabled', true); 
             // [44] [45] [6]
             document.getElementById('addForm').addEventListener('click', function () {
     
@@ -247,9 +248,11 @@ $('#source').change(toggleSource);
              // [44] [45] [6]
           //  $('#si_exploi_eai_eac').prop('disabled', false); 
        //   $('.reference_cadastrale').prop('disabled', true); 
-          $('#si_exploi_eac').prop('disabled', true); 
-          $('#exploi_superficie_hec').prop('disabled', true); 
-          $('#exploi_superficie_are').prop('disabled', true);
+          //mounir
+
+        //   $('#si_exploi_eac').prop('disabled', true); 
+        //   $('#exploi_superficie_hec').prop('disabled', true); 
+        //   $('#exploi_superficie_are').prop('disabled', true);
              // [44] [45] [6]
       
 })
@@ -887,7 +890,7 @@ $('#niveau_instruction').on('change', function() {
   // Function to toggle the disabled state and clear the input based on dropdown selection
   function toggleAndClearCoExploitantsInput() {
     var selectedValue = $('#exploitant').val(); // Get the selected value
-    if (selectedValue === '2') { // If "2 - Unique" is selected
+    if (selectedValue === '2') { // If "1 - Unique" is selected
         $('#nb_co_exploitants').prop('disabled', true).val(''); // Disable the input and clear its value
         // $('#origine_des_terres').prop('disabled', true).val(''); // Disable the input and clear its value
         // $('#status_juridique').prop('disabled', true).val(''); // Disable the input and clear its value
@@ -962,10 +965,10 @@ $('#exploitant').on('change', function() {
 $('#origine_des_terres').on('change', function() {
     var selectedValue = $(this).val();
     if (selectedValue !== '6') {  // Check if the selected value is not '6'
-        $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
-        $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
+        // $('#si_exploi_eai_eac').prop('disabled', true);  // Disable the second select
+        // $('#si_exploi_eai_eac').val('-');  // Set its value to '-'
     } else {
-        $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
+        // $('#si_exploi_eai_eac').prop('disabled', false);  // Enable the second select if the value is '6'
     }
 });
 
@@ -982,9 +985,17 @@ $(document).on('change', '[id^="status_juridique"]', function() {
     if (origineValue == '6' &&  (statusValue == '2')) {
        // $('.reference_cadastrale').prop('disabled', false); 
           $('#si_exploi_eac').prop('disabled', false); 
+          $('#si_exploi_eai_eac').prop('disabled', false); 
+
           $('#exploi_superficie_hec').prop('disabled', false); 
           $('#exploi_superficie_are').prop('disabled', false);
-    }else{
+    }else if (origineValue == '6' &&  (statusValue == '3')) {
+        // $('.reference_cadastrale').prop('disabled', false); 
+                   $('#si_exploi_eai_eac').prop('disabled', false); 
+           $('#si_exploi_eac').prop('disabled', true); 
+           $('#exploi_superficie_hec').prop('disabled', true); 
+           $('#exploi_superficie_are').prop('disabled', true);
+     }else{
 
          //$('.reference_cadastrale').prop('disabled', true); 
           $('#si_exploi_eac').prop('disabled', true);
@@ -1536,11 +1547,11 @@ if (sexe_exploitant !== null && exploitant !== null) {
     //console.log('not null ')
     
 
-    if (sexe_exploitant == '1' && exploitant== '1') {
+    if (sexe_exploitant == '1' && exploitant== '2') {
        
         $('[name="co_exploitants_y_compris_exploitant_principa_l"]').val(1);
 
-    } else if(sexe_exploitant == '2' && exploitant== '1')
+    } else if(sexe_exploitant == '2' && exploitant== '2')
         {
         $('[name="co_exploitants_y_compris_exploitant_principa_2"]').val(1);
        
@@ -1822,6 +1833,7 @@ function updateSelect6() {
 $(document).ready(function(){
     var combinations = {}; // Object to hold combinations to ensure uniqueness
  
+ // Function to generate a unique combination based on row inputs
 // Function to generate a unique key for a row
 function generateCombination(row) {
     return row.find('[id^="code_materiel"]').val() + '-' +

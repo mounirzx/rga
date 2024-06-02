@@ -5,37 +5,36 @@ include './config.php';
 try {
     // Connection to the database
     $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . ";charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $wilaya_code = $_POST['wilaya_code'];
 
-
-
-    $req =$bdd->prepare('SELECT  *,
-     superviseur.wilaya as wilaya_sup,
-     controleur.commune as controleur_commune,
-     superviseur.phone as superviseur_phone,
-     controleur.phone as controleur_phone,
-     controleur.wilaya as controleur_wilaya,
-     recenseur.phone as recenseur_phone,
-     recenseur.commune as recenseur_commune, 
-     recenseur.id_user as id_user_recenseur,
-     controleur.id_user as id_user_controleur,
-     superviseur.id_user as id_user_superviseur,
-     superviseur_national.id_user as id_user_superviseur_national
-     FROM users 
-     LEFT JOIN superviseur ON users.id_user = superviseur.id_user 
-     LEFT JOIN controleur ON users.id_user = controleur.id_user 
-     LEFT JOIN recenseur ON users.id_user = recenseur.id_user 
-     LEFT JOIN superviseur_national ON users.id_user = superviseur_national.id_user  
-    --  LEFT JOIN (
-    --     SELECT DISTINCT wilaya_code, wilaya_name, wilaya_name_ascii
-    --     FROM communes
-    -- ) AS communes ON superviseur.wilaya = communes.wilaya_code
-    -- LEFT JOIN (
-    --     SELECT DISTINCT wilaya_code, wilaya_name, wilaya_name_ascii
-    --     FROM communes1
-    -- ) AS communes ON controleur.wilaya = communes1.wilaya_code
-     ');
-
-    $req->execute();
+$sql = 'SELECT  *,
+superviseur.wilaya as wilaya_sup,
+controleur.commune as controleur_commune,
+superviseur.phone as superviseur_phone,
+controleur.phone as controleur_phone,
+controleur.wilaya as controleur_wilaya,
+recenseur.phone as recenseur_phone,
+recenseur.commune as recenseur_commune, 
+recenseur.id_user as id_user_recenseur,
+controleur.id_user as id_user_controleur,
+superviseur.id_user as id_user_superviseur,
+superviseur_national.id_user as id_user_superviseur_national
+FROM users 
+LEFT JOIN superviseur ON users.id_user = superviseur.id_user 
+LEFT JOIN controleur ON users.id_user = controleur.id_user 
+LEFT JOIN recenseur ON users.id_user = recenseur.id_user 
+LEFT JOIN superviseur_national ON users.id_user = superviseur_national.id_user  
+';
+$array=[];
+if($wilaya_code!=""){
+    $sql.='
+    where superviseur.wilaya = ? ||  controleur.wilaya = ? ||   recenseur.commune LIKE "' . $wilaya_code . '%"
+     ';
+     array_push($array,$wilaya_code,$wilaya_code);
+     //array_push($array,$wilaya_code);
+}
+    $req =$bdd->prepare($sql);
+    $req->execute($array);
 
 $i=0;
     while ($res = $req->fetch(PDO::FETCH_ASSOC)) {

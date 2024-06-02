@@ -307,7 +307,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 </script>
 
 <nav class="navbar navbar-expand-lg"  style="background-color: #ffffff;border-radius: 5px; border-bottom-left-radius: 50px; height: 75px; text-align: center">
-    <div class="container">
+    <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -379,6 +379,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="Superviseurs"> <i style="font-size: 19px; color: green;" class="fa-solid fa-user-tie"></i>&nbsp;Superviseurs wilayas <br/>  المشرفين الولائيين</a>
             </li>
+            
             <?php
            }
            ?>
@@ -398,7 +399,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs</a>
+               <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs <br/> المراقبين</a>
             </li>
 
             <?php
@@ -408,7 +409,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="controleur"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs</a>
+            <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs <br/> اعوان الاحصاء</a>
             </li>
           
             <?php
@@ -418,7 +419,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
-               <a class="nav-link " aria-current="page" href="Statistiques">Statistique</a>
+               <a class="nav-link " aria-current="page" href="Statistiques"><i style="font-size: 19px; color: cayen;"  class="fa-solid fa-chart-line"></i> &nbsp; Statistique <br/> الاحصائيات</a>
             </li>
           
             <?php
