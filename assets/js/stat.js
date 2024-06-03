@@ -179,6 +179,8 @@ if(role=="superviseur_national"){
     button ="<button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm editStatBtn '><i class='fa-solid fa-pen-to-square'></i></button> <button data='"+data[i].commune_code+"' id ='showModal2' data-bs-toggle='modal' data-bs-target='#modal2' class='btn btn-warning btn-sm editStatBtn '><i class='fa-solid fa-eye'></i></button>"
 }
 
+taux_avancememnt_1 = parseFloat(taux_avancememnt_1).toFixed(2)
+taux_avancememnt_2 = parseFloat(taux_avancememnt_2).toFixed(2)
 
 
 list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td  class='align-middle'>"+button+"</td></tr>"
