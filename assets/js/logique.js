@@ -131,7 +131,12 @@ $('#source').change(toggleSource);
             $('#ui_vaccins').prop('disabled', true); //
               $('#ui_medicaments_veterinaires').prop('disabled', true); //
               $('#type_activite_exploitation').prop('disabled', true); //
+              $('#chapt_Pratiquez_transhumance').prop('disabled', true); //
+              $('#chapt_Pratiquez_transhumance').val('-');
+
               $('input[name^="chapt_"]').prop('disabled', true);
+              $('input[name^="chapt_"]').val('');
+            
           }else if(selectedValue === "2") {
              $('#chapt_animals').show(); // [VI]
              $('input[name^="chapt_"]').prop('disabled', false);
@@ -148,6 +153,8 @@ $('#source').change(toggleSource);
             $('#ui_engrais_organique').prop('disabled', true);
             $('#ui_fumier').prop('disabled', true);
             $('#ui_produits_phytosanitaires').prop('disabled', true);
+            $('#chapt_Pratiquez_transhumance').prop('disabled', false); //
+
           }else if(selectedValue === "3") {
             $('input[name^="chapt_"]').prop('disabled', false);
             $('#type_activite_exploitation').prop('disabled', false); // [36]
@@ -163,6 +170,8 @@ $('#source').change(toggleSource);
             $('#ui_engrais_organique').prop('disabled', false);
             $('#ui_fumier').prop('disabled', false);
             $('#ui_produits_phytosanitaires').prop('disabled', false);
+            $('#chapt_Pratiquez_transhumance').prop('disabled', false); //
+
         }else{
             //$('#type_activite_exploitation').prop('disabled', false); // [36]
             $('#ui_vaccins').prop('disabled', false); //
@@ -177,6 +186,8 @@ $('#source').change(toggleSource);
             $('#ui_engrais_organique').prop('disabled', false);
             $('#ui_fumier').prop('disabled', false);
             $('#ui_produits_phytosanitaires').prop('disabled', false);
+            $('#chapt_Pratiquez_transhumance').prop('disabled', false); //
+
         }
       });
   

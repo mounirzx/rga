@@ -108,7 +108,8 @@ $id_questionnaire = ($cleResul1 !== false && is_array($cleResul1)) ? $cleResul1[
 foreach ($formDataArrayStatut as $formData) {
     if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {
         // Generate a unique cle_status_juridique value
-        $cle_status_juridique = substr($data['id_questionnaire'] . "-" . $formData['origine_des_terres'] . "-" . $formData['status_juridique'], 0, 20);
+        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'] . "-" . $formData['superficie_hec'] . "-" . $formData['superficie_are'], 0, 20);
+
 
         // Check if the generated cle_status_juridique already exists
         $checkDuplicateQuery1 = $bdd->prepare("SELECT COUNT(*) AS count FROM `status_juridique` WHERE `cle_status_juridique` = :cle_status_juridique");

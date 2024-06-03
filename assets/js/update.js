@@ -1,5 +1,8 @@
 $(document).ready(function () {
-   
+  $("input").each(function () {
+    $(this).prop('readonly', true);
+  });
+
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
@@ -632,9 +635,35 @@ $("input[type='checkbox']").each(function() {
 
 
   $('#rejeter').click(function(e){
+    
     e.preventDefault()
       var id_questionnaire = $('#id_questionnaire').val();
-    console.log('okkk')
+      var etat = $("input[name^='etat']").val();
+
+      if (etat === "Rejetés") {
+        Swal.fire({
+          title: "Le questionnaire est déjà rejeté ",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "green",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = './ListeQuestionnaires';
+          }
+        });
+      }else{
+        Swal.fire({
+          title: "Voulez-vous rejeter l'approbation?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Oui, rejeter",
+          cancelButtonText: "Non, Annuler",
+          confirmButtonColor: "green",
+          cancelButtonColor: "red",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
       $.ajax({
         url:'assets/php/change_state.php',
         method:'post',
@@ -644,34 +673,87 @@ $("input[type='checkbox']").each(function() {
           console.log(response)
           Swal.fire({
             title: "Questionnaire rejeté",
-            
-            icon: "success"
+          
+            icon: "success",
+            confirmButtonColor: "green",
+            confirmButtonText: "Ok"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = './ListeQuestionnaires';
+            }
           });
+
+
         }
       })
+    }
+  });
+    }
     })
 
     
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
-    $('#approuver').click(function(e){
-      e.preventDefault()
+
+  
+    $('#approuver').click(function(e) {
+      e.preventDefault();
+  
+      var etat = $("input[name^='etat']").val();
       var id_questionnaire = $('#id_questionnaire').val();
-    
-      $.ajax({
-        url:'assets/php/change_state.php',
-        method:'post',
-        async:false,
-        data:{id_questionnaire:id_questionnaire , action : "approuver"},
-        success:function(response){
-          console.log(response)
-          Swal.fire({
-            title: "Questionnaire approuvé",
-            
-            icon: "success"
-          });
-        }
-      })
-    })
+  
+      if (etat === "Approuvés") {
+        Swal.fire({
+          title: "Le questionnaire est déjà approuvé",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "green",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = './ListeQuestionnaires';
+          }
+        });
+      } else   {
+        Swal.fire({
+          title: "Voulez-vous confirmer l'approbation?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Oui, Confirmer",
+          cancelButtonText: "Non, Annuler",
+          confirmButtonColor: "green",
+          cancelButtonColor: "red",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              url: 'assets/php/change_state.php',
+              method: 'post',
+              data: {
+                id_questionnaire: id_questionnaire,
+                action: "approuver"
+              },
+              success: function(response) {
+                console.log(response);
+                Swal.fire({
+                  title: "Questionnaire approuvé",
+                  text: "Approbation effectuée avec succès!",
+                  icon: "success",
+                  confirmButtonColor: "green",
+                  confirmButtonText: "Ok"
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = './ListeQuestionnaires';
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+ 
+  
+  
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 
   // $('#submitDate').click(function(e){
