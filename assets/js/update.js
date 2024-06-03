@@ -1,7 +1,9 @@
 $(document).ready(function () {
-  $("input").each(function () {
-    $(this).prop('readonly', true);
-  });
+  // $('input').click(function() {
+  //   $(this).prop('readonly', true);
+  //   $(this).blur();
+  //   $(this).trigger('focusout');
+  // });
 
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
@@ -464,47 +466,58 @@ $("input[type='checkbox']").each(function() {
     //   },
     //   buttonsStyling: false
     // });
-    swal.fire({
-      title: "Voulez vous confirmer la modification?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Oui, Confirmer",
-      cancelButtonText: "Non, Annuler",
-      confirmButtonColor: "green",
-      cancelButtonColor:"red",
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // swalWithBootstrapButtons.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success"
-        // });
-        $(function () {
+
+
+
+
+    var etat = $("input[name^='etat']").val();
+
+    if (etat == "Approuvés") {
+      Swal.fire({
+        title: "Le questionnaire est déjà approuvé",
+        icon: "error",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "green",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = './ListeQuestionnaires';
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Voulez-vous confirmer la modification?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Oui, Confirmer",
+        cancelButtonText: "Non, Annuler",
+        confirmButtonColor: "green",
+        cancelButtonColor: "red",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // AJAX request to update data
           $.ajax({
             url: "assets/php/update.php",
             type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
+            data: {
               form: formDataObj,
               formDataArrayStatut: formDataArrayStatut,
               formDataArrayCodeMateriel: formDataArrayCodeMateriel,
               formDataArrayCodeCulture: formDataArrayCodeCulture,
-              formDataArraySuperficie:formDataArraySuperficie,
-              message:message,
-              controleSatSumsjtest2:controleSatSumsjtest2
-            }),
+              formDataArraySuperficie: formDataArraySuperficie,
+              message: message,
+              controleSatSumsjtest2: controleSatSumsjtest2
+            },
             dataType: "json",
-            success: function (response) {
-              // No need to parse response as 'dataType: "json"' does that automatically
+            success: function(response) {
               if (response.response === "success") {
                 Swal.fire({
                   icon: "success",
                   title: "Succès!",
-                   confirmButtonColor: "green",
-                  text: "Modification effectée avec succès!",
-                 confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>",
-
+                  text: "Modification effectuée avec succès!",
+                  confirmButtonColor: "green",
+                  confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>"
                 });
               } else {
                 Swal.fire({
@@ -514,27 +527,25 @@ $("input[type='checkbox']").each(function() {
                 });
               }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
               Swal.fire({
                 icon: "error",
                 title: "Échec de la requête",
-                text:
-                  "Un problème est survenu lors de la requête: " + xhr.statusText,
+                text: "Un problème est survenu lors de la requête: " + xhr.statusText,
               });
             },
           });
-        });
+        }
+      });
+
+
+
+
+
+     
+    }
     
 
-
-
-
-      } 
-        /* Read more about handling dismissals below */
-      
-      
-     
-    });
   
     function qstList(etat) {
       $.ajax({
