@@ -11,7 +11,10 @@ include('includes/header.php');
 <!-- DataTables JS -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <!-- SearchPanes JS -->
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 <style>
 
 .dt-type-numeric{
@@ -218,7 +221,7 @@ if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_centra
 
 <input type="hidden" id="role" value="<?php  echo $_SESSION['role'] ?>"/>
         <hr>
-        <div class="container">
+        <div class="container-fluid">
             <div class="card">
         
                 <div style="text-align: center;" class="card-header">
@@ -355,6 +358,42 @@ if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_centra
     </div>
   </div>
 </div>
+
+
+    <!-- Modal 2-->
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background: aliceblue;">
+
+
+ <h5 class="modal-title" id="exampleModalLabel" style='font-size:15px'>Modification du nombre d'exploiatations recensées par jour </h5>
+
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    
+      <table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+        <th>id</th>
+            <th>Commune</th>
+            <th>Date</th>
+            <th>Nombre</th>
+        
+        </tr>
+    </thead>
+</table>
+                
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
    <!--===============================================================================================-->
    <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -372,3 +411,22 @@ if($_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_centra
 </body>
 
 </html>
+
+<script>
+
+
+$(document).ready(function() {
+
+
+
+
+
+
+
+
+
+
+
+})
+
+</script>
