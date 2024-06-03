@@ -176,7 +176,7 @@ var button=""
 if(role=="superviseur_national"){
     button=""
 }else{
-    button ="<button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm editStatBtn '><i class='fa-solid fa-pen-to-square'></i></button>"
+    button ="<button data='"+data[i].commune_code+"' id ='showModal' data-bs-toggle='modal' data-bs-target='#exampleModal' class='btn btn-primary btn-sm editStatBtn '><i class='fa-solid fa-pen-to-square'></i></button> <button data='"+data[i].commune_code+"' id ='showModal2' data-bs-toggle='modal' data-bs-target='#modal2' class='btn btn-warning btn-sm editStatBtn '><i class='fa-solid fa-eye'></i></button>"
 }
 
 
@@ -216,11 +216,14 @@ list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align
 
 
           sum_taux_avancememnt_1 = sum_taux_avancememnt_1/100
+          sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
            // Round to two decimal places
    // sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
 
           $('#sum_taux_avancememnt_1').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_1+'%">'+sum_taux_avancememnt_1+'%</div> '+sum_taux_avancememnt_1+'%')
           sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
+
+          sum_taux_avancememnt_2 = sum_taux_avancememnt_2.toFixed(2);
           $('#sum_taux_avancememnt_2').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_2+'%">'+sum_taux_avancememnt_2+'%</div> '+sum_taux_avancememnt_2+'%')
        
           
@@ -246,7 +249,86 @@ list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align
 
 
     })
+    $(document).on("click","#showModal2",function(){
+        console.log('okkkk')
+        var data = $(this).attr('data')
+        
+         var filteredArray = list_commune.filter(function(item) {
+             return item.commune_code === data;
+           });
+        
+        
+           $('#code_commune').val(data)
+           var code_commune  = data
+        
+           
+            // Destroy existing DataTable instance if it exists
+            if ($.fn.DataTable.isDataTable('#example')) {
+                $('#example').DataTable().destroy();
+            }
+        
+            // Clear the table body to remove old data
+            $('#example tbody').empty();
+            var table = $('#example').DataTable({
+                ajax: {
+                    url: 'assets/php/list_nb_questionnaire.php', // Replace with your server endpoint
+                    data: function(d) {
+                        d.code_commune = code_commune;
+                    },
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'id' },
+                    { data: 'commune_code' },
+                    { data: 'date' },
+                    { data: 'nombre_quest' },
+                ]
+            });
+    // Make table variable accessible for the inline edit feature
+    $('#example').on('click', 'tbody td:nth-child(4)', function() { // Targets the third column
+        var cell = table.cell(this);
+        if (cell) {
+            var originalValue = cell.data();
+            $(this).html('<input type="text" value="' + originalValue + '"/>');
+            $('input', this).focus().on('blur', function() {
+                var newValue = $(this).val();
+                cell.data(newValue).draw();
+                var rowIdx = cell.index().row;
+                var rowData = table.row(rowIdx).data();
+                var id = rowData.id; // Retrieve the id value from the row data
+                var commune_code = rowData.commune_code;
+                updateData(id, newValue,commune_code);
+                
+            });
+        } else {
+            console.error('Cell not found');
+        }
+    });
+        
+        })
+        /************************* */
 
+// Function to handle updating data (you'll need to define this function)
+function updateData(id, value,commune_code) {
+    // Your update logic here, e.g., AJAX request to update the server-side data
+    console.log('Updating data at row:', id, 'with value:', value);
+
+    $.ajax({
+        url:'assets/php/update_nb_quest_recensee.php',
+        method:'post',
+        async:false,
+        data:{id:id,value:value,commune_code:commune_code},
+        success:function(response){
+            console.log(response)
+            if(response=='true'){
+                location.reload();
+            }
+        }
+    })
+}
+
+
+        /**************************************************** */
 
     $('#modifier').click(function(e){
         e.preventDefault()

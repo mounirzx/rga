@@ -18,7 +18,8 @@ recenseur.commune as recenseur_commune,
 recenseur.id_user as id_user_recenseur,
 controleur.id_user as id_user_controleur,
 superviseur.id_user as id_user_superviseur,
-superviseur_national.id_user as id_user_superviseur_national
+superviseur_national.id_user as id_user_superviseur_national,
+users.id_user as id_userr
 FROM users 
 LEFT JOIN superviseur ON users.id_user = superviseur.id_user 
 LEFT JOIN controleur ON users.id_user = controleur.id_user 
