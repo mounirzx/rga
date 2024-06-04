@@ -1,5 +1,10 @@
 $(document).ready(function () {
-   
+  // $('input').click(function() {
+  //   $(this).prop('readonly', true);
+  //   $(this).blur();
+  //   $(this).trigger('focusout');
+  // });
+
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
   /*************************** recenseur details********************/
@@ -461,47 +466,59 @@ $("input[type='checkbox']").each(function() {
     //   },
     //   buttonsStyling: false
     // });
-    swal.fire({
-      title: "Voulez vous confirmer la modification?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Oui, Confirmer",
-      cancelButtonText: "Non, Annuler",
-      confirmButtonColor: "green",
-      cancelButtonColor:"red",
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // swalWithBootstrapButtons.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success"
-        // });
-        $(function () {
+
+
+
+
+    var etat = $("input[name^='etat']").val();
+
+    if (etat == "Approuvés") {
+      Swal.fire({
+        title: "Le questionnaire est déjà approuvé",
+        icon: "error",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "green",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = './ListeQuestionnaires';
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Voulez-vous confirmer la modification?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Oui, Confirmer",
+        cancelButtonText: "Non, Annuler",
+        confirmButtonColor: "green",
+        cancelButtonColor: "red",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // AJAX request to update data
           $.ajax({
             url: "assets/php/update.php",
             type: "POST",
             contentType: "application/json",
-            data: JSON.stringify({
-              form: formDataObj,
-              formDataArrayStatut: formDataArrayStatut,
-              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-              formDataArrayCodeCulture: formDataArrayCodeCulture,
-              formDataArraySuperficie:formDataArraySuperficie,
-              message:message,
-              controleSatSumsjtest2:controleSatSumsjtest2
-            }),
+              data: JSON.stringify({
+                form: formDataObj,
+                formDataArrayStatut: formDataArrayStatut,
+                formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+                formDataArrayCodeCulture: formDataArrayCodeCulture,
+                formDataArraySuperficie:formDataArraySuperficie,
+                message:message,
+                controleSatSumsjtest2:controleSatSumsjtest2
+              }),
             dataType: "json",
-            success: function (response) {
-              // No need to parse response as 'dataType: "json"' does that automatically
+            success: function(response) {
               if (response.response === "success") {
                 Swal.fire({
                   icon: "success",
                   title: "Succès!",
-                   confirmButtonColor: "green",
-                  text: "Modification effectée avec succès!",
-                 confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>",
-
+                  text: "Modification effectuée avec succès!",
+                  confirmButtonColor: "green",
+                  confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>"
                 });
               } else {
                 Swal.fire({
@@ -511,27 +528,25 @@ $("input[type='checkbox']").each(function() {
                 });
               }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
               Swal.fire({
                 icon: "error",
                 title: "Échec de la requête",
-                text:
-                  "Un problème est survenu lors de la requête: " + xhr.statusText,
+                text: "Un problème est survenu lors de la requête: " + xhr.statusText,
               });
             },
           });
-        });
+        }
+      });
+
+
+
+
+
+     
+    }
     
 
-
-
-
-      } 
-        /* Read more about handling dismissals below */
-      
-      
-     
-    });
   
     function qstList(etat) {
       $.ajax({
@@ -632,9 +647,35 @@ $("input[type='checkbox']").each(function() {
 
 
   $('#rejeter').click(function(e){
+    
     e.preventDefault()
       var id_questionnaire = $('#id_questionnaire').val();
-    console.log('okkk')
+      var etat = $("input[name^='etat']").val();
+
+      if (etat === "Rejetés") {
+        Swal.fire({
+          title: "Le questionnaire est déjà rejeté ",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "green",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = './ListeQuestionnaires';
+          }
+        });
+      }else{
+        Swal.fire({
+          title: "Voulez-vous rejeter l'approbation?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Oui, rejeter",
+          cancelButtonText: "Non, Annuler",
+          confirmButtonColor: "green",
+          cancelButtonColor: "red",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
       $.ajax({
         url:'assets/php/change_state.php',
         method:'post',
@@ -644,34 +685,87 @@ $("input[type='checkbox']").each(function() {
           console.log(response)
           Swal.fire({
             title: "Questionnaire rejeté",
-            
-            icon: "success"
+          
+            icon: "success",
+            confirmButtonColor: "green",
+            confirmButtonText: "Ok"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = './ListeQuestionnaires';
+            }
           });
+
+
         }
       })
+    }
+  });
+    }
     })
 
     
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
-    $('#approuver').click(function(e){
-      e.preventDefault()
+
+  
+    $('#approuver').click(function(e) {
+      e.preventDefault();
+  
+      var etat = $("input[name^='etat']").val();
       var id_questionnaire = $('#id_questionnaire').val();
-    
-      $.ajax({
-        url:'assets/php/change_state.php',
-        method:'post',
-        async:false,
-        data:{id_questionnaire:id_questionnaire , action : "approuver"},
-        success:function(response){
-          console.log(response)
-          Swal.fire({
-            title: "Questionnaire approuvé",
-            
-            icon: "success"
-          });
-        }
-      })
-    })
+  
+      if (etat === "Approuvés") {
+        Swal.fire({
+          title: "Le questionnaire est déjà approuvé",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "green",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = './ListeQuestionnaires';
+          }
+        });
+      } else   {
+        Swal.fire({
+          title: "Voulez-vous confirmer l'approbation?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Oui, Confirmer",
+          cancelButtonText: "Non, Annuler",
+          confirmButtonColor: "green",
+          cancelButtonColor: "red",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              url: 'assets/php/change_state.php',
+              method: 'post',
+              data: {
+                id_questionnaire: id_questionnaire,
+                action: "approuver"
+              },
+              success: function(response) {
+                console.log(response);
+                Swal.fire({
+                  title: "Questionnaire approuvé",
+                  text: "Approbation effectuée avec succès!",
+                  icon: "success",
+                  confirmButtonColor: "green",
+                  confirmButtonText: "Ok"
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = './ListeQuestionnaires';
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+ 
+  
+  
   /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 
   // $('#submitDate').click(function(e){

@@ -38,7 +38,7 @@ if($role=="admin" ||  $role=="admin_central"){
         if($etat=="onhold"){
             $sql.=' and etat = "En attente" ';
         }if($etat=='all'){
-            $sql.=' and 1 ';
+            $sql.=' ';
         }
     }   
 
