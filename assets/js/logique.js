@@ -739,6 +739,7 @@ function applyBorderColor(exploitantInput, adultesInput, enfantsInput, color) {
 // });
 
 
+
 $('.double_are').on("input",function(){
     var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
     console.log(sanitizedValue)

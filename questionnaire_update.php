@@ -6207,13 +6207,13 @@ data.superficie_exploitation.forEach(function(item) {
     tableHTML += '<td style="padding-left:15px">';
     tableHTML += '<div class="input-group input-group-sm">';
     tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="cultures_herbacees_1" name="cultures_herbacees_1" maxlength="5" num value="' + (item.cultures_herbacees_1 || '') + '" style="max-width: 110px;">';
-    tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="cultures_herbacees_2" name="cultures_herbacees_2" maxlength="2" num value="' + (item.cultures_herbacees_2 || '') + '" style="max-width: 44px;">';
+    tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="cultures_herbacees_2" name="cultures_herbacees_2" value="' + (item.cultures_herbacees_2 || '') + '" style="max-width: 53px;">';
     tableHTML += '</div>';
     tableHTML += '</td>';
     tableHTML += '<td style="padding-left:10px">';
     tableHTML += '<div class="input-group input-group-sm">';
     tableHTML += '<input class="surface form-control " id="cultures_herbacees_3" name="cultures_herbacees_3" maxlength="5" num value="' + (item.cultures_herbacees_3 || '') + '" style="max-width: 110px;">';
-    tableHTML += '<input class="surface form-control " id="cultures_herbacees_4" name="cultures_herbacees_4" maxlength="2" num value="' + (item.cultures_herbacees_4 || '') + '" style="max-width: 44px;">';
+    tableHTML += '<input class="surface double_are form-control " id="cultures_herbacees_4" name="cultures_herbacees_4"  value="' + (item.cultures_herbacees_4 || '') + '" style="max-width: 53px;">';
     tableHTML += '</div>';
     tableHTML += '</td>';
     tableHTML += '</tr>';
@@ -6229,13 +6229,13 @@ data.superficie_exploitation.forEach(function(item) {
     tableHTML += '<td style="padding-left:15px">';
     tableHTML += '<div class="input-group input-group-sm">';
     tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="terres_au_repos_jacheres_1" name="terres_au_repos_jacheres_1" maxlength="5" value="' + (item.terres_au_repos_jacheres_1 || '') + '" style="max-width: 110px;">';
-    tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="terres_au_repos_jacheres_2" name="terres_au_repos_jacheres_2" maxlength="2" value="' + (item.terres_au_repos_jacheres_2 || '')  + '" style="max-width: 44px;">';
+    tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="terres_au_repos_jacheres_2" name="terres_au_repos_jacheres_2"  value="' + (item.terres_au_repos_jacheres_2 || '')  + '" style="max-width: 53px;">';
     tableHTML += '</div>';
     tableHTML += '</td>';
     tableHTML += '<td style="padding-left:10px">';
     tableHTML += '<div class="input-group input-group-sm">';
     tableHTML += '<input class="surface  form-control" id="terres_au_repos_jacheres_3" name="terres_au_repos_jacheres_3" maxlength="5" value="' + (item.terres_au_repos_jacheres_3 || '') + '" style="max-width: 110px;">';
-    tableHTML += '<input class="surface  form-control" id="terres_au_repos_jacheres_4" name="terres_au_repos_jacheres_4" maxlength="2" value="' + (item.terres_au_repos_jacheres_4 || '')  + '" style="max-width: 44px;">';
+    tableHTML += '<input class="surface double_are form-control" id="terres_au_repos_jacheres_4" name="terres_au_repos_jacheres_4"  value="' + (item.terres_au_repos_jacheres_4 || '')  + '" style="max-width: 53px;">';
     tableHTML += '</div>';
     tableHTML += '</td>';
     tableHTML += '</tr>';
@@ -6251,13 +6251,13 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="plantations_arboriculture_1" name="plantations_arboriculture_1" maxlength="5" num value="' + (item.plantations_arboriculture_1 || '')  + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="plantations_arboriculture_2" name="plantations_arboriculture_2" maxlength="2" num value="' + (item.plantations_arboriculture_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="plantations_arboriculture_2" name="plantations_arboriculture_2"  value="' + (item.plantations_arboriculture_2 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:10px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control" id="plantations_arboriculture_3" name="plantations_arboriculture_3" maxlength="5" num value="' + (item.plantations_arboriculture_3 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control" id="plantations_arboriculture_4" name="plantations_arboriculture_4" maxlength="2" num value="' + (item.plantations_arboriculture_4 || '') + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control" id="plantations_arboriculture_4" name="plantations_arboriculture_4" value="' + (item.plantations_arboriculture_4 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '</tr>';
@@ -6274,13 +6274,13 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="prairies_naturelles_1" name="prairies_naturelles_1" maxlength="5" num value="' + (item.prairies_naturelles_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="prairies_naturelles_2"  name="prairies_naturelles_2" maxlength="2" num value="' + (item.prairies_naturelles_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="prairies_naturelles_2"  name="prairies_naturelles_2"  value="' + (item.prairies_naturelles_2 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:10px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control" id="prairies_naturelles_3" name="prairies_naturelles_3" maxlength="5" num value="' + (item.prairies_naturelles_3 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control" id="prairies_naturelles_4" name="prairies_naturelles_4" maxlength="2" num value="' + (item.prairies_naturelles_4 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control" id="prairies_naturelles_4" name="prairies_naturelles_4"  value="' + (item.prairies_naturelles_4 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '</tr>';
@@ -6296,13 +6296,13 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="' + (item.superficie_agricole_utile_sau_1 || '') + '" style="max-width: 110px;">';
 
-         tableHTML += '<input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled num maxlength="2"  value="' + (item.superficie_agricole_utile_sau_2 || '') + '" style="max-width: 44px;">';
+         tableHTML += '<input  bleuBG class="surface double_are bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled   value="' + (item.superficie_agricole_utile_sau_2 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:10px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_3" readonly="" disabled  num maxlength="5" value="' + (item.superficie_agricole_utile_sau_3 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly="" disabled num maxlength="2" value="' + (item.superficie_agricole_utile_sau_4 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input bleuBG class="surface double_are bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_4" readonly="" disabled  value="' + (item.superficie_agricole_utile_sau_4 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '</tr>';
@@ -6318,7 +6318,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface  form-control coherence_surface_total-surface surface_total" id="pacages_et_parcours_1"  name="pacages_et_parcours_1" maxlength="5" num value="' + (item.pacages_et_parcours_1 || '')  + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface  form-control coherence_surface_total-surface_are" id="pacages_et_parcours_2" name="pacages_et_parcours_2" maxlength="2" num value="' + (item.pacages_et_parcours_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="pacages_et_parcours_2" name="pacages_et_parcours_2"  num value="' + (item.pacages_et_parcours_2 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
@@ -6335,7 +6335,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface form-control  coherence_surface_total-surface surface_total"  id="surfaces_improductives_1" name="surfaces_improductives_1" maxlength="5" num value="' + (item.surfaces_improductives_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface form-control  coherence_surface_total-surface_are" id="surfaces_improductives_2" name="surfaces_improductives_2" maxlength="2" num value="' + (item.surfaces_improductives_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control  coherence_surface_total-surface_are" id="surfaces_improductives_2" name="surfaces_improductives_2"  value="' + (item.surfaces_improductives_2 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original structure
@@ -6353,7 +6353,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_totale_sat_1"  name="superficie_agricole_totale_sat_1" readonly="" disabled  num maxlength="5" value="' + (item.superficie_agricole_totale_sat_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_2" readonly="" disabled num maxlength="2" value="' + (item.superficie_agricole_totale_sat_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input bleuBG class="surface double_are bneder form-control controle_sumSj_sat_hectare" name="superficie_agricole_totale_sat_2" readonly="" disabled num " value="' + (item.superficie_agricole_totale_sat_2 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
@@ -6370,7 +6370,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input class="surface form-control coherence_surface_total-surface surface_total" id="terres_forestieres_bois_forets_maquis_vides_labourables_1" name="terres_forestieres_bois_forets_maquis_vides_labourables_1" maxlength="5" num value="' + (item.terres_forestieres_bois_forets_maquis_vides_labourables_1 || '')  + '" style="max-width: 110px;">';
-        tableHTML += '<input class="surface form-control coherence_surface_total-surface_are" id="terres_forestieres_bois_forets_maquis_vides_labourables_2"  name="terres_forestieres_bois_forets_maquis_vides_labourables_2" maxlength="2" num value="' + (item.terres_forestieres_bois_forets_maquis_vides_labourables_2 || '')  + '" style="max-width: 44px;">';
+        tableHTML += '<input class="surface double_are form-control coherence_surface_total-surface_are" id="terres_forestieres_bois_forets_maquis_vides_labourables_2"  name="terres_forestieres_bois_forets_maquis_vides_labourables_2"  value="' + (item.terres_forestieres_bois_forets_maquis_vides_labourables_2 || '')  + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per the original HTML structure
@@ -6388,7 +6388,7 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
         tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input bleuBG class="surface  form-control bneder" name="surface_totale_st_2" readonly="" disabled num maxlength="2"  value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 44px;">';
+        tableHTML += '<input bleuBG class="surface double_are form-control bneder" name="surface_totale_st_2" readonly="" disabled   value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
@@ -6413,6 +6413,40 @@ data.superficie_exploitation.forEach(function(item) {
 tableHTML += '</tbody></table>';
 
 $('#superficieExploitation').append(tableHTML);
+$('.double_are').on("input",function(){
+    var sanitizedValue = this.value.replace(/[^\d.,]/g, '');
+    console.log(sanitizedValue)
+    // Replace ',' with '.' if present
+    sanitizedValue = sanitizedValue.replace(',', '.');
+
+    // Split the value by '.' to separate the integer and decimal parts
+    var parts = sanitizedValue.split('.');
+
+    // Ensure the integer part has a maximum of 5 digits
+    if (parts[0].length > 2) {
+        // Truncate the integer part to 5 digits
+        parts[0] = parts[0].slice(0, 2);
+    }
+
+    // If there are more than one decimal points, remove the extra ones
+    if (parts.length > 2) {
+        parts = [parts[0], parts.slice(1).join('')];
+    }
+
+    // Ensure the decimal part has a maximum of 2 digits
+    if (parts[1] && parts[1].length > 2) {
+        // Truncate the decimal part to 2 digits
+        parts[1] = parts[1].slice(0, 2);
+    }
+
+    // Combine the integer and decimal parts with a dot
+    var newValue = parts.join('.');
+
+    // Update the input value with the sanitized value
+    this.value = newValue;
+})
+
+
 
 $(document).on('keyup', '.coherence_surface_total-surface', function() {
         var sum_superficie_hectare = 0;
@@ -6721,7 +6755,6 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
     for (var i = 0; i < elements.length; i++) {
     
       elements[i].addEventListener("input", function () {
-        
         var prairies_naturelles_1 = parseFloat(document.getElementsByName("prairies_naturelles_1")[0].value) || 0;
         var plantations_arboriculture_1 = parseFloat(document.getElementsByName("plantations_arboriculture_1")[0].value) || 0;
         var terres_au_repos_jacheres_1 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_1")[0].value) || 0;
@@ -6777,89 +6810,166 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
 /******************************** */
 
 
-          if(superficie_agricole_utile_sau_2>=100){
-          // console.log(superficie_agricole_utile_sau_1)
-          var divisor = 100;
-          // Calculate the quotient (result of integer division)
-          var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-          var quotient = Math.floor(divider / divisor);
-          // Calculate the remainder
-          var superficie_agricole_utile_sau_2 = divider % divisor;
-          $('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
-          $('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
-          var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
-          var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-          var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-
-          document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-          document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-          document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1)+ quotient);
-
-          console.log("**********************************")
-          console.log(superficie_agricole_utile_sau_1)
-          console.log(superficie_agricole_totale_sat_1)
-          console.log(quotient)
-          console.log("**********************************")
-          var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-          document.getElementsByName("surface_totale_st_1")[0].value = (superficie_agricole_utile_sau_1+surface_totale_st_1 + superficie_agricole_totale_sat_1 + quotient);
-          }
-
-          if(superficie_agricole_utile_sau_4>=100){
-          //console.log(superficie_agricole_utile_sau_4)
-          var divisor = 100;
-          var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-          var superficie_agricole_utile_sau_4 = divider % divisor;
-          var quotient = Math.floor(divider / divisor);
-          $('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
-          $('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
-          var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
-          document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-          document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-          }
-
-          var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-          if(superficie_agricole_totale_sat_2>=100){
-
-          var divisor = 100;
-          var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-          var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-          var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
-          var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
-
-          //console.log(divider)
-          var superficie_agricole_totale_sat_2 = divider % divisor;
-          var quotient = Math.floor(divider / divisor);
+if(superficie_agricole_utile_sau_2>=100){
+ // console.log(superficie_agricole_utile_sau_1)
+var divisor = 100;
+// Calculate the quotient (result of integer division)
+var divider =  prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
+var quotient = Math.floor(divider / divisor);
+// Calculate the remainder
+var superficie_agricole_utile_sau_2 = divider % divisor;
+$('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
 
 
-          var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
-          var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
-          var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
-          var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
-          document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
-          $('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
-
-          }
-
-          var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
-          if(surface_totale_st_2>=100){
-          var divisor = 100;
+var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
+var superficie_agricole_utile_sau_3 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_3")[0].value) || 0;
 
 
-          var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-          var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-          var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
-          var surface_totale_st_2 = divider % divisor;
-          var quotient = Math.floor(divider / divisor);
-          document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
-          var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-          $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
-          }
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+
+
+document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1));
+
+
+//var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+
+
+//  var terres_forestieres_bois_forets_maquis_vides_labourables_1 = $('input[name="terres_forestieres_bois_forets_maquis_vides_labourables_1"]').val()
+
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+if(superficie_agricole_utile_sau_4>=100){
+//console.log(superficie_agricole_utile_sau_4)
+var divisor = 100;
+var divider = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
+var superficie_agricole_utile_sau_4 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
 
 
 
- 
-      });
-  }
+$('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
+
+
+
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+var superficie_agricole_utile_sau_2 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_2")[0].value) || 0;
+var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+
+var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
+document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2);
+
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+if(superficie_agricole_totale_sat_2>=100){
+
+var divisor = 100;
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_4 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_4")[0].value) || 0;
+var divider = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4+superficie_agricole_utile_sau_2
+
+//console.log(divider)
+var superficie_agricole_totale_sat_2 = divider % divisor;
+var quotient = Math.floor(divider / divisor);
+
+
+var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
+var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
+var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
+var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_1")[0].value) || 0;
+
+
+
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+
+var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+
+$('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
+
+
+
+console.log('*********************************')
+console.log(superficie_agricole_utile_sau_1)
+console.log(superficie_agricole_utile_sau_3)
+console.log('*********************************')
+
+
+var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+
+
+var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
+
+
+document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superficie_agricole_totale_sat_1)+parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1));
+}
+
+/*********************************************** */
+var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
+if(surface_totale_st_2 >= 100) {
+    var divisor = 100;
+
+    var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+    var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+    var divider = terres_forestieres_bois_forets_maquis_vides_labourables_2 + superficie_agricole_totale_sat_2;
+    var surface_totale_st_2 = divider % divisor;
+    var quotient = Math.floor(divider / divisor);
+    document.getElementsByName("surface_totale_st_2")[0].value = surface_totale_st_2;
+
+    var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+    document.getElementsByName("surface_totale_st_1")[0].value = terres_forestieres_bois_forets_maquis_vides_labourables_1 + superficie_agricole_totale_sat_1 + quotient;
+}
+
+var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
+var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
+let superficie_total;
+
+if (surface_totale_st_2.includes('.')) {
+  // Remove comma from surface_totale_st_2
+  surface_totale_st_2 = surface_totale_st_2.replace('.', '');
+}
+
+// Concatenate and parse to float
+superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+
+
+
+
+
+
+    });
+}
+
+
+
+
 
 
     /********************************statut_juridique_s**************************************/
@@ -6873,46 +6983,47 @@ data.status_juridique.forEach(function(item) {
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
         '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
-        '<option value="-"></option>' +
-        '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : '') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
-        '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : '') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
-        '<option value="3" ' + (item.origine_des_terres === "3" ? 'selected' : '') + '>3 - Melk en indivision titré ملك مشترك موثق</option>' +
-        '<option value="4" ' + (item.origine_des_terres === "4" ? 'selected' : '') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option>' +
-        '<option value="5" ' + (item.origine_des_terres === "5" ? 'selected' : '') + '>5 - Domaine public ملكية عامة للدولة</option>' +
-        '<option value="6" ' + (item.origine_des_terres === "6" ? 'selected' : '') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option>' +
-        '<option value="7" ' + (item.origine_des_terres === "7" ? 'selected' : '') + '>7 - Wakf privé وقف خاص</option>' +
-        '<option value="8" ' + (item.origine_des_terres === "8" ? 'selected' : '') + '>8 - Wakf public وقف عام</option>' +
-        '<option value="9" ' + (item.origine_des_terres === "9" ? 'selected' : '') + '>9 - Inconnu ملك مجهول</option>' +
+        '<option disabled value="-"></option>' +
+        '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : 'hidden') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
+        '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : 'hidden') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
+        '<option value="3" ' + (item.origine_des_terres === "3" ? 'selected' : 'hidden') + '>3 - Melk en indivision titré ملك مشترك موثق</option>' +
+        '<option value="4" ' + (item.origine_des_terres === "4" ? 'selected' : 'hidden') + '>4 - Melk en indivision non titré ملك مشترك غير موثق</option>' +
+        '<option value="5" ' + (item.origine_des_terres === "5" ? 'selected' : 'hidden') + '>5 - Domaine public ملكية عامة للدولة</option>' +
+        '<option value="6" ' + (item.origine_des_terres === "6" ? 'selected' : 'hidden') + '>6 - Domaine privé de l\'état ملكية خاصة للدولة</option>' +
+        '<option value="7" ' + (item.origine_des_terres === "7" ? 'selected' : 'hidden') + '>7 - Wakf privé وقف خاص</option>' +
+        '<option value="8" ' + (item.origine_des_terres === "8" ? 'selected' : 'hidden') + '>8 - Wakf public وقف عام</option>' +
+        '<option value="9" ' + (item.origine_des_terres === "9" ? 'selected' : 'hidden') + '>9 - Inconnu ملك مجهول</option>' +
         '</select>' +
         '</div>' +
         '</div>' +
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="status_juridique" name="status_juridique">' +
-        '<option disabled value="-"></option>' +
-        '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : '') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
-        '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : '') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
-        '<option value="3" ' + (item.status_juridique === "3" ? 'selected' : '') + '>3- Ex EAI «10-03» - م.ف,ف</option>' +
-        '<option value="4" ' + (item.status_juridique === "4" ? 'selected' : '') + '>4- Ex GCA «483-97» - ع.إ.ف</option>' +
-        '<option value="5" ' + (item.status_juridique === "5" ? 'selected' : '') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
-        '<option value="6" ' + (item.status_juridique === "6" ? 'selected' : '') + '>6- Concession CIM 108, CIM 1839</option>' +
-        '<option value="7" ' + (item.status_juridique === "7" ? 'selected' : '') + '>7 - Nouvelle concession ONTA إمتياز جديد «21-432»</option>' +
-        '<option value="8" ' + (item.status_juridique === "8" ? 'selected' : '') + '>8 - Nouvelle concession ODAS إمتياز جديد «20-265»</option>' +
-        '<option value="9" ' + (item.status_juridique === "9" ? 'selected' : '') + '>9 - Exploitation sans titre إستغلال بدون سند «21-432»</option>' +
-        '<option value="10" ' + (item.status_juridique === "10" ? 'selected' : '') + '>10 - Ferme pilote مزرعة نموذجية</option>' +
-        '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : '') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
-        '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : '') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
-        '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : '') + '>13- Inconnu غير معروف</option>' +
-        ' <option value="14"'+(item.status_juridique === "14" ? 'selected' : '')+'14 - Succession إرث</option>' +
-         ' <option value="15"'+(item.status_juridique === "15" ? 'selected' : '')+'15 - Donation هبة</option>' +
-         ' <option value="16"'+(item.status_juridique === "16" ? 'selected' : '')+'16 - Testament وصية</option>' +
-         ' <option value="17"'+(item.status_juridique === "17" ? 'selected' : '')+'17 - Droit préemption حق الشفاعة</option>' +
-         ' <option value="18"'+(item.status_juridique === "18" ? 'selected' : '')+'18 - Préscription acquisitive ملكية مكتسبة</option>' +
-         ' <option value="19"'+(item.status_juridique === "19" ? 'selected' : '')+'19 - Certificat de possession شهادة حيازة</option>' +
-         ' <option value="20"'+(item.status_juridique === "20" ? 'selected' : '')+'20 - Location إجار</option>' +
-         ' <option value="21"'+(item.status_juridique === "21" ? 'selected' : '')+'21 - Autre  آخرى </option>' +
-         ' <option value="22"'+(item.status_juridique === "22" ? 'selected' : '')+'22 - Inconnu غير معروف</option>' + 
-        '</select>' +
+      '<select InptSZ class="form-select fontbneder2 statut_juridique_s" id="status_juridique" name="status_juridique">' +
+    '<option disabled value="-"></option>' +
+    '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : 'hidden') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
+    '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : 'hidden') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
+    '<option value="3" ' + (item.status_juridique === "3" ? 'selected' : 'hidden') + '>3- Ex EAI «10-03» - م.ف,ف</option>' +
+    '<option value="4" ' + (item.status_juridique === "4" ? 'selected' : 'hidden') + '>4- Ex GCA «483-97» - ع.إ.ف</option>' +
+    '<option value="5" ' + (item.status_juridique === "5" ? 'selected' : 'hidden') + '>5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option>' +
+    '<option value="6" ' + (item.status_juridique === "6" ? 'selected' : 'hidden') + '>6- Concession CIM 108, CIM 1839</option>' +
+    '<option value="7" ' + (item.status_juridique === "7" ? 'selected' : 'hidden') + '>7 - Nouvelle concession ONTA إمتياز جديد «21-432»</option>' +
+    '<option value="8" ' + (item.status_juridique === "8" ? 'selected' : 'hidden') + '>8 - Nouvelle concession ODAS إمتياز جديد «20-265»</option>' +
+    '<option value="9" ' + (item.status_juridique === "9" ? 'selected' : 'hidden') + '>9 - Exploitation sans titre إستغلال بدون سند «21-432»</option>' +
+    '<option value="10" ' + (item.status_juridique === "10" ? 'selected' : 'hidden') + '>10 - Ferme pilote مزرعة نموذجية</option>' +
+    '<option value="11" ' + (item.status_juridique === "11" ? 'selected' : 'hidden') + '>11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>' +
+    '<option value="12" ' + (item.status_juridique === "12" ? 'selected' : 'hidden') + '>12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>' +
+    '<option value="13" ' + (item.status_juridique === "13" ? 'selected' : 'hidden') + '>13- Inconnu غير معروف</option>' +
+    '<option value="14" ' + (item.status_juridique === "14" ? 'selected' : 'hidden') + '>14 - Succession إرث</option>' +
+    '<option value="15" ' + (item.status_juridique === "15" ? 'selected' : 'hidden') + '>15 - Donation هبة</option>' +
+    '<option value="16" ' + (item.status_juridique === "16" ? 'selected' : 'hidden') + '>16 - Testament وصية</option>' +
+    '<option value="17" ' + (item.status_juridique === "17" ? 'selected' : 'hidden') + '>17 - Droit préemption حق الشفاعة</option>' +
+    '<option value="18" ' + (item.status_juridique === "18" ? 'selected' : 'hidden') + '>18 - Préscription acquisitive ملكية مكتسبة</option>' +
+    '<option value="19" ' + (item.status_juridique === "19" ? 'selected' : 'hidden') + '>19 - Certificat de possession شهادة حيازة</option>' +
+    '<option value="20" ' + (item.status_juridique === "20" ? 'selected' : 'hidden') + '>20 - Location إجار</option>' +
+    '<option value="21" ' + (item.status_juridique === "21" ? 'selected' : 'hidden') + '>21 - Autre  آخرى </option>' +
+    '<option value="22" ' + (item.status_juridique === "22" ? 'selected' : 'hidden') + '>22 - Inconnu غير معروف</option>' + 
+'</select>'+
+
         '</div>' +
         '</div>' +
         '<div class="col-3">' +
@@ -6928,6 +7039,7 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '</div>' +
         '</div>';
+        
 });
 
 
@@ -7039,6 +7151,7 @@ if ($('#exploi_superficie_are').val().trim() === "") {
        listOrigineTerre ["6"]='<option selected=""  BoldText></option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
     }
    
+    $('#status_juridique_container').html(status_juridique_inputs);
 
 });
 
@@ -7530,7 +7643,7 @@ $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_
 </body>
 
 </html>
-<script>
+<!-- <script>
 
 
 var elements = document.getElementsByClassName("surface");
@@ -7681,4 +7794,4 @@ $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_fo
 });
  
 
-</script>
+</script> -->

@@ -8,7 +8,7 @@
         });
         var inputsTBdouble_are = document.querySelectorAll('.double_are');
         inputsTBdouble_are.forEach(function(input) {
-            input.style.maxWidth = "50px";
+            input.style.maxWidth = "52px";
         });
         var inputsTBdouble_are_non_bati = document.querySelectorAll('.double_are_non_bati');
         inputsTBdouble_are_non_bati.forEach(function(input) {
