@@ -1683,8 +1683,8 @@ acte de concession ?
                <div class="input-group input-group-sm">
                
                
-                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="0">
-                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="0">
+                     <input  bleuBG class="surface bneder form-control controle_sumSj_sat_hectare" id="superficie_agricole_utile_sau_1"  name="superficie_agricole_utile_sau_1" readonly="" disabled  num maxlength="5" value="">
+                     <input  bleuBG class="surface bneder double_are form-control controle_sumSj_sat_hectare" name="superficie_agricole_utile_sau_2" readonly="" disabled  value="">
                      
                </div>
             </td>
@@ -1828,7 +1828,7 @@ acte de concession ?
                 
                      
                   <input  disabled bleuBG class="surface bneder form-control double_are coherence_surface_total-surface  surface_total_error_are" tabindex="-1" name="surface_totale_st_2"  id="surface_totale_st_2" readonly   >
-                  <input id="st_en_hectar"  name="st_en_hectar" type="text" class="surface">
+                  <input id="st_en_hectar" hidden name="st_en_hectar" type="text" class="bneder surface">
                
          
 
@@ -3001,7 +3001,7 @@ $(document).ready(function(){
                          <div class="input-group input-group-sm">
                          <div class="qst-num zxcount"></div>
                             <span cheptelEparsSpanSize class="input-group-text" id="chapt_basic-addon3">
-                            منها النق
+                            منها النوق
                             <br> Dont chamelles
                             </span>
                                <input class="form-control bneder" num maxlength="5" id="chapt_dont_chamelles" name="chapt_dont_chamelles" >
