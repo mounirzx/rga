@@ -184,9 +184,6 @@ foreach ($formDataArrayStatut as $formData) {
 
 
 
-
-
-// Check if the questionnaire already exists
 $cleQuery2 = $bdd->prepare("SELECT `id`, `cle_code_culture`, `id_questionnaire`, `code_culture` FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
 $cleQuery2->bindValue(':id_questionnaire', $data['id_questionnaire']);
 $cleQuery2->execute();
@@ -196,12 +193,16 @@ $id = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id'] : 0;
 $cle_code_culture = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['cle_code_culture'] : '';
 $id_questionnaire = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id_questionnaire'] : 0;
 
+if ($cleResul2) {
+    $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
+    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    $deleteStmt->execute();
+
 
 foreach ($formDataArrayCodeCulture as $formData) {
     if (!empty($formData['code_culture'])) {
         // Generate a unique cle_code_culture value
-        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'] . "-" . $formData['superficie_hec'] . "-" . $formData['superficie_are'], 0, 20);
-     
+        $cle_code_culture = substr($data['id_questionnaire'] . "-" . $formData['code_culture'], 0, 20);
 
         // Check if the generated cle_code_culture already exists
         $checkDuplicateQuery2 = $bdd->prepare("SELECT COUNT(*) AS count FROM `utilisation_du_sol` WHERE `cle_code_culture` = :cle_code_culture");
@@ -230,20 +231,15 @@ foreach ($formDataArrayCodeCulture as $formData) {
             $updateStmt2->bindValue(':en_intercalaire', $formData['en_intercalaire']);
             $updateStmt2->bindValue(':cle_code_culture', $cle_code_culture);
             $updateStmt2->execute();
-            // Clear the variable after the update
-            $cle_code_culture = '';
         }
     }
+    $formData['code_culture'] = '';
+    $formData['superficie_hec'] = '';
+    $formData['superficie_are'] = '';
+    $formData['en_intercalaire'] = '';
 }
 
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -268,7 +264,10 @@ $cleResult3 = $cleQuery3->fetch(PDO::FETCH_ASSOC);
 $id_materiel_agricol = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_materiel_agricol'] : 0;
 $cle_materiel_agricole = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['cle_materiel_agricole'] : '';
 $id_questionnaire = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_questionnaire'] : 0;
-
+if ($cleResult3) {
+    $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
+    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
+    $deleteStmt->execute();
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
         // Generate a unique cle_materiel_agricole value
@@ -301,9 +300,17 @@ foreach ($formDataArrayCodeMateriel as $formData) {
             $updateStmt3->bindValue(':ee_mode_exploitation_materiel', $formData['ee_mode_exploitation_materiel']);
             $updateStmt3->bindValue(':cle_materiel_agricole', $cle_materiel_agricole);
             $updateStmt3->execute();
+             // Empty the variables to avoid duplicates
+  
         }
     }
+    $formData['code_materiel'] = '';
+    $formData['code_materiel_nombre'] = '';
+    $formData['ee_mode_mobilisation_materiel'] = '';
+    $formData['ee_mode_exploitation_materiel'] = '';
 }
+}
+
 
 
 

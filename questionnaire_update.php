@@ -2942,61 +2942,7 @@ document.getElementById('addForm2U').addEventListener('click', function() {
 </div>
 
 
-<script>
-$(document).ready(function() {
-    function handleInputComparisonEqualOrBigger(inputId1, inputId2, errorMessage) {
-        $(inputId1 + ', ' + inputId2).on('input', function() {
-            var inputValue1 = parseInt($(inputId1).val()) || 0;
-            var inputValue2 = parseInt($(inputId2).val()) || 0;
-            
-            if (inputValue2 < inputValue1) {
-                displayMessage_elvage(errorMessage, 'error');
-                $(this).val('');
-            }
-        });
-    }
 
-    handleInputComparisonEqualOrBigger('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Berbis ne peut dépasser le nombre total des Ovins');
-    handleInputComparisonEqualOrBigger('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de chèvres ne peut dépasser le nombre total de Caprins');
-    handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de chamelles ne peut dépasser le nombre total de Camelins');
-    handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
-    handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
-    handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
-
-    function calculateTotalVaches() {
-        var total = 0;
-        $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
-            total += parseInt($(this).val()) || 0;
-        });
-        return total;
-    }
-
-    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('input', function() {
-        var chapt_bovins = parseInt($('#chapt_bovins').val()) || 0;
-        var totalVaches = calculateTotalVaches();
-
-        if (totalVaches > chapt_bovins) {
-            displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
-            setBorders('red');
-        } else if (totalVaches < chapt_bovins) {
-            displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'warning');
-            setBorders('orange');
-        } else {
-            displayMessage_elvage_bovins('', '');
-            setBorders('green');
-        }
-    });
-
-    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('focusout', function() {
-        $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '');
-    });
-
-    function setBorders(color) {
-        $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '2px solid ' + color);
-    }
-});
-
-</script>
 
 
 
@@ -4134,24 +4080,29 @@ $('#formContainer3').on('change', 'select', function() {
 });
 
 // Handle the addition of new rows
-$('#addForm3U').click(function() {
- 
+
+  $('#addForm3U').click(function() {
     var formContainer = $('#formContainer3');
     var formRow = formContainer.children('.row').first().clone();
+
+    // Remove the class 'code_materiel_s' from the cloned elements
+    formRow.find('.code_materiel_s').removeClass('code_materiel_s');
+
     formRow.find('input').val('');
     formRow.find('select').each(function() {
-        $(this).val($(this).find('option:first').val());
+      $(this).val($(this).find('option:first').val());
     });
 
     // Append a remove button to the new row
     var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
-        delete combinations[generateCombination($(this).closest('.row'))];
-        $(this).closest('.row').remove();
+      delete combinations[generateCombination($(this).closest('.row'))];
+      $(this).closest('.row').remove();
     });
 
     formRow.find('.d-grid').empty().append(removeButton);
     formContainer.append(formRow);
-});
+  });
+
 });
 
 
@@ -6229,9 +6180,100 @@ var id = parseInt(decryptedValue);
 
 
 
+                function displayMessage_elvage_bovins(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
 
 
+                (function (){ 
+// Function Logic Here. 
 
+  function handleInputComparisonEqualOrBigger(inputId1, inputId2, errorMessage) {
+    $(inputId1 + ', ' + inputId2).on('input', function() {
+        var inputValue1 = parseInt($(inputId1).val()) || 0;
+        var inputValue2 = parseInt($(inputId2).val()) || 0;
+        if (inputValue2 < inputValue1) {
+            displayMessage_elvage(errorMessage, 'error');
+            $(this).css('border', '2px solid red');
+        } else {
+            $(this).css('border', ''); // Reset border color if valid
+        }
+    });
+}
+
+handleInputComparisonEqualOrBigger('#chapt_dont_brebis', '#chapt_ovins', 'Le nombre de Berbis ne peut dépasser le nombre total des Ovins');
+handleInputComparisonEqualOrBigger('#chapt_dont_chevres', '#chapt_caprins', 'Le nombre de chèvres ne peut dépasser le nombre total de Caprins');
+handleInputComparisonEqualOrBigger('#chapt_dont_chamelles', '#chapt_camelins', 'Le nombre de chamelles ne peut dépasser le nombre total de Camelins');
+handleInputComparisonEqualOrBigger('#chapt_dont_juments','#chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines','#chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
+handleInputComparisonEqualOrBigger('#chapt_dont_sont_pleines_2','#chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
+
+function calculateTotalVaches() {
+    var total = 0;
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('input', function() {
+    var chapt_bovins = parseInt($('#chapt_bovins').val()) || 0;
+    var totalVaches = calculateTotalVaches();
+
+    if (totalVaches > chapt_bovins) {
+        displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
+        setBorders('red');
+    } else if (totalVaches < chapt_bovins) {
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'warning');
+        setBorders('orange');
+    } else if(totalVaches == chapt_bovins) {
+        displayMessage_elvage_bovins('', '');
+        setBorders('green');
+    }
+});
+
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('focusout', function() {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '' );
+});
+
+function setBorders(color) {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '2px solid ' + color);
+}
+
+function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorMessage) {
+    $(selector).on('input', function() {
+        var value = parseInt($(this).val()) || 0;
+        var comparisonValue = parseInt($(comparisonSelector).val()) || 0;
+
+        if (value > comparisonValue) {
+            displayMessage_elvage(errorMessage, 'error');
+            $(this).css('border', '2px solid red');
+        } else {
+            $(this).css('border', ''); // Reset border color if valid
+        }
+    });
+}
+
+})();
 
 
 
