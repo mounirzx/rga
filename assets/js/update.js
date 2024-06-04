@@ -500,15 +500,16 @@ $("input[type='checkbox']").each(function() {
           $.ajax({
             url: "assets/php/update.php",
             type: "POST",
-            data: {
-              form: formDataObj,
-              formDataArrayStatut: formDataArrayStatut,
-              formDataArrayCodeMateriel: formDataArrayCodeMateriel,
-              formDataArrayCodeCulture: formDataArrayCodeCulture,
-              formDataArraySuperficie: formDataArraySuperficie,
-              message: message,
-              controleSatSumsjtest2: controleSatSumsjtest2
-            },
+            contentType: "application/json",
+              data: JSON.stringify({
+                form: formDataObj,
+                formDataArrayStatut: formDataArrayStatut,
+                formDataArrayCodeMateriel: formDataArrayCodeMateriel,
+                formDataArrayCodeCulture: formDataArrayCodeCulture,
+                formDataArraySuperficie:formDataArraySuperficie,
+                message:message,
+                controleSatSumsjtest2:controleSatSumsjtest2
+              }),
             dataType: "json",
             success: function(response) {
               if (response.response === "success") {
