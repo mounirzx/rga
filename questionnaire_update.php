@@ -254,7 +254,7 @@ if ($_SESSION['role'] == "recenseur") {
 
 <span class="input-group-text" id="basic-addon3"> الرقم <br>
    Numéro</span>
-    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="num_qst">
+    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="code_validation">
 
 </div> 
 
@@ -1589,7 +1589,8 @@ acte de concession ?
      <div id="superficieExploitation">
 
     </div>
-    <!-- <input id="st_en_hectar"  name="st_en_hectar" type="text" class="bneder surface"> -->
+    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="bneder ">
+    <!-- <input id="st_en_hectar" hidden name="st_en_hectar" type="text" class="bneder surface"> -->
     
      </div>
      </div>
@@ -2940,15 +2941,18 @@ document.getElementById('addForm2U').addEventListener('click', function() {
         </div> -->
 </div> 
 </div>
+
+
+
+
+
+
                    </div>
                 </div>
              </div>
              
 
   
-
-
-
 
 
 
@@ -4077,24 +4081,29 @@ $('#formContainer3').on('change', 'select', function() {
 });
 
 // Handle the addition of new rows
-$('#addForm3U').click(function() {
- 
+
+  $('#addForm3U').click(function() {
     var formContainer = $('#formContainer3');
     var formRow = formContainer.children('.row').first().clone();
+
+    // Remove the class 'code_materiel_s' from the cloned elements
+    formRow.find('.code_materiel_s').removeClass('code_materiel_s');
+
     formRow.find('input').val('');
     formRow.find('select').each(function() {
-        $(this).val($(this).find('option:first').val());
+      $(this).val($(this).find('option:first').val());
     });
 
     // Append a remove button to the new row
     var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
-        delete combinations[generateCombination($(this).closest('.row'))];
-        $(this).closest('.row').remove();
+      delete combinations[generateCombination($(this).closest('.row'))];
+      $(this).closest('.row').remove();
     });
 
     formRow.find('.d-grid').empty().append(removeButton);
     formContainer.append(formRow);
-});
+  });
+
 });
 
 
@@ -5371,7 +5380,7 @@ Source d'irrigation
                               Avez vous contracté une assurance agricoles ?
                               </span>
                               <select class="form-select fontbneder2 bneder" id="fa_avez_vous_contracte_une_assurance_agricole" name="fa_avez_vous_contracte_une_assurance_agricole">
-                                 <option disabled valu="-"selected="selected">  </option>
+                                 <option  value="-"selected="selected">  </option>
 
                                  <option value="1">1 - Oui - نعم</option>
 
@@ -5387,8 +5396,8 @@ Source d'irrigation
                               <br>
                               Si oui, quelle compagnie ?
                               </span>
-                              <select disabled="disabled" class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
-                                 <option disabled valu="-"selected="selected">  </option>
+                              <select  class="form-select fontbneder2 bneder" id="fa_si_oui_quelle_compagnie" name="fa_si_oui_quelle_compagnie">
+                                 <option disabled value="-"selected="selected">  </option>
 
                                  <option value="1">1- ص,م,ز,ق - CRMA</option>
 
@@ -5476,7 +5485,40 @@ Source d'irrigation
                   </div>
                </div>
                <br><br><br>
-        
+               <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectElement = document.getElementById('fa_avez_vous_contracte_une_assurance_agricole');
+            var textInput = document.getElementById('fa_si_oui_quelle_compagnie');
+            var checkboxes = document.querySelectorAll('.type_assurance');
+            var elementsToToggle = document.querySelectorAll('#fa_si_oui_quelle_compagnie, #fa_terre, #fa_personnel, #fa_batiments, #fa_cultures, #fa_materiels, #fa_cheptel');
+
+            function toggleElements(elements, condition) {
+                elements.forEach(function(element) {
+                    element.disabled = condition;
+                });
+            }
+
+            selectElement.addEventListener('change', function() {
+                var selectedValue = this.value;
+                
+                if (selectedValue !== "1") {
+                    // Clear the text input field
+                    textInput.value = '';
+
+                    // Uncheck all checkboxes with class 'type_assurance'
+                    checkboxes.forEach(function(checkbox) {
+                        checkbox.checked = false;
+                    });
+                }
+
+                // Toggle elements based on the selected value
+                toggleElements(elementsToToggle, selectedValue !== "1");
+            });
+
+            // Initial state check to toggle elements correctly on page load
+            // toggleElements(elementsToToggle, selectElement.value !== "1");
+        });
+    </script>
                <div style="border-top: 3px solid red;"></div>
                <br>
                <h6 style="margin-bottom:27px;">XIV - Environnement de l'exploitation محيط المستثمرة</h6>
@@ -6171,10 +6213,132 @@ var id = parseInt(decryptedValue);
                 }
 
 
+                function displayMessage_elvage(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+                function displayMessage_elvage_bovins(message, type) {
+    let messageClass = type === 'error' ? 'error-message' : 'info-message';
+    let $message = $('<div>').addClass(messageClass).text(message);
+    
+    // Add border and change text color based on message type
+    if (type === 'error') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'warning'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }
+    
+    $('#error_message_elvage').empty($message); // Append message to container
+    $('#error_message_elvage').append($message); // Append message to container
+    setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
 
 
+                (function (){ 
+// Function Logic Here. 
 
 
+    function handleInputComparison(inputId1, inputId2, errorMessage) {
+        var input1 = document.getElementById(inputId1);
+        var input2 = document.getElementById(inputId2);
+
+        function validateInputs() {
+            var value1 = parseInt(input1.value) || 0;
+            var value2 = parseInt(input2.value) || 0;
+            
+            if (value2 < value1) {
+              displayMessage_elvage(errorMessage, 'error');
+                input1.style.border = '2px solid red';
+            } else {
+                input1.style.border = ''; // Reset border color if valid
+            }
+        }
+
+        input1.addEventListener('input', validateInputs);
+        input2.addEventListener('input', validateInputs);
+    }
+
+    // Usage
+    handleInputComparison('chapt_dont_brebis', 'chapt_ovins', 'Le nombre de Berbis ne peut dépasser le nombre total des Ovins');
+    handleInputComparison('chapt_dont_chevres', 'chapt_caprins', 'Le nombre de chèvres ne peut dépasser le nombre total de Caprins');
+    handleInputComparison('chapt_dont_chamelles', 'chapt_camelins', 'Le nombre de chamelles ne peut dépasser le nombre total de Camelins');
+    handleInputComparison('chapt_dont_juments', 'chapt_equins', 'Le nombre de juments ne peut dépasser le nombre total des Equins');
+    handleInputComparison('chapt_dont_sont_pleines', 'chapt_ruches_modernes', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches Modernes');
+    handleInputComparison('chapt_dont_sont_pleines_2', 'chapt_ruches_traditionnelles', 'Le nombre de ruches pleines ne peut dépasser le nombre total des Ruches traditionnelles');
+
+
+function calculateTotalVaches() {
+    var total = 0;
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').each(function() {
+        total += parseInt($(this).val()) || 0;
+    });
+    return total;
+}
+
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('input', function() {
+    var chapt_bovins = parseInt($('#chapt_bovins').val()) || 0;
+    var totalVaches = calculateTotalVaches();
+
+    if (totalVaches > chapt_bovins) {
+        displayMessage_elvage('Le nombre total de vaches laitieres ne peut pas dépasser le nombre de bovins', 'error');
+        setBorders('red');
+    } else if (totalVaches < chapt_bovins) {
+        displayMessage_elvage_bovins('Le nombre total de vaches laitieres est inférieur au nombre de bovins', 'warning');
+        setBorders('orange');
+    } else if(totalVaches == chapt_bovins) {
+        displayMessage_elvage_bovins('', '');
+        setBorders('green');
+    }
+});
+
+$('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').on('focusout', function() {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '' );
+});
+
+function setBorders(color) {
+    $('#chapt_dont_vaches_laitieres_blm, #chapt_dont_vaches_laitieres_bla, #chapt_dont_vaches_laitieres_bll').css('border', '2px solid ' + color);
+}
+
+function handleInputComparisonEqualOrBigger(selector, comparisonSelector, errorMessage) {
+    $(selector).on('input', function() {
+        var value = parseInt($(this).val()) || 0;
+        var comparisonValue = parseInt($(comparisonSelector).val()) || 0;
+
+        if (value > comparisonValue) {
+            displayMessage_elvage(errorMessage, 'error');
+            $(this).css('border', '2px solid red');
+        } else {
+            $(this).css('border', ''); // Reset border color if valid
+        }
+    });
+}
+
+})();
 
 
 
@@ -6483,7 +6647,7 @@ $(document).on('keyup', '.coherence_surface_total-surface', function() {
 // Append each status_juridique input
 data.materiel_agricole.forEach(function(item) {
            //console.log(data[i].code_materiel)
-            inputs += '<div class="row" style="margin-bottom: 10px;">';
+            inputs += '<div class="row code_materiel_s" style="margin-bottom: 10px;">';
             inputs += '<div class="col-3">'; // Adjust column size as needed
 inputs += '<div class="input-group input-group-sm">';
 inputs += '<label InptSZ for="code_materiel" class="input-group-text" id="basic-addon3">رقم العتاد<br>Code matériel</label>'; // Using label for better accessibility
@@ -6767,7 +6931,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
         var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
         var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
         var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2);
+        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
  
  
         var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
@@ -6782,7 +6946,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
         var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
         var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
         var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4);
+        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);;
  
  
         var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
@@ -6796,7 +6960,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
         var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
         var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
         var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4 + superficie_agricole_utile_sau_2;
-        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2).toFixed(2);;
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
         var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1 + superficie_agricole_totale_sat_1;
@@ -6805,7 +6969,7 @@ if((sum_superficie_hectare!=undefined && sup_total!="") && (sum_superficie_hecta
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
         var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2 + superficie_agricole_totale_sat_2;
-        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2).toFixed(2);;
 
 /******************************** */
 
@@ -6819,7 +6983,7 @@ var quotient = Math.floor(divider / divisor);
 // Calculate the remainder
 var superficie_agricole_utile_sau_2 = divider % divisor;
 $('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
-$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2.toFixed(2));
 var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
 var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
 var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
@@ -6830,7 +6994,7 @@ var superficie_agricole_utile_sau_3 = parseFloat(document.getElementsByName("sup
 
 
 document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);;
 
 
 document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1));
@@ -6859,7 +7023,7 @@ var quotient = Math.floor(divider / divisor);
 
 
 $('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
-$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4.toFixed(2));
 
 
 
@@ -6873,7 +7037,7 @@ var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(docum
 var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
 
 document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
-document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2);
+document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2).toFixed(2);;
 
 $('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
 
@@ -6907,7 +7071,7 @@ var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("sup
 
 
 
-document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2).toFixed(2);;
 
 var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
 
@@ -6940,7 +7104,7 @@ if(surface_totale_st_2 >= 100) {
     var divider = terres_forestieres_bois_forets_maquis_vides_labourables_2 + superficie_agricole_totale_sat_2;
     var surface_totale_st_2 = divider % divisor;
     var quotient = Math.floor(divider / divisor);
-    document.getElementsByName("surface_totale_st_2")[0].value = surface_totale_st_2;
+    document.getElementsByName("surface_totale_st_2")[0].value = surface_totale_st_2.toFixed(2);;
 
     var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
     document.getElementsByName("surface_totale_st_1")[0].value = terres_forestieres_bois_forets_maquis_vides_labourables_1 + superficie_agricole_totale_sat_1 + quotient;
@@ -6957,7 +7121,7 @@ if (surface_totale_st_2.includes('.')) {
 
 // Concatenate and parse to float
 superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
-$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total.toFixed(5)));
 
 
 
@@ -7289,7 +7453,7 @@ $('#status_juridique_'+idPart).append(filtered[id])
 
 // Append each status_juridique input
 data.utilisation_du_sol.forEach(function(item) {
-utilisation_du_sol_inputs+=' <div class="row" style="margin-bottom: 10px;"><div class="col-6" ><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blé tendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autres céréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles - عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - Pois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Pois sec - بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricot sec - الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fève sèche - فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - Vesce et Vesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïs fourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autres fourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pomme de terre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignon sec et vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail - ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate - طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment - فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte - جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette - كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet - اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - Chou et Chou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut - قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave - الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fève verte - فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricot vert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petit pois - البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises - فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomate industrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave à sucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac - التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger - أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier - أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier - أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier - أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier - أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier - أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêcher et nectarinier - أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier - أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier - أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier - أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier - أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table - أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier - أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier - أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noyer - أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier - أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour) - أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres) - أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve - أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier - أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier - أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres - أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input InptSZ double id="superficie_hec" name="superficie_hec" class="form-control code_culture_s" value="'+item.superficie_hec+'" ></div><div class="col"><input InptSZ double id="superficie_are" name="superficie_are"   class="form-control code_culture_s"  value="'+item.superficie_are+'" ></div><div class="col"><input InptSZ id="en_intercalaire"  name="en_intercalaire" double class="form-control code_culture_s"   value="'+item.en_intercalaire+'"></div><div class="col-1"><button  <?= ($_SESSION['role'] == "recenseur") ? '' : 'disabled' ?> style="opacity: 1; width: 39px;" type="button" class="btn btn-danger btn-sm delete_code_culture" id="delete-' + item.superficie_are + '" data-code-superficie_are="' + item.cle_code_culture + '">-</button></div></div>'
+utilisation_du_sol_inputs+=' <div class="row code_culture_s" style="margin-bottom: 10px;"><div class="col-6" ><div class="input-group input-group-sm"><select  class="form-select code_culture_s" id="code_culture" name="code_culture"><option > - </option><option  style="font-weight: 700;">Grandes cultures - المحاصيل الكبرى</option><option value="1" '+(item.code_culture === "1" ? 'selected' : '')+'>1 - Blé dur - قمح صلب</option><option value="2" '+(item.code_culture === "2" ? 'selected' : '')+'>2 - Blé tendre - قمح لين</option><option value="3" '+(item.code_culture === "3" ? 'selected' : '')+'>3 - Orge - شعير</option><option value="4" '+(item.code_culture === "4" ? 'selected' : '')+'>4 - Avoine - خرطال</option><option value="5" '+(item.code_culture === "5" ? 'selected' : '')+'>5 - Sorgho - الذرة البيضاء</option><option value="6" '+(item.code_culture === "6" ? 'selected' : '')+'>6 - Maïsgrain - حبوب الذرة</option><option value="7" '+(item.code_culture === "7" ? 'selected' : '')+'> 7 - Autres céréales - الحبوب الأخرى</option><option disabled="" style="font-weight: 700;">Légumessecs - البقول الجافة</option><option value="8" '+(item.code_culture === "8" ? 'selected' : '')+'>8 - Lentilles - عدس</option><option value="9" '+(item.code_culture === "9" ? 'selected' : '')+'>9 - Pois-chiche - حمص</option><option value="10" '+(item.code_culture === "10" ? 'selected' : '')+'>10 - Pois sec - بازلاء مجففة</option><option value="11" '+(item.code_culture === "11" ? 'selected' : '')+'>11 - Haricot sec - الفاصوليا الجافة</option><option value="12" '+(item.code_culture === "12" ? 'selected' : '')+'>12 - Fève sèche - فول جاف</option><option value="13" '+(item.code_culture === "13" ? 'selected' : '')+'>13 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Fourrages - الأعلاف</option><option value="14" '+(item.code_culture === "14" ? 'selected' : '')+'>14 - Vesce et Vesce-avoine - البيقية والخرطال</option><option value="15" '+(item.code_culture === "15" ? 'selected' : '')+'>15 - Luzerne - فصة</option><option value="16" '+(item.code_culture === "16" ? 'selected' : '')+'>16 - Maïs fourrager - الذرة العلفية</option><option value="17" '+(item.code_culture === "17" ? 'selected' : '')+'>17 - Autres fourrages - أعلاف أخرى</option><option disabled="" style="font-weight: 700;"> Maraîchage - الخضروات</option><option value="18" '+(item.code_culture === "18" ? 'selected' : '')+'>18 - Pomme de terre - البطاطا</option><option value="19" '+(item.code_culture === "19" ? 'selected' : '')+'>19 - Oignon sec et vert - بصل جاف وأخضر</option><option value="20" '+(item.code_culture === "20" ? 'selected' : '')+'>20 - Ail - ثوم</option><option value="21" '+(item.code_culture === "21" ? 'selected' : '')+'>21 - Tomate - طماطم</option><option value="22" '+(item.code_culture === "22" ? 'selected' : '')+'>22 - Piment - فلفل حار</option><option value="23" '+(item.code_culture === "23" ? 'selected' : '')+'>23 - Poivron(frais et séché) - فلفل حلو</option><option value="24" '+(item.code_culture === "24" ? 'selected' : '')+'>24 - Carotte - جزر</option><option value="25" '+(item.code_culture === "25" ? 'selected' : '')+'>25 - Courgette - كوسه</option><option value="26" '+(item.code_culture === "26" ? 'selected' : '')+'>26 - Navet - اللفت</option><option value="27" '+(item.code_culture === "27" ? 'selected' : '')+'>27 - Concombre -خيار</option><option value="28" '+(item.code_culture === "28" ? 'selected' : '')+'>28 - Chou et Chou-fleur - الملفوف وكرمب</option><option value="29" '+(item.code_culture === "29" ? 'selected' : '')+'>29 - Artichaut - قرنون</option><option value="30" '+(item.code_culture === "30" ? 'selected' : '')+'>30 - Betterave - الشمندر</option><option value="31" '+(item.code_culture === "31" ? 'selected' : '')+'>31 - Fève verte - فول أخضر</option><option value="32" '+(item.code_culture === "32" ? 'selected' : '')+'>32 - Haricot vert - فاصوليا خضراء</option><option value="33" '+(item.code_culture === "33" ? 'selected' : '')+'>33 - Petit pois - البازلاء</option><option value="34" '+(item.code_culture === "34" ? 'selected' : '')+'>34 - Fraises - فراولة</option><option value="35" '+(item.code_culture === "35" ? 'selected' : '')+'>35 - Salade(laitue) - خس</option><option value="36" '+(item.code_culture === "36" ? 'selected' : '')+'>36 - Melon - بطيخ</option><option value="37" '+(item.code_culture === "37" ? 'selected' : '')+'>37 - Pastéque - دلاع</option><option value="38" '+(item.code_culture === "38" ? 'selected' : '')+'>38 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Cultures industrielles - المحاصيل الصناعية</option><option value="39" '+(item.code_culture === "39" ? 'selected' : '')+'>39 - Tomate industrielle - الطماطم الصناعية</option><option value="40" '+(item.code_culture === "40" ? 'selected' : '')+'>40 - Betterave à sucre - شمندر سكري</option><option value="41" '+(item.code_culture === "41" ? 'selected' : '')+'>41 - Oléagineux(arachide, soja, maïs,...) - بذور زيتية(فولسوداني,صويا,ذرة)</option><option value="42" '+(item.code_culture === "42" ? 'selected' : '')+'>42 - Tabac - التبغ</option><option value="43" '+(item.code_culture === "43" ? 'selected' : '')+'>43 - Autres - أخرى</option><option disabled="" style="font-weight: 700;"> Arboriculture - الأشجار</option><option value="44" '+(item.code_culture === "44" ? 'selected' : '')+'>44 - Oranger - أشجار البرتقال</option><option value="45" '+(item.code_culture === "45" ? 'selected' : '')+'>45 - Citronnier - أشجار الليمون</option><option value="46" '+(item.code_culture === "46" ? 'selected' : '')+'>46 - Mandarinier - أشجار المندرين</option><option value="47" '+(item.code_culture === "47" ? 'selected' : '')+' >47 - Clémentinier - أشجار الكليمنتين</option><option value="48" '+(item.code_culture === "48" ? 'selected' : '')+'>48 - Pamplemoussier - أشجار اليمون الهندي</option><option value="49" '+(item.code_culture === "49" ? 'selected' : '')+'>49 - Abricotier - أشجار المشمش</option><option value="50" '+(item.code_culture === "50" ? 'selected' : '')+'>50 - Pêcher et nectarinier - أشجار الخوخ والنكتارين</option><option value="51" '+(item.code_culture === "51" ? 'selected' : '')+'>51 - Cognassier - أشجار السفرجل</option><option value="52" '+(item.code_culture === "52" ? 'selected' : '')+'>52 - Poirier - أشجار اإلجاص</option><option value="53" '+(item.code_culture === "53" ? 'selected' : '')+'>53 - Pommier - أشجار التفاح</option><option value="54" '+(item.code_culture === "54" ? 'selected' : '')+'>54 - Prunier - أشجار البرقوق</option><option value="55" '+(item.code_culture === "55" ? 'selected' : '')+'>55 - Olivier de table - أشجار زيتون "زيتون المائدة"</option><option value="56" '+(item.code_culture === "56" ? 'selected' : '')+'>56 - Olivier à huile-أشجار الزيتون "الزيت"</option><option value="57" '+(item.code_culture === "57" ? 'selected' : '')+'>57 - Figuier - أشجار التين</option><option value="58" '+(item.code_culture === "58" ? 'selected' : '')+'>58 - Amandier - أشجار اللوز</option><option value="59" '+(item.code_culture === "59" ? 'selected' : '')+'>59 - Noyer - أشجار الجوز</option><option value="60" '+(item.code_culture === "60" ? 'selected' : '')+'>60 - Cerisier - أشجار الكرز</option><option value="61" '+(item.code_culture === "61" ? 'selected' : '')+'>61 - Palmier dattier (Deglet Nour) - أشجار النخيل "دڨلة نور"</option><option value="62" '+(item.code_culture === "62" ? 'selected' : '')+'>62 - Palmier dattier (Ghars)-أشجار النخيل "غرس"</option><option value="63" '+(item.code_culture === "63" ? 'selected' : '')+'>63 - Palmier dattier (autres) - أشجار النخيل "أخرى"</option><option value="64" '+(item.code_culture === "64" ? 'selected' : '')+'>64 - Vigne de table-أشجار العنب األكل</option><option value="65" '+(item.code_culture === "65" ? 'selected' : '')+'>65 - Vigne de cuve - أشجار عنب العصير</option><option value="66" '+(item.code_culture === "66" ? 'selected' : '')+'>66 - Grenadier - أشجار الرمان</option><option value="67" '+(item.code_culture === "67" ? 'selected' : '')+'>67 - Arganier - أشجار األرقان</option><option value="68" '+(item.code_culture === "68" ? 'selected' : '')+'>68 - Autres arbres - أشجار أخرى</option><option disabled="" style="font-weight: 700;"> Divers - محاصيل مختلفة</option><option value="65" '+(item.code_culture === "46" ? 'selected' : '')+'>65 - Herbes et épices - الأعشاب والتوابل</option><option value="66">66 - Plantes ornementales, aromatiques .. - نباتات الزينة/ العطرية/ الطبية</option><option value="67">67 - Pépinières fruitières - مشاتل الفاكهة</option><option value="68">68 - Pépinières maraichères - مشاتل الخضار</option><option value="69">69 - Pépinières forestières - مشاتل الغابات</option><option value="70">70 - Autres Pépinières - مشاتل أخرى</option><option value="71">71 - Autres Cultures - محاصيل أخرى</option></select></div></div><div class="col"><input InptSZ double id="superficie_hec" name="superficie_hec" class="form-control code_culture_s" value="'+item.superficie_hec+'" ></div><div class="col"><input InptSZ double id="superficie_are" name="superficie_are"   class="form-control code_culture_s"  value="'+item.superficie_are+'" ></div><div class="col"><input InptSZ id="en_intercalaire"  name="en_intercalaire" double class="form-control code_culture_s"   value="'+item.en_intercalaire+'"></div><div class="col-1"><button  <?= ($_SESSION['role'] == "recenseur") ? '' : 'disabled' ?> style="opacity: 1; width: 39px;" type="button" class="btn btn-danger btn-sm delete_code_culture" id="delete-' + item.superficie_are + '" data-code-superficie_are="' + item.cle_code_culture + '">-</button></div></div>'
 
 totalirriguer += parseInt(item.superficie_are);
 
