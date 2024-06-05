@@ -1849,7 +1849,7 @@ $(document).ready(function(){
 // Function to generate a unique key for a row
 function generateCombination(row) {
     return row.find('[id^="code_materiel"]').val() + '-' +
-           row.find('[id^="code_materiel_nombre"]').val() + '-' +
+        //    row.find('[id^="code_materiel_nombre"]').val() + '-' +
            row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
            row.find('[id^="ee_mode_exploitation_materiel"]').val();
 }

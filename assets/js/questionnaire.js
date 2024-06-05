@@ -1023,21 +1023,21 @@ document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superfi
 }
 
 /*********************************************** */
-var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
-if(surface_totale_st_2>=100){
-var divisor = 100;
+// var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
+// if(surface_totale_st_2>=100){
+// var divisor = 100;
 
 
-var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
-var surface_totale_st_2 = divider % divisor;
-var quotient = Math.floor(divider / divisor);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
-var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-$('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
+// var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+// var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+// var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
+// var surface_totale_st_2 = divider % divisor;
+// var quotient = Math.floor(divider / divisor);
+// document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+// var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
+// $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
 
-}
+// }
 
 var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
 var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()

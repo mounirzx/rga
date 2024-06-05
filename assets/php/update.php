@@ -106,6 +106,9 @@ $cle_status_juridique = ($cleResul1 !== false && is_array($cleResul1)) ? $cleRes
 $id_questionnaire = ($cleResul1 !== false && is_array($cleResul1)) ? $cleResul1['id_questionnaire'] : 0;
 
 foreach ($formDataArrayStatut as $formData) {
+
+
+    
     if (!empty($formData['origine_des_terres']) && !empty($formData['status_juridique']) && !empty($formData['superfecie_sj']) && !empty($formData['superfecie_sj_are'])) {
         // Generate a unique cle_status_juridique value
         $cle_status_juridique = substr($data['id_questionnaire'] . "-" . $formData['origine_des_terres'] . "-" . $formData['status_juridique'], 0, 20);
@@ -265,7 +268,7 @@ $id_questionnaire = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResul
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
         // Generate a unique cle_materiel_agricole value
-        $cle_materiel_agricole = substr($data['id_questionnaire'] . "-" . $formData['code_materiel'] . "-" . $formData['code_materiel_nombre'], 0, 20);
+        $cle_materiel_agricole = substr($data['id_questionnaire'] . "-" . $formData['code_materiel'] . "-" . $formData['code_materiel_nombre']. "-" .$formData['ee_mode_mobilisation_materiel']. "-" .$formData['ee_mode_exploitation_materiel'], 0, 20);
 
         // Check if the generated cle_materiel_agricole already exists
         $checkDuplicateQuery3 = $bdd->prepare("SELECT COUNT(*) AS count FROM `materiel_agricole` WHERE `cle_materiel_agricole` = :cle_materiel_agricole");

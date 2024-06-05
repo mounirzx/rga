@@ -33,6 +33,48 @@ $('#exploitant').on('change', function() {
 });
 
 
+function calculateTotalFamilyMembers() {
+  var total = 0;
+  // Loop through each input field for adults and children
+  $('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').each(function() {
+      // Parse the value as an integer and add it to the total
+      total += parseInt($(this).val()) || 0;
+  });
+  return total;
+}
+
+$('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').on('input', function() {
+  var maxPersons = parseInt($('#ma_nombre_de_personnes').val()) || 0; // Get the maximum number of persons
+  var totalFamilyMembers = calculateTotalFamilyMembers(); // Calculate the total number of family members
+  // Compare the total number of family members with the maximum allowed
+  if (totalFamilyMembers > maxPersons) {
+        Swal.fire({
+              icon: 'error',
+              title: 'Limite dépassée',
+              text: 'Le nombre total de membres de la famille ne peut pas dépasser ' + maxPersons,
+          });
+      $(this).val(''); // Clear the input field
+
+  }
+
+  var ma_adultes_plus_15_ans_m = $('#ma_adultes_plus_15_ans_m').val();
+  var ma_adultes_plus_15_ans_f = $('#ma_adultes_plus_15_ans_f').val();
+  var ma_enfants_moins_15_ans_m = $('#ma_enfants_moins_15_ans_m').val();
+  var ma_enfants_moins_15_ans_f = $('#ma_enfants_moins_15_ans_f').val();
+  if(ma_adultes_plus_15_ans_m!="" && ma_adultes_plus_15_ans_f!="" && ma_enfants_moins_15_ans_m!="" && ma_enfants_moins_15_ans_f){
+     if(totalFamilyMembers < maxPersons){
+        Swal.fire({
+            icon: 'error',
+            title: 'Insuffisant',
+            text: 'Le nombre total de membres de la famille ne peut pas être inférieur à ' + maxPersons + '.'
+        });
+    $(this).val(''); // Clear the input field
+
+      }
+  }
+
+});
+
 
   $('#forage').change(function() {
    

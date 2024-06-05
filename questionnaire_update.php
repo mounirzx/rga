@@ -1337,7 +1337,26 @@ au réseau internet ?
 
                   <script>
  document.getElementById('addFormU').addEventListener('click', function () {
-   $("#superfecie_sj").val("");
+
+
+// // Get the children of formContainer
+// const children = Array.from(formContainer.children);
+// console.log(children)
+// // Filter the children to get only those with the class 'statut_juridique_s'
+// const statutJuridiqueElements = children.filter(child => 
+//     child.classList.contains('db')
+// );
+const dbdata = document.getElementById('db_data');
+dbdata.children.length
+// Check if there is more than one 'statut_juridique_s' element
+if ( dbdata.children.length) {
+  Swal.fire({
+  icon: 'warning',
+  title: 'Attention!',
+  text: 'Avant d\'ajouter de nouveaux enregistrements, il est impératif de supprimer les anciens. من الضروري حذف البيانات القديمة قبل إضافة البيانات الجديدة.',
+});
+}else{
+  $("#superfecie_sj").val("");
    $("#superfecie_sj_are").val("");
    $("#status_juridique").val("");
    $("#origine_des_terres").val("");
@@ -1374,6 +1393,12 @@ au réseau internet ?
         });
     
         restrictInputToDoublesARE();
+ 
+    
+} 
+  
+  
+
 
     });
 
@@ -4934,6 +4959,9 @@ Source d'irrigation
                   </tr>
                </tbody>
             </table>
+
+
+
             <br><br><br>
             <div style="border-top: 3px solid red;"></div>
             <br>
@@ -5197,6 +5225,7 @@ Source d'irrigation
                      </div>
 
                      <script>
+                    
                         // var check1 = document.getElementsByName('soutien_public')[0];
                      
                         // check1.addEventListener('input', function () {
@@ -6851,53 +6880,53 @@ inputs += '</select>';
 //     });
 // });
 
-    $(document).on('click', '.delete_materiel_agricole', function() {
-    // Get the cle_code_culture value from the data attribute
-     var code_materiel = $(this).data('code-materiel');
+$(document).on('click', '.delete_materiel_agricole', function() {
+    // Get the code_materiel value from the data attribute
+    var code_materiel = $(this).data('code-materiel');
     var buttonId = $(this).attr('id');
-    // Display an alert with the cle_code_culture value
-  //  alert(buttonId);
 
     // Ask for confirmation before proceeding
-    if (confirm("Are you sure you want to delete this row?")) {
-        // Send the data to the PHP file using AJAX
-        $.ajax({
-            url: 'assets/php/delete_materiel_agricole.php',
-            type: 'POST',
-            data: { code_materiel: code_materiel },
-            success: function(response) {
-            
-                // Remove the corresponding row visually from the table
-                $('#' + buttonId).closest('.row').remove();
+    Swal.fire({
+        title: 'Êtes-vous sûr(e) de vouloir supprimer cette ligne?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Send the data to the PHP file using AJAX
+            $.ajax({
+                url: 'assets/php/delete_materiel_agricole.php',
+                type: 'POST',
+                data: { code_materiel: code_materiel },
+                success: function(response) {
+                    // Remove the corresponding row visually from the table
+                    $('#' + buttonId).closest('.row').remove();
 
-                // Show success message using SweetAlert
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Deleted!',
-                    text: 'The row has been successfully deleted.'
-                });
-            },
-            error: function(xhr, status, error) {
-                // Handle the error
-                console.error(error);
-                
-                // Show error message using SweetAlert
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: 'An error occurred while deleting the row.'
-                });
-            }
-        });
-    } else {
-        // If user clicks cancel, stop everything and exit
-        // window.location.reload();
-    }
+                    // Show success message using SweetAlert
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Supprimé!',
+                        text: 'La ligne a été supprimée avec succès.'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.error(error);
+
+                    // Show error message using SweetAlert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur!',
+                        text: 'Une erreur s\'est produite lors de la suppression de la ligne.'
+                    });
+                }
+            });
+        }
+    });
 });
-
-
-
-
 
 
 
@@ -7125,7 +7154,7 @@ var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("su
 var superficie_agricole_utile_sau_2 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_2")[0].value) || 0;
 var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
 
-var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_2 +superficie_agricole_utile_sau_4
 
 document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
 document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2).toFixed(2);;
@@ -7234,10 +7263,10 @@ $('input[name="st_en_hectar"]').val(parseFloat(superficie_total.toFixed(5)));
 // Append each status_juridique input
 data.status_juridique.forEach(function(item) {
 
-    status_juridique_inputs += '<div style="margin-bottom: 5px;" class="row statut_juridique_s">' +
+    status_juridique_inputs += '<div id="db_data" class="db_data"><div style="margin-bottom: 5px;" class="row db">' +
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-        '<select InptSZ class="form-select fontbneder2   statut_juridique_s" id="origine_des_terres" name="origine_des_terres">' +
+        '<select InptSZ disabled class="form-select fontbneder2   " id="origine_des_terres" name="origine_des_terres">' +
         '<option disabled value="-"></option>' +
         '<option value="1" ' + (item.origine_des_terres === "1" ? 'selected' : 'hidden') + '>1 - Melk personnel titré ملك شخصي موثق</option>' +
         '<option value="2" ' + (item.origine_des_terres === "2" ? 'selected' : 'hidden') + '>2 - Melk personnel non titré ملك شخصي غير موثق</option>' +
@@ -7253,7 +7282,7 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col-4">' +
         '<div class="input-group input-group-sm">' +
-      '<select InptSZ class="form-select fontbneder2 statut_juridique_s" id="status_juridique" name="status_juridique">' +
+      '<select InptSZ disabled class="form-select fontbneder2 db" id="status_juridique" name="status_juridique">' +
     '<option disabled value="-"></option>' +
     '<option value="1" ' + (item.status_juridique === "1" ? 'selected' : 'hidden') + '>1- APFA «18-83» - ح.م.أ.ف</option>' +
     '<option value="2" ' + (item.status_juridique === "2" ? 'selected' : 'hidden') + '>2- Ex EAC «03-10» - م.ف.ج</option>' +
@@ -7283,14 +7312,15 @@ data.status_juridique.forEach(function(item) {
         '</div>' +
         '<div class="col-3">' +
         '<div class="input-group input-group-sm">' +
-        '<input id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control statut_juridique_s"  value="' + (item.superfecie_sj || '') + '">' +
-        '<input id="superfecie_sj_are" doubleare name="superfecie_sj_are"  style="max-width: 50px;"  class="form-control statut_juridique_s"  " value="' + (item.superfecie_sj_are || '') + '">' +
+        '<input disabled id="superfecie_sj" name="superfecie_sj" style="max-width: 110px;"   maxlength="4" num class="form-control db"  value="' + (item.superfecie_sj || '') + '">' +
+        '<input disabled id="superfecie_sj_are" doubleare name="superfecie_sj_are"  style="max-width: 50px;"  class="form-control db"  " value="' + (item.superfecie_sj_are || '') + '">' +
        
         '</div>' +
         '</div>' +
         '<div class="col">' +
         '<div class="d-grid gap-2">'+
         '<button  <?= ($_SESSION['role'] == "recenseur") ? '' : 'disabled' ?> style="  opacity: 1;position: relative; right: 0px; top: 0px; z-index: 500" class="btn btn-danger btn-sm disable-44-45-46" type="button" id="delete-' + item.origine_des_terres + '" data-code-origine_des_terres="' + item.cle_status_juridique + '" >-</button>' +
+        '</div>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -7309,40 +7339,48 @@ $(document).on('click', '.disable-44-45-46', function() {
     var buttonId = $(this).attr('id');
 
     // Ask for confirmation before proceeding
-    if (confirm("Are you sure you want to delete this row?")) {
-        // Send the data to the PHP file using AJAX
-        $.ajax({
-            url: 'assets/php/delete_row4.php',
-            type: 'POST',
-            data: { cle_status_juridique: cle_status_juridique },
-            success: function(response) {
-                // Remove the corresponding row visually from the table
-                $('#' + buttonId).closest('.row').remove();
+    Swal.fire({
+        title: 'Êtes-vous sûr(e) de vouloir supprimer cette ligne?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Send the data to the PHP file using AJAX
+            $.ajax({
+                url: 'assets/php/delete_row4.php',
+                type: 'POST',
+                data: { cle_status_juridique: cle_status_juridique },
+                success: function(response) {
+                    // Remove the corresponding row visually from the table
+                    $('#' + buttonId).closest('.row').remove();
 
-                // Show success message using SweetAlert
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Deleted!',
-                    text: 'The row has been successfully deleted.'
-                });
-            },
-            error: function(xhr, status, error) {
-                // Handle the error
-                console.error(error);
-                
-                // Show error message using SweetAlert
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: 'An error occurred while deleting the row.'
-                });
-            }
-        });
-    } else {
-        // If user clicks cancel, stop everything and exit
-        // window.location.reload();
-    }
+                    // Show success message using SweetAlert
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Supprimé!',
+                        text: 'La ligne a été supprimée avec succès.'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.error(error);
+
+                    // Show error message using SweetAlert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur!',
+                        text: 'Une erreur s\'est produite lors de la suppression de la ligne.'
+                    });
+                }
+            });
+        }
+    });
 });
+
 
 
 
@@ -7560,47 +7598,49 @@ $(document).on('click', '.delete_code_culture', function() {
     // Get the cle_code_culture value from the data attribute
     var cle_code_culture = $(this).data('code-superficie_are');
     var buttonId = $(this).attr('id');
- 
-    // Display an alert with the cle_code_culture value
- //  alert(cle_code_culture);
 
     // Ask for confirmation before proceeding
-    if (confirm("Are you sure you want to delete this row?")) {
-        // Send the data to the PHP file using AJAX
-        $.ajax({
-            url: 'assets/php/delete_code_culture.php',
-            type: 'POST',
-            data: { cle_code_culture: cle_code_culture },
-            success: function(response) {
-            
-                // Remove the corresponding row visually from the table
-                $('#' + buttonId).closest('.row').remove();
+    Swal.fire({
+        title: 'Êtes-vous sûr(e) de vouloir supprimer cette ligne?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Send the data to the PHP file using AJAX
+            $.ajax({
+                url: 'assets/php/delete_code_culture.php',
+                type: 'POST',
+                data: { cle_code_culture: cle_code_culture },
+                success: function(response) {
+                    // Remove the corresponding row visually from the table
+                    $('#' + buttonId).closest('.row').remove();
 
-                // Show success message using SweetAlert
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Deleted!',
-                    text: 'The row has been successfully deleted.'
-                });
-            },
-            error: function(xhr, status, error) {
-                // Handle the error
-                console.error(error);
-                
-                // Show error message using SweetAlert
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: 'An error occurred while deleting the row.'
-                });
-            }
-        });
-    } else {
-        // If user clicks cancel, stop everything and exit
-        // window.location.reload();
-    }
+                    // Show success message using SweetAlert
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Supprimé!',
+                        text: 'La ligne a été supprimée avec succès.'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.error(error);
+
+                    // Show error message using SweetAlert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur!',
+                        text: 'Une erreur s\'est produite lors de la suppression de la ligne.'
+                    });
+                }
+            });
+        }
+    });
 });
-
 
 
 
