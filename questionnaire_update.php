@@ -1619,8 +1619,8 @@ acte de concession ?
                            </span>
                            <select class="form-select  fontbneder2 bneder" id="exploit_est_un_bloc" name="exploit_est_un_bloc">
                               <option selected="" disabled value="-">  </option>
-                              <option  class="fontbneder2" value="1">1- Non - لا</option>
-                              <option class="fontbneder2"  value="2">2- Oui - نعم</option>
+                              <option  class="fontbneder2" value="1">1- Oui - نعم</option>
+                              <option class="fontbneder2"  value="2">2- Non - لا</option>
                            </select>
                         </div>
                      </div>

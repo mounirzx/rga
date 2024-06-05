@@ -354,25 +354,28 @@ $coherence_stat_jur="";
 $message_coherence_stat_jur="";
 if($message=="green"){
     $coherence_util_sol = "text-success";
+    $message_coherence_util_sol="La surface d utilisation du sol semble cohérente, elle est comprise entre 1 fois et 3 fois la SAU déclarée";
 }if($message=="orange"){
     $coherence_util_sol = "text-warning";
-    $message_coherence_util_sol="La somme des sup occupées est différente de la SAU";
+    $message_coherence_util_sol="La surface d utilisation du sol est inférieure à la SAU déclarée";
 }if($message=="red"){
     $coherence_util_sol = "text-danger";
-    $message_coherence_util_sol="La somme des sup occupées dépasse 2,99 fois la SAU";
+    $message_coherence_util_sol="La surface d utilisation du sol est superieure à 3 fois la SAU déclarée";
 }
 
 
 if($controleSatSumsjtest2=="green"){
     $coherence_stat_jur="text-success";
+    
+    $message_coherence_stat_jur="La surface totale est identique à celle déclarée au statut juridique";
 }if($controleSatSumsjtest2=="orange"){
     $coherence_stat_jur="text-warning";
-    $message_coherence_stat_jur="SAT est déffirente de la somme des sup. à statut";
+    $message_coherence_stat_jur="La surface totale est superieure à celle déclarée au statut juridique";
 }if($controleSatSumsjtest2=="red"){
     $coherence_stat_jur="text-danger";
-    $message_coherence_stat_jur="La somme des sup. à statut dépasse 5% la SAT";
+    $message_coherence_stat_jur="La surface totale est inferieure à celle déclarée au statut juridique";
 }
-/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+/***************************** modification wissem 21/05/2024 10:44 *************************************************** */
 
 //modification 26/05/2024 wissem omri 
 $req5 = $bdd->prepare('select * from coherence_superficie where id_quest = ?  ');

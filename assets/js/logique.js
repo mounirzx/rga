@@ -31,8 +31,8 @@ $(document).ready(function() {
         // Retrieve the selected value from the dropdown
         var selectedValue = $(this).val();
     
-        // Check if the selected value is '2' (Non)
-        if (selectedValue === '2') {
+        // Check if the selected value is '1' (oui)
+        if (selectedValue === '1') {
               $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
               $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
         } else {
