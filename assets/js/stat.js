@@ -183,8 +183,26 @@ taux_avancememnt_1 = parseFloat(taux_avancememnt_1).toFixed(2)
 taux_avancememnt_2 = parseFloat(taux_avancememnt_2).toFixed(2)
 
 
-list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td><td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"+etat+"<td  class='align-middle'>"+button+"</td></tr>"
-                            total_questionnaire+=parseFloat(count);
+var taux2=""
+if(taux_avancememnt_2<=100){
+        taux2 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"
+}else{
+    taux2 = "<td  class='align-middle' style='border: 4px solid #d31414; '>Erreur</td>"
+}
+
+var taux1=""
+if(taux_avancememnt_1<=100){
+    taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>"
+}else{
+    taux1 = "<td  class='align-middle' style='border: 4px solid #d31414; '>Erreur</td>"
+}
+/******************************************* */
+
+
+list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td>"+taux1+""+taux2+""+etat+"<td  class='align-middle'>"+button+"</td></tr>";
+
+
+                total_questionnaire+=parseFloat(count);
                     }
                     $('#list').empty(list)
                     $('#list').append(list)
