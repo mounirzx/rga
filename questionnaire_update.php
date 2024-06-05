@@ -1586,15 +1586,17 @@ acte de concession ?
 
 
 
-     <div id="superficieExploitation">
-
-    </div>
-    <input id="st_en_hectar"  name="st_en_hectar" type="text" class="bneder ">
+<div id="superficieExploitation">
+  
+  </div>
+  
+  <div id="superficie-error"  ></div>
+    <input id="st_en_hectar" hidden name="st_en_hectar" type="text" class="bneder ">
     <!-- <input id="st_en_hectar" hidden name="st_en_hectar" type="text" class="bneder surface"> -->
     
-     </div>
-     </div>
-     </div>
+  </div>
+</div>
+</div>
 
 
 
@@ -6183,8 +6185,9 @@ var id = parseInt(decryptedValue);
     Object.keys(response).forEach(function(key) {
       console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
-        $('[name="' + key + '"]').val(response[key]);
-       
+        if(key !== 'superfecie_sj' && key !== 'superfecie_sj_are' && key !== 'origine_des_terres' && key !== 'status_juridique'){
+          $('[name="' + key + '"]').val(response[key]);
+        }       
 
         // For checkboxes, if the value is '1', check the checkbox
        if (response[key] == 1) {
@@ -6551,24 +6554,112 @@ data.superficie_exploitation.forEach(function(item) {
         tableHTML += '</td>';
         tableHTML += '<td style="padding-left:15px">';
         tableHTML += '<div class="input-group input-group-sm">';
-        tableHTML += '<input bleuBG class="surface  form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
-        tableHTML += '<input bleuBG class="surface double_are form-control bneder" name="surface_totale_st_2" readonly="" disabled   value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 53px;">';
+        tableHTML += '<input bleuBG class="surface  surface_total_error form-control bneder controle_sumSj_sat_hectare" name="surface_totale_st_1" readonly="" disabled num maxlength="5"value="' + (item.surface_totale_st_1 || '') + '" style="max-width: 110px;">';
+        tableHTML += '<input bleuBG class="surface surface_total_error double_are form-control bneder" name="surface_totale_st_2" readonly="" disabled   value="' + (item.surface_totale_st_2 || '') + '" style="max-width: 53px;">';
         tableHTML += '</div>';
         tableHTML += '</td>';
         tableHTML += '<td></td>'; // Empty column as per original HTML structure
         tableHTML += '</tr>';
        
-// mounir coment farouk
-// let superficie_total;
 
-// if (item.surface_totale_st_2.includes('.')) {
-//   // Remove comma from surface_totale_st_2
-//   surface_totale_st_2 = item.surface_totale_st_2.replace('.', '');
-// }
 
-// // Concatenate and parse to float
-// superficie_total = parseFloat(item.surface_totale_st_1 + "." + item.surface_totale_st_2);
-// $('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+
+  
+
+        $(document).on('blur','#superficieExploitation',function(){
+          
+        function displayMessage_elvage_superficie(message, type) {
+              let messageClass = type === 'error' ? 'superficie-error' : 'superficie-error';
+              let $message = $('<div>').addClass(messageClass).text(message);
+              
+              // Add border and change text color based on message type
+
+                  // Add border and change text color based on message type
+    if (type === 'red') {
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'red',
+
+        });
+    } else if(type == 'orange'){
+        $message.css({
+            'font-weight': 'bold',
+            'color': 'orange'
+        });
+    }else if(type == 'green'){
+      $message.css({
+          'font-weight': 'bold',
+          'color': 'green'
+      });
+  }
+              
+              $('#superficie-error').empty($message); // Append message to container
+              $('#superficie-error').append($message); // Append message to container
+              setTimeout(() => $message.fadeOut(() => $message.remove()), 5000); // Remove message after 5 seconds
+}
+
+          var supStatutJur= 0 
+          /***********************************************/
+    
+    
+              var sum_superficie_hectare= 0
+              $(".statut_juridique_s").each(function () {
+                var superficie_hectare = $(this).find("[name^='superfecie_sj']").val();
+                superficie_hectare=parseFloat(superficie_hectare)
+                if (!isNaN(superficie_hectare) && superficie_hectare !== null && superficie_hectare !== undefined) {
+                    sum_superficie_hectare += superficie_hectare;
+                  }
+              });
+              //console.log('\x1b[32m%s\x1b[0m',"dd "+sum_superficie_hectare)
+    
+    
+    
+    
+    
+              var sum_superficie_are= 0
+              $(".statut_juridique_s").each(function () {
+              var superficie_are = $(this).find("[name^='superfecie_sj_are']").val();
+             
+              superficie_are=parseFloat(superficie_are)
+              if (!isNaN(superficie_are) && superficie_are !== null && superficie_are !== undefined) {
+                sum_superficie_are += superficie_are;
+              }
+              });
+              //console.log('\x1b[32m%s\x1b[0m',"dd "+sum_superficie_are)
+          
+    
+                   supStatutJur = parseFloat(sum_superficie_hectare + "." + sum_superficie_are);
+    
+                      console.log('\x1b[36m%s\x1b[0m',"dd :"+supStatutJur)
+                      var st_en_hectar=$('#st_en_hectar').val();
+                      var st_en_hectar=parseFloat(st_en_hectar);
+                      console.log('\x1b[32m%s\x1b[0m',"st_en_hectar :"+st_en_hectar)
+
+                  
+                         
+                        if(supStatutJur==st_en_hectar){
+                           $('.surface_total_error').css('border','3px solid green')
+                          displayMessage_elvage_superficie('La surface totale est identique à celle déclarée au statut juridique','green')
+
+                        }else if(supStatutJur>st_en_hectar){
+                          $('.surface_total_error').css('border','3px solid orange')
+
+                          displayMessage_elvage_superficie('La surface totale est inferieure à celle déclarée au statut juridique','orange')
+
+                        }else if(supStatutJur<st_en_hectar){
+                          $('.surface_total_error').css('border','3px solid red')
+
+                          displayMessage_elvage_superficie('La surface totale est superieure à celle déclarée au statut juridique','red')
+
+                        }else
+                        displayMessage_elvage_superficie('Erreur','red')
+                        {
+                 
+                         
+
+                        }
+    
+        });
 
 
 

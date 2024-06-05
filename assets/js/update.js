@@ -153,18 +153,23 @@ $.ajax({
     let $message = $('<div>').addClass(messageClass).text(message);
     
     // Add border and change text color based on message type
-    if (type === 'error') {
+    if (type === 'danger') {
         $message.css({
             'font-weight': 'bold',
             'color': 'red',
 
         });
     } else if(type == 'warning'){
-        $message.css({
-            'font-weight': 'bold',
-            'color': 'orange'
-        });
-    }
+      $message.css({
+          'font-weight': 'bold',
+          'color': 'orange'
+      });
+  }else if(type == 'success'){
+    $message.css({
+        'font-weight': 'bold',
+        'color': 'green'
+    });
+}
     
     $('#error_messages').empty($message); // Append message to container
     $('#error_messages').append($message); // Append message to container
@@ -173,116 +178,152 @@ $.ajax({
 
   
 
-  function updateFields() {
-    var message=""
-    var totalHectares = 0;
-    var totalAres = 0;
-    var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
-  
-    $('#formContainer2 .row').each(function() {
-        var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
-        var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
-        var cultureCode = parseInt($(this).find('.code_culture_s').val());
-        var intercalaireField = $(this).find('[id^="en_intercalaire"]');
-  
-        totalHectares += hectares;
-        totalAres += ares;
-  
-        // Convert total ares to hectares for calculation
-        totalHectares += totalAres / 100;
-  
-        // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
-        if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
-           // intercalaireField.val('').prop('disabled', false);
-        } else {
-           // intercalaireField.prop('disabled', false);
-        }
-  
-        // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
-        if (intercalaireField.val()) {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-           // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
-           
-          
-            
-        } else {
-            $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-            $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
-        }
-    });
-  console.log(totalHectares+'  '+SAU)
-    if (totalHectares > 2.99 * SAU) {
+function updateFields() {
+  var message=""
+  var totalHectares = 0;
+  var totalAres = 0;
+  var SAU = parseFloat($('#superficie_agricole_utile_sau_1').val()) || 0; // Ensure this field exists for SAU
+
+  $('#formContainer2 .row').each(function() {
+      var hectares = parseFloat($(this).find('[id^="superficie_hec_"]').val()) || 0;
+      var ares = parseFloat($(this).find('[id^="superficie_are_"]').val()) || 0;
+      var cultureCode = parseInt($(this).find('.code_culture_s').val());
+      var intercalaireField = $(this).find('[id^="en_intercalaire"]');
+
+      totalHectares += parseFloat(hectares);
+      totalAres += parseFloat(ares);
+
+      // Convert total ares to hectares for calculation
+      totalHectares =totalHectares+ totalAres 
+
+      // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
+      if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
+         // intercalaireField.val('').prop('disabled', false);
+      } else {
+         // intercalaireField.prop('disabled', false);
+      }
+
+      // Additional scenario: Enable other fields when 'en_intercalaire' is not empty
+      if (intercalaireField.val()) {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+         // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
+         
        
-      displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
-  
-  
-        message = "red";
-    }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Limite dépassée',
-        //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
-        // });
-        displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-        console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
-        message="orange"
-    }else if(totalHectares  == (SAU)){
-        message="green"
-  console.log('good')
-  
-    }
-  
-    console.log('Total hectares for all agriculture types: ' + totalHectares.toFixed(2));
-  
-    return message
+         
+      } else {
+          $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
+          // $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+      }
+  });
+
+console.log(totalHectares+'  '+SAU)
+
+
+
+
+  if (totalHectares > 3 * SAU) {
+     
+    displayMessage("La surface d'utilisation du sol est superieure à 3 fois la SAU déclarée", 'danger');
+
+
+      message = "red";
+  }else if(totalHectares <  SAU){
+      // Swal.fire({
+      //     icon: 'error',
+      //     title: 'Limite dépassée',
+      //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
+      // });
+      displayMessage("La surface d'utilisation du sol est inférieure à la SAU déclarée", 'warning');
+     // console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+      message="orange"
+  }else if((totalHectares  >= SAU) && (totalHectares  <= (3*SAU))  ){
+      message="green"
+      displayMessage("La surface d'utilisation du sol semble cohérente, elle est comprise entre 1 fois et 3 fois la SAU déclarée", 'success');
+//console.log('good')
+
   }
+
+
+
+  return message
+}
 
 
 /********************************************************************************************************************* */
 function controleSatSumsjtest () {
-var message="";
-var sum_superfecie_sj=0
-  $(".statut_juridique_s").each(function () {
-    var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
-    superfecie_sj=parseFloat(superfecie_sj)
-      if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
-        sum_superfecie_sj += superfecie_sj;
-      }
-  });
-     // console.log(sum_superfecie_sj)
-     var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
-      var range_5_percent = 0.05 * sum_superfecie_sj
+  var message="";
+  var sum_superfecie_sj=0
+    $(".statut_juridique_s").each(function () {
+      var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+      superfecie_sj=parseFloat(superfecie_sj)
+        if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+          sum_superfecie_sj += superfecie_sj;
+        }
+    });
+       // console.log(sum_superfecie_sj)
+       var st_en_hectar =parseFloat($('[name="st_en_hectar"]').val())
 
-    //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
-    //   console.log("red")
-    //  }
+    if(sum_superfecie_sj==st_en_hectar){
+      message="green"
+     // console.log("green")
+   
+     }
+    else if (sum_superfecie_sj > st_en_hectar ) {
 
-      // Calculate the upper and lower bounds of the range
-    //  console.log("range_5_percent")
-    //  console.log(range_5_percent)
-  var upper_bound = sum_superfecie_sj + range_5_percent;
-  var lower_bound = sum_superfecie_sj - range_5_percent;
- // console.log(upper_bound)
- // console.log(lower_bound)
-  // Check if SAT is within the range
-  if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
-    message="green"
-   // console.log("green")
-   message="green"
-   }
-  else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
-  //  console.log('orange')
-  //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
-    message="orange"
-  } else {
-    //console.log('red')
-   // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
-    message="red"
-  }
-
-  return message
+      message="orange"
+    } else if (sum_superfecie_sj < st_en_hectar ) {
+   
+      message="red"
+    }
+ 
+    return message
 }
-$(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
+
+/********************************************************************************************************************* */
+// function controleSatSumsjtest () {
+// var message="";
+// var sum_superfecie_sj=0
+//   $(".statut_juridique_s").each(function () {
+//     var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+//     superfecie_sj=parseFloat(superfecie_sj)
+//       if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+//         sum_superfecie_sj += superfecie_sj;
+//       }
+//   });
+//      // console.log(sum_superfecie_sj)
+//      var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
+//       var range_5_percent = 0.05 * sum_superfecie_sj
+
+//     //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
+//     //   console.log("red")
+//     //  }
+
+//       // Calculate the upper and lower bounds of the range
+//     //  console.log("range_5_percent")
+//     //  console.log(range_5_percent)
+//   var upper_bound = sum_superfecie_sj + range_5_percent;
+//   var lower_bound = sum_superfecie_sj - range_5_percent;
+//  // console.log(upper_bound)
+//  // console.log(lower_bound)
+//   // Check if SAT is within the range
+//   if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+//     message="green"
+//    // console.log("green")
+//    message="green"
+//    }
+//   else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
+//   //  console.log('orange')
+//   //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+//     message="orange"
+//   } else {
+//     //console.log('red')
+//    // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+//     message="red"
+//   }
+
+//   return message
+// }
+// $(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
 
   /***************************************************************************************************************** */
 
