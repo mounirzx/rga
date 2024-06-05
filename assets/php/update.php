@@ -193,10 +193,7 @@ $id = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id'] : 0;
 $cle_code_culture = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['cle_code_culture'] : '';
 $id_questionnaire = ($cleResul2 !== false && is_array($cleResul2)) ? $cleResul2['id_questionnaire'] : 0;
 
-if ($cleResul2) {
-    $deleteStmt = $bdd->prepare("DELETE FROM `utilisation_du_sol` WHERE `id_questionnaire` = :id_questionnaire");
-    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-    $deleteStmt->execute();
+
 
 
 foreach ($formDataArrayCodeCulture as $formData) {
@@ -239,7 +236,7 @@ foreach ($formDataArrayCodeCulture as $formData) {
     $formData['en_intercalaire'] = '';
 }
 
-}
+
 
 
 
@@ -264,10 +261,7 @@ $cleResult3 = $cleQuery3->fetch(PDO::FETCH_ASSOC);
 $id_materiel_agricol = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_materiel_agricol'] : 0;
 $cle_materiel_agricole = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['cle_materiel_agricole'] : '';
 $id_questionnaire = ($cleResult3 !== false && is_array($cleResult3)) ? $cleResult3['id_questionnaire'] : 0;
-if ($cleResult3) {
-    $deleteStmt = $bdd->prepare("DELETE FROM `materiel_agricole` WHERE `id_questionnaire` = :id_questionnaire");
-    $deleteStmt->bindValue(':id_questionnaire', $data['id_questionnaire']);
-    $deleteStmt->execute();
+
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData['code_materiel']) && !empty($formData['code_materiel_nombre']) && !empty($formData['ee_mode_mobilisation_materiel']) && !empty($formData['ee_mode_exploitation_materiel'])) {
         // Generate a unique cle_materiel_agricole value
@@ -309,7 +303,7 @@ foreach ($formDataArrayCodeMateriel as $formData) {
     $formData['ee_mode_mobilisation_materiel'] = '';
     $formData['ee_mode_exploitation_materiel'] = '';
 }
-}
+
 
 
 
@@ -375,7 +369,7 @@ if($controleSatSumsjtest2=="green"){
     $coherence_stat_jur="text-danger";
     $message_coherence_stat_jur="La surface totale est inferieure à celle déclarée au statut juridique";
 }
-/***************************** modification wissem 21/05/2024 10:44 *************************************************** */
+/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 
 //modification 26/05/2024 wissem omri 
 $req5 = $bdd->prepare('select * from coherence_superficie where id_quest = ?  ');

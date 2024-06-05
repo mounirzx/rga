@@ -6185,7 +6185,7 @@ var id = parseInt(decryptedValue);
     Object.keys(response).forEach(function(key) {
       console.log(key, response[key]); // Log each key and value
         // Target the form field by name and set its value to the corresponding value in the response
-        if(key !== 'superfecie_sj' && key !== 'superfecie_sj_are' && key !== 'origine_des_terres' && key !== 'status_juridique'){
+        if(key !== 'superfecie_sj' && key !== 'superfecie_sj_are' && key !== 'origine_des_terres' && key !== 'status_juridique' && key !== 'code_materiel' && key !== 'code_materiel_nombre' && key !== 'ee_mode_exploitation_materiel' && key !== 'ee_mode_mobilisation_materiel' && key !='code_culture' && key !='superficie_hec' && key !='superficie_are' && key !='en_intercalaire'){
           $('[name="' + key + '"]').val(response[key]);
         }       
 
