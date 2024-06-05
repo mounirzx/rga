@@ -198,25 +198,31 @@ function updateFields() {
           $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
       }
   });
+
 console.log(totalHectares+'  '+SAU)
-  if (totalHectares > 2.99 * SAU) {
+
+
+
+
+  if (totalHectares > 3 * SAU) {
      
-    displayMessage('La superficie totale dépasse  la superficie agricole utile', 'warning');
+    displayMessage("La surface d'utilisation du sol est superieure à 3 fois la SAU déclarée", 'danger');
 
 
       message = "red";
-  }else if(totalHectares < (2.99 * SAU)  && (totalHectares !=  SAU)){
+  }else if(totalHectares <  SAU){
       // Swal.fire({
       //     icon: 'error',
       //     title: 'Limite dépassée',
       //     text: 'La superficie totale n\'est pas egale la superficie agricole utile',
       // });
-      displayMessage('La superficie totale dépasse la superficie agricole utile', 'warning');
-      console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
+      displayMessage("La surface d'utilisation du sol est inférieure à la SAU déclarée", 'warning');
+     // console.log( 'La superficie totale n\'est pas egale la superficie agricole utile')
       message="orange"
-  }else if(totalHectares  == (SAU)){
+  }else if((totalHectares  >= SAU) && (totalHectares  <= (3*SAU))  ){
       message="green"
-console.log('good')
+      displayMessage("La surface d'utilisation du sol semble cohérente, elle est comprise entre 1 fois et 3 fois la SAU déclarée", 'success');
+//console.log('good')
 
   }
 
