@@ -12,7 +12,19 @@ include('includes/header.php');
                 <div class="col-8">
                     <h5>Changer les informations du superviseur national</h5>
                 </div>
-              
+                <div class="col-4 text-right">
+
+                
+<button id="backButton" class="btn btn-primary">Retour</button>
+
+<script>
+$(document).ready(function() {
+    $('#backButton').on('click', function() {
+        window.history.back();
+    });
+});
+</script>
+            </div>
             </div>
         </div>
         <div class="card-body">
@@ -93,8 +105,6 @@ include('includes/header.php');
             </form>
         </div>
     </div>
-
-
 
    <!--===============================================================================================-->
 

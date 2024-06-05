@@ -237,8 +237,8 @@ function controleSatSumsjtest () {
         }
     });
        // console.log(sum_superfecie_sj)
-       var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
-        var range_5_percent = 0.05 * sum_superfecie_sj
+       var st_en_hectar =parseFloat($('[name="st_en_hectar"]').val())
+       // var range_5_percent = 0.05 * sum_superfecie_sj
   
       //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
       //   console.log("red")
@@ -247,21 +247,21 @@ function controleSatSumsjtest () {
         // Calculate the upper and lower bounds of the range
       //  console.log("range_5_percent")
       //  console.log(range_5_percent)
-    var upper_bound = sum_superfecie_sj + range_5_percent;
-    var lower_bound = sum_superfecie_sj - range_5_percent;
+    // var upper_bound = sum_superfecie_sj + range_5_percent;
+    // var lower_bound = sum_superfecie_sj - range_5_percent;
    // console.log(upper_bound)
    // console.log(lower_bound)
     // Check if SAT is within the range
-    if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+    if(sum_superfecie_sj==st_en_hectar){
       message="green"
      // console.log("green")
-     message="green"
+    
      }
-    else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
+    else if (sum_superfecie_sj > st_en_hectar ) {
     //  console.log('orange')
     //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
       message="orange"
-    } else {
+    } else if (sum_superfecie_sj < st_en_hectar ) {
       //console.log('red')
      // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
       message="red"

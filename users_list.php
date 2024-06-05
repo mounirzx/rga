@@ -103,13 +103,22 @@ include('includes/header.php');
 
         getWwilaya()
 
-$('#wilaya').change(function(){
 
-    var wilaya_code = $(this).val()
+        if (localStorage.getItem('filterValue')) {
 
-    getUsersList(wilaya_code)
-    
-})
+            //get value from local storage
+                $('#wilaya').val(localStorage.getItem('filterValue'));
+                getUsersList(localStorage.getItem('filterValue'))
+            }
+
+
+                $('#wilaya').change(function(){
+
+                    var wilaya_code = $(this).val()
+                    localStorage.setItem('filterValue', wilaya_code);
+                    getUsersList(wilaya_code)
+                    
+                })
 
 
         function getUsersList(wilaya_code){

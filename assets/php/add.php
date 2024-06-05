@@ -246,12 +246,13 @@ if($message=="green"){
 
 if($controleSatSumsjtest2=="green"){
     $coherence_stat_jur="text-success";
+    $message_coherence_stat_jur="La surface total est identique à celle déclarée au statut juridique";
 }if($controleSatSumsjtest2=="orange"){
     $coherence_stat_jur="text-warning";
-    $message_coherence_stat_jur="SAT est déffirente de la somme des sup. à statut";
+    $message_coherence_stat_jur="La surface total est superieure à celle déclarée au statut juridique";
 }if($controleSatSumsjtest2=="red"){
     $coherence_stat_jur="text-danger";
-    $message_coherence_stat_jur="La somme des sup. à statut dépasse 5% la SAT";
+    $message_coherence_stat_jur="La surface total est inferieure à celle déclarée au statut juridique";
 }
 /********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
 $req4=$bdd->prepare('INSERT INTO `coherence_superficie`(`id_quest`, `coherence_stat_jur`, `message_coherence_stat_jur`, `coherence_util_sol`, `message_coherence_util_sol`) VALUES (?, ?, ?, ?,?)');
