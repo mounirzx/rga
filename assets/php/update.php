@@ -375,7 +375,7 @@ if($controleSatSumsjtest2=="green"){
     $coherence_stat_jur="text-danger";
     $message_coherence_stat_jur="La surface totale est inferieure à celle déclarée au statut juridique";
 }
-/********************************************* modification wissem 21/05/2024 10:44 ***************************************************************** */
+/***************************** modification wissem 21/05/2024 10:44 *************************************************** */
 
 //modification 26/05/2024 wissem omri 
 $req5 = $bdd->prepare('select * from coherence_superficie where id_quest = ?  ');
