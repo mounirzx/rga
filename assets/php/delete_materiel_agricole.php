@@ -13,15 +13,15 @@ try {
 // Check if the request is a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve data from POST
-    $code_materiel = $_POST['code_materiel'];
+    $id_materiel_agricol = $_POST['id_materiel_agricol'];
 
     // Prepare a DELETE SQL query
-    $sql = "DELETE FROM `materiel_agricole` WHERE `code_materiel` = ? ";
+    $sql = "DELETE FROM `materiel_agricole` WHERE `id_materiel_agricol` = ? ";
     $stmt = $bdd->prepare($sql);
 
     try {
         // Execute the query with the provided values
-        $stmt->execute([$code_materiel]);
+        $stmt->execute([$id_materiel_agricol]);
 
         // Check if any rows were affected
         if ($stmt->rowCount()) {
