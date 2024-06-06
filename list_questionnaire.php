@@ -18,6 +18,9 @@ if($role == "recenseur"){
     $sql .= " WHERE user = ".$_SESSION['id_user'];
 }if($role =="controleur"){
     $sql.=" left join recenseur on  questionnaire.user = recenseur.id_user where recenseur.controleur = ".$_SESSION['id_user'];
+}if($role == "superviseur"){
+    
+    $sql.=" left join recenseur on  questionnaire.user = recenseur.id_user left join  controleur on recenseur.controleur =  controleur.id_user where controleur.added_by =  ".$_SESSION['id_user'];
 }
 $req = $bdd->prepare($sql);
 $req->execute();
