@@ -5,12 +5,21 @@ $role=$_SESSION['role'];
 
 $role = $_SESSION['role'];
 $bdd = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . "; charset=utf8", DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$req = $bdd->prepare("SELECT 
+
+
+$sql = "SELECT 
 COUNT(*) AS total,
 SUM(CASE WHEN etat = 'Approuvés' THEN 1 ELSE 0 END) AS approuves,
 SUM(CASE WHEN etat = 'Rejetés' THEN 1 ELSE 0 END) AS rejetes,
 SUM(CASE WHEN etat = 'En attente' THEN 1 ELSE 0 END) AS en_attente
-FROM questionnaire");
+FROM questionnaire";
+
+if($role == "recenseur"){
+    $sql .= " WHERE user = ".$_SESSION['id_user'];
+}if($role =="controleur"){
+    $sql.=" left join recenseur on  questionnaire.user = recenseur.id_user where recenseur.controleur = ".$_SESSION['id_user'];
+}
+$req = $bdd->prepare($sql);
 $req->execute();
 $res  = $req->fetch(PDO::FETCH_ASSOC);
 $approuves = $res["approuves"];
