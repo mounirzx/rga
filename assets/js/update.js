@@ -232,11 +232,11 @@ function updateFields() {
       var cultureCode = parseInt($(this).find('.code_culture_s').val());
       var intercalaireField = $(this).find('[id^="en_intercalaire"]');
 
-      totalHectares += hectares;
-      totalAres += ares;
+      totalHectares += parseFloat(hectares);
+      totalAres += parseFloat(ares);
 
       // Convert total ares to hectares for calculation
-      totalHectares += totalAres / 100;
+      totalHectares =totalHectares+ totalAres 
 
       // Disable 'en intercalaire' if there is no appropriate crop code or both hectare and ares fields are filled
       if ((cultureCode < 44 || cultureCode > 70) || (hectares > 0 && ares > 0)) {
@@ -250,11 +250,11 @@ function updateFields() {
           $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
          // $(this).find('[id^="code_culture_"]').css('border', '2px solid red');
          
-        
-          
+       
+         
       } else {
           $(this).find('[id^="superficie_hec_"], [id^="superficie_are_"]').prop('disabled', false);
-          $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
+          // $(this).find('[id^="code_culture_"]').css('border', '2px solid green');
       }
   });
 
@@ -289,6 +289,9 @@ console.log(totalHectares+'  '+SAU)
 
   return message
 }
+
+
+
 
 
 /********************************************************************************************************************* */
