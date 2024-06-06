@@ -1,3 +1,5 @@
+
+<!-- //code a recuperer date 06/06/2024  16:20-->
 <?php 
 include('includes/header.php');
 include './assets/php/config.php';
