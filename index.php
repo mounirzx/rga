@@ -140,7 +140,7 @@
                 <br/>
                 <h8 style="font-size: 10px;">DIRECTION DES STATISTIQUES DE LA NUMERISATION ET DE LA PROTECTIVE</h8>
                 <div class="login100-pic" style="margin-top: 13px">
-                    <img style="max-width: 450px; min-width: 200px" src="static/logo.svg" alt="IMG"/>
+                    <img style="max-width: 380px; min-width: 200px" src="static/logo.svg" alt="IMG"/>
                 </div>
             </div>
             <div class="col" style="margin-top: 20px">
@@ -174,7 +174,7 @@
                     </div>
                 </form>
                 <div data-tilt style="margin-left: 20px; margin-top: 103px">
-                    <img class="logobneder" style="width: 60px" src="static/logo2.png" alt="IMG"/>
+                    <img class="logobneder" style="width: 60px  ;margin-right: 110px;  margin-top: -66px;" src="static/logo2.png" alt="IMG"/>
                 </div>
             </div>
         </div>

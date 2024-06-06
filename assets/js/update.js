@@ -33,6 +33,48 @@ $('#exploitant').on('change', function() {
 });
 
 
+function calculateTotalFamilyMembers() {
+  var total = 0;
+  // Loop through each input field for adults and children
+  $('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').each(function() {
+      // Parse the value as an integer and add it to the total
+      total += parseInt($(this).val()) || 0;
+  });
+  return total;
+}
+
+$('#ma_adultes_plus_15_ans_m, #ma_adultes_plus_15_ans_f, #ma_enfants_moins_15_ans_m, #ma_enfants_moins_15_ans_f').on('input', function() {
+  var maxPersons = parseInt($('#ma_nombre_de_personnes').val()) || 0; // Get the maximum number of persons
+  var totalFamilyMembers = calculateTotalFamilyMembers(); // Calculate the total number of family members
+  // Compare the total number of family members with the maximum allowed
+  if (totalFamilyMembers > maxPersons) {
+        Swal.fire({
+              icon: 'error',
+              title: 'Limite dépassée',
+              text: 'Le nombre total de membres de la famille ne peut pas dépasser ' + maxPersons,
+          });
+      $(this).val(''); // Clear the input field
+
+  }
+
+  var ma_adultes_plus_15_ans_m = $('#ma_adultes_plus_15_ans_m').val();
+  var ma_adultes_plus_15_ans_f = $('#ma_adultes_plus_15_ans_f').val();
+  var ma_enfants_moins_15_ans_m = $('#ma_enfants_moins_15_ans_m').val();
+  var ma_enfants_moins_15_ans_f = $('#ma_enfants_moins_15_ans_f').val();
+  if(ma_adultes_plus_15_ans_m!="" && ma_adultes_plus_15_ans_f!="" && ma_enfants_moins_15_ans_m!="" && ma_enfants_moins_15_ans_f){
+     if(totalFamilyMembers < maxPersons){
+        Swal.fire({
+            icon: 'error',
+            title: 'Insuffisant',
+            text: 'Le nombre total de membres de la famille ne peut pas être inférieur à ' + maxPersons + '.'
+        });
+    $(this).val(''); // Clear the input field
+
+      }
+  }
+
+});
+
 
   $('#forage').change(function() {
    
@@ -153,18 +195,23 @@ $.ajax({
     let $message = $('<div>').addClass(messageClass).text(message);
     
     // Add border and change text color based on message type
-    if (type === 'error') {
+    if (type === 'danger') {
         $message.css({
             'font-weight': 'bold',
             'color': 'red',
 
         });
     } else if(type == 'warning'){
-        $message.css({
-            'font-weight': 'bold',
-            'color': 'orange'
-        });
-    }
+      $message.css({
+          'font-weight': 'bold',
+          'color': 'orange'
+      });
+  }else if(type == 'success'){
+    $message.css({
+        'font-weight': 'bold',
+        'color': 'green'
+    });
+}
     
     $('#error_messages').empty($message); // Append message to container
     $('#error_messages').append($message); // Append message to container
@@ -288,7 +335,52 @@ function controleSatSumsjtest () {
   
     return message
 }
-$(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
+
+/********************************************************************************************************************* */
+// function controleSatSumsjtest () {
+// var message="";
+// var sum_superfecie_sj=0
+//   $(".statut_juridique_s").each(function () {
+//     var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
+//     superfecie_sj=parseFloat(superfecie_sj)
+//       if (!isNaN(superfecie_sj) && superfecie_sj !== null && superfecie_sj !== undefined) {
+//         sum_superfecie_sj += superfecie_sj;
+//       }
+//   });
+//      // console.log(sum_superfecie_sj)
+//      var superficie_agricole_totale_sat_1 =parseFloat($('[name="superficie_agricole_totale_sat_1"]').val())
+//       var range_5_percent = 0.05 * sum_superfecie_sj
+
+//     //else if(superficie_agricole_totale_sat_1 > (sum_superfecie_sj + range_5_percent) || superficie_agricole_totale_sat_1 < (sum_superfecie_sj - range_5_percent)){
+//     //   console.log("red")
+//     //  }
+
+//       // Calculate the upper and lower bounds of the range
+//     //  console.log("range_5_percent")
+//     //  console.log(range_5_percent)
+//   var upper_bound = sum_superfecie_sj + range_5_percent;
+//   var lower_bound = sum_superfecie_sj - range_5_percent;
+//  // console.log(upper_bound)
+//  // console.log(lower_bound)
+//   // Check if SAT is within the range
+//   if(sum_superfecie_sj==superficie_agricole_totale_sat_1){
+//     message="green"
+//    // console.log("green")
+//    message="green"
+//    }
+//   else if (superficie_agricole_totale_sat_1 > lower_bound && superficie_agricole_totale_sat_1 < upper_bound) {
+//   //  console.log('orange')
+//   //  console.log("SAT is within the range (+5% and -5% of SUMSJ)");
+//     message="orange"
+//   } else {
+//     //console.log('red')
+//    // console.log("SAT is not within the range (+5% and -5% of SUMSJ)");
+//     message="red"
+//   }
+
+//   return message
+// }
+// $(document).on('input', '.controle_sumSj_sat_hectare',controleSatSumsjtest)
 
   /***************************************************************************************************************** */
 

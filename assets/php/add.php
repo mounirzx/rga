@@ -174,7 +174,7 @@ try {
         // Check for non-empty necessary fields
         if (!empty($formData->code_culture) && !empty($formData->superficie_hec) && !empty($formData->superficie_are)) {
             // Generate a unique key for `cle_code_culture`
-            $cle_code_culture = $id_questionnaire . "-" . $formData->code_culture . "-" . $formData->superficie_hec . "-" . $formData->superficie_are;
+            $cle_code_culture = $id_questionnaire . "-" . $formData->code_culture ;
     
             // Prepare SQL statement to insert data into `utilisation_du_sol` table
             $reqUtilisationDuSol = $bdd->prepare("INSERT INTO `utilisation_du_sol` (`cle_code_culture`, `id_questionnaire`, `code_culture`, `superficie_hec`, `superficie_are`, `en_intercalaire`) VALUES (:cle_code_culture, :id_questionnaire, :code_culture, :superficie_hec, :superficie_are, :en_intercalaire)");
@@ -201,7 +201,7 @@ try {
 foreach ($formDataArrayCodeMateriel as $formData) {
     if (!empty($formData->code_materiel) && !empty($formData->code_materiel_nombre)
     && !empty($formData->ee_mode_mobilisation_materiel) &&  !empty($formData->ee_mode_exploitation_materiel)) {
-        $cle_materiel_agricole = $id_questionnaire . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre;
+        $cle_materiel_agricole = $id_questionnaire . "-" . $formData->code_materiel . "-" . $formData->code_materiel_nombre. "-" .$formData->ee_mode_mobilisation_materiel. "-" .$formData->ee_mode_exploitation_materiel;
 
  $reqMaterielAgricole = $bdd->prepare("INSERT INTO `materiel_agricole` (`cle_materiel_agricole`, `id_questionnaire`, `code_materiel`, `code_materiel_nombre`,`ee_mode_mobilisation_materiel`,`ee_mode_exploitation_materiel`) VALUES (:cle_materiel_agricole, :id_questionnaire, :code_materiel, :code_materiel_nombre, :ee_mode_mobilisation_materiel, :ee_mode_exploitation_materiel)");
         $reqMaterielAgricole->execute([

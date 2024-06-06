@@ -31,8 +31,8 @@ $(document).ready(function() {
         // Retrieve the selected value from the dropdown
         var selectedValue = $(this).val();
     
-        // Check if the selected value is '2' (Non)
-        if (selectedValue === '2') {
+        // Check if the selected value is '1' (oui)
+        if (selectedValue === '1') {
               $('#exploit_est_un_bloc_oui').prop('disabled', true);  // Disable the input field
               $('#exploit_est_un_bloc_oui').val('');  // Clear the input field
         } else {
@@ -1849,7 +1849,7 @@ $(document).ready(function(){
 // Function to generate a unique key for a row
 function generateCombination(row) {
     return row.find('[id^="code_materiel"]').val() + '-' +
-           row.find('[id^="code_materiel_nombre"]').val() + '-' +
+        //    row.find('[id^="code_materiel_nombre"]').val() + '-' +
            row.find('[id^="ee_mode_mobilisation_materiel"]').val() + '-' +
            row.find('[id^="ee_mode_exploitation_materiel"]').val();
 }
