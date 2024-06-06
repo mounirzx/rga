@@ -421,12 +421,16 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
         var formDataObjStatus = {};
     
         // Extract values from the current element
+        var id_status_juridique = $(this).find("[name^='id_status_juridique']").val();
         var origine_des_terres = $(this).find("[name^='origine_des_terres']").val();
         var status_juridique = $(this).find("[name^='status_juridique']").val();
         var superfecie_sj = $(this).find("[name^='superfecie_sj']").val();
         var superfecie_sj_are = $(this).find("[name^='superfecie_sj_are']").val();
     
         // Assign values to the formDataObjStatus object
+        id_status_juridique
+
+        formDataObjStatus["id_status_juridique"] = id_status_juridique;
         formDataObjStatus["origine_des_terres"] = origine_des_terres;
         formDataObjStatus["status_juridique"] = status_juridique;
         formDataObjStatus["superfecie_sj"] = superfecie_sj; // Assign an empty string if the value is undefined
@@ -452,11 +456,13 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
       // Get the values of the inputs within the current row
       var code_culture = $(this).find("[name^='code_culture']").val();
 
+      var id_sol = $(this).find("[name^='id']").val();
       var superficie_hec = $(this).find("[name^='superficie_hec']").val();
       var superficie_are = $(this).find("[name^='superficie_are']").val();
       var en_intercalaire = $(this).find("[name^='en_intercalaire']").val();
       // Add the values to the formDataObj
 
+      formDataCodeCulture["id"] = id_sol;
       formDataCodeCulture["code_culture"] = code_culture;
       formDataCodeCulture["superficie_hec"] = superficie_hec;
       formDataCodeCulture["superficie_are"] = superficie_are;
@@ -479,6 +485,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
         var formDataCodeMateriel = {};
 
         // Get the values of the inputs within the current row
+        var id_materiel_agricol = $(this).find("[name^='id_materiel_agricol']").val();
         var code_materiel = $(this).find("[name^='code_materiel']").val();
         var code_materiel_nombre = $(this).find("[name^='code_materiel_nombre']").val();
         var ee_mode_mobilisation_materiel = $(this).find("[name^='ee_mode_mobilisation_materiel']").val();
@@ -486,6 +493,7 @@ $('#formContainer2').on('change', '[id^="superficie_hec_"], [id^="superficie_are
         
         
         // Add the values to the formDataObj
+        formDataCodeMateriel["id_materiel_agricol"] = id_materiel_agricol;
         formDataCodeMateriel["code_materiel"] = code_materiel;
         formDataCodeMateriel["code_materiel_nombre"] = code_materiel_nombre;
         formDataCodeMateriel["ee_mode_mobilisation_materiel"] = ee_mode_mobilisation_materiel;
