@@ -27,8 +27,8 @@ include './config.php';
             $superficie_are = 0;
             while ($res2 = $req2->fetch(PDO::FETCH_ASSOC)) {
 
-                $superficie_hec .= $res['superficie_hec'];
-                $superficie_are .= $res['superficie_are'];
+                $superficie_hec += $res2['superficie_hec'];
+                $superficie_are += $res2['superficie_are'];
 
             }
             $totalHectares = $superficie_hec + $superficie_are;
@@ -52,10 +52,10 @@ include './config.php';
 /********************************************************* */
 
 $sum_superfecie_sj =0;
-$req3 = $bdd->prepare('select * from status_juridique where id_questionnaire = =?  ');
+$req3 = $bdd->prepare('select * from status_juridique where id_questionnaire  =?  ');
 $req3->execute(array($id_questionnaire));
-while ($res23 = $req3->fetch(PDO::FETCH_ASSOC)) {
-    $sum_superfecie_sj.=$res3['superfecie_sj'];
+while ($res3 = $req3->fetch(PDO::FETCH_ASSOC)) {
+    $sum_superfecie_sj+=$res3['superfecie_sj'];
 }
 if($sum_superfecie_sj==$st_en_hectar){
     $coherence_stat_jur="text-success";

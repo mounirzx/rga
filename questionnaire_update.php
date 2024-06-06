@@ -254,8 +254,8 @@ if ($_SESSION['role'] == "recenseur") {
 
 <span class="input-group-text" id="basic-addon3"> الرقم <br>
    Numéro</span>
-    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="code_validation">
-
+    <!-- <input  <?= $disabled ?>   class="form-control bneder" id="num_qst" name="code_validation" disabled> -->
+    <input  <?= $disabled ?>   class="form-control bneder" id="num_qst11" name="code_validation11" disabled>
 </div> 
 
 <br>
