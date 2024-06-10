@@ -199,7 +199,7 @@ if(taux_avancememnt_1<=100){
 /******************************************* */
 
 
-list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td>"+taux1+""+taux2+""+etat+"<td  class='align-middle'>"+button+"</td></tr>";
+list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td>"+taux1+""+taux2+""+etat+"<td  style='width:90px !important;' class='align-middle'>"+button+"</td></tr>";
 
 
                 total_questionnaire+=parseFloat(count);
