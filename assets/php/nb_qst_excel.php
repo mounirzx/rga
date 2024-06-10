@@ -29,7 +29,7 @@ GROUP BY saisi_date, wilaya_code');
     <td>Nombre de questionnaire</td>
     </tr>";
     while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-        echo $data['wilaya_code'];
+      
         $table.="<tr>
         <td>$data[saisi_date]</td>
         <td>$data[wilaya_code]</td>

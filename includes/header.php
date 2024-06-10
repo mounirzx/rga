@@ -415,6 +415,16 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <?php
            }
            ?>   
+            <?php
+                if($_SESSION['role']=="admin"){
+            ?>
+            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <a class="nav-link active" aria-current="page" href="assets/php/nb_qst_excel.php">Export excel  </a>
+            </li>
+          
+            <?php
+           }
+           ?>   
      <?php
                 if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
             ?>
