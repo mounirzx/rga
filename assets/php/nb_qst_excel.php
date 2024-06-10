@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
 <?php
 
 
@@ -12,13 +20,30 @@ try {
 FROM questionnaire left join communes on questionnaire.commune_code = communes.commune_code
 GROUP BY saisi_date, wilaya_code');
     $req->execute();
-    while ($res = $req->fetch(PDO::FETCH_ASSOC)) {
-       
+
+
+    $table="<table border='1'><tr>
+    <td>Date de saisi</td>
+    <td>code wilaya</td>
+    <td>nom wilaya</td>
+    <td>Nombre de questionnaire</td>
+    </tr>";
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        echo $data['wilaya_code'];
+        $table.="<tr>
+        <td>$data[saisi_date]</td>
+        <td>$data[wilaya_code]</td>
+        <td>$data[wilaya_name_ascii]</td>
+        <td>$data[total_count]</td>
+        </tr>";
     }
 
+    $table.="</table>";
 
-
-
+    $nom_fichier="nb_questionnaire";
+    header("Content-type: application/vnd.ms-excel");
+    header("Content-Disposition: attachment; filename=$nom_fichier.xls");
+print $table;  
 
 
 } catch (Exception $e) {
@@ -29,3 +54,9 @@ GROUP BY saisi_date, wilaya_code');
 //}else{
   //  echo false;
 //}
+
+?>
+
+
+</body>
+</html>
