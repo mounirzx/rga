@@ -300,10 +300,6 @@ console.log(role)
                                     var role = rowData.role;
                                     console.log(role)
 
-                                    
-                        
-                                
-         
                 });
             });
         </script>
