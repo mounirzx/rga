@@ -169,7 +169,7 @@ include('includes/header.php');
                         {
                             // New column for delete button
                             data: null,
-                            defaultContent: '<button class="btn btn-danger  deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button><button type="button" class="btn btn-info infoBtn" data-toggle="modal" data-target="#exampleModal"><i style="font-size: 19px; color: white;" class="fa fa-eye" aria-hidden="true"></i></button>'
+                            defaultContent: '<button class="btn btn-danger btn-sm  deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-info infoBtn" data-toggle="modal" data-target="#exampleModal"><i style="font-size: 19px; color: white;" class="fa fa-eye" aria-hidden="true"></i></button>'
                         }
                     ]
                 });
