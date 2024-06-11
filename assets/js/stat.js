@@ -234,14 +234,16 @@ list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align
           $('#sum_rejete').html(sum_rejete)
           $('#sum_approuve').html(sum_approuve)
 
-
-          sum_taux_avancememnt_1 = sum_taux_avancememnt_1/100
+          sum_taux_avancememnt_1=(nb_qst_recense*100)/nb_qst_a_recense
+         // sum_taux_avancememnt_1 = sum_taux_avancememnt_1/100
           sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
            // Round to two decimal places
    // sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
 
           $('#sum_taux_avancememnt_1').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_1+'%">'+sum_taux_avancememnt_1+'%</div> '+sum_taux_avancememnt_1+'%')
-          sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
+        
+          sum_taux_avancememnt_2 = (total_questionnaire*100)/nb_qst_recense
+          //    sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
 
           sum_taux_avancememnt_2 = sum_taux_avancememnt_2.toFixed(2);
           $('#sum_taux_avancememnt_2').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_2+'%">'+sum_taux_avancememnt_2+'%</div> '+sum_taux_avancememnt_2+'%')
