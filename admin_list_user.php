@@ -66,12 +66,12 @@ include('includes/header.php');
       <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Nom </label>
-    <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" >
+    <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" readonly >
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Prenom</label>
-    <input type="text" class="form-control" id="prenom" >
+    <input type="text" class="form-control" id="prenom" readonly >
   </div>
   
  
@@ -299,6 +299,29 @@ console.log(role)
                                     var userId = rowData.id_user;
                                     var role = rowData.role;
                                     console.log(role)
+
+                                    $.ajax({
+                                        url:'assets/php/user_by_id.php',
+                                        method:'post',
+                                        async:false,
+                                        data:{id:userId,role:role},
+                                        success:function(response){
+                                            console.log(response);
+                                            var data = JSON.parse(response)
+                                            console.log(data.nom_controleur)
+                                            var nom =""
+                                            var prenom = ""
+                                            if(role=="controleur"){
+                                                nom= data.nom_controleur
+                                                prenom = data.prenom_controleur
+                                            }if(role=="recenseur"){
+                                                nom= data.nom_recensseur
+                                                prenom = data.prenom_recenseur
+                                            }
+                                            $('#nom').val(nom)
+                                            $('#prenom').val(prenom)
+                                        }
+                                    })
 
                 });
             });
