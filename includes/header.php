@@ -14,6 +14,8 @@ session_start();
 if(!isset($_SESSION['is_login'])){
     header('location:Login');
 }
+
+include('./Tuto/listVedeo.html')
 ?>
 
 <!DOCTYPE html>
@@ -399,10 +401,24 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
                 
             ?>
+           
             <li style="border-right: 2px solid #0e6212;" class="nav-item">
                 <a class="nav-link active" aria-current="page" id="superviseurpage" href="Questionnaire">
                     <img src="static/icons/form.svg" alt="Plus Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Ajouter Questionnaire  <br/>  إظافة إستبيان
+                </a>
+            </li>
+            <li  style="border-right: 2px solid #0e6212;" class="nav-item">
+                <a class="nav-link active" aria-current="page" href="ListeQuestionnaires">
+                    <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                    Liste de Questionnaires  <br/>  قائمة الإستبيانات
+                </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="static/icons/video-play.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+
+             guide d'enqueteurs <br/> دليل المحققين
                 </a>
             </li>
            <?php
@@ -415,7 +431,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             </style>
             
             <?php
-                if($_SESSION['role']=="admin" || $_SESSION['role']=="recenseur"  || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur" || $_SESSION['role']=="admin_central" ){
+                if($_SESSION['role']=="admin"  || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur" || $_SESSION['role']=="admin_central" ){
 
                 
             ?>
