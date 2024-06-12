@@ -1,4 +1,22 @@
 $(document).ready(function () {
+  $("#day_of_passage, #month_of_passage ").on('change', function(){
+    var element = $(this);
+    if (element.val() == "") {
+        element.css('border', '2px solid red');
+    } else {
+        element.css('border', '2px solid green');
+    }
+});
+
+$("#day_of_passage, #month_of_passage").on('blur', function(){
+    var element = $(this);
+    if (element.val() == "") {
+        element.css('border', '2px solid red');
+    } else {
+        element.css('border', '');
+    }
+});
+
   // $('input').click(function() {
   //   $(this).prop('readonly', true);
   //   $(this).blur();
@@ -577,94 +595,121 @@ $("input[type='checkbox']").each(function() {
     // });
 
 
-
-
     var etat = $("input[name^='etat']").val();
+    var nin_exploitant = $("#nin_exploitant").val();
+    var day_of_passage = $("#day_of_passage").val();
+    var month_of_passage = $("#month_of_passage").val();
+  
+    function showAlertAndFocus(message, selector) {
+      // Show the notification
+      $(selector).notify(message, {
+        className: 'error',
+        position: 'bottom center',
+        autoHide: true, // To keep the notification visible until dismissed
+        autoHideDelay: 3000 // Set a shorter duration (in milliseconds)
 
-    if (etat == "Approuvés") {
-      Swal.fire({
-        title: "Le questionnaire est déjà approuvé",
-        icon: "error",
-        confirmButtonText: "Ok",
-        confirmButtonColor: "green",
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = './ListeQuestionnaires';
-        }
+    });
+      // Scroll the input field into view
+      $(selector)[0].scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
       });
+  
+      // Set focus to the input field
+      $(selector).focus();
+  
+      // Add red border to the input field
+      $(selector).css('border', '2px solid red');
+  }
+  
+  
+    if (day_of_passage === "" || !day_of_passage || day_of_passage === "-") {
+        $("#submitDate").blur();
+      showAlertAndFocus("يرجى ادخال يوم المرور", "#day_of_passage");
+    } else if (month_of_passage === "" || !month_of_passage || month_of_passage === "-") {
+      showAlertAndFocus("يرجى ادخال شهر المرور", "#month_of_passage");
+    } else if (nin_exploitant === "") {
+      showAlertAndFocus("يرجى ادخال رقم التعريف الوطني", "#nin_exploitant");
     } else {
-      Swal.fire({
-        title: "Voulez-vous confirmer la modification?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Oui, Confirmer",
-        cancelButtonText: "Non, Annuler",
-        confirmButtonColor: "green",
-        cancelButtonColor: "red",
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // AJAX request to update data
-          $.ajax({
-            url: "assets/php/update.php",
-            type: "POST",
-            contentType: "application/json",
+
+      if (etat == "Approuvés") {
+        Swal.fire({
+          title: "Le questionnaire est déjà approuvé",
+          icon: "error",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "green",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = './ListeQuestionnaires';
+          }
+        });
+      } else {
+        Swal.fire({
+          title: "Voulez-vous confirmer la modification?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Oui, Confirmer",
+          cancelButtonText: "Non, Annuler",
+          confirmButtonColor: "green",
+          cancelButtonColor: "red",
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // AJAX request to update data
+            $.ajax({
+              url: "assets/php/update.php",
+              type: "POST",
+              contentType: "application/json",
               data: JSON.stringify({
                 form: formDataObj,
                 formDataArrayStatut: formDataArrayStatut,
                 formDataArrayCodeMateriel: formDataArrayCodeMateriel,
                 formDataArrayCodeCulture: formDataArrayCodeCulture,
-                formDataArraySuperficie:formDataArraySuperficie,
-                message:message,
-                controleSatSumsjtest2:controleSatSumsjtest2
+                formDataArraySuperficie: formDataArraySuperficie,
+                message: message,
+                controleSatSumsjtest2: controleSatSumsjtest2
               }),
               dataType: "json",
-              beforeSend: function () {
+              beforeSend: function() {
                 // Show the loader before sending the request and disable the form
                 $("#loader").show();
                 $('form').find(':input').prop('disabled', true);
               },
-            success: function(response) {
-              if (response.response === "success") {
-                Swal.fire({
-                  icon: "success",
-                  title: "Succès!",
-                  text: "Modification effectuée avec succès!",
-                  confirmButtonColor: "green",
-                  confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>"
-                });
-              } else {
+              success: function(response) {
+                if (response.response === "success") {
+                  Swal.fire({
+                    icon: "success",
+                    title: "Succès!",
+                    text: "Modification effectuée avec succès!",
+                    confirmButtonColor: "green",
+                    confirmButtonText: "<a style='color:#fff' href='./ListeQuestionnaires' > Ok</a>"
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Erreur!",
+                    html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>"
+                  });
+                }
+              },
+              error: function(xhr, status, error) {
                 Swal.fire({
                   icon: "error",
-                  title: "Erreur!",
-                  html: "<h1 style='color:red'>Erreur lors de l'enregistrement</h1>",
+                  title: "Échec de la requête",
+                  text: "Un problème est survenu lors de la requête: " + xhr.statusText
                 });
+              },
+              complete: function() {
+                // Hide the loader and enable the form after the request completes
+                $("#loader").hide();
+                $('form').find(':input').prop('disabled', false);
               }
-            },
-            error: function(xhr, status, error) {
-              Swal.fire({
-                icon: "error",
-                title: "Échec de la requête",
-                text: "Un problème est survenu lors de la requête: " + xhr.statusText,
-              });
-            },
-            complete: function () {
-              // Hide the loader and enable the form after the request completes
-              $("#loader").hide();
-              $('form').find(':input').prop('disabled', false);
-            }
-          });
-        }
-      });
-
-
-
-
-
-     
+            });
+          }
+        });
+      }
     }
-    
 
   
     function qstList(etat) {

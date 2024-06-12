@@ -7985,6 +7985,8 @@ $('#eau_aspersion_classique, #eau_goutte_a_goutte, #eau_epandage_de_crues, #eau_
     <script src="./assets/js/questionnaire-mask.js"></script>
     <script src="./assets/js/update.js"></script>
     <script src="./assets/js/logique.js"></script>
+    <script src="./static/js/notify.js"></script>
+
 </body>
 
 </html>

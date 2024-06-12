@@ -5946,7 +5946,7 @@ document.getElementById('submitDate').click();
 <script src="./assets/js/questionnaire.js"></script>
 <script src="./assets/js/logique.js"></script>
 <script src="./assets/js/questionnaire-mask.js"></script>
-
+<script src="./static/js/notify.js"></script>
              
              
              
