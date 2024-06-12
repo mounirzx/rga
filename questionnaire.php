@@ -2426,6 +2426,97 @@ acte de concession ?
 
 
 $(document).ready(function(){
+
+   var combinations = {}; 
+   function generateCombination(row) {
+    return row.find('[id^="code_culture"]').val();
+}
+
+// Function to check and manage unique combinations
+function manageCombinations(row) {
+    var key = generateCombination(row);
+    var isDuplicate = false;
+    
+    // Check for duplicates by iterating through all rows
+    $('#formContainer2 .row').each(function() {
+        var currentRow = $(this);
+        if (currentRow.is(row)) {
+            return true; // Skip the current row
+        }
+        var currentKey = generateCombination(currentRow);
+        if (currentKey === key) {
+            isDuplicate = true;
+            return false; // Break the loop if a duplicate is found
+        }
+    });
+
+    if (isDuplicate) {
+        Swal.fire({
+            title: 'Attention!',
+            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        // Reset the row's selects to the default option
+        row.find('select').val(function() {
+            return $(this).children('option:first').val();
+        });
+    }
+}
+
+// Handle changes in any of the dropdowns
+$('#formContainer2').on('change', 'select', function() {
+    manageCombinations($(this).closest('.row'));
+});
+
+ 
+ // Handle the addition of new rows
+ $('#addForm2').click(function() {
+     var formContainer = $('#formContainer2');
+     var formRow = formContainer.children('.row').first().clone();
+     formRow.find('input').val('');
+     formRow.find('select').each(function() {
+         $(this).val($(this).find('option:first').val());
+     });
+ 
+     // Append a remove button to the new row
+     var removeButton = $('<button>').text('-').addClass('btn btn-danger btn-sm').click(function() {
+         delete combinations[generateCombination($(this).closest('.row'))];
+         $(this).closest('.row').remove();
+     });
+ 
+     formRow.find('.d-grid').empty().append(removeButton);
+     formContainer.append(formRow);
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     var selectedCombinations = []; // Array to hold unique combinations per row
 
     // Event handler for changes on any element with the class 'code_culture_check' within each row

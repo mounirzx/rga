@@ -1725,66 +1725,66 @@ $(document).ready(function(){
 
     
            
-document.getElementById('addForm2').addEventListener('click', function() {
-    const formContainer = document.getElementById('formContainer2');
-    const formRow = formContainer.firstElementChild.cloneNode(true);
+// document.getElementById('addForm2').addEventListener('click', function() {
+//     const formContainer = document.getElementById('formContainer2');
+//     const formRow = formContainer.firstElementChild.cloneNode(true);
 
-    // Generate unique IDs and names for the cloned form elements
-    formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
-        var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
-        var newIndex = formContainer.children.length; // New index based on the number of existing rows
-        element.id = baseId + '_' + newIndex;
-        element.name = baseId + '_' + newIndex;
-        element.removeAttribute('disabled'); // Remove "disabled" attribute if present
+//     // Generate unique IDs and names for the cloned form elements
+//     formRow.querySelectorAll('[id], [name]').forEach(function(element, index) {
+//         var baseId = element.id.match(/^[^\d]+/)[0]; // Extract base ID without the numeric part
+//         var newIndex = formContainer.children.length; // New index based on the number of existing rows
+//         element.id = baseId + '_' + newIndex;
+//         element.name = baseId + '_' + newIndex;
+//         element.removeAttribute('disabled'); // Remove "disabled" attribute if present
 
-        if (element.tagName === 'SELECT') {
-            element.selectedIndex = 0; // Reset select element to default value
-            // Add an event listener to enforce selection
-            element.addEventListener('blur', function() {
-
-
-               $('#en_intercalaire').on('change', function() {
-
-                     // alert('test')
+//         if (element.tagName === 'SELECT') {
+//             element.selectedIndex = 0; // Reset select element to default value
+//             // Add an event listener to enforce selection
+//             element.addEventListener('blur', function() {
 
 
-               });
+//                $('#en_intercalaire').on('change', function() {
+
+//                      // alert('test')
 
 
+//                });
 
 
 
 
-                if (this.value === "-" || this.value === "") {
-                  if (result.isConfirmed) {
-                            this.focus(); // Refocus on the dropdown if user closes the alert
-                        }
-                }
-            });
-        } else if (element.type === 'text') {
-            element.value = ''; // Clear input text fields
-        }
-    });
 
-    // Remove the add button from the cloned row and add a remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = '-';
-    removeButton.type = 'button';
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-    removeButton.addEventListener('click', function() {
-        formRow.remove();
-    });
-    formRow.querySelector('.d-grid').innerHTML = '';
-    formRow.querySelector('.d-grid').appendChild(removeButton);
 
-    formContainer.appendChild(formRow);
+//                 if (this.value === "-" || this.value === "") {
+//                   if (result.isConfirmed) {
+//                             this.focus(); // Refocus on the dropdown if user closes the alert
+//                         }
+//                 }
+//             });
+//         } else if (element.type === 'text') {
+//             element.value = ''; // Clear input text fields
+//         }
+//     });
 
-    // Focus on the 'code_culture' select element in the newly added row
-    formRow.querySelector('.code_culture_s').focus();
-    restrictInputToDoubles();
+//     // Remove the add button from the cloned row and add a remove button
+//     const removeButton = document.createElement('button');
+//     removeButton.textContent = '-';
+//     removeButton.type = 'button';
+//     removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
+//     removeButton.addEventListener('click', function() {
+//         formRow.remove();
+//     });
+//     formRow.querySelector('.d-grid').innerHTML = '';
+//     formRow.querySelector('.d-grid').appendChild(removeButton);
 
-    // Optionally call any other functions that need to reinitialize settings or bindings
-});
+//     formContainer.appendChild(formRow);
+
+//     // Focus on the 'code_culture' select element in the newly added row
+//     formRow.querySelector('.code_culture_s').focus();
+//     restrictInputToDoubles();
+
+//     // Optionally call any other functions that need to reinitialize settings or bindings
+// });
 
 
 

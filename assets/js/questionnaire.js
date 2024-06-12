@@ -449,10 +449,52 @@ $("input[type='checkbox']").each(function() {
     });
 
 
-   
+   var nin_exploitant= $("#nin_exploitant").val();
     //console.log("formDataObj of me");
    // console.log(formDataObj);
-   $(function () {
+   if (day_of_passage === "" || !day_of_passage || day_of_passage === "-") {
+    Swal.fire({
+      icon: "warning",
+      title: "تنبيه",
+      text: "يرجى ادخال يوم المرور",
+
+
+    });
+    $("#day_of_passage").focus();
+    window.scrollTo(0, 0); 
+  } else if (month_of_passage === "" || !month_of_passage || month_of_passage === "-") {
+    Swal.fire({
+      icon: "warning",
+      title: "تنبيه",
+      text: "يرجى ادخال شهر المرور" 
+    });
+    window.scrollTo(0, 0);   $("#month_of_passage").focus();
+  }
+  else if ( nin_exploitant === "") {
+    Swal.fire({
+      icon: "warning",
+      title: "تنبيه",
+      text: "يرجى ادخال رقم التعريف الوطني" 
+    });
+    window.scrollBy(0, 600);
+    $("#nin_exploitant").focus();
+  }else{
+
+  if ((month_of_passage === "" || !month_of_passage || month_of_passage === "-") && 
+  (day_of_passage === "" || !day_of_passage || day_of_passage === "-")) {
+Swal.fire({
+  icon: "warning",
+  title: "تنبيه",
+  text: "يرجى ادخال تاريخ المرور" 
+});
+$("#month_of_passage").focus();
+window.scrollTo(0, 0);
+} else {
+
+
+
+
+  $(function () {
     $.ajax({
       url: url.InsertQst,
       type: "POST",
@@ -533,6 +575,9 @@ $("input[type='checkbox']").each(function() {
       }
     });
   });
+}
+}
+
   
 
 
