@@ -57,7 +57,7 @@ include('includes/head.php');
                     <br />
                     <?php //echo $_SESSION['username']; ?>
                     Date de passage</span>
-                    <select class="form-select" id="day_of_passage" >
+                    <select required class="form-select" id="day_of_passage" >
                        <option default value=""></option>
                        <option  value="1">1</option>
                        <option  value="2">2</option>
@@ -110,7 +110,7 @@ include('includes/head.php');
                        </option>
                        <option  value="30"> 30
                        </option>
-                       <option  value="30"> 31
+                       <option  value="31"> 31
                        </option>
                     </select>
                     <select class="form-select"  id="month_of_passage" >

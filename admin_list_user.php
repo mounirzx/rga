@@ -2,6 +2,19 @@
 include('includes/header.php');
 ?>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+       
+   <!--===============================================================================================-->
+   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/bootstrap/js/popper.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
     <style>
         .edit-container {
             display: flex;
@@ -39,8 +52,38 @@ include('includes/header.php');
 </div> -->
 
 
-
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Information de l'utilisateur</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nom </label>
+    <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" readonly >
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Prenom</label>
+    <input type="text" class="form-control" id="prenom" readonly >
+  </div>
+  
+ 
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <div class="card">
@@ -126,7 +169,7 @@ include('includes/header.php');
                         {
                             // New column for delete button
                             data: null,
-                            defaultContent: '<button class="btn btn-danger  deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button>'
+                            defaultContent: '<button class="btn btn-danger btn-sm  deleteBtn"><i style="font-size: 19px; color: white;" class="fa fa-trash" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-info infoBtn" data-toggle="modal" data-target="#exampleModal"><i style="font-size: 19px; color: white;" class="fa fa-eye" aria-hidden="true"></i></button>'
                         }
                     ]
                 });
@@ -155,7 +198,7 @@ include('includes/header.php');
 
                     // Get the cell data and replace with input field and validate button
                     var cellData = cell.data();
-                    $(this).html('<div class="edit-container"><input type="text" class="form-control" id="pasteField" value="' + cellData + '"><button  class="btn btn-success validateBtn"><i style="font-size: 19px; color: white;" class="fa fa-check" aria-hidden="true"></i></button></div>');
+                    $(this).html('<div class="edit-container"><input type="text" class="form-control" id="pasteField" value="' + cellData + '"><button  class="btn btn-success validateBtn" ><i style="font-size: 19px; color: white;" class="fa fa-check" aria-hidden="true"></i></button></div>');
                     // Focus on the input field 
                     $(this).find('input').focus();
                 });
@@ -243,6 +286,44 @@ console.log(role)
                         }
                     });
                 });
+
+
+
+
+                /******************************************************************************* */
+                                // Event handler for delete button click
+                                $('#userTable').on('click', '.infoBtn', function(event) {
+                                    // event.stopPropagation(); // Prevent editing cell when delete button is clicked
+                                    var row = table.row($(this).closest('tr'));
+                                    var rowData = row.data();
+                                    var userId = rowData.id_user;
+                                    var role = rowData.role;
+                                    console.log(role)
+
+                                    $.ajax({
+                                        url:'assets/php/user_by_id.php',
+                                        method:'post',
+                                        async:false,
+                                        data:{id:userId,role:role},
+                                        success:function(response){
+                                            console.log(response);
+                                            var data = JSON.parse(response)
+                                            console.log(data.nom_controleur)
+                                            var nom =""
+                                            var prenom = ""
+                                            if(role=="controleur"){
+                                                nom= data.nom_controleur
+                                                prenom = data.prenom_controleur
+                                            }if(role=="recenseur"){
+                                                nom= data.nom_recensseur
+                                                prenom = data.prenom_recenseur
+                                            }
+                                            $('#nom').val(nom)
+                                            $('#prenom').val(prenom)
+                                        }
+                                    })
+
+                });
             });
         </script>
 
@@ -291,19 +372,7 @@ console.log(role)
             });
         </script>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-       
-   <!--===============================================================================================-->
-   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="static/vendor/bootstrap/js/popper.js"></script>
-    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="static/vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+
 
 
 

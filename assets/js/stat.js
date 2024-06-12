@@ -191,15 +191,16 @@ if(taux_avancememnt_2<=100){
 }
 
 var taux1=""
-if(taux_avancememnt_1<=100){
-    taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>"
-}else{
-    taux1 =  "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'>0%</div></div></td>"
-}
+   taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>";
+// if(taux_avancememnt_1<=100){
+//     taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>"
+// }else{
+//     taux1 =  "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'>0%</div></div></td>"
+// }
 /******************************************* */
 
 
-list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td>"+taux1+""+taux2+""+etat+"<td  class='align-middle'>"+button+"</td></tr>";
+list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align-middle' > "+data[i].commune_name_ascii+"</td><td  class='align-middle'>"+data[i].qst_a_recense+"</td><td  class='align-middle'>"+data[i].qst_recense+"</td><td style='background:#c7e5ff6e;'  class='align-middle'>"+count+"</td>"+taux1+""+taux2+""+etat+"<td  style='width:90px !important;' class='align-middle'>"+button+"</td></tr>";
 
 
                 total_questionnaire+=parseFloat(count);
@@ -234,14 +235,16 @@ list+="<tr class='text-center'><td>"+data[i].commune_code+"</td><td class='align
           $('#sum_rejete').html(sum_rejete)
           $('#sum_approuve').html(sum_approuve)
 
-
-          sum_taux_avancememnt_1 = sum_taux_avancememnt_1/100
+          sum_taux_avancememnt_1=(nb_qst_recense*100)/nb_qst_a_recense
+         // sum_taux_avancememnt_1 = sum_taux_avancememnt_1/100
           sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
            // Round to two decimal places
    // sum_taux_avancememnt_1 = sum_taux_avancememnt_1.toFixed(2);
 
           $('#sum_taux_avancememnt_1').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_1+'%">'+sum_taux_avancememnt_1+'%</div> '+sum_taux_avancememnt_1+'%')
-          sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
+        
+          sum_taux_avancememnt_2 = (total_questionnaire*100)/nb_qst_recense
+          //    sum_taux_avancememnt_2 = sum_taux_avancememnt_2 / 100
 
           sum_taux_avancememnt_2 = sum_taux_avancememnt_2.toFixed(2);
           $('#sum_taux_avancememnt_2').html('  <div class="progress-bar" style="width: '+sum_taux_avancememnt_2+'%">'+sum_taux_avancememnt_2+'%</div> '+sum_taux_avancememnt_2+'%')

@@ -1,5 +1,13 @@
 
 <?php
+// Set cache-control headers
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+
+// Define version number for CSS and JS files
+$version = '1.0.2';
+
 session_start();
 
 
@@ -41,6 +49,71 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <script src="assets/js/urls.js"></script>
 
 
+<script>
+
+        // document.onkeydown = function(e) {
+
+        //     // Disable F12 (DevTools)
+
+        //     if (e.keyCode == 123) {
+
+        //         return false;
+
+        //     }
+
+        //     // Disable Ctrl+Shift+I (DevTools)
+
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+
+        //         return false;
+
+        //     }
+
+        //     // Disable Ctrl+Shift+J (DevTools)
+
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+
+        //         return false;
+
+        //     }
+
+        //     // Disable Ctrl+U (View Source)
+
+        //     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+
+        //         return false;
+
+        //     }
+
+        //     // Disable Ctrl+Shift+C (Inspect Element)
+
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+
+        //         return false;
+
+        //     }
+
+        //     // Disable Ctrl+Shift+K (Console)
+
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'K'.charCodeAt(0)) {
+
+        //         return false;
+
+        //     }
+
+        // };
+
+
+
+        // // Disable right-click context menu
+
+        // document.addEventListener('contextmenu', function(e) {
+
+        //     e.preventDefault();
+
+        // });
+
+    </script>
 
  <style>
         /* @page {
@@ -247,7 +320,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 </div>
             </div>
         </div>
-    </div>
+</div>
+   
     <script>
 
         $(document).ready(function () {
@@ -410,6 +484,16 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             ?>
             <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
             <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs <br/> اعوان الاحصاء</a>
+            </li>
+          
+            <?php
+           }
+           ?>   
+             <?php
+                if($_SESSION['role']=="admin"){
+            ?>
+            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <a class="nav-link active" aria-current="page" href="assets/php/nb_qst_excel.php">Export excel  </a>
             </li>
           
             <?php

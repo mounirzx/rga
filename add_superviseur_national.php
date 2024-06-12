@@ -23,13 +23,13 @@ include('includes/header.php');
             <b id="first_name_error"  style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Prénom</span>
-                    <input type="text" class="form-control" name="first_name" id="first_name" required>
+                    <input type="text" class="form-control" name="last_name" id="last_name" required>
                 </div>
                 <br>
                 <b id="last_name_error"  style="color:#dc3545"></b>
                 <div class="input-group input-group-sm">
                     <span style="width: 180px;" class="input-group-text" id="basic-addon-username">Nom de famille</span>
-                    <input type="text" class="form-control" name="last_name" id="last_name" required>
+                    <input type="text" class="form-control" name="first_name" id="first_name" required>
                 </div>
                 <br>
                 <div class="input-group input-group-sm">

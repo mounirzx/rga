@@ -619,7 +619,12 @@ $("input[type='checkbox']").each(function() {
                 message:message,
                 controleSatSumsjtest2:controleSatSumsjtest2
               }),
-            dataType: "json",
+              dataType: "json",
+              beforeSend: function () {
+                // Show the loader before sending the request and disable the form
+                $("#loader").show();
+                $('form').find(':input').prop('disabled', true);
+              },
             success: function(response) {
               if (response.response === "success") {
                 Swal.fire({
@@ -644,6 +649,11 @@ $("input[type='checkbox']").each(function() {
                 text: "Un problème est survenu lors de la requête: " + xhr.statusText,
               });
             },
+            complete: function () {
+              // Hide the loader and enable the form after the request completes
+              $("#loader").hide();
+              $('form').find(':input').prop('disabled', false);
+            }
           });
         }
       });

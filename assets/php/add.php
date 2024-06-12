@@ -276,13 +276,13 @@ echo json_encode(['response' => true]);
             if (isset($matches[1])) {
                 // Key already exists, handle the message accordingly
                 $existingKey = $matches[1];
-                echo json_encode(['response' => false, 'error' => 'Le questionnaire existe déjà']);
+                echo json_encode(['response' => false, 'warning' => 'الاستبيان موجود']);
                 exit; // Stop further execution
             }
         }
     }
     http_response_code(500); // Set appropriate response code
-    echo json_encode(['response' => false, 'error' => $e->getMessage()]);
+    echo json_encode(['response' => false, 'warning' => $e->getMessage()]);
 }
 ?>
 

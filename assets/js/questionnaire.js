@@ -467,6 +467,10 @@ $("input[type='checkbox']").each(function() {
         controleSatSumsjtest2:controleSatSumsjtest2
       }),
       dataType: "json",
+      beforeSend: function () {
+        // Show the loader before sending the request
+        $("#loader").show();
+      },
       success: function (response) {
         if (response.response) {
           Swal.fire({
@@ -482,48 +486,48 @@ $("input[type='checkbox']").each(function() {
           });
         } else {
           Swal.fire({
-            icon: "error",
-            title: "Erreur!",
+            icon: "warning",
+            title: "تنبيه",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: " <a style='color:#fff' href='./Questionnaire'>Continuer la saisie</a>",
-            cancelButtonText: "<a style='color:#fff' href='./ListeQuestionnaires'>Quitter la saisie</a>  ",
-
-            text:  (response.error || "Erreur inconnue")
+            confirmButtonText: " <a style='color:#fff' href='./Questionnaire'>استمرار الإدخال</a>",
+            cancelButtonText: "<a style='color:#fff' href='./ListeQuestionnaires'>إنهاء الإدخال</a>  ",
+        
+            text:  (response.error || "الاستبيان موجود")
           });
         }
-      },
-      error: function (xhr, status, error) {
+        },
+        error: function (xhr, status, warning) {
         // Check if there is a response text and if it contains valid JSON
         if (xhr.responseText) {
           try {
             var resp = JSON.parse(xhr.responseText);
-            if (resp && resp.error) {
+            if (resp && resp.warning) {
               Swal.fire({
-                icon: "error",
-                title: "Erreur de traitement",
-                text: "Erreur lors de l'enregistrement: " + resp.error
+                icon: "warning",
+                title: "خطأ في المعالجة",
+                text: "خطأ أثناء التسجيل " + resp.warning
               });
             } else {
               Swal.fire({
-                icon: "error",
-                title: "Erreur de Réseau",
-                text: "Réponse inattendue du serveur: " + xhr.responseText
+                icon: "warning",
+                title: "خطأ في الشبكة",
+                text: "استجابة غير متوقعة من الخادم " + xhr.responseText
               });
             }
           } catch (e) {
             Swal.fire({
-              icon: "error",
-              title: "Erreur de format",
-              text: "Réponse non JSON du serveur: " + xhr.responseText
+              icon: "warning",
+              title: "خطأ في التنسيق",
+              text: "استجابة غير متوقعة من الخادم "  + xhr.responseText
             });
           }
         } else {
           Swal.fire({
-            icon: "error",
-            title: "Échec de la requête",
-            text: "Un problème est survenu lors de la requête: " + error
+            icon: "warning",
+            title: "فشل الطلب",
+            text: "حدثت مشكلة أثناء الطلب " + warning
           });
         }
       }
@@ -561,7 +565,7 @@ col="<td><div class='skeleton'></div></td>"
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
-    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
+    '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
     '<tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td>'+col+'<td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>' +
@@ -881,7 +885,7 @@ var sum_superfecie_sj=0
         var terres_au_repos_jacheres_2 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_2")[0].value) || 0;
         var cultures_herbacees_2 = parseFloat(document.getElementsByName("cultures_herbacees_2")[0].value) || 0;
         var superficie_agricole_utile_sau_2 = prairies_naturelles_2 + plantations_arboriculture_2 + terres_au_repos_jacheres_2 + cultures_herbacees_2;
-        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2);
+        document.getElementsByName("superficie_agricole_utile_sau_2")[0].value = (superficie_agricole_utile_sau_2).toFixed(2);
  
  
         var prairies_naturelles_3 = parseFloat(document.getElementsByName("prairies_naturelles_3")[0].value) || 0;
@@ -896,7 +900,7 @@ var sum_superfecie_sj=0
         var terres_au_repos_jacheres_4 = parseFloat(document.getElementsByName("terres_au_repos_jacheres_4")[0].value) || 0;
         var cultures_herbacees_4 = parseFloat(document.getElementsByName("cultures_herbacees_4")[0].value) || 0;
         var superficie_agricole_utile_sau_4 = prairies_naturelles_4 + plantations_arboriculture_4 + terres_au_repos_jacheres_4 + cultures_herbacees_4;
-        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4);
+        document.getElementsByName("superficie_agricole_utile_sau_4")[0].value = (superficie_agricole_utile_sau_4).toFixed(2);;
  
  
         var pacages_et_parcours_1 = parseFloat(document.getElementsByName("pacages_et_parcours_1")[0].value) || 0;
@@ -910,7 +914,7 @@ var sum_superfecie_sj=0
         var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
         var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
         var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4 + superficie_agricole_utile_sau_2;
-        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+        document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2).toFixed(2);;
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_1 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_1")[0].value) || 0;
         var surface_totale_st_1 = terres_forestieres_bois_forets_maquis_vides_labourables_1 + superficie_agricole_totale_sat_1;
@@ -919,7 +923,7 @@ var sum_superfecie_sj=0
  
         var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
         var surface_totale_st_2 = terres_forestieres_bois_forets_maquis_vides_labourables_2 + superficie_agricole_totale_sat_2;
-        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
+        document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2).toFixed(2);;
 
 /******************************** */
 
@@ -933,7 +937,7 @@ var quotient = Math.floor(divider / divisor);
 // Calculate the remainder
 var superficie_agricole_utile_sau_2 = divider % divisor;
 $('input[name="superficie_agricole_utile_sau_1"]').val(parseFloat(superficie_agricole_utile_sau_1)+parseFloat(quotient));
-$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2);
+$('input[name="superficie_agricole_utile_sau_2"]').val(superficie_agricole_utile_sau_2.toFixed(2));
 var superficie_agricole_utile_sau_3 = $('input[name="superficie_agricole_utile_sau_3"]').val()
 var pacages_et_parcours_2 = parseFloat(document.getElementsByName("pacages_et_parcours_2")[0].value) || 0;
 var surfaces_improductives_2 = parseFloat(document.getElementsByName("surfaces_improductives_2")[0].value) || 0;
@@ -944,7 +948,7 @@ var superficie_agricole_utile_sau_3 = parseFloat(document.getElementsByName("sup
 
 
 document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
-document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2);
+document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2 + superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2).toFixed(2);;
 
 
 document.getElementsByName("superficie_agricole_totale_sat_1")[0].value = (superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3)+parseFloat(pacages_et_parcours_1)+ parseFloat(surfaces_improductives_1));
@@ -973,7 +977,7 @@ var quotient = Math.floor(divider / divisor);
 
 
 $('input[name="superficie_agricole_utile_sau_3"]').val(parseFloat(superficie_agricole_utile_sau_3)+parseFloat(quotient));
-$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4);
+$('input[name="superficie_agricole_utile_sau_4"]').val(superficie_agricole_utile_sau_4.toFixed(2));
 
 
 
@@ -984,10 +988,10 @@ var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("su
 var superficie_agricole_utile_sau_2 = parseFloat(document.getElementsByName("superficie_agricole_utile_sau_2")[0].value) || 0;
 var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
 
-var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_4
+var superficie_agricole_totale_sat_2 = pacages_et_parcours_2 + surfaces_improductives_2 + superficie_agricole_utile_sau_2 +superficie_agricole_utile_sau_4
 
 document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2 + superficie_agricole_utile_sau_2 );
-document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2);
+document.getElementsByName("surface_totale_st_2")[0].value = ( superficie_agricole_totale_sat_2 + terres_forestieres_bois_forets_maquis_vides_labourables_2).toFixed(2);;
 
 $('input[name="superficie_agricole_totale_sat_1"]').val(parseFloat(parseFloat(surfaces_improductives_1)+parseFloat(pacages_et_parcours_1)+superficie_agricole_utile_sau_1+parseFloat(superficie_agricole_utile_sau_3))+parseFloat(quotient));
 
@@ -1021,7 +1025,7 @@ var superficie_agricole_utile_sau_1 = parseFloat(document.getElementsByName("sup
 
 
 
-document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2);
+document.getElementsByName("superficie_agricole_totale_sat_2")[0].value = (superficie_agricole_totale_sat_2).toFixed(2);;
 
 var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
 
@@ -1045,21 +1049,20 @@ document.getElementsByName("surface_totale_st_1")[0].value = (parseFloat(superfi
 }
 
 /*********************************************** */
-// var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
-// if(surface_totale_st_2>=100){
-// var divisor = 100;
+var surface_totale_st_2 = parseFloat(document.getElementsByName("surface_totale_st_2")[0].value) || 0;
+if(surface_totale_st_2 >= 100) {
+    var divisor = 100;
 
+    var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
+    var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
+    var divider = terres_forestieres_bois_forets_maquis_vides_labourables_2 + superficie_agricole_totale_sat_2;
+    var surface_totale_st_2 = divider % divisor;
+    var quotient = Math.floor(divider / divisor);
+    document.getElementsByName("surface_totale_st_2")[0].value = surface_totale_st_2.toFixed(2);;
 
-// var terres_forestieres_bois_forets_maquis_vides_labourables_2 = parseFloat(document.getElementsByName("terres_forestieres_bois_forets_maquis_vides_labourables_2")[0].value) || 0;
-// var superficie_agricole_totale_sat_2 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_2")[0].value) || 0;
-// var divider =terres_forestieres_bois_forets_maquis_vides_labourables_2+superficie_agricole_totale_sat_2
-// var surface_totale_st_2 = divider % divisor;
-// var quotient = Math.floor(divider / divisor);
-// document.getElementsByName("surface_totale_st_2")[0].value = (surface_totale_st_2);
-// var superficie_agricole_totale_sat_1 = $('input[name="superficie_agricole_totale_sat_1"]').val()
-// $('input[name="surface_totale_st_1"]').val(parseFloat(terres_forestieres_bois_forets_maquis_vides_labourables_1)+parseFloat(superficie_agricole_totale_sat_1)+parseFloat(quotient));
-
-// }
+    var superficie_agricole_totale_sat_1 = parseFloat(document.getElementsByName("superficie_agricole_totale_sat_1")[0].value) || 0;
+    document.getElementsByName("surface_totale_st_1")[0].value = terres_forestieres_bois_forets_maquis_vides_labourables_1 + superficie_agricole_totale_sat_1 + quotient;
+}
 
 var surface_totale_st_1 = $('input[name="surface_totale_st_1"]').val()
 var surface_totale_st_2 = $('input[name="surface_totale_st_2"]').val()
@@ -1072,7 +1075,7 @@ if (surface_totale_st_2.includes('.')) {
 
 // Concatenate and parse to float
 superficie_total = parseFloat(surface_totale_st_1 + "." + surface_totale_st_2);
-$('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
+$('input[name="st_en_hectar"]').val(parseFloat(superficie_total.toFixed(5)));
 
 
 
@@ -1084,17 +1087,19 @@ $('input[name="st_en_hectar"]').val(parseFloat(superficie_total));
 
 
 
+
+
     $('#exploitant').on('change', function() {
       var exploitantValue = $(this).val();
-     if(exploitantValue === "2"){
+     if(exploitantValue === "2" || exploitantValue === "1"){
       
-      listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>'
+      listOrigineTerre ["5"]='<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
 
-      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
+      listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="3">3- Ex EAI «م.ف,ف - « 10-03 </option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODAS إمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
         
       }else{
         $('#origine_des_terres').html("<option selected='' disabled value='-'></option><option BoldText value='1'>1 - Melk personnel titré ملك شخصي موثق</option><option BoldText value='2'>2 - Melk personnel non titré ملك شخصي غير موثق</option><option BoldText value='3'>3 - Melk en indivision titré ملك مشترك موثق</option><option BoldText value='4'>4 - Melk en indivision non titré ملك مشترك غير موثق </option><option BoldText value='5'>5 - Domaine public ملكية عامة للدولة</option><option BoldText value='6'>6 - Domaine privé de l'état ملكية خاصة للدولة</option><option BoldText value='7'>7 - Wakf privé وقف خاص</option><option BoldText value='8'>8 - Wakf public وقف عام</option><option BoldText value='9'>9 - Inconnue مجهول</option>")
-         listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option>'
+         listOrigineTerre ["6"]='<option selected="" disabled BoldText>-</option><option value="1">1- APFA «18-83» - ح.م.أ.ف</option><option value="2">2- Ex EAC «03-10» - م.ف.ج</option><option value="4">4- Ex GCA «483-97» - ع.إ.ف</option><option value="5">5- Ex CDARS «483-97» - م.ت.ف.ر.ص</option><option value="6">6- Concession CIM 108, CIM 1839</option><option value="7">7 - Nouvelle concession ONTA  إمتياز جديد« 21-432 »</option><option value="8">8 - Nouvelle concession ODASإمتياز جديد « 20-265 »</option><option value="9">9 - Exploitation sans titre إستغلال بدون سند « 21-432 »</option><option value="10">10 - Ferme pilote مزرعة نموذجية</option><option value="11">11 - Etablissement public (EPA, EPIC, EPE) مؤسسة عمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>'
       }
      
   
@@ -1172,7 +1177,7 @@ $('#status_juridique_'+idPart).append(filtered[id])
 
 if (selectedValue == "5") {
   $('#status_juridique_' + idPart).empty();
-  $('#status_juridique_' + idPart).append('<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option>');
+  $('#status_juridique_' + idPart).append('<option selected="" disabled BoldText>-</option><option value="12">12 - Droit d’usage des forêts حق الانتفاع في استخدام الغابات للملكية العمومية</option><option value="22" BoldText>22 - Inconnu غير معروف</option>');
 }
     })
 
