@@ -427,7 +427,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#RpdfModal">
             <img src="static/icons/pdf-blk.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
 
-             guide d'enqueteurs <br/> دليل المحققين
+            Guide Recenseur <br/> دليل المحصي
                 </a>
             </li>
            <?php
