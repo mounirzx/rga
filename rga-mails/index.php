@@ -19,7 +19,7 @@ try {
     $mail->Port = 587; // Port number for STARTTLS
     $mail->SMTPAuth = true;
     $mail->Username = 'rga2024@madr.gov.dz'; // SMTP username (email address)
-    $mail->Password = 'RUQ#XyP7'; // SMTP password
+    $mail->Password = 'eUgkdC2@4a'; // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable STARTTLS encryption
  // Email content
  $role = $_POST['role'];

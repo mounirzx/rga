@@ -7,16 +7,20 @@ $(document).ready(function() {
     var selectedLang = $('#languageSelect').val();
     var selectedVoice = $('#voiceSelect').val();
     
-    // Filter and show matching elements, hide non-matching ones
-    $('.rr').each(function() {
-    var langMatch = !selectedLang || $(this).data('lang') === selectedLang;
-    var voiceMatch = !selectedVoice || $(this).data('voice') === selectedVoice;
-    if (langMatch && voiceMatch) {
-    $(this).show();
-    } else {
-    $(this).hide();
-    }
-    });
+    if(selectedLang!= null && selectedVoice!=null )
+        {
+            $('.rr').each(function() {
+                var langMatch = !selectedLang || $(this).data('lang') === selectedLang;
+                var voiceMatch = !selectedVoice || $(this).data('voice') === selectedVoice;
+           
+                console.log(langMatch,voiceMatch)
+                if (langMatch && voiceMatch) {
+                $(this).show();
+                } else {
+                $(this).hide();
+                }
+                });
+        }
     });
     
     // Close video container on close button click

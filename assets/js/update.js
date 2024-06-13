@@ -1,21 +1,24 @@
 $(document).ready(function () {
-  $("#day_of_passage, #month_of_passage ").on('change', function(){
+  $("#day_of_passage, #month_of_passage").on('change', function(){
     var element = $(this);
-    if (element.val() == "") {
+    if (element.val() == "" || element.val() == "0" ||element.val() == "00" ||element.val() == "-") {
         element.css('border', '2px solid red');
     } else {
         element.css('border', '2px solid green');
     }
 });
 
-$("#day_of_passage, #month_of_passage").on('blur', function(){
+$("#day_of_passage, #month_of_passage,#nom_exploitant,#prenom_exploitant ,#jour_de_naissance, #mois_de_naissance, #annee_de_naissance ").on('blur', function(){
     var element = $(this);
-    if (element.val() == "") {
+    if (element.val() == "" || element.val() == "0" ||element.val() == "00" ||element.val() == "-") {
         element.css('border', '2px solid red');
     } else {
         element.css('border', '');
     }
 });
+
+
+
 
   // $('input').click(function() {
   //   $(this).prop('readonly', true);
@@ -596,9 +599,12 @@ $("input[type='checkbox']").each(function() {
 
 
     var etat = $("input[name^='etat']").val();
-    var nin_exploitant = $("#nin_exploitant").val();
-    var day_of_passage = $("#day_of_passage").val();
-    var month_of_passage = $("#month_of_passage").val();
+    var nin_exploitant= $("#nin_exploitant").val();
+   var nom_exploitant= $("#nom_exploitant").val();
+   var prenom_exploitant= $("#prenom_exploitant").val();
+   var jour_de_naissance= $("#jour_de_naissance").val();
+   var mois_de_naissance= $("#mois_de_naissance").val();
+   var annee_de_naissance= $("#annee_de_naissance").val();
   
     function showAlertAndFocus(message, selector) {
       // Show the notification
@@ -623,14 +629,24 @@ $("input[type='checkbox']").each(function() {
   }
   
   
-    if (day_of_passage === "" || !day_of_passage || day_of_passage === "-") {
-        $("#submitDate").blur();
-      showAlertAndFocus("يرجى ادخال يوم المرور", "#day_of_passage");
-    } else if (month_of_passage === "" || !month_of_passage || month_of_passage === "-") {
-      showAlertAndFocus("يرجى ادخال شهر المرور", "#month_of_passage");
-    } else if (nin_exploitant === "") {
-      showAlertAndFocus("يرجى ادخال رقم التعريف الوطني", "#nin_exploitant");
-    } else {
+  if (day_of_passage === "" || !day_of_passage || day_of_passage === "-") {
+    $("#submitDate").blur();
+  showAlertAndFocus("يرجى ادخال يوم المرور", "#day_of_passage");
+} else if (month_of_passage === "" || !month_of_passage || month_of_passage === "-") {
+  showAlertAndFocus("يرجى ادخال شهر المرور", "#month_of_passage");
+} else if (nin_exploitant === "") {
+  showAlertAndFocus("يرجى ادخال رقم التعريف الوطني", "#nin_exploitant");
+} else if (nom_exploitant === "") {
+  showAlertAndFocus("يرجى ادخال إسم المستثمر", "#nom_exploitant");
+} else if (prenom_exploitant === "") {
+  showAlertAndFocus("يرجى ادخال لقب المستثمر", "#prenom_exploitant");
+} else if (jour_de_naissance == "-" || jour_de_naissance == "0"|| jour_de_naissance == "" ) {
+  showAlertAndFocus("يرجى ادخال يوم الميلاد", "#jour_de_naissance");
+} else if (mois_de_naissance == "-" || mois_de_naissance == "0"|| mois_de_naissance == "") {
+  showAlertAndFocus("يرجى ادخال شهر الميلاد", "#mois_de_naissance");
+}else if (annee_de_naissance == "-" || annee_de_naissance == "0" || annee_de_naissance == "") {
+  showAlertAndFocus("يرجى ادخال شهر الميلاد", "#annee_de_naissance");
+}else{
 
       if (etat == "Approuvés") {
         Swal.fire({

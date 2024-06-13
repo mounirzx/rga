@@ -552,16 +552,16 @@ if($count==0){
 
 
 
-$bdd->commit();
+  // Commit the transaction
+  $bdd->commit();
 
-
-
-        echo json_encode(['response' => "success", 'message' => "Records updated successfully"]);
-    } catch (Exception $e) {
-        if ($bdd->inTransaction()) {
-            $bdd->rollBack();
-        }
-        echo json_encode(["response" => "error", "message" => $e->getMessage()]);
-    }
+  echo json_encode(['response' => "success", 'message' => "Records updated successfully", 'data' => $cleResul2]);
+} catch (Exception $e) {
+  if ($bdd->inTransaction()) {
+      // Roll back the transaction if any error occurs
+      $bdd->rollBack();
+  }
+  echo json_encode(["response" => "error", "message" => $e->getMessage()]);
+}
 
 ?>

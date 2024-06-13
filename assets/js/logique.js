@@ -1681,6 +1681,61 @@ $(document).ready(function(){
 
 
 
+ // origine_des_terres
+   // status_juridique
+   // superfecie_sj
+   // superfecie_sj_are
+
+    
+   var combinationsStatut = {}; 
+   function generateCombinationStatut(row) {
+     
+      return row.find('[id^="origine_des_terres"]').val()+ '-' +
+    
+         row.find('[id^="status_juridique"]').val();
+}
+
+// Function to check and manage unique combinations
+function manageCombinationsStatut(row) {
+  
+    var keyStatut = generateCombinationStatut(row);
+    var isDuplicateStatut = false;
+    
+    // Check for duplicates by iterating through all rows
+    $('#formContainer .row').each(function() {
+        var currentRow = $(this);
+        if (currentRow.is(row)) {
+            return true; // Skip the current row
+        }
+        var currentKeyStatut = generateCombinationStatut(currentRow);
+        if (currentKeyStatut === keyStatut) {
+            isDuplicateStatut = true;
+            return false; // Break the loop if a duplicate is found
+        }
+    });
+
+    if (isDuplicateStatut) {
+        Swal.fire({
+            title: 'Attention!',
+            text: 'Cette combinaison a déjà été sélectionnée. Veuillez en choisir une autre.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        // Reset the row's selects to the default option
+        row.find('select').val(function() {
+            return $(this).children('option:first').val();
+        });
+    }
+}
+
+// Handle changes in any of the dropdowns
+$('#formContainer').on('change', 'select', function() {
+  
+    manageCombinationsStatut($(this).closest('.row'));
+});
+
+
+
     document.getElementById('addForm').addEventListener('click', function () {
         const formContainer = document.getElementById('formContainer');
         const formRow = formContainer.firstElementChild.cloneNode(true);
@@ -1701,6 +1756,7 @@ $(document).ready(function(){
     
         removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'disable-44-45-46' );
         removeButton.addEventListener('click', function () {
+            delete combinationsStatut[generateCombinationStatut($(this).closest('.row'))];
             formRow.remove();
         });
         formRow.querySelector('.d-grid').innerHTML = '';
