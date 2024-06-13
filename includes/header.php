@@ -26,7 +26,7 @@ include('./Tuto/listVedeo.html')
     <!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script> -->
 
     <link rel="icon" type="image/png" href="./static/images/icons/favicon.ico" />
-
+<link rel="stylesheet" href="./Tuto/style.css">
 <link rel="stylesheet" href="./assets/css/questionnaire.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -544,5 +544,5 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
         
     </div>
 </nav>
-
+<script src="./Tuto/javascript.js"></script>
 
