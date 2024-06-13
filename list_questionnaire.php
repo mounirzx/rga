@@ -31,6 +31,18 @@ $approuves = $res["approuves"];
 $rejetes = $res["rejetes"];
 $en_attente = $res["en_attente"];
 $total = $res["total"];
+
+$taux_en_attente = ($en_attente *100)/$total;
+$taux_en_attente = number_format($taux_en_attente,2);
+
+/********************************************************/
+$taux_approuves = ($approuves *100)/$total;
+$taux_approuves = number_format($taux_approuves,2);
+
+/********************************************************/
+
+$taux_rejetes = ($rejetes *100)/$total;
+$taux_rejetes = number_format($taux_rejetes,2);
 ?>
     <br>
     <br>
@@ -116,6 +128,9 @@ $total = $res["total"];
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/wait.svg" alt="State Icon" style="width: 22px; height: 35px; margin-left: 5px;">
                             <span id="sum_en_attente"><?php echo$en_attente; ?></span>
+                            <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <?php echo $taux_en_attente." %" ?>;" aria-valuenow="<?php echo $taux_en_attente." %" ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $taux_en_attente." %" ?></div>
+</div>
                         </div>
                     </a>
                     </div>
@@ -130,7 +145,11 @@ $total = $res["total"];
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/reject.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
                             <span id="sum_rejete"><?php echo$rejetes; ?></span>
+                            <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <?php echo  $taux_rejetes." %"; ?>;" aria-valuenow="<?php echo  $taux_rejetes; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo  $taux_rejetes." %"; ?></div>
+</div>
                         </div>
+                        
                     </a>
                     </div>
 
@@ -144,6 +163,10 @@ $total = $res["total"];
                         <div style="text-align: center;" class="card-body">
                             <img src="static/icons/accept.svg" alt="State Icon" style="width: 25px; height: 35px; margin-left: 5px;">
                             <span id="sum_approuvee"><?php echo$approuves; ?></span>
+                            <div class="progress">
+  <div class="progress-bar" role="progressbar" style="width:<?php echo  $taux_approuves." %"; ?>;" aria-valuenow="<?php echo  $taux_approuves." %"; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo  $taux_approuves." %"; ?></div>
+
+</div>
                         </div>
                     </div>
                 </a>

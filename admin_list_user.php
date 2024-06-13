@@ -15,6 +15,7 @@ include('includes/header.php');
     <!--===============================================================================================-->
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+
     <style>
         .edit-container {
             display: flex;
@@ -69,6 +70,9 @@ include('includes/header.php');
     <input type="text" class="form-control" id="nom" aria-describedby="emailHelp" readonly >
     
   </div>
+
+  <br/>
+
   <div class="form-group">
     <label for="exampleInputPassword1">Prenom</label>
     <input type="text" class="form-control" id="prenom" readonly >
@@ -81,6 +85,7 @@ include('includes/header.php');
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
      
       </div>
+
     </div>
   </div>
 </div>
@@ -373,6 +378,20 @@ console.log(role)
         </script>
     </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+       
+   <!--===============================================================================================-->
+   <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/bootstrap/js/popper.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
 
 
 
