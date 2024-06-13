@@ -658,7 +658,7 @@ col="<td><div class='skeleton'></div></td>"
               var message_coherence_stat_jur = data[i].message_coherence_stat_jur || "Pas de données";
               var message_coherence_util_sol = data[i].message_coherence_util_sol || "Pas de données";
 var col =""
-if(role=="admin" || role =="admin_central"){
+if(role=="admin" ){
 col="<td>"+data[i].exploitant_cle_unique+"</td>"
 }
               qst_list += "<tr style=' background:" + classes + "'>" +
