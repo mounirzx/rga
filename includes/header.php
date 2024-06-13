@@ -15,7 +15,9 @@ if(!isset($_SESSION['is_login'])){
     header('location:Login');
 }
 
-include('./Tuto/listVedeo.html')
+include('./Tuto/listVedeo.html');
+include('./Tuto/pdfRecensseur/listPdfRecenseur.html');
+include('./Tuto/pdfControlleur/listPdfControlleur.html');
 ?>
 
 <!DOCTYPE html>
@@ -401,22 +403,29 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 
                 
             ?>
-           
-            <li style="border-right: 2px solid #0e6212;" class="nav-item">
+ 
+            <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
                 <a class="nav-link active" aria-current="page" id="superviseurpage" href="Questionnaire">
                     <img src="static/icons/form.svg" alt="Plus Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Ajouter Questionnaire  <br/>  إظافة إستبيان
                 </a>
             </li>
-            <li  style="border-right: 2px solid #0e6212;" class="nav-item">
+            <li  style="border-right: 2px solid #aaaaaa;" class="nav-item">
                 <a class="nav-link active" aria-current="page" href="ListeQuestionnaires">
                     <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                     Liste de Questionnaires  <br/>  قائمة الإستبيانات
                 </a>
             </li>
-            <li class="nav-item">
+            <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
             <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="static/icons/video-play.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+
+             guide d'enqueteurs <br/> دليل المحققين
+                </a>
+            </li>
+            <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
+            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#RpdfModal">
+            <img src="static/icons/pdf-blk.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
 
              guide d'enqueteurs <br/> دليل المحققين
                 </a>
@@ -449,16 +458,17 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <?php
                 if($_SESSION['role']=="admin" || $_SESSION['role']=="admin_central"){
             ?>
-               <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+               <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="ListeUtilisateurs">     <img src="static/icons/list.svg"  alt="List Icon" style="width: 20px; height: 20px; margin-right: 5px;">Liste des utilisateurs  <br/>    قائمة المستخدمين</a>
             </li>
 <?php
                 }
                 if($_SESSION['role']=="admin" ){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="SuperviseursNational"> <i style="font-size: 19px; color: blue;" class="fa-solid fa-user-tie"></i> &nbsp;Superviseurs nationaux  <br/>  المشرفين الوطنيين</a>
             </li>
+
             <?php
            }
            ?>
@@ -466,7 +476,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <?php
                 if($_SESSION['role']=="admin"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="Superviseurs"> <i style="font-size: 19px; color: green;" class="fa-solid fa-user-tie"></i>&nbsp;Superviseurs wilayas <br/>  المشرفين الولائيين</a>
             </li>
             
@@ -476,10 +486,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
    <?php
                 if($_SESSION['role']=="admin"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="admin_central.php"> <i style="font-size: 19px; color: red;" class="fa-solid fa-user-tie"></i> &nbsp;Responsables centraux  <br/>  المسؤولين المركزيين </a>
             </li>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="Userupdate"> <i style="font-size: 19px; color: cayen;" class="fa-solid fa-user-tie"></i> &nbsp;modification des utilisateur  <br/>  تحديث المستخدمين</a>
             </li>
             <?php
@@ -488,7 +498,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
           <?php
                 if($_SESSION['role']=="superviseur"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link active" aria-current="page" href="Controleurs">Controleurs <br/> المراقبين</a>
             </li>
 
@@ -498,7 +508,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
             <?php
                 if($_SESSION['role']=="controleur"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
             <a class="nav-link active" aria-current="page" href="Recenseurs">Recenseurs <br/> اعوان الاحصاء</a>
             </li>
           
@@ -508,7 +518,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
              <?php
                 if($_SESSION['role']=="admin"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
             <a class="nav-link active" aria-current="page" href="assets/php/nb_qst_excel.php">Export excel  </a>
             </li>
           
@@ -518,10 +528,17 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
      <?php
                 if($_SESSION['role']=="superviseur" || $_SESSION['role']=="controleur" || $_SESSION['role']=="superviseur_national" || $_SESSION['role']=="admin_central"){
             ?>
-            <li style="border-left: 1px solid #aaaaaa;" class="nav-item">
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
                <a class="nav-link " aria-current="page" href="Statistiques"><i style="font-size: 19px; color: cayen;"  class="fa-solid fa-chart-line"></i> &nbsp; Statistique <br/> الاحصائيات</a>
             </li>
-          
+      
+            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
+            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#CpdfModal">
+            <img src="static/icons/pdf-blk.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+
+            Manuel Contrôleurs Superviseurs Aministrateur Central <br/> دليل المراقبين والمشرفين والإداري المركزي
+                </a>
+            </li>
             <?php
            }
            ?>
@@ -545,4 +562,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
     </div>
 </nav>
 <script src="./Tuto/javascript.js"></script>
+<script src="./Tuto/pdfRecensseur/Rjavascript.js"></script>
+<script src="./Tuto/pdfControlleur/Cjavascript.js"></script>
 

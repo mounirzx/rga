@@ -42,6 +42,15 @@
     height: 80px;
     margin-right: 10px;
   }
+  .thumbnailR {
+    width: 62px;
+    height: 80px;
+    margin-right: 10px;
+  }  .thumbnailC {
+    width: 62px;
+    height: 80px;
+    margin-right: 10px;
+  }
   .playlist-link {
     flex-grow: 1;
     text-decoration: none;

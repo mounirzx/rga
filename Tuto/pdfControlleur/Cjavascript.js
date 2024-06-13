@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-    $('.rr').hide();
+    $('.rrC').hide();
     
-    $('#languageSelect').on('change', function() {
-      var selectedLang = $('#languageSelect').val();
+    $('#languageSelectC').on('change', function() {
+      var selectedLang = $('#languageSelectC').val();
   
       if (selectedLang) {
-        $('.rr').each(function() {
+        $('.rrC').each(function() {
           var langMatch = !selectedLang || $(this).data('lang') === selectedLang;
           if (langMatch) {
             $(this).show();

@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-    $('.rr').hide();
+    $('.rrR').hide();
     
-    $('#languageSelect').on('change', function() {
-      var selectedLang = $('#languageSelect').val();
-  
+    $('#languageSelectR').on('change', function() {
+      var selectedLang = $('#languageSelectR').val();
+    
       if (selectedLang) {
-        $('.rr').each(function() {
+        $('.rrR').each(function() {
           var langMatch = !selectedLang || $(this).data('lang') === selectedLang;
           if (langMatch) {
             $(this).show();
@@ -16,7 +16,6 @@ $(document).ready(function() {
         });
       }
     });
-  
-   
-  });
-  
+    
+    
+    });
