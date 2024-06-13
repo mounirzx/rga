@@ -185,13 +185,13 @@ taux_avancememnt_2 = parseFloat(taux_avancememnt_2).toFixed(2)
 
 var taux2=""
 if(taux_avancememnt_2<=100){
-        taux2 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div></div></td>"
+        taux2 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_2+"%;' aria-valuenow='"+taux_avancememnt_2+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_2+"%</div>"+taux_avancememnt_2+"%</div></td>"
 }else{
     taux2 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'>0%</div></div></td>"
 }
 
 var taux1=""
-   taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>";
+   taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div>"+taux_avancememnt_1+"%</div></td>";
 // if(taux_avancememnt_1<=100){
 //     taux1 = "<td  class='align-middle'><div class='progress'><div class='progress-bar' role='progressbar' style='width: "+taux_avancememnt_1+"%;' aria-valuenow='"+taux_avancememnt_1+"' aria-valuemin='0' aria-valuemax='100'>"+taux_avancememnt_1+"%</div></div></td>"
 // }else{
