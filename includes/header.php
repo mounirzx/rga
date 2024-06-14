@@ -417,20 +417,49 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 </a>
             </li>
             <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#videomodal">
             <img src="static/icons/video-play.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
 
-             guide d'enqueteurs <br/> دليل المحققين
+            Guide d'enquêteurs <br/> دليل المحققين
                 </a>
             </li>
-            <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
+            <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#RpdfModal">
             <img src="static/icons/pdf-blk.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
 
-            Guide Recenseur <br/> دليل المحصي
+            Guide du recenseur <br/> دليل عون الإحصاء
                 </a>
             </li>
+
+
            <?php
+           }
+           ?>
+           <?php
+                       if($_SESSION['role']=="admin"){
+            ?>
+                     <li class="nav-item dropdown" style="border-right: 2px solid #aaaaaa; border-left: 2px solid #aaaaaa;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="static/icons/guide.svg" alt="icon" style="width: 29px; height: 29px; margin-right: 5px;">
+        Guide d'enquêteurs 
+        <br/> دليل المحققين 
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="static/icons/video-play.svg" alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                Guide vidéo -  دليل فيديو
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#CpdfModal">
+                <img src="static/icons/pdf-blk.svg" alt="pdf Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                Guide pdf - دليل 
+            </a>
+        </li>
+    </ul>
+</li>
+            <?php
            }
            ?>
              <style>
@@ -536,13 +565,28 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                <a class="nav-link " aria-current="page" href="Statistiques"><i style="font-size: 19px; color: cayen;"  class="fa-solid fa-chart-line"></i> &nbsp; Statistique <br/> الاحصائيات</a>
             </li>
       
-            <li style="border-left: 2px solid #aaaaaa;" class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#CpdfModal">
-            <img src="static/icons/pdf-blk.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+            <li class="nav-item dropdown" style=" border-left: 2px solid #aaaaaa;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="static/icons/guide.svg" alt="icon" style="width: 29px; height: 29px; margin-right: 5px;">
+        Guide d'enquêteurs 
+        <br/> دليل المحققين 
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="static/icons/video-play.svg" alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                Guide vidéo -  دليل فيديو
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#CpdfModal">
+                <img src="static/icons/pdf-blk.svg" alt="pdf Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                Guide pdf - دليل 
+            </a>
+        </li>
+    </ul>
+</li>
 
-            Manuel Contrôleurs Superviseurs Aministrateur Central <br/> دليل المراقبين والمشرفين والإداري المركزي
-                </a>
-            </li>
             <?php
            }
            ?>
