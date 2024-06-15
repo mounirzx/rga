@@ -417,7 +417,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
                 </a>
             </li>
             <li style="border-right: 2px solid #aaaaaa;" class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a class="nav-link active" aria-current="page" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#videomodal">
             <img src="static/icons/video-play.svg"  alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
 
             Guide d'enquêteurs <br/> دليل المحققين
@@ -573,7 +573,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a class="dropdown-item" href="ListeUtilisateurs" data-bs-toggle="modal" data-bs-target="#videomodal">
                 <img src="static/icons/video-play.svg" alt="video Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                 Guide vidéo -  دليل فيديو
             </a>
